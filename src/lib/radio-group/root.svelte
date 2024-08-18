@@ -1,0 +1,61 @@
+<script lang="ts" context="module">
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
+  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {
+    CreateRadioGroupContextProps,
+    CreateRadioGroupContextReturn,
+  } from './context.svelte.js';
+
+  export interface RadioGroupProps
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateRadioGroupContextProps>
+    > {
+    children?: Snippet<[CreateRadioGroupContextReturn]>;
+  }
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {nanoid} from 'nanoid/non-secure';
+  import {createRadioGroupContext, setRadioGroupContext} from './context.svelte.js';
+
+  let {
+    id = nanoid(),
+    ids,
+    dir,
+    form,
+    name,
+    value,
+    disabled,
+    readOnly,
+    orientation,
+    onValueChange,
+    getRootNode,
+    children,
+    ...props
+  }: RadioGroupProps = $props();
+
+  let context = createRadioGroupContext({
+    id,
+    ids,
+    dir,
+    form,
+    name,
+    value: $state.snapshot(value),
+    disabled,
+    readOnly,
+    orientation,
+    onValueChange,
+    getRootNode,
+  });
+
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
+
+  setRadioGroupContext(context);
+</script>
+
+<div {...attrs}>
+  {@render children?.(context)}
+</div>

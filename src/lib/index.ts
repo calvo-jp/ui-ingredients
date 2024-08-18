@@ -133,6 +133,16 @@ export type {
   ProgressTrackProps,
   ProgressValueTextProps,
 } from './progress/index.js';
+export * as RadioGroup from './radio-group/index.js';
+export type {
+  RadioGroupIndicatorProps,
+  RadioGroupItemControlProps,
+  RadioGroupItemHiddenInputProps,
+  RadioGroupItemProps,
+  RadioGroupItemTextProps,
+  RadioGroupLabelProps,
+  RadioGroupProps,
+} from './radio-group/index.js';
 export * as Select from './select/index.js';
 export type {
   SelectClearTriggerProps,

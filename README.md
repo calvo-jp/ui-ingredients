@@ -11,12 +11,12 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 - 🟢 Clipboard
 - 🟢 Collapsible
 - 🟢 Combobox
-- ⚪ DatePicker
+- 🟡 DatePicker
 - 🟢 Dialog
 - ⚪ Editable
 - ⚪ FileUpload
 - 🟢 HoverCard
-- ⚪ Menu
+- 🟡 Menu
 - 🟢 NumberInput
 - 🟢 Pagination
 - 🟢 PinInput
@@ -24,7 +24,7 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 - 🟢 Portal
 - 🟢 Presence
 - 🟢 Progress
-- 🟡 RadioGroup
+- 🟢 RadioGroup
 - ⚪ RatingGroup
 - 🟢 Select
 - 🟢 Slider

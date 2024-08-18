@@ -26,6 +26,7 @@
     {label: 'Slider', path: '/slider'},
     {label: 'Toaster', path: '/toaster'},
     {label: 'Select', path: '/select'},
+    {label: 'RadioGroup', path: '/radio-group'},
   ].sort((i, j) => i.label.localeCompare(j.label));
 </script>
 
