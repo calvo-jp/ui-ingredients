@@ -18,7 +18,7 @@
   let attrs = $derived(
     mergeProps(
       props,
-      context.api.getItemProps({
+      context.getItemProps({
         type: 'page',
         value,
       }),

@@ -1,19 +1,22 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
+  import {type CreateAvatarContextProps, type CreateAvatarContextReturn} from './context.svelte.js';
 
   export interface AvatarProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreateAvatarContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateAvatarContextProps>
+    > {
+    children?: Snippet<[CreateAvatarContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {nanoid} from 'nanoid/non-secure';
-  import {
-    createAvatarContext,
-    setAvatarContext,
-    type CreateAvatarContextProps,
-  } from './context.svelte.js';
+  import {createAvatarContext, setAvatarContext} from './context.svelte.js';
 
   let {
     id = nanoid(),
@@ -33,11 +36,11 @@
     onStatusChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setAvatarContext(context);
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

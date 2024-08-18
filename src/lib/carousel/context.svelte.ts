@@ -1,5 +1,5 @@
 import * as carousel from '@zag-js/carousel';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateCarouselContextProps extends carousel.Context {}
@@ -7,13 +7,10 @@ export interface CreateCarouselContextReturn extends ReturnType<typeof createCar
 
 export function createCarouselContext(props: CreateCarouselContextProps) {
   const [state, send] = useMachine(carousel.machine(props));
-  const api = $derived(carousel.connect(state, send, normalizeProps));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  const api = $derived(reflect(() => carousel.connect(state, send, normalizeProps)));
+
+  return api;
 }
 
 export function setCarouselContext(value: CreateCarouselContextReturn) {

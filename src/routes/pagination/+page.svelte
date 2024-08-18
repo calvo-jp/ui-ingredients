@@ -34,7 +34,7 @@
       </svg>
     </Pagination.PrevTrigger>
 
-    {#each context.api.pages as page, index}
+    {#each context.pages as page, index}
       {#if page.type === 'page'}
         <Pagination.Item
           value={page.value}

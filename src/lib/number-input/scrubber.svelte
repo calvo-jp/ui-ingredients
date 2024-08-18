@@ -13,7 +13,7 @@
 
   let context = useNumberInputContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getScrubberProps()));
+  let attrs = $derived(mergeProps(props, context.getScrubberProps()));
 </script>
 
 <div {...attrs}>

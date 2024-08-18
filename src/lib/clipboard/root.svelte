@@ -1,10 +1,19 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateClipboardContextProps} from './context.svelte.js';
+  import type {
+    CreateClipboardContextProps,
+    CreateClipboardContextReturn,
+  } from './context.svelte.js';
 
   export interface ClipboardProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreateClipboardContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateClipboardContextProps>
+    > {
+    children?: Snippet<[CreateClipboardContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -32,11 +41,11 @@
     getRootNode,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setClipboardContext(context);
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

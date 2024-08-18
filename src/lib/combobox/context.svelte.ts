@@ -1,5 +1,5 @@
 import * as combobox from '@zag-js/combobox';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateComboboxContextProps<T> extends Omit<combobox.Context, 'collection'> {
@@ -28,17 +28,16 @@ export function createComboboxContext<T>(props: CreateComboboxContextProps<T>) {
     }),
   );
 
-  const api = $derived(combobox.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => combobox.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setComboboxContext(value: CreateComboboxContextReturn) {
-  setContext('Combobox', value);
+  setContext(
+    'Combobox',
+    reflect(() => value),
+  );
 }
 
 export function useComboboxContext() {
@@ -46,7 +45,10 @@ export function useComboboxContext() {
 }
 
 export function setComboboxItemContext(value: combobox.ItemProps) {
-  setContext('ComboboxItem', value);
+  setContext(
+    'ComboboxItem',
+    reflect(() => value),
+  );
 }
 
 export function useComboboxItemContext() {
@@ -54,7 +56,10 @@ export function useComboboxItemContext() {
 }
 
 export function setComboboxItemGroupContext(value: combobox.ItemGroupProps) {
-  setContext('ComboboxItemGroup', value);
+  setContext(
+    'ComboboxItemGroup',
+    reflect(() => value),
+  );
 }
 
 export function useComboboxItemGroupContext() {

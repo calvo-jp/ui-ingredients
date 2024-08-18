@@ -1,10 +1,10 @@
 <script lang="ts" context="module">
   import type {OptionalId} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateTooltipContextProps} from './context.svelte.js';
+  import type {CreateTooltipContextProps, CreateTooltipContextReturn} from './context.svelte.js';
 
   export interface TooltipProps extends OptionalId<CreateTooltipContextProps> {
-    children?: Snippet;
+    children?: Snippet<[CreateTooltipContextReturn]>;
   }
 </script>
 
@@ -19,4 +19,4 @@
   setTooltipContext(context);
 </script>
 
-{@render children?.()}
+{@render children?.(context)}

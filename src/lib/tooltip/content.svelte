@@ -13,7 +13,7 @@
 
   let context = useTooltipContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getContentProps()));
+  let attrs = $derived(mergeProps(props, context.getContentProps()));
 </script>
 
 <div {...attrs}>

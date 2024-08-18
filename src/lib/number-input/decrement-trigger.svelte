@@ -14,7 +14,7 @@
 
   let context = useNumberInputContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getDecrementTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getDecrementTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

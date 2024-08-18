@@ -13,7 +13,7 @@
 
   let context = useAvatarContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getFallbackProps()));
+  let attrs = $derived(mergeProps(props, context.getFallbackProps()));
 </script>
 
 <div {...attrs}>

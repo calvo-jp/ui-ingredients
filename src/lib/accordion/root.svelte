@@ -1,10 +1,19 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateAccordionContextProps} from './context.svelte.js';
+  import type {
+    CreateAccordionContextProps,
+    CreateAccordionContextReturn,
+  } from './context.svelte.js';
 
   export interface AccordionProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreateAccordionContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateAccordionContextProps>
+    > {
+    children?: Snippet<[CreateAccordionContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -42,11 +51,11 @@
     getRootNode,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setAccordionContext(context);
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

@@ -13,13 +13,13 @@
 
   let context = useProgressContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getValueTextProps()));
+  let attrs = $derived(mergeProps(props, context.getValueTextProps()));
 </script>
 
 <div {...attrs}>
   {#if children}
     {@render children()}
   {:else}
-    {context.api.percentAsString}
+    {context.percentAsString}
   {/if}
 </div>

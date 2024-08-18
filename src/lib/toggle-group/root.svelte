@@ -1,10 +1,19 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateToggleGroupContextProps} from './context.svelte.js';
+  import type {
+    CreateToggleGroupContextProps,
+    CreateToggleGroupContextReturn,
+  } from './context.svelte.js';
 
   export interface ToggleGroupProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreateToggleGroupContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateToggleGroupContextProps>
+    > {
+    children?: Snippet<[CreateToggleGroupContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -42,11 +51,11 @@
     getRootNode,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setToggleGroupContext(context);
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

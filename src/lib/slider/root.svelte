@@ -1,10 +1,16 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateSliderContextProps} from './context.svelte.js';
+  import type {CreateSliderContextProps, CreateSliderContextReturn} from './context.svelte.js';
 
   export interface SliderProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreateSliderContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateSliderContextProps>
+    > {
+    children?: Snippet<[CreateSliderContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -68,11 +74,11 @@
     getRootNode,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setSliderContext(context);
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

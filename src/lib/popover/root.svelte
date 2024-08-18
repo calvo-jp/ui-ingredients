@@ -1,10 +1,10 @@
 <script lang="ts" context="module">
   import type {OptionalId} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreatePopoverContextProps} from './context.svelte.js';
+  import type {CreatePopoverContextProps, CreatePopoverContextReturn} from './context.svelte.js';
 
   export interface PopoverProps extends OptionalId<CreatePopoverContextProps> {
-    children?: Snippet;
+    children?: Snippet<[CreatePopoverContextReturn]>;
   }
 </script>
 
@@ -19,4 +19,4 @@
   setPopoverContext(context);
 </script>
 
-{@render children?.()}
+{@render children?.(context)}

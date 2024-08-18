@@ -13,7 +13,7 @@
 
   let context = useCarouselContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getViewportProps()));
+  let attrs = $derived(mergeProps(props, context.getViewportProps()));
 </script>
 
 <div {...attrs}>

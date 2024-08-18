@@ -13,7 +13,7 @@
 
   let context = useCheckboxContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getIndicatorProps()));
+  let attrs = $derived(mergeProps(props, context.getIndicatorProps()));
 </script>
 
 <span {...attrs}>

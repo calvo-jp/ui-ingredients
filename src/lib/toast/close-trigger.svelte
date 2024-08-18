@@ -13,7 +13,7 @@
 
   let context = useToastContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getCloseTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getCloseTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

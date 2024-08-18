@@ -1,10 +1,16 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateComboboxContextProps} from './context.svelte.js';
+  import type {CreateComboboxContextProps, CreateComboboxContextReturn} from './context.svelte.js';
 
   export interface ComboboxProps<T>
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreateComboboxContextProps<T>>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateComboboxContextProps<T>>
+    > {
+    children?: Snippet<[CreateComboboxContextReturn]>;
+  }
 </script>
 
 <script lang="ts" generics="T">
@@ -106,11 +112,11 @@
     getRootNode,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setComboboxContext(context);
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

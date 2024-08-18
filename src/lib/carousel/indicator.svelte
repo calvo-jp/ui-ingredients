@@ -18,7 +18,7 @@
   let attrs = $derived(
     mergeProps(
       props,
-      context.api.getIndicatorProps({
+      context.getIndicatorProps({
         index,
         readOnly,
       }),

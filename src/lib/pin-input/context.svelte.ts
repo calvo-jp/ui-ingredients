@@ -1,5 +1,5 @@
 import * as pinInput from '@zag-js/pin-input';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreatePinInputContextProps extends pinInput.Context {}
@@ -8,13 +8,9 @@ export interface CreatePinInputContextReturn extends ReturnType<typeof createPin
 export function createPinInputContext(props: CreatePinInputContextProps) {
   const [state, send] = useMachine(pinInput.machine(props));
 
-  const api = $derived(pinInput.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => pinInput.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setPinInputContext(value: CreatePinInputContextReturn) {

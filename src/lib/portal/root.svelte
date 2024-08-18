@@ -2,10 +2,10 @@
   import {type Snippet} from 'svelte';
 
   export interface PortalProps {
-    children: Snippet;
-    disabled?: boolean;
     container?: HTMLElement;
+    disabled?: boolean;
     getRootNode?: () => ShadowRoot | Document | Node;
+    children: Snippet;
   }
 </script>
 

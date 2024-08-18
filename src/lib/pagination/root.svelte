@@ -1,10 +1,19 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreatePaginationContextProps} from './context.svelte.js';
+  import type {
+    CreatePaginationContextProps,
+    CreatePaginationContextReturn,
+  } from './context.svelte.js';
 
   export interface PaginationProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreatePaginationContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreatePaginationContextProps>
+    > {
+    children?: Snippet<[CreatePaginationContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -44,11 +53,11 @@
     getRootNode,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setPaginationContext(context);
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

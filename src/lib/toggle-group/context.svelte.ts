@@ -1,4 +1,4 @@
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as toggleGroup from '@zag-js/toggle-group';
 import {getContext, setContext} from 'svelte';
 
@@ -9,13 +9,9 @@ export interface CreateToggleGroupContextReturn
 export function createToggleGroupContext(props: CreateToggleGroupContextProps) {
   const [state, send] = useMachine(toggleGroup.machine(props));
 
-  const api = $derived(toggleGroup.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => toggleGroup.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setToggleGroupContext(value: CreateToggleGroupContextReturn) {

@@ -1,4 +1,4 @@
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tooltip from '@zag-js/tooltip';
 import {getContext, setContext} from 'svelte';
 
@@ -8,13 +8,9 @@ export interface CreateTooltipContextReturn extends ReturnType<typeof createTool
 export function createTooltipContext(props: CreateTooltipContextProps) {
   const [state, send] = useMachine(tooltip.machine(props));
 
-  const api = $derived(tooltip.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => tooltip.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setTooltipContext(value: CreateTooltipContextReturn) {

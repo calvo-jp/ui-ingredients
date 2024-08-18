@@ -1,33 +1,34 @@
 import * as accordion from '@zag-js/accordion';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateAccordionContextProps extends accordion.Context {}
 export interface CreateAccordionContextReturn extends ReturnType<typeof createAccordionContext> {}
 
-export function createAccordionContext(props: CreateAccordionContextProps) {
+export function createAccordionContext(props: CreateAccordionContextProps): accordion.Api {
   const [state, send] = useMachine(accordion.machine(props));
 
-  const api = $derived(accordion.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => accordion.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setAccordionContext(value: CreateAccordionContextReturn) {
-  return setContext('Accordion', value);
+  return setContext(
+    'Accordion',
+    reflect(() => value),
+  );
 }
 
 export function useAccordionContext() {
   return getContext<CreateAccordionContextReturn>('Accordion');
 }
 
-export function createAccordionItemContext(value: accordion.ItemProps) {
-  setContext<accordion.ItemProps>('AccordionItem', value);
-  return value;
+export function setAccordionItemContext(value: accordion.ItemProps) {
+  setContext<accordion.ItemProps>(
+    'AccordionItem',
+    reflect(() => value),
+  );
 }
 
 export function useAccordionItemContext() {

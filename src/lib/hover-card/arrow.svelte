@@ -13,7 +13,7 @@
 
   let context = useHoverCardContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getArrowProps()));
+  let attrs = $derived(mergeProps(props, context.getArrowProps()));
 </script>
 
 <div {...attrs}>

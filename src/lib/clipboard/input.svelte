@@ -13,7 +13,7 @@
 
   let context = useClipboardContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getInputProps()));
+  let attrs = $derived(mergeProps(props, context.getInputProps()));
 </script>
 
 <input {...attrs} />

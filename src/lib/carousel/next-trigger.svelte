@@ -13,7 +13,7 @@
 
   let context = useCarouselContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getNextTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getNextTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

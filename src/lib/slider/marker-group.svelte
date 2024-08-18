@@ -13,7 +13,7 @@
 
   let context = useSliderContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getMarkerGroupProps()));
+  let attrs = $derived(mergeProps(props, context.getMarkerGroupProps()));
 </script>
 
 <div {...attrs}>

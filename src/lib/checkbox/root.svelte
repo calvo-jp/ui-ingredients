@@ -1,10 +1,16 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateCheckboxContextProps} from './context.svelte.js';
+  import type {CreateCheckboxContextProps, CreateCheckboxContextReturn} from './context.svelte.js';
 
   export interface CheckboxProps
-    extends Assign<SvelteHTMLElements['label'], OptionalId<CreateCheckboxContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['label']>,
+      OptionalId<CreateCheckboxContextProps>
+    > {
+    children?: Snippet<[CreateCheckboxContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -36,7 +42,7 @@
     dir,
     form,
     name,
-    value,
+    value: $state.snapshot(value),
     checked,
     invalid,
     disabled,
@@ -46,11 +52,11 @@
     getRootNode,
   });
 
-  let attrs = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setCheckboxContext(context);
 </script>
 
 <label {...attrs}>
-  {@render children?.()}
+  {@render children?.(context)}
 </label>

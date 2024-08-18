@@ -13,13 +13,13 @@
 
   let context = useSliderContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getValueTextProps()));
+  let attrs = $derived(mergeProps(props, context.getValueTextProps()));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children()}
   {:else}
-    {context.api.value.join(', ')}
+    {context.value.join(', ')}
   {/if}
 </span>

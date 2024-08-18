@@ -17,7 +17,7 @@
   let attrs = $derived(
     mergeProps(
       props,
-      context.api.getItemProps({
+      context.getItemProps({
         item,
         persistFocus,
       }),

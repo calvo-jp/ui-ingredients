@@ -13,7 +13,7 @@
 
   let context = useComboboxContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getListProps()));
+  let attrs = $derived(mergeProps(props, context.getListProps()));
 </script>
 
 <div {...attrs}>

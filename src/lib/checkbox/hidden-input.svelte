@@ -13,7 +13,7 @@
 
   let context = useCheckboxContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getHiddenInputProps()));
+  let attrs = $derived(mergeProps(props, context.getHiddenInputProps()));
 </script>
 
 <input {...attrs} />

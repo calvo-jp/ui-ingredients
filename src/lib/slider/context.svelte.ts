@@ -1,5 +1,5 @@
 import * as slider from '@zag-js/slider';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateSliderContextProps extends slider.Context {}
@@ -8,13 +8,9 @@ export interface CreateSliderContextReturn extends ReturnType<typeof createSlide
 export function createSliderContext(props: CreateSliderContextProps) {
   const [state, send] = useMachine(slider.machine(props));
 
-  const api = $derived(slider.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => slider.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setSliderContext(value: CreateSliderContextReturn) {
@@ -26,7 +22,10 @@ export function useSliderContext() {
 }
 
 export function setSliderThumbContext(value: slider.ThumbProps) {
-  setContext('SliderThumb', value);
+  setContext(
+    'SliderThumb',
+    reflect(() => value),
+  );
 }
 
 export function useSliderThumbContext() {

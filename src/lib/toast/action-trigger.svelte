@@ -13,7 +13,7 @@
 
   let context = useToastContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getActionTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getActionTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

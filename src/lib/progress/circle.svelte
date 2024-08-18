@@ -13,7 +13,7 @@
 
   let context = useProgressContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getCircleProps()));
+  let attrs = $derived(mergeProps(props, context.getCircleProps()));
 </script>
 
 <svg {...attrs}>

@@ -13,7 +13,7 @@
 
   let context = usePopoverContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getArrowTipProps()));
+  let attrs = $derived(mergeProps(props, context.getArrowTipProps()));
 </script>
 
 <div {...attrs}>

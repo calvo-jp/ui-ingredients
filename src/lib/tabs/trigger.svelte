@@ -14,7 +14,7 @@
 
   let context = useTabsContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getTriggerProps({value, disabled})));
+  let attrs = $derived(mergeProps(props, context.getTriggerProps({value, disabled})));
 </script>
 
 <button type="button" {...attrs}>

@@ -13,7 +13,7 @@
 
   let context = useDialogContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getBackdropProps()));
+  let attrs = $derived(mergeProps(props, context.getBackdropProps()));
 </script>
 
 <div {...attrs}>

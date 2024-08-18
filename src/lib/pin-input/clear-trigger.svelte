@@ -17,7 +17,7 @@
   type="button"
   onclick={(e) => {
     onclick?.(e);
-    context.api.clearValue();
+    context.clearValue();
   }}
   {...props}
 >

@@ -1,10 +1,19 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateCollapsibleContextProps} from './context.svelte.js';
+  import type {
+    CreateCollapsibleContextProps,
+    CreateCollapsibleContextReturn,
+  } from './context.svelte.js';
 
   export interface CollapsibleProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<CreateCollapsibleContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['div']>,
+      OptionalId<CreateCollapsibleContextProps>
+    > {
+    children?: Snippet<[CreateCollapsibleContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -38,11 +47,11 @@
     getRootNode,
   });
 
-  let mergedProps = $derived(mergeProps(props, context.api.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, context.getRootProps()));
 
   setCollapsibleContext(context);
 </script>
 
 <div {...mergedProps}>
-  {@render children?.()}
+  {@render children?.(context)}
 </div>

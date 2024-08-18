@@ -13,7 +13,7 @@
 
   let context = useProgressContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getCircleTrackProps()));
+  let attrs = $derived(mergeProps(props, context.getCircleTrackProps()));
 </script>
 
 <circle {...attrs}>

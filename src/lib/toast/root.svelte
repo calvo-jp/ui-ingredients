@@ -13,13 +13,13 @@
 
   let context = useToastContext();
 
-  let attrs = mergeProps(props, context.api.getRootProps());
+  let attrs = mergeProps(props, context.getRootProps());
 </script>
 
 <div {...attrs}>
-  <div {...context.api.getGhostBeforeProps()}></div>
+  <div {...context.getGhostBeforeProps()}></div>
 
   {@render children?.()}
 
-  <div {...context.api.getGhostAfterProps()}></div>
+  <div {...context.getGhostAfterProps()}></div>
 </div>

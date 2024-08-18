@@ -13,7 +13,7 @@
 
   let context = useDialogContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getDescriptionProps()));
+  let attrs = $derived(mergeProps(props, context.getDescriptionProps()));
 </script>
 
 <div {...attrs}>

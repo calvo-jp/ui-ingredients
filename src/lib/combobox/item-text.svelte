@@ -14,7 +14,7 @@
   let context = useComboboxContext();
   let itemContext = useComboboxItemContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getItemTextProps(itemContext)));
+  let attrs = $derived(mergeProps(props, context.getItemTextProps(itemContext)));
 </script>
 
 <span {...attrs}>

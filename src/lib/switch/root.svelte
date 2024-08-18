@@ -1,10 +1,16 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateSwitchContextProps} from './context.svelte.js';
+  import type {CreateSwitchContextProps, CreateSwitchContextReturn} from './context.svelte.js';
 
   export interface SwitchProps
-    extends Assign<SvelteHTMLElements['label'], OptionalId<CreateSwitchContextProps>> {}
+    extends Assign<
+      WithoutChildren<SvelteHTMLElements['label']>,
+      OptionalId<CreateSwitchContextProps>
+    > {
+    children?: Snippet<[CreateSwitchContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
@@ -48,11 +54,11 @@
     getRootNode,
   });
 
-  let mergedProps = $derived(mergeProps(props, context.api.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   setSwitchContext(context);
 </script>
 
-<label {...mergedProps}>
-  {@render children?.()}
+<label {...attrs}>
+  {@render children?.(context)}
 </label>

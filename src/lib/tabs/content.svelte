@@ -14,7 +14,7 @@
 
   let context = useTabsContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getContentProps({value})));
+  let attrs = $derived(mergeProps(props, context.getContentProps({value})));
 </script>
 
 <div {...attrs}>

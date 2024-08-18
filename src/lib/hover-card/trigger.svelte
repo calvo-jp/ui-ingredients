@@ -13,7 +13,7 @@
 
   let context = useHoverCardContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
 </script>
 
 <a {...attrs}>

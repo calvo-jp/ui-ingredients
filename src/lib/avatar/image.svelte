@@ -13,7 +13,7 @@
 
   let context = useAvatarContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getImageProps()));
+  let attrs = $derived(mergeProps(props, context.getImageProps()));
 </script>
 
 <img {...attrs} />

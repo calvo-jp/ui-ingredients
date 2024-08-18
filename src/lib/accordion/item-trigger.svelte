@@ -14,7 +14,7 @@
   let context = useAccordionContext();
   let itemContext = useAccordionItemContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getItemTriggerProps(itemContext)));
+  let attrs = $derived(mergeProps(props, context.getItemTriggerProps(itemContext)));
 </script>
 
 <button type="button" {...attrs}>

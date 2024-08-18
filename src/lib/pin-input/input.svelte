@@ -14,7 +14,7 @@
 
   let context = usePinInputContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getInputProps({index})));
+  let attrs = $derived(mergeProps(props, context.getInputProps({index})));
 </script>
 
 <input {...attrs} />

@@ -13,7 +13,7 @@
 
   let context = useProgressContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getRangeProps()));
+  let attrs = $derived(mergeProps(props, context.getRangeProps()));
 </script>
 
 <div {...attrs}>

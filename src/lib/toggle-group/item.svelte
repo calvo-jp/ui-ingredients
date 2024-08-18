@@ -14,7 +14,7 @@
 
   let context = useToggleGroupContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getItemProps({value, disabled})));
+  let attrs = $derived(mergeProps(props, context.getItemProps({value, disabled})));
 </script>
 
 <button type="button" {...attrs}>

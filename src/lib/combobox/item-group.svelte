@@ -16,7 +16,7 @@
 
   let context = useComboboxContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getItemGroupProps({id})));
+  let attrs = $derived(mergeProps(props, context.getItemGroupProps({id})));
 
   setComboboxItemGroupContext({id});
 </script>

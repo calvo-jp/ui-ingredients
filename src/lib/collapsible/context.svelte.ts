@@ -1,5 +1,5 @@
 import * as collapsible from '@zag-js/collapsible';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateCollapsibleContextProps extends collapsible.Context {}
@@ -9,13 +9,9 @@ export interface CreateCollapsibleContextReturn
 export function createCollapsibleContext(props: CreateCollapsibleContextProps) {
   const [state, send] = useMachine(collapsible.machine(props));
 
-  const api = $derived(collapsible.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => collapsible.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setCollapsibleContext(value: CreateCollapsibleContextReturn) {

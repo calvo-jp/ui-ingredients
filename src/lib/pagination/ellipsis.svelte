@@ -15,7 +15,7 @@
 
   let context = usePaginationContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getEllipsisProps({index})));
+  let attrs = $derived(mergeProps(props, context.getEllipsisProps({index})));
 </script>
 
 <span {...attrs}>

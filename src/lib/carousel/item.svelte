@@ -14,7 +14,7 @@
 
   let context = useCarouselContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getItemProps({index})));
+  let attrs = $derived(mergeProps(props, context.getItemProps({index})));
 </script>
 
 <button type="button" {...attrs}>

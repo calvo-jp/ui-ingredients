@@ -15,7 +15,7 @@
 
   let context = useClipboardContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getIndicatorProps({copied})));
+  let attrs = $derived(mergeProps(props, context.getIndicatorProps({copied})));
 </script>
 
 <span {...attrs}>

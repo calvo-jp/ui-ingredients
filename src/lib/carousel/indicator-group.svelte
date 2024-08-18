@@ -13,7 +13,7 @@
 
   let context = useCarouselContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getIndicatorGroupProps()));
+  let attrs = $derived(mergeProps(props, context.getIndicatorGroupProps()));
 </script>
 
 <div {...attrs}>

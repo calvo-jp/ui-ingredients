@@ -13,7 +13,7 @@
 
   let context = useComboboxContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getClearTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getClearTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

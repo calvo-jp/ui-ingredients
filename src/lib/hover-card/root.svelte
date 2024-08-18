@@ -1,10 +1,13 @@
 <script lang="ts" context="module">
   import type {OptionalId} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateHoverCardContextProps} from './context.svelte.js';
+  import type {
+    CreateHoverCardContextProps,
+    CreateHoverCardContextReturn,
+  } from './context.svelte.js';
 
   export interface HoverCardProps extends OptionalId<CreateHoverCardContextProps> {
-    children?: Snippet;
+    children?: Snippet<[CreateHoverCardContextReturn]>;
   }
 </script>
 
@@ -19,4 +22,4 @@
   setHoverCardContext(context);
 </script>
 
-{@render children?.()}
+{@render children?.(context)}

@@ -13,7 +13,7 @@
 
   let context = useClipboardContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

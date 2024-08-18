@@ -1,4 +1,4 @@
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tabs from '@zag-js/tabs';
 import {getContext, setContext} from 'svelte';
 
@@ -8,13 +8,9 @@ export interface CreateTabsContextReturn extends ReturnType<typeof createTabsCon
 export function createTabsContext(props: CreateTabsContextProps) {
   const [state, send] = useMachine(tabs.machine(props));
 
-  const api = $derived(tabs.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => tabs.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setTabsContext(value: CreateTabsContextReturn) {

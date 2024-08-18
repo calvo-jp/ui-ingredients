@@ -14,7 +14,7 @@
   let context = useSliderContext();
   let thumbContext = useSliderThumbContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getHiddenInputProps(thumbContext)));
+  let attrs = $derived(mergeProps(props, context.getHiddenInputProps(thumbContext)));
 </script>
 
 <input {...attrs} />

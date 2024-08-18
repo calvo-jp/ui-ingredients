@@ -14,7 +14,7 @@
   let context = useAccordionContext();
   let itemContext = useAccordionItemContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getItemContentProps(itemContext)));
+  let attrs = $derived(mergeProps(props, context.getItemContentProps(itemContext)));
 </script>
 
 <div {...attrs}>

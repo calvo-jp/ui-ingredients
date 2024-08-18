@@ -13,13 +13,13 @@
 
   let context = useToastContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getTitleProps()));
+  let attrs = $derived(mergeProps(props, context.getTitleProps()));
 </script>
 
 <div {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
-    {context.api.title}
+    {context.title}
   {/if}
 </div>

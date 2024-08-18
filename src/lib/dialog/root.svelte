@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
   import type {Snippet} from 'svelte';
-  import type {CreateDialogContextProps} from './context.svelte.js';
+  import type {CreateDialogContextProps, CreateDialogContextReturn} from './context.svelte.js';
 
   export interface DialogProps extends OptionalId<CreateDialogContextProps> {
-    children?: Snippet;
+    children?: Snippet<[CreateDialogContextReturn]>;
   }
 </script>
 
@@ -19,4 +19,4 @@
   setDialogContext(context);
 </script>
 
-{@render children?.()}
+{@render children?.(context)}

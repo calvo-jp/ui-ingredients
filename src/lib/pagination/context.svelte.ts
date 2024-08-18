@@ -1,5 +1,5 @@
 import * as pagination from '@zag-js/pagination';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreatePaginationContextProps extends pagination.Context {}
@@ -8,13 +8,9 @@ export interface CreatePaginationContextReturn extends ReturnType<typeof createP
 export function createPaginationContext(props: CreatePaginationContextProps) {
   const [state, send] = useMachine(pagination.machine(props));
 
-  const api = $derived(pagination.connect(state, send, normalizeProps));
+  const api = $derived(reflect(() => pagination.connect(state, send, normalizeProps)));
 
-  return {
-    get api() {
-      return api;
-    },
-  };
+  return api;
 }
 
 export function setPaginationContext(value: CreatePaginationContextReturn) {

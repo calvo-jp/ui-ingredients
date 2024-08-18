@@ -11,7 +11,7 @@
 
   let {children, ...props}: CollapsibleTriggerProps = $props();
   let context = useCollapsibleContext();
-  let mergedProps = $derived(mergeProps(props, context.api.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, context.getTriggerProps()));
 </script>
 
 <button type="button" {...mergedProps}>

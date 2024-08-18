@@ -17,7 +17,7 @@
   let attrs = $derived(
     mergeProps(
       props,
-      context.api.getThumbProps({
+      context.getThumbProps({
         name,
         index,
       }),

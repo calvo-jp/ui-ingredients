@@ -13,7 +13,7 @@
 
   let context = useSwitchContext();
 
-  let attrs = $derived(mergeProps(props, context.api.getThumbProps()));
+  let attrs = $derived(mergeProps(props, context.getThumbProps()));
 </script>
 
 <div {...attrs}>
