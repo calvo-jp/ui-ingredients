@@ -37,7 +37,7 @@
     inputValue = detail.inputValue;
   }}
 >
-  <Combobox.Label class="inline-block mb-1 text-gray-700">Select a Frameworks</Combobox.Label>
+  <Combobox.Label class="inline-block mb-1 text-gray-700">Select Frameworks</Combobox.Label>
   <Combobox.Control class="flex max-w-[20rem]">
     <Combobox.Input class="border grow h-11 px-3" />
     <Combobox.Trigger

@@ -28,7 +28,12 @@ export function createComboboxContext<T>(props: CreateComboboxContextProps<T>) {
     }),
   );
 
-  const api = $derived(reflect(() => combobox.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => ({
+      ...combobox.connect(state, send, normalizeProps),
+      collection,
+    })),
+  );
 
   return api;
 }

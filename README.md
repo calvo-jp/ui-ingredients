@@ -26,7 +26,7 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 - 🟢 Progress
 - 🟡 RadioGroup
 - ⚪ RatingGroup
-- 🟡 Select
+- 🟢 Select
 - 🟢 Slider
 - ⚪ Steps
 - 🟢 Switch

@@ -25,6 +25,7 @@
     {label: 'Progress', path: '/progress'},
     {label: 'Slider', path: '/slider'},
     {label: 'Toaster', path: '/toaster'},
+    {label: 'Select', path: '/select'},
   ].sort((i, j) => i.label.localeCompare(j.label));
 </script>
 

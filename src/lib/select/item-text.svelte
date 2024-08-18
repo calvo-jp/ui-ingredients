@@ -2,17 +2,17 @@
   import type {Assign} from '$lib/types.js';
   import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface ComboboxItemTextProps extends Assign<SvelteHTMLElements['span'], {}> {}
+  export interface SelectItemTextProps extends Assign<SvelteHTMLElements['span'], {}> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useComboboxContext, useComboboxItemContext} from './context.svelte.js';
+  import {useSelectContext, useSelectItemContext} from './context.svelte.js';
 
-  let {children, ...props}: ComboboxItemTextProps = $props();
+  let {children, ...props}: SelectItemTextProps = $props();
 
-  let context = useComboboxContext();
-  let itemContext = useComboboxItemContext();
+  let context = useSelectContext();
+  let itemContext = useSelectItemContext();
 
   let attrs = $derived(mergeProps(props, context.getItemTextProps(itemContext)));
 </script>
