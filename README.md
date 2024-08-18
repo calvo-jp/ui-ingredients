@@ -6,11 +6,11 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 
 - 🟢 Accordion
 - 🟢 Avatar
-- 🟡 Carousel
+- 🟢 Carousel
 - 🟢 Checkbox
 - 🟢 Clipboard
 - 🟢 Collapsible
-- 🟡 Combobox
+- 🟢 Combobox
 - ⚪ DatePicker
 - 🟢 Dialog
 - ⚪ Editable
@@ -23,15 +23,15 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 - 🟢 Popover
 - 🟢 Portal
 - 🟢 Presence
-- 🟡 Progress
-- ⚪ RadioGroup
+- 🟢 Progress
+- 🟡 RadioGroup
 - ⚪ RatingGroup
-- ⚪ Select
-- 🟡 Slider
+- 🟡 Select
+- 🟢 Slider
 - ⚪ Steps
 - 🟢 Switch
 - 🟢 Tabs
 - ⚪ TagsInput
-- 🟡 Toast
+- 🟢 Toast
 - 🟢 ToggleGroup
 - 🟢 Tooltip

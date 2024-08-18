@@ -16,6 +16,12 @@
       disabled: true,
     },
   ];
+
+  let inputValue = $state('');
+
+  let matches = $derived(
+    items.filter((item) => item.label.toLowerCase().includes(inputValue.toLowerCase())),
+  );
 </script>
 
 <Combobox.Root
@@ -25,6 +31,10 @@
   itemToValue={(item) => item.value}
   positioning={{
     sameWidth: true,
+  }}
+  {inputValue}
+  onInputValueChange={(detail) => {
+    inputValue = detail.inputValue;
   }}
 >
   <Combobox.Label class="inline-block mb-1 text-gray-700">Select a Frameworks</Combobox.Label>
@@ -71,7 +81,7 @@
       <Combobox.ItemGroup>
         <Combobox.ItemGroupLabel class="text-gray-500 text-sm">Frameworks</Combobox.ItemGroupLabel>
 
-        {#each items as item}
+        {#each matches as item}
           <Combobox.Item
             {item}
             class="flex items-center cursor-default data-disabled:cursor-not-allowed data-disabled:opacity-75"
