@@ -1,0 +1,39 @@
+<script lang="ts" context="module">
+  import type {Assign} from '$lib/types.js';
+  import type {Context} from '@zag-js/presence';
+  import type {SvelteHTMLElements} from 'svelte/elements';
+
+  export interface PresenceProps extends Assign<SvelteHTMLElements['div'], Context> {}
+</script>
+
+<script lang="ts">
+  import * as presence from '@zag-js/presence';
+  import {normalizeProps, useMachine} from '@zag-js/svelte';
+
+  let {present, immediate, onExitComplete, children, ...props}: PresenceProps = $props();
+
+  let [machineState, send] = useMachine(
+    presence.machine({
+      present,
+      immediate,
+      onExitComplete,
+    }),
+  );
+
+  let api = $derived(presence.connect(machineState, send, normalizeProps));
+
+  let node: HTMLElement | null = $state(null);
+
+  $effect(() => {
+    api.setNode(node);
+  });
+</script>
+
+<div
+  bind:this={node}
+  hidden={!api.present}
+  data-state={api.skip ? undefined : present ? 'open' : 'closed'}
+  {...props}
+>
+  {@render children?.()}
+</div>

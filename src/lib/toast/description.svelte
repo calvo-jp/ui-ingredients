@@ -1,0 +1,25 @@
+<script lang="ts" context="module">
+  import type {Assign} from '$lib/types.js';
+
+  export interface ToastDescriptionProps extends Assign<SvelteHTMLElements['div'], {}> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import type {SvelteHTMLElements} from 'svelte/elements';
+  import {useToastContext} from './context.svelte.js';
+
+  let {children, ...props}: ToastDescriptionProps = $props();
+
+  let context = useToastContext();
+
+  let attrs = $derived(mergeProps(props, context.api.getDescriptionProps()));
+</script>
+
+<div {...attrs}>
+  {#if children}
+    {@render children?.()}
+  {:else}
+    {context.api.description}
+  {/if}
+</div>
