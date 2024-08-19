@@ -22,10 +22,7 @@ export function useSliderContext() {
 }
 
 export function setSliderThumbContext(value: slider.ThumbProps) {
-  setContext(
-    'SliderThumb',
-    reflect(() => value),
-  );
+  setContext('SliderThumb', value);
 }
 
 export function useSliderThumbContext() {

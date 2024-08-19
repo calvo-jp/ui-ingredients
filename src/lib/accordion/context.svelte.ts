@@ -25,10 +25,7 @@ export function useAccordionContext() {
 }
 
 export function setAccordionItemContext(value: accordion.ItemProps) {
-  setContext<accordion.ItemProps>(
-    'AccordionItem',
-    reflect(() => value),
-  );
+  setContext<accordion.ItemProps>('AccordionItem', value);
 }
 
 export function useAccordionItemContext() {

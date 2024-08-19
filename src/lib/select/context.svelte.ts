@@ -39,10 +39,7 @@ export function createSelectContext<T>(props: CreateSelectContextProps<T>) {
 }
 
 export function setSelectContext(value: CreateSelectContextReturn) {
-  setContext(
-    'Select',
-    reflect(() => value),
-  );
+  setContext('Select', value);
 }
 
 export function useSelectContext() {
@@ -50,10 +47,7 @@ export function useSelectContext() {
 }
 
 export function setSelectItemGroupContext(value: select.ItemGroupProps) {
-  setContext(
-    'SelectItemGroup',
-    reflect(() => value),
-  );
+  setContext('SelectItemGroup', value);
 }
 
 export function useSelectItemGroupContext() {
@@ -65,10 +59,7 @@ export interface CreateItemContextReturn<T> extends select.ItemProps<T> {
 }
 
 export function setSelectItemContext(value: select.ItemProps) {
-  setContext(
-    'SelectItem',
-    reflect(() => value),
-  );
+  setContext('SelectItem', value);
 }
 
 export function useSelectItemContext() {

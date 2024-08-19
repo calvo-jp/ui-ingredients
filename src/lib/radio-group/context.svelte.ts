@@ -22,10 +22,7 @@ export function useRadioGroupContext() {
 }
 
 export function setRadioGroupItemContext(value: radioGroup.ItemProps) {
-  setContext(
-    'RadioGroupItem',
-    reflect(() => value),
-  );
+  setContext('RadioGroupItem', value);
 }
 
 export function useRadioGroupItemContext() {

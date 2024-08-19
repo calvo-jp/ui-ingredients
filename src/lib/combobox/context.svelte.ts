@@ -39,10 +39,7 @@ export function createComboboxContext<T>(props: CreateComboboxContextProps<T>) {
 }
 
 export function setComboboxContext(value: CreateComboboxContextReturn) {
-  setContext(
-    'Combobox',
-    reflect(() => value),
-  );
+  setContext('Combobox', value);
 }
 
 export function useComboboxContext() {
@@ -50,10 +47,7 @@ export function useComboboxContext() {
 }
 
 export function setComboboxItemContext(value: combobox.ItemProps) {
-  setContext(
-    'ComboboxItem',
-    reflect(() => value),
-  );
+  setContext('ComboboxItem', value);
 }
 
 export function useComboboxItemContext() {
@@ -61,10 +55,7 @@ export function useComboboxItemContext() {
 }
 
 export function setComboboxItemGroupContext(value: combobox.ItemGroupProps) {
-  setContext(
-    'ComboboxItemGroup',
-    reflect(() => value),
-  );
+  setContext('ComboboxItemGroup', value);
 }
 
 export function useComboboxItemGroupContext() {
