@@ -1,4 +1,3 @@
-import hyperid from 'hyperid';
+import {nanoid} from 'nanoid/non-secure';
 
-const h = hyperid();
-export const uuid = () => h.uuid;
+export const uuid = () => nanoid(8);
