@@ -48,7 +48,7 @@
     {label: 'TagsInput', path: '/tags-input', comingSoon: true},
     {label: 'Timer', path: '/timer', comingSoon: true, beta: true},
   ]
-    .sort((i, j) => i.label.localeCompare(j.label))
+    .toSorted((i, j) => i.label.localeCompare(j.label))
     .filter((i) => !i.comingSoon);
 
   let currentItem = $derived(items.find((item) => item.path === page.current.url.pathname));
