@@ -1,5 +1,5 @@
 {
-  "name": "blox-ui",
+  "name": "ui-ingredients",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@9.7.0",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:calvo-jp/blox-ui.git"
+    "url": "git@github.com:calvo-jp/ui-ingredients.git"
   },
   "description": "Headless component library for Svelte powered by zag",
   "keywords": [

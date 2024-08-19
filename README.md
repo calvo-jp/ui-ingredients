@@ -1,18 +1,18 @@
-# Blox UI
+# UI Ingredients
 
 Headless component library for [Svelte](https://svelte.dev/) powered by [zag](https://zagjs.com/)
 
 ## Installation
 
 ```bash
-npm install blox-ui
+npm install ui-ingredients
 ```
 
 ## Usage
 
 ```svelte
 <script>
-  import {Clipboard} from 'blox-ui';
+  import {Clipboard} from 'ui-ingredients';
 
   let {data} = $props();
 </script>
