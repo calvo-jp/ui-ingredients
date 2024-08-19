@@ -21,7 +21,6 @@
     toaster.create({
       title: `Hello ${randInt(1, 100)}`,
       description: 'This is a toast message',
-      duration: 100000000,
     });
   }}
 >

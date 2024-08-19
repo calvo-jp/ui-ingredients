@@ -24,6 +24,10 @@
     "type": "git",
     "url": "git@github.com:calvo-jp/ui-ingredients.git"
   },
+  "bugs": {
+    "url": "https://github.com/calvo-jp/ui-ingredients/issues",
+    "email": "calvojp92@gmail.com"
+  },
   "description": "Headless component library for Svelte powered by zag",
   "keywords": [
     "Svelte",
