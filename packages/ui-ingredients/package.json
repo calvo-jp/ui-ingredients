@@ -1,0 +1,169 @@
+{
+  "name": "ui-ingredients",
+  "type": "module",
+  "version": "0.0.6",
+  "packageManager": "pnpm@9.7.0",
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "author": {
+    "name": "John Paul Calvo",
+    "email": "calvojp92@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvo-jp/ui-ingredients.git",
+    "directory": "packages/ui-ingredients"
+  },
+  "bugs": {
+    "url": "https://github.com/calvo-jp/ui-ingredients/issues",
+    "email": "calvojp92@gmail.com"
+  },
+  "description": "Headless component library for Svelte powered by zag",
+  "keywords": [
+    "Svelte",
+    "Component Library",
+    "Headless",
+    "Accordion",
+    "Avatar",
+    "Carousel",
+    "Checkbox",
+    "Clipboard",
+    "Collapsible",
+    "Color Picker",
+    "Combobox",
+    "Date Picker",
+    "Dialog",
+    "Editable",
+    "File Upload",
+    "Hover Card",
+    "Menu",
+    "Number Input",
+    "Pagination",
+    "Pin Input",
+    "Popover",
+    "Presence",
+    "Progress",
+    "QR Code",
+    "Radio Group",
+    "Rating Group",
+    "Select",
+    "Signature Pad",
+    "Slider",
+    "Splitter",
+    "Steps",
+    "Switch",
+    "Tabs",
+    "Tags Input",
+    "Timer",
+    "Toast",
+    "Toggle Group",
+    "Tooltip"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
+    "preview": "vite preview",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "prepublishOnly": "npm run package",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest",
+    "lint": "eslint .",
+    "release": "release-it"
+  },
+  "dependencies": {
+    "@zag-js/accordion": "0.65.0",
+    "@zag-js/avatar": "0.65.0",
+    "@zag-js/carousel": "0.65.0",
+    "@zag-js/checkbox": "0.65.0",
+    "@zag-js/clipboard": "0.65.0",
+    "@zag-js/collapsible": "0.65.0",
+    "@zag-js/color-picker": "0.65.0",
+    "@zag-js/combobox": "0.65.0",
+    "@zag-js/date-picker": "0.65.0",
+    "@zag-js/dialog": "0.65.0",
+    "@zag-js/editable": "0.65.0",
+    "@zag-js/file-upload": "0.65.0",
+    "@zag-js/hover-card": "0.65.0",
+    "@zag-js/menu": "0.65.0",
+    "@zag-js/number-input": "0.65.0",
+    "@zag-js/pagination": "0.65.0",
+    "@zag-js/pin-input": "0.65.0",
+    "@zag-js/popover": "0.65.0",
+    "@zag-js/presence": "0.65.0",
+    "@zag-js/progress": "0.65.0",
+    "@zag-js/qr-code": "0.65.0",
+    "@zag-js/radio-group": "0.65.0",
+    "@zag-js/rating-group": "0.65.0",
+    "@zag-js/select": "0.65.0",
+    "@zag-js/signature-pad": "0.65.0",
+    "@zag-js/slider": "0.65.0",
+    "@zag-js/splitter": "0.65.0",
+    "@zag-js/steps": "0.65.0",
+    "@zag-js/svelte": "0.65.0",
+    "@zag-js/switch": "0.65.0",
+    "@zag-js/tabs": "0.65.0",
+    "@zag-js/tags-input": "0.65.0",
+    "@zag-js/timer": "0.65.0",
+    "@zag-js/toast": "0.65.0",
+    "@zag-js/toggle-group": "0.65.0",
+    "@zag-js/tooltip": "0.65.0",
+    "nanoid": "5.0.7"
+  },
+  "peerDependencies": {
+    "svelte": ">=5.0.0-next.200"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.9.0",
+    "@sveltejs/adapter-vercel": "5.4.3",
+    "@sveltejs/kit": "2.5.22",
+    "@sveltejs/package": "2.3.4",
+    "@sveltejs/vite-plugin-svelte": "3.1.1",
+    "@types/eslint": "9.6.0",
+    "autoprefixer": "10.4.20",
+    "eslint": "9.9.0",
+    "eslint-plugin-svelte": "2.43.0",
+    "globals": "15.9.0",
+    "postcss": "8.4.41",
+    "publint": "0.2.10",
+    "release-it": "17.6.0",
+    "svelte": "5.0.0-next.225",
+    "svelte-check": "3.8.5",
+    "tailwindcss": "3.4.10",
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.1.0",
+    "vite": "5.4.1",
+    "vitest": "2.0.5"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    },
+    "hooks": {
+      "before:init": [
+        "pnpm check"
+      ],
+      "after:bump": [
+        "pnpm package"
+      ]
+    }
+  }
+}

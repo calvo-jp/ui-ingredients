@@ -4,6 +4,7 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.associations": {
-    "*.css":"tailwindcss"
-  }
+    "*.css": "tailwindcss"
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

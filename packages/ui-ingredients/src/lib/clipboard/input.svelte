@@ -9,7 +9,7 @@
   import {mergeProps} from '@zag-js/svelte';
   import {useClipboardContext} from './context.svelte.js';
 
-  let {children, ...props}: ClipboardInputProps = $props();
+  let {...props}: ClipboardInputProps = $props();
 
   let context = useClipboardContext();
 

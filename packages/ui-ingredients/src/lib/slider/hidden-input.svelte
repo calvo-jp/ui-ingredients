@@ -9,7 +9,7 @@
   import {mergeProps} from '@zag-js/svelte';
   import {useSliderContext, useSliderThumbContext} from './context.svelte.js';
 
-  let {children, ...props}: SliderHiddenInputProps = $props();
+  let {...props}: SliderHiddenInputProps = $props();
 
   let context = useSliderContext();
   let thumbContext = useSliderThumbContext();

@@ -4,10 +4,6 @@
   import type {SvelteHTMLElements} from 'svelte/elements';
   import type {CreateCarouselContextProps, CreateCarouselContextReturn} from './context.svelte.js';
 
-  interface BaseProps extends OptionalId<CreateCarouselContextProps> {
-    children?: Snippet<[context: CreateCarouselContextReturn]>;
-  }
-
   export interface CarouselProps
     extends Assign<
       WithoutChildren<SvelteHTMLElements['div']>,

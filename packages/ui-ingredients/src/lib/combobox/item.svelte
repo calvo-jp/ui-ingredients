@@ -10,7 +10,7 @@
   import {mergeProps} from '@zag-js/svelte';
   import {setComboboxItemContext, useComboboxContext} from './context.svelte.js';
 
-  let {id, children, item, persistFocus, ...props}: ComboboxItemProps = $props();
+  let {children, item, persistFocus, ...props}: ComboboxItemProps = $props();
 
   let context = useComboboxContext();
 
