@@ -35,7 +35,7 @@
   let context = createClipboardContext({
     id,
     ids,
-    value,
+    value: $state.snapshot(value),
     timeout,
     onStatusChange,
     getRootNode,

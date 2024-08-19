@@ -62,7 +62,7 @@
     step,
     name,
     form,
-    value,
+    value: $state.snapshot(value),
     locale,
     pattern,
     invalid,

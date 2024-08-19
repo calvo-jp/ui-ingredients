@@ -6,9 +6,19 @@
     {title: 'Step 2', content: 'Step 2 Content'},
     {title: 'Step 3', content: 'Step 3 Content'},
   ];
+
+  let step = $state(1);
+
+  $inspect(step);
 </script>
 
-<Steps.Root count={items.length}>
+<Steps.Root
+  {step}
+  onStepChange={(detail) => {
+    step = detail.step;
+  }}
+  count={items.length}
+>
   <Steps.List class="flex gap-3">
     {#each items as item, index}
       <Steps.Item {index} class="flex items-center gap-2">

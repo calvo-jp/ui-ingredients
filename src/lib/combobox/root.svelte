@@ -75,7 +75,7 @@
     open,
     'open.controlled': openControlled,
     items,
-    value,
+    value: $state.snapshot(value),
     invalid,
     disabled,
     multiple,

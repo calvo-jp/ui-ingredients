@@ -8,10 +8,18 @@
     {value: '4', label: 'Angular', disabled: true},
     {value: '5', label: 'Vue'},
   ];
+
+  let value: string[] = $state([]);
+
+  $inspect(value);
 </script>
 
 <Select.Root
   {items}
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
   itemToString={(item) => item.label}
   itemToValue={(item) => item.value}
   isItemDisabled={(item) => item.disabled ?? false}

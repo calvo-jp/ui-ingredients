@@ -17,24 +17,35 @@
     },
   ];
 
+  let value: string[] = $state([]);
+
   let inputValue = $state('');
 
   let matches = $derived(
     items.filter((item) => item.label.toLowerCase().includes(inputValue.toLowerCase())),
   );
+
+  $inspect({
+    value,
+    inputValue,
+  });
 </script>
 
 <Combobox.Root
   {items}
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+  {inputValue}
+  onInputValueChange={(detail) => {
+    inputValue = detail.inputValue;
+  }}
   isItemDisabled={(item) => item.disabled ?? false}
   itemToString={(item) => item.label}
   itemToValue={(item) => item.value}
   positioning={{
     sameWidth: true,
-  }}
-  {inputValue}
-  onInputValueChange={(detail) => {
-    inputValue = detail.inputValue;
   }}
 >
   <Combobox.Label class="inline-block mb-1 text-neutral-400">Select Frameworks</Combobox.Label>

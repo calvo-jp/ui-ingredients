@@ -6,9 +6,18 @@
     {value: '2', label: 'Item 2'},
     {value: '3', label: 'Item 3'},
   ];
+
+  let value = $state('1');
+
+  $inspect(value);
 </script>
 
-<RadioGroup.Root>
+<RadioGroup.Root
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+>
   <RadioGroup.Label class="inline-block mb-1.5 text-neutral-400">Choose one</RadioGroup.Label>
 
   <div class="flex flex-col gap-1">
