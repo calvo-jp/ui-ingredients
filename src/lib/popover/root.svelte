@@ -9,10 +9,10 @@
 </script>
 
 <script lang="ts">
-  import {nanoid} from 'nanoid/non-secure';
+  import {uuid} from '$lib/utils.svelte.js';
   import {createPopoverContext, setPopoverContext} from './context.svelte.js';
 
-  let {id = nanoid(), children, ...props}: PopoverProps = $props();
+  let {id = uuid(), children, ...props}: PopoverProps = $props();
 
   let context = createPopoverContext({id, ...props});
 

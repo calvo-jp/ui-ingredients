@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
+  import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {nanoid} from 'nanoid/non-secure';
   import {setSelectItemGroupContext, useSelectContext} from './context.svelte.js';
 
-  let {id = nanoid(), children, ...props}: SelectItemGroupProps = $props();
+  let {id = uuid(), children, ...props}: SelectItemGroupProps = $props();
 
   let context = useSelectContext();
 

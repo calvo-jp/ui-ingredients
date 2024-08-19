@@ -9,10 +9,10 @@
 </script>
 
 <script lang="ts">
-  import {nanoid} from 'nanoid/non-secure';
+  import {uuid} from '$lib/utils.svelte.js';
   import {createTooltipContext, setTooltipContext} from './context.svelte.js';
 
-  let {id = nanoid(), children, ...props}: TooltipProps = $props();
+  let {id = uuid(), children, ...props}: TooltipProps = $props();
 
   let context = createTooltipContext({id, ...props});
 

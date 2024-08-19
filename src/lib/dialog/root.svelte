@@ -9,10 +9,10 @@
 
 <script lang="ts">
   import type {OptionalId} from '$lib/types.js';
-  import {nanoid} from 'nanoid/non-secure';
+  import {uuid} from '$lib/utils.svelte.js';
   import {createDialogContext, setDialogContext} from './context.svelte.js';
 
-  let {id = nanoid(), children, ...props}: DialogProps = $props();
+  let {id = uuid(), children, ...props}: DialogProps = $props();
 
   let context = createDialogContext({id, ...props});
 

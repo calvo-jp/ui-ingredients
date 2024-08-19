@@ -17,12 +17,12 @@
 </script>
 
 <script lang="ts">
+  import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {nanoid} from 'nanoid/non-secure';
   import {createToggleGroupContext, setToggleGroupContext} from './context.svelte.js';
 
   let {
-    id = nanoid(),
+    id = uuid(),
     ids,
     dir,
     value,
@@ -38,7 +38,7 @@
   }: ToggleGroupProps = $props();
 
   let context = createToggleGroupContext({
-    id: nanoid(),
+    id,
     ids,
     dir,
     value: $state.snapshot(value),

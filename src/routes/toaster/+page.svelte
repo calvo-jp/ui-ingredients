@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Toast, Toaster, createToaster} from '$lib/index.js';
+  import {cx} from '../shared/utils.js';
 
   let toaster = createToaster({
     placement: 'bottom-end',
@@ -8,10 +9,6 @@
 
   function randInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function cx(...classes: (string | null | boolean | undefined)[]) {
-    return classes.filter(Boolean).join(' ');
   }
 </script>
 

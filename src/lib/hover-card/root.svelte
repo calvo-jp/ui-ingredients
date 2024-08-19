@@ -12,10 +12,10 @@
 </script>
 
 <script lang="ts">
-  import {nanoid} from 'nanoid/non-secure';
+  import {uuid} from '$lib/utils.svelte.js';
   import {createHoverCardContext, setHoverCardContext} from './context.svelte.js';
 
-  let {id = nanoid(), children, ...props}: HoverCardProps = $props();
+  let {id = uuid(), children, ...props}: HoverCardProps = $props();
 
   let context = createHoverCardContext({id, ...props});
 

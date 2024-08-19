@@ -1,6 +1,6 @@
+import {uuid} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect} from '@zag-js/svelte';
 import * as toast from '@zag-js/toast';
-import {nanoid} from 'nanoid/non-secure';
 
 export interface CreateToasterProps {
   id?: string;
@@ -20,7 +20,7 @@ export interface CreateToasterProps {
 export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
 
 export default function createToaster(props?: CreateToasterProps) {
-  const id = $derived(props?.id ?? nanoid());
+  const id = $derived(props?.id ?? uuid());
 
   const machine = $derived(toast.group.machine({...props, id}));
 

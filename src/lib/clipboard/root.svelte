@@ -17,12 +17,12 @@
 </script>
 
 <script lang="ts">
+  import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {nanoid} from 'nanoid/non-secure';
   import {createClipboardContext, setClipboardContext} from './context.svelte.js';
 
   let {
-    id = nanoid(),
+    id = uuid(),
     ids,
     value,
     timeout,
