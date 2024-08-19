@@ -15,7 +15,7 @@
 </script>
 
 <Clipboard.Root value={randomString()}>
-  <Clipboard.Label class="text-gray-700 mb-1 inline-block">Token</Clipboard.Label>
+  <Clipboard.Label class="text-neutral-400 mb-1 inline-block">Token</Clipboard.Label>
   <Clipboard.Control class="flex gap-2">
     <Clipboard.Input class="border px-3.5 h-11" />
     <Clipboard.Trigger class="border size-11 flex items-center justify-center">
@@ -28,7 +28,7 @@
           stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="size-5 text-green-500"
+          class="size-5 text-green-600"
         >
           <path d="M20 6L9 17L4 12"></path>
         </svg>

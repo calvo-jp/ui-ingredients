@@ -33,7 +33,7 @@
       class={cx(
         'p-4',
         'border',
-        'bg-white',
+        'bg-neutral-900',
         'duration-300',
         'transition-all',
         'min-w-[20rem]',
@@ -45,7 +45,7 @@
       )}
     >
       <Toast.Title class="font-medium" />
-      <Toast.Description class="text-sm text-gray-500" />
+      <Toast.Description class="text-sm text-neutral-500" />
       <Toast.CloseTrigger class="border h-11 block mt-3 w-full">Close</Toast.CloseTrigger>
     </Toast.Root>
   {/snippet}

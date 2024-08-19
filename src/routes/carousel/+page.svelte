@@ -20,9 +20,7 @@
   </Carousel.Viewport>
 
   <div class="flex items-center gap-2 mt-5 w-fit mx-auto">
-    <Carousel.PrevTrigger
-      class="disabled:cursor-not-allowed disabled:opacity-50"
-    >
+    <Carousel.PrevTrigger class="disabled:cursor-not-allowed disabled:opacity-50">
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -41,14 +39,12 @@
       {#each items as _, index}
         <Carousel.Indicator
           {index}
-          class="size-3 rounded-full bg-gray-200 data-current:bg-sky-500 transition-colors duration-200"
+          class="size-3 rounded-full bg-neutral-700 data-current:bg-indigo-500 transition-colors duration-200"
         />
       {/each}
     </Carousel.IndicatorGroup>
 
-    <Carousel.NextTrigger
-      class="disabled:cursor-not-allowed disabled:opacity-50"
-    >
+    <Carousel.NextTrigger class="disabled:cursor-not-allowed disabled:opacity-50">
       <svg
         viewBox="0 0 24 24"
         fill="none"

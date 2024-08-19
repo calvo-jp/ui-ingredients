@@ -7,6 +7,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
+      mono: ["'Fira Code'", ...defaultTheme.fontFamily.mono],
     },
     extend: {
       zIndex: {
@@ -80,6 +81,12 @@ export default {
         'collapse-out': 'collapse-out 200ms ease-in-out',
         'fade-in': 'fade-in 200ms ease-in-out',
         'fade-out': 'fade-out 200ms ease-in-out',
+      },
+      borderColor(theme) {
+        return {
+          ...theme('colors'),
+          DEFAULT: theme('colors.neutral.700'),
+        };
       },
     },
   },

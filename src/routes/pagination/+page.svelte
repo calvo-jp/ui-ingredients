@@ -38,7 +38,7 @@
       {#if page.type === 'page'}
         <Pagination.Item
           value={page.value}
-          class="border min-w-11 h-11 flex items-center justify-center aria-page:border-sky-300 aria-page:text-sky-800 aria-page:bg-sky-50 aria-page:font-semibold transition-all duration-200"
+          class="border min-w-11 h-11 flex items-center justify-center aria-page:border-indigo-800 aria-page:text-indigo-400 aria-page:bg-indigo-800/25 aria-page:font-semibold transition-all duration-200"
         >
           {page.value}
         </Pagination.Item>

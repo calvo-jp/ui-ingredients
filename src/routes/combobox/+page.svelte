@@ -37,7 +37,7 @@
     inputValue = detail.inputValue;
   }}
 >
-  <Combobox.Label class="inline-block mb-1 text-gray-700">Select Frameworks</Combobox.Label>
+  <Combobox.Label class="inline-block mb-1 text-neutral-400">Select Frameworks</Combobox.Label>
   <Combobox.Control class="flex max-w-[20rem]">
     <Combobox.Input class="border grow h-11 px-3" />
     <Combobox.Trigger
@@ -79,7 +79,9 @@
   <Combobox.Positioner>
     <Combobox.Content class="border py-2 px-3">
       <Combobox.ItemGroup>
-        <Combobox.ItemGroupLabel class="text-gray-500 text-sm">Frameworks</Combobox.ItemGroupLabel>
+        <Combobox.ItemGroupLabel class="text-neutral-500 text-sm"
+          >Frameworks</Combobox.ItemGroupLabel
+        >
 
         {#each matches as item}
           <Combobox.Item
@@ -98,7 +100,7 @@
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="w-5 h-5 text-green-500"
+                class="w-5 h-5 text-green-600"
               >
                 <path d="M20 6L9 17L4 12"></path>
               </svg>

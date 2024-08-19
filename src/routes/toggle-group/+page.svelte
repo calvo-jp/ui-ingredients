@@ -15,7 +15,7 @@
   multiple
 >
   <ToggleGroup.Item
-    class="size-11 flex items-center justify-center border aria-pressed:bg-gray-50"
+    class="size-11 flex items-center justify-center border aria-pressed:bg-neutral-800/50"
     value="1"
   >
     <svg
@@ -35,7 +35,7 @@
     </svg>
   </ToggleGroup.Item>
   <ToggleGroup.Item
-    class="size-11 flex items-center justify-center border border-l-0 transition-colors duration-200 aria-pressed:bg-gray-50"
+    class="size-11 flex items-center justify-center border border-l-0 transition-colors duration-200 aria-pressed:bg-neutral-800/50"
     value="2"
   >
     <svg
@@ -53,7 +53,7 @@
     </svg>
   </ToggleGroup.Item>
   <ToggleGroup.Item
-    class="size-11 flex items-center justify-center border border-l-0 transition-colors duration-200 aria-pressed:bg-gray-50"
+    class="size-11 flex items-center justify-center border border-l-0 transition-colors duration-200 aria-pressed:bg-neutral-800/50"
     value="3"
   >
     <svg

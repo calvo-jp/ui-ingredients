@@ -30,9 +30,7 @@
       <Accordion.ItemTrigger class="flex w-full text-left">
         <span class="grow">{label}</span>
 
-        <Accordion.ItemIndicator
-          class="data-open:rotate-180 transition-all duration-200"
-        >
+        <Accordion.ItemIndicator class="data-open:rotate-180 transition-all duration-200">
           <svg
             width="24"
             height="24"
@@ -48,9 +46,7 @@
           </svg>
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
-      <Accordion.ItemContent class="text-gray-500"
-        >{content}</Accordion.ItemContent
-      >
+      <Accordion.ItemContent class="text-neutral-500">{content}</Accordion.ItemContent>
     </Accordion.Item>
   {/each}
 </Accordion.Root>

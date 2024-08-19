@@ -9,14 +9,14 @@
 </script>
 
 <RadioGroup.Root>
-  <RadioGroup.Label class="inline-block mb-1.5 text-gray-700">Choose one</RadioGroup.Label>
+  <RadioGroup.Label class="inline-block mb-1.5 text-neutral-400">Choose one</RadioGroup.Label>
 
   <div class="flex flex-col gap-1">
     {#each items as { value, label }}
       <RadioGroup.Item {value} class="flex gap-2 items-center">
         <RadioGroup.ItemHiddenInput />
         <RadioGroup.ItemControl
-          class="border-2 size-5 rounded-full group flex items-center justify-center p-2 data-checked:bg-sky-400 data-checked:border-sky-400 transition-colors duration-200"
+          class="border-2 size-5 rounded-full group flex items-center justify-center p-2 data-checked:bg-indigo-500 data-checked:border-indigo-500 transition-colors duration-200"
         >
           <svg
             width="24"

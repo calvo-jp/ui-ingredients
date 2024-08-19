@@ -7,10 +7,10 @@
   <Portal>
     <Tooltip.Positioner>
       <Tooltip.Content
-        class="bg-gray-900 px-3.5 py-2.5 shadow-md text-gray-100 rounded-lg data-open:animate-fade-in data-closed:animate-fade-out"
+        class="bg-neutral-800 px-3.5 py-2.5 shadow-md text-neutral-100 rounded data-open:animate-fade-in data-closed:animate-fade-out"
       >
         <Tooltip.Arrow
-          class="[--arrow-size:theme(spacing.4)] data-closed:hidden [--arrow-background:theme(colors.gray[900])]"
+          class="[--arrow-size:theme(spacing.4)] data-closed:hidden [--arrow-background:theme(colors.neutral[800])]"
         >
           <Tooltip.ArrowTip />
         </Tooltip.Arrow>

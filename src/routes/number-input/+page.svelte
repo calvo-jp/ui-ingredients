@@ -14,7 +14,7 @@
     value = detail.value;
   }}
 >
-  <NumberInput.Label class="text-gray-700 mb-1 inline-block">Enter Amount</NumberInput.Label>
+  <NumberInput.Label class="text-neutral-400 mb-1 inline-block">Enter Amount</NumberInput.Label>
   <NumberInput.Control class="flex max-w-[20rem]">
     <NumberInput.Input class="h-11 grow border px-3" />
     <div class="flex shrink-0 flex-col h-full">
