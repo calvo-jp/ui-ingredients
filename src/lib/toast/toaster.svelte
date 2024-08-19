@@ -1,9 +1,11 @@
 <script lang="ts" context="module">
+  import type {WithoutChildren} from '$lib/types.js';
   import type {Snippet} from 'svelte';
+  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {CreateToastContextReturn} from './context.svelte.js';
   import type {CreateToasterReturn} from './create-toaster.svelte.js';
 
-  export interface ToasterProps {
+  export interface ToasterProps extends WithoutChildren<SvelteHTMLElements['div']> {
     toaster: CreateToasterReturn;
     children: Snippet<[CreateToastContextReturn]>;
   }
@@ -11,21 +13,28 @@
 
 <script lang="ts">
   import {Portal} from '$lib/portal/index.js';
-  import ToastActor from './toast-actor.svelte';
+  import {mergeProps, normalizeProps, useMachine} from '@zag-js/svelte';
+  import * as toast from '@zag-js/toast';
+  import ToastActor from './actor.svelte';
 
-  let {toaster, children}: ToasterProps = $props();
+  let {toaster, children, ...props}: ToasterProps = $props();
+
+  let [state, send] = useMachine(toaster.machine);
+
+  let placement = $derived(state.context.placement);
+  let api = $derived(toast.group.connect(state, send, normalizeProps));
+  let toasts = $derived(api.getToastsByPlacement(placement));
+  let attrs = $derived(mergeProps(props, api.getGroupProps({placement})));
 </script>
 
 <Portal>
-  {#each toaster.getPlacements() as placement}
-    <div {...toaster.getGroupProps({placement})}>
-      {#each toaster.getToastsByPlacement(placement) as toast (toast.id)}
-        <ToastActor actor={toast}>
-          {#snippet children$(ctx)}
-            {@render children(ctx)}
-          {/snippet}
-        </ToastActor>
-      {/each}
-    </div>
-  {/each}
+  <div {...attrs}>
+    {#each toasts as toast (toast.id)}
+      <ToastActor actor={toast}>
+        {#snippet children$(ctx)}
+          {@render children(ctx)}
+        {/snippet}
+      </ToastActor>
+    {/each}
+  </div>
 </Portal>

@@ -32,6 +32,6 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 - 🟢 Switch
 - 🟢 Tabs
 - ⚪ TagsInput
-- 🟢 Toast
+- 🟡 Toast
 - 🟢 ToggleGroup
 - 🟢 Tooltip

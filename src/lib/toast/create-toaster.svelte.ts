@@ -1,4 +1,4 @@
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect} from '@zag-js/svelte';
 import * as toast from '@zag-js/toast';
 import {nanoid} from 'nanoid/non-secure';
 
@@ -19,11 +19,13 @@ export interface CreateToasterProps {
 
 export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
 
-export default function createToaster(props?: CreateToasterProps): toast.GroupApi {
+export default function createToaster(props?: CreateToasterProps) {
   const id = $derived(props?.id ?? nanoid());
 
-  const [state, send] = useMachine(
+  const machine = $derived(
     toast.group.machine({
+      max: 5,
+      overlap: false,
       duration: 5000,
       placement: 'bottom',
       removeDelay: 0,
@@ -32,7 +34,12 @@ export default function createToaster(props?: CreateToasterProps): toast.GroupAp
     }),
   );
 
-  const api = $derived(reflect(() => toast.group.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => ({
+      machine,
+      ...toast.group.connect(machine, machine.send, normalizeProps),
+    })),
+  );
 
   return api;
 }
