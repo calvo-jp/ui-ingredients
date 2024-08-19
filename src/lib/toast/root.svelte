@@ -13,7 +13,7 @@
 
   let context = useToastContext();
 
-  let attrs = mergeProps(props, context.getRootProps());
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 </script>
 
 <div {...attrs}>

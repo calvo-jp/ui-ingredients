@@ -22,17 +22,7 @@ export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
 export default function createToaster(props?: CreateToasterProps) {
   const id = $derived(props?.id ?? nanoid());
 
-  const machine = $derived(
-    toast.group.machine({
-      max: 5,
-      overlap: false,
-      duration: 5000,
-      placement: 'bottom',
-      removeDelay: 0,
-      ...props,
-      id,
-    }),
-  );
+  const machine = $derived(toast.group.machine({...props, id}));
 
   const api = $derived(
     reflect(() => ({
