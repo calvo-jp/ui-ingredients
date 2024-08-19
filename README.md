@@ -1,18 +1,18 @@
-# Svelte UI
+# Blox UI
 
 Headless component library for [Svelte](https://svelte.dev/) powered by [zag](https://zagjs.com/)
 
 ## Installation
 
 ```bash
-npm install sheesh-ui
+npm install blox-ui
 ```
 
 ## Usage
 
 ```svelte
 <script>
-  import {Clipboard} from 'sheesh-ui';
+  import {Clipboard} from 'blox-ui';
 
   let {data} = $props();
 </script>
