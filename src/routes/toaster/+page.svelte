@@ -21,6 +21,7 @@
     toaster.create({
       title: `Hello ${randInt(1, 100)}`,
       description: 'This is a toast message',
+      duration: 100000000,
     });
   }}
 >
@@ -31,7 +32,17 @@
   {#snippet children()}
     <Toast.Root
       class={cx(
-        'p-4 border bg-white min-w-[20rem] z-[var(--z-index)] translate-y-[var(--y)] translate-x-[var(--x)] opacity-[var(--opacity)] scale-[var(--scale)] transition-all duration-300',
+        'p-4',
+        'border',
+        'bg-white',
+        'duration-300',
+        'transition-all',
+        'min-w-[20rem]',
+        'h-[var(--height)]',
+        'z-[var(--z-index)]',
+        '[translate:var(--x)_var(--y)_0]',
+        'opacity-[var(--opacity)]',
+        'scale-[var(--scale)]',
       )}
     >
       <Toast.Title class="font-medium" />
