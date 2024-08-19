@@ -43,7 +43,9 @@
   </Select.Control>
 
   <Select.Positioner>
-    <Select.Content class="border py-2 px-3">
+    <Select.Content
+      class="border py-2 px-3 bg-neutral-800 data-open:animate-fade-in data-closed:animate-fade-out"
+    >
       <Select.ItemGroup>
         <Select.ItemGroupLabel class="text-neutral-500 text-sm">Frameworks</Select.ItemGroupLabel>
 

@@ -14,7 +14,7 @@
       <Steps.Item {index} class="flex items-center gap-2">
         <Steps.Trigger class="flex items-center gap-2">
           <Steps.Indicator
-            class="group flex items-center justify-center size-5 border-2 rounded-full data-complete:border-indigo-600 data-complete:bg-indigo-600"
+            class="group flex items-center justify-center size-5 border-2 rounded-full data-complete:border-indigo-600 data-complete:bg-indigo-600 transition-all duration-200"
           >
             <svg
               viewBox="0 0 24 24"

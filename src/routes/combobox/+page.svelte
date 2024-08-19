@@ -77,7 +77,9 @@
     </Combobox.ClearTrigger>
   </Combobox.Control>
   <Combobox.Positioner>
-    <Combobox.Content class="border py-2 px-3">
+    <Combobox.Content
+      class="border py-2 px-3 bg-neutral-800 data-open:animate-fade-in data-closed:animate-fade-out"
+    >
       <Combobox.ItemGroup>
         <Combobox.ItemGroupLabel class="text-neutral-500 text-sm"
           >Frameworks</Combobox.ItemGroupLabel

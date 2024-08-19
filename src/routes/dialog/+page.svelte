@@ -19,7 +19,7 @@
   <Portal>
     <Dialog.Positioner>
       <Dialog.Content
-        class="z-modal fixed top-16 left-1/2 -translate-x-1/2 bg-neutral-800 w-[26rem] p-8 data-open:animate-fade-in border data-closed:animate-fade-out"
+        class="z-modal fixed top-16 left-1/2 -translate-x-1/2 border bg-neutral-800 w-[26rem] p-8 data-open:animate-fade-in data-closed:animate-fade-out"
       >
         <Dialog.Title class="text-xl font-semibold">Title</Dialog.Title>
         <Dialog.Description>Description</Dialog.Description>
