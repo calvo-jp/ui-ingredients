@@ -63,7 +63,7 @@ npm install ui-ingredients
 - ⚪ SignaturePad
 - 🟢 Slider
 - ⚪ Splitter
-- ⚪ Steps
+- 🟢 Steps
 - 🟢 Switch
 - 🟢 Tabs
 - 🟡 TagsInput

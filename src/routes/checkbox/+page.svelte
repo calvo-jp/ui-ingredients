@@ -2,8 +2,6 @@
   import {Checkbox} from '$lib/index.js';
 
   let checked = $state(false);
-
-  $inspect(checked);
 </script>
 
 <Checkbox.Root
@@ -16,7 +14,7 @@
   }}
 >
   <Checkbox.Control
-    class="w-5 h-5 border flex items-center justify-center data-checked:border-green-500 data-checked:bg-green-500 transition-colors duration-200"
+    class="w-5 h-5 border flex items-center justify-center data-checked:border-green-600 data-checked:bg-green-600 transition-colors duration-150"
   >
     <Checkbox.Indicator>
       <svg

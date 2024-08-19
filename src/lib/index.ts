@@ -175,6 +175,19 @@ export type {
   SliderTrackProps,
   SliderValueTextProps,
 } from './slider/index.js';
+export * as Steps from './steps/index.js';
+export type {
+  StepsContentProps,
+  StepsIndicatorProps,
+  StepsItemProps,
+  StepsListProps,
+  StepsNextTriggerProps,
+  StepsPrevTriggerProps,
+  StepsProgressProps,
+  StepsProps,
+  StepsSeparatorProps,
+  StepsTriggerProps,
+} from './steps/index.js';
 export * as Switch from './switch/index.js';
 export type {
   SwitchControlProps,

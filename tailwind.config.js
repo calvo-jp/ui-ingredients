@@ -33,6 +33,7 @@ export default {
         disabled: 'disabled',
         current: 'current',
         selected: 'selected',
+        complete: 'complete',
       },
       aria: {
         page: 'current="page"',

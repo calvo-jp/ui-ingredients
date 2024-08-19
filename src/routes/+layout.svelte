@@ -44,7 +44,7 @@
     {label: 'RatingGroup', path: '/rating-group', comingSoon: true},
     {label: 'SignaturePad', path: '/signature-pad', comingSoon: true},
     {label: 'Splitter', path: '/splitter', comingSoon: true},
-    {label: 'Steps', path: '/steps', comingSoon: true},
+    {label: 'Steps', path: '/steps'},
     {label: 'TagsInput', path: '/tags-input', comingSoon: true},
     {label: 'Timer', path: '/timer', comingSoon: true, beta: true},
   ]
