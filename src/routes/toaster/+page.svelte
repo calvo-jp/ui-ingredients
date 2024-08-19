@@ -30,7 +30,7 @@
       class={cx(
         'p-4',
         'border',
-        'bg-neutral-900',
+        'bg-neutral-800',
         'duration-300',
         'transition-all',
         'min-w-[20rem]',
