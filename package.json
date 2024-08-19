@@ -4,11 +4,20 @@
   "private": true,
   "packageManager": "pnpm@9.7.0",
   "scripts": {
-    "lib": "pnpm --filter ui-ingredients"
+    "lib": "pnpm --filter ui-ingredients",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "@eslint/js": "9.9.0",
+    "@types/eslint": "9.6.0",
+    "autoprefixer": "10.4.20",
+    "eslint": "9.9.0",
+    "eslint-plugin-svelte": "2.43.0",
+    "globals": "15.9.0",
     "prettier": "3.3.3",
     "prettier-plugin-svelte": "3.2.6",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.1.0"
   }
 }
