@@ -102,6 +102,10 @@
       label: 'Steps',
       path: '/steps',
     },
+    {
+      label: 'Timer',
+      path: '/timer',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === page.current.url.pathname));

@@ -21,6 +21,6 @@
   {#if children}
     {@render children?.()}
   {:else}
-    {context.time[itemContext.type]}
+    {context.formattedTime[itemContext.type]}
   {/if}
 </span>

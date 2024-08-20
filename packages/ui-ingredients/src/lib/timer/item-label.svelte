@@ -18,9 +18,5 @@
 </script>
 
 <span {...attrs}>
-  {#if children}
-    {@render children?.()}
-  {:else}
-    {context.formattedTime[itemContext.type]}
-  {/if}
+  {@render children?.()}
 </span>
