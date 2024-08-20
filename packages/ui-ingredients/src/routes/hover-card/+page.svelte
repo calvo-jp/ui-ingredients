@@ -7,11 +7,11 @@
     placement: 'bottom-start',
   }}
 >
-  <HoverCard.Trigger href="#" class="hover:underline underline-offset-2">Hover me</HoverCard.Trigger
+  <HoverCard.Trigger href="#" class="underline-offset-2 hover:underline">Hover me</HoverCard.Trigger
   >
   <Portal>
     <HoverCard.Positioner>
-      <HoverCard.Content class="max-w-[20rem] border p-4 bg-neutral-800 text-sm text-neutral-400">
+      <HoverCard.Content class="max-w-[20rem] border bg-neutral-800 p-4 text-sm text-neutral-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed omnis natus neque, tenetur
         praesentium laboriosam esse eius at maxime quam magni rerum animi ducimus debitis?
       </HoverCard.Content>

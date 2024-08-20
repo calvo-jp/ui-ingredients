@@ -24,7 +24,7 @@
       <Steps.Item {index} class="flex items-center gap-2">
         <Steps.Trigger class="flex items-center gap-2">
           <Steps.Indicator
-            class="group flex items-center justify-center size-5 border-2 rounded-full data-complete:border-indigo-600 data-complete:bg-indigo-600 transition-all duration-200"
+            class="data-complete:border-indigo-600 data-complete:bg-indigo-600 group flex size-5 items-center justify-center rounded-full border-2 transition-all duration-200"
           >
             <svg
               viewBox="0 0 24 24"
@@ -34,7 +34,7 @@
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="size-4 text-white hidden group-data-complete:block"
+              class="group-data-complete:block hidden size-4 text-white"
             >
               <path d="M20 6L9 17L4 12"></path>
             </svg>
@@ -50,21 +50,21 @@
 
   <div class="mt-5">
     {#each items as item, index}
-      <Steps.Content {index} class="p-5 bg-neutral-800 max-w-[32rem]">
+      <Steps.Content {index} class="max-w-[32rem] bg-neutral-800 p-5">
         {item.content}
       </Steps.Content>
     {/each}
 
-    <Steps.Content index={items.length} class="p-5 bg-neutral-800 max-w-[32rem]">
+    <Steps.Content index={items.length} class="max-w-[32rem] bg-neutral-800 p-5">
       Done!🚀
     </Steps.Content>
   </div>
 
   <div class="mt-5 flex items-center gap-3">
-    <Steps.PrevTrigger class="h-10 px-3.5 border disabled:opacity-50 disabled:cursor-not-allowed">
+    <Steps.PrevTrigger class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50">
       Back
     </Steps.PrevTrigger>
-    <Steps.NextTrigger class="h-10 px-3.5 border disabled:opacity-50 disabled:cursor-not-allowed">
+    <Steps.NextTrigger class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50">
       Next
     </Steps.NextTrigger>
   </div>

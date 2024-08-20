@@ -112,13 +112,13 @@
 </svelte:head>
 
 <div class="flex items-start">
-  <nav class="p-12 shrink-0 sticky top-0 h-dvh w-[20rem] border-r border-neutral-800">
+  <nav class="sticky top-0 h-dvh w-[20rem] shrink-0 border-r border-neutral-800 p-12">
     <ul>
       {#each items as item}
         <li class="block w-full">
           <a
             href={item.path}
-            class="group flex items-center transition-colors duration-200 aria-page:text-indigo-400 aria-page:font-medium"
+            class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
             aria-current={item.path === currentItem?.path ? 'page' : undefined}
           >
             {item.label}
@@ -128,7 +128,7 @@
     </ul>
   </nav>
 
-  <div class="p-12 grow">
+  <div class="grow p-12">
     {@render children()}
   </div>
 </div>

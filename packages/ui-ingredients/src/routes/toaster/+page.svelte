@@ -43,7 +43,7 @@
     >
       <Toast.Title class="font-medium" />
       <Toast.Description class="text-sm text-neutral-500" />
-      <Toast.CloseTrigger class="border h-11 block mt-3 w-full">Close</Toast.CloseTrigger>
+      <Toast.CloseTrigger class="mt-3 block h-11 w-full border">Close</Toast.CloseTrigger>
     </Toast.Root>
   {/snippet}
 </Toaster>

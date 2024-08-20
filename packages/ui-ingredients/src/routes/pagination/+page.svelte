@@ -17,7 +17,7 @@
 >
   {#snippet children(context)}
     <Pagination.PrevTrigger
-      class="border size-11 flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-50"
+      class="flex size-11 items-center justify-center border disabled:cursor-not-allowed disabled:opacity-50"
     >
       <svg
         width="24"
@@ -38,19 +38,19 @@
       {#if page.type === 'page'}
         <Pagination.Item
           value={page.value}
-          class="border min-w-11 h-11 flex items-center justify-center aria-page:border-indigo-800 aria-page:text-indigo-400 aria-page:bg-indigo-800/25 aria-page:font-semibold transition-all duration-200"
+          class="aria-page:border-indigo-800 aria-page:text-indigo-400 aria-page:bg-indigo-800/25 aria-page:font-semibold flex h-11 min-w-11 items-center justify-center border transition-all duration-200"
         >
           {page.value}
         </Pagination.Item>
       {:else}
-        <Pagination.Ellipsis {index} class="size-11 flex items-center justify-center">
+        <Pagination.Ellipsis {index} class="flex size-11 items-center justify-center">
           ...
         </Pagination.Ellipsis>
       {/if}
     {/each}
 
     <Pagination.NextTrigger
-      class="border size-11 flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-50"
+      class="flex size-11 items-center justify-center border disabled:cursor-not-allowed disabled:opacity-50"
     >
       <svg
         width="24"

@@ -26,7 +26,7 @@
   }}
 >
   {#each items as { label, value, content }}
-    <Accordion.Item {value} class="border-x p-4 first:border-t border-b">
+    <Accordion.Item {value} class="border-x border-b p-4 first:border-t">
       <Accordion.ItemTrigger class="flex w-full text-left">
         <span class="grow">{label}</span>
 

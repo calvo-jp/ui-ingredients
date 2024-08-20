@@ -20,5 +20,8 @@
     "prettier-plugin-svelte": "3.2.6",
     "typescript": "5.5.4",
     "typescript-eslint": "8.2.0"
+  },
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "0.6.6"
   }
 }

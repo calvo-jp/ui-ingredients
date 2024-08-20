@@ -3,7 +3,7 @@
 </script>
 
 <Avatar.Root
-  class="w-10 h-10 grid bg-neutral-700 font-bold place-items-center rounded-full overflow-hidden"
+  class="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-neutral-700 font-bold"
 >
   <Avatar.Image src="https://i.pravatar.cc/300" alt="" />
   <Avatar.Fallback>JP</Avatar.Fallback>

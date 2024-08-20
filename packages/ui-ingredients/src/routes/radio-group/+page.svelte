@@ -18,14 +18,14 @@
     value = detail.value;
   }}
 >
-  <RadioGroup.Label class="inline-block mb-1.5 text-neutral-400">Choose one</RadioGroup.Label>
+  <RadioGroup.Label class="mb-1.5 inline-block text-neutral-400">Choose one</RadioGroup.Label>
 
   <div class="flex flex-col gap-1">
     {#each items as { value, label }}
-      <RadioGroup.Item {value} class="flex gap-2 items-center">
+      <RadioGroup.Item {value} class="flex items-center gap-2">
         <RadioGroup.ItemHiddenInput />
         <RadioGroup.ItemControl
-          class="border-2 size-5 rounded-full group flex items-center justify-center p-2 data-checked:bg-indigo-500 data-checked:border-indigo-500 transition-colors duration-200"
+          class="data-checked:bg-indigo-500 data-checked:border-indigo-500 group flex size-5 items-center justify-center rounded-full border-2 p-2 transition-colors duration-200"
         >
           <svg
             width="24"
@@ -37,7 +37,7 @@
             stroke-width="1.5"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="size-3.5 shrink-0 hidden group-data-checked:block text-white"
+            class="group-data-checked:block hidden size-3.5 shrink-0 text-white"
           >
             <path d="M20 6L9 17L4 12"></path>
           </svg>

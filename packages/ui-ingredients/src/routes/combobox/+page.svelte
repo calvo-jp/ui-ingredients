@@ -48,11 +48,11 @@
     sameWidth: true,
   }}
 >
-  <Combobox.Label class="inline-block mb-1 text-neutral-400">Select Frameworks</Combobox.Label>
+  <Combobox.Label class="mb-1 inline-block text-neutral-400">Select Frameworks</Combobox.Label>
   <Combobox.Control class="flex max-w-[20rem]">
-    <Combobox.Input class="border grow h-11 px-3" />
+    <Combobox.Input class="h-11 grow border px-3" />
     <Combobox.Trigger
-      class="group border shrink-0 border-l-0 size-11 flex items-center justify-center"
+      class="group flex size-11 shrink-0 items-center justify-center border border-l-0"
     >
       <svg
         width="24"
@@ -70,7 +70,7 @@
       </svg>
     </Combobox.Trigger>
     <Combobox.ClearTrigger
-      class="border shrink-0 border-l-0 size-11 flex items-center justify-center"
+      class="flex size-11 shrink-0 items-center justify-center border border-l-0"
     >
       <svg
         width="24"
@@ -89,17 +89,17 @@
   </Combobox.Control>
   <Combobox.Positioner>
     <Combobox.Content
-      class="border py-2 px-3 bg-neutral-800 data-open:animate-fade-in data-closed:animate-fade-out"
+      class="data-open:animate-fade-in data-closed:animate-fade-out border bg-neutral-800 px-3 py-2"
     >
       <Combobox.ItemGroup>
-        <Combobox.ItemGroupLabel class="text-neutral-500 text-sm"
+        <Combobox.ItemGroupLabel class="text-sm text-neutral-500"
           >Frameworks</Combobox.ItemGroupLabel
         >
 
         {#each matches as item}
           <Combobox.Item
             {item}
-            class="flex items-center cursor-default data-disabled:cursor-not-allowed data-disabled:opacity-75"
+            class="data-disabled:cursor-not-allowed data-disabled:opacity-75 flex cursor-default items-center"
           >
             <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
             <Combobox.ItemIndicator>
@@ -113,7 +113,7 @@
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="w-5 h-5 text-green-600"
+                class="h-5 w-5 text-green-600"
               >
                 <path d="M20 6L9 17L4 12"></path>
               </svg>

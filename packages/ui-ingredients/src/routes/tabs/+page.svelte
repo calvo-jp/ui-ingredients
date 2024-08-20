@@ -34,7 +34,7 @@
     {#each items as { value, label }}
       <Tabs.Trigger
         {value}
-        class="border h-10 border-l-0 first:border-l px-3 data-selected:bg-neutral-800/50 transition-colors duration-200"
+        class="data-selected:bg-neutral-800/50 h-10 border border-l-0 px-3 transition-colors duration-200 first:border-l"
       >
         {label}
       </Tabs.Trigger>

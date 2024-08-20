@@ -15,10 +15,10 @@
 </script>
 
 <Clipboard.Root value={randomString()}>
-  <Clipboard.Label class="text-neutral-400 mb-1 inline-block">Token</Clipboard.Label>
+  <Clipboard.Label class="mb-1 inline-block text-neutral-400">Token</Clipboard.Label>
   <Clipboard.Control class="flex gap-2">
-    <Clipboard.Input class="border px-3.5 h-11" />
-    <Clipboard.Trigger class="border size-11 flex items-center justify-center">
+    <Clipboard.Input class="h-11 border px-3.5" />
+    <Clipboard.Trigger class="flex size-11 items-center justify-center border">
       <Clipboard.Indicator copied>
         <svg
           viewBox="0 0 24 24"

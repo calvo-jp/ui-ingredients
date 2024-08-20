@@ -19,7 +19,7 @@
     </Carousel.ItemGroup>
   </Carousel.Viewport>
 
-  <div class="flex items-center gap-2 mt-5 w-fit mx-auto">
+  <div class="mx-auto mt-5 flex w-fit items-center gap-2">
     <Carousel.PrevTrigger class="disabled:cursor-not-allowed disabled:opacity-50">
       <svg
         viewBox="0 0 24 24"
@@ -39,7 +39,7 @@
       {#each items as _, index}
         <Carousel.Indicator
           {index}
-          class="size-3 rounded-full bg-neutral-700 data-current:bg-indigo-500 transition-colors duration-200"
+          class="data-current:bg-indigo-500 size-3 rounded-full bg-neutral-700 transition-colors duration-200"
         />
       {/each}
     </Carousel.IndicatorGroup>

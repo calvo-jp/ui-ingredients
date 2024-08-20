@@ -4,7 +4,7 @@
 
 <Progress.Root min={0} max={100} value={0} class="max-w-[16rem]">
   {#snippet children(context)}
-    <div class="flex gap-2 items-center">
+    <div class="flex items-center gap-2">
       <Progress.Label>Label</Progress.Label>
       <Progress.ValueText class="text-sm text-neutral-500" />
     </div>
@@ -13,16 +13,16 @@
       <Progress.CircleRange class="stroke-indigo-500 transition-all duration-200" />
     </Progress.Circle>
 
-    <Progress.Track class="mt-5 h-2.5 rounded-full bg-neutral-600 overflow-hidden">
+    <Progress.Track class="mt-5 h-2.5 overflow-hidden rounded-full bg-neutral-600">
       <Progress.Range
-        class="bg-indigo-500 h-full transition-all duration-200 [--translate-x:100%]"
+        class="h-full bg-indigo-500 transition-all duration-200 [--translate-x:100%]"
       />
     </Progress.Track>
 
     <div class="mt-5 flex gap-3">
       <button
         type="button"
-        class="h-10 text-sm px-3 border"
+        class="h-10 border px-3 text-sm"
         onclick={() => {
           context.setValue((context.value ?? 0) - 10);
         }}
@@ -31,7 +31,7 @@
       </button>
       <button
         type="button"
-        class="h-10 text-sm px-3 border"
+        class="h-10 border px-3 text-sm"
         onclick={() => {
           context.setValue((context.value ?? 0) + 10);
         }}

@@ -5,7 +5,7 @@
 </script>
 
 <Checkbox.Root
-  class="flex gap-2 items-center"
+  class="flex items-center gap-2"
   {checked}
   onCheckedChange={(detail) => {
     if (detail.checked === 'indeterminate') return;
@@ -14,7 +14,7 @@
   }}
 >
   <Checkbox.Control
-    class="w-5 h-5 border flex items-center justify-center data-checked:border-green-600 data-checked:bg-green-600 transition-colors duration-150"
+    class="data-checked:border-green-600 data-checked:bg-green-600 flex h-5 w-5 items-center justify-center border transition-colors duration-150"
   >
     <Checkbox.Indicator>
       <svg

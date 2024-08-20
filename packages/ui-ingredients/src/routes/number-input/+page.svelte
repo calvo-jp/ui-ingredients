@@ -14,10 +14,10 @@
     value = detail.value;
   }}
 >
-  <NumberInput.Label class="text-neutral-400 mb-1 inline-block">Enter Amount</NumberInput.Label>
+  <NumberInput.Label class="mb-1 inline-block text-neutral-400">Enter Amount</NumberInput.Label>
   <NumberInput.Control class="flex max-w-[20rem]">
     <NumberInput.Input class="h-11 grow border px-3" />
-    <div class="flex shrink-0 flex-col h-full">
+    <div class="flex h-full shrink-0 flex-col">
       <NumberInput.IncrementTrigger
         class="size-5.5 flex items-center justify-center border border-l-0"
       >
