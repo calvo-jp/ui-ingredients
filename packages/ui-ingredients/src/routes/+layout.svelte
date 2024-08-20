@@ -5,51 +5,104 @@
   let {children} = $props();
 
   interface Item {
-    label: string;
     path: string;
-    new?: boolean;
-    beta?: boolean;
-    comingSoon?: boolean;
+    label: string;
   }
 
   let items: Item[] = [
-    {label: 'Accordion', path: '/accordion'},
-    {label: 'Avatar', path: '/avatar'},
-    {label: 'Checkbox', path: '/checkbox'},
-    {label: 'Dialog', path: '/dialog'},
-    {label: 'Collapsible', path: '/collapsible'},
-    {label: 'Combobox', path: '/combobox'},
-    {label: 'Switch', path: '/switch'},
-    {label: 'Tooltip', path: '/tooltip'},
-    {label: 'PinInput', path: '/pin-input'},
-    {label: 'NumberInput', path: '/number-input'},
-    {label: 'Carousel', path: '/carousel', beta: true},
-    {label: 'Clipboard', path: '/clipboard'},
-    {label: 'ToggleGroup', path: '/toggle-group'},
-    {label: 'Tabs', path: '/tabs'},
-    {label: 'Popover', path: '/popover'},
-    {label: 'Pagination', path: '/pagination'},
-    {label: 'HoverCard', path: '/hover-card'},
-    {label: 'Progress', path: '/progress'},
-    {label: 'Slider', path: '/slider'},
-    {label: 'Toaster', path: '/toaster'},
-    {label: 'Select', path: '/select'},
-    {label: 'RadioGroup', path: '/radio-group'},
-    {label: 'DatePicker', path: '/date-picker', comingSoon: true},
-    {label: 'ColorPicker', path: '/color-picker', comingSoon: true},
-    {label: 'FileUpload', path: '/file-upload', comingSoon: true},
-    {label: 'Editable', path: '/editable', comingSoon: true},
-    {label: 'Menu', path: '/menu', comingSoon: true},
-    {label: 'QRCode', path: '/qr-code', comingSoon: true, beta: true},
-    {label: 'RatingGroup', path: '/rating-group', comingSoon: true},
-    {label: 'SignaturePad', path: '/signature-pad', comingSoon: true},
-    {label: 'Splitter', path: '/splitter', comingSoon: true},
-    {label: 'Steps', path: '/steps'},
-    {label: 'TagsInput', path: '/tags-input', comingSoon: true},
-    {label: 'Timer', path: '/timer', comingSoon: true, beta: true},
-  ]
-    .toSorted((i, j) => i.label.localeCompare(j.label))
-    .filter((i) => !i.comingSoon);
+    {
+      label: 'Accordion',
+      path: '/accordion',
+    },
+    {
+      label: 'Avatar',
+      path: '/avatar',
+    },
+    {
+      label: 'Checkbox',
+      path: '/checkbox',
+    },
+    {
+      label: 'Dialog',
+      path: '/dialog',
+    },
+    {
+      label: 'Collapsible',
+      path: '/collapsible',
+    },
+    {
+      label: 'Combobox',
+      path: '/combobox',
+    },
+    {
+      label: 'Switch',
+      path: '/switch',
+    },
+    {
+      label: 'Tooltip',
+      path: '/tooltip',
+    },
+    {
+      label: 'PinInput',
+      path: '/pin-input',
+    },
+    {
+      label: 'NumberInput',
+      path: '/number-input',
+    },
+    {
+      label: 'Carousel',
+      path: '/carousel',
+    },
+    {
+      label: 'Clipboard',
+      path: '/clipboard',
+    },
+    {
+      label: 'ToggleGroup',
+      path: '/toggle-group',
+    },
+    {
+      label: 'Tabs',
+      path: '/tabs',
+    },
+    {
+      label: 'Popover',
+      path: '/popover',
+    },
+    {
+      label: 'Pagination',
+      path: '/pagination',
+    },
+    {
+      label: 'HoverCard',
+      path: '/hover-card',
+    },
+    {
+      label: 'Progress',
+      path: '/progress',
+    },
+    {
+      label: 'Slider',
+      path: '/slider',
+    },
+    {
+      label: 'Toaster',
+      path: '/toaster',
+    },
+    {
+      label: 'Select',
+      path: '/select',
+    },
+    {
+      label: 'RadioGroup',
+      path: '/radio-group',
+    },
+    {
+      label: 'Steps',
+      path: '/steps',
+    },
+  ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === page.current.url.pathname));
 </script>
@@ -65,20 +118,10 @@
         <li class="block w-full">
           <a
             href={item.path}
-            class="group flex items-center transition-colors duration-200"
+            class="group flex items-center transition-colors duration-200 aria-page:text-indigo-400 aria-page:font-medium"
             aria-current={item.path === currentItem?.path ? 'page' : undefined}
           >
-            <span class="grow group-aria-page:text-indigo-400 group-aria-page:font-medium">
-              {item.label}
-            </span>
-
-            {#if item.beta}
-              <span
-                class="block px-1 py-0.5 border border-rose-700 bg-rose-800/50 text-rose-300 text-xs rounded-sm uppercase font-mono font-semibold"
-              >
-                Beta
-              </span>
-            {/if}
+            {item.label}
           </a>
         </li>
       {/each}
