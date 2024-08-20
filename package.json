@@ -4,7 +4,8 @@
   "private": true,
   "packageManager": "pnpm@9.7.0",
   "scripts": {
-    "lib": "pnpm --filter ui-ingredients",
+    "ui-ingredients": "pnpm --filter ui-ingredients",
+    "website": "pnpm --filter website",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
