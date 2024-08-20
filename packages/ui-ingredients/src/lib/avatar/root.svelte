@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import {type CreateAvatarContextProps, type CreateAvatarContextReturn} from './context.svelte.js';
+  import {
+    type CreateAvatarContextProps,
+    type CreateAvatarContextReturn,
+  } from './context.svelte.js';
 
   export interface AvatarProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateAvatarContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateAvatarContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateAvatarContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createAvatarContext, setAvatarContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     getRootNode,
@@ -29,7 +31,7 @@
   }: AvatarProps = $props();
 
   let context = createAvatarContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     getRootNode,

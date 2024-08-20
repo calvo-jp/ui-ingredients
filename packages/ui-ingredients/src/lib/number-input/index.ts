@@ -1,4 +1,7 @@
-export {default as Control, type NumberInputControlTriggerProps} from './control.svelte';
+export {
+  default as Control,
+  type NumberInputControlTriggerProps,
+} from './control.svelte';
 export {
   default as DecrementTrigger,
   type NumberInputDecrementTriggerProps,
@@ -10,4 +13,7 @@ export {
 export {default as Input, type NumberInputInputProps} from './input.svelte';
 export {default as Label, type NumberInputLabelProps} from './label.svelte';
 export {default as Root, type NumberInputProps} from './root.svelte';
-export {default as Scrubber, type NumberInputScrubberProps} from './scrubber.svelte';
+export {
+  default as Scrubber,
+  type NumberInputScrubberProps,
+} from './scrubber.svelte';

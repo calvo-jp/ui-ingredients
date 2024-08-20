@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface TimerItemLabelProps extends Assign<SvelteHTMLElements['span'], {}> {}
+  export interface TimerItemLabelProps extends SvelteHtmlProps<'span'> {}
 </script>
 
 <script lang="ts">
@@ -14,7 +13,9 @@
   let context = useTimerContext();
   let itemContext = useTimerItemContext();
 
-  let attrs = $derived(mergeProps(props, context.getItemLabelProps(itemContext)));
+  let attrs = $derived(
+    mergeProps(props, context.getItemLabelProps(itemContext)),
+  );
 </script>
 
 <span {...attrs}>

@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {MarkerProps} from '@zag-js/slider';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface SliderMarkerProps extends Assign<SvelteHTMLElements['span'], MarkerProps> {}
+  export interface SliderMarkerProps
+    extends Assign<SvelteHtmlProps<'span'>, MarkerProps> {}
 </script>
 
 <script lang="ts">

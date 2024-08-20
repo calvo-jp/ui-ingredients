@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {
     CreateToggleGroupContextProps,
     CreateToggleGroupContextReturn,
@@ -9,8 +8,8 @@
 
   export interface ToggleGroupProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateToggleGroupContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateToggleGroupContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateToggleGroupContextReturn]>;
   }
@@ -19,10 +18,13 @@
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createToggleGroupContext, setToggleGroupContext} from './context.svelte.js';
+  import {
+    createToggleGroupContext,
+    setToggleGroupContext,
+  } from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     value,
@@ -38,7 +40,7 @@
   }: ToggleGroupProps = $props();
 
   let context = createToggleGroupContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     value: $state.snapshot(value),

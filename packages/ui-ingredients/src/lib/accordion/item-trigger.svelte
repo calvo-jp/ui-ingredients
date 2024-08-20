@@ -1,20 +1,25 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface AccordionItemTriggerProps extends Assign<SvelteHTMLElements['button'], {}> {}
+  export interface AccordionItemTriggerProps
+    extends SvelteHtmlProps<'button'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useAccordionContext, useAccordionItemContext} from './context.svelte.js';
+  import {
+    useAccordionContext,
+    useAccordionItemContext,
+  } from './context.svelte.js';
 
   let {children, ...props}: AccordionItemTriggerProps = $props();
 
   let context = useAccordionContext();
   let itemContext = useAccordionItemContext();
 
-  let attrs = $derived(mergeProps(props, context.getItemTriggerProps(itemContext)));
+  let attrs = $derived(
+    mergeProps(props, context.getItemTriggerProps(itemContext)),
+  );
 </script>
 
 <button type="button" {...attrs}>

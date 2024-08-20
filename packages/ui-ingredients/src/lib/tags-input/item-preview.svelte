@@ -1,20 +1,24 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface TagsInputItemPreviewProps extends Assign<SvelteHTMLElements['div'], {}> {}
+  export interface TagsInputItemPreviewProps extends SvelteHtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useTagsInputContext, useTagsInputItemContext} from './context.svelte.js';
+  import {
+    useTagsInputContext,
+    useTagsInputItemContext,
+  } from './context.svelte.js';
 
   let {children, ...props}: TagsInputItemPreviewProps = $props();
 
   let context = useTagsInputContext();
   let itemContext = useTagsInputItemContext();
 
-  let attrs = $derived(mergeProps(props, context.getItemPreviewProps(itemContext)));
+  let attrs = $derived(
+    mergeProps(props, context.getItemPreviewProps(itemContext)),
+  );
 </script>
 
 <div {...attrs}>

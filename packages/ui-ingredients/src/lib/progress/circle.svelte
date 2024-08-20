@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface ProgressCircleProps extends Assign<SvelteHTMLElements['svg'], {}> {}
+  export interface ProgressCircleProps extends SvelteHtmlProps<'svg'> {}
 </script>
 
 <script lang="ts">

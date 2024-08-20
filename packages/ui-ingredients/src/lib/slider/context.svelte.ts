@@ -3,12 +3,15 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateSliderContextProps extends slider.Context {}
-export interface CreateSliderContextReturn extends ReturnType<typeof createSliderContext> {}
+export interface CreateSliderContextReturn
+  extends ReturnType<typeof createSliderContext> {}
 
 export function createSliderContext(props: CreateSliderContextProps) {
   const [state, send] = useMachine(slider.machine(props));
 
-  const api = $derived(reflect(() => slider.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => slider.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

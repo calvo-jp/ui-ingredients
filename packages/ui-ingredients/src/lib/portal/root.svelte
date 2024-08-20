@@ -15,6 +15,6 @@
   let {children, ...props}: PortalProps = $props();
 </script>
 
-<div use:portal={props} data-portal>
+<div use:portal={props}>
   {@render children?.()}
 </div>

@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateSelectContextProps, CreateSelectContextReturn} from './context.svelte.js';
+  import type {
+    CreateSelectContextProps,
+    CreateSelectContextReturn,
+  } from './context.svelte.js';
 
   export interface SelectProps<T>
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateSelectContextProps<T>>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateSelectContextProps<T>, 'id'>
     > {
     children?: Snippet<[context: CreateSelectContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createSelectContext, setSelectContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     form,
@@ -54,7 +56,7 @@
   }: SelectProps<T> = $props();
 
   let context = createSelectContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     form,

@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/steps';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface StepsContentProps extends Assign<SvelteHTMLElements['div'], ItemProps> {}
+  export interface StepsContentProps
+    extends Assign<SvelteHtmlProps<'div'>, ItemProps> {}
 </script>
 
 <script lang="ts">

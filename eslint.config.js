@@ -32,6 +32,12 @@ export default [
     },
   },
   {
-    ignores: ['**/node_modules', '**/.svelte-kit', '**/dist', '**/build', '**/.vercel'],
+    ignores: [
+      '**/node_modules',
+      '**/.svelte-kit',
+      '**/dist',
+      '**/build',
+      '**/.vercel',
+    ],
   },
 ];

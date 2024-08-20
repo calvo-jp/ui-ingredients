@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateCheckboxContextProps, CreateCheckboxContextReturn} from './context.svelte.js';
+  import type {
+    CreateCheckboxContextProps,
+    CreateCheckboxContextReturn,
+  } from './context.svelte.js';
 
   export interface CheckboxProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['label']>,
-      OptionalId<CreateCheckboxContextProps>
+      Omit<SvelteHtmlProps<'label'>, 'children'>,
+      Omit<CreateCheckboxContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateCheckboxContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createCheckboxContext, setCheckboxContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     form,
@@ -37,7 +39,7 @@
   }: CheckboxProps = $props();
 
   let context = createCheckboxContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     form,

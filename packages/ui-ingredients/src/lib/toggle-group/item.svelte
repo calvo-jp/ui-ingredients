@@ -1,11 +1,10 @@
 <script lang="ts" context="module">
-  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/toggle-group';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface ToggleGroupItemProps
-    extends Assign<WithoutChildren<SvelteHTMLElements['button']>, ItemProps> {
+    extends Assign<Omit<SvelteHtmlProps<'button'>, 'children'>, ItemProps> {
     children?: Snippet<[state: ItemState]>;
   }
 </script>
@@ -20,7 +19,9 @@
 
   let state = $derived(context.getItemState({value}));
 
-  let attrs = $derived(mergeProps(props, context.getItemProps({value, disabled})));
+  let attrs = $derived(
+    mergeProps(props, context.getItemProps({value, disabled})),
+  );
 </script>
 
 <button type="button" {...attrs}>

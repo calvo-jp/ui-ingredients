@@ -9,7 +9,9 @@ export interface CreateRatingGroupContextReturn
 export function createRatingGroupContext(props: CreateRatingGroupContextProps) {
   const [state, send] = useMachine(ratingGroup.machine(props));
 
-  const api = $derived(reflect(() => ratingGroup.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => ratingGroup.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

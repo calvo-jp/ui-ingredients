@@ -3,12 +3,15 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateProgressContextProps extends progress.Context {}
-export interface CreateProgressContextReturn extends ReturnType<typeof createProgressContext> {}
+export interface CreateProgressContextReturn
+  extends ReturnType<typeof createProgressContext> {}
 
 export function createProgressContext(props: CreateProgressContextProps) {
   const [state, send] = useMachine(progress.machine(props));
 
-  const api = $derived(reflect(() => progress.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => progress.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

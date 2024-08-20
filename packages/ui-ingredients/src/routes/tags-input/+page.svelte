@@ -14,7 +14,9 @@
   class="max-w-[24rem]"
 >
   {#snippet children(context)}
-    <TagsInput.Label class="mb-1 inline-block text-neutral-400">Frameworks</TagsInput.Label>
+    <TagsInput.Label class="mb-1 inline-block text-neutral-400"
+      >Frameworks</TagsInput.Label
+    >
 
     <div class="flex min-h-11 flex-wrap gap-2 border p-2">
       <TagsInput.Control class="flex flex-wrap gap-2">
@@ -24,7 +26,9 @@
               class="flex h-full shrink-0 items-center gap-1 border bg-neutral-800/50 px-1.5 text-sm leading-[0.875rem]"
             >
               <TagsInput.ItemText>{value}</TagsInput.ItemText>
-              <TagsInput.ItemDeleteTrigger class="flex items-center justify-center">
+              <TagsInput.ItemDeleteTrigger
+                class="flex items-center justify-center"
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -50,7 +54,8 @@
       />
     </div>
 
-    <TagsInput.ClearTrigger class="mt-4 block h-11 w-full border bg-neutral-800/50"
+    <TagsInput.ClearTrigger
+      class="mt-4 block h-11 w-full border bg-neutral-800/50"
       >Clear</TagsInput.ClearTrigger
     >
 

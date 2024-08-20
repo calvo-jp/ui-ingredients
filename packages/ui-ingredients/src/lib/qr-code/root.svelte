@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateQRCodeContextProps, CreateQRCodeContextReturn} from './context.svelte.js';
+  import type {
+    CreateQRCodeContextProps,
+    CreateQRCodeContextReturn,
+  } from './context.svelte.js';
 
   export interface QRCodeProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateQRCodeContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateQRCodeContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateQRCodeContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createQRCodeContext, setQRCodeContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     value,
@@ -30,7 +32,7 @@
   }: QRCodeProps = $props();
 
   let context = createQRCodeContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     value: $state.snapshot(value),

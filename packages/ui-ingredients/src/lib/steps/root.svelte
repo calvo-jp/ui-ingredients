@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateStepsContextProps, CreateStepsContextReturn} from './context.svelte.js';
+  import type {
+    CreateStepsContextProps,
+    CreateStepsContextReturn,
+  } from './context.svelte.js';
 
   export interface StepsProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateStepsContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateStepsContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateStepsContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createStepsContext, setStepsContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     step,
@@ -34,7 +36,7 @@
   }: StepsProps = $props();
 
   let context = createStepsContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     step,

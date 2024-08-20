@@ -9,7 +9,9 @@ export interface CreateCollapsibleContextReturn
 export function createCollapsibleContext(props: CreateCollapsibleContextProps) {
   const [state, send] = useMachine(collapsible.machine(props));
 
-  const api = $derived(reflect(() => collapsible.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => collapsible.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

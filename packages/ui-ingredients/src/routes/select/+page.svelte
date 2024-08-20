@@ -28,8 +28,12 @@
   }}
 >
   <Select.Control class="max-w-[20rem]">
-    <Select.Label class="mb-1 inline-block text-neutral-500">Framework</Select.Label>
-    <Select.Trigger class="flex h-11 w-full items-center gap-2 border px-3 text-left">
+    <Select.Label class="mb-1 inline-block text-neutral-500"
+      >Framework</Select.Label
+    >
+    <Select.Trigger
+      class="flex h-11 w-full items-center gap-2 border px-3 text-left"
+    >
       <Select.ValueText placeholder="Please Select" class="grow" />
       <Select.Indicator class="group">
         <svg
@@ -55,7 +59,9 @@
       class="data-open:animate-fade-in data-closed:animate-fade-out border bg-neutral-800 px-3 py-2"
     >
       <Select.ItemGroup>
-        <Select.ItemGroupLabel class="text-sm text-neutral-500">Frameworks</Select.ItemGroupLabel>
+        <Select.ItemGroupLabel class="text-sm text-neutral-500"
+          >Frameworks</Select.ItemGroupLabel
+        >
 
         {#each items as item}
           <Select.Item

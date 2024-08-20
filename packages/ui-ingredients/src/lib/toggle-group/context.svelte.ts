@@ -9,7 +9,9 @@ export interface CreateToggleGroupContextReturn
 export function createToggleGroupContext(props: CreateToggleGroupContextProps) {
   const [state, send] = useMachine(toggleGroup.machine(props));
 
-  const api = $derived(reflect(() => toggleGroup.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => toggleGroup.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

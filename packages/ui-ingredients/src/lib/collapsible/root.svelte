@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {
     CreateCollapsibleContextProps,
     CreateCollapsibleContextReturn,
@@ -9,8 +8,8 @@
 
   export interface CollapsibleProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateCollapsibleContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateCollapsibleContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateCollapsibleContextReturn]>;
   }
@@ -19,10 +18,13 @@
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createCollapsibleContext, setCollapsibleContext} from './context.svelte.js';
+  import {
+    createCollapsibleContext,
+    setCollapsibleContext,
+  } from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     open,
@@ -36,7 +38,7 @@
   }: CollapsibleProps = $props();
 
   let context = createCollapsibleContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     open,

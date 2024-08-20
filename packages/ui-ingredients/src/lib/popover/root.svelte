@@ -1,9 +1,12 @@
 <script lang="ts" context="module">
-  import type {OptionalId} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreatePopoverContextProps, CreatePopoverContextReturn} from './context.svelte.js';
+  import type {
+    CreatePopoverContextProps,
+    CreatePopoverContextReturn,
+  } from './context.svelte.js';
 
-  export interface PopoverProps extends OptionalId<CreatePopoverContextProps> {
+  export interface PopoverProps extends Omit<CreatePopoverContextProps, 'id'> {
+    id?: string | null;
     children?: Snippet<[CreatePopoverContextReturn]>;
   }
 </script>
@@ -12,9 +15,12 @@
   import {uuid} from '$lib/utils.svelte.js';
   import {createPopoverContext, setPopoverContext} from './context.svelte.js';
 
-  let {id = uuid(), children, ...props}: PopoverProps = $props();
+  let {id, children, ...props}: PopoverProps = $props();
 
-  let context = createPopoverContext({id, ...props});
+  let context = createPopoverContext({
+    id: id ?? uuid(),
+    ...props,
+  });
 
   setPopoverContext(context);
 </script>

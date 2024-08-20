@@ -3,12 +3,15 @@ import * as tabs from '@zag-js/tabs';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateTabsContextProps extends tabs.Context {}
-export interface CreateTabsContextReturn extends ReturnType<typeof createTabsContext> {}
+export interface CreateTabsContextReturn
+  extends ReturnType<typeof createTabsContext> {}
 
 export function createTabsContext(props: CreateTabsContextProps) {
   const [state, send] = useMachine(tabs.machine(props));
 
-  const api = $derived(reflect(() => tabs.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => tabs.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

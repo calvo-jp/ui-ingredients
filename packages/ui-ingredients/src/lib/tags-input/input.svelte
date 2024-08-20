@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface TagsInputInputProps extends Assign<SvelteHTMLElements['input'], {}> {}
+  export interface TagsInputInputProps extends SvelteHtmlProps<'input'> {}
 </script>
 
 <script lang="ts">

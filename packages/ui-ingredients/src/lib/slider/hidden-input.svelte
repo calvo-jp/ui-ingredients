@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface SliderHiddenInputProps extends Assign<SvelteHTMLElements['input'], {}> {}
+  export interface SliderHiddenInputProps extends SvelteHtmlProps<'input'> {}
 </script>
 
 <script lang="ts">
@@ -14,7 +13,9 @@
   let context = useSliderContext();
   let thumbContext = useSliderThumbContext();
 
-  let attrs = $derived(mergeProps(props, context.getHiddenInputProps(thumbContext)));
+  let attrs = $derived(
+    mergeProps(props, context.getHiddenInputProps(thumbContext)),
+  );
 </script>
 
 <input {...attrs} />

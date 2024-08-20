@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {
     CreateClipboardContextProps,
     CreateClipboardContextReturn,
@@ -9,8 +8,8 @@
 
   export interface ClipboardProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateClipboardContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateClipboardContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateClipboardContextReturn]>;
   }
@@ -19,10 +18,13 @@
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createClipboardContext, setClipboardContext} from './context.svelte.js';
+  import {
+    createClipboardContext,
+    setClipboardContext,
+  } from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     value,
     timeout,
@@ -33,7 +35,7 @@
   }: ClipboardProps = $props();
 
   let context = createClipboardContext({
-    id,
+    id: id ?? uuid(),
     ids,
     value: $state.snapshot(value),
     timeout,

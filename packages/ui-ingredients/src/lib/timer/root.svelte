@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateTimerContextProps, CreateTimerContextReturn} from './context.svelte.js';
+  import type {
+    CreateTimerContextProps,
+    CreateTimerContextReturn,
+  } from './context.svelte.js';
 
   export interface TimerProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateTimerContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateTimerContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateTimerContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createTimerContext, setTimerContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     startMs,
     targetMs,
     interval,
@@ -33,7 +35,7 @@
   }: TimerProps = $props();
 
   let context = createTimerContext({
-    id,
+    id: id ?? uuid(),
     startMs,
     targetMs,
     interval,

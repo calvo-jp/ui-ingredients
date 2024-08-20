@@ -1,24 +1,30 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemGroupProps} from '@zag-js/combobox';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface ComboboxItemGroupProps
-    extends Assign<SvelteHTMLElements['div'], OptionalId<ItemGroupProps>> {}
+    extends Assign<SvelteHtmlProps<'div'>, Omit<ItemGroupProps, 'id'>> {}
 </script>
 
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {setComboboxItemGroupContext, useComboboxContext} from './context.svelte.js';
+  import {
+    setComboboxItemGroupContext,
+    useComboboxContext,
+  } from './context.svelte.js';
 
-  let {id = uuid(), children, ...props}: ComboboxItemGroupProps = $props();
+  let {id, children, ...props}: ComboboxItemGroupProps = $props();
 
   let context = useComboboxContext();
 
-  let attrs = $derived(mergeProps(props, context.getItemGroupProps({id})));
+  let uid = uuid();
 
-  setComboboxItemGroupContext({id});
+  let attrs = $derived(
+    mergeProps(props, context.getItemGroupProps({id: id ?? uid})),
+  );
+
+  setComboboxItemGroupContext({id: id ?? uid});
 </script>
 
 <div {...attrs}>

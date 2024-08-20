@@ -1,18 +1,20 @@
 <script lang="ts" context="module">
-  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/combobox';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface ComboboxItemProps
-    extends Assign<WithoutChildren<SvelteHTMLElements['div']>, ItemProps> {
+    extends Assign<Omit<SvelteHtmlProps<'div'>, 'children'>, ItemProps> {
     children?: Snippet<[state: ItemState]>;
   }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {setComboboxItemContext, useComboboxContext} from './context.svelte.js';
+  import {
+    setComboboxItemContext,
+    useComboboxContext,
+  } from './context.svelte.js';
 
   let {children, item, persistFocus, ...props}: ComboboxItemProps = $props();
 

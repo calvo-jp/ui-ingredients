@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateComboboxContextProps, CreateComboboxContextReturn} from './context.svelte.js';
+  import type {
+    CreateComboboxContextProps,
+    CreateComboboxContextReturn,
+  } from './context.svelte.js';
 
   export interface ComboboxProps<T>
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateComboboxContextProps<T>>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateComboboxContextProps<T>, 'id'>
     > {
     children?: Snippet<[context: CreateComboboxContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createComboboxContext, setComboboxContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     name,
@@ -67,7 +69,7 @@
   }: ComboboxProps<T> = $props();
 
   let context = createComboboxContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     name,

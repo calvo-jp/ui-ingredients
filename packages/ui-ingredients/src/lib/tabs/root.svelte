@@ -1,11 +1,16 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateTabsContextProps, CreateTabsContextReturn} from './context.svelte.js';
+  import type {
+    CreateTabsContextProps,
+    CreateTabsContextReturn,
+  } from './context.svelte.js';
 
   export interface TabsProps
-    extends Assign<WithoutChildren<SvelteHTMLElements['div']>, OptionalId<CreateTabsContextProps>> {
+    extends Assign<
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateTabsContextProps, 'id'>
+    > {
     children?: Snippet<[context: CreateTabsContextReturn]>;
   }
 </script>
@@ -16,7 +21,7 @@
   import {createTabsContext, setTabsContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     value,
@@ -33,7 +38,7 @@
   }: TabsProps = $props();
 
   let context = createTabsContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     value: $state.snapshot(value),

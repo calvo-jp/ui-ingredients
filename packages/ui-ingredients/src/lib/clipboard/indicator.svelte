@@ -1,10 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {IndicatorProps} from '@zag-js/clipboard';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface ClipboardIndicatorProps
-    extends Assign<SvelteHTMLElements['span'], Partial<IndicatorProps>> {}
+    extends Assign<SvelteHtmlProps<'span'>, Partial<IndicatorProps>> {}
 </script>
 
 <script lang="ts">

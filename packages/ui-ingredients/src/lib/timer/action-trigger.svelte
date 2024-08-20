@@ -1,10 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ActionTriggerProps} from '@zag-js/timer';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface TimerActionTriggerProps
-    extends Assign<SvelteHTMLElements['button'], ActionTriggerProps> {}
+    extends Assign<SvelteHtmlProps<'button'>, ActionTriggerProps> {}
 </script>
 
 <script lang="ts">
@@ -15,7 +14,9 @@
 
   let context = useTimerContext();
 
-  let attrs = $derived(mergeProps(props, context.getActionTriggerProps({action})));
+  let attrs = $derived(
+    mergeProps(props, context.getActionTriggerProps({action})),
+  );
 </script>
 
 <button type="button" {...attrs}>

@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface SelectItemGroupLabelProps extends Assign<SvelteHTMLElements['span'], {}> {}
+  export interface SelectItemGroupLabelProps extends SvelteHtmlProps<'span'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useSelectContext, useSelectItemGroupContext} from './context.svelte.js';
+  import {
+    useSelectContext,
+    useSelectItemGroupContext,
+  } from './context.svelte.js';
 
   let {children, ...props}: SelectItemGroupLabelProps = $props();
 
@@ -15,7 +17,10 @@
   let itemGroupContext = useSelectItemGroupContext();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemGroupLabelProps({htmlFor: itemGroupContext.id})),
+    mergeProps(
+      props,
+      context.getItemGroupLabelProps({htmlFor: itemGroupContext.id}),
+    ),
   );
 </script>
 

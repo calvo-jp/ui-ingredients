@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface ComboboxLabelProps extends Assign<SvelteHTMLElements['label'], {}> {}
+  export interface ComboboxLabelProps extends SvelteHtmlProps<'label'> {}
 </script>
 
 <script lang="ts">

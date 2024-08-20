@@ -3,12 +3,15 @@ import * as tooltip from '@zag-js/tooltip';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateTooltipContextProps extends tooltip.Context {}
-export interface CreateTooltipContextReturn extends ReturnType<typeof createTooltipContext> {}
+export interface CreateTooltipContextReturn
+  extends ReturnType<typeof createTooltipContext> {}
 
 export function createTooltipContext(props: CreateTooltipContextProps) {
   const [state, send] = useMachine(tooltip.machine(props));
 
-  const api = $derived(reflect(() => tooltip.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => tooltip.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

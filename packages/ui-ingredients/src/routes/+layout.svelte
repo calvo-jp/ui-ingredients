@@ -120,7 +120,9 @@
     },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
-  let currentItem = $derived(items.find((item) => item.path === page.current.url.pathname));
+  let currentItem = $derived(
+    items.find((item) => item.path === page.current.url.pathname),
+  );
 </script>
 
 <svelte:head>
@@ -128,7 +130,9 @@
 </svelte:head>
 
 <div class="flex items-start">
-  <nav class="sticky top-0 h-dvh w-[20rem] shrink-0 border-r border-neutral-800 p-12">
+  <nav
+    class="sticky top-0 h-dvh w-[20rem] shrink-0 border-r border-neutral-800 p-12"
+  >
     <ul>
       {#each items as item}
         <li class="block w-full">

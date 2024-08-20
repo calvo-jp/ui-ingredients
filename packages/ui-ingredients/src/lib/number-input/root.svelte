@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {
     CreateNumberInputContextProps,
     CreateNumberInputContextReturn,
@@ -9,8 +8,8 @@
 
   export interface NumberInputProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateNumberInputContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateNumberInputContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateNumberInputContextReturn]>;
   }
@@ -19,10 +18,13 @@
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createNumberInputContext, setNumberInputContext} from './context.svelte.js';
+  import {
+    createNumberInputContext,
+    setNumberInputContext,
+  } from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     max,
@@ -54,7 +56,7 @@
   }: NumberInputProps = $props();
 
   let context = createNumberInputContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     max,

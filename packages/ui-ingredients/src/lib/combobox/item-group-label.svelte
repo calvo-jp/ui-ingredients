@@ -1,13 +1,16 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface ComboboxItemGroupLabelProps extends Assign<SvelteHTMLElements['span'], {}> {}
+  export interface ComboboxItemGroupLabelProps
+    extends SvelteHtmlProps<'span'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useComboboxContext, useComboboxItemGroupContext} from './context.svelte.js';
+  import {
+    useComboboxContext,
+    useComboboxItemGroupContext,
+  } from './context.svelte.js';
 
   let {children, ...props}: ComboboxItemGroupLabelProps = $props();
 

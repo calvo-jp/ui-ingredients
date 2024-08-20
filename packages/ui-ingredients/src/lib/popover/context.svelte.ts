@@ -3,12 +3,15 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreatePopoverContextProps extends popover.Context {}
-export interface CreatePopoverContextReturn extends ReturnType<typeof createPopoverContext> {}
+export interface CreatePopoverContextReturn
+  extends ReturnType<typeof createPopoverContext> {}
 
 export function createPopoverContext(props: CreatePopoverContextProps) {
   const [state, send] = useMachine(popover.machine(props));
 
-  const api = $derived(reflect(() => popover.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => popover.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

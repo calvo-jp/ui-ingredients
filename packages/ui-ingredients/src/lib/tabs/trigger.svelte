@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {TriggerProps} from '@zag-js/tabs';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface TabsTriggerProps extends Assign<SvelteHTMLElements['button'], TriggerProps> {}
+  export interface TabsTriggerProps
+    extends Assign<SvelteHtmlProps<'button'>, TriggerProps> {}
 </script>
 
 <script lang="ts">
@@ -14,7 +14,9 @@
 
   let context = useTabsContext();
 
-  let attrs = $derived(mergeProps(props, context.getTriggerProps({value, disabled})));
+  let attrs = $derived(
+    mergeProps(props, context.getTriggerProps({value, disabled})),
+  );
 </script>
 
 <button type="button" {...attrs}>

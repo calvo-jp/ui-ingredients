@@ -3,12 +3,15 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateClipboardContextProps extends clipboard.Context {}
-export interface CreateClipboardContextReturn extends ReturnType<typeof createClipboardContext> {}
+export interface CreateClipboardContextReturn
+  extends ReturnType<typeof createClipboardContext> {}
 
 export function createClipboardContext(props: CreateClipboardContextProps) {
   const [state, send] = useMachine(clipboard.machine(props));
 
-  const api = $derived(reflect(() => clipboard.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => clipboard.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

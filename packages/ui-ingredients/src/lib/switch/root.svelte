@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateSwitchContextProps, CreateSwitchContextReturn} from './context.svelte.js';
+  import type {
+    CreateSwitchContextProps,
+    CreateSwitchContextReturn,
+  } from './context.svelte.js';
 
   export interface SwitchProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['label']>,
-      OptionalId<CreateSwitchContextProps>
+      Omit<SvelteHtmlProps<'label'>, 'children'>,
+      Omit<CreateSwitchContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateSwitchContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createSwitchContext, setSwitchContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     form,
@@ -38,7 +40,7 @@
   }: SwitchProps = $props();
 
   let context = createSwitchContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     form,

@@ -18,7 +18,9 @@
     value = detail.value;
   }}
 >
-  <RadioGroup.Label class="mb-1.5 inline-block text-neutral-400">Choose one</RadioGroup.Label>
+  <RadioGroup.Label class="mb-1.5 inline-block text-neutral-400"
+    >Choose one</RadioGroup.Label
+  >
 
   <div class="flex flex-col gap-1">
     {#each items as { value, label }}

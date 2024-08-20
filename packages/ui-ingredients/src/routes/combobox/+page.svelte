@@ -22,7 +22,9 @@
   let inputValue = $state('');
 
   let matches = $derived(
-    items.filter((item) => item.label.toLowerCase().includes(inputValue.toLowerCase())),
+    items.filter((item) =>
+      item.label.toLowerCase().includes(inputValue.toLowerCase()),
+    ),
   );
 
   $inspect({
@@ -48,7 +50,9 @@
     sameWidth: true,
   }}
 >
-  <Combobox.Label class="mb-1 inline-block text-neutral-400">Select Frameworks</Combobox.Label>
+  <Combobox.Label class="mb-1 inline-block text-neutral-400"
+    >Select Frameworks</Combobox.Label
+  >
   <Combobox.Control class="flex max-w-[20rem]">
     <Combobox.Input class="h-11 grow border px-3" />
     <Combobox.Trigger

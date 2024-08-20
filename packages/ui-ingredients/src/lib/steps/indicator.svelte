@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface StepsIndicatorProps extends Assign<SvelteHTMLElements['div'], {}> {}
+  export interface StepsIndicatorProps extends SvelteHtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
@@ -14,7 +13,9 @@
   let context = useStepsContext();
   let itemContext = useStepsItemContext();
 
-  let attrs = $derived(mergeProps(props, context.getIndicatorProps(itemContext)));
+  let attrs = $derived(
+    mergeProps(props, context.getIndicatorProps(itemContext)),
+  );
 </script>
 
 <div {...attrs}>

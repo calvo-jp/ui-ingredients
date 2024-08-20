@@ -3,12 +3,15 @@ import * as timer from '@zag-js/timer';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateTimerContextProps extends timer.Context {}
-export interface CreateTimerContextReturn extends ReturnType<typeof createTimerContext> {}
+export interface CreateTimerContextReturn
+  extends ReturnType<typeof createTimerContext> {}
 
 export function createTimerContext(props: CreateTimerContextProps) {
   const [state, send] = useMachine(timer.machine(props));
 
-  const api = $derived(reflect(() => timer.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => timer.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

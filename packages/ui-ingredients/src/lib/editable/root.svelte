@@ -1,9 +1,13 @@
 <script lang="ts" context="module">
-  import type {OptionalId} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateEditableContextProps, CreateEditableContextReturn} from './context.svelte.js';
+  import type {
+    CreateEditableContextProps,
+    CreateEditableContextReturn,
+  } from './context.svelte.js';
 
-  export interface EditableProps extends OptionalId<CreateEditableContextProps> {
+  export interface EditableProps
+    extends Omit<CreateEditableContextProps, 'id'> {
+    id?: string | null;
     children?: Snippet<[CreateEditableContextReturn]>;
   }
 </script>
@@ -12,9 +16,12 @@
   import {uuid} from '$lib/utils.svelte.js';
   import {createEditableContext, setEditableContext} from './context.svelte.js';
 
-  let {id = uuid(), children, ...props}: EditableProps = $props();
+  let {id, children, ...props}: EditableProps = $props();
 
-  let context = createEditableContext({id, ...props});
+  let context = createEditableContext({
+    id: id ?? uuid(),
+    ...props,
+  });
 
   setEditableContext(context);
 </script>

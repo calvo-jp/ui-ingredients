@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface SelectItemTextProps extends Assign<SvelteHTMLElements['span'], {}> {}
+  export interface SelectItemTextProps extends SvelteHtmlProps<'span'> {}
 </script>
 
 <script lang="ts">
@@ -14,7 +13,9 @@
   let context = useSelectContext();
   let itemContext = useSelectItemContext();
 
-  let attrs = $derived(mergeProps(props, context.getItemTextProps(itemContext)));
+  let attrs = $derived(
+    mergeProps(props, context.getItemTextProps(itemContext)),
+  );
 </script>
 
 <span {...attrs}>

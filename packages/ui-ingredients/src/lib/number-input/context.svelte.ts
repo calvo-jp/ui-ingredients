@@ -9,7 +9,9 @@ export interface CreateNumberInputContextReturn
 export function createNumberInputContext(props: CreateNumberInputContextProps) {
   const [state, send] = useMachine(numberInput.machine(props));
 
-  const api = $derived(reflect(() => numberInput.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => numberInput.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

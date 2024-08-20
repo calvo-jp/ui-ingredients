@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateCarouselContextProps, CreateCarouselContextReturn} from './context.svelte.js';
+  import type {
+    CreateCarouselContextProps,
+    CreateCarouselContextReturn,
+  } from './context.svelte.js';
 
   export interface CarouselProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateCarouselContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateCarouselContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateCarouselContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createCarouselContext, setCarouselContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     loop,
@@ -35,7 +37,7 @@
   }: CarouselProps = $props();
 
   let context = createCarouselContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     loop,

@@ -61,10 +61,14 @@
   </div>
 
   <div class="mt-5 flex items-center gap-3">
-    <Steps.PrevTrigger class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50">
+    <Steps.PrevTrigger
+      class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50"
+    >
       Back
     </Steps.PrevTrigger>
-    <Steps.NextTrigger class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50">
+    <Steps.NextTrigger
+      class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50"
+    >
       Next
     </Steps.NextTrigger>
   </div>

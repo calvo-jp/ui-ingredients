@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ThumbProps} from '@zag-js/slider';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface SliderThumbProps extends Assign<SvelteHTMLElements['div'], ThumbProps> {}
+  export interface SliderThumbProps
+    extends Assign<SvelteHtmlProps<'div'>, ThumbProps> {}
 </script>
 
 <script lang="ts">

@@ -1,11 +1,10 @@
 <script lang="ts" context="module">
-  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/rating-group';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface RatingGroupItemProps
-    extends Assign<WithoutChildren<SvelteHTMLElements['div']>, ItemProps> {
+    extends Assign<Omit<SvelteHtmlProps<'div'>, 'children'>, ItemProps> {
     children: Snippet<[state: ItemState]>;
   }
 </script>

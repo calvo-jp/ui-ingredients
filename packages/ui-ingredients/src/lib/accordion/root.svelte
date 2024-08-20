@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {
     CreateAccordionContextProps,
     CreateAccordionContextReturn,
@@ -9,8 +8,8 @@
 
   export interface AccordionProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateAccordionContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateAccordionContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateAccordionContextReturn]>;
   }
@@ -19,10 +18,13 @@
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createAccordionContext, setAccordionContext} from './context.svelte.js';
+  import {
+    createAccordionContext,
+    setAccordionContext,
+  } from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     value,
@@ -38,7 +40,7 @@
   }: AccordionProps = $props();
 
   let context = createAccordionContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     value: $state.snapshot(value),

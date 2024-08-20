@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreateSliderContextProps, CreateSliderContextReturn} from './context.svelte.js';
+  import type {
+    CreateSliderContextProps,
+    CreateSliderContextReturn,
+  } from './context.svelte.js';
 
   export interface SliderProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateSliderContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateSliderContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateSliderContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createSliderContext, setSliderContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     max,
@@ -48,7 +50,7 @@
   }: SliderProps = $props();
 
   let context = createSliderContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     max,

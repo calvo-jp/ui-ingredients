@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/timer';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface TimerItemProps extends Assign<SvelteHTMLElements['div'], ItemProps> {}
+  export interface TimerItemProps
+    extends Assign<SvelteHtmlProps<'div'>, ItemProps> {}
 </script>
 
 <script lang="ts">

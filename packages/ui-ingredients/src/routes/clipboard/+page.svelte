@@ -3,7 +3,8 @@
 
   function randomString(length = 16) {
     let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
@@ -15,7 +16,9 @@
 </script>
 
 <Clipboard.Root value={randomString()}>
-  <Clipboard.Label class="mb-1 inline-block text-neutral-400">Token</Clipboard.Label>
+  <Clipboard.Label class="mb-1 inline-block text-neutral-400"
+    >Token</Clipboard.Label
+  >
   <Clipboard.Control class="flex gap-2">
     <Clipboard.Input class="h-11 border px-3.5" />
     <Clipboard.Trigger class="flex size-11 items-center justify-center border">

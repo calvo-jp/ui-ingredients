@@ -20,7 +20,9 @@
   </Carousel.Viewport>
 
   <div class="mx-auto mt-5 flex w-fit items-center gap-2">
-    <Carousel.PrevTrigger class="disabled:cursor-not-allowed disabled:opacity-50">
+    <Carousel.PrevTrigger
+      class="disabled:cursor-not-allowed disabled:opacity-50"
+    >
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -44,7 +46,9 @@
       {/each}
     </Carousel.IndicatorGroup>
 
-    <Carousel.NextTrigger class="disabled:cursor-not-allowed disabled:opacity-50">
+    <Carousel.NextTrigger
+      class="disabled:cursor-not-allowed disabled:opacity-50"
+    >
       <svg
         viewBox="0 0 24 24"
         fill="none"

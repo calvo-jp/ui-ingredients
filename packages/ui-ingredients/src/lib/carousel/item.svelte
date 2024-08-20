@@ -1,11 +1,10 @@
 <script lang="ts" context="module">
-  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/carousel';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface CarouselItemProps
-    extends Assign<WithoutChildren<SvelteHTMLElements['button']>, ItemProps> {
+    extends Assign<Omit<SvelteHtmlProps<'button'>, 'children'>, ItemProps> {
     children?: Snippet<[state: ItemState]>;
   }
 </script>

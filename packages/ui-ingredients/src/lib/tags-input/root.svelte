@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {
     CreateTagsInputContextProps,
     CreateTagsInputContextReturn,
@@ -9,8 +8,8 @@
 
   export interface TagsInputProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateTagsInputContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateTagsInputContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateTagsInputContextReturn]>;
   }
@@ -19,10 +18,13 @@
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createTagsInputContext, setTagsInputContext} from './context.svelte.js';
+  import {
+    createTagsInputContext,
+    setTagsInputContext,
+  } from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     max,
@@ -56,7 +58,7 @@
   }: TagsInputProps = $props();
 
   let context = createTagsInputContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     max,

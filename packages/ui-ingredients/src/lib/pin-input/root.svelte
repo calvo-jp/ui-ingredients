@@ -1,13 +1,15 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
-  import type {CreatePinInputContextProps, CreatePinInputContextReturn} from './context.svelte.js';
+  import type {
+    CreatePinInputContextProps,
+    CreatePinInputContextReturn,
+  } from './context.svelte.js';
 
   export interface PinInputProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreatePinInputContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreatePinInputContextProps, 'id'>
     > {
     children?: Snippet<[context: CreatePinInputContextReturn]>;
   }
@@ -19,7 +21,7 @@
   import {createPinInputContext, setPinInputContext} from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     otp,
@@ -47,7 +49,7 @@
   }: PinInputProps = $props();
 
   let context = createPinInputContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     otp,

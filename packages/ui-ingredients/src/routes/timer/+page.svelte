@@ -24,7 +24,13 @@
   $inspect(value);
 </script>
 
-<Timer.Root class="flex" startMs={1000 * 60 * 60} targetMs={1000 * 60 * 60 * 5} autoStart countdown>
+<Timer.Root
+  class="flex"
+  startMs={1000 * 60 * 60}
+  targetMs={1000 * 60 * 60 * 5}
+  autoStart
+  countdown
+>
   <Timer.Item type="hours">
     <Timer.ItemValue />
   </Timer.Item>

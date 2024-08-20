@@ -1,12 +1,11 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface ToastCloseTriggerProps extends Assign<SvelteHTMLElements['button'], {}> {}
+  export interface ToastCloseTriggerProps extends SvelteHtmlProps<'button'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import {useToastContext} from './context.svelte.js';
 
   let {children, ...props}: ToastCloseTriggerProps = $props();

@@ -1,10 +1,9 @@
 <script lang="ts" context="module">
-  import type {WithoutChildren} from '$lib/types.js';
+  import type {SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {CreateToastContextReturn} from './context.svelte.js';
 
-  export interface ToastProps extends WithoutChildren<SvelteHTMLElements['div']> {
+  export interface ToastProps extends Omit<SvelteHtmlProps<'div'>, 'children'> {
     children?: Snippet<[context: CreateToastContextReturn]>;
   }
 </script>

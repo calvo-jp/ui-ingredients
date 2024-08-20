@@ -1,12 +1,11 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface ToastTitleProps extends Assign<SvelteHTMLElements['div'], {}> {}
+  export interface ToastTitleProps extends SvelteHtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import {useToastContext} from './context.svelte.js';
 
   let {children, ...props}: ToastTitleProps = $props();

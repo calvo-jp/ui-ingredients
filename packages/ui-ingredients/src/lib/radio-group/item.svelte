@@ -1,20 +1,29 @@
 <script lang="ts" context="module">
-  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/radio-group';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
   export interface RadioGroupItemProps
-    extends Assign<WithoutChildren<SvelteHTMLElements['label']>, ItemProps> {
+    extends Assign<Omit<SvelteHtmlProps<'label'>, 'children'>, ItemProps> {
     children?: Snippet<[state: ItemState]>;
   }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {setRadioGroupItemContext, useRadioGroupContext} from './context.svelte.js';
+  import {
+    setRadioGroupItemContext,
+    useRadioGroupContext,
+  } from './context.svelte.js';
 
-  let {value, invalid, disabled, children, ...props}: RadioGroupItemProps = $props();
+  let {
+    /**/
+    value,
+    invalid,
+    disabled,
+    children,
+    ...props
+  }: RadioGroupItemProps = $props();
 
   let context = useRadioGroupContext();
 

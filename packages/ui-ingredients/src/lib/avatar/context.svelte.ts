@@ -3,12 +3,15 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateAvatarContextProps extends avatar.Context {}
-export interface CreateAvatarContextReturn extends ReturnType<typeof createAvatarContext> {}
+export interface CreateAvatarContextReturn
+  extends ReturnType<typeof createAvatarContext> {}
 
 export function createAvatarContext(props: CreateAvatarContextProps) {
   const [state, send] = useMachine(avatar.machine(props));
 
-  const api = $derived(reflect(() => avatar.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => avatar.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

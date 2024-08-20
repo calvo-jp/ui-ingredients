@@ -3,12 +3,15 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateRadioGroupContextProps extends radioGroup.Context {}
-export interface CreateRadioGroupContextReturn extends ReturnType<typeof createRadioGroupContext> {}
+export interface CreateRadioGroupContextReturn
+  extends ReturnType<typeof createRadioGroupContext> {}
 
 export function createRadioGroupContext(props: CreateRadioGroupContextProps) {
   const [state, send] = useMachine(radioGroup.machine(props));
 
-  const api = $derived(reflect(() => radioGroup.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => radioGroup.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

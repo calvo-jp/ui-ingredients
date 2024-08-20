@@ -1,20 +1,24 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {SvelteHtmlProps} from '$lib/types.js';
 
-  export interface RadioGroupItemTextProps extends Assign<SvelteHTMLElements['span'], {}> {}
+  export interface RadioGroupItemTextProps extends SvelteHtmlProps<'span'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useRadioGroupContext, useRadioGroupItemContext} from './context.svelte.js';
+  import {
+    useRadioGroupContext,
+    useRadioGroupItemContext,
+  } from './context.svelte.js';
 
   let {children, ...props}: RadioGroupItemTextProps = $props();
 
   let context = useRadioGroupContext();
   let itemContext = useRadioGroupItemContext();
 
-  let attrs = $derived(mergeProps(props, context.getItemTextProps(itemContext)));
+  let attrs = $derived(
+    mergeProps(props, context.getItemTextProps(itemContext)),
+  );
 </script>
 
 <span {...attrs}>

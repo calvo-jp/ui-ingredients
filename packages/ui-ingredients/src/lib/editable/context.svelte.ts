@@ -3,12 +3,15 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateEditableContextProps extends editable.Context {}
-export interface CreateEditableContextReturn extends ReturnType<typeof createEditableContext> {}
+export interface CreateEditableContextReturn
+  extends ReturnType<typeof createEditableContext> {}
 
 export function createEditableContext(props: CreateEditableContextProps) {
   const [state, send] = useMachine(editable.machine(props));
 
-  const api = $derived(reflect(() => editable.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => editable.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

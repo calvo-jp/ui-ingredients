@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type {Assign, OptionalId, WithoutChildren} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import type {
     CreateRadioGroupContextProps,
     CreateRadioGroupContextReturn,
@@ -9,8 +8,8 @@
 
   export interface RadioGroupProps
     extends Assign<
-      WithoutChildren<SvelteHTMLElements['div']>,
-      OptionalId<CreateRadioGroupContextProps>
+      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<CreateRadioGroupContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateRadioGroupContextReturn]>;
   }
@@ -19,10 +18,13 @@
 <script lang="ts">
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createRadioGroupContext, setRadioGroupContext} from './context.svelte.js';
+  import {
+    createRadioGroupContext,
+    setRadioGroupContext,
+  } from './context.svelte.js';
 
   let {
-    id = uuid(),
+    id,
     ids,
     dir,
     form,
@@ -38,7 +40,7 @@
   }: RadioGroupProps = $props();
 
   let context = createRadioGroupContext({
-    id,
+    id: id ?? uuid(),
     ids,
     dir,
     form,

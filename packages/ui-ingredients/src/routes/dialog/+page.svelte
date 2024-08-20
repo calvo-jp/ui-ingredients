@@ -23,7 +23,9 @@
       >
         <Dialog.Title class="text-xl font-semibold">Title</Dialog.Title>
         <Dialog.Description>Description</Dialog.Description>
-        <Dialog.CloseTrigger class="mt-3 h-10 w-full border">Close</Dialog.CloseTrigger>
+        <Dialog.CloseTrigger class="mt-3 h-10 w-full border"
+          >Close</Dialog.CloseTrigger
+        >
       </Dialog.Content>
     </Dialog.Positioner>
   </Portal>

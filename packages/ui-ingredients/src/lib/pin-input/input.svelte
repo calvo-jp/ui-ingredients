@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
   import type {InputProps} from '@zag-js/pin-input';
-  import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface PinInputInputProps extends Assign<SvelteHTMLElements['input'], InputProps> {}
+  export interface PinInputInputProps
+    extends Assign<SvelteHtmlProps<'input'>, InputProps> {}
 </script>
 
 <script lang="ts">

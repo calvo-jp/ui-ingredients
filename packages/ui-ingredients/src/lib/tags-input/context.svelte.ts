@@ -3,12 +3,15 @@ import * as tagsInput from '@zag-js/tags-input';
 import {getContext, setContext} from 'svelte';
 
 export interface CreateTagsInputContextProps extends tagsInput.Context {}
-export interface CreateTagsInputContextReturn extends ReturnType<typeof createTagsInputContext> {}
+export interface CreateTagsInputContextReturn
+  extends ReturnType<typeof createTagsInputContext> {}
 
 export function createTagsInputContext(props: CreateTagsInputContextProps) {
   const [state, send] = useMachine(tagsInput.machine(props));
 
-  const api = $derived(reflect(() => tagsInput.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => tagsInput.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }
