@@ -45,7 +45,7 @@ npm install ui-ingredients
 - 🟢 Combobox
 - 🟡 DatePicker
 - 🟢 Dialog
-- ⚪ Editable
+- 🟡 Editable
 - ⚪ FileUpload
 - 🟢 HoverCard
 - 🟡 Menu
@@ -56,7 +56,7 @@ npm install ui-ingredients
 - 🟢 Portal
 - 🟢 Presence
 - 🟢 Progress
-- ⚪ QRCode
+- 🟢 QRCode
 - 🟢 RadioGroup
 - ⚪ RatingGroup
 - 🟢 Select
@@ -66,8 +66,8 @@ npm install ui-ingredients
 - 🟢 Steps
 - 🟢 Switch
 - 🟢 Tabs
-- 🟡 TagsInput
-- ⚪ Timer
+- 🟢 TagsInput
+- 🟢 Timer
 - 🟢 Toast
 - 🟢 ToggleGroup
 - 🟢 Tooltip
