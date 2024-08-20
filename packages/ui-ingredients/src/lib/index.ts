@@ -133,6 +133,13 @@ export type {
   ProgressTrackProps,
   ProgressValueTextProps,
 } from './progress/index.js';
+export * as QRCode from './qr-code/index.js';
+export type {
+  QRCodeFrameProps,
+  QRCodeOverlayProps,
+  QRCodePatternProps,
+  QRCodeProps,
+} from './qr-code/index.js';
 export * as RadioGroup from './radio-group/index.js';
 export type {
   RadioGroupIndicatorProps,
@@ -230,10 +237,12 @@ export {anatomy as carouselAnatomy} from '@zag-js/carousel';
 export {anatomy as checkboxAnatomy} from '@zag-js/checkbox';
 export {anatomy as clipboardAnatomy} from '@zag-js/clipboard';
 export {anatomy as collapsibleAnatomy} from '@zag-js/collapsible';
+export {anatomy as colorPickerAnatomy} from '@zag-js/color-picker';
 export {anatomy as comboboxAnatomy} from '@zag-js/combobox';
 export {anatomy as datePickerAnatomy} from '@zag-js/date-picker';
 export {anatomy as dialogAnatomy} from '@zag-js/dialog';
 export {anatomy as editableAnatomy} from '@zag-js/editable';
+export {anatomy as fileUploadAnatomy} from '@zag-js/file-upload';
 export {anatomy as hoverCardAnatomy} from '@zag-js/hover-card';
 export {anatomy as menuAnatomy} from '@zag-js/menu';
 export {anatomy as numberInputAnatomy} from '@zag-js/number-input';
@@ -241,14 +250,17 @@ export {anatomy as paginationAnatomy} from '@zag-js/pagination';
 export {anatomy as pinInputAnatomy} from '@zag-js/pin-input';
 export {anatomy as popoverAnatomy} from '@zag-js/popover';
 export {anatomy as progressAnatomy} from '@zag-js/progress';
+export {anatomy as qrCodeAnatomy} from '@zag-js/qr-code';
 export {anatomy as radioGroupAnatomy} from '@zag-js/radio-group';
 export {anatomy as ratingGroupAnatomy} from '@zag-js/rating-group';
 export {anatomy as selectAnatomy} from '@zag-js/select';
+export {anatomy as signaturePadAnatomy} from '@zag-js/signature-pad';
 export {anatomy as sliderAnatomy} from '@zag-js/slider';
 export {anatomy as stepsAnatomy} from '@zag-js/steps';
 export {anatomy as switchAnatomy} from '@zag-js/switch';
 export {anatomy as tabsAnatomy} from '@zag-js/tabs';
 export {anatomy as tagsInputAnatomy} from '@zag-js/tags-input';
+export {anatomy as timerAnatomy} from '@zag-js/timer';
 export {anatomy as toastAnatomy} from '@zag-js/toast';
 export {anatomy as toggleGroupAnatomy} from '@zag-js/toggle-group';
 export {anatomy as tooltipAnatomy} from '@zag-js/tooltip';

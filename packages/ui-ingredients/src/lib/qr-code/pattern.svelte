@@ -1,0 +1,21 @@
+<script lang="ts" context="module">
+  import type {Assign} from '$lib/types.js';
+  import type {SvelteHTMLElements} from 'svelte/elements';
+
+  export interface QRCodePatternProps extends Assign<SvelteHTMLElements['path'], {}> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {useQRCodeContext} from './context.svelte.js';
+
+  let {children, ...props}: QRCodePatternProps = $props();
+
+  let context = useQRCodeContext();
+
+  let attrs = $derived(mergeProps(props, context.getPatternProps()));
+</script>
+
+<path {...attrs}>
+  {@render children?.()}
+</path>

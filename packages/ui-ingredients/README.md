@@ -56,7 +56,7 @@ npm install ui-ingredients
 - 🟢 Portal
 - 🟢 Presence
 - 🟢 Progress
-- ⚪ QRCode
+- 🟢 QRCode
 - 🟢 RadioGroup
 - ⚪ RatingGroup
 - 🟢 Select
