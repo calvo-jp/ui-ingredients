@@ -55,9 +55,9 @@
       </Steps.Content>
     {/each}
 
-    <Steps.Content index={items.length} class="max-w-[32rem] bg-neutral-800 p-5">
-      Done!🚀
-    </Steps.Content>
+    <Steps.Content index={items.length} class="max-w-[32rem] bg-neutral-800 p-5"
+      >Done!🚀</Steps.Content
+    >
   </div>
 
   <div class="mt-5 flex items-center gap-3">

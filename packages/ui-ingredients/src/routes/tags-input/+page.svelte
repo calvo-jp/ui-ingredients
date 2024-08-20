@@ -49,9 +49,9 @@
       />
     </div>
 
-    <TagsInput.ClearTrigger class="mt-4 block h-11 w-full border bg-neutral-800/50">
-      Clear
-    </TagsInput.ClearTrigger>
+    <TagsInput.ClearTrigger class="mt-4 block h-11 w-full border bg-neutral-800/50"
+      >Clear</TagsInput.ClearTrigger
+    >
 
     <TagsInput.HiddenInput />
   {/snippet}

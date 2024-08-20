@@ -43,9 +43,9 @@
           {page.value}
         </Pagination.Item>
       {:else}
-        <Pagination.Ellipsis {index} class="flex size-11 items-center justify-center">
-          ...
-        </Pagination.Ellipsis>
+        <Pagination.Ellipsis {index} class="flex size-11 items-center justify-center"
+          >...</Pagination.Ellipsis
+        >
       {/if}
     {/each}
 

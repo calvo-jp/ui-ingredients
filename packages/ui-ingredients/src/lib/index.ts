@@ -75,6 +75,18 @@ export type {
   DialogTitleProps,
   DialogTriggerProps,
 } from './dialog/index.js';
+export * as Editable from './editable/index.js';
+export type {
+  EditableAreaProps,
+  EditableCancelTriggerProps,
+  EditableControlProps,
+  EditableEditTriggerProps,
+  EditableInputProps,
+  EditableLabelProps,
+  EditablePreviewProps,
+  EditableProps,
+  EditableSubmitTriggerProps,
+} from './editable/index.js';
 export * as HoverCard from './hover-card/index.js';
 export type {
   HoverCardArrowProps,
