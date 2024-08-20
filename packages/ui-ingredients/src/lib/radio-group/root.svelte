@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateRadioGroupContextProps>
     > {
-    children?: Snippet<[CreateRadioGroupContextReturn]>;
+    children?: Snippet<[context: CreateRadioGroupContextReturn]>;
   }
 </script>
 

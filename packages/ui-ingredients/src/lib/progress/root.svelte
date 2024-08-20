@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateProgressContextProps>
     > {
-    children?: Snippet<[CreateProgressContextReturn]>;
+    children?: Snippet<[context: CreateProgressContextReturn]>;
   }
 </script>
 

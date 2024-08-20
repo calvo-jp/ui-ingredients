@@ -1,9 +1,13 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {ItemProps} from '@zag-js/radio-group';
+  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {ItemProps, ItemState} from '@zag-js/radio-group';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface RadioGroupItemProps extends Assign<SvelteHTMLElements['label'], ItemProps> {}
+  export interface RadioGroupItemProps
+    extends Assign<WithoutChildren<SvelteHTMLElements['label']>, ItemProps> {
+    children?: Snippet<[state: ItemState]>;
+  }
 </script>
 
 <script lang="ts">
@@ -13,6 +17,14 @@
   let {value, invalid, disabled, children, ...props}: RadioGroupItemProps = $props();
 
   let context = useRadioGroupContext();
+
+  let state = $derived(
+    context.getItemState({
+      value,
+      invalid,
+      disabled,
+    }),
+  );
 
   let attrs = $derived(
     mergeProps(
@@ -33,5 +45,5 @@
 </script>
 
 <label {...attrs}>
-  {@render children?.()}
+  {@render children?.(state)}
 </label>

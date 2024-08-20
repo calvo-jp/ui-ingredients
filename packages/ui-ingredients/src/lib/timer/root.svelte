@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateTimerContextProps>
     > {
-    children?: Snippet<[CreateTimerContextReturn]>;
+    children?: Snippet<[context: CreateTimerContextReturn]>;
   }
 </script>
 

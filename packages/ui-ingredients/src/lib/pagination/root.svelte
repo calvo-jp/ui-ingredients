@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreatePaginationContextProps>
     > {
-    children?: Snippet<[CreatePaginationContextReturn]>;
+    children?: Snippet<[context: CreatePaginationContextReturn]>;
   }
 </script>
 

@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['label']>,
       OptionalId<CreateCheckboxContextProps>
     > {
-    children?: Snippet<[CreateCheckboxContextReturn]>;
+    children?: Snippet<[context: CreateCheckboxContextReturn]>;
   }
 </script>
 

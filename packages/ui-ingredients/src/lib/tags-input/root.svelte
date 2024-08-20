@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateTagsInputContextProps>
     > {
-    children?: Snippet<[CreateTagsInputContextReturn]>;
+    children?: Snippet<[context: CreateTagsInputContextReturn]>;
   }
 </script>
 

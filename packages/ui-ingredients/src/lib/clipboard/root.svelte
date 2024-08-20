@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateClipboardContextProps>
     > {
-    children?: Snippet<[CreateClipboardContextReturn]>;
+    children?: Snippet<[context: CreateClipboardContextReturn]>;
   }
 </script>
 

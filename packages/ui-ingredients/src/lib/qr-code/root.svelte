@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateQRCodeContextProps>
     > {
-    children?: Snippet<[CreateQRCodeContextReturn]>;
+    children?: Snippet<[context: CreateQRCodeContextReturn]>;
   }
 </script>
 

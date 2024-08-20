@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateAccordionContextProps>
     > {
-    children?: Snippet<[CreateAccordionContextReturn]>;
+    children?: Snippet<[context: CreateAccordionContextReturn]>;
   }
 </script>
 

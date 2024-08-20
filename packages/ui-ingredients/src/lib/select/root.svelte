@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateSelectContextProps<T>>
     > {
-    children?: Snippet<[CreateSelectContextReturn]>;
+    children?: Snippet<[context: CreateSelectContextReturn]>;
   }
 </script>
 

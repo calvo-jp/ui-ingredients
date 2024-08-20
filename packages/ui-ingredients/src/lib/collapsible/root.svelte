@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateCollapsibleContextProps>
     > {
-    children?: Snippet<[CreateCollapsibleContextReturn]>;
+    children?: Snippet<[context: CreateCollapsibleContextReturn]>;
   }
 </script>
 

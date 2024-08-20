@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['label']>,
       OptionalId<CreateSwitchContextProps>
     > {
-    children?: Snippet<[CreateSwitchContextReturn]>;
+    children?: Snippet<[context: CreateSwitchContextReturn]>;
   }
 </script>
 

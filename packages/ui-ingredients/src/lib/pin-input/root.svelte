@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreatePinInputContextProps>
     > {
-    children?: Snippet<[CreatePinInputContextReturn]>;
+    children?: Snippet<[context: CreatePinInputContextReturn]>;
   }
 </script>
 

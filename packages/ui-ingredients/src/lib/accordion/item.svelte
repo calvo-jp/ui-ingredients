@@ -1,9 +1,13 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {ItemProps} from '@zag-js/accordion';
+  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {ItemProps, ItemState} from '@zag-js/accordion';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface AccordionItemProps extends Assign<SvelteHTMLElements['div'], ItemProps> {}
+  export interface AccordionItemProps
+    extends Assign<WithoutChildren<SvelteHTMLElements['div']>, ItemProps> {
+    children?: Snippet<[state: ItemState]>;
+  }
 </script>
 
 <script lang="ts">
@@ -13,6 +17,13 @@
   let {value, disabled, children, ...props}: AccordionItemProps = $props();
 
   let context = useAccordionContext();
+
+  let state = $derived(
+    context.getItemState({
+      value,
+      disabled,
+    }),
+  );
 
   let attrs = $derived(
     mergeProps(
@@ -31,5 +42,5 @@
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(state)}
 </div>

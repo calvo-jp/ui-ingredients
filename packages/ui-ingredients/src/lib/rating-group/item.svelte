@@ -6,7 +6,7 @@
 
   export interface RatingGroupItemProps
     extends Assign<WithoutChildren<SvelteHTMLElements['div']>, ItemProps> {
-    children: Snippet<[ItemState]>;
+    children: Snippet<[state: ItemState]>;
   }
 </script>
 
@@ -19,14 +19,8 @@
   let context = useRatingGroupContext();
 
   let state = $derived(context.getItemState({index}));
-  let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemProps({
-        index,
-      }),
-    ),
-  );
+
+  let attrs = $derived(mergeProps(props, context.getItemProps({index})));
 </script>
 
 <div {...attrs}>

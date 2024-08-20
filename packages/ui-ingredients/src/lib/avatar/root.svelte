@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateAvatarContextProps>
     > {
-    children?: Snippet<[CreateAvatarContextReturn]>;
+    children?: Snippet<[context: CreateAvatarContextReturn]>;
   }
 </script>
 

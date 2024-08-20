@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateNumberInputContextProps>
     > {
-    children?: Snippet<[CreateNumberInputContextReturn]>;
+    children?: Snippet<[context: CreateNumberInputContextReturn]>;
   }
 </script>
 

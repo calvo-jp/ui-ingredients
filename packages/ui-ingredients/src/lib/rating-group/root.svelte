@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateRatingGroupContextProps>
     > {
-    children?: Snippet<[CreateRatingGroupContextReturn]>;
+    children?: Snippet<[context: CreateRatingGroupContextReturn]>;
   }
 </script>
 

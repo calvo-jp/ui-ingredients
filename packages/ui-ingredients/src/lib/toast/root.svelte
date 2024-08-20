@@ -1,12 +1,16 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
+  import type {WithoutChildren} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
+  import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {CreateToastContextReturn} from './context.svelte.js';
 
-  export interface ToastProps extends Assign<SvelteHTMLElements['div'], {}> {}
+  export interface ToastProps extends WithoutChildren<SvelteHTMLElements['div']> {
+    children?: Snippet<[context: CreateToastContextReturn]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import type {SvelteHTMLElements} from 'svelte/elements';
   import {useToastContext} from './context.svelte.js';
 
   let {children, ...props}: ToastProps = $props();
@@ -19,7 +23,7 @@
 <div {...attrs}>
   <div {...context.getGhostBeforeProps()}></div>
 
-  {@render children?.()}
+  {@render children?.(context)}
 
   <div {...context.getGhostAfterProps()}></div>
 </div>

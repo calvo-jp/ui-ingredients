@@ -1,9 +1,13 @@
 <script lang="ts" context="module">
-  import type {Assign} from '$lib/types.js';
-  import type {ItemProps} from '@zag-js/steps';
+  import type {Assign, WithoutChildren} from '$lib/types.js';
+  import type {ItemProps, ItemState} from '@zag-js/steps';
+  import type {Snippet} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface StepsItemProps extends Assign<SvelteHTMLElements['div'], ItemProps> {}
+  export interface StepsItemProps
+    extends Assign<WithoutChildren<SvelteHTMLElements['div']>, ItemProps> {
+    children?: Snippet<[state: ItemState]>;
+  }
 </script>
 
 <script lang="ts">
@@ -14,11 +18,13 @@
 
   let context = useStepsContext();
 
+  let state = $derived(context.getItemState({index}));
+
   let attrs = $derived(mergeProps(props, context.getItemProps({index})));
 
   setStepsItemContext({index});
 </script>
 
 <div {...attrs}>
-  {@render children?.()}
+  {@render children?.(state)}
 </div>

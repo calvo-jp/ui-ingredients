@@ -6,7 +6,7 @@
 
   export interface TabsProps
     extends Assign<WithoutChildren<SvelteHTMLElements['div']>, OptionalId<CreateTabsContextProps>> {
-    children?: Snippet<[CreateTabsContextReturn]>;
+    children?: Snippet<[context: CreateTabsContextReturn]>;
   }
 </script>
 

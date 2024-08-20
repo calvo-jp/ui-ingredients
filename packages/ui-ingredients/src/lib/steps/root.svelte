@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateStepsContextProps>
     > {
-    children?: Snippet<[CreateStepsContextReturn]>;
+    children?: Snippet<[context: CreateStepsContextReturn]>;
   }
 </script>
 

@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateSliderContextProps>
     > {
-    children?: Snippet<[CreateSliderContextReturn]>;
+    children?: Snippet<[context: CreateSliderContextReturn]>;
   }
 </script>
 

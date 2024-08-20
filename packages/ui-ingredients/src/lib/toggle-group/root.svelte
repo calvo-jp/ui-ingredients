@@ -12,7 +12,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateToggleGroupContextProps>
     > {
-    children?: Snippet<[CreateToggleGroupContextReturn]>;
+    children?: Snippet<[context: CreateToggleGroupContextReturn]>;
   }
 </script>
 

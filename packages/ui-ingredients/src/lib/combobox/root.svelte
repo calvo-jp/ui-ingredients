@@ -9,7 +9,7 @@
       WithoutChildren<SvelteHTMLElements['div']>,
       OptionalId<CreateComboboxContextProps<T>>
     > {
-    children?: Snippet<[CreateComboboxContextReturn]>;
+    children?: Snippet<[context: CreateComboboxContextReturn]>;
   }
 </script>
 
