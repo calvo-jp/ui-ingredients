@@ -67,7 +67,7 @@ npm install ui-ingredients
 - 🟢 Switch
 - 🟢 Tabs
 - 🟡 TagsInput
-- ⚪ Timer
+- 🟢 Timer
 - 🟢 Toast
 - 🟢 ToggleGroup
 - 🟢 Tooltip

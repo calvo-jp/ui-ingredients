@@ -211,6 +211,15 @@ export type {
   TabsProps,
   TabsTriggerProps,
 } from './tabs/index.js';
+export * as Timer from './timer/index.js';
+export type {
+  TimerActionTriggerProps,
+  TimerItemLabelProps,
+  TimerItemProps,
+  TimerItemValueProps,
+  TimerProps,
+  TimerSeparatorProps,
+} from './timer/index.js';
 export * as ToggleGroup from './toggle-group/index.js';
 export type {
   /**/
