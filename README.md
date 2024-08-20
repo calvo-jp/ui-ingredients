@@ -58,7 +58,7 @@ npm install ui-ingredients
 - 🟢 Progress
 - 🟢 QRCode
 - 🟢 RadioGroup
-- ⚪ RatingGroup
+- 🟢 RatingGroup
 - 🟢 Select
 - ⚪ SignaturePad
 - 🟢 Slider
