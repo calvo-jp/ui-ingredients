@@ -45,7 +45,7 @@ npm install ui-ingredients
 - 🟢 Combobox
 - 🟡 DatePicker
 - 🟢 Dialog
-- ⚪ Editable
+- 🟡 Editable
 - ⚪ FileUpload
 - 🟢 HoverCard
 - 🟡 Menu
@@ -66,7 +66,7 @@ npm install ui-ingredients
 - 🟢 Steps
 - 🟢 Switch
 - 🟢 Tabs
-- 🟡 TagsInput
+- 🟢 TagsInput
 - 🟢 Timer
 - 🟢 Toast
 - 🟢 ToggleGroup

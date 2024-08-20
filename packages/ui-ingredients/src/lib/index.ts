@@ -211,6 +211,20 @@ export type {
   TabsProps,
   TabsTriggerProps,
 } from './tabs/index.js';
+export * as TagsInput from './tags-input/index.js';
+export type {
+  TagsInputClearTriggerProps,
+  TagsInputControlProps,
+  TagsInputHiddenInputProps,
+  TagsInputInputProps,
+  TagsInputItemDeleteTriggerProps,
+  TagsInputItemInputProps,
+  TagsInputItemPreviewProps,
+  TagsInputItemProps,
+  TagsInputItemTextProps,
+  TagsInputLabelProps,
+  TagsInputProps,
+} from './tags-input/index.js';
 export * as Timer from './timer/index.js';
 export type {
   TimerActionTriggerProps,

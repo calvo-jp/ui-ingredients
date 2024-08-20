@@ -106,6 +106,10 @@
       label: 'Timer',
       path: '/timer',
     },
+    {
+      label: 'TagsInput',
+      path: '/tags-input',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === page.current.url.pathname));
