@@ -1,7 +1,7 @@
 <script lang="ts">
   import {TagsInput} from '$lib/index.js';
 
-  let value: string[] = $state([]);
+  let value = $state(['Svelte']);
 
   $inspect(value);
 </script>
@@ -45,6 +45,7 @@
       </TagsInput.Control>
       <TagsInput.Input
         class="w-32 shrink-0 bg-transparent outline-none placeholder:text-neutral-500"
+        autofocus
         placeholder="Framework"
       />
     </div>

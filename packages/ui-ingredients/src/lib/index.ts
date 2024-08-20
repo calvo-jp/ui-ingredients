@@ -162,6 +162,14 @@ export type {
   RadioGroupLabelProps,
   RadioGroupProps,
 } from './radio-group/index.js';
+export * as RatingGroup from './rating-group/index.js';
+export type {
+  RatingGroupControlProps,
+  RatingGroupHiddenInputProps,
+  RatingGroupItemProps,
+  RatingGroupLabelProps,
+  RatingGroupProps,
+} from './rating-group/index.js';
 export * as Select from './select/index.js';
 export type {
   SelectClearTriggerProps,

@@ -34,6 +34,7 @@ export default {
         current: 'current',
         selected: 'selected',
         complete: 'complete',
+        highlighted: 'highlighted',
       },
       aria: {
         page: 'current="page"',

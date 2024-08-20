@@ -114,6 +114,10 @@
       label: 'Editable',
       path: '/editable',
     },
+    {
+      label: 'RatingGroup',
+      path: '/rating-group',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === page.current.url.pathname));
