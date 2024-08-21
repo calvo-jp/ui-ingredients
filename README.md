@@ -46,7 +46,7 @@ npm install ui-ingredients
 - 🟡 DatePicker
 - 🟢 Dialog
 - 🟢 Editable
-- ⚪ FileUpload
+- 🟡 FileUpload
 - 🟢 HoverCard
 - 🟡 Menu
 - 🟢 NumberInput
@@ -60,6 +60,7 @@ npm install ui-ingredients
 - 🟢 RadioGroup
 - 🟢 RatingGroup
 - 🟢 Select
+- 🟡 SegmentGroup
 - ⚪ SignaturePad
 - 🟢 Slider
 - ⚪ Splitter

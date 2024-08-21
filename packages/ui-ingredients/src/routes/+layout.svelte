@@ -118,6 +118,10 @@
       label: 'RatingGroup',
       path: '/rating-group',
     },
+    {
+      label: 'SegmentGroup',
+      path: '/segment-group',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(

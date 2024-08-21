@@ -170,6 +170,15 @@ export type {
   RatingGroupLabelProps,
   RatingGroupProps,
 } from './rating-group/index.js';
+export * as SegmentGroup from './segment-group/index.js';
+export type {
+  SegmentGroupIndicatorProps,
+  SegmentGroupItemControlProps,
+  SegmentGroupItemHiddenInputProps,
+  SegmentGroupItemProps,
+  SegmentGroupItemTextProps,
+  SegmentGroupProps,
+} from './segment-group/index.js';
 export * as Select from './select/index.js';
 export type {
   SelectClearTriggerProps,
