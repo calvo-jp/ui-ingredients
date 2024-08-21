@@ -12,7 +12,7 @@ type KnownKeys<T> = keyof {
 
 interface IngredientProps {
   /** TODO */
-  asChild?: boolean;
+  asChild?: never;
 }
 
 type IntrinsicElements = KnownKeys<SvelteHTMLElements>;
