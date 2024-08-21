@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {ActionTriggerProps} from '@zag-js/timer';
 
   export interface TimerActionTriggerProps
-    extends Assign<SvelteHtmlProps<'button'>, ActionTriggerProps> {}
+    extends Assign<HtmlIngredientsProps<'button'>, ActionTriggerProps> {}
 </script>
 
 <script lang="ts">

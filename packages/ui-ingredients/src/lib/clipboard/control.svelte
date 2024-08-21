@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface ClipboardControlProps extends SvelteHtmlProps<'div'> {}
+  export interface ClipboardControlProps extends HtmlIngredientsProps<'div'> {}
 </script>
 
 <script lang="ts">

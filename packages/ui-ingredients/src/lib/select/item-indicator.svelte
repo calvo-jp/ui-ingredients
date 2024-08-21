@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface SelectItemIndicatorProps extends SvelteHtmlProps<'span'> {}
+  export interface SelectItemIndicatorProps
+    extends HtmlIngredientsProps<'span'> {}
 </script>
 
 <script lang="ts">

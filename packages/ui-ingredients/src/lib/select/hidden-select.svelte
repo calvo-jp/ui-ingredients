@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface SelectHiddenSelectProps extends SvelteHtmlProps<'select'> {}
+  export interface SelectHiddenSelectProps
+    extends HtmlIngredientsProps<'select'> {}
 </script>
 
 <script lang="ts">

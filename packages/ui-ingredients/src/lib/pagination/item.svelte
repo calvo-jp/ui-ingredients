@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/pagination';
 
   export interface PaginationItemProps
-    extends Assign<SvelteHtmlProps<'button'>, Omit<ItemProps, 'type'>> {}
+    extends Assign<HtmlIngredientsProps<'button'>, Omit<ItemProps, 'type'>> {}
 </script>
 
 <script lang="ts">

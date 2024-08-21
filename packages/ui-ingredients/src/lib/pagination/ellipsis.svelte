@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {EllipsisProps} from '@zag-js/pagination';
 
   export interface PaginationEllipsisProps
-    extends Assign<SvelteHtmlProps<'span'>, EllipsisProps> {}
+    extends Assign<HtmlIngredientsProps<'span'>, EllipsisProps> {}
 </script>
 
 <script lang="ts">

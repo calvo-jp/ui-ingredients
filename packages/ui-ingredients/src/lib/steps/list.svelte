@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface StepsListProps extends SvelteHtmlProps<'div'> {}
+  export interface StepsListProps extends HtmlIngredientsProps<'div'> {}
 </script>
 
 <script lang="ts">

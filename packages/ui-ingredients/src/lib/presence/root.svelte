@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {Context} from '@zag-js/presence';
 
   export interface PresenceProps
-    extends Assign<SvelteHtmlProps<'div'>, Context> {}
+    extends Assign<HtmlIngredientsProps<'div'>, Context> {}
 </script>
 
 <script lang="ts">

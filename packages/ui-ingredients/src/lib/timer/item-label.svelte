@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface TimerItemLabelProps extends SvelteHtmlProps<'span'> {}
+  export interface TimerItemLabelProps extends HtmlIngredientsProps<'span'> {}
 </script>
 
 <script lang="ts">

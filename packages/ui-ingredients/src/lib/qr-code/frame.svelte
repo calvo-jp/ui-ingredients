@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface QRCodeFrameProps extends SvelteHtmlProps<'svg'> {}
+  export interface QRCodeFrameProps extends HtmlIngredientsProps<'svg'> {}
 </script>
 
 <script lang="ts">

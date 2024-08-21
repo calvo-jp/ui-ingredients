@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface TooltipTriggerProps extends SvelteHtmlProps<'button'> {}
+  export interface TooltipTriggerProps extends HtmlIngredientsProps<'button'> {}
 </script>
 
 <script lang="ts">

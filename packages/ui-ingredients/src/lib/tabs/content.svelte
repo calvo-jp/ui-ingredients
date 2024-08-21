@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {ContentProps} from '@zag-js/tabs';
 
   export interface TabsContentProps
-    extends Assign<SvelteHtmlProps<'div'>, ContentProps> {}
+    extends Assign<HtmlIngredientsProps<'div'>, ContentProps> {}
 </script>
 
 <script lang="ts">

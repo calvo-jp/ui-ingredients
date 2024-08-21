@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface HoverCardTriggerProps extends SvelteHtmlProps<'a'> {}
+  export interface HoverCardTriggerProps extends HtmlIngredientsProps<'a'> {}
 </script>
 
 <script lang="ts">

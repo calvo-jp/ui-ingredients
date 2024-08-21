@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {ItemGroupProps} from '@zag-js/combobox';
 
   export interface ComboboxItemGroupProps
-    extends Assign<SvelteHtmlProps<'div'>, Omit<ItemGroupProps, 'id'>> {}
+    extends Assign<HtmlIngredientsProps<'div'>, Omit<ItemGroupProps, 'id'>> {}
 </script>
 
 <script lang="ts">

@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateAccordionContextProps,
@@ -8,7 +8,7 @@
 
   export interface AccordionProps
     extends Assign<
-      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<HtmlIngredientsProps<'div'>, 'children'>,
       Omit<CreateAccordionContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateAccordionContextReturn]>;

@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateNumberInputContextProps,
@@ -8,7 +8,7 @@
 
   export interface NumberInputProps
     extends Assign<
-      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<HtmlIngredientsProps<'div'>, 'children'>,
       Omit<CreateNumberInputContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateNumberInputContextReturn]>;

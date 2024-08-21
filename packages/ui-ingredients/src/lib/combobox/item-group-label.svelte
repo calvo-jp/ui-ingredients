@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
   export interface ComboboxItemGroupLabelProps
-    extends SvelteHtmlProps<'span'> {}
+    extends HtmlIngredientsProps<'span'> {}
 </script>
 
 <script lang="ts">

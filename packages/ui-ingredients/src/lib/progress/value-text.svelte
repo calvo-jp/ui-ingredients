@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface ProgressValueTextProps extends SvelteHtmlProps<'div'> {}
+  export interface ProgressValueTextProps extends HtmlIngredientsProps<'div'> {}
 </script>
 
 <script lang="ts">

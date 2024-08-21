@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {IndicatorProps} from '@zag-js/carousel';
 
   export interface CarouselIndicatorProps
-    extends Assign<SvelteHtmlProps<'button'>, IndicatorProps> {}
+    extends Assign<HtmlIngredientsProps<'button'>, IndicatorProps> {}
 </script>
 
 <script lang="ts">

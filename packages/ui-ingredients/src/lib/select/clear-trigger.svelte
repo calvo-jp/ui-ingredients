@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface SelectClearTriggerProps extends SvelteHtmlProps<'button'> {}
+  export interface SelectClearTriggerProps
+    extends HtmlIngredientsProps<'button'> {}
 </script>
 
 <script lang="ts">

@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface ComboboxInputProps extends SvelteHtmlProps<'input'> {}
+  export interface ComboboxInputProps extends HtmlIngredientsProps<'input'> {}
 </script>
 
 <script lang="ts">

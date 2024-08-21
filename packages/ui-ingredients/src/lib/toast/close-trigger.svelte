@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface ToastCloseTriggerProps extends SvelteHtmlProps<'button'> {}
+  export interface ToastCloseTriggerProps
+    extends HtmlIngredientsProps<'button'> {}
 </script>
 
 <script lang="ts">

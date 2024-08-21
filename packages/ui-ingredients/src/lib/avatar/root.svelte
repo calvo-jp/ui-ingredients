@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type {Assign, SvelteHtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import {
     type CreateAvatarContextProps,
@@ -8,7 +8,7 @@
 
   export interface AvatarProps
     extends Assign<
-      Omit<SvelteHtmlProps<'div'>, 'children'>,
+      Omit<HtmlIngredientsProps<'div'>, 'children'>,
       Omit<CreateAvatarContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateAvatarContextReturn]>;

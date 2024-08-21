@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface RatingGroupLabelProps extends SvelteHtmlProps<'label'> {}
+  export interface RatingGroupLabelProps
+    extends HtmlIngredientsProps<'label'> {}
 </script>
 
 <script lang="ts">

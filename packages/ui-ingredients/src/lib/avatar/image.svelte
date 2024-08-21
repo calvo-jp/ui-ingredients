@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface AvatarImageProps extends SvelteHtmlProps<'img'> {}
+  export interface AvatarImageProps extends HtmlIngredientsProps<'img'> {}
 </script>
 
 <script lang="ts">

@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface TagsInputHiddenInputProps extends SvelteHtmlProps<'input'> {}
+  export interface TagsInputHiddenInputProps
+    extends HtmlIngredientsProps<'input'> {}
 </script>
 
 <script lang="ts">

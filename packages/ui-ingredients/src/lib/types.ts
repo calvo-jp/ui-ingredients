@@ -10,8 +10,5 @@ type KnownKeys<T> = keyof {
       : K]: string;
 };
 
-type SvelteHtmlPropKeys = KnownKeys<SvelteHTMLElements>;
-export type SvelteHtmlProps<T extends SvelteHtmlPropKeys> = Assign<
-  SvelteHTMLElements[T],
-  {}
->;
+export type HtmlIngredientsProps<T extends KnownKeys<SvelteHTMLElements>> =
+  Assign<SvelteHTMLElements[T], {}>;

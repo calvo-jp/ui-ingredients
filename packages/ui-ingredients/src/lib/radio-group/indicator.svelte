@@ -1,7 +1,8 @@
 <script lang="ts" context="module">
-  import type {SvelteHtmlProps} from '$lib/types.js';
+  import type {HtmlIngredientsProps} from '$lib/types.js';
 
-  export interface RadioGroupIndicatorProps extends SvelteHtmlProps<'span'> {}
+  export interface RadioGroupIndicatorProps
+    extends HtmlIngredientsProps<'span'> {}
 </script>
 
 <script lang="ts">
