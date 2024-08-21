@@ -19,10 +19,7 @@ export function createAccordionContext(
 }
 
 export function setAccordionContext(value: CreateAccordionContextReturn) {
-  return setContext(
-    'Accordion',
-    reflect(() => value),
-  );
+  return setContext('Accordion', value);
 }
 
 export function useAccordionContext() {
