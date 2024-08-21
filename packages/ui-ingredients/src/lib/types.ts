@@ -10,5 +10,13 @@ type KnownKeys<T> = keyof {
       : K]: string;
 };
 
-export type HtmlIngredientsProps<T extends KnownKeys<SvelteHTMLElements>> =
-  Assign<SvelteHTMLElements[T], {}>;
+interface IngredientProps {
+  asChild?: boolean;
+}
+
+type IntrinsicElements = KnownKeys<SvelteHTMLElements>;
+
+export type HtmlIngredientProps<T extends IntrinsicElements> = Assign<
+  SvelteHTMLElements[T],
+  IngredientProps
+>;

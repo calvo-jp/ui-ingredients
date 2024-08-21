@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Context} from '@zag-js/presence';
 
   export interface PresenceProps
-    extends Assign<HtmlIngredientsProps<'div'>, Context> {}
+    extends Assign<HtmlIngredientProps<'div'>, Context> {}
 </script>
 
 <script lang="ts">

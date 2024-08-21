@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateRadioGroupContextProps,
@@ -8,7 +8,7 @@
 
   export interface RadioGroupProps
     extends Assign<
-      Omit<HtmlIngredientsProps<'div'>, 'children'>,
+      Omit<HtmlIngredientProps<'div'>, 'children'>,
       Omit<CreateRadioGroupContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateRadioGroupContextReturn]>;

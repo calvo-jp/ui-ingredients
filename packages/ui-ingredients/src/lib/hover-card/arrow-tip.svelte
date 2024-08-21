@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface HoverCardArrowTipProps extends HtmlIngredientsProps<'div'> {}
+  export interface HoverCardArrowTipProps extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

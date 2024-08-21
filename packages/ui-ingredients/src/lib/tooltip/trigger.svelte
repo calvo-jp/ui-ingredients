@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface TooltipTriggerProps extends HtmlIngredientsProps<'button'> {}
+  export interface TooltipTriggerProps extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

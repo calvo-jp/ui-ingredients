@@ -29,3 +29,5 @@ export * from './timer/index.js';
 export * from './toast/index.js';
 export * from './toggle-group/index.js';
 export * from './tooltip/index.js';
+
+export type {HtmlIngredientProps as HtmlIngredientsProps} from './types.js';

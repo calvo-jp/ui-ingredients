@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ActionTriggerProps} from '@zag-js/timer';
 
   export interface TimerActionTriggerProps
-    extends Assign<HtmlIngredientsProps<'button'>, ActionTriggerProps> {}
+    extends Assign<HtmlIngredientProps<'button'>, ActionTriggerProps> {}
 </script>
 
 <script lang="ts">

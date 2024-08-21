@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ItemGroupProps} from '@zag-js/combobox';
 
   export interface ComboboxItemGroupProps
-    extends Assign<HtmlIngredientsProps<'div'>, Omit<ItemGroupProps, 'id'>> {}
+    extends Assign<HtmlIngredientProps<'div'>, Omit<ItemGroupProps, 'id'>> {}
 </script>
 
 <script lang="ts">

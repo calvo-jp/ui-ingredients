@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface StepsSeparatorProps extends HtmlIngredientsProps<'div'> {}
+  export interface StepsSeparatorProps extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

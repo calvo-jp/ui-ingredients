@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface QRCodeFrameProps extends HtmlIngredientsProps<'svg'> {}
+  export interface QRCodeFrameProps extends HtmlIngredientProps<'svg'> {}
 </script>
 
 <script lang="ts">

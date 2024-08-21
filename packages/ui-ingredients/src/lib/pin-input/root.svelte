@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreatePinInputContextProps,
@@ -8,7 +8,7 @@
 
   export interface PinInputProps
     extends Assign<
-      Omit<HtmlIngredientsProps<'div'>, 'children'>,
+      Omit<HtmlIngredientProps<'div'>, 'children'>,
       Omit<CreatePinInputContextProps, 'id'>
     > {
     children?: Snippet<[context: CreatePinInputContextReturn]>;

@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface ComboboxItemIndicatorProps
-    extends HtmlIngredientsProps<'span'> {}
+    extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">

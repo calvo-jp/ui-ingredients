@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface PopoverContentProps extends HtmlIngredientsProps<'div'> {}
+  export interface PopoverContentProps extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

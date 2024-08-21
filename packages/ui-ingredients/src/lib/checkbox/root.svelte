@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateCheckboxContextProps,
@@ -8,7 +8,7 @@
 
   export interface CheckboxProps
     extends Assign<
-      Omit<HtmlIngredientsProps<'label'>, 'children'>,
+      Omit<HtmlIngredientProps<'label'>, 'children'>,
       Omit<CreateCheckboxContextProps, 'id'>
     > {
     children?: Snippet<[context: CreateCheckboxContextReturn]>;

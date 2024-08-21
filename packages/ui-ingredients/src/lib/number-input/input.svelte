@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface NumberInputInputProps
-    extends HtmlIngredientsProps<'input'> {}
+  export interface NumberInputInputProps extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">

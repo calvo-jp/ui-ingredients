@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface ProgressCircleRangeProps
-    extends HtmlIngredientsProps<'circle'> {}
+    extends HtmlIngredientProps<'circle'> {}
 </script>
 
 <script lang="ts">

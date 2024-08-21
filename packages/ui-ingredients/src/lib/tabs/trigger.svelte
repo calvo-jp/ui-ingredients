@@ -1,9 +1,9 @@
 <script lang="ts" context="module">
-  import type {Assign, HtmlIngredientsProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {TriggerProps} from '@zag-js/tabs';
 
   export interface TabsTriggerProps
-    extends Assign<HtmlIngredientsProps<'button'>, TriggerProps> {}
+    extends Assign<HtmlIngredientProps<'button'>, TriggerProps> {}
 </script>
 
 <script lang="ts">

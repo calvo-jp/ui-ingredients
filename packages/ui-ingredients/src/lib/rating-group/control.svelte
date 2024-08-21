@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  import type {HtmlIngredientsProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface RatingGroupControlProps
-    extends HtmlIngredientsProps<'div'> {}
+  export interface RatingGroupControlProps extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">
