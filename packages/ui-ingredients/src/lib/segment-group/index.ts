@@ -1,11 +1,11 @@
-export type {
+export {
   RadioGroup as SegmentGroup,
-  RadioGroupIndicatorProps as SegmentGroupIndicatorProps,
-  RadioGroupItemControlProps as SegmentGroupItemControlProps,
-  RadioGroupItemHiddenInputProps as SegmentGroupItemHiddenInputProps,
-  RadioGroupItemProps as SegmentGroupItemProps,
-  RadioGroupItemTextProps as SegmentGroupItemTextProps,
-  RadioGroupLabelProps as SegmentGroupLabelProps,
-  RadioGroupProps as SegmentGroupProps,
+  type RadioGroupIndicatorProps as SegmentGroupIndicatorProps,
+  type RadioGroupItemControlProps as SegmentGroupItemControlProps,
+  type RadioGroupItemHiddenInputProps as SegmentGroupItemHiddenInputProps,
+  type RadioGroupItemProps as SegmentGroupItemProps,
+  type RadioGroupItemTextProps as SegmentGroupItemTextProps,
+  type RadioGroupLabelProps as SegmentGroupLabelProps,
+  type RadioGroupProps as SegmentGroupProps,
 } from '$lib/radio-group/index.js';
 export * from './anatomy.js';
