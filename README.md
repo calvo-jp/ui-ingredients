@@ -72,5 +72,6 @@ npm install ui-ingredients
 - 🟢 Toast
 - 🟢 ToggleGroup
 - 🟢 Tooltip
+- ⚪ TreeView
 
 View components demo [here](https://ui-ingredients.vercel.app/)

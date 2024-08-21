@@ -152,6 +152,9 @@ importers:
       '@zag-js/tooltip':
         specifier: 0.65.1
         version: 0.65.1
+      '@zag-js/tree-view':
+        specifier: 0.65.1
+        version: 0.65.1
       nanoid:
         specifier: 5.0.7
         version: 5.0.7
@@ -946,6 +949,9 @@ packages:
 
   '@zag-js/tooltip@0.65.1':
     resolution: {integrity: sha512-/0DlZ647DDsX7Hs+XTFv1poRzpL7odJj5FL6Hg9m7XIlbJpXHY2LzNfb4GNnAqTi4s0LPSOUJdSOcpBFQLmHoA==}
+
+  '@zag-js/tree-view@0.65.1':
+    resolution: {integrity: sha512-X2KGh9xpMWoa26cNjVa551jicyqVEXq6p2ClSL0riGwceku4L0D39970vtcDDdN5rXLjwuonll9rt/vpS7FD1A==}
 
   '@zag-js/types@0.65.1':
     resolution: {integrity: sha512-vMlaLPHzXgQzOR18u3HomxTDOVBOL29sTL8b3z4qlgh5C/r01sFYBgZZ4fbd/8V5xrRGiQylI2fHHdT8rX/4jA==}
@@ -4160,6 +4166,15 @@ snapshots:
       '@zag-js/dom-event': 0.65.1
       '@zag-js/dom-query': 0.65.1
       '@zag-js/popper': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
+
+  '@zag-js/tree-view@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dom-event': 0.65.1
+      '@zag-js/dom-query': 0.65.1
       '@zag-js/types': 0.65.1
       '@zag-js/utils': 0.65.1
 
