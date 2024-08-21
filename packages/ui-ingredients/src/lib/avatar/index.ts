@@ -1,3 +1,5 @@
-export {default as Fallback, type AvatarFallbackProps} from './fallback.svelte';
-export {default as Image, type AvatarImageProps} from './image.svelte';
-export {default as Root, type AvatarProps} from './root.svelte';
+export {anatomy as avatarAnatomy} from '@zag-js/avatar';
+export * as Avatar from './avatar.js';
+export type {AvatarFallbackProps} from './fallback.svelte';
+export type {AvatarImageProps} from './image.svelte';
+export type {AvatarProps} from './root.svelte';

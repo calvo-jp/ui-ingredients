@@ -1,12 +1,8 @@
-export {
-  default as ArrowTip,
-  type TooltipArrowTipProps,
-} from './arrow-tip.svelte';
-export {default as Arrow, type TooltipArrowProps} from './arrow.svelte';
-export {default as Content, type TooltipContentProps} from './content.svelte';
-export {
-  default as Positioner,
-  type TooltipPositionerProps,
-} from './positioner.svelte';
-export {default as Root, type TooltipProps} from './root.svelte';
-export {default as Trigger, type TooltipTriggerProps} from './trigger.svelte';
+export {anatomy as tooltipAnatomy} from '@zag-js/tooltip';
+export type {TooltipArrowTipProps} from './arrow-tip.svelte';
+export type {TooltipArrowProps} from './arrow.svelte';
+export type {TooltipContentProps} from './content.svelte';
+export type {TooltipPositionerProps} from './positioner.svelte';
+export type {TooltipProps} from './root.svelte';
+export * as Tooltip from './tooltip.js';
+export type {TooltipTriggerProps} from './trigger.svelte';

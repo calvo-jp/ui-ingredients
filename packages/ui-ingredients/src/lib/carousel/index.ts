@@ -1,26 +1,10 @@
-export {
-  default as IndicatorGroup,
-  type CarouselIndicatorGroupProps,
-} from './indicator-group.svelte';
-export {
-  default as Indicator,
-  type CarouselIndicatorProps,
-} from './indicator.svelte';
-export {
-  default as ItemGroup,
-  type CarouselItemGroupProps,
-} from './item-group.svelte';
-export {default as Item, type CarouselItemProps} from './item.svelte';
-export {
-  default as NextTrigger,
-  type CarouselNextTriggerProps,
-} from './next-trigger.svelte';
-export {
-  default as PrevTrigger,
-  type CarouselPrevTriggerProps,
-} from './prev-trigger.svelte';
-export {default as Root, type CarouselProps} from './root.svelte';
-export {
-  default as Viewport,
-  type CarouselViewportProps,
-} from './viewport.svelte';
+export {anatomy as carouselAnatomy} from '@zag-js/carousel';
+export * as Carousel from './carousel.js';
+export type {CarouselIndicatorGroupProps} from './indicator-group.svelte';
+export type {CarouselIndicatorProps} from './indicator.svelte';
+export type {CarouselItemGroupProps} from './item-group.svelte';
+export type {CarouselItemProps} from './item.svelte';
+export type {CarouselNextTriggerProps} from './next-trigger.svelte';
+export type {CarouselPrevTriggerProps} from './prev-trigger.svelte';
+export type {CarouselProps} from './root.svelte';
+export type {CarouselViewportProps} from './viewport.svelte';

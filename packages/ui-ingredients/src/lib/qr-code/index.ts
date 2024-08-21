@@ -1,4 +1,6 @@
-export {default as Frame, type QRCodeFrameProps} from './frame.svelte';
-export {default as Overlay, type QRCodeOverlayProps} from './overlay.svelte';
-export {default as Pattern, type QRCodePatternProps} from './pattern.svelte';
-export {default as Root, type QRCodeProps} from './root.svelte';
+export {anatomy as qrCodeAnatomy} from '@zag-js/qr-code';
+export type {QRCodeFrameProps} from './frame.svelte';
+export type {QRCodeOverlayProps} from './overlay.svelte';
+export type {QRCodePatternProps} from './pattern.svelte';
+export * as QRCode from './qr-code.js';
+export type {QRCodeProps} from './root.svelte';

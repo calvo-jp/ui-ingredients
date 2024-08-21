@@ -1,18 +1,8 @@
-export {
-  default as ActionTrigger,
-  type TimerActionTriggerProps,
-} from './action-trigger.svelte';
-export {
-  default as ItemLabel,
-  type TimerItemLabelProps,
-} from './item-label.svelte';
-export {
-  default as ItemValue,
-  type TimerItemValueProps,
-} from './item-value.svelte';
-export {default as Item, type TimerItemProps} from './item.svelte';
-export {default as Root, type TimerProps} from './root.svelte';
-export {
-  default as Separator,
-  type TimerSeparatorProps,
-} from './separator.svelte';
+export {anatomy as timerAnatomy} from '@zag-js/timer';
+export type {TimerActionTriggerProps} from './action-trigger.svelte';
+export type {TimerItemLabelProps} from './item-label.svelte';
+export type {TimerItemValueProps} from './item-value.svelte';
+export type {TimerItemProps} from './item.svelte';
+export type {TimerProps} from './root.svelte';
+export type {TimerSeparatorProps} from './separator.svelte';
+export * as Timer from './timer.js';

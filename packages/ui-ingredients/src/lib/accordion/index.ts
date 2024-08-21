@@ -1,14 +1,7 @@
-export {
-  default as ItemContent,
-  type AccordionItemContentProps,
-} from './item-content.svelte';
-export {
-  default as ItemIndicator,
-  type AccordionIndicatorProps,
-} from './item-indicator.svelte';
-export {
-  default as ItemTrigger,
-  type AccordionItemTriggerProps,
-} from './item-trigger.svelte';
-export {default as Item, type AccordionItemProps} from './item.svelte';
-export {default as Root, type AccordionProps} from './root.svelte';
+export {anatomy as accordionAnatomy} from '@zag-js/accordion';
+export * as Accordion from './accordion.js';
+export type {AccordionItemContentProps} from './item-content.svelte';
+export type {AccordionIndicatorProps} from './item-indicator.svelte';
+export type {AccordionItemTriggerProps} from './item-trigger.svelte';
+export type {AccordionItemProps} from './item.svelte';
+export type {AccordionProps} from './root.svelte';

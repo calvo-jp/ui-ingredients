@@ -1,9 +1,5 @@
-export {
-  default as Content,
-  type CollapsibleContentProps,
-} from './content.svelte';
-export {default as Root, type CollapsibleProps} from './root.svelte';
-export {
-  default as Trigger,
-  type CollapsibleTriggerProps,
-} from './trigger.svelte';
+export {anatomy as collapsibleAnatomy} from '@zag-js/collapsible';
+export * as Collapsible from './collapsible.js';
+export type {CollapsibleContentProps} from './content.svelte';
+export type {CollapsibleProps} from './root.svelte';
+export type {CollapsibleTriggerProps} from './trigger.svelte';

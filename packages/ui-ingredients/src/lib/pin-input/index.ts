@@ -1,11 +1,7 @@
-export {
-  default as ClearTrigger,
-  type PinInputClearTriggerProps,
-} from './clear-trigger.svelte';
-export {
-  default as HiddenInput,
-  type PinInputHiddenInputProps,
-} from './hidden-input.svelte';
-export {default as Input, type PinInputInputProps} from './input.svelte';
-export {default as Label, type PinInputLabelProps} from './label.svelte';
-export {default as Root, type PinInputProps} from './root.svelte';
+export {anatomy as pinInputAnatomy} from '@zag-js/pin-input';
+export type {PinInputClearTriggerProps} from './clear-trigger.svelte';
+export type {PinInputHiddenInputProps} from './hidden-input.svelte';
+export type {PinInputInputProps} from './input.svelte';
+export type {PinInputLabelProps} from './label.svelte';
+export * as PinInput from './pin-input.js';
+export type {PinInputProps} from './root.svelte';

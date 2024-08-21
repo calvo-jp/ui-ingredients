@@ -1,11 +1,7 @@
-export {
-  default as Control,
-  type RatingGroupControlProps,
-} from './control.svelte';
-export {
-  default as HiddenInput,
-  type RatingGroupHiddenInputProps,
-} from './hidden-input.svelte';
-export {default as Item, type RatingGroupItemProps} from './item.svelte';
-export {default as Label, type RatingGroupLabelProps} from './label.svelte';
-export {default as Root, type RatingGroupProps} from './root.svelte';
+export {anatomy as ratingGroupAnatomy} from '@zag-js/rating-group';
+export type {RatingGroupControlProps} from './control.svelte';
+export type {RatingGroupHiddenInputProps} from './hidden-input.svelte';
+export type {RatingGroupItemProps} from './item.svelte';
+export type {RatingGroupLabelProps} from './label.svelte';
+export * as RatingGroup from './rating-group.js';
+export type {RatingGroupProps} from './root.svelte';

@@ -1,12 +1,8 @@
-export {
-  default as ArrowTip,
-  type HoverCardArrowTipProps,
-} from './arrow-tip.svelte';
-export {default as Arrow, type HoverCardArrowProps} from './arrow.svelte';
-export {default as Content, type HoverCardContentProps} from './content.svelte';
-export {
-  default as Positioner,
-  type HoverCardPositionerProps,
-} from './positioner.svelte';
-export {default as Root, type HoverCardProps} from './root.svelte';
-export {default as Trigger, type HoverCardTriggerProps} from './trigger.svelte';
+export {anatomy as hoverCardAnatomy} from '@zag-js/hover-card';
+export type {HoverCardArrowTipProps} from './arrow-tip.svelte';
+export type {HoverCardArrowProps} from './arrow.svelte';
+export type {HoverCardContentProps} from './content.svelte';
+export * as HoverCard from './hover-card.js';
+export type {HoverCardPositionerProps} from './positioner.svelte';
+export type {HoverCardProps} from './root.svelte';
+export type {HoverCardTriggerProps} from './trigger.svelte';

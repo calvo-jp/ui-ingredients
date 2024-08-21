@@ -1,21 +1,11 @@
-export {
-  default as ArrowTip,
-  type PopoverArrowTipProps,
-} from './arrow-tip.svelte';
-export {default as Arrow, type PopoverArrowProps} from './arrow.svelte';
-export {
-  default as CloseTrigger,
-  type PopoverCloseTriggerProps,
-} from './close-trigger.svelte';
-export {default as Content, type PopoverContentProps} from './content.svelte';
-export {
-  default as Description,
-  type PopoverDescriptionProps,
-} from './description.svelte';
-export {
-  default as Positioner,
-  type PopoverPositionerProps,
-} from './positioner.svelte';
-export {default as Root, type PopoverProps} from './root.svelte';
-export {default as Title, type PopoverTitleProps} from './title.svelte';
-export {default as Trigger, type PopoverTriggerProps} from './trigger.svelte';
+export {anatomy as popoverAnatomy} from '@zag-js/popover';
+export type {PopoverArrowTipProps} from './arrow-tip.svelte';
+export type {PopoverArrowProps} from './arrow.svelte';
+export type {PopoverCloseTriggerProps} from './close-trigger.svelte';
+export type {PopoverContentProps} from './content.svelte';
+export type {PopoverDescriptionProps} from './description.svelte';
+export * as Popover from './popover.js';
+export type {PopoverPositionerProps} from './positioner.svelte';
+export type {PopoverProps} from './root.svelte';
+export type {PopoverTitleProps} from './title.svelte';
+export type {PopoverTriggerProps} from './trigger.svelte';

@@ -1,8 +1,7 @@
-export {default as Control, type SwitchControlProps} from './control.svelte';
-export {
-  default as HiddenInput,
-  type SwitchHiddenInputProps,
-} from './hidden-input.svelte';
-export {default as Label, type SwitchLabelProps} from './label.svelte';
-export {default as Root, type SwitchProps} from './root.svelte';
-export {default as Thumb, type SwitchThumbProps} from './thumb.svelte';
+export {anatomy as switchAnatomy} from '@zag-js/switch';
+export type {SwitchControlProps} from './control.svelte';
+export type {SwitchHiddenInputProps} from './hidden-input.svelte';
+export type {SwitchLabelProps} from './label.svelte';
+export type {SwitchProps} from './root.svelte';
+export * as Switch from './switch.js';
+export type {SwitchThumbProps} from './thumb.svelte';
