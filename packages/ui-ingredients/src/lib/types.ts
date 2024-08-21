@@ -11,6 +11,7 @@ type KnownKeys<T> = keyof {
 };
 
 interface IngredientProps {
+  /** TODO */
   asChild?: boolean;
 }
 
