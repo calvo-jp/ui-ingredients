@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css';
 
-  import {LocaleProvider} from '$lib/index.js';
+  import {EnvironmentProvider, LocaleProvider} from '$lib/index.js';
   import {page} from './shared/stores.js';
 
   let {children} = $props();
@@ -155,8 +155,10 @@
   </nav>
 
   <div class="grow p-12">
-    <LocaleProvider locale="en-US">
-      {@render children()}
-    </LocaleProvider>
+    <EnvironmentProvider>
+      <LocaleProvider locale="en-US">
+        {@render children()}
+      </LocaleProvider>
+    </EnvironmentProvider>
   </div>
 </div>

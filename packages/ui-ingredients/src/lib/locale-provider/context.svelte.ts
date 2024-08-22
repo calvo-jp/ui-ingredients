@@ -21,13 +21,13 @@ export function createLocaleContext(props: CreateLocaleContextProps) {
 }
 
 export function setLocaleContext(value: CreateLocaleContextReturn) {
-  setContext('locale', value);
+  setContext('LocaleProvider', value);
 }
 
 export function useLocaleContext() {
-  if (!hasContext('locale')) {
+  if (!hasContext('LocaleProvider')) {
     return null;
   } else {
-    return getContext<CreateLocaleContextReturn>('locale');
+    return getContext<CreateLocaleContextReturn>('LocaleProvider');
   }
 }

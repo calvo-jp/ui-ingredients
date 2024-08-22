@@ -1,3 +1,4 @@
+import {useEnvironmentContext} from '$lib/environment-provider/index.js';
 import {useLocaleContext} from '$lib/locale-provider/index.js';
 import {uuid} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect} from '@zag-js/svelte';
@@ -22,15 +23,22 @@ export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
 
 export default function createToaster(props?: CreateToasterProps) {
   const localContext = useLocaleContext();
+  const environmentContext = useEnvironmentContext();
 
   const id = $derived(props?.id ?? uuid());
+
   const dir = $derived(props?.dir ?? localContext?.dir);
+
+  const getRootNode = $derived(
+    props?.getRootNode ?? environmentContext?.getRootNode,
+  );
 
   const machine = $derived(
     toast.group.machine({
       ...props,
       id,
       dir,
+      getRootNode,
     }),
   );
 

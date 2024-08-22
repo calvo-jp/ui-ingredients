@@ -1,7 +1,7 @@
 import * as segmentGroup from '@zag-js/radio-group';
 import {mergeProps, normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getContext, setContext} from 'svelte';
-import {parts} from './anatomy.js';
+import {segmentGroupAnatomy} from './anatomy.js';
 
 export interface CreateSegmentGroupContextProps extends segmentGroup.Context {}
 export interface CreateSegmentGroupContextReturn
@@ -10,6 +10,8 @@ export interface CreateSegmentGroupContextReturn
 export function createSegmentGroupContext(
   props: CreateSegmentGroupContextProps,
 ) {
+  const parts = $derived(segmentGroupAnatomy.build());
+
   const [state, send] = useMachine(segmentGroup.machine(props));
 
   const api = $derived(segmentGroup.connect(state, send, normalizeProps));

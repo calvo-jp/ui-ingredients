@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
@@ -33,6 +34,7 @@
   }: QRCodeProps = $props();
 
   let localeContext = useLocaleContext();
+  let environmentContext = useEnvironmentContext();
 
   let context = createQRCodeContext({
     id: id ?? uuid(),
@@ -40,7 +42,7 @@
     dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
     encoding,
-    getRootNode,
+    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

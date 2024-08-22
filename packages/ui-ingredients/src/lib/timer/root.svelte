@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createTimerContext, setTimerContext} from './context.svelte.js';
@@ -34,6 +35,8 @@
     ...props
   }: TimerProps = $props();
 
+  let environmentContext = useEnvironmentContext();
+
   let context = createTimerContext({
     id: id ?? uuid(),
     startMs,
@@ -43,7 +46,7 @@
     countdown,
     onTick,
     onComplete,
-    getRootNode,
+    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
@@ -34,13 +35,15 @@
     ...props
   }: ClipboardProps = $props();
 
+  let environmentContext = useEnvironmentContext();
+
   let context = createClipboardContext({
     id: id ?? uuid(),
     ids,
     value: $state.snapshot(value),
     timeout,
     onStatusChange,
-    getRootNode,
+    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

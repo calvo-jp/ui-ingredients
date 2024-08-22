@@ -13,6 +13,7 @@
 </script>
 
 <script lang="ts">
+  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {
@@ -20,13 +21,15 @@
     setHoverCardContext,
   } from './context.svelte.js';
 
-  let {id, dir, children, ...props}: HoverCardProps = $props();
+  let {id, dir, getRootNode, children, ...props}: HoverCardProps = $props();
 
   let localeContext = useLocaleContext();
+  let environmentContext = useEnvironmentContext();
 
   let context = createHoverCardContext({
     id: id ?? uuid(),
     dir: dir ?? localeContext?.dir,
+    getRootNode: getRootNode ?? environmentContext?.getRootNode,
     ...props,
   });
 

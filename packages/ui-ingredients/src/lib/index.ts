@@ -7,6 +7,7 @@ export * from './collapsible/index.js';
 export * from './combobox/index.js';
 export * from './dialog/index.js';
 export * from './editable/index.js';
+export * from './environment-provider/index.js';
 export * from './hover-card/index.js';
 export * from './locale-provider/index.js';
 export * from './number-input/index.js';
