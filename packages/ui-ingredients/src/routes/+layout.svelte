@@ -1,8 +1,13 @@
 <script lang="ts">
+  import {
+    Dialog,
+    EnvironmentProvider,
+    LocaleProvider,
+    Portal,
+  } from '$lib/index.js';
   import '../app.css';
-
-  import {EnvironmentProvider, LocaleProvider} from '$lib/index.js';
-  import {page} from './shared/stores.js';
+  import {page} from './shared/stores.svelte.js';
+  import {cx} from './shared/utils.js';
 
   let {children} = $props();
 
@@ -135,30 +140,118 @@
   <title>{currentItem?.label}</title>
 </svelte:head>
 
-<div class="flex items-start">
-  <nav
-    class="sticky top-0 h-dvh w-[20rem] shrink-0 border-r border-neutral-800 p-12"
-  >
-    <ul>
-      {#each items as item}
-        <li class="block w-full">
-          <a
-            href={item.path}
-            class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
-            aria-current={item.path === currentItem?.path ? 'page' : undefined}
-          >
-            {item.label}
-          </a>
-        </li>
-      {/each}
-    </ul>
-  </nav>
+<EnvironmentProvider>
+  <LocaleProvider locale="en-US">
+    <div class="lg:flex lg:items-start">
+      <nav
+        class={cx(
+          'hidden',
+          'lg:block',
+          'sticky',
+          'top-0',
+          'h-dvh',
+          'w-[20rem]',
+          'p-12',
+          'shrink-0',
+          'border-r',
+          'border-neutral-800',
+        )}
+      >
+        <ul>
+          {#each items as item}
+            <li class="block w-full">
+              <a
+                href={item.path}
+                class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
+                aria-current={item.path === currentItem?.path
+                  ? 'page'
+                  : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </nav>
 
-  <div class="grow p-12">
-    <EnvironmentProvider>
-      <LocaleProvider locale="en-US">
+      <header
+        class="sticky top-0 flex h-16 items-center border-b border-neutral-800 bg-neutral-900 px-4 lg:hidden"
+      >
+        <Dialog.Root>
+          <Dialog.Trigger
+            class="flex size-9 items-center justify-center border border-neutral-800"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 8.5H21M3 15.5H21"></path>
+            </svg>
+          </Dialog.Trigger>
+
+          <Portal>
+            <Dialog.Positioner>
+              <Dialog.Backdrop
+                class="fixed inset-0 top-0 bg-black/25 backdrop-blur-sm"
+              />
+              <Dialog.Content
+                class="fixed bottom-0 left-0 top-0 w-64 border-r bg-neutral-800"
+              >
+                <div class="flex h-16 items-center justify-end border-b px-4">
+                  <Dialog.CloseTrigger
+                    class="flex size-9 items-center justify-center border border-neutral-700"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M15 18L9 12L15 6"></path>
+                    </svg>
+                  </Dialog.CloseTrigger>
+                </div>
+
+                <nav
+                  class="h-[calc(100vh-theme(spacing.16))] overflow-y-auto p-4"
+                >
+                  <ul>
+                    {#each items as item}
+                      <li class="block w-full">
+                        <a
+                          href={item.path}
+                          class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
+                          aria-current={item.path === currentItem?.path
+                            ? 'page'
+                            : undefined}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    {/each}
+                  </ul>
+                </nav>
+              </Dialog.Content>
+            </Dialog.Positioner>
+          </Portal>
+        </Dialog.Root>
+      </header>
+
+      <main class="grow p-4 lg:p-12">
         {@render children()}
-      </LocaleProvider>
-    </EnvironmentProvider>
-  </div>
-</div>
+      </main>
+    </div>
+  </LocaleProvider>
+</EnvironmentProvider>
