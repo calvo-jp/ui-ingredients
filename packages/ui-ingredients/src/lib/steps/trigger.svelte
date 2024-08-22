@@ -5,16 +5,16 @@
 </script>
 
 <script lang="ts">
-  import { mergeProps } from '@zag-js/svelte';
-  import { useStepsContext, useStepsItemContext } from './context.svelte.js';
-js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {useStepsContext, useStepsItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: StepsTriggerProps = $props();
 
   let context = useStepsContext();
-  let itemContext = useStepsItemPropsContext();
 
-  let attrs = $derived(mergeProps(props, context.getTriggerProps(itemContext)));
+  let itemProps = useStepsItemPropsContext();
+
+  let attrs = $derived(mergeProps(props, context.getTriggerProps(itemProps)));
 </script>
 
 <button type="button" {...attrs}>

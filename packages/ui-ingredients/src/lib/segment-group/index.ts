@@ -1,11 +1,9 @@
-export {
-  RadioGroup as SegmentGroup,
-  type RadioGroupIndicatorProps as SegmentGroupIndicatorProps,
-  type RadioGroupItemControlProps as SegmentGroupItemControlProps,
-  type RadioGroupItemHiddenInputProps as SegmentGroupItemHiddenInputProps,
-  type RadioGroupItemProps as SegmentGroupItemProps,
-  type RadioGroupItemTextProps as SegmentGroupItemTextProps,
-  type RadioGroupLabelProps as SegmentGroupLabelProps,
-  type RadioGroupProps as SegmentGroupProps,
-} from '$lib/radio-group/index.js';
-export * from './anatomy.js';
+export {segmentGroupAnatomy} from './anatomy.js';
+export type {SegmentGroupIndicatorProps} from './indicator.svelte';
+export type {SegmentGroupItemControlProps} from './item-control.svelte';
+export type {SegmentGroupItemHiddenInputProps} from './item-hidden-input.svelte';
+export type {SegmentGroupItemTextProps} from './item-text.svelte';
+export type {SegmentGroupItemProps} from './item.svelte';
+export type {SegmentGroupLabelProps} from './label.svelte';
+export type {SegmentGroupProps} from './root.svelte';
+export * as SegmentGroup from './segment-group.js';
