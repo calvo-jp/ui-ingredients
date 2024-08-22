@@ -1,18 +1,18 @@
 <script lang="ts">
   import {SegmentGroup} from '$lib/index.js';
 
-  let frameworks = ['React', 'Solid', 'Vue', 'Svelte', 'Angular'];
-
-  let value = $state(frameworks[0]);
-
-  $inspect(value);
+  let frameworks = [
+    /**/
+    'React',
+    'Solid',
+    'Svelte',
+    'Vue',
+    'Angular',
+  ];
 </script>
 
 <SegmentGroup.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
+  value="React"
   orientation="horizontal"
   class="relative flex w-fit gap-1 border-b pb-2"
 >

@@ -11,6 +11,7 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
+  import {parts} from './anatomy.js';
   import {
     setSegmentGroupItemPropsContext,
     useSegmentGroupContext,
@@ -53,6 +54,6 @@
   });
 </script>
 
-<label {...attrs}>
+<label {...attrs} {...parts.item.attrs}>
   {@render children?.(state)}
 </label>
