@@ -51,22 +51,18 @@ export function useSelectContext() {
   return getContext<CreateSelectContextReturn>('Select');
 }
 
-export function setSelectItemGroupContext(value: select.ItemGroupProps) {
+export function setSelectItemGroupPropsContext(value: select.ItemGroupProps) {
   setContext('SelectItemGroup', value);
 }
 
-export function useSelectItemGroupContext() {
+export function useSelectItemGroupPropsContext() {
   return getContext<select.ItemGroupProps>('SelectItemGroup');
 }
 
-export interface CreateItemContextReturn<T> extends select.ItemProps<T> {
-  label: string;
-}
-
-export function setSelectItemContext(value: select.ItemProps) {
+export function setSelectItemPropsContext(value: select.ItemProps) {
   setContext('SelectItem', value);
 }
 
-export function useSelectItemContext() {
+export function useSelectItemPropsContext() {
   return getContext<select.ItemProps>('SelectItem');
 }

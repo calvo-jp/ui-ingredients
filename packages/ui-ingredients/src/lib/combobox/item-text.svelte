@@ -8,23 +8,22 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useComboboxContext,
-    useComboboxItemContext,
+    useComboboxItemPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: ComboboxItemTextProps = $props();
 
   let context = useComboboxContext();
-  let itemContext = useComboboxItemContext();
 
-  let attrs = $derived(
-    mergeProps(props, context.getItemTextProps(itemContext)),
-  );
+  let itemProps = useComboboxItemPropsContext();
+
+  let attrs = $derived(mergeProps(props, context.getItemTextProps(itemProps)));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
-    {context.collection.stringifyItem(itemContext.item)}
+    {context.collection.stringifyItem(itemProps.item)}
   {/if}
 </span>

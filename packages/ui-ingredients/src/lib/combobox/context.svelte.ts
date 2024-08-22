@@ -51,18 +51,20 @@ export function useComboboxContext() {
   return getContext<CreateComboboxContextReturn>('Combobox');
 }
 
-export function setComboboxItemContext(value: combobox.ItemProps) {
+export function setComboboxItemPropsContext(value: combobox.ItemProps) {
   setContext('ComboboxItem', value);
 }
 
-export function useComboboxItemContext() {
+export function useComboboxItemPropsContext() {
   return getContext<combobox.ItemProps>('ComboboxItem');
 }
 
-export function setComboboxItemGroupContext(value: combobox.ItemGroupProps) {
+export function setComboboxItemGroupPropsContext(
+  value: combobox.ItemGroupProps,
+) {
   setContext('ComboboxItemGroup', value);
 }
 
-export function useComboboxItemGroupContext() {
+export function useComboboxItemGroupPropsContext() {
   return getContext<combobox.ItemGroupProps>('ComboboxItemGroup');
 }

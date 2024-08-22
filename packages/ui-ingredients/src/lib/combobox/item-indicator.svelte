@@ -9,16 +9,17 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useComboboxContext,
-    useComboboxItemContext,
+    useComboboxItemPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: ComboboxItemIndicatorProps = $props();
 
   let context = useComboboxContext();
-  let itemContext = useComboboxItemContext();
+
+  let itemProps = useComboboxItemPropsContext();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemIndicatorProps(itemContext)),
+    mergeProps(props, context.getItemIndicatorProps(itemProps)),
   );
 </script>
 

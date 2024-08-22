@@ -9,16 +9,17 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useTagsInputContext,
-    useTagsInputItemContext,
+    useTagsInputItemPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: TagsInputItemPreviewProps = $props();
 
   let context = useTagsInputContext();
-  let itemContext = useTagsInputItemContext();
+
+  let itemProps = useTagsInputItemPropsContext();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemPreviewProps(itemContext)),
+    mergeProps(props, context.getItemPreviewProps(itemProps)),
   );
 </script>
 

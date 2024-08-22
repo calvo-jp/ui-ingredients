@@ -8,7 +8,7 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {setTimerItemContext, useTimerContext} from './context.svelte.js';
+  import {setTimerItemPropsContext, useTimerContext} from './context.svelte.js';
 
   let {type, children, ...props}: TimerItemProps = $props();
 
@@ -16,7 +16,7 @@
 
   let attrs = $derived(mergeProps(props, context.getItemProps({type})));
 
-  setTimerItemContext({type});
+  setTimerItemPropsContext({type});
 </script>
 
 <div {...attrs}>

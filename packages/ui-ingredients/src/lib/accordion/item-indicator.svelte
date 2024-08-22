@@ -9,16 +9,17 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useAccordionContext,
-    useAccordionItemContext,
+    useAccordionItemPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: AccordionIndicatorProps = $props();
 
   let context = useAccordionContext();
-  let itemContext = useAccordionItemContext();
+
+  let itemProps = useAccordionItemPropsContext();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemIndicatorProps(itemContext)),
+    mergeProps(props, context.getItemIndicatorProps(itemProps)),
   );
 </script>
 

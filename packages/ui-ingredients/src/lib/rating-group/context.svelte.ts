@@ -23,11 +23,3 @@ export function setRatingGroupContext(value: CreateRatingGroupContextReturn) {
 export function useRatingGroupContext() {
   return getContext<CreateRatingGroupContextReturn>('RatingGroup');
 }
-
-export function setRatingGroupItemContext(value: ratingGroup.ItemProps) {
-  setContext('RatingGroupItem', value);
-}
-
-export function useRatingGroupItemContext() {
-  return getContext<ratingGroup.ItemProps>('RatingGroupItem');
-}

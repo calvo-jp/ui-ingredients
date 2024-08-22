@@ -6,16 +6,15 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useStepsContext, useStepsItemContext} from './context.svelte.js';
+  import {useStepsContext, useStepsItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: StepsIndicatorProps = $props();
 
   let context = useStepsContext();
-  let itemContext = useStepsItemContext();
 
-  let attrs = $derived(
-    mergeProps(props, context.getIndicatorProps(itemContext)),
-  );
+  let itemProps = useStepsItemPropsContext();
+
+  let attrs = $derived(mergeProps(props, context.getIndicatorProps(itemProps)));
 </script>
 
 <div {...attrs}>

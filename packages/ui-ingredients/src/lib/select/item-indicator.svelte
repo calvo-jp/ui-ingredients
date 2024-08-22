@@ -7,15 +7,19 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useSelectContext, useSelectItemContext} from './context.svelte.js';
+  import {
+    useSelectContext,
+    useSelectItemPropsContext,
+  } from './context.svelte.js';
 
   let {children, ...props}: SelectItemIndicatorProps = $props();
 
   let context = useSelectContext();
-  let itemContext = useSelectItemContext();
+
+  let itemProps = useSelectItemPropsContext();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemIndicatorProps(itemContext)),
+    mergeProps(props, context.getItemIndicatorProps(itemProps)),
   );
 </script>
 

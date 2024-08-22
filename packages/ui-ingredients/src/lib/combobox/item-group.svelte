@@ -10,7 +10,7 @@
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
-    setComboboxItemGroupContext,
+    setComboboxItemGroupPropsContext,
     useComboboxContext,
   } from './context.svelte.js';
 
@@ -24,7 +24,7 @@
     mergeProps(props, context.getItemGroupProps({id: id ?? uid})),
   );
 
-  setComboboxItemGroupContext({id: id ?? uid});
+  setComboboxItemGroupPropsContext({id: id ?? uid});
 </script>
 
 <div {...attrs}>

@@ -11,7 +11,10 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {setSelectItemContext, useSelectContext} from './context.svelte.js';
+  import {
+    setSelectItemPropsContext,
+    useSelectContext,
+  } from './context.svelte.js';
 
   let {item, persistFocus, children, ...props}: SelectItemProps = $props();
 
@@ -34,7 +37,7 @@
     ),
   );
 
-  setSelectItemContext({
+  setSelectItemPropsContext({
     item,
     persistFocus,
   });

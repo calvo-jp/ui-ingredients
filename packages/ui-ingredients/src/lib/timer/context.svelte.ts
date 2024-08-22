@@ -24,10 +24,10 @@ export function useTimerContext() {
   return getContext<CreateTimerContextReturn>('Timer');
 }
 
-export function setTimerItemContext(value: timer.ItemProps) {
+export function setTimerItemPropsContext(value: timer.ItemProps) {
   setContext('TimerItem', value);
 }
 
-export function useTimerItemContext() {
+export function useTimerItemPropsContext() {
   return getContext<timer.ItemProps>('TimerItem');
 }

@@ -24,10 +24,10 @@ export function useStepsContext() {
   return getContext<CreateStepsContextReturn>('Steps');
 }
 
-export function setStepsItemContext(value: steps.ItemProps) {
+export function setStepsItemPropsContext(value: steps.ItemProps) {
   setContext('StepsItem', value);
 }
 
-export function useStepsItemContext() {
+export function useStepsItemPropsContext() {
   return getContext<steps.ItemProps>('StepsItem');
 }

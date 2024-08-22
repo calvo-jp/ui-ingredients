@@ -9,19 +9,20 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useComboboxContext,
-    useComboboxItemGroupContext,
+    useComboboxItemGroupPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: ComboboxItemGroupLabelProps = $props();
 
   let context = useComboboxContext();
-  let itemGroupContext = useComboboxItemGroupContext();
+
+  let itemGroupProps = useComboboxItemGroupPropsContext();
 
   let attrs = $derived(
     mergeProps(
       props,
       context.getItemGroupLabelProps({
-        htmlFor: itemGroupContext.id,
+        htmlFor: itemGroupProps.id,
       }),
     ),
   );

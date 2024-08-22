@@ -9,16 +9,17 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useRadioGroupContext,
-    useRadioGroupItemContext,
+    useRadioGroupItemPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: RadioGroupItemControlProps = $props();
 
   let context = useRadioGroupContext();
-  let itemContext = useRadioGroupItemContext();
+
+  let itemProps = useRadioGroupItemPropsContext();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemControlProps(itemContext)),
+    mergeProps(props, context.getItemControlProps(itemProps)),
   );
 </script>
 

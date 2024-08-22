@@ -24,10 +24,10 @@ export function useSliderContext() {
   return getContext<CreateSliderContextReturn>('Slider');
 }
 
-export function setSliderThumbContext(value: slider.ThumbProps) {
+export function setSliderThumbPropsContext(value: slider.ThumbProps) {
   setContext('SliderThumb', value);
 }
 
-export function useSliderThumbContext() {
+export function useSliderThumbPropsContext() {
   return getContext<slider.ThumbProps>('SliderThumb');
 }

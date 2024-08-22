@@ -24,10 +24,10 @@ export function useTagsInputContext() {
   return getContext<CreateTagsInputContextReturn>('TagsInput');
 }
 
-export function setTagsInputItemContext(value: tagsInput.ItemProps) {
+export function setTagsInputItemPropsContext(value: tagsInput.ItemProps) {
   setContext('TagsInputItem', value);
 }
 
-export function useTagsInputItemContext() {
+export function useTagsInputItemPropsContext() {
   return getContext<tagsInput.ItemProps>('TagsInputItem');
 }

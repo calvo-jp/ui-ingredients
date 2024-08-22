@@ -12,7 +12,7 @@
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {
-    setRadioGroupItemContext,
+    setRadioGroupItemPropsContext,
     useRadioGroupContext,
   } from './context.svelte.js';
 
@@ -46,7 +46,7 @@
     ),
   );
 
-  setRadioGroupItemContext({
+  setRadioGroupItemPropsContext({
     value,
     invalid,
     disabled,

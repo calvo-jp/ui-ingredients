@@ -12,12 +12,18 @@
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {
-    setTagsInputItemContext,
+    setTagsInputItemPropsContext,
     useTagsInputContext,
   } from './context.svelte.js';
 
-  let {index, value, disabled, children, ...props}: TagsInputItemProps =
-    $props();
+  let {
+    /**/
+    index,
+    value,
+    disabled,
+    children,
+    ...props
+  }: TagsInputItemProps = $props();
 
   let context = useTagsInputContext();
 
@@ -40,7 +46,7 @@
     ),
   );
 
-  setTagsInputItemContext({
+  setTagsInputItemPropsContext({
     index,
     value,
     disabled,

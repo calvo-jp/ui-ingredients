@@ -6,22 +6,21 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useTimerContext, useTimerItemContext} from './context.svelte.js';
+  import {useTimerContext, useTimerItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: TimerItemValueProps = $props();
 
   let context = useTimerContext();
-  let itemContext = useTimerItemContext();
 
-  let attrs = $derived(
-    mergeProps(props, context.getItemValueProps(itemContext)),
-  );
+  let itemProps = useTimerItemPropsContext();
+
+  let attrs = $derived(mergeProps(props, context.getItemValueProps(itemProps)));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
-    {context.formattedTime[itemContext.type]}
+    {context.formattedTime[itemProps.type]}
   {/if}
 </span>

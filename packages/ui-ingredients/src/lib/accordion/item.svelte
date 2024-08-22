@@ -12,7 +12,7 @@
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {
-    setAccordionItemContext,
+    setAccordionItemPropsContext,
     useAccordionContext,
   } from './context.svelte.js';
 
@@ -37,7 +37,7 @@
     ),
   );
 
-  setAccordionItemContext({
+  setAccordionItemPropsContext({
     value,
     disabled,
   });

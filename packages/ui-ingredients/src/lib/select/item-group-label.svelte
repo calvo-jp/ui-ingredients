@@ -9,18 +9,19 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useSelectContext,
-    useSelectItemGroupContext,
+    useSelectItemGroupPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: SelectItemGroupLabelProps = $props();
 
   let context = useSelectContext();
-  let itemGroupContext = useSelectItemGroupContext();
+
+  let itemGroupProps = useSelectItemGroupPropsContext();
 
   let attrs = $derived(
     mergeProps(
       props,
-      context.getItemGroupLabelProps({htmlFor: itemGroupContext.id}),
+      context.getItemGroupLabelProps({htmlFor: itemGroupProps.id}),
     ),
   );
 </script>

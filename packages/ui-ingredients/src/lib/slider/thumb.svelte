@@ -8,7 +8,10 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {setSliderThumbContext, useSliderContext} from './context.svelte.js';
+  import {
+    setSliderThumbPropsContext,
+    useSliderContext,
+  } from './context.svelte.js';
 
   let {name, index, children, ...props}: SliderThumbProps = $props();
 
@@ -24,7 +27,7 @@
     ),
   );
 
-  setSliderThumbContext({
+  setSliderThumbPropsContext({
     name,
     index,
   });

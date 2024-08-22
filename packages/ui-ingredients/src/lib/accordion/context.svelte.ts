@@ -26,10 +26,10 @@ export function useAccordionContext() {
   return getContext<CreateAccordionContextReturn>('Accordion');
 }
 
-export function setAccordionItemContext(value: accordion.ItemProps) {
+export function setAccordionItemPropsContext(value: accordion.ItemProps) {
   setContext<accordion.ItemProps>('AccordionItem', value);
 }
 
-export function useAccordionItemContext() {
+export function useAccordionItemPropsContext() {
   return getContext<accordion.ItemProps>('AccordionItem');
 }

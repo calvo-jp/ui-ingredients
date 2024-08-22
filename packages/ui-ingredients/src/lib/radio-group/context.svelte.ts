@@ -24,10 +24,10 @@ export function useRadioGroupContext() {
   return getContext<CreateRadioGroupContextReturn>('RadioGroup');
 }
 
-export function setRadioGroupItemContext(value: radioGroup.ItemProps) {
+export function setRadioGroupItemPropsContext(value: radioGroup.ItemProps) {
   setContext('RadioGroupItem', value);
 }
 
-export function useRadioGroupItemContext() {
+export function useRadioGroupItemPropsContext() {
   return getContext<radioGroup.ItemProps>('RadioGroupItem');
 }

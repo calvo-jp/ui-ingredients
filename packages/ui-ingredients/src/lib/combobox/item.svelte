@@ -12,7 +12,7 @@
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {
-    setComboboxItemContext,
+    setComboboxItemPropsContext,
     useComboboxContext,
   } from './context.svelte.js';
 
@@ -37,7 +37,7 @@
     ),
   );
 
-  setComboboxItemContext({
+  setComboboxItemPropsContext({
     item,
     persistFocus,
   });
