@@ -7,7 +7,6 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {parts} from './anatomy.js';
   import {useSegmentGroupContext} from './context.svelte.js';
 
   let {children, ...props}: SegmentGroupIndicatorProps = $props();
@@ -17,6 +16,6 @@
   let attrs = $derived(mergeProps(props, context.getIndicatorProps()));
 </script>
 
-<span {...attrs} {...parts.indicator.attrs}>
+<span {...attrs}>
   {@render children?.()}
 </span>

@@ -20,7 +20,6 @@
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {parts} from './anatomy.js';
   import {
     createSegmentGroupContext,
     setSegmentGroupContext,
@@ -64,6 +63,6 @@
   setSegmentGroupContext(context);
 </script>
 
-<div {...attrs} {...parts.root.attrs}>
+<div {...attrs}>
   {@render children?.(context)}
 </div>
