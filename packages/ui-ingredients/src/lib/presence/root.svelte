@@ -28,16 +28,10 @@
   );
 
   let api = $derived(presence.connect(machineState, send, normalizeProps));
-
-  let node: HTMLElement | null = $state(null);
-
-  $effect(() => {
-    api.setNode(node);
-  });
 </script>
 
 <div
-  bind:this={node}
+  use:api.setNode
   hidden={!api.present}
   data-state={api.skip ? undefined : present ? 'open' : 'closed'}
   {...props}
