@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Steps} from '$lib/index.js';
+  import {cx} from '../shared/utils.js';
 
   const items = [
     {title: 'Step 1', content: 'Step 1 Content'},
@@ -24,7 +25,20 @@
       <Steps.Item {index} class="flex items-center gap-2">
         <Steps.Trigger class="flex items-center gap-2">
           <Steps.Indicator
-            class="data-complete:border-indigo-600 data-complete:bg-indigo-600 group flex size-5 items-center justify-center rounded-full border-2 transition-all duration-200"
+            class={cx(
+              'group',
+              'flex',
+              'items-center',
+              'justify-center',
+              'rounded-full',
+              'size-5',
+              'border-2',
+              'transition-all',
+              'duration-200',
+              'data-current:border-indigo-600',
+              'data-complete:border-indigo-600',
+              'data-complete:bg-indigo-600',
+            )}
           >
             <svg
               viewBox="0 0 24 24"
