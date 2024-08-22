@@ -23,6 +23,8 @@
     disabled,
     getRootNode: getRootNode ?? environmentContext?.getRootNode,
   }}
+  data-scope="portal"
+  data-part="root"
 >
   {@render children?.()}
 </div>

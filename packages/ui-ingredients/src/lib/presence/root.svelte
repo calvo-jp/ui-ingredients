@@ -33,6 +33,8 @@
 <div
   use:api.setNode
   hidden={!api.present}
+  data-scope="presence"
+  data-part="root"
   data-state={api.skip ? undefined : present ? 'open' : 'closed'}
   {...props}
 >
