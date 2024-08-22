@@ -10,11 +10,19 @@
 </script>
 
 <script lang="ts">
+  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {portal} from '@zag-js/svelte';
 
-  let {children, ...props}: PortalProps = $props();
+  let {container, disabled, getRootNode, children}: PortalProps = $props();
+  let environmentContext = useEnvironmentContext();
 </script>
 
-<div use:portal={props}>
+<div
+  use:portal={{
+    container,
+    disabled,
+    getRootNode: getRootNode ?? environmentContext?.getRootNode,
+  }}
+>
   {@render children?.()}
 </div>
