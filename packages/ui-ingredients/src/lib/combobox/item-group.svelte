@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-  import {uuid} from '$lib/utils.svelte.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
     setComboboxItemGroupPropsContext,
@@ -18,7 +18,7 @@
 
   let context = useComboboxContext();
 
-  let uid = uuid();
+  let uid = createUniqueId();
 
   let attrs = $derived(
     mergeProps(props, context.getItemGroupProps({id: id ?? uid})),

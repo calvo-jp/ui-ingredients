@@ -1,3 +1,3 @@
-import {nanoid} from 'nanoid/non-secure';
+import {uid} from 'uid';
 
-export const uuid = () => nanoid(8);
+export const createUniqueId = () => uid();

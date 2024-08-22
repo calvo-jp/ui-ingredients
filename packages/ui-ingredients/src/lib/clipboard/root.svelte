@@ -17,7 +17,7 @@
 
 <script lang="ts">
   import {useEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {uuid} from '$lib/utils.svelte.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
     createClipboardContext,
@@ -38,7 +38,7 @@
   let environmentContext = useEnvironmentContext();
 
   let context = createClipboardContext({
-    id: id ?? uuid(),
+    id: id ?? createUniqueId(),
     ids,
     value: $state.snapshot(value),
     timeout,

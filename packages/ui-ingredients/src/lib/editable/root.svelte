@@ -15,7 +15,7 @@
 <script lang="ts">
   import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {uuid} from '$lib/utils.svelte.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {createEditableContext, setEditableContext} from './context.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: EditableProps = $props();
@@ -24,7 +24,7 @@
   let environmentContext = useEnvironmentContext();
 
   let context = createEditableContext({
-    id: id ?? uuid(),
+    id: id ?? createUniqueId(),
     dir: dir ?? localeContext?.dir,
     getRootNode: getRootNode ?? environmentContext?.getRootNode,
     ...props,

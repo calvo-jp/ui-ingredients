@@ -18,7 +18,7 @@
 <script lang="ts">
   import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {uuid} from '$lib/utils.svelte.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createCheckboxContext, setCheckboxContext} from './context.svelte.js';
 
@@ -44,7 +44,7 @@
   let environmentContext = useEnvironmentContext();
 
   let context = createCheckboxContext({
-    id: id ?? uuid(),
+    id: id ?? createUniqueId(),
     ids,
     dir: dir ?? localeContext?.dir,
     form,
