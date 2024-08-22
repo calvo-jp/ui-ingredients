@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {page} from '$app/stores';
   import {
     Dialog,
     EnvironmentProvider,
@@ -6,7 +7,6 @@
     Portal,
   } from '$lib/index.js';
   import '../app.css';
-  import {page} from './shared/stores.svelte.js';
   import {cx} from './shared/utils.js';
 
   let {children} = $props();
@@ -132,7 +132,7 @@
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(
-    items.find((item) => item.path === page.current.url.pathname),
+    items.find((item) => item.path === $page.url.pathname),
   );
 </script>
 
@@ -178,31 +178,36 @@
         class="sticky top-0 flex h-16 items-center border-b border-neutral-800 bg-neutral-900 px-4 lg:hidden"
       >
         <Dialog.Root>
-          <Dialog.Trigger
-            class="flex size-9 items-center justify-center border border-neutral-800"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+          <div class="flex items-center gap-3">
+            <Dialog.Trigger
+              class="flex size-9 items-center justify-center border border-neutral-800"
             >
-              <path d="M3 8.5H21M3 15.5H21"></path>
-            </svg>
-          </Dialog.Trigger>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 8.5H21M3 15.5H21"></path>
+              </svg>
+            </Dialog.Trigger>
+            <span class="block bg-neutral-800/50 px-2.5 py-0.5 font-mono">
+              {currentItem?.label}
+            </span>
+          </div>
 
           <Portal>
             <Dialog.Positioner>
               <Dialog.Backdrop
-                class="fixed inset-0 top-0 bg-black/25 backdrop-blur-sm"
+                class="data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 top-0 bg-black/25 backdrop-blur-sm"
               />
               <Dialog.Content
-                class="fixed bottom-0 left-0 top-0 w-64 border-r bg-neutral-800"
+                class="data-open:animate-slide-in-left data-closed:animate-slide-out-left fixed bottom-0 left-0 top-0 w-64 border-r bg-neutral-800"
               >
                 <div class="flex h-16 items-center justify-end border-b px-4">
                   <Dialog.CloseTrigger
