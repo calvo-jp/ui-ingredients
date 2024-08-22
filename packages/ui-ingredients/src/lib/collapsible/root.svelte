@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
@@ -37,10 +38,12 @@
     ...props
   }: CollapsibleProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createCollapsibleContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     open,
     'open.controlled': openControlled,
     disabled,

@@ -98,6 +98,7 @@
     "@zag-js/editable": "0.65.1",
     "@zag-js/file-upload": "0.65.1",
     "@zag-js/hover-card": "0.65.1",
+    "@zag-js/i18n-utils": "0.65.1",
     "@zag-js/menu": "0.65.1",
     "@zag-js/number-input": "0.65.1",
     "@zag-js/pagination": "0.65.1",

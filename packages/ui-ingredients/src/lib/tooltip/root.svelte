@@ -12,13 +12,17 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {createTooltipContext, setTooltipContext} from './context.svelte.js';
 
-  let {id, children, ...props}: TooltipProps = $props();
+  let {id, dir, children, ...props}: TooltipProps = $props();
+
+  let localeContext = useLocaleContext();
 
   let context = createTooltipContext({
     id: id ?? uuid(),
+    dir: dir ?? localeContext?.dir,
     ...props,
   });
 

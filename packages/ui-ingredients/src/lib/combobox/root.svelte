@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts" generics="T">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createComboboxContext, setComboboxContext} from './context.svelte.js';
@@ -68,10 +69,12 @@
     ...props
   }: ComboboxProps<T> = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createComboboxContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     name,
     form,
     open,

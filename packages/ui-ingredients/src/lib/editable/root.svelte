@@ -13,13 +13,17 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {createEditableContext, setEditableContext} from './context.svelte.js';
 
-  let {id, children, ...props}: EditableProps = $props();
+  let {id, dir, children, ...props}: EditableProps = $props();
+
+  let localeContext = useLocaleContext();
 
   let context = createEditableContext({
     id: id ?? uuid(),
+    dir: dir ?? localeContext?.dir,
     ...props,
   });
 

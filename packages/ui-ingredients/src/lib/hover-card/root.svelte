@@ -13,16 +13,20 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {
     createHoverCardContext,
     setHoverCardContext,
   } from './context.svelte.js';
 
-  let {id, children, ...props}: HoverCardProps = $props();
+  let {id, dir, children, ...props}: HoverCardProps = $props();
+
+  let localeContext = useLocaleContext();
 
   let context = createHoverCardContext({
     id: id ?? uuid(),
+    dir: dir ?? localeContext?.dir,
     ...props,
   });
 

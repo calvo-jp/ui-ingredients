@@ -12,13 +12,17 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {createPopoverContext, setPopoverContext} from './context.svelte.js';
 
-  let {id, children, ...props}: PopoverProps = $props();
+  let {id, dir, children, ...props}: PopoverProps = $props();
+
+  let localeContext = useLocaleContext();
 
   let context = createPopoverContext({
     id: id ?? uuid(),
+    dir: dir ?? localeContext?.dir,
     ...props,
   });
 

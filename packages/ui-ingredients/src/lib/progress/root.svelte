@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createProgressContext, setProgressContext} from './context.svelte.js';
@@ -34,10 +35,12 @@
     ...props
   }: ProgressProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createProgressContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     max,
     min,
     value: $state.snapshot(value),

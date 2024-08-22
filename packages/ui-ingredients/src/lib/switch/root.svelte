@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createSwitchContext, setSwitchContext} from './context.svelte.js';
@@ -39,10 +40,12 @@
     ...props
   }: SwitchProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createSwitchContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     form,
     name,
     label,

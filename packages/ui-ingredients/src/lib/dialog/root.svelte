@@ -12,13 +12,17 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {createDialogContext, setDialogContext} from './context.svelte.js';
 
-  let {id, children, ...props}: DialogProps = $props();
+  let {id, dir, children, ...props}: DialogProps = $props();
+
+  let localeContext = useLocaleContext();
 
   let context = createDialogContext({
     id: id ?? uuid(),
+    dir: dir ?? localeContext?.dir,
     ...props,
   });
 

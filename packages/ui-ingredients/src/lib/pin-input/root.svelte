@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createPinInputContext, setPinInputContext} from './context.svelte.js';
@@ -48,10 +49,12 @@
     ...props
   }: PinInputProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createPinInputContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     otp,
     form,
     mask,

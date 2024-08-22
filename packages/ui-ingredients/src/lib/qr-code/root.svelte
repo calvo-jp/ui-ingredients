@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createQRCodeContext, setQRCodeContext} from './context.svelte.js';
@@ -31,10 +32,12 @@
     ...props
   }: QRCodeProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createQRCodeContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
     encoding,
     getRootNode,

@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
@@ -44,10 +45,12 @@
     ...props
   }: RatingGroupProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createRatingGroupContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     form,
     name,
     count,

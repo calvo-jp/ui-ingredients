@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createCheckboxContext, setCheckboxContext} from './context.svelte.js';
@@ -38,10 +39,12 @@
     ...props
   }: CheckboxProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createCheckboxContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     form,
     name,
     value: $state.snapshot(value),

@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createCarouselContext, setCarouselContext} from './context.svelte.js';
@@ -36,10 +37,12 @@
     ...props
   }: CarouselProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createCarouselContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     loop,
     align,
     index: $state.snapshot(index),

@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createStepsContext, setStepsContext} from './context.svelte.js';
@@ -35,10 +36,12 @@
     ...props
   }: StepsProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createStepsContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     step,
     count,
     linear,

@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
@@ -39,10 +40,12 @@
     ...props
   }: ToggleGroupProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createToggleGroupContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
     disabled,
     multiple,

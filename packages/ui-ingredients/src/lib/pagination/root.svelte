@@ -16,6 +16,7 @@
 </script>
 
 <script lang="ts">
+  import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {uuid} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {
@@ -40,10 +41,12 @@
     ...props
   }: PaginationProps = $props();
 
+  let localeContext = useLocaleContext();
+
   let context = createPaginationContext({
     id: id ?? uuid(),
     ids,
-    dir,
+    dir: dir ?? localeContext?.dir,
     type,
     page,
     pageSize,
