@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface MenuItemGroupLabelProps
+  export interface MenuOptionItemTextProps
     extends HtmlIngredientProps<'span'> {}
 </script>
 
@@ -9,25 +9,24 @@
   import {mergeProps} from '@zag-js/svelte';
   import {
     useMenuContext,
-    useMenuItemGroupPropsContext,
+    useMenuOptionItemPropsContext,
   } from './context.svelte.js';
 
-  let {children, ...props}: MenuItemGroupLabelProps = $props();
+  let {children, ...props}: MenuOptionItemTextProps = $props();
 
   let context = useMenuContext();
 
-  let itemGroupProps = useMenuItemGroupPropsContext();
+  let optionItemProps = useMenuOptionItemPropsContext();
 
   let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemGroupLabelProps({
-        htmlFor: itemGroupProps.id,
-      }),
-    ),
+    mergeProps(props, context.getItemTextProps(optionItemProps)),
   );
 </script>
 
 <span {...attrs}>
-  {@render children?.()}
+  {#if children}
+    {@render children()}
+  {:else}
+    {optionItemProps.valueText}
+  {/if}
 </span>

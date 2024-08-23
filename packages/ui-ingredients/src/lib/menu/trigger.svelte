@@ -1,3 +1,20 @@
-<script lang="ts" module></script>
+<script lang="ts" module>
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-<script lang="ts"></script>
+  export interface MenuTriggerProps extends HtmlIngredientProps<'button'> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {useMenuContext} from './context.svelte.js';
+
+  let {children, ...props}: MenuTriggerProps = $props();
+
+  let context = useMenuContext();
+
+  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
+</script>
+
+<button type="button" {...attrs}>
+  {@render children?.()}
+</button>

@@ -50,11 +50,11 @@
       path: '/tooltip',
     },
     {
-      label: 'PinInput',
+      label: 'Pin Input',
       path: '/pin-input',
     },
     {
-      label: 'NumberInput',
+      label: 'Number Input',
       path: '/number-input',
     },
     {
@@ -66,7 +66,7 @@
       path: '/clipboard',
     },
     {
-      label: 'ToggleGroup',
+      label: 'Toggle Group',
       path: '/toggle-group',
     },
     {
@@ -82,7 +82,7 @@
       path: '/pagination',
     },
     {
-      label: 'HoverCard',
+      label: 'Hover Card',
       path: '/hover-card',
     },
     {
@@ -102,7 +102,7 @@
       path: '/select',
     },
     {
-      label: 'RadioGroup',
+      label: 'Radio Group',
       path: '/radio-group',
     },
     {
@@ -114,7 +114,7 @@
       path: '/timer',
     },
     {
-      label: 'TagsInput',
+      label: 'Tags Input',
       path: '/tags-input',
     },
     {
@@ -122,12 +122,32 @@
       path: '/editable',
     },
     {
-      label: 'RatingGroup',
+      label: 'Rating Group',
       path: '/rating-group',
     },
     {
-      label: 'SegmentGroup',
+      label: 'Segment Group',
       path: '/segment-group',
+    },
+    {
+      label: 'Menu',
+      path: '/menu',
+    },
+    {
+      label: 'Context Menu',
+      path: '/menu/context',
+    },
+    {
+      label: 'Nested Menu',
+      path: '/menu/nested',
+    },
+    {
+      label: 'Menu (Checkbox)',
+      path: '/menu/checkbox',
+    },
+    {
+      label: 'Menu (Radio)',
+      path: '/menu/radio',
     },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 

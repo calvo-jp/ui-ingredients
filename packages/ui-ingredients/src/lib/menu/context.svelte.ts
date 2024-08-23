@@ -24,10 +24,26 @@ export function useMenuContext() {
   return getContext<CreateMenuContextReturn>('Menu');
 }
 
-export function setMenuItemPropsContext(value: CreateMenuContextReturn) {
+export function setMenuItemPropsContext(value: menu.ItemProps) {
   setContext('MenuItem', value);
 }
 
 export function useMenuItemPropsContext() {
-  return getContext<CreateMenuContextReturn>('MenuItem');
+  return getContext<menu.ItemProps>('MenuItem');
+}
+
+export function setMenuItemGroupPropsContext(value: menu.ItemGroupProps) {
+  setContext('MenuItemGroup', value);
+}
+
+export function useMenuItemGroupPropsContext() {
+  return getContext<menu.ItemGroupProps>('MenuItemGroup');
+}
+
+export function setMenuOptionItemPropsContext(value: menu.OptionItemProps) {
+  setContext('MenuOptionItem', value);
+}
+
+export function useMenuOptionItemPropsContext() {
+  return getContext<menu.OptionItemProps>('MenuOptionItem');
 }
