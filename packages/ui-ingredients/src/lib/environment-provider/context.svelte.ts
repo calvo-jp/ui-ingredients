@@ -10,16 +10,14 @@ export interface CreateEnvironmentContextReturn
   extends ReturnType<typeof createEnvironmentContext> {}
 
 export function createEnvironmentContext(props: CreateEnvironmentContextProps) {
+  const getRootNode = $derived(props.getRootNode ?? (() => document));
+  const getDocument = $derived(props.getDocument ?? (() => document));
+  const getWindow = $derived(props.getWindow ?? (() => window));
+
   return {
-    getRootNode() {
-      return props.getRootNode ? props.getRootNode() : document;
-    },
-    getDocument() {
-      return props.getDocument ? props.getDocument() : document;
-    },
-    getWindow() {
-      return props.getWindow ? props.getWindow() : window;
-    },
+    getRootNode,
+    getDocument,
+    getWindow,
   };
 }
 

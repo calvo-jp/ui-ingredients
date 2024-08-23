@@ -10,14 +10,19 @@ export interface CreateLocaleContextReturn
   extends ReturnType<typeof createLocaleContext> {}
 
 export function createLocaleContext(props: CreateLocaleContextProps) {
+  const l: Locale = $derived({
+    locale: props.locale,
+    dir: isRTL(props.locale) ? 'rtl' : 'ltr',
+  });
+
   return {
     get locale() {
-      return props.locale;
+      return l.locale;
     },
     get dir() {
-      return isRTL(props.locale) ? 'rtl' : 'ltr';
+      return l.dir;
     },
-  } satisfies Locale;
+  };
 }
 
 export function setLocaleContext(value: CreateLocaleContextReturn) {
