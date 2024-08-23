@@ -1,17 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreateAccordionContextProps,
-    CreateAccordionContextReturn,
-  } from './context.svelte.js';
+  import type {CreateAccordionProps, CreateAccordionReturn} from './create-accordion.svelte.js';
 
   export interface AccordionProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateAccordionContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateAccordionContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateAccordionProps, 'id'>> {
+    children?: Snippet<[context: CreateAccordionReturn]>;
   }
 </script>
 
@@ -20,10 +14,8 @@
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    createAccordionContext,
-    setAccordionContext,
-  } from './context.svelte.js';
+  import {setAccordionContext} from './context.svelte.js';
+  import {createAccordion} from './create-accordion.svelte.js';
 
   let {
     id,
@@ -44,8 +36,10 @@
   let localeContext = useLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createAccordionContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createAccordion({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
@@ -60,7 +54,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setAccordionContext(context);
+  setAccordionContext(() => context);
 </script>
 
 <div {...attrs}>
