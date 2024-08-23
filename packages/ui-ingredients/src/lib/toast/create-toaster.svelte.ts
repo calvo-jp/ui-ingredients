@@ -1,4 +1,4 @@
-import {useEnvironmentContext} from '$lib/environment-provider/index.js';
+import {getEnvironmentContext} from '$lib/environment-provider/index.js';
 import {useLocaleContext} from '$lib/locale-provider/index.js';
 import {createUniqueId} from '$lib/utils.js';
 import {normalizeProps, reflect} from '@zag-js/svelte';
@@ -23,7 +23,7 @@ export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
 
 export default function createToaster(props?: CreateToasterProps) {
   const localContext = useLocaleContext();
-  const environmentContext = useEnvironmentContext();
+  const environmentContext = getEnvironmentContext();
 
   const id = $derived(props?.id ?? createUniqueId());
 

@@ -25,7 +25,7 @@ export function setEnvironmentContext(value: CreateEnvironmentContextReturn) {
   setContext('EnvironmentProvider', value);
 }
 
-export function useEnvironmentContext() {
+export function getEnvironmentContext() {
   if (!hasContext('EnvironmentProvider')) {
     return null;
   } else {

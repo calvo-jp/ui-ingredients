@@ -16,7 +16,7 @@
 </script>
 
 <script lang="ts">
-  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
+  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {createUniqueId} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createTimerContext, setTimerContext} from './context.svelte.js';
@@ -35,7 +35,7 @@
     ...props
   }: TimerProps = $props();
 
-  let environmentContext = useEnvironmentContext();
+  let environmentContext = getEnvironmentContext();
 
   let context = createTimerContext({
     id: id ?? createUniqueId(),

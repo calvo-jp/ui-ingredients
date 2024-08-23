@@ -16,7 +16,7 @@
 </script>
 
 <script lang="ts">
-  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
+  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
@@ -49,7 +49,7 @@
     orientation,
     onStepChange,
     onStepComplete,
-    getRootNode: getRootNode ?? useEnvironmentContext()?.getRootNode,
+    getRootNode: getRootNode ?? getEnvironmentContext()?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

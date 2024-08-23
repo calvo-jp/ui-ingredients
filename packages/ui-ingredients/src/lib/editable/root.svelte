@@ -13,7 +13,7 @@
 </script>
 
 <script lang="ts">
-  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
+  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.js';
   import {createEditableContext, setEditableContext} from './context.svelte.js';
@@ -21,7 +21,7 @@
   let {id, dir, getRootNode, children, ...props}: EditableProps = $props();
 
   let localeContext = useLocaleContext();
-  let environmentContext = useEnvironmentContext();
+  let environmentContext = getEnvironmentContext();
 
   let context = createEditableContext({
     id: id ?? createUniqueId(),

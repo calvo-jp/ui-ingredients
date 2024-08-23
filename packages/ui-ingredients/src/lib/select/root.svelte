@@ -16,7 +16,7 @@
 </script>
 
 <script lang="ts" generics="T">
-  import {useEnvironmentContext} from '$lib/environment-provider/index.js';
+  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
@@ -58,7 +58,7 @@
   }: SelectProps<T> = $props();
 
   let localeContext = useLocaleContext();
-  let environmentContext = useEnvironmentContext();
+  let environmentContext = getEnvironmentContext();
 
   let context = createSelectContext({
     id: id ?? createUniqueId(),
