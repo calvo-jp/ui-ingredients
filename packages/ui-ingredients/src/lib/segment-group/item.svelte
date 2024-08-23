@@ -10,7 +10,9 @@
 </script>
 
 <script lang="ts">
+  import {ensureStyleIsString} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
+  import {parts} from './anatomy.js';
   import {
     setSegmentGroupItemPropsContext,
     useSegmentGroupContext,
@@ -43,6 +45,7 @@
         invalid,
         disabled,
       }),
+      parts.item.attrs,
     ),
   );
 
@@ -53,6 +56,6 @@
   });
 </script>
 
-<label {...attrs}>
+<label {...ensureStyleIsString(attrs)}>
   {@render children?.(state)}
 </label>

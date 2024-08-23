@@ -6,7 +6,9 @@
 </script>
 
 <script lang="ts">
+  import {ensureStyleIsString} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
+  import {parts} from './anatomy.js';
   import {
     useSegmentGroupContext,
     useSegmentGroupItemPropsContext,
@@ -18,9 +20,15 @@
 
   let itemProps = useSegmentGroupItemPropsContext();
 
-  let attrs = $derived(mergeProps(props, context.getItemTextProps(itemProps)));
+  let attrs = $derived(
+    mergeProps(
+      props,
+      context.getItemTextProps(itemProps),
+      parts.itemText.attrs,
+    ),
+  );
 </script>
 
-<span {...attrs}>
+<span {...ensureStyleIsString(attrs)}>
   {@render children?.()}
 </span>

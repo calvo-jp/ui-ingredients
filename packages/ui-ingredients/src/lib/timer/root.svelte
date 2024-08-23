@@ -17,7 +17,7 @@
 
 <script lang="ts">
   import {useEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
+  import {createUniqueId} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createTimerContext, setTimerContext} from './context.svelte.js';
 

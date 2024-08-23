@@ -18,7 +18,7 @@
 <script lang="ts" generics="T">
   import {useEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
+  import {createUniqueId} from '$lib/utils.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createComboboxContext, setComboboxContext} from './context.svelte.js';
 
