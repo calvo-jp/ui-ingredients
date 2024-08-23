@@ -8,15 +8,15 @@
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {
-    useMenuContext,
-    useMenuOptionItemPropsContext,
+    getMenuContext,
+    getMenuOptionItemPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: MenuOptionItemTextProps = $props();
 
-  let context = useMenuContext();
+  let context = getMenuContext();
 
-  let optionItemProps = useMenuOptionItemPropsContext();
+  let optionItemProps = getMenuOptionItemPropsContext();
 
   let attrs = $derived(
     mergeProps(props, context.getItemTextProps(optionItemProps)),

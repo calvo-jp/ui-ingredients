@@ -45,8 +45,10 @@
   let localeContext = useLocaleContext();
   let environmnetContext = useEnvironmentContext();
 
+  let uid = createUniqueId();
+
   let context = createMenuContext({
-    id: id ?? createUniqueId(),
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     open,
@@ -69,7 +71,7 @@
     getRootNode: getRootNode ?? environmnetContext?.getRootNode,
   });
 
-  setMenuContext(context);
+  setMenuContext(() => context);
 </script>
 
 {@render children?.(context)}

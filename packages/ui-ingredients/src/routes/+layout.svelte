@@ -141,14 +141,6 @@
       label: 'Nested Menu',
       path: '/menu/nested',
     },
-    {
-      label: 'Menu (Checkbox)',
-      path: '/menu/checkbox',
-    },
-    {
-      label: 'Menu (Radio)',
-      path: '/menu/radio',
-    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(

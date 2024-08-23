@@ -8,15 +8,15 @@
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {
-    useMenuContext,
-    useMenuItemGroupPropsContext,
+    getMenuContext,
+    getMenuItemGroupPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: MenuItemGroupLabelProps = $props();
 
-  let context = useMenuContext();
+  let context = getMenuContext();
 
-  let itemGroupProps = useMenuItemGroupPropsContext();
+  let itemGroupProps = getMenuItemGroupPropsContext();
 
   let attrs = $derived(
     mergeProps(

@@ -1,6 +1,6 @@
+import {createContext} from '$lib/create-context.svelte.js';
 import * as menu from '@zag-js/menu';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {getContext, setContext} from 'svelte';
 
 export interface CreateMenuContextProps extends menu.Context {}
 export interface CreateMenuContextReturn
@@ -16,34 +16,11 @@ export function createMenuContext(props: CreateMenuContextProps) {
   return api;
 }
 
-export function setMenuContext(value: CreateMenuContextReturn) {
-  setContext('Menu', value);
-}
+export const [setMenuContext, getMenuContext] =
+  createContext<CreateMenuContextReturn>('Menu');
 
-export function useMenuContext() {
-  return getContext<CreateMenuContextReturn>('Menu');
-}
+export const [setMenuItemGroupPropsContext, getMenuItemGroupPropsContext] =
+  createContext<menu.ItemGroupProps>('MenuItemGroup');
 
-export function setMenuItemPropsContext(value: menu.ItemProps) {
-  setContext('MenuItem', value);
-}
-
-export function useMenuItemPropsContext() {
-  return getContext<menu.ItemProps>('MenuItem');
-}
-
-export function setMenuItemGroupPropsContext(value: menu.ItemGroupProps) {
-  setContext('MenuItemGroup', value);
-}
-
-export function useMenuItemGroupPropsContext() {
-  return getContext<menu.ItemGroupProps>('MenuItemGroup');
-}
-
-export function setMenuOptionItemPropsContext(value: menu.OptionItemProps) {
-  setContext('MenuOptionItem', value);
-}
-
-export function useMenuOptionItemPropsContext() {
-  return getContext<menu.OptionItemProps>('MenuOptionItem');
-}
+export const [setMenuOptionItemPropsContext, getMenuOptionItemPropsContext] =
+  createContext<menu.OptionItemProps>('MenuOptionItem');

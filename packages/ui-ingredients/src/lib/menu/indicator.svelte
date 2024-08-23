@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useMenuContext} from './context.svelte.js';
+  import {getMenuContext} from './context.svelte.js';
 
   let {children, ...props}: MenuIndicatorProps = $props();
 
-  let context = useMenuContext();
+  let context = getMenuContext();
 
   let attrs = $derived(mergeProps(props, context.getIndicatorProps()));
 </script>
