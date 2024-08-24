@@ -30,9 +30,7 @@
 <Menu.Root>
   <Menu.Trigger class="flex h-11 items-center gap-2 border px-3.5">
     <span>Open</span>
-    <Menu.Indicator
-      class="data-open:rotate-180 transition-transform duration-200"
-    >
+    <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
       <svg
         width="24"
         height="24"
@@ -54,9 +52,7 @@
       class="data-open:animate-fade-in data-closed:animate-fade-out border bg-neutral-800 px-3 py-2"
     >
       <Menu.ItemGroup>
-        <Menu.ItemGroupLabel class="text-sm opacity-80">
-          Frontend
-        </Menu.ItemGroupLabel>
+        <Menu.ItemGroupLabel class="text-sm opacity-80">Frontend</Menu.ItemGroupLabel>
 
         {#each items0 as item}
           <Menu.Item
@@ -70,9 +66,7 @@
       </Menu.ItemGroup>
       <Menu.Separator class="my-2 w-full border-b" />
       <Menu.ItemGroup>
-        <Menu.ItemGroupLabel class="text-sm opacity-80">
-          Backend
-        </Menu.ItemGroupLabel>
+        <Menu.ItemGroupLabel class="text-sm opacity-80">Backend</Menu.ItemGroupLabel>
 
         {#each items1 as item}
           <Menu.Item
@@ -91,9 +85,7 @@
 <Menu.Root>
   <Menu.Trigger class="mt-5 flex h-11 items-center gap-2 border px-3.5">
     <span>Open</span>
-    <Menu.Indicator
-      class="data-open:rotate-180 transition-transform duration-200"
-    >
+    <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
       <svg
         width="24"
         height="24"
@@ -117,14 +109,13 @@
       {#each items as item}
         <Menu.OptionItem
           class="data-disabled:cursor-not-allowed data-disabled:opacity-75 group flex w-32 cursor-default items-center gap-2"
+          type="checkbox"
           value={item}
           valueText={item}
           closeOnSelect={false}
           checked={selected.includes(item)}
           onCheckedChange={(checked) => {
-            selected = checked
-              ? [...selected, item]
-              : selected.filter((i) => i !== item);
+            selected = checked ? [...selected, item] : selected.filter((i) => i !== item);
           }}
         >
           <div
