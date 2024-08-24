@@ -11,14 +11,13 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useCarouselContext} from './context.svelte.js';
+  import {carouselContext} from './context.svelte.js';
 
   let {index, children, ...props}: CarouselItemProps = $props();
 
-  let context = useCarouselContext();
+  let context = carouselContext.get();
 
   let state = $derived(context.getItemState({index}));
-
   let attrs = $derived(mergeProps(props, context.getItemProps({index})));
 </script>
 

@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateCarouselContextProps, CreateCarouselContextReturn} from './context.svelte.js';
+  import type {CreateCarouselProps, CreateCarouselReturn} from './create-carousel.svelte.js';
 
   export interface CarouselProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateCarouselContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateCarouselContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateCarouselProps, 'id'>> {
+    children?: Snippet<[api: CreateCarouselReturn]>;
   }
 </script>
 
@@ -17,7 +14,8 @@
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createCarouselContext, setCarouselContext} from './context.svelte.js';
+  import {carouselContext} from './context.svelte.js';
+  import {createCarousel} from './create-carousel.svelte.js';
 
   let {
     id,
@@ -38,8 +36,10 @@
   let localeContext = useLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createCarouselContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createCarousel({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     loop,
@@ -54,7 +54,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setCarouselContext(context);
+  carouselContext.set(context);
 </script>
 
 <div {...attrs}>
