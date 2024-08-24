@@ -1,17 +1,16 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface StepsNextTriggerProps
-    extends HtmlIngredientProps<'button'> {}
+  export interface StepsNextTriggerProps extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useStepsContext} from './context.svelte.js';
+  import {stepsContext} from './context.svelte.js';
 
   let {children, ...props}: StepsNextTriggerProps = $props();
 
-  let context = useStepsContext();
+  let context = stepsContext.get();
 
   let attrs = $derived(mergeProps(props, context.getNextTriggerProps()));
 </script>

@@ -11,17 +11,20 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {setStepsItemPropsContext, useStepsContext} from './context.svelte.js';
+  import {stepsContext, stepsItemPropsContext} from './context.svelte.js';
 
   let {index, children, ...props}: StepsItemProps = $props();
 
-  let context = useStepsContext();
+  let context = stepsContext.get();
 
-  let state = $derived(context.getItemState({index}));
+  let itemProps = $derived({
+    index,
+  });
 
-  let attrs = $derived(mergeProps(props, context.getItemProps({index})));
+  let state = $derived(context.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
 
-  setStepsItemPropsContext({index});
+  stepsItemPropsContext.set(() => itemProps);
 </script>
 
 <div {...attrs}>

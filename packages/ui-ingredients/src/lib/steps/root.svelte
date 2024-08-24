@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateStepsContextProps, CreateStepsContextReturn} from './context.svelte.js';
+  import type {CreateStepsProps, CreateStepsReturn} from './create-steps.svelte.js';
 
   export interface StepsProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateStepsContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateStepsContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateStepsProps, 'id'>> {
+    children?: Snippet<[api: CreateStepsReturn]>;
   }
 </script>
 
@@ -17,7 +14,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createStepsContext, setStepsContext} from './context.svelte.js';
+  import {stepsContext} from './context.svelte.js';
+  import {createSteps} from './create-steps.svelte.js';
 
   let {
     id,
@@ -36,8 +34,10 @@
 
   let localeContext = getLocaleContext();
 
-  let context = createStepsContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createSteps({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     step,
@@ -51,7 +51,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setStepsContext(context);
+  stepsContext.set(context);
 </script>
 
 <div {...attrs}>

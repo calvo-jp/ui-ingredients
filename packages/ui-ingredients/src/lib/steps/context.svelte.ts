@@ -1,33 +1,6 @@
-import * as steps from '@zag-js/steps';
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {getContext, setContext} from 'svelte';
+import {Context} from '$lib/utils.svelte.js';
+import type {ItemProps} from '@zag-js/steps';
+import type {CreateStepsReturn} from './create-steps.svelte.js';
 
-export interface CreateStepsContextProps extends steps.Context {}
-export interface CreateStepsContextReturn
-  extends ReturnType<typeof createStepsContext> {}
-
-export function createStepsContext(props: CreateStepsContextProps) {
-  const [state, send] = useMachine(steps.machine(props));
-
-  const api = $derived(
-    reflect(() => steps.connect(state, send, normalizeProps)),
-  );
-
-  return api;
-}
-
-export function setStepsContext(value: CreateStepsContextReturn) {
-  setContext('Steps', value);
-}
-
-export function useStepsContext() {
-  return getContext<CreateStepsContextReturn>('Steps');
-}
-
-export function setStepsItemPropsContext(value: steps.ItemProps) {
-  setContext('StepsItem', value);
-}
-
-export function useStepsItemPropsContext() {
-  return getContext<steps.ItemProps>('StepsItem');
-}
+export const stepsContext = new Context<CreateStepsReturn>('Steps');
+export const stepsItemPropsContext = new Context<ItemProps>('StepsItem');
