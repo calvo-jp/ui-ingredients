@@ -2,16 +2,16 @@
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
-    CreateToggleGroupContextProps,
-    CreateToggleGroupContextReturn,
-  } from './context.svelte.js';
+    CreateToggleGroupProps,
+    CreateToggleGroupReturn,
+  } from './create-toggle-group.svelte.js';
 
   export interface ToggleGroupProps
     extends Assign<
       Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateToggleGroupContextProps, 'id'>
+      Omit<CreateToggleGroupProps, 'id'>
     > {
-    children?: Snippet<[context: CreateToggleGroupContextReturn]>;
+    children?: Snippet<[api: CreateToggleGroupReturn]>;
   }
 </script>
 
@@ -20,7 +20,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createToggleGroupContext, setToggleGroupContext} from './context.svelte.js';
+  import {toggleGroupContext} from './context.svelte.js';
+  import {createToggleGroup} from './create-toggle-group.svelte.js';
 
   let {
     id,
@@ -41,8 +42,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createToggleGroupContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createToggleGroup({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
@@ -57,7 +60,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setToggleGroupContext(context);
+  toggleGroupContext.set(context);
 </script>
 
 <div {...attrs}>

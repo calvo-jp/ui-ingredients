@@ -11,17 +11,19 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useToggleGroupContext} from './context.svelte.js';
+  import {toggleGroupContext} from './context.svelte.js';
 
   let {value, disabled, children, ...props}: ToggleGroupItemProps = $props();
 
-  let context = useToggleGroupContext();
+  let context = toggleGroupContext.get();
 
-  let state = $derived(context.getItemState({value}));
+  let itemProps = $derived({
+    value,
+    disabled,
+  });
 
-  let attrs = $derived(
-    mergeProps(props, context.getItemProps({value, disabled})),
-  );
+  let state = $derived(context.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
 </script>
 
 <button type="button" {...attrs}>
