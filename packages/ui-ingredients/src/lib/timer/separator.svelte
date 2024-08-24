@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface TimerSeparatorProps extends HtmlIngredientProps<'span'> {}
+  export interface TimerSeparatorProps extends HtmlProps<'span'> {}
 </script>
 
 <script lang="ts">

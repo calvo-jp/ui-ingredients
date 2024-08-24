@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface MenuIndicatorProps extends HtmlIngredientProps<'span'> {}
+  export interface MenuIndicatorProps extends HtmlProps<'span'> {}
 </script>
 
 <script lang="ts">

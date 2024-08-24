@@ -1,10 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateSelectProps, CreateSelectReturn} from './create-select.svelte.js';
 
   export interface SelectProps<T>
-    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateSelectProps<T>, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateSelectProps<T>, 'id'>> {
     children?: Snippet<[api: CreateSelectReturn]>;
   }
 </script>

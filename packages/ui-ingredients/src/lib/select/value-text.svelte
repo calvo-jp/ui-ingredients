@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface SelectValueTextProps extends HtmlIngredientProps<'span'> {}
+  export interface SelectValueTextProps extends HtmlProps<'span'> {}
 </script>
 
 <script lang="ts">

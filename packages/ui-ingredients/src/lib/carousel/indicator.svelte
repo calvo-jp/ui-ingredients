@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {IndicatorProps} from '@zag-js/carousel';
 
-  export interface CarouselIndicatorProps
-    extends Assign<HtmlIngredientProps<'button'>, IndicatorProps> {}
+  export interface CarouselIndicatorProps extends Assign<HtmlProps<'button'>, IndicatorProps> {}
 </script>
 
 <script lang="ts">

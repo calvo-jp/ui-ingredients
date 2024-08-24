@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateSegmentGroupProps,
@@ -7,10 +7,7 @@
   } from './create-segment-group.svelte.js';
 
   export interface SegmentGroupProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateSegmentGroupProps, 'id'>
-    > {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateSegmentGroupProps, 'id'>> {
     children?: Snippet<[api: CreateSegmentGroupReturn]>;
   }
 </script>

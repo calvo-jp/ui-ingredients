@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface TagsInputClearTriggerProps extends HtmlIngredientProps<'button'> {}
+  export interface TagsInputClearTriggerProps extends HtmlProps<'button'> {}
 </script>
 
 <script lang="ts">

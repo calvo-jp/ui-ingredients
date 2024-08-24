@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface ToastTitleProps extends HtmlIngredientProps<'div'> {}
+  export interface ToastTitleProps extends HtmlProps<'div'> {}
 </script>
 
 <script lang="ts">

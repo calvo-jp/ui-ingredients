@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {MarkerProps} from '@zag-js/slider';
 
-  export interface SliderMarkerProps extends Assign<HtmlIngredientProps<'span'>, MarkerProps> {}
+  export interface SliderMarkerProps extends Assign<HtmlProps<'span'>, MarkerProps> {}
 </script>
 
 <script lang="ts">

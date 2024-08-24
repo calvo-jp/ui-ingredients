@@ -1,13 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateCheckboxProps, CreateCheckboxReturn} from './create-checkbox.svelte.js';
 
   export interface CheckboxProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'label'>, 'children'>,
-      Omit<CreateCheckboxProps, 'id'>
-    > {
+    extends Assign<Omit<HtmlProps<'label'>, 'children'>, Omit<CreateCheckboxProps, 'id'>> {
     children?: Snippet<[api: CreateCheckboxReturn]>;
   }
 </script>

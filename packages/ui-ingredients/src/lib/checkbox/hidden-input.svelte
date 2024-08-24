@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface CheckboxHiddenInputProps extends HtmlIngredientProps<'input'> {}
+  export interface CheckboxHiddenInputProps extends HtmlProps<'input'> {}
 </script>
 
 <script lang="ts">

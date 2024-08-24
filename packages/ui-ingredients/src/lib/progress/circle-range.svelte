@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface ProgressCircleRangeProps extends HtmlIngredientProps<'circle'> {}
+  export interface ProgressCircleRangeProps extends HtmlProps<'circle'> {}
 </script>
 
 <script lang="ts">

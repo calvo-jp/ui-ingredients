@@ -1,10 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTabsProps, CreateTabsReturn} from './create-tabs.svelte.js';
 
   export interface TabsProps
-    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateTabsProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateTabsProps, 'id'>> {
     children?: Snippet<[api: CreateTabsReturn]>;
   }
 </script>

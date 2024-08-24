@@ -1,10 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/accordion';
   import type {Snippet} from 'svelte';
 
   export interface AccordionItemProps
-    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, ItemProps> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
     children?: Snippet<[state: ItemState]>;
   }
 </script>

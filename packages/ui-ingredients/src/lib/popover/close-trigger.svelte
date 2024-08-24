@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface PopoverCloseTriggerProps extends HtmlIngredientProps<'button'> {}
+  export interface PopoverCloseTriggerProps extends HtmlProps<'button'> {}
 </script>
 
 <script lang="ts">

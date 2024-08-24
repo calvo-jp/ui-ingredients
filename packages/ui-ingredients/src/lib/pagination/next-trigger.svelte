@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlProps} from '$lib/types.js';
 
-  export interface PaginationNextTriggerProps extends HtmlIngredientProps<'button'> {}
+  export interface PaginationNextTriggerProps extends HtmlProps<'button'> {}
 </script>
 
 <script lang="ts">

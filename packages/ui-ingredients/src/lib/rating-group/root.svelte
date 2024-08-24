@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateRatingGroupProps,
@@ -7,10 +7,7 @@
   } from './create-rating-group.svelte.js';
 
   export interface RatingGroupProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateRatingGroupProps, 'id'>
-    > {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateRatingGroupProps, 'id'>> {
     children?: Snippet<[api: CreateRatingGroupReturn]>;
   }
 </script>
