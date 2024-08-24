@@ -8,21 +8,20 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {usePaginationContext} from './context.svelte.js';
+  import {paginationContext} from './context.svelte.js';
 
   let {value, children, ...props}: PaginationItemProps = $props();
 
-  let context = usePaginationContext();
+  let context = paginationContext.get();
 
-  let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemProps({
-        type: 'page',
-        value,
-      }),
-    ),
+  let itemProps = $derived(
+    context.getItemProps({
+      type: 'page',
+      value,
+    }),
   );
+
+  let attrs = $derived(mergeProps(props, itemProps));
 </script>
 
 <button type="button" {...attrs}>

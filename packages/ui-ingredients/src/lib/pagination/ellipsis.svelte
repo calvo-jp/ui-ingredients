@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {usePaginationContext} from './context.svelte.js';
+  import {paginationContext} from './context.svelte.js';
 
   let {index, children, ...props}: PaginationEllipsisProps = $props();
 
-  let context = usePaginationContext();
+  let context = paginationContext.get();
 
   let attrs = $derived(mergeProps(props, context.getEllipsisProps({index})));
 </script>

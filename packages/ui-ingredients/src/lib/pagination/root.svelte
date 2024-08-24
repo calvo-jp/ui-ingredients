@@ -1,17 +1,14 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreatePaginationContextProps,
-    CreatePaginationContextReturn,
-  } from './context.svelte.js';
+  import type {CreatePaginationProps, CreatePaginationReturn} from './create-pagination.svelte.js';
 
   export interface PaginationProps
     extends Assign<
       Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreatePaginationContextProps, 'id'>
+      Omit<CreatePaginationProps, 'id'>
     > {
-    children?: Snippet<[context: CreatePaginationContextReturn]>;
+    children?: Snippet<[api: CreatePaginationReturn]>;
   }
 </script>
 
@@ -20,7 +17,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createPaginationContext, setPaginationContext} from './context.svelte.js';
+  import {paginationContext} from './context.svelte.js';
+  import {createPagination} from './create-pagination.svelte.js';
 
   let {
     id,
@@ -42,8 +40,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createPaginationContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createPagination({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     type,
@@ -59,7 +59,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setPaginationContext(context);
+  paginationContext.set(context);
 </script>
 
 <div {...attrs}>
