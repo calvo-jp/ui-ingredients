@@ -1,17 +1,14 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreateRadioGroupContextProps,
-    CreateRadioGroupContextReturn,
-  } from './context.svelte.js';
+  import type {CreateRadioGroupProps, CreateRadioGroupReturn} from './create-radio-group.svelte.js';
 
   export interface RadioGroupProps
     extends Assign<
       Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateRadioGroupContextProps, 'id'>
+      Omit<CreateRadioGroupProps, 'id'>
     > {
-    children?: Snippet<[context: CreateRadioGroupContextReturn]>;
+    children?: Snippet<[api: CreateRadioGroupReturn]>;
   }
 </script>
 
@@ -20,7 +17,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createRadioGroupContext, setRadioGroupContext} from './context.svelte.js';
+  import {radioGroupContext} from './context.svelte.js';
+  import {createRadioGroup} from './create-radio-group.svelte.js';
 
   let {
     id,
@@ -41,8 +39,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createRadioGroupContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createRadioGroup({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     form,
@@ -57,7 +57,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setRadioGroupContext(context);
+  radioGroupContext.set(context);
 </script>
 
 <div {...attrs}>

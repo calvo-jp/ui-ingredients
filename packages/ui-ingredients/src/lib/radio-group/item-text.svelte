@@ -1,22 +1,18 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface RadioGroupItemTextProps
-    extends HtmlIngredientProps<'span'> {}
+  export interface RadioGroupItemTextProps extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    useRadioGroupContext,
-    useRadioGroupItemPropsContext,
-  } from './context.svelte.js';
+  import {radioGroupContext, radioGroupItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: RadioGroupItemTextProps = $props();
 
-  let context = useRadioGroupContext();
+  let context = radioGroupContext.get();
 
-  let itemProps = useRadioGroupItemPropsContext();
+  let itemProps = radioGroupItemPropsContext.get();
 
   let attrs = $derived(mergeProps(props, context.getItemTextProps(itemProps)));
 </script>

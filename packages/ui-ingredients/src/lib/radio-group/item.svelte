@@ -11,10 +11,7 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    setRadioGroupItemPropsContext,
-    useRadioGroupContext,
-  } from './context.svelte.js';
+  import {radioGroupContext, radioGroupItemPropsContext} from './context.svelte.js';
 
   let {
     /**/
@@ -25,32 +22,18 @@
     ...props
   }: RadioGroupItemProps = $props();
 
-  let context = useRadioGroupContext();
+  let context = radioGroupContext.get();
 
-  let state = $derived(
-    context.getItemState({
-      value,
-      invalid,
-      disabled,
-    }),
-  );
-
-  let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemProps({
-        value,
-        invalid,
-        disabled,
-      }),
-    ),
-  );
-
-  setRadioGroupItemPropsContext({
+  let itemProps = $derived({
     value,
     invalid,
     disabled,
   });
+
+  let state = $derived(context.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+
+  radioGroupItemPropsContext.set(() => itemProps);
 </script>
 
 <label {...attrs}>
