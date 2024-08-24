@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateTimerContextProps, CreateTimerContextReturn} from './context.svelte.js';
+  import type {CreateTimerProps, CreateTimerReturn} from './create-timer.svelte.js';
 
   export interface TimerProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateTimerContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateTimerContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateTimerProps, 'id'>> {
+    children?: Snippet<[api: CreateTimerReturn]>;
   }
 </script>
 
@@ -16,7 +13,8 @@
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createTimerContext, setTimerContext} from './context.svelte.js';
+  import {timerContext} from './context.svelte.js';
+  import {createTimer} from './create-timer.svelte.js';
 
   let {
     id,
@@ -34,8 +32,10 @@
 
   let environmentContext = getEnvironmentContext();
 
-  let context = createTimerContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createTimer({
+    id: id ?? uid,
     startMs,
     targetMs,
     interval,
@@ -48,7 +48,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setTimerContext(context);
+  timerContext.set(context);
 </script>
 
 <div {...attrs}>

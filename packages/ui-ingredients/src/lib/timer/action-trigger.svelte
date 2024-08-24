@@ -8,15 +8,13 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useTimerContext} from './context.svelte.js';
+  import {timerContext} from './context.svelte.js';
 
   let {action, children, ...props}: TimerActionTriggerProps = $props();
 
-  let context = useTimerContext();
+  let context = timerContext.get();
 
-  let attrs = $derived(
-    mergeProps(props, context.getActionTriggerProps({action})),
-  );
+  let attrs = $derived(mergeProps(props, context.getActionTriggerProps({action})));
 </script>
 
 <button type="button" {...attrs}>

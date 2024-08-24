@@ -6,13 +6,13 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useTimerContext, useTimerItemPropsContext} from './context.svelte.js';
+  import {timerContext, timerItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: TimerItemValueProps = $props();
 
-  let context = useTimerContext();
+  let context = timerContext.get();
 
-  let itemProps = useTimerItemPropsContext();
+  let itemProps = timerItemPropsContext.get();
 
   let attrs = $derived(mergeProps(props, context.getItemValueProps(itemProps)));
 </script>
