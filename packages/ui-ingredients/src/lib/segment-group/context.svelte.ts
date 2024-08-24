@@ -1,33 +1,6 @@
-import * as segmentGroup from '@zag-js/radio-group';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
-import {getContext, setContext} from 'svelte';
+import {Context} from '$lib/utils.svelte.js';
+import type {ItemProps} from '@zag-js/radio-group';
+import type {CreateSegmentGroupReturn} from './create-segment-group.svelte.js';
 
-export interface CreateSegmentGroupContextProps extends segmentGroup.Context {}
-export interface CreateSegmentGroupContextReturn
-  extends ReturnType<typeof createSegmentGroupContext> {}
-
-export function createSegmentGroupContext(
-  props: CreateSegmentGroupContextProps,
-) {
-  const [state, send] = useMachine(segmentGroup.machine(props));
-
-  const api = $derived(segmentGroup.connect(state, send, normalizeProps));
-
-  return api;
-}
-
-export function setSegmentGroupContext(value: CreateSegmentGroupContextReturn) {
-  setContext('SegmentGroup', value);
-}
-
-export function useSegmentGroupContext() {
-  return getContext<CreateSegmentGroupContextReturn>('SegmentGroup');
-}
-
-export function setSegmentGroupItemPropsContext(value: segmentGroup.ItemProps) {
-  setContext('SegmentGroupItem', value);
-}
-
-export function useSegmentGroupItemPropsContext() {
-  return getContext<segmentGroup.ItemProps>('SegmentGroupItem');
-}
+export const segmentGroupContext = new Context<CreateSegmentGroupReturn>('SegmentGroup');
+export const segmentGroupItemPropsContext = new Context<ItemProps>('SegmentGroupItem');

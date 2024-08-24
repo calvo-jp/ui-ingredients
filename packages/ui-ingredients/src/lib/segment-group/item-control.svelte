@@ -8,13 +8,13 @@
   import {ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
-  import {useSegmentGroupContext, useSegmentGroupItemPropsContext} from './context.svelte.js';
+  import {segmentGroupContext, segmentGroupItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: SegmentGroupItemControlProps = $props();
 
-  let context = useSegmentGroupContext();
+  let context = segmentGroupContext.get();
 
-  let itemProps = useSegmentGroupItemPropsContext();
+  let itemProps = segmentGroupItemPropsContext.get();
 
   let attrs = $derived(
     mergeProps(props, context.getItemControlProps(itemProps), parts.itemControl.attrs),

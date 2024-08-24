@@ -2,16 +2,16 @@
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
-    CreateSegmentGroupContextProps,
-    CreateSegmentGroupContextReturn,
-  } from './context.svelte.js';
+    CreateSegmentGroupProps,
+    CreateSegmentGroupReturn,
+  } from './create-segment-group.svelte.js';
 
   export interface SegmentGroupProps
     extends Assign<
       Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateSegmentGroupContextProps, 'id'>
+      Omit<CreateSegmentGroupProps, 'id'>
     > {
-    children?: Snippet<[context: CreateSegmentGroupContextReturn]>;
+    children?: Snippet<[api: CreateSegmentGroupReturn]>;
   }
 </script>
 
@@ -21,7 +21,8 @@
   import {createUniqueId, ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
-  import {createSegmentGroupContext, setSegmentGroupContext} from './context.svelte.js';
+  import {segmentGroupContext} from './context.svelte.js';
+  import {createSegmentGroup} from './create-segment-group.svelte.js';
 
   let {
     id,
@@ -42,8 +43,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createSegmentGroupContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createSegmentGroup({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     form,
@@ -58,7 +61,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps(), parts.root.attrs));
 
-  setSegmentGroupContext(context);
+  segmentGroupContext.set(context);
 </script>
 
 <div {...ensureStyleIsString(attrs)}>

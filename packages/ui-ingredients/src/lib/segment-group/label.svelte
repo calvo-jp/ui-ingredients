@@ -8,11 +8,11 @@
   import {ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
-  import {useSegmentGroupContext} from './context.svelte.js';
+  import {segmentGroupContext} from './context.svelte.js';
 
   let {children, ...props}: SegmentGroupLabelProps = $props();
 
-  let context = useSegmentGroupContext();
+  let context = segmentGroupContext.get();
 
   let attrs = $derived(mergeProps(props, context.getLabelProps(), parts.label.attrs));
 </script>

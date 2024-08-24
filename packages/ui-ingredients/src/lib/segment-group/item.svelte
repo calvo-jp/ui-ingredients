@@ -13,7 +13,7 @@
   import {ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
-  import {setSegmentGroupItemPropsContext, useSegmentGroupContext} from './context.svelte.js';
+  import {segmentGroupContext, segmentGroupItemPropsContext} from './context.svelte.js';
 
   let {
     /**/
@@ -24,33 +24,18 @@
     ...props
   }: SegmentGroupItemProps = $props();
 
-  let context = useSegmentGroupContext();
+  let context = segmentGroupContext.get();
 
-  let state = $derived(
-    context.getItemState({
-      value,
-      invalid,
-      disabled,
-    }),
-  );
-
-  let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemProps({
-        value,
-        invalid,
-        disabled,
-      }),
-      parts.item.attrs,
-    ),
-  );
-
-  setSegmentGroupItemPropsContext({
+  let itemProps = $derived({
     value,
     invalid,
     disabled,
   });
+
+  let state = $derived(context.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps), parts.item.attrs));
+
+  segmentGroupItemPropsContext.set(() => itemProps);
 </script>
 
 <label {...ensureStyleIsString(attrs)}>
