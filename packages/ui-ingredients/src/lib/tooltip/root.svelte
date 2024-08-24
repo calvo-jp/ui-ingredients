@@ -10,13 +10,13 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {useLocaleContext} from '$lib/locale-provider/index.js';
+  import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {createTooltipContext, setTooltipContext} from './context.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: TooltipProps = $props();
 
-  let localeContext = useLocaleContext();
+  let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
   let context = createTooltipContext({

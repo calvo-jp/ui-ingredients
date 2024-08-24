@@ -14,14 +14,14 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {useLocaleContext} from '$lib/locale-provider/index.js';
+  import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createQRCodeContext, setQRCodeContext} from './context.svelte.js';
 
   let {id, ids, dir, value, encoding, getRootNode, children, ...props}: QRCodeProps = $props();
 
-  let localeContext = useLocaleContext();
+  let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
   let context = createQRCodeContext({

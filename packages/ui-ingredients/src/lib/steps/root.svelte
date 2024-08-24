@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {useLocaleContext} from '$lib/locale-provider/index.js';
+  import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createStepsContext, setStepsContext} from './context.svelte.js';
@@ -34,7 +34,7 @@
     ...props
   }: StepsProps = $props();
 
-  let localeContext = useLocaleContext();
+  let localeContext = getLocaleContext();
 
   let context = createStepsContext({
     id: id ?? createUniqueId(),

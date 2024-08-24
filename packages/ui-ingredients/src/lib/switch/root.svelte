@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {useLocaleContext} from '$lib/locale-provider/index.js';
+  import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createSwitchContext, setSwitchContext} from './context.svelte.js';
@@ -38,7 +38,7 @@
     ...props
   }: SwitchProps = $props();
 
-  let localeContext = useLocaleContext();
+  let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
   let context = createSwitchContext({

@@ -10,7 +10,7 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {useLocaleContext} from '$lib/locale-provider/index.js';
+  import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {menuContext} from './context.svelte.js';
   import {createMenu} from './create-menu.svelte.js';
@@ -40,7 +40,7 @@
     children,
   }: MenuRootProps = $props();
 
-  let localeContext = useLocaleContext();
+  let localeContext = getLocaleContext();
   let environmnetContext = getEnvironmentContext();
 
   let uid = createUniqueId();

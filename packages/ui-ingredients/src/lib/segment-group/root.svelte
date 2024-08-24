@@ -17,7 +17,7 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {useLocaleContext} from '$lib/locale-provider/index.js';
+  import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId, ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
@@ -39,7 +39,7 @@
     ...props
   }: SegmentGroupProps = $props();
 
-  let localeContext = useLocaleContext();
+  let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
   let context = createSegmentGroupContext({

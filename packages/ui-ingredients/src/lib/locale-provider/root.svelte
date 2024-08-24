@@ -1,20 +1,24 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {CreateLocaleContextProps} from './context.svelte.js';
 
-  export interface LocaleProviderProps extends CreateLocaleContextProps {
+  export interface LocaleProviderProps {
+    locale: string;
     children: Snippet;
   }
 </script>
 
 <script lang="ts">
-  import {createLocaleContext, setLocaleContext} from './context.svelte.js';
+  import {isRTL, type Locale} from '@zag-js/i18n-utils';
+  import {localeContext} from './context.svelte.js';
 
   let {children, ...props}: LocaleProviderProps = $props();
 
-  let context = createLocaleContext(props);
+  let context: Locale = $derived({
+    locale: props.locale,
+    dir: isRTL(props.locale) ? 'rtl' : 'ltr',
+  });
 
-  setLocaleContext(context);
+  localeContext.set(() => context);
 </script>
 
 {@render children()}
