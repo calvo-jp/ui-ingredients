@@ -21,12 +21,13 @@ export interface CreateToasterProps {
 
 export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
 
-export default function createToaster(props?: CreateToasterProps) {
+export function createToaster(props?: CreateToasterProps) {
   const localContext = getLocaleContext();
   const environmentContext = getEnvironmentContext();
 
-  const id = $derived(props?.id ?? createUniqueId());
+  const uid = createUniqueId();
 
+  const id = $derived(props?.id ?? uid);
   const dir = $derived(props?.dir ?? localContext?.dir);
 
   const getRootNode = $derived(props?.getRootNode ?? environmentContext?.getRootNode);

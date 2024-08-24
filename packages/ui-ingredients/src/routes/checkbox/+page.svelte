@@ -14,9 +14,9 @@
   }}
 >
   <Checkbox.Control
-    class="data-checked:border-green-600 data-checked:bg-green-600 flex h-5 w-5 items-center justify-center border transition-colors duration-150"
+    class="data-checked:border-green-600 data-checked:bg-green-600 group flex h-5 w-5 items-center justify-center border transition-colors duration-200"
   >
-    <Checkbox.Indicator>
+    <Checkbox.Indicator class="animate-fade-out group-data-checked:animate-fade-in">
       <svg
         viewBox="0 0 24 24"
         fill="none"

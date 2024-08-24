@@ -2,7 +2,7 @@ export {anatomy as toastAnatomy} from '@zag-js/toast';
 export {type ToastActionTriggerProps} from './action-trigger.svelte';
 export {type ToastCloseTriggerProps} from './close-trigger.svelte';
 export {
-  default as createToaster,
+  createToaster,
   type CreateToasterProps,
   type CreateToasterReturn,
 } from './create-toaster.svelte.js';
