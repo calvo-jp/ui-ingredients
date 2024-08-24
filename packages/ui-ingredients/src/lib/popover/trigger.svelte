@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {usePopoverContext} from './context.svelte.js';
+  import {popoverContext} from './context.svelte.js';
 
   let {children, ...props}: PopoverTriggerProps = $props();
 
-  let context = usePopoverContext();
+  let context = popoverContext.get();
 
   let attrs = $derived(mergeProps(props, context.getTriggerProps()));
 </script>

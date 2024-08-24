@@ -1,10 +1,10 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {CreatePopoverContextProps, CreatePopoverContextReturn} from './context.svelte.js';
+  import type {CreatePopoverProps, CreatePopoverReturn} from './create-popover.svelte.js';
 
-  export interface PopoverProps extends Omit<CreatePopoverContextProps, 'id'> {
+  export interface PopoverProps extends Omit<CreatePopoverProps, 'id'> {
     id?: string | null;
-    children?: Snippet<[CreatePopoverContextReturn]>;
+    children?: Snippet<[api: CreatePopoverReturn]>;
   }
 </script>
 
@@ -12,21 +12,24 @@
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
-  import {createPopoverContext, setPopoverContext} from './context.svelte.js';
+  import {popoverContext} from './context.svelte.js';
+  import {createPopover} from './create-popover.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: PopoverProps = $props();
 
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createPopoverContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createPopover({
+    id: id ?? uid,
     dir: dir ?? localeContext?.dir,
     getRootNode: getRootNode ?? environmentContext?.getRootNode,
     ...props,
   });
 
-  setPopoverContext(context);
+  popoverContext.set(context);
 </script>
 
 {@render children?.(context)}
