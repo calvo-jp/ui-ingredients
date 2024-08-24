@@ -1,22 +1,18 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface TagsInputItemInputProps
-    extends HtmlIngredientProps<'input'> {}
+  export interface TagsInputItemInputProps extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    useTagsInputContext,
-    useTagsInputItemPropsContext,
-  } from './context.svelte.js';
+  import {tagsInputContext, tagsInputItemPropsContext} from './context.svelte.js';
 
   let {...props}: TagsInputItemInputProps = $props();
 
-  let context = useTagsInputContext();
+  let context = tagsInputContext.get();
 
-  let itemProps = useTagsInputItemPropsContext();
+  let itemProps = tagsInputItemPropsContext.get();
 
   let attrs = $derived(mergeProps(props, context.getItemInputProps(itemProps)));
 </script>

@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useTagsInputContext} from './context.svelte.js';
+  import {tagsInputContext} from './context.svelte.js';
 
   let {children, ...props}: TagsInputLabelProps = $props();
 
-  let context = useTagsInputContext();
+  let context = tagsInputContext.get();
 
   let attrs = $derived(mergeProps(props, context.getLabelProps()));
 </script>

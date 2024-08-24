@@ -1,17 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreateTagsInputContextProps,
-    CreateTagsInputContextReturn,
-  } from './context.svelte.js';
+  import type {CreateTagsInputProps, CreateTagsInputReturn} from './create-tags-input.svelte.js';
 
   export interface TagsInputProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateTagsInputContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateTagsInputContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateTagsInputProps, 'id'>> {
+    children?: Snippet<[api: CreateTagsInputReturn]>;
   }
 </script>
 
@@ -20,7 +14,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createTagsInputContext, setTagsInputContext} from './context.svelte.js';
+  import {tagsInputContext} from './context.svelte.js';
+  import {createTagsInputt} from './create-tags-input.svelte.js';
 
   let {
     id,
@@ -59,8 +54,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createTagsInputContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createTagsInputt({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     max,
@@ -93,7 +90,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setTagsInputContext(context);
+  tagsInputContext.set(context);
 </script>
 
 <div {...attrs}>
