@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useHoverCardContext} from './context.svelte.js';
+  import {hoverCardContext} from './context.svelte.js';
 
   let {children, ...props}: HoverCardArrowTipProps = $props();
 
-  let context = useHoverCardContext();
+  let context = hoverCardContext.get();
 
   let attrs = $derived(mergeProps(props, context.getArrowTipProps()));
 </script>

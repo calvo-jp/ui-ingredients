@@ -1,13 +1,10 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {
-    CreateHoverCardContextProps,
-    CreateHoverCardContextReturn,
-  } from './context.svelte.js';
+  import type {CreateHoverCardProps, CreateHoverCardReturn} from './create-hover-card.svelte.js';
 
-  export interface HoverCardProps extends Omit<CreateHoverCardContextProps, 'id'> {
+  export interface HoverCardProps extends Omit<CreateHoverCardProps, 'id'> {
     id?: string | null;
-    children?: Snippet<[CreateHoverCardContextReturn]>;
+    children?: Snippet<[api: CreateHoverCardReturn]>;
   }
 </script>
 
@@ -15,21 +12,24 @@
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
-  import {createHoverCardContext, setHoverCardContext} from './context.svelte.js';
+  import {hoverCardContext} from './context.svelte.js';
+  import {createHoverCard} from './create-hover-card.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: HoverCardProps = $props();
 
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createHoverCardContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createHoverCard({
+    id: id ?? uid,
     dir: dir ?? localeContext?.dir,
     getRootNode: getRootNode ?? environmentContext?.getRootNode,
     ...props,
   });
 
-  setHoverCardContext(context);
+  hoverCardContext.set(context);
 </script>
 
 {@render children?.(context)}
