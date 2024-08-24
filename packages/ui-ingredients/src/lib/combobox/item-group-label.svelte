@@ -1,22 +1,18 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ComboboxItemGroupLabelProps
-    extends HtmlIngredientProps<'span'> {}
+  export interface ComboboxItemGroupLabelProps extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    useComboboxContext,
-    useComboboxItemGroupPropsContext,
-  } from './context.svelte.js';
+  import {comboboxContext, comboboxItemGroupPropsContext} from './context.svelte.js';
 
   let {children, ...props}: ComboboxItemGroupLabelProps = $props();
 
-  let context = useComboboxContext();
+  let context = comboboxContext.get();
 
-  let itemGroupProps = useComboboxItemGroupPropsContext();
+  let itemGroupProps = comboboxItemGroupPropsContext.get();
 
   let attrs = $derived(
     mergeProps(

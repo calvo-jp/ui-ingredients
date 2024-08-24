@@ -1,17 +1,16 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ComboboxClearTriggerProps
-    extends HtmlIngredientProps<'button'> {}
+  export interface ComboboxClearTriggerProps extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useComboboxContext} from './context.svelte.js';
+  import {comboboxContext} from './context.svelte.js';
 
   let {children, ...props}: ComboboxClearTriggerProps = $props();
 
-  let context = useComboboxContext();
+  let context = comboboxContext.get();
 
   let attrs = $derived(mergeProps(props, context.getClearTriggerProps()));
 </script>

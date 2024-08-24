@@ -1,14 +1,14 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateComboboxContextProps, CreateComboboxContextReturn} from './context.svelte.js';
+  import type {CreateComboboxProps, CreateComboboxReturn} from './create-combobox.svelte.js';
 
   export interface ComboboxProps<T>
     extends Assign<
       Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateComboboxContextProps<T>, 'id'>
+      Omit<CreateComboboxProps<T>, 'id'>
     > {
-    children?: Snippet<[context: CreateComboboxContextReturn]>;
+    children?: Snippet<[api: CreateComboboxReturn]>;
   }
 </script>
 
@@ -17,7 +17,8 @@
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createComboboxContext, setComboboxContext} from './context.svelte.js';
+  import {comboboxContext} from './context.svelte.js';
+  import {createCombobox} from './create-combobox.svelte.js';
 
   let {
     id,
@@ -70,8 +71,10 @@
   let localeContext = useLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createComboboxContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createCombobox({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     name,
@@ -118,7 +121,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setComboboxContext(context);
+  comboboxContext.set(context);
 </script>
 
 <div {...attrs}>

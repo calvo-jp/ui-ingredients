@@ -1,70 +1,7 @@
-import * as combobox from '@zag-js/combobox';
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {getContext, setContext} from 'svelte';
+import {Context} from '$lib/utils.svelte.js';
+import type {ItemGroupProps, ItemProps} from '@zag-js/combobox';
+import type {CreateComboboxReturn} from './create-combobox.svelte.js';
 
-export interface CreateComboboxContextProps<T>
-  extends Omit<combobox.Context, 'collection'> {
-  items: T[];
-  itemToString?: (item: T) => string;
-  itemToValue?: (item: T) => string;
-  isItemDisabled?: (item: T) => boolean;
-}
-
-export interface CreateComboboxContextReturn
-  extends ReturnType<typeof createComboboxContext> {}
-
-export function createComboboxContext<T>(props: CreateComboboxContextProps<T>) {
-  const collection = $derived(
-    combobox.collection({
-      items: props.items,
-      itemToValue: (item) =>
-        props.itemToValue ? props.itemToValue(item) : String(item),
-      itemToString: (item) =>
-        props.itemToString ? props.itemToString(item) : String(item),
-      isItemDisabled: (item) =>
-        props.isItemDisabled ? props.isItemDisabled(item) : false,
-    }),
-  );
-
-  const [state, send] = useMachine(
-    combobox.machine({
-      ...props,
-      collection,
-    }),
-  );
-
-  const api = $derived(
-    reflect(() => ({
-      ...combobox.connect(state, send, normalizeProps),
-      collection,
-    })),
-  );
-
-  return api;
-}
-
-export function setComboboxContext(value: CreateComboboxContextReturn) {
-  setContext('Combobox', value);
-}
-
-export function useComboboxContext() {
-  return getContext<CreateComboboxContextReturn>('Combobox');
-}
-
-export function setComboboxItemPropsContext(value: combobox.ItemProps) {
-  setContext('ComboboxItem', value);
-}
-
-export function useComboboxItemPropsContext() {
-  return getContext<combobox.ItemProps>('ComboboxItem');
-}
-
-export function setComboboxItemGroupPropsContext(
-  value: combobox.ItemGroupProps,
-) {
-  setContext('ComboboxItemGroup', value);
-}
-
-export function useComboboxItemGroupPropsContext() {
-  return getContext<combobox.ItemGroupProps>('ComboboxItemGroup');
-}
+export const comboboxContext = new Context<CreateComboboxReturn>('Combobox');
+export const comboboxItemPropsContext = new Context<ItemProps>('ComboboxItem');
+export const comboboxItemGroupPropsContext = new Context<ItemGroupProps>('ComboboxItemGroup');

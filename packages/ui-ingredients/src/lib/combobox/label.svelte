@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useComboboxContext} from './context.svelte.js';
+  import {comboboxContext} from './context.svelte.js';
 
   let {children, ...props}: ComboboxLabelProps = $props();
 
-  let context = useComboboxContext();
+  let context = comboboxContext.get();
 
   let attrs = $derived(mergeProps(props, context.getLabelProps()));
 </script>

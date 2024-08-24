@@ -11,36 +11,21 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    setComboboxItemPropsContext,
-    useComboboxContext,
-  } from './context.svelte.js';
+  import {comboboxContext, comboboxItemPropsContext} from './context.svelte.js';
 
   let {children, item, persistFocus, ...props}: ComboboxItemProps = $props();
 
-  let context = useComboboxContext();
+  let context = comboboxContext.get();
 
-  let state = $derived(
-    context.getItemState({
-      item,
-      persistFocus,
-    }),
-  );
-
-  let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemProps({
-        item,
-        persistFocus,
-      }),
-    ),
-  );
-
-  setComboboxItemPropsContext({
+  let itemProps = $derived({
     item,
     persistFocus,
   });
+
+  let state = $derived(context.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+
+  comboboxItemPropsContext.set(() => itemProps);
 </script>
 
 <div {...attrs}>
