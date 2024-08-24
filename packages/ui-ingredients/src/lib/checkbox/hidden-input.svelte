@@ -1,17 +1,16 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface CheckboxHiddenInputProps
-    extends HtmlIngredientProps<'input'> {}
+  export interface CheckboxHiddenInputProps extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useCheckboxContext} from './context.svelte.js';
+  import {checkboxContext} from './context.svelte.js';
 
   let {...props}: CheckboxHiddenInputProps = $props();
 
-  let context = useCheckboxContext();
+  let context = checkboxContext.get();
 
   let attrs = $derived(mergeProps(props, context.getHiddenInputProps()));
 </script>

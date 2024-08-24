@@ -1,14 +1,14 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateCheckboxContextProps, CreateCheckboxContextReturn} from './context.svelte.js';
+  import type {CreateCheckboxProps, CreateCheckboxReturn} from './create-checkbox.svelte.js';
 
   export interface CheckboxProps
     extends Assign<
       Omit<HtmlIngredientProps<'label'>, 'children'>,
-      Omit<CreateCheckboxContextProps, 'id'>
+      Omit<CreateCheckboxProps, 'id'>
     > {
-    children?: Snippet<[context: CreateCheckboxContextReturn]>;
+    children?: Snippet<[api: CreateCheckboxReturn]>;
   }
 </script>
 
@@ -17,7 +17,8 @@
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createCheckboxContext, setCheckboxContext} from './context.svelte.js';
+  import {checkboxContext} from './context.svelte.js';
+  import {createCheckbox} from './create-checkbox.svelte.js';
 
   let {
     id,
@@ -40,8 +41,10 @@
   let localeContext = useLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createCheckboxContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createCheckbox({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     form,
@@ -58,7 +61,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setCheckboxContext(context);
+  checkboxContext.set(context);
 </script>
 
 <label {...attrs}>

@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useCheckboxContext} from './context.svelte.js';
+  import {checkboxContext} from './context.svelte.js';
 
   let {children, ...props}: CheckboxLabelProps = $props();
 
-  let context = useCheckboxContext();
+  let context = checkboxContext.get();
 
   let attrs = $derived(mergeProps(props, context.getLabelProps()));
 </script>
