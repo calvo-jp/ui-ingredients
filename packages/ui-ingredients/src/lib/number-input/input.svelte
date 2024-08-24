@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useNumberInputContext} from './context.svelte.js';
+  import {numberInputContext} from './context.svelte.js';
 
   let {...props}: NumberInputInputProps = $props();
 
-  let context = useNumberInputContext();
+  let context = numberInputContext.get();
 
   let attrs = $derived(mergeProps(props, context.getInputProps()));
 </script>

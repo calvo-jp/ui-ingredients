@@ -2,16 +2,16 @@
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
-    CreateNumberInputContextProps,
-    CreateNumberInputContextReturn,
-  } from './context.svelte.js';
+    CreateNumberInputProps,
+    CreateNumberInputReturn,
+  } from './create-number-input.svelte.js';
 
   export interface NumberInputProps
     extends Assign<
       Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateNumberInputContextProps, 'id'>
+      Omit<CreateNumberInputProps, 'id'>
     > {
-    children?: Snippet<[context: CreateNumberInputContextReturn]>;
+    children?: Snippet<[api: CreateNumberInputReturn]>;
   }
 </script>
 
@@ -20,7 +20,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createNumberInputContext, setNumberInputContext} from './context.svelte.js';
+  import {numberInputContext} from './context.svelte.js';
+  import {createNumberInput} from './create-number-input.svelte.js';
 
   let {
     id,
@@ -57,8 +58,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createNumberInputContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createNumberInput({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     max,
@@ -89,7 +92,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setNumberInputContext(context);
+  numberInputContext.set(context);
 </script>
 
 <div {...attrs}>
