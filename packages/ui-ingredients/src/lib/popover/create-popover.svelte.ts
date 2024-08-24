@@ -21,7 +21,7 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
       getRootNode: environmentContext?.getRootNode,
-      'open.controlled': props.open !== undefined,
+      'open.controlled': props.open != null,
     }),
   );
 

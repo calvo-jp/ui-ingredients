@@ -35,7 +35,7 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
       dir: localeContext?.dir,
       getRootNode: environmentContext?.getRootNode,
       collection,
-      'open.controlled': props.open !== undefined,
+      'open.controlled': props.open != null,
     }),
   );
 
