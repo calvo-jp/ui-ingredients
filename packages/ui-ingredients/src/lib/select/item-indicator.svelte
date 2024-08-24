@@ -1,26 +1,20 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SelectItemIndicatorProps
-    extends HtmlIngredientProps<'span'> {}
+  export interface SelectItemIndicatorProps extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    useSelectContext,
-    useSelectItemPropsContext,
-  } from './context.svelte.js';
+  import {selectContext, selectItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: SelectItemIndicatorProps = $props();
 
-  let context = useSelectContext();
+  let context = selectContext.get();
 
-  let itemProps = useSelectItemPropsContext();
+  let itemProps = selectItemPropsContext.get();
 
-  let attrs = $derived(
-    mergeProps(props, context.getItemIndicatorProps(itemProps)),
-  );
+  let attrs = $derived(mergeProps(props, context.getItemIndicatorProps(itemProps)));
 </script>
 
 <span {...attrs}>

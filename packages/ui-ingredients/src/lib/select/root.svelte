@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateSelectContextProps, CreateSelectContextReturn} from './context.svelte.js';
+  import type {CreateSelectProps, CreateSelectReturn} from './create-select.svelte.js';
 
   export interface SelectProps<T>
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateSelectContextProps<T>, 'id'>
-    > {
-    children?: Snippet<[context: CreateSelectContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateSelectProps<T>, 'id'>> {
+    children?: Snippet<[api: CreateSelectReturn]>;
   }
 </script>
 
@@ -17,7 +14,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createSelectContext, setSelectContext} from './context.svelte.js';
+  import {selectContext} from './context.svelte.js';
+  import {createSelect} from './create-select.svelte.js';
 
   let {
     id,
@@ -57,8 +55,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createSelectContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createSelect({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     form,
@@ -92,7 +92,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setSelectContext(context);
+  selectContext.set(context);
 </script>
 
 <div {...attrs}>

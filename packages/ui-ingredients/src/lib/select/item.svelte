@@ -11,36 +11,21 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    setSelectItemPropsContext,
-    useSelectContext,
-  } from './context.svelte.js';
+  import {selectContext, selectItemPropsContext} from './context.svelte.js';
 
   let {item, persistFocus, children, ...props}: SelectItemProps = $props();
 
-  let context = useSelectContext();
+  let context = selectContext.get();
 
-  let state = $derived(
-    context.getItemState({
-      item,
-      persistFocus,
-    }),
-  );
-
-  let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemProps({
-        item,
-        persistFocus,
-      }),
-    ),
-  );
-
-  setSelectItemPropsContext({
+  let itemProps = $derived({
     item,
     persistFocus,
   });
+
+  let state = $derived(context.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+
+  selectItemPropsContext.set(() => itemProps);
 </script>
 
 <div {...attrs}>
