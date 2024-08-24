@@ -1,12 +1,8 @@
 <script lang="ts">
   import {page} from '$app/stores';
-  import {
-    Dialog,
-    EnvironmentProvider,
-    LocaleProvider,
-    Portal,
-  } from '$lib/index.js';
+  import {Dialog, EnvironmentProvider, LocaleProvider, Portal, Toast, Toaster} from '$lib/index.js';
   import '../app.css';
+  import {toaster} from './shared/toaster.svelte.js';
   import {cx} from './shared/utils.js';
 
   let {children} = $props();
@@ -143,9 +139,7 @@
     },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
-  let currentItem = $derived(
-    items.find((item) => item.path === $page.url.pathname),
-  );
+  let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));
 </script>
 
 <svelte:head>
@@ -175,9 +169,7 @@
               <a
                 href={item.path}
                 class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
-                aria-current={item.path === currentItem?.path
-                  ? 'page'
-                  : undefined}
+                aria-current={item.path === currentItem?.path ? 'page' : undefined}
               >
                 {item.label}
               </a>
@@ -241,18 +233,14 @@
                   </Dialog.CloseTrigger>
                 </div>
 
-                <nav
-                  class="h-[calc(100vh-theme(spacing.16))] overflow-y-auto p-4"
-                >
+                <nav class="h-[calc(100vh-theme(spacing.16))] overflow-y-auto p-4">
                   <ul>
                     {#each items as item}
                       <li class="block w-full">
                         <a
                           href={item.path}
                           class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
-                          aria-current={item.path === currentItem?.path
-                            ? 'page'
-                            : undefined}
+                          aria-current={item.path === currentItem?.path ? 'page' : undefined}
                         >
                           {item.label}
                         </a>
@@ -270,5 +258,29 @@
         {@render children()}
       </main>
     </div>
+
+    <Toaster {toaster}>
+      {#snippet children()}
+        <Toast.Root
+          class={cx(
+            'p-4',
+            'border',
+            'bg-neutral-800',
+            'duration-300',
+            'transition-all',
+            'min-w-[20rem]',
+            'h-[var(--height)]',
+            'z-[var(--z-index)]',
+            '[translate:var(--x)_var(--y)_0]',
+            'opacity-[var(--opacity)]',
+            'scale-[var(--scale)]',
+          )}
+        >
+          <Toast.Title class="font-medium" />
+          <Toast.Description class="text-sm text-neutral-500" />
+          <Toast.CloseTrigger class="mt-3 block h-11 w-full border">Close</Toast.CloseTrigger>
+        </Toast.Root>
+      {/snippet}
+    </Toaster>
   </LocaleProvider>
 </EnvironmentProvider>

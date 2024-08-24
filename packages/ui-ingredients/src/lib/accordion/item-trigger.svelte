@@ -11,6 +11,7 @@
   let {children, ...props}: AccordionItemTriggerProps = $props();
 
   let context = accordionContext.get();
+
   let itemProps = accordionItemPropsContext.get();
 
   let attrs = $derived(mergeProps(props, context.getItemTriggerProps(itemProps)));

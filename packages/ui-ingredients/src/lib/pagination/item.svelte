@@ -14,14 +14,15 @@
 
   let context = paginationContext.get();
 
-  let itemProps = $derived(
-    context.getItemProps({
-      type: 'page',
-      value,
-    }),
+  let attrs = $derived(
+    mergeProps(
+      props,
+      context.getItemProps({
+        type: 'page',
+        value,
+      }),
+    ),
   );
-
-  let attrs = $derived(mergeProps(props, itemProps));
 </script>
 
 <button type="button" {...attrs}>
