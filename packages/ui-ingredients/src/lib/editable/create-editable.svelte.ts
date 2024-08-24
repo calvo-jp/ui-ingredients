@@ -21,7 +21,7 @@ export function createEditable(props: CreateEditableProps): CreateEditableReturn
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
       getRootNode: environmentContext?.getRootNode,
-      'edit.controlled': props.edit != null,
+      'edit.controlled': props.edit !== undefined,
     }),
   );
 

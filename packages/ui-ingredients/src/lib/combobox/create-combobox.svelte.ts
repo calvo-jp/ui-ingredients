@@ -34,7 +34,7 @@ export function createCombobox<T>(props: CreateComboboxProps<T>): CreateCombobox
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
       getRootNode: environmentContext?.getRootNode,
-      'open.controlled': props.open != null,
+      'open.controlled': props.open !== undefined,
       collection,
     }),
   );
