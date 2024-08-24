@@ -7,15 +7,13 @@
   } from './create-segment-group.svelte.js';
 
   export interface SegmentGroupProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateSegmentGroupProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSegmentGroupProps> {
     children?: Snippet<[api: CreateSegmentGroupReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId, ensureStyleIsString} from '$lib/utils.svelte.js';
+  import {ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
   import {segmentGroupContext} from './context.svelte.js';
@@ -24,7 +22,6 @@
   let {
     id,
     ids,
-    dir,
     form,
     name,
     value,
@@ -32,20 +29,13 @@
     readOnly,
     orientation,
     onValueChange,
-    getRootNode,
     children,
     ...props
   }: SegmentGroupProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createSegmentGroup({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     form,
     name,
     value: $state.snapshot(value),
@@ -53,7 +43,6 @@
     readOnly,
     orientation,
     onValueChange,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps(), parts.root.attrs));

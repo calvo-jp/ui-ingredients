@@ -3,16 +3,12 @@
   import type {Snippet} from 'svelte';
   import type {CreateTabsProps, CreateTabsReturn} from './create-tabs.svelte.js';
 
-  export interface TabsProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateTabsProps, 'id'>> {
+  export interface TabsProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTabsProps> {
     children?: Snippet<[api: CreateTabsReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {tabsContext} from './context.svelte.js';
   import {createTabs} from './create-tabs.svelte.js';
@@ -20,7 +16,6 @@
   let {
     id,
     ids,
-    dir,
     value,
     loopFocus,
     composite,
@@ -29,20 +24,13 @@
     activationMode,
     onFocusChange,
     onValueChange,
-    getRootNode,
     children,
     ...props
   }: TabsProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createTabs({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
     loopFocus,
     composite,
@@ -51,7 +39,6 @@
     activationMode,
     onFocusChange,
     onValueChange,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

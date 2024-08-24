@@ -7,15 +7,12 @@
   } from './create-number-input.svelte.js';
 
   export interface NumberInputProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateNumberInputProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateNumberInputProps> {
     children?: Snippet<[api: CreateNumberInputReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {numberInputContext} from './context.svelte.js';
   import {createNumberInput} from './create-number-input.svelte.js';
@@ -23,14 +20,12 @@
   let {
     id,
     ids,
-    dir,
     max,
     min,
     step,
     name,
     form,
     value,
-    locale,
     pattern,
     invalid,
     disabled,
@@ -47,27 +42,19 @@
     onFocusChange,
     onValueChange,
     onValueInvalid,
-    getRootNode,
     children,
     ...props
   }: NumberInputProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createNumberInput({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     max,
     min,
     step,
     name,
     form,
     value: $state.snapshot(value),
-    locale: locale ?? localeContext?.locale,
     pattern,
     invalid,
     disabled,
@@ -84,7 +71,6 @@
     onFocusChange,
     onValueChange,
     onValueInvalid,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

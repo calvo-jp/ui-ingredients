@@ -4,15 +4,12 @@
   import type {CreatePinInputProps, CreatePinInputReturn} from './create-pin-input.svelte.js';
 
   export interface PinInputProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreatePinInputProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreatePinInputProps> {
     children?: Snippet<[api: CreatePinInputReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {pinInputContext} from './context.svelte.js';
   import {createPinInputContext} from './create-pin-input.svelte.js';
@@ -20,7 +17,6 @@
   let {
     id,
     ids,
-    dir,
     otp,
     form,
     mask,
@@ -40,20 +36,13 @@
     onValueChange,
     onValueInvalid,
     onValueComplete,
-    getRootNode,
     children,
     ...props
   }: PinInputProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createPinInputContext({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     otp,
     form,
     mask,
@@ -73,7 +62,6 @@
     onValueChange,
     onValueInvalid,
     onValueComplete,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

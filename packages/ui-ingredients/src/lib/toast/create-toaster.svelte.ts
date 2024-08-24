@@ -5,8 +5,7 @@ import {normalizeProps, reflect} from '@zag-js/svelte';
 import * as toast from '@zag-js/toast';
 
 export interface CreateToasterProps {
-  id?: string;
-  dir?: toast.GroupMachineContext['dir'];
+  id?: string | null;
   max?: toast.GroupMachineContext['max'];
   gap?: toast.GroupMachineContext['gap'];
   hotkey?: toast.GroupMachineContext['hotkey'];
@@ -16,7 +15,6 @@ export interface CreateToasterProps {
   placement?: toast.GroupMachineContext['placement'];
   removeDelay?: toast.GroupMachineContext['removeDelay'];
   pauseOnPageIdle?: toast.GroupMachineContext['pauseOnPageIdle'];
-  getRootNode?: toast.GroupMachineContext['getRootNode'];
 }
 
 export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
@@ -25,19 +23,12 @@ export function createToaster(props?: CreateToasterProps) {
   const localContext = getLocaleContext();
   const environmentContext = getEnvironmentContext();
 
-  const uid = createUniqueId();
-
-  const id = $derived(props?.id ?? uid);
-  const dir = $derived(props?.dir ?? localContext?.dir);
-
-  const getRootNode = $derived(props?.getRootNode ?? environmentContext?.getRootNode);
-
   const machine = $derived(
     toast.group.machine({
       ...props,
-      id,
-      dir,
-      getRootNode,
+      id: props?.id ?? createUniqueId(),
+      dir: localContext?.dir,
+      getRootNode: environmentContext?.getRootNode,
     }),
   );
 

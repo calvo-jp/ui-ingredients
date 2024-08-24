@@ -1,7 +1,12 @@
+import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
+import {createUniqueId} from '$lib/utils.svelte.js';
 import * as select from '@zag-js/select';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateSelectProps<T> extends Omit<select.Context, 'collection'> {
+export interface CreateSelectProps<T>
+  extends Omit<select.Context, 'id' | 'dir' | 'getRootNode' | 'collection' | 'open.controlled'> {
+  id?: string | null;
   items: T[];
   itemToString?: (item: T) => string;
   itemToValue?: (item: T) => string;
@@ -20,10 +25,17 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
     }),
   );
 
+  const localeContext = getLocaleContext();
+  const environmentContext = getEnvironmentContext();
+
   const [state, send] = useMachine(
     select.machine({
       ...props,
+      id: props.id ?? createUniqueId(),
+      dir: localeContext?.dir,
+      getRootNode: environmentContext?.getRootNode,
       collection,
+      'open.controlled': props.open != null,
     }),
   );
 

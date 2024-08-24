@@ -4,15 +4,12 @@
   import type {CreateTagsInputProps, CreateTagsInputReturn} from './create-tags-input.svelte.js';
 
   export interface TagsInputProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateTagsInputProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTagsInputProps> {
     children?: Snippet<[api: CreateTagsInputReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {tagsInputContext} from './context.svelte.js';
   import {createTagsInputt} from './create-tags-input.svelte.js';
@@ -20,7 +17,6 @@
   let {
     id,
     ids,
-    dir,
     max,
     form,
     name,
@@ -46,20 +42,13 @@
     onHighlightChange,
     onInputValueChange,
     onPointerDownOutside,
-    getRootNode,
     children,
     ...props
   }: TagsInputProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createTagsInputt({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     max,
     form,
     name,
@@ -85,7 +74,6 @@
     onHighlightChange,
     onInputValueChange,
     onPointerDownOutside,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

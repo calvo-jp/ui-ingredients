@@ -7,15 +7,12 @@
   } from './create-rating-group.svelte.js';
 
   export interface RatingGroupProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateRatingGroupProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateRatingGroupProps> {
     children?: Snippet<[api: CreateRatingGroupReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {ratingGroupContext} from './context.svelte.js';
   import {createRatingGroup} from './create-rating-group.svelte.js';
@@ -23,7 +20,6 @@
   let {
     id,
     ids,
-    dir,
     form,
     name,
     count,
@@ -36,20 +32,13 @@
     translations,
     onHoverChange,
     onValueChange,
-    getRootNode,
     children,
     ...props
   }: RatingGroupProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createRatingGroup({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     form,
     name,
     count,
@@ -62,7 +51,6 @@
     translations,
     onHoverChange,
     onValueChange,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

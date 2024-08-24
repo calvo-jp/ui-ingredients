@@ -1,7 +1,12 @@
+import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
+import {createUniqueId} from '$lib/utils.svelte.js';
 import * as combobox from '@zag-js/combobox';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateComboboxProps<T> extends Omit<combobox.Context, 'collection'> {
+export interface CreateComboboxProps<T>
+  extends Omit<combobox.Context, 'id' | 'dir' | 'collection' | 'getRootNode' | 'open.controlled'> {
+  id?: string | null;
   items: T[];
   itemToString?: (item: T) => string;
   itemToValue?: (item: T) => string;
@@ -20,9 +25,16 @@ export function createCombobox<T>(props: CreateComboboxProps<T>): CreateCombobox
     }),
   );
 
+  const localeContext = getLocaleContext();
+  const environmentContext = getEnvironmentContext();
+
   const [state, send] = useMachine(
     combobox.machine({
       ...props,
+      id: props.id ?? createUniqueId(),
+      dir: localeContext?.dir,
+      getRootNode: environmentContext?.getRootNode,
+      'open.controlled': props.open != null,
       collection,
     }),
   );

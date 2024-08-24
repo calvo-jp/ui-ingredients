@@ -4,32 +4,29 @@
   import {type CreateAvatarProps, type CreateAvatarReturn} from './create-avatar.svelte.js';
 
   export interface AvatarProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateAvatarProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateAvatarProps> {
     children?: Snippet<[api: CreateAvatarReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {avatarContext} from './context.svelte.js';
   import {createAvatar} from './create-avatar.svelte.js';
 
-  let {id, ids, dir, getRootNode, onStatusChange, children, ...props}: AvatarProps = $props();
-
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
+  let {
+    /**/
+    id,
+    ids,
+    onStatusChange,
+    children,
+    ...props
+  }: AvatarProps = $props();
 
   let context = createAvatar({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     onStatusChange,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

@@ -4,7 +4,6 @@
   export interface PortalProps {
     container?: HTMLElement;
     disabled?: boolean;
-    getRootNode?: () => ShadowRoot | Document | Node;
     children: Snippet;
   }
 </script>
@@ -13,15 +12,16 @@
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {portal} from '@zag-js/svelte';
 
-  let {container, disabled, getRootNode, children}: PortalProps = $props();
+  let {container, disabled, children}: PortalProps = $props();
+
   let environmentContext = getEnvironmentContext();
 </script>
 
 <div
   use:portal={{
-    container,
     disabled,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
+    container,
+    getRootNode: environmentContext?.getRootNode,
   }}
   data-scope="portal"
   data-part="root"

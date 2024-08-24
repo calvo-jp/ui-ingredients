@@ -4,15 +4,12 @@
   import type {CreateSliderProps, CreateSliderReturn} from './create-slider.svelte.js';
 
   export interface SliderProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateSliderProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSliderProps> {
     children?: Snippet<[api: CreateSliderReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {sliderContext} from './context.svelte.js';
   import {createSlider} from './create-slider.svelte.js';
@@ -20,7 +17,6 @@
   let {
     id,
     ids,
-    dir,
     max,
     min,
     step,
@@ -41,20 +37,13 @@
     onValueChange,
     onValueChangeEnd,
     getAriaValueText,
-    getRootNode,
     children,
     ...props
   }: SliderProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createSlider({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     max,
     min,
     step,
@@ -75,7 +64,6 @@
     onValueChange,
     onValueChangeEnd,
     getAriaValueText,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

@@ -5,7 +5,9 @@ import * as accordion from '@zag-js/accordion';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateAccordionProps
-  extends Omit<Partial<accordion.Context>, 'dir' | 'getRootNode'> {}
+  extends Omit<accordion.Context, 'id' | 'dir' | 'getRootNode'> {
+  id?: string | null;
+}
 
 export interface CreateAccordionReturn extends accordion.Api {}
 

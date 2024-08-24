@@ -4,15 +4,12 @@
   import type {CreateComboboxProps, CreateComboboxReturn} from './create-combobox.svelte.js';
 
   export interface ComboboxProps<T>
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateComboboxProps<T>, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateComboboxProps<T>> {
     children?: Snippet<[api: CreateComboboxReturn]>;
   }
 </script>
 
 <script lang="ts" generics="T">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {comboboxContext} from './context.svelte.js';
   import {createCombobox} from './create-combobox.svelte.js';
@@ -20,11 +17,9 @@
   let {
     id,
     ids,
-    dir,
     name,
     form,
     open,
-    'open.controlled': openControlled,
     items,
     value,
     invalid,
@@ -60,24 +55,16 @@
     onPointerDownOutside,
     getSelectionValue,
     scrollToIndexFn,
-    getRootNode,
     children,
     ...props
   }: ComboboxProps<T> = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createCombobox({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     name,
     form,
     open,
-    'open.controlled': openControlled,
     items,
     value: $state.snapshot(value),
     invalid,
@@ -113,7 +100,6 @@
     onPointerDownOutside,
     getSelectionValue,
     scrollToIndexFn,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

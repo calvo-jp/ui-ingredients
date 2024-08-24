@@ -7,15 +7,12 @@
   } from './create-toggle-group.svelte.js';
 
   export interface ToggleGroupProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateToggleGroupProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateToggleGroupProps> {
     children?: Snippet<[api: CreateToggleGroupReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {toggleGroupContext} from './context.svelte.js';
   import {createToggleGroup} from './create-toggle-group.svelte.js';
@@ -23,7 +20,6 @@
   let {
     id,
     ids,
-    dir,
     value,
     disabled,
     multiple,
@@ -31,20 +27,13 @@
     rovingFocus,
     orientation,
     onValueChange,
-    getRootNode,
     children,
     ...props
   }: ToggleGroupProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createToggleGroup({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
     disabled,
     multiple,
@@ -52,7 +41,6 @@
     rovingFocus,
     orientation,
     onValueChange,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));

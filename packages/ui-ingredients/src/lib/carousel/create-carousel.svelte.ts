@@ -1,11 +1,27 @@
+import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
+import {createUniqueId} from '$lib/utils.svelte.js';
 import * as carousel from '@zag-js/carousel';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateCarouselProps extends carousel.Context {}
+export interface CreateCarouselProps extends Omit<carousel.Context, 'id' | 'dir' | 'getRootNode'> {
+  id?: string | null;
+}
+
 export interface CreateCarouselReturn extends carousel.Api {}
 
 export function createCarousel(props: CreateCarouselProps): CreateCarouselReturn {
-  const [state, send] = useMachine(carousel.machine(props));
+  const localeContexts = getLocaleContext();
+  const environmentContext = getEnvironmentContext();
+
+  const [state, send] = useMachine(
+    carousel.machine({
+      ...props,
+      id: props.id ?? createUniqueId(),
+      dir: localeContexts?.dir,
+      getRootNode: environmentContext?.getRootNode,
+    }),
+  );
 
   const api = $derived(reflect(() => carousel.connect(state, send, normalizeProps)));
 

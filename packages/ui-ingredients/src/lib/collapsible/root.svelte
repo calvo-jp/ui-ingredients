@@ -7,15 +7,12 @@
   } from './create-collapsible.svelte.js';
 
   export interface CollapsibleProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, Omit<CreateCollapsibleProps, 'id'>> {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateCollapsibleProps> {
     children?: Snippet<[api: CreateCollapsibleReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {getLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {collapsibleContext} from './context.svelte.js';
   import {createCollapsible} from './create-collapsible.svelte.js';
@@ -23,32 +20,21 @@
   let {
     id,
     ids,
-    dir,
     open,
-    'open.controlled': openControlled,
     disabled,
     onOpenChange,
     onExitComplete,
-    getRootNode,
     children,
     ...props
   }: CollapsibleProps = $props();
 
-  let localeContext = getLocaleContext();
-  let environmentContext = getEnvironmentContext();
-
-  let uid = createUniqueId();
-
   let context = createCollapsible({
-    id: id ?? uid,
+    id,
     ids,
-    dir: dir ?? localeContext?.dir,
     open,
-    'open.controlled': openControlled,
     disabled,
     onOpenChange,
     onExitComplete,
-    getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
   let mergedProps = $derived(mergeProps(props, context.getRootProps()));
