@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useToastContext} from './context.svelte.js';
+  import {toastContext} from './context.svelte.js';
 
   let {children, ...props}: ToastTitleProps = $props();
 
-  let context = useToastContext();
+  let context = toastContext.get();
 
   let attrs = $derived(mergeProps(props, context.getTitleProps()));
 </script>

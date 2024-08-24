@@ -1,13 +1,12 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateToastContextReturn} from './context.svelte.js';
+  import type {CreateToastReturn} from './create-toast.svelte.js';
   import type {CreateToasterReturn} from './create-toaster.svelte.js';
 
-  export interface ToasterProps
-    extends Omit<HtmlIngredientProps<'div'>, 'children'> {
+  export interface ToasterProps extends Omit<HtmlIngredientProps<'div'>, 'children'> {
     toaster: CreateToasterReturn;
-    children: Snippet<[CreateToastContextReturn]>;
+    children: Snippet<[api: CreateToastReturn]>;
   }
 </script>
 
