@@ -2,23 +2,39 @@
   import type {Snippet} from 'svelte';
   import {type Environment} from './context.svelte.js';
 
-  export interface EnvironmentProviderProps extends Partial<Environment> {
+  export interface EnvironmentProviderProps {
+    rootNode?: ShadowRoot | Document | Node | (() => ShadowRoot | Document | Node);
     children: Snippet;
   }
 </script>
 
 <script lang="ts">
+  import {getDocument, getWindow} from '@zag-js/dom-query';
   import {environmentContext} from './context.svelte.js';
 
-  let {children, ...props}: EnvironmentProviderProps = $props();
+  let {rootNode, children}: EnvironmentProviderProps = $props();
+
+  let elem: HTMLSpanElement | null = $state(null);
+
+  let getRootNode = $derived.by(() => {
+    if (rootNode) {
+      return typeof rootNode === 'function' ? rootNode : () => rootNode;
+    } else {
+      return () => elem?.ownerDocument ?? document;
+    }
+  });
 
   let context: Environment = $derived({
-    getRootNode: props.getRootNode ?? (() => document),
-    getDocument: props.getDocument ?? (() => document),
-    getWindow: props.getWindow ?? (() => window),
+    getRootNode,
+    getDocument: () => getDocument(getRootNode()),
+    getWindow: () => getWindow(getRootNode()),
   });
 
   environmentContext.set(() => context);
 </script>
 
 {@render children()}
+
+{#if !rootNode}
+  <span bind:this={elem} hidden></span>
+{/if}

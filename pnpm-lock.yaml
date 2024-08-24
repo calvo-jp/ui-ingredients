@@ -74,6 +74,9 @@ importers:
       '@zag-js/dialog':
         specifier: 0.65.1
         version: 0.65.1
+      '@zag-js/dom-query':
+        specifier: 0.65.1
+        version: 0.65.1
       '@zag-js/editable':
         specifier: 0.65.1
         version: 0.65.1
