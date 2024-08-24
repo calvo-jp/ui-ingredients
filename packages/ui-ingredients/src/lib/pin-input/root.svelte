@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreatePinInputContextProps, CreatePinInputContextReturn} from './context.svelte.js';
+  import type {CreatePinInputProps, CreatePinInputReturn} from './create-pin-input.svelte.js';
 
   export interface PinInputProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreatePinInputContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreatePinInputContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreatePinInputProps, 'id'>> {
+    children?: Snippet<[api: CreatePinInputReturn]>;
   }
 </script>
 
@@ -17,7 +14,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createPinInputContext, setPinInputContext} from './context.svelte.js';
+  import {pinInputContext} from './context.svelte.js';
+  import {createPinInputContext} from './create-pin-input.svelte.js';
 
   let {
     id,
@@ -50,8 +48,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
+  let uid = createUniqueId();
+
   let context = createPinInputContext({
-    id: id ?? createUniqueId(),
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     otp,
@@ -78,7 +78,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setPinInputContext(context);
+  pinInputContext.set(context);
 </script>
 
 <div {...attrs}>

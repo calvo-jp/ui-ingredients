@@ -1,16 +1,15 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface PinInputClearTriggerProps
-    extends HtmlIngredientProps<'button'> {}
+  export interface PinInputClearTriggerProps extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">
-  import {usePinInputContext} from './context.svelte.js';
+  import {pinInputContext} from './context.svelte.js';
 
   let {children, onclick, ...props}: PinInputClearTriggerProps = $props();
 
-  let context = usePinInputContext();
+  let context = pinInputContext.get();
 </script>
 
 <button

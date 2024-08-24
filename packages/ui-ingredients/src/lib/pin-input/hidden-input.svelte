@@ -1,17 +1,16 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface PinInputHiddenInputProps
-    extends HtmlIngredientProps<'input'> {}
+  export interface PinInputHiddenInputProps extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {usePinInputContext} from './context.svelte.js';
+  import {pinInputContext} from './context.svelte.js';
 
   let {...props}: PinInputHiddenInputProps = $props();
 
-  let context = usePinInputContext();
+  let context = pinInputContext.get();
 
   let attrs = $derived(mergeProps(props, context.getHiddenInputProps()));
 </script>

@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {usePinInputContext} from './context.svelte.js';
+  import {pinInputContext} from './context.svelte.js';
 
   let {children, ...props}: PinInputLabelProps = $props();
 
-  let context = usePinInputContext();
+  let context = pinInputContext.get();
 
   let attrs = $derived(mergeProps(props, context.getLabelProps()));
 </script>
