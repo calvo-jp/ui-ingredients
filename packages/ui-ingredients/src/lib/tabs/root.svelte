@@ -1,10 +1,7 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreateTabsContextProps,
-    CreateTabsContextReturn,
-  } from './context.svelte.js';
+  import type {CreateTabsContextProps, CreateTabsContextReturn} from './context.svelte.js';
 
   export interface TabsProps
     extends Assign<
@@ -18,7 +15,7 @@
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createTabsContext, setTabsContext} from './context.svelte.js';
 

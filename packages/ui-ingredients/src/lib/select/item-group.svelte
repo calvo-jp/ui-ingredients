@@ -7,12 +7,9 @@
 </script>
 
 <script lang="ts">
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    setSelectItemGroupPropsContext,
-    useSelectContext,
-  } from './context.svelte.js';
+  import {setSelectItemGroupPropsContext, useSelectContext} from './context.svelte.js';
 
   let {id, children, ...props}: SelectItemGroupProps = $props();
 
@@ -20,9 +17,7 @@
 
   let uid = createUniqueId();
 
-  let attrs = $derived(
-    mergeProps(props, context.getItemGroupProps({id: id ?? uid})),
-  );
+  let attrs = $derived(mergeProps(props, context.getItemGroupProps({id: id ?? uid})));
 
   setSelectItemGroupPropsContext({id: id ?? uid});
 </script>

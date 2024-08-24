@@ -10,13 +10,10 @@
 </script>
 
 <script lang="ts">
-  import {ensureStyleIsString} from '$lib/utils.js';
+  import {ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
-  import {
-    setSegmentGroupItemPropsContext,
-    useSegmentGroupContext,
-  } from './context.svelte.js';
+  import {setSegmentGroupItemPropsContext, useSegmentGroupContext} from './context.svelte.js';
 
   let {
     /**/

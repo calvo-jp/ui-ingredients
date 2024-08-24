@@ -1,21 +1,19 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import {
-    type CreateMenuMachineProps,
-    type CreateMenuMachineReturn,
-  } from './context.svelte.js';
+  import {type CreateMenuProps, type CreateMenuReturn} from './create-menu.svelte.js';
 
-  export interface MenuRootProps extends Omit<CreateMenuMachineProps, 'id'> {
+  export interface MenuRootProps extends Omit<CreateMenuProps, 'id'> {
     id?: string | null;
-    children?: Snippet<[context: CreateMenuMachineReturn]>;
+    children?: Snippet<[api: CreateMenuReturn]>;
   }
 </script>
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
-  import {createMenuMachine, setMenuContext} from './context.svelte.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
+  import {menuContext} from './context.svelte.js';
+  import {createMenu} from './create-menu.svelte.js';
 
   let {
     id,
@@ -47,7 +45,7 @@
 
   let uid = createUniqueId();
 
-  let context = createMenuMachine({
+  let context = createMenu({
     id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
@@ -71,7 +69,7 @@
     getRootNode: getRootNode ?? environmnetContext?.getRootNode,
   });
 
-  setMenuContext(() => context);
+  menuContext.set(context);
 </script>
 
 {@render children?.(context)}

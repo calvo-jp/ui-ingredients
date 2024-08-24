@@ -11,22 +11,21 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    getAccordionContext,
-    setAccordionItemPropsContext,
-  } from './context.svelte.js';
+  import {accordionContext, accordionItemPropsContext} from './context.svelte.js';
 
   let {value, disabled, children, ...props}: AccordionItemProps = $props();
 
-  let context = getAccordionContext();
+  let context = accordionContext.get();
 
-  let itemProps = setAccordionItemPropsContext(() => ({
+  let itemProps = $derived({
     value,
     disabled,
-  }));
+  });
 
   let state = $derived(context.getItemState(itemProps));
   let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+
+  accordionItemPropsContext.set(() => itemProps);
 </script>
 
 <div {...attrs}>

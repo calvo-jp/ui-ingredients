@@ -6,15 +6,14 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {getAccordionContext, getAccordionItemPropsContext} from './context.svelte.js';
+  import {accordionContext, accordionItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: AccordionIndicatorProps = $props();
 
-  let context = getAccordionContext();
+  let context = accordionContext.get();
+  let itemProps = accordionItemPropsContext.get();
 
-  let attrs = $derived(
-    mergeProps(props, context.getItemIndicatorProps(getAccordionItemPropsContext())),
-  );
+  let attrs = $derived(mergeProps(props, context.getItemIndicatorProps(itemProps)));
 </script>
 
 <span {...attrs}>

@@ -7,26 +7,23 @@
 </script>
 
 <script lang="ts">
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    getMenuContext,
-    setMenuItemGroupPropsContext,
-  } from './context.svelte.js';
+  import {menuContext, menuItemGroupPropsContext} from './context.svelte.js';
 
   let {id, children, ...props}: MenuItemGroupProps = $props();
 
-  let context = getMenuContext();
+  let context = menuContext.get();
 
   let uid = createUniqueId();
 
-  let itemGroupProps: ItemGroupProps = setMenuItemGroupPropsContext(() => ({
+  let itemGroupProps = $derived({
     id: id ?? uid,
-  }));
+  });
 
-  let attrs = $derived(
-    mergeProps(props, context.getItemGroupProps(itemGroupProps)),
-  );
+  let attrs = $derived(mergeProps(props, context.getItemGroupProps(itemGroupProps)));
+
+  menuItemGroupPropsContext.set(() => itemGroupProps);
 </script>
 
 <div {...attrs}>

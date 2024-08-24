@@ -1,18 +1,14 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SegmentGroupItemControlProps
-    extends HtmlIngredientProps<'div'> {}
+  export interface SegmentGroupItemControlProps extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">
-  import {ensureStyleIsString} from '$lib/utils.js';
+  import {ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
-  import {
-    useSegmentGroupContext,
-    useSegmentGroupItemPropsContext,
-  } from './context.svelte.js';
+  import {useSegmentGroupContext, useSegmentGroupItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: SegmentGroupItemControlProps = $props();
 
@@ -21,11 +17,7 @@
   let itemProps = useSegmentGroupItemPropsContext();
 
   let attrs = $derived(
-    mergeProps(
-      props,
-      context.getItemControlProps(itemProps),
-      parts.itemControl.attrs,
-    ),
+    mergeProps(props, context.getItemControlProps(itemProps), parts.itemControl.attrs),
   );
 </script>
 

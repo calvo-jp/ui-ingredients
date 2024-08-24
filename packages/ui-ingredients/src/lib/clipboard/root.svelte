@@ -17,23 +17,12 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    createClipboardContext,
-    setClipboardContext,
-  } from './context.svelte.js';
+  import {createClipboardContext, setClipboardContext} from './context.svelte.js';
 
-  let {
-    id,
-    ids,
-    value,
-    timeout,
-    onStatusChange,
-    getRootNode,
-    children,
-    ...props
-  }: ClipboardProps = $props();
+  let {id, ids, value, timeout, onStatusChange, getRootNode, children, ...props}: ClipboardProps =
+    $props();
 
   let environmentContext = getEnvironmentContext();
 

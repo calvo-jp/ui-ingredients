@@ -18,13 +18,10 @@
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId, ensureStyleIsString} from '$lib/utils.js';
+  import {createUniqueId, ensureStyleIsString} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {parts} from './anatomy.js';
-  import {
-    createSegmentGroupContext,
-    setSegmentGroupContext,
-  } from './context.svelte.js';
+  import {createSegmentGroupContext, setSegmentGroupContext} from './context.svelte.js';
 
   let {
     id,
@@ -59,9 +56,7 @@
     getRootNode: getRootNode ?? environmentContext?.getRootNode,
   });
 
-  let attrs = $derived(
-    mergeProps(props, context.getRootProps(), parts.root.attrs),
-  );
+  let attrs = $derived(mergeProps(props, context.getRootProps(), parts.root.attrs));
 
   setSegmentGroupContext(context);
 </script>

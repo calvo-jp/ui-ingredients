@@ -5,8 +5,7 @@
     CreateHoverCardContextReturn,
   } from './context.svelte.js';
 
-  export interface HoverCardProps
-    extends Omit<CreateHoverCardContextProps, 'id'> {
+  export interface HoverCardProps extends Omit<CreateHoverCardContextProps, 'id'> {
     id?: string | null;
     children?: Snippet<[CreateHoverCardContextReturn]>;
   }
@@ -15,11 +14,8 @@
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
-  import {
-    createHoverCardContext,
-    setHoverCardContext,
-  } from './context.svelte.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
+  import {createHoverCardContext, setHoverCardContext} from './context.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: HoverCardProps = $props();
 

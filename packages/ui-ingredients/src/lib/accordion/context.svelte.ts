@@ -1,9 +1,6 @@
-import {createContext} from '$lib/create-context.svelte.js';
+import {Context} from '$lib/utils.svelte.js';
 import type {ItemProps} from '@zag-js/accordion';
 import type {CreateAccordionReturn} from './create-accordion.svelte.js';
 
-export const [setAccordionContext, getAccordionContext] =
-  createContext<CreateAccordionReturn>('Accordion');
-
-export const [setAccordionItemPropsContext, getAccordionItemPropsContext] =
-  createContext<ItemProps>('AccordionItem');
+export const accordionContext = new Context<CreateAccordionReturn>('Accordion');
+export const accordionItemPropsContext = new Context<ItemProps>('AccordionItem');

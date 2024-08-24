@@ -1,12 +1,8 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {
-    CreateEditableContextProps,
-    CreateEditableContextReturn,
-  } from './context.svelte.js';
+  import type {CreateEditableContextProps, CreateEditableContextReturn} from './context.svelte.js';
 
-  export interface EditableProps
-    extends Omit<CreateEditableContextProps, 'id'> {
+  export interface EditableProps extends Omit<CreateEditableContextProps, 'id'> {
     id?: string | null;
     children?: Snippet<[CreateEditableContextReturn]>;
   }
@@ -15,7 +11,7 @@
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {createEditableContext, setEditableContext} from './context.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: EditableProps = $props();

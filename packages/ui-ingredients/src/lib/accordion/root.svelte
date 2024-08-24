@@ -12,9 +12,9 @@
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {setAccordionContext} from './context.svelte.js';
+  import {accordionContext} from './context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
 
   let {
@@ -54,7 +54,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setAccordionContext(() => context);
+  accordionContext.set(context);
 </script>
 
 <div {...attrs}>

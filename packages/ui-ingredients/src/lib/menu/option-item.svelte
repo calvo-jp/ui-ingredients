@@ -14,10 +14,7 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    getMenuContext,
-    setMenuOptionItemPropsContext,
-  } from './context.svelte.js';
+  import {menuContext, menuOptionItemPropsContext} from './context.svelte.js';
 
   let {
     type = 'checkbox',
@@ -31,9 +28,9 @@
     ...props
   }: MenuOptionItemProps = $props();
 
-  let context = getMenuContext();
+  let context = menuContext.get();
 
-  let itemProps = setMenuOptionItemPropsContext(() => ({
+  let itemProps = $derived({
     type,
     value,
     checked,
@@ -41,12 +38,12 @@
     valueText,
     closeOnSelect,
     onCheckedChange,
-  }));
+  });
 
   let state = $derived(context.getOptionItemState(itemProps));
-  let attrs = $derived(
-    mergeProps(props, context.getOptionItemProps(itemProps)),
-  );
+  let attrs = $derived(mergeProps(props, context.getOptionItemProps(itemProps)));
+
+  menuOptionItemPropsContext.set(() => itemProps);
 </script>
 
 <div {...attrs}>

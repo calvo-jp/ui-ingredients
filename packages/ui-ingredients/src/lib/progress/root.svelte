@@ -1,10 +1,7 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreateProgressContextProps,
-    CreateProgressContextReturn,
-  } from './context.svelte.js';
+  import type {CreateProgressContextProps, CreateProgressContextReturn} from './context.svelte.js';
 
   export interface ProgressProps
     extends Assign<
@@ -18,7 +15,7 @@
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createProgressContext, setProgressContext} from './context.svelte.js';
 

@@ -1,9 +1,6 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {
-    CreateTooltipContextProps,
-    CreateTooltipContextReturn,
-  } from './context.svelte.js';
+  import type {CreateTooltipContextProps, CreateTooltipContextReturn} from './context.svelte.js';
 
   export interface TooltipProps extends Omit<CreateTooltipContextProps, 'id'> {
     id?: string | null;
@@ -14,7 +11,7 @@
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {createTooltipContext, setTooltipContext} from './context.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: TooltipProps = $props();

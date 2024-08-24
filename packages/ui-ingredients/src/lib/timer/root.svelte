@@ -1,10 +1,7 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreateTimerContextProps,
-    CreateTimerContextReturn,
-  } from './context.svelte.js';
+  import type {CreateTimerContextProps, CreateTimerContextReturn} from './context.svelte.js';
 
   export interface TimerProps
     extends Assign<
@@ -17,7 +14,7 @@
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
-  import {createUniqueId} from '$lib/utils.js';
+  import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
   import {createTimerContext, setTimerContext} from './context.svelte.js';
 
