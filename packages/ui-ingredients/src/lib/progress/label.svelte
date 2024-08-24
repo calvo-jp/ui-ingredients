@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useProgressContext} from './context.svelte.js';
+  import {progressContext} from './context.svelte.js';
 
   let {children, ...props}: ProgressLabelProps = $props();
 
-  let context = useProgressContext();
+  let context = progressContext.get();
 
   let attrs = $derived(mergeProps(props, context.getLabelProps()));
 </script>

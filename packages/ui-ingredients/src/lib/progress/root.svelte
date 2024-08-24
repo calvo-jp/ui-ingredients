@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateProgressContextProps, CreateProgressContextReturn} from './context.svelte.js';
+  import type {CreateProgressProps, CreateProgressReturn} from './create-progress.svelte.js';
 
   export interface ProgressProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateProgressContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateProgressContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateProgressProps, 'id'>> {
+    children?: Snippet<[api: CreateProgressReturn]>;
   }
 </script>
 
@@ -17,7 +14,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createProgressContext, setProgressContext} from './context.svelte.js';
+  import {progressContext} from './context.svelte.js';
+  import {createProgress} from './create-progress.svelte.js';
 
   let {
     id,
@@ -36,8 +34,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createProgressContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createProgress({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     max,
@@ -50,7 +50,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setProgressContext(context);
+  progressContext.set(context);
 </script>
 
 <div {...attrs}>
