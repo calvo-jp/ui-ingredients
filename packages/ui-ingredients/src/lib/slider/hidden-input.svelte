@@ -1,26 +1,20 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SliderHiddenInputProps
-    extends HtmlIngredientProps<'input'> {}
+  export interface SliderHiddenInputProps extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {
-    useSliderContext,
-    useSliderThumbPropsContext,
-  } from './context.svelte.js';
+  import {sliderContext, sliderThumbPropsContext} from './context.svelte.js';
 
   let {...props}: SliderHiddenInputProps = $props();
 
-  let context = useSliderContext();
+  let context = sliderContext.get();
 
-  let thumbProps = useSliderThumbPropsContext();
+  let thumbProps = sliderThumbPropsContext.get();
 
-  let attrs = $derived(
-    mergeProps(props, context.getHiddenInputProps(thumbProps)),
-  );
+  let attrs = $derived(mergeProps(props, context.getHiddenInputProps(thumbProps)));
 </script>
 
 <input {...attrs} />

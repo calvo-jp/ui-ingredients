@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useSliderContext} from './context.svelte.js';
+  import {sliderContext} from './context.svelte.js';
 
   let {children, ...props}: SliderRangeProps = $props();
 
-  let context = useSliderContext();
+  let context = sliderContext.get();
 
   let attrs = $derived(mergeProps(props, context.getRangeProps()));
 </script>

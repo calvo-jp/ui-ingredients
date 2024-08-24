@@ -2,17 +2,16 @@
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {MarkerProps} from '@zag-js/slider';
 
-  export interface SliderMarkerProps
-    extends Assign<HtmlIngredientProps<'span'>, MarkerProps> {}
+  export interface SliderMarkerProps extends Assign<HtmlIngredientProps<'span'>, MarkerProps> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useSliderContext} from './context.svelte.js';
+  import {sliderContext} from './context.svelte.js';
 
   let {value, children, ...props}: SliderMarkerProps = $props();
 
-  let context = useSliderContext();
+  let context = sliderContext.get();
 
   let attrs = $derived(
     mergeProps(
