@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateQRCodeContextProps, CreateQRCodeContextReturn} from './context.svelte.js';
+  import type {CreateQRCodeProps, CreateQRCodeReturn} from './create-qr-code.svelte.js';
 
   export interface QRCodeProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateQRCodeContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateQRCodeContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateQRCodeProps, 'id'>> {
+    children?: Snippet<[api: CreateQRCodeReturn]>;
   }
 </script>
 
@@ -17,15 +14,28 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createQRCodeContext, setQRCodeContext} from './context.svelte.js';
+  import {qrCodeContext} from './context.svelte.js';
+  import {createQRCode} from './create-qr-code.svelte.js';
 
-  let {id, ids, dir, value, encoding, getRootNode, children, ...props}: QRCodeProps = $props();
+  let {
+    /**/
+    id,
+    ids,
+    dir,
+    value,
+    encoding,
+    getRootNode,
+    children,
+    ...props
+  }: QRCodeProps = $props();
 
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createQRCodeContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createQRCode({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
@@ -35,7 +45,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setQRCodeContext(context);
+  qrCodeContext.set(context);
 </script>
 
 <div {...attrs}>

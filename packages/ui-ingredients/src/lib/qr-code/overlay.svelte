@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useQRCodeContext} from './context.svelte.js';
+  import {qrCodeContext} from './context.svelte.js';
 
   let {children, ...props}: QRCodeOverlayProps = $props();
 
-  let context = useQRCodeContext();
+  let context = qrCodeContext.get();
 
   let attrs = $derived(mergeProps(props, context.getOverlayProps()));
 </script>
