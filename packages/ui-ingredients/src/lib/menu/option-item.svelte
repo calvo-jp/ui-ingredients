@@ -1,13 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps, PickPartial} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
   import type {OptionItemProps, OptionItemState} from '@zag-js/menu';
   import type {Snippet} from 'svelte';
 
   export interface MenuOptionItemProps
-    extends Assign<
-      Omit<HtmlProps<'div'>, 'children'>,
-      PickPartial<OptionItemProps, 'type' | 'checked'>
-    > {
+    extends Assign<Omit<HtmlProps<'div'>, 'children'>, OptionItemProps> {
     children?: Snippet<[state: OptionItemState]>;
   }
 </script>
@@ -17,9 +14,9 @@
   import {menuContext, menuOptionItemPropsContext} from './context.svelte.js';
 
   let {
-    type = 'checkbox',
+    type,
     value,
-    checked = false,
+    checked,
     disabled,
     valueText,
     closeOnSelect,
@@ -30,7 +27,7 @@
 
   let context = menuContext.get();
 
-  let itemProps = $derived({
+  let itemProps: OptionItemProps = $derived({
     type,
     value,
     checked,
