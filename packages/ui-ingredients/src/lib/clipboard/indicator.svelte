@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useClipboardContext} from './context.svelte.js';
+  import {clipboardContext} from './context.svelte.js';
 
   let {copied = false, children, ...props}: ClipboardIndicatorProps = $props();
 
-  let context = useClipboardContext();
+  let context = clipboardContext.get();
 
   let attrs = $derived(mergeProps(props, context.getIndicatorProps({copied})));
 </script>

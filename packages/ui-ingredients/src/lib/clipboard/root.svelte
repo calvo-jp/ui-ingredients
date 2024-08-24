@@ -1,17 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {
-    CreateClipboardContextProps,
-    CreateClipboardContextReturn,
-  } from './context.svelte.js';
+  import type {CreateClipboardProps, CreateClipboardReturn} from './create-clipboard.svelte.js';
 
   export interface ClipboardProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateClipboardContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateClipboardContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateClipboardProps, 'id'>> {
+    children?: Snippet<[api: CreateClipboardReturn]>;
   }
 </script>
 
@@ -19,15 +13,27 @@
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createClipboardContext, setClipboardContext} from './context.svelte.js';
+  import {clipboardContext} from './context.svelte.js';
+  import {createClipboard} from './create-clipboard.svelte.js';
 
-  let {id, ids, value, timeout, onStatusChange, getRootNode, children, ...props}: ClipboardProps =
-    $props();
+  let {
+    /**/
+    id,
+    ids,
+    value,
+    timeout,
+    onStatusChange,
+    getRootNode,
+    children,
+    ...props
+  }: ClipboardProps = $props();
 
   let environmentContext = getEnvironmentContext();
 
-  let context = createClipboardContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createClipboard({
+    id: id ?? uid,
     ids,
     value: $state.snapshot(value),
     timeout,
@@ -37,7 +43,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setClipboardContext(context);
+  clipboardContext.set(context);
 </script>
 
 <div {...attrs}>

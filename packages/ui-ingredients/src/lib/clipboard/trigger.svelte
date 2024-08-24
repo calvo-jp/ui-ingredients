@@ -1,17 +1,16 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ClipboardTriggerProps
-    extends HtmlIngredientProps<'button'> {}
+  export interface ClipboardTriggerProps extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useClipboardContext} from './context.svelte.js';
+  import {clipboardContext} from './context.svelte.js';
 
   let {children, ...props}: ClipboardTriggerProps = $props();
 
-  let context = useClipboardContext();
+  let context = clipboardContext.get();
 
   let attrs = $derived(mergeProps(props, context.getTriggerProps()));
 </script>
