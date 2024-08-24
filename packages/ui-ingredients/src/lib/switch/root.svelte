@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateSwitchContextProps, CreateSwitchContextReturn} from './context.svelte.js';
+  import type {CreateSwitchProps, CreateSwitchReturn} from './create-switch.svelte.js';
 
   export interface SwitchProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'label'>, 'children'>,
-      Omit<CreateSwitchContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateSwitchContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'label'>, 'children'>, Omit<CreateSwitchProps, 'id'>> {
+    children?: Snippet<[api: CreateSwitchReturn]>;
   }
 </script>
 
@@ -17,7 +14,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createSwitchContext, setSwitchContext} from './context.svelte.js';
+  import {switchContext} from './context.svelte.js';
+  import {createSwitch} from './create-switch.svelte.js';
 
   let {
     id,
@@ -41,8 +39,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createSwitchContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createSwitch({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     form,
@@ -60,7 +60,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setSwitchContext(context);
+  switchContext.set(context);
 </script>
 
 <label {...attrs}>

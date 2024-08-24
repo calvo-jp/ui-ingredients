@@ -1,25 +1,4 @@
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import * as switch$ from '@zag-js/switch';
-import {getContext, setContext} from 'svelte';
+import {Context} from '$lib/utils.svelte.js';
+import type {CreateSwitchReturn} from './create-switch.svelte.js';
 
-export interface CreateSwitchContextProps extends switch$.Context {}
-export interface CreateSwitchContextReturn
-  extends ReturnType<typeof createSwitchContext> {}
-
-export function createSwitchContext(props: CreateSwitchContextProps) {
-  const [state, send] = useMachine(switch$.machine(props));
-
-  const api = $derived(
-    reflect(() => switch$.connect(state, send, normalizeProps)),
-  );
-
-  return api;
-}
-
-export function setSwitchContext(value: CreateSwitchContextReturn) {
-  setContext('Switch', value);
-}
-
-export function useSwitchContext() {
-  return getContext<CreateSwitchContextReturn>('Switch');
-}
+export const switchContext = new Context<CreateSwitchReturn>('Switch');

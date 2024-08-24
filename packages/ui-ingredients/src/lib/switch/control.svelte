@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useSwitchContext} from './context.svelte.js';
+  import {switchContext} from './context.svelte.js';
 
   let {children, ...props}: SwitchControlProps = $props();
 
-  let context = useSwitchContext();
+  let context = switchContext.get();
 
   let attrs = $derived(mergeProps(props, context.getControlProps()));
 </script>
