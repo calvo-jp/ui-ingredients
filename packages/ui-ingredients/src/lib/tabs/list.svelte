@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useTabsContext} from './context.svelte.js';
+  import {tabsContext} from './context.svelte.js';
 
   let {children, ...props}: TabsListProps = $props();
 
-  let context = useTabsContext();
+  let context = tabsContext.get();
 
   let attrs = $derived(mergeProps(props, context.getListProps()));
 </script>

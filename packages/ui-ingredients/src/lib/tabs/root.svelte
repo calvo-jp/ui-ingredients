@@ -1,14 +1,11 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateTabsContextProps, CreateTabsContextReturn} from './context.svelte.js';
+  import type {CreateTabsProps, CreateTabsReturn} from './create-tabs.svelte.js';
 
   export interface TabsProps
-    extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateTabsContextProps, 'id'>
-    > {
-    children?: Snippet<[context: CreateTabsContextReturn]>;
+    extends Assign<Omit<HtmlIngredientProps<'div'>, 'children'>, Omit<CreateTabsProps, 'id'>> {
+    children?: Snippet<[api: CreateTabsReturn]>;
   }
 </script>
 
@@ -17,7 +14,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createTabsContext, setTabsContext} from './context.svelte.js';
+  import {tabsContext} from './context.svelte.js';
+  import {createTabs} from './create-tabs.svelte.js';
 
   let {
     id,
@@ -39,8 +37,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createTabsContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createTabs({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     value: $state.snapshot(value),
@@ -56,7 +56,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setTabsContext(context);
+  tabsContext.set(context);
 </script>
 
 <div {...attrs}>
