@@ -1,10 +1,10 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {CreateDialogContextProps, CreateDialogContextReturn} from './context.svelte.js';
+  import type {CreateDialogProps, CreateDialogReturn} from './create-dialog.svelte.js';
 
-  export interface DialogProps extends Omit<CreateDialogContextProps, 'id'> {
+  export interface DialogProps extends Omit<CreateDialogProps, 'id'> {
     id?: string | null;
-    children?: Snippet<[CreateDialogContextReturn]>;
+    children?: Snippet<[api: CreateDialogReturn]>;
   }
 </script>
 
@@ -12,21 +12,24 @@
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {useLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
-  import {createDialogContext, setDialogContext} from './context.svelte.js';
+  import {dialogContext} from './context.svelte.js';
+  import {createDialog} from './create-dialog.svelte.js';
 
   let {id, dir, getRootNode, children, ...props}: DialogProps = $props();
 
   let localeContext = useLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createDialogContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createDialog({
+    id: id ?? uid,
     dir: dir ?? localeContext?.dir,
     getRootNode: getRootNode ?? environmentContext?.getRootNode,
     ...props,
   });
 
-  setDialogContext(context);
+  dialogContext.set(context);
 </script>
 
 {@render children?.(context)}

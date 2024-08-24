@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useDialogContext} from './context.svelte.js';
+  import {dialogContext} from './context.svelte.js';
 
   let {children, ...props}: DialogBackdropProps = $props();
 
-  let context = useDialogContext();
+  let context = dialogContext.get();
 
   let attrs = $derived(mergeProps(props, context.getBackdropProps()));
 </script>
