@@ -2,16 +2,16 @@
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
-    CreateRatingGroupContextProps,
-    CreateRatingGroupContextReturn,
-  } from './context.svelte.js';
+    CreateRatingGroupProps,
+    CreateRatingGroupReturn,
+  } from './create-rating-group.svelte.js';
 
   export interface RatingGroupProps
     extends Assign<
       Omit<HtmlIngredientProps<'div'>, 'children'>,
-      Omit<CreateRatingGroupContextProps, 'id'>
+      Omit<CreateRatingGroupProps, 'id'>
     > {
-    children?: Snippet<[context: CreateRatingGroupContextReturn]>;
+    children?: Snippet<[api: CreateRatingGroupReturn]>;
   }
 </script>
 
@@ -20,7 +20,8 @@
   import {getLocaleContext} from '$lib/locale-provider/index.js';
   import {createUniqueId} from '$lib/utils.svelte.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createRatingGroupContext, setRatingGroupContext} from './context.svelte.js';
+  import {ratingGroupContext} from './context.svelte.js';
+  import {createRatingGroup} from './create-rating-group.svelte.js';
 
   let {
     id,
@@ -46,8 +47,10 @@
   let localeContext = getLocaleContext();
   let environmentContext = getEnvironmentContext();
 
-  let context = createRatingGroupContext({
-    id: id ?? createUniqueId(),
+  let uid = createUniqueId();
+
+  let context = createRatingGroup({
+    id: id ?? uid,
     ids,
     dir: dir ?? localeContext?.dir,
     form,
@@ -67,7 +70,7 @@
 
   let attrs = $derived(mergeProps(props, context.getRootProps()));
 
-  setRatingGroupContext(context);
+  ratingGroupContext.set(context);
 </script>
 
 <div {...attrs}>

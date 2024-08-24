@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useRatingGroupContext} from './context.svelte.js';
+  import {ratingGroupContext} from './context.svelte.js';
 
   let {children, ...props}: RatingGroupLabelProps = $props();
 
-  let context = useRatingGroupContext();
+  let context = ratingGroupContext.get();
 
   let attrs = $derived(mergeProps(props, context.getLabelProps()));
 </script>

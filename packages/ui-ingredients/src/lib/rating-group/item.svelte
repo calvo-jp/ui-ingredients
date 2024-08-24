@@ -11,11 +11,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useRatingGroupContext} from './context.svelte.js';
+  import {ratingGroupContext} from './context.svelte.js';
 
   let {index, children, ...props}: RatingGroupItemProps = $props();
 
-  let context = useRatingGroupContext();
+  let context = ratingGroupContext.get();
 
   let state = $derived(context.getItemState({index}));
 
