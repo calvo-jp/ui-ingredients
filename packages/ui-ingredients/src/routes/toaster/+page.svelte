@@ -1,11 +1,15 @@
 <script lang="ts">
-  import {Toast, Toaster} from '$lib/index.js';
-  import {toaster} from '../shared/toaster.svelte.js';
+  import {createToaster, Toast, Toaster} from '$lib/index.js';
   import {cx} from '../shared/utils.js';
 
   function randInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  const toaster = createToaster({
+    placement: 'bottom-end',
+    overlap: true,
+  });
 </script>
 
 <button
