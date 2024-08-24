@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useCollapsibleContext} from './context.svelte.js';
+  import {collapsibleContext} from './context.svelte.js';
 
   let {children, ...props}: CollapsibleContentProps = $props();
 
-  let context = useCollapsibleContext();
+  let context = collapsibleContext.get();
 
   let attrs = $derived(mergeProps(props, context.getContentProps()));
 </script>
