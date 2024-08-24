@@ -48,10 +48,7 @@ npm install ui-ingredients
 - 🟢 Editable
 - 🟡 FileUpload
 - 🟢 HoverCard
-- 🟡 Menu
-  - 🟢 Basic Menu
-  - 🟢 Context Menu
-  - ⚪ Nested Menu
+- 🟢 Menu
 - 🟢 NumberInput
 - 🟢 Pagination
 - 🟢 PinInput
