@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
-  import {useEditableContext} from './context.svelte.js';
+  import {editableContext} from './context.svelte.js';
 
   let {children, ...props}: EditablePreviewProps = $props();
 
-  let context = useEditableContext();
+  let context = editableContext.get();
 
   let attrs = $derived(mergeProps(props, context.getPreviewProps()));
 </script>
