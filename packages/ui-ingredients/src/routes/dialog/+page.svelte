@@ -1,17 +1,8 @@
 <script lang="ts">
   import {Dialog, Portal} from '$lib/index.js';
-
-  let open = $state(false);
-
-  $inspect(open);
 </script>
 
-<Dialog.Root
-  {open}
-  onOpenChange={(detail) => {
-    open = detail.open;
-  }}
->
+<Dialog.Root>
   <Dialog.Trigger class="h-11 border px-3.5">Open</Dialog.Trigger>
   <Dialog.Backdrop
     class="z-overlay data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 bg-black/50 backdrop-blur-sm"
