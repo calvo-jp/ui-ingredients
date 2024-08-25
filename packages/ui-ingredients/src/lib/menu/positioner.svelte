@@ -10,9 +10,9 @@
 
   let {children, ...props}: MenuPositionerProps = $props();
 
-  let context = menuContext.get();
+  let menu = menuContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPositionerProps()));
+  let attrs = $derived(mergeProps(props, menu.getPositionerProps()));
 </script>
 
 <div {...attrs}>

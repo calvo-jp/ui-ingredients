@@ -5,7 +5,7 @@
 
   export interface RadioGroupProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateRadioGroupProps> {
-    children?: Snippet<[api: CreateRadioGroupReturn]>;
+    children?: Snippet<[radioGroup: CreateRadioGroupReturn]>;
   }
 </script>
 
@@ -28,7 +28,7 @@
     ...props
   }: RadioGroupProps = $props();
 
-  let context = createRadioGroup({
+  let radioGroup = createRadioGroup({
     id,
     ids,
     form,
@@ -40,11 +40,11 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, radioGroup.getRootProps()));
 
-  radioGroupContext.set(context);
+  radioGroupContext.set(radioGroup);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(radioGroup)}
 </div>

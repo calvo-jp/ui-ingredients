@@ -14,14 +14,14 @@
 
   let {container, disabled, children}: PortalProps = $props();
 
-  let environmentContext = getEnvironmentContext();
+  let environment = getEnvironmentContext();
 </script>
 
 <div
   use:portal={{
     disabled,
     container,
-    getRootNode: environmentContext?.getRootNode,
+    getRootNode: environment?.getRootNode,
   }}
   data-scope="portal"
   data-part="root"

@@ -10,9 +10,9 @@
 
   let {...props}: PinInputHiddenInputProps = $props();
 
-  let context = pinInputContext.get();
+  let pinInput = pinInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getHiddenInputProps()));
+  let attrs = $derived(mergeProps(props, pinInput.getHiddenInputProps()));
 </script>
 
 <input {...attrs} />

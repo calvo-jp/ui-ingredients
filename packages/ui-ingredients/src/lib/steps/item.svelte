@@ -14,14 +14,13 @@
 
   let {index, children, ...props}: StepsItemProps = $props();
 
-  let context = stepsContext.get();
-
+  let steps = stepsContext.get();
   let itemProps = $derived({
     index,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(steps.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, steps.getItemProps(itemProps)));
 
   stepsItemPropsContext.set(() => itemProps);
 </script>

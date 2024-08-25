@@ -5,7 +5,7 @@
 
   export interface CheckboxProps
     extends Assign<Omit<HtmlProps<'label'>, 'children'>, CreateCheckboxProps> {
-    children?: Snippet<[api: CreateCheckboxReturn]>;
+    children?: Snippet<[checkbox: CreateCheckboxReturn]>;
   }
 </script>
 
@@ -30,7 +30,7 @@
     ...props
   }: CheckboxProps = $props();
 
-  let context = createCheckbox({
+  let checkbox = createCheckbox({
     id,
     ids,
     form,
@@ -44,11 +44,11 @@
     onCheckedChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, checkbox.getRootProps()));
 
-  checkboxContext.set(context);
+  checkboxContext.set(checkbox);
 </script>
 
 <label {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(checkbox)}
 </label>

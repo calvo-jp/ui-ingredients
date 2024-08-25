@@ -10,9 +10,9 @@
 
   let {children, ...props}: HoverCardArrowProps = $props();
 
-  let context = hoverCardContext.get();
+  let hoverCard = hoverCardContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getArrowProps()));
+  let attrs = $derived(mergeProps(props, hoverCard.getArrowProps()));
 </script>
 
 <div {...attrs}>

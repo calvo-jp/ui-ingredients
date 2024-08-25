@@ -10,9 +10,9 @@
 
   let {children, ...props}: QRCodeFrameProps = $props();
 
-  let context = qrCodeContext.get();
+  let qrCode = qrCodeContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getFrameProps()));
+  let attrs = $derived(mergeProps(props, qrCode.getFrameProps()));
 </script>
 
 <svg {...attrs}>

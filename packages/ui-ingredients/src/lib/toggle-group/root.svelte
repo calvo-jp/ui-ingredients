@@ -31,7 +31,7 @@
     ...props
   }: ToggleGroupProps = $props();
 
-  let context = createToggleGroup({
+  let toggleGroup = createToggleGroup({
     id,
     ids,
     value: $state.snapshot(value),
@@ -43,11 +43,11 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, toggleGroup.getRootProps()));
 
-  toggleGroupContext.set(context);
+  toggleGroupContext.set(toggleGroup);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(toggleGroup)}
 </div>

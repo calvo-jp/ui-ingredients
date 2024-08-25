@@ -24,13 +24,13 @@
     }
   });
 
-  let context: Environment = $derived({
+  let environment: Environment = $derived({
     getRootNode,
     getDocument: () => getDocument(getRootNode()),
     getWindow: () => getWindow(getRootNode()),
   });
 
-  environmentContext.set(() => context);
+  environmentContext.set(() => environment);
 </script>
 
 {@render children()}

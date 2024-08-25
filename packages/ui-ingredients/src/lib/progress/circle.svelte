@@ -10,9 +10,9 @@
 
   let {children, ...props}: ProgressCircleProps = $props();
 
-  let context = progressContext.get();
+  let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getCircleProps()));
+  let attrs = $derived(mergeProps(props, progress.getCircleProps()));
 </script>
 
 <svg {...attrs}>

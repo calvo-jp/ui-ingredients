@@ -10,11 +10,10 @@
 
   let {children, ...props}: StepsSeparatorProps = $props();
 
-  let context = stepsContext.get();
-
+  let steps = stepsContext.get();
   let itemProps = stepsItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getSeparatorProps(itemProps)));
+  let attrs = $derived(mergeProps(props, steps.getSeparatorProps(itemProps)));
 </script>
 
 <div {...attrs}>

@@ -4,7 +4,7 @@
   import type {CreateTabsProps, CreateTabsReturn} from './create-tabs.svelte.js';
 
   export interface TabsProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTabsProps> {
-    children?: Snippet<[api: CreateTabsReturn]>;
+    children?: Snippet<[tabs: CreateTabsReturn]>;
   }
 </script>
 
@@ -28,7 +28,7 @@
     ...props
   }: TabsProps = $props();
 
-  let context = createTabs({
+  let tabs = createTabs({
     id,
     ids,
     value: $state.snapshot(value),
@@ -41,11 +41,11 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, tabs.getRootProps()));
 
-  tabsContext.set(context);
+  tabsContext.set(tabs);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(tabs)}
 </div>

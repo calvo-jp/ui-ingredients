@@ -10,11 +10,10 @@
 
   let {children, ...props}: AccordionIndicatorProps = $props();
 
-  let context = accordionContext.get();
-
+  let accordion = accordionContext.get();
   let itemProps = accordionItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemIndicatorProps(itemProps)));
+  let attrs = $derived(mergeProps(props, accordion.getItemIndicatorProps(itemProps)));
 </script>
 
 <span {...attrs}>

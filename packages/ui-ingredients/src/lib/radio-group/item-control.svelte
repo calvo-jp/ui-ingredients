@@ -10,11 +10,10 @@
 
   let {children, ...props}: RadioGroupItemControlProps = $props();
 
-  let context = radioGroupContext.get();
-
+  let radioGroup = radioGroupContext.get();
   let itemProps = radioGroupItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemControlProps(itemProps)));
+  let attrs = $derived(mergeProps(props, radioGroup.getItemControlProps(itemProps)));
 </script>
 
 <div {...attrs}>

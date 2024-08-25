@@ -10,9 +10,9 @@
 
   let {children, ...props}: AvatarFallbackProps = $props();
 
-  let context = avatarContext.get();
+  let avatar = avatarContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getFallbackProps()));
+  let attrs = $derived(mergeProps(props, avatar.getFallbackProps()));
 </script>
 
 <div {...attrs}>

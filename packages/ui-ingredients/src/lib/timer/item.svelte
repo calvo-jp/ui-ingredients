@@ -11,13 +11,12 @@
 
   let {type, children, ...props}: TimerItemProps = $props();
 
-  let context = timerContext.get();
-
+  let timer = timerContext.get();
   let itemProps = $derived({
     type,
   });
 
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let attrs = $derived(mergeProps(props, timer.getItemProps(itemProps)));
 
   timerItemPropsContext.set(() => itemProps);
 </script>

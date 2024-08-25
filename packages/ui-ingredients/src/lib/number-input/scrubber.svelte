@@ -10,9 +10,9 @@
 
   let {children, ...props}: NumberInputScrubberProps = $props();
 
-  let context = numberInputContext.get();
+  let numberInput = numberInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getScrubberProps()));
+  let attrs = $derived(mergeProps(props, numberInput.getScrubberProps()));
 </script>
 
 <div {...attrs}>

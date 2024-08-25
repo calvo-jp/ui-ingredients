@@ -10,11 +10,10 @@
 
   let {children, ...props}: TagsInputItemDeleteTriggerProps = $props();
 
-  let context = tagsInputContext.get();
-
+  let tagsInput = tagsInputContext.get();
   let itemProps = tagsInputItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemDeleteTriggerProps(itemProps)));
+  let attrs = $derived(mergeProps(props, tagsInput.getItemDeleteTriggerProps(itemProps)));
 </script>
 
 <button type="button" {...attrs}>

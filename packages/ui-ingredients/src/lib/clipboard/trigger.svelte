@@ -10,9 +10,9 @@
 
   let {children, ...props}: ClipboardTriggerProps = $props();
 
-  let context = clipboardContext.get();
+  let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, clipboard.getTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: NumberInputControlTriggerProps = $props();
 
-  let context = numberInputContext.get();
+  let numberInput = numberInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getControlProps()));
+  let attrs = $derived(mergeProps(props, numberInput.getControlProps()));
 </script>
 
 <div {...attrs}>

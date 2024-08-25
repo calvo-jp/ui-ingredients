@@ -11,12 +11,12 @@
 
   let {index, readOnly, children, ...props}: CarouselIndicatorProps = $props();
 
-  let context = carouselContext.get();
+  let carousel = carouselContext.get();
 
   let attrs = $derived(
     mergeProps(
       props,
-      context.getIndicatorProps({
+      carousel.getIndicatorProps({
         index,
         readOnly,
       }),

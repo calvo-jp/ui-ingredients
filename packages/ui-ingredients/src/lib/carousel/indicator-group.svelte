@@ -10,9 +10,9 @@
 
   let {children, ...props}: CarouselIndicatorGroupProps = $props();
 
-  let context = carouselContext.get();
+  let carousel = carouselContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getIndicatorGroupProps()));
+  let attrs = $derived(mergeProps(props, carousel.getIndicatorGroupProps()));
 </script>
 
 <div {...attrs}>

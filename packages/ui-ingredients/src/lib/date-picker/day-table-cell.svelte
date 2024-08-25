@@ -22,16 +22,15 @@
     ...props
   }: DatePickerDayTableCellProps = $props();
 
-  let context = datePickerContext.get();
-
+  let datePicker = datePickerContext.get();
   let tableCellProps: DayTableCellProps = $derived({
     value,
     disabled,
     visibleRange,
   });
 
-  let state = $derived(context.getDayTableCellState(tableCellProps));
-  let attrs = $derived(mergeProps(props, context.getDayTableCellProps(tableCellProps)));
+  let state = $derived(datePicker.getDayTableCellState(tableCellProps));
+  let attrs = $derived(mergeProps(props, datePicker.getDayTableCellProps(tableCellProps)));
 
   datePickerDayTableCellPropsContext.set(() => tableCellProps);
 </script>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: PaginationPrevTriggerProps = $props();
 
-  let context = paginationContext.get();
+  let pagination = paginationContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPrevTriggerProps()));
+  let attrs = $derived(mergeProps(props, pagination.getPrevTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

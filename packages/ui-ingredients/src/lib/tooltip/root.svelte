@@ -3,7 +3,7 @@
   import type {CreateTooltipProps, CreateTooltipReturn} from './create-tooltip.svelte.js';
 
   export interface TooltipProps extends CreateTooltipProps {
-    children?: Snippet<[api: CreateTooltipReturn]>;
+    children?: Snippet<[tooltip: CreateTooltipReturn]>;
   }
 </script>
 
@@ -13,9 +13,9 @@
 
   let {children, ...props}: TooltipProps = $props();
 
-  let context = createTooltip(props);
+  let tooltip = createTooltip(props);
 
-  tooltipContext.set(context);
+  tooltipContext.set(tooltip);
 </script>
 
-{@render children?.(context)}
+{@render children?.(tooltip)}

@@ -10,9 +10,9 @@
 
   let {children, ...props}: CheckboxControlProps = $props();
 
-  let context = checkboxContext.get();
+  let checkbox = checkboxContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getControlProps()));
+  let attrs = $derived(mergeProps(props, checkbox.getControlProps()));
 </script>
 
 <div {...attrs}>

@@ -5,7 +5,7 @@
 
   export interface PaginationProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreatePaginationProps> {
-    children?: Snippet<[api: CreatePaginationReturn]>;
+    children?: Snippet<[pagination: CreatePaginationReturn]>;
   }
 </script>
 
@@ -29,7 +29,7 @@
     ...props
   }: PaginationProps = $props();
 
-  let context = createPagination({
+  let pagination = createPagination({
     id,
     ids,
     type,
@@ -42,11 +42,11 @@
     onPageSizeChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, pagination.getRootProps()));
 
-  paginationContext.set(context);
+  paginationContext.set(pagination);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(pagination)}
 </div>

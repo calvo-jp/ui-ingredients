@@ -15,15 +15,14 @@
 
   let {value, disabled, children, ...props}: ToggleGroupItemProps = $props();
 
-  let context = toggleGroupContext.get();
-
+  let toggleGroup = toggleGroupContext.get();
   let itemProps = $derived({
     value,
     disabled,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(toggleGroup.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, toggleGroup.getItemProps(itemProps)));
 </script>
 
 <button type="button" {...attrs}>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: TooltipTriggerProps = $props();
 
-  let context = tooltipContext.get();
+  let tooltip = tooltipContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, tooltip.getTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

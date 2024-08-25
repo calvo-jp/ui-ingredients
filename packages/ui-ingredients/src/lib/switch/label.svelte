@@ -10,9 +10,9 @@
 
   let {children, ...props}: SwitchLabelProps = $props();
 
-  let context = switchContext.get();
+  let switch$ = switchContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps()));
+  let attrs = $derived(mergeProps(props, switch$.getLabelProps()));
 </script>
 
 <span {...attrs}>

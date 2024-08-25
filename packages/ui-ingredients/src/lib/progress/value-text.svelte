@@ -10,15 +10,15 @@
 
   let {children, ...props}: ProgressValueTextProps = $props();
 
-  let context = progressContext.get();
+  let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getValueTextProps()));
+  let attrs = $derived(mergeProps(props, progress.getValueTextProps()));
 </script>
 
 <div {...attrs}>
   {#if children}
     {@render children()}
   {:else}
-    {context.percentAsString}
+    {progress.percentAsString}
   {/if}
 </div>

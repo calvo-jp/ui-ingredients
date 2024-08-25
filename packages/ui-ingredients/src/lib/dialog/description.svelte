@@ -10,9 +10,9 @@
 
   let {children, ...props}: DialogDescriptionProps = $props();
 
-  let context = dialogContext.get();
+  let dialog = dialogContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getDescriptionProps()));
+  let attrs = $derived(mergeProps(props, dialog.getDescriptionProps()));
 </script>
 
 <div {...attrs}>

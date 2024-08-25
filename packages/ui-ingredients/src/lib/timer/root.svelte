@@ -4,7 +4,7 @@
   import type {CreateTimerProps, CreateTimerReturn} from './create-timer.svelte.js';
 
   export interface TimerProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTimerProps> {
-    children?: Snippet<[api: CreateTimerReturn]>;
+    children?: Snippet<[timer: CreateTimerReturn]>;
   }
 </script>
 
@@ -26,7 +26,7 @@
     ...props
   }: TimerProps = $props();
 
-  let context = createTimer({
+  let timer = createTimer({
     id,
     startMs,
     targetMs,
@@ -37,11 +37,11 @@
     onComplete,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, timer.getRootProps()));
 
-  timerContext.set(context);
+  timerContext.set(timer);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(timer)}
 </div>

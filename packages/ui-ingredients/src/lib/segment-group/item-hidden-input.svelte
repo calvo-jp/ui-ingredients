@@ -10,11 +10,10 @@
 
   let {...props}: SegmentGroupItemHiddenInputProps = $props();
 
-  let context = segmentGroupContext.get();
-
+  let segmentGroup = segmentGroupContext.get();
   let itemProps = segmentGroupItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemHiddenInputProps(itemProps)));
+  let attrs = $derived(mergeProps(props, segmentGroup.getItemHiddenInputProps(itemProps)));
 </script>
 
 <input {...attrs} />

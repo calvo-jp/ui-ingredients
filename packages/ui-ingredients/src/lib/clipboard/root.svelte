@@ -5,7 +5,7 @@
 
   export interface ClipboardProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateClipboardProps> {
-    children?: Snippet<[api: CreateClipboardReturn]>;
+    children?: Snippet<[clipboard: CreateClipboardReturn]>;
   }
 </script>
 
@@ -25,7 +25,7 @@
     ...props
   }: ClipboardProps = $props();
 
-  let context = createClipboard({
+  let clipboard = createClipboard({
     id,
     ids,
     value: $state.snapshot(value),
@@ -33,11 +33,11 @@
     onStatusChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, clipboard.getRootProps()));
 
-  clipboardContext.set(context);
+  clipboardContext.set(clipboard);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(clipboard)}
 </div>

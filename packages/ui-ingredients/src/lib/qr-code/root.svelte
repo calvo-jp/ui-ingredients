@@ -5,7 +5,7 @@
 
   export interface QRCodeProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateQRCodeProps> {
-    children?: Snippet<[api: CreateQRCodeReturn]>;
+    children?: Snippet<[qrCode: CreateQRCodeReturn]>;
   }
 </script>
 
@@ -24,18 +24,18 @@
     ...props
   }: QRCodeProps = $props();
 
-  let context = createQRCode({
+  let qrCode = createQRCode({
     id,
     ids,
     value: $state.snapshot(value),
     encoding,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, qrCode.getRootProps()));
 
-  qrCodeContext.set(context);
+  qrCodeContext.set(qrCode);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(qrCode)}
 </div>

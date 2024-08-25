@@ -5,7 +5,7 @@
 
   export interface SwitchProps
     extends Assign<Omit<HtmlProps<'label'>, 'children'>, CreateSwitchProps> {
-    children?: Snippet<[api: CreateSwitchReturn]>;
+    children?: Snippet<[switch$: CreateSwitchReturn]>;
   }
 </script>
 
@@ -31,7 +31,7 @@
     ...props
   }: SwitchProps = $props();
 
-  let context = createSwitch({
+  let switch$ = createSwitch({
     id,
     ids,
     form,
@@ -46,11 +46,11 @@
     onCheckedChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, switch$.getRootProps()));
 
-  switchContext.set(context);
+  switchContext.set(switch$);
 </script>
 
 <label {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(switch$)}
 </label>

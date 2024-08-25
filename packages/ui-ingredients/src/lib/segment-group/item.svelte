@@ -24,16 +24,15 @@
     ...props
   }: SegmentGroupItemProps = $props();
 
-  let context = segmentGroupContext.get();
-
+  let segmentGroup = segmentGroupContext.get();
   let itemProps = $derived({
     value,
     invalid,
     disabled,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps), parts.item.attrs));
+  let state = $derived(segmentGroup.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, segmentGroup.getItemProps(itemProps), parts.item.attrs));
 
   segmentGroupItemPropsContext.set(() => itemProps);
 </script>

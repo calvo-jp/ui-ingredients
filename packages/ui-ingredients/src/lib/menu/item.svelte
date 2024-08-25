@@ -14,8 +14,7 @@
 
   let {value, valueText, disabled, closeOnSelect, children, ...props}: MenuItemProps = $props();
 
-  let context = menuContext.get();
-
+  let menu = menuContext.get();
   let itemProps = $derived({
     value,
     valueText,
@@ -23,8 +22,8 @@
     closeOnSelect,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(menu.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, menu.getItemProps(itemProps)));
 </script>
 
 <div {...attrs}>

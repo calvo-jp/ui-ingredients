@@ -10,9 +10,9 @@
 
   let {children, ...props}: TagsInputControlProps = $props();
 
-  let context = tagsInputContext.get();
+  let tagsInput = tagsInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getControlProps()));
+  let attrs = $derived(mergeProps(props, tagsInput.getControlProps()));
 </script>
 
 <div {...attrs}>

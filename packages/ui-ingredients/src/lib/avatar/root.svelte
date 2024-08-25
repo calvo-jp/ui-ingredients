@@ -5,7 +5,7 @@
 
   export interface AvatarProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateAvatarProps> {
-    children?: Snippet<[api: CreateAvatarReturn]>;
+    children?: Snippet<[avatar: CreateAvatarReturn]>;
   }
 </script>
 
@@ -23,17 +23,17 @@
     ...props
   }: AvatarProps = $props();
 
-  let context = createAvatar({
+  let avatar = createAvatar({
     id,
     ids,
     onStatusChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, avatar.getRootProps()));
 
-  avatarContext.set(context);
+  avatarContext.set(avatar);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(avatar)}
 </div>

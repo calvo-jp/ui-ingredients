@@ -10,11 +10,10 @@
 
   let {children, ...props}: SelectItemIndicatorProps = $props();
 
-  let context = selectContext.get();
-
+  let select = selectContext.get();
   let itemProps = selectItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemIndicatorProps(itemProps)));
+  let attrs = $derived(mergeProps(props, select.getItemIndicatorProps(itemProps)));
 </script>
 
 <span {...attrs}>

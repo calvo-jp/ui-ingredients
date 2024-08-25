@@ -12,12 +12,12 @@
 
   let {value, children, ...props}: PaginationItemProps = $props();
 
-  let context = paginationContext.get();
+  let pagination = paginationContext.get();
 
   let attrs = $derived(
     mergeProps(
       props,
-      context.getItemProps({
+      pagination.getItemProps({
         type: 'page',
         value,
       }),

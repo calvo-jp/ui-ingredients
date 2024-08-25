@@ -10,9 +10,9 @@
 
   let {children, ...props}: PopoverContentProps = $props();
 
-  let context = popoverContext.get();
+  let popover = popoverContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getContentProps()));
+  let attrs = $derived(mergeProps(props, popover.getContentProps()));
 </script>
 
 <div {...attrs}>

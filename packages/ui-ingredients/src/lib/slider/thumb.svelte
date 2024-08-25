@@ -11,14 +11,13 @@
 
   let {name, index, children, ...props}: SliderThumbProps = $props();
 
-  let context = sliderContext.get();
-
+  let slider = sliderContext.get();
   let thumbProps = $derived({
     name,
     index,
   });
 
-  let attrs = $derived(mergeProps(props, context.getThumbProps(thumbProps)));
+  let attrs = $derived(mergeProps(props, slider.getThumbProps(thumbProps)));
 
   sliderThumbPropsContext.set(() => thumbProps);
 </script>

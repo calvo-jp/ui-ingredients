@@ -5,7 +5,7 @@
 
   export interface SliderProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSliderProps> {
-    children?: Snippet<[api: CreateSliderReturn]>;
+    children?: Snippet<[slider: CreateSliderReturn]>;
   }
 </script>
 
@@ -41,7 +41,7 @@
     ...props
   }: SliderProps = $props();
 
-  let context = createSlider({
+  let slider = createSlider({
     id,
     ids,
     max,
@@ -66,11 +66,11 @@
     getAriaValueText,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, slider.getRootProps()));
 
-  sliderContext.set(context);
+  sliderContext.set(slider);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(slider)}
 </div>

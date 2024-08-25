@@ -10,9 +10,9 @@
 
   let {children, ...props}: SliderControlProps = $props();
 
-  let context = sliderContext.get();
+  let slider = sliderContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getControlProps()));
+  let attrs = $derived(mergeProps(props, slider.getControlProps()));
 </script>
 
 <div {...attrs}>

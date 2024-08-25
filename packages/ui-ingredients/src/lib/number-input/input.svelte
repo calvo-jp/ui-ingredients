@@ -10,9 +10,9 @@
 
   let {...props}: NumberInputInputProps = $props();
 
-  let context = numberInputContext.get();
+  let numberInput = numberInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getInputProps()));
+  let attrs = $derived(mergeProps(props, numberInput.getInputProps()));
 </script>
 
 <input {...attrs} />

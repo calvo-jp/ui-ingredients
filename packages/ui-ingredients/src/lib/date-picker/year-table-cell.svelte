@@ -22,16 +22,15 @@
     ...props
   }: DatePickerYearTableCellProps = $props();
 
-  let context = datePickerContext.get();
-
+  let datePicker = datePickerContext.get();
   let tableCellProps: TableCellProps = $derived({
     value,
     disabled,
     columns,
   });
 
-  let state = $derived(context.getYearTableCellState(tableCellProps));
-  let attrs = $derived(mergeProps(props, context.getYearTableCellProps(tableCellProps)));
+  let state = $derived(datePicker.getYearTableCellState(tableCellProps));
+  let attrs = $derived(mergeProps(props, datePicker.getYearTableCellProps(tableCellProps)));
 
   datePickerTableCellPropsContext.set(() => tableCellProps);
 </script>

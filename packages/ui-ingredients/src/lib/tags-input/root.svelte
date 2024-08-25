@@ -5,7 +5,7 @@
 
   export interface TagsInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTagsInputProps> {
-    children?: Snippet<[api: CreateTagsInputReturn]>;
+    children?: Snippet<[tagsInput: CreateTagsInputReturn]>;
   }
 </script>
 
@@ -46,7 +46,7 @@
     ...props
   }: TagsInputProps = $props();
 
-  let context = createTagsInputt({
+  let tagsInput = createTagsInputt({
     id,
     ids,
     max,
@@ -76,11 +76,11 @@
     onPointerDownOutside,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, tagsInput.getRootProps()));
 
-  tagsInputContext.set(context);
+  tagsInputContext.set(tagsInput);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(tagsInput)}
 </div>

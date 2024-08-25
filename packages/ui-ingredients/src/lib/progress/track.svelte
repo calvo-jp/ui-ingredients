@@ -10,9 +10,9 @@
 
   let {children, ...props}: ProgressTrackProps = $props();
 
-  let context = progressContext.get();
+  let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTrackProps()));
+  let attrs = $derived(mergeProps(props, progress.getTrackProps()));
 </script>
 
 <div {...attrs}>

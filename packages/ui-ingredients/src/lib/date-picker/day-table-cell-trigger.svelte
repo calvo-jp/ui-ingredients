@@ -10,11 +10,10 @@
 
   let {children, ...props}: DatePickerDayTableCellTriggerProps = $props();
 
-  let context = datePickerContext.get();
-
+  let datePicker = datePickerContext.get();
   let tableCellProps = datePickerDayTableCellPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getDayTableCellTriggerProps(tableCellProps)));
+  let attrs = $derived(mergeProps(props, datePicker.getDayTableCellTriggerProps(tableCellProps)));
 </script>
 
 <button type="button" {...attrs}>

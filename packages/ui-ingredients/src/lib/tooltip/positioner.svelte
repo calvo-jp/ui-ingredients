@@ -10,9 +10,9 @@
 
   let {children, ...props}: TooltipPositionerProps = $props();
 
-  let context = tooltipContext.get();
+  let tooltip = tooltipContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPositionerProps()));
+  let attrs = $derived(mergeProps(props, tooltip.getPositionerProps()));
 </script>
 
 <div {...attrs}>

@@ -10,11 +10,10 @@
 
   let {children, ...props}: ComboboxItemIndicatorProps = $props();
 
-  let context = comboboxContext.get();
-
+  let combobox = comboboxContext.get();
   let itemProps = comboboxItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemIndicatorProps(itemProps)));
+  let attrs = $derived(mergeProps(props, combobox.getItemIndicatorProps(itemProps)));
 </script>
 
 <span {...attrs}>

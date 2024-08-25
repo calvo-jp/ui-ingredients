@@ -10,9 +10,9 @@
 
   let {...props}: RatingGroupHiddenInputProps = $props();
 
-  let context = ratingGroupContext.get();
+  let radioGroup = ratingGroupContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getHiddenInputProps()));
+  let attrs = $derived(mergeProps(props, radioGroup.getHiddenInputProps()));
 </script>
 
 <input {...attrs} />

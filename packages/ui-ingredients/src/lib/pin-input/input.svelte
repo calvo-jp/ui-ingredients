@@ -11,9 +11,9 @@
 
   let {index, ...props}: PinInputInputProps = $props();
 
-  let context = pinInputContext.get();
+  let pinInput = pinInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getInputProps({index})));
+  let attrs = $derived(mergeProps(props, pinInput.getInputProps({index})));
 </script>
 
 <input {...attrs} />

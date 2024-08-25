@@ -10,9 +10,9 @@
 
   let {children, ...props}: DialogBackdropProps = $props();
 
-  let context = dialogContext.get();
+  let dialog = dialogContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getBackdropProps()));
+  let attrs = $derived(mergeProps(props, dialog.getBackdropProps()));
 </script>
 
 <div {...attrs}>

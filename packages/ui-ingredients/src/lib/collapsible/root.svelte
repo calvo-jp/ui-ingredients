@@ -29,7 +29,7 @@
     ...props
   }: CollapsibleProps = $props();
 
-  let context = createCollapsible({
+  let collapsible = createCollapsible({
     id,
     ids,
     open,
@@ -39,11 +39,11 @@
     onExitComplete,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, collapsible.getRootProps()));
 
-  collapsibleContext.set(context);
+  collapsibleContext.set(collapsible);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(collapsible)}
 </div>

@@ -8,7 +8,7 @@
 
   export interface NumberInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateNumberInputProps> {
-    children?: Snippet<[api: CreateNumberInputReturn]>;
+    children?: Snippet<[numberInput: CreateNumberInputReturn]>;
   }
 </script>
 
@@ -46,7 +46,7 @@
     ...props
   }: NumberInputProps = $props();
 
-  let context = createNumberInput({
+  let numberInput = createNumberInput({
     id,
     ids,
     max,
@@ -73,11 +73,11 @@
     onValueInvalid,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, numberInput.getRootProps()));
 
-  numberInputContext.set(context);
+  numberInputContext.set(numberInput);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(numberInput)}
 </div>

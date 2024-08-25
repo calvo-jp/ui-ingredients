@@ -4,7 +4,7 @@
   import type {CreateStepsProps, CreateStepsReturn} from './create-steps.svelte.js';
 
   export interface StepsProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateStepsProps> {
-    children?: Snippet<[api: CreateStepsReturn]>;
+    children?: Snippet<[steps: CreateStepsReturn]>;
   }
 </script>
 
@@ -26,7 +26,7 @@
     ...props
   }: StepsProps = $props();
 
-  let context = createSteps({
+  let steps = createSteps({
     id,
     ids,
     step,
@@ -37,11 +37,11 @@
     onStepComplete,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, steps.getRootProps()));
 
-  stepsContext.set(context);
+  stepsContext.set(steps);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(steps)}
 </div>

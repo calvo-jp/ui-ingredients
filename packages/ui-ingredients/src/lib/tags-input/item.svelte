@@ -22,16 +22,15 @@
     ...props
   }: TagsInputItemProps = $props();
 
-  let context = tagsInputContext.get();
-
+  let tagsInput = tagsInputContext.get();
   let itemProps = $derived({
     index,
     value,
     disabled,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(tagsInput.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, tagsInput.getItemProps(itemProps)));
 
   tagsInputItemPropsContext.set(() => itemProps);
 </script>

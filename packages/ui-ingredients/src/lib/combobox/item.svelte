@@ -14,15 +14,14 @@
 
   let {children, item, persistFocus, ...props}: ComboboxItemProps = $props();
 
-  let context = comboboxContext.get();
-
+  let combobox = comboboxContext.get();
   let itemProps = $derived({
     item,
     persistFocus,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(combobox.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, combobox.getItemProps(itemProps)));
 
   comboboxItemPropsContext.set(() => itemProps);
 </script>

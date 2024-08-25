@@ -22,16 +22,15 @@
     ...props
   }: RadioGroupItemProps = $props();
 
-  let context = radioGroupContext.get();
-
+  let radioGroup = radioGroupContext.get();
   let itemProps = $derived({
     value,
     invalid,
     disabled,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(radioGroup.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, radioGroup.getItemProps(itemProps)));
 
   radioGroupItemPropsContext.set(() => itemProps);
 </script>

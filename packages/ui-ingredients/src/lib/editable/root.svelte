@@ -3,7 +3,7 @@
   import type {CreateEditableProps, CreateEditableReturn} from './create-editable.svelte.js';
 
   export interface EditableProps extends CreateEditableProps {
-    children?: Snippet<[api: CreateEditableReturn]>;
+    children?: Snippet<[editable: CreateEditableReturn]>;
   }
 </script>
 
@@ -13,9 +13,9 @@
 
   let {children, ...props}: EditableProps = $props();
 
-  let context = createEditable(props);
+  let editable = createEditable(props);
 
-  editableContext.set(context);
+  editableContext.set(editable);
 </script>
 
-{@render children?.(context)}
+{@render children?.(editable)}

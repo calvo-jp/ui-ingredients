@@ -10,9 +10,9 @@
 
   let {children, ...props}: StepsNextTriggerProps = $props();
 
-  let context = stepsContext.get();
+  let steps = stepsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getNextTriggerProps()));
+  let attrs = $derived(mergeProps(props, steps.getNextTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

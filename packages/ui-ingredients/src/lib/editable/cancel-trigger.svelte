@@ -10,9 +10,9 @@
 
   let {children, ...props}: EditableCancelTriggerProps = $props();
 
-  let context = editableContext.get();
+  let editable = editableContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getCancelTriggerProps()));
+  let attrs = $derived(mergeProps(props, editable.getCancelTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

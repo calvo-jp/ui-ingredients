@@ -10,14 +10,13 @@
 
   let {children, ...props}: MenuItemGroupLabelProps = $props();
 
-  let context = menuContext.get();
-
+  let menu = menuContext.get();
   let itemGroupProps = menuItemGroupPropsContext.get();
 
   let attrs = $derived(
     mergeProps(
       props,
-      context.getItemGroupLabelProps({
+      menu.getItemGroupLabelProps({
         htmlFor: itemGroupProps.id,
       }),
     ),

@@ -10,9 +10,9 @@
 
   let {children, ...props}: DialogCloseTriggerProps = $props();
 
-  let context = dialogContext.get();
+  let dialog = dialogContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getCloseTriggerProps()));
+  let attrs = $derived(mergeProps(props, dialog.getCloseTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

@@ -12,13 +12,13 @@
 
   let {view = 'day', children, ...props}: DatePickerViewProps = $props();
 
-  let context = datePickerContext.get();
+  let datePicker = datePickerContext.get();
 
   let attrs = $derived(mergeProps(props, parts.view.attrs));
 
   datePickerViewPropsContext.set(() => ({view}));
 </script>
 
-<div hidden={context.view !== view} {...attrs}>
+<div hidden={datePicker.view !== view} {...attrs}>
   {@render children?.()}
 </div>

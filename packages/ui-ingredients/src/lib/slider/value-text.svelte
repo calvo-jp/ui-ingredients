@@ -10,15 +10,15 @@
 
   let {children, ...props}: SliderValueTextProps = $props();
 
-  let context = sliderContext.get();
+  let slider = sliderContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getValueTextProps()));
+  let attrs = $derived(mergeProps(props, slider.getValueTextProps()));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children()}
   {:else}
-    {context.value.join(', ')}
+    {slider.value.join(', ')}
   {/if}
 </span>

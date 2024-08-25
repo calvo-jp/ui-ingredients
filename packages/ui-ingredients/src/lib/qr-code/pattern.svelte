@@ -10,9 +10,9 @@
 
   let {children, ...props}: QRCodePatternProps = $props();
 
-  let context = qrCodeContext.get();
+  let qrCode = qrCodeContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPatternProps()));
+  let attrs = $derived(mergeProps(props, qrCode.getPatternProps()));
 </script>
 
 <path {...attrs}>

@@ -13,7 +13,7 @@
 
   let {id, children, ...props}: ComboboxItemGroupProps = $props();
 
-  let context = comboboxContext.get();
+  let combobox = comboboxContext.get();
 
   let uid = createUniqueId();
 
@@ -21,7 +21,7 @@
     id: id ?? uid,
   });
 
-  let attrs = $derived(mergeProps(props, context.getItemGroupProps(comboboxItemGroupProps)));
+  let attrs = $derived(mergeProps(props, combobox.getItemGroupProps(comboboxItemGroupProps)));
 
   comboboxItemGroupPropsContext.set(() => comboboxItemGroupProps);
 </script>

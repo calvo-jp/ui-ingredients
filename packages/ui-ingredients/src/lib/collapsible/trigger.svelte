@@ -10,9 +10,9 @@
 
   let {children, ...props}: CollapsibleTriggerProps = $props();
 
-  let context = collapsibleContext.get();
+  let collapsible = collapsibleContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, collapsible.getTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

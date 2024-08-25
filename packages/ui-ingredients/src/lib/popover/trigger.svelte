@@ -10,9 +10,9 @@
 
   let {children, ...props}: PopoverTriggerProps = $props();
 
-  let context = popoverContext.get();
+  let popover = popoverContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, popover.getTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: SelectPositionerProps = $props();
 
-  let context = selectContext.get();
+  let select = selectContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPositionerProps()));
+  let attrs = $derived(mergeProps(props, select.getPositionerProps()));
 </script>
 
 <div {...attrs}>

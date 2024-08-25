@@ -10,17 +10,16 @@
 
   let {children, ...props}: ComboboxItemTextProps = $props();
 
-  let context = comboboxContext.get();
-
+  let combobox = comboboxContext.get();
   let itemProps = comboboxItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemTextProps(itemProps)));
+  let attrs = $derived(mergeProps(props, combobox.getItemTextProps(itemProps)));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
-    {context.collection.stringifyItem(itemProps.item)}
+    {combobox.collection.stringifyItem(itemProps.item)}
   {/if}
 </span>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: SwitchControlProps = $props();
 
-  let context = switchContext.get();
+  let switch$ = switchContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getControlProps()));
+  let attrs = $derived(mergeProps(props, switch$.getControlProps()));
 </script>
 
 <div {...attrs}>

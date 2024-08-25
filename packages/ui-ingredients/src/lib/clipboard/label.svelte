@@ -10,9 +10,9 @@
 
   let {children, ...props}: ClipboardLabelProps = $props();
 
-  let context = clipboardContext.get();
+  let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps()));
+  let attrs = $derived(mergeProps(props, clipboard.getLabelProps()));
 </script>
 
 <label {...attrs}>

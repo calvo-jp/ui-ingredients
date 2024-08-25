@@ -10,9 +10,9 @@
 
   let {children, ...props}: NumberInputIncrementTriggerProps = $props();
 
-  let context = numberInputContext.get();
+  let numberInput = numberInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getIncrementTriggerProps()));
+  let attrs = $derived(mergeProps(props, numberInput.getIncrementTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

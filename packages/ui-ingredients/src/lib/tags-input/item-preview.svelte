@@ -10,11 +10,10 @@
 
   let {children, ...props}: TagsInputItemPreviewProps = $props();
 
-  let context = tagsInputContext.get();
-
+  let tagsInput = tagsInputContext.get();
   let itemProps = tagsInputItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemPreviewProps(itemProps)));
+  let attrs = $derived(mergeProps(props, tagsInput.getItemPreviewProps(itemProps)));
 </script>
 
 <div {...attrs}>

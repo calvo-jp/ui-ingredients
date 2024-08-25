@@ -10,9 +10,9 @@
 
   let {children, ...props}: StepsProgressProps = $props();
 
-  let context = stepsContext.get();
+  let steps = stepsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getProgressProps()));
+  let attrs = $derived(mergeProps(props, steps.getProgressProps()));
 </script>
 
 <div {...attrs}>

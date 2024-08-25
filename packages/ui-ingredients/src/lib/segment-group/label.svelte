@@ -12,9 +12,9 @@
 
   let {children, ...props}: SegmentGroupLabelProps = $props();
 
-  let context = segmentGroupContext.get();
+  let segmentGroup = segmentGroupContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps(), parts.label.attrs));
+  let attrs = $derived(mergeProps(props, segmentGroup.getLabelProps(), parts.label.attrs));
 </script>
 
 <span {...ensureStyleIsString(attrs)}>

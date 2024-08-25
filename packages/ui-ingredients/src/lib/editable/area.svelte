@@ -10,9 +10,9 @@
 
   let {children, ...props}: EditableAreaProps = $props();
 
-  let context = editableContext.get();
+  let editable = editableContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getAreaProps()));
+  let attrs = $derived(mergeProps(props, editable.getAreaProps()));
 </script>
 
 <div {...attrs}>

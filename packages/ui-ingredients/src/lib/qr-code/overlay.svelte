@@ -10,9 +10,9 @@
 
   let {children, ...props}: QRCodeOverlayProps = $props();
 
-  let context = qrCodeContext.get();
+  let qrCode = qrCodeContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getOverlayProps()));
+  let attrs = $derived(mergeProps(props, qrCode.getOverlayProps()));
 </script>
 
 <div {...attrs}>

@@ -16,13 +16,11 @@
 
   let {id, columns, children, ...props}: DatePickerTableProps = $props();
 
-  let context = datePickerContext.get();
-
+  let datePicker = datePickerContext.get();
   let viewProps = datePickerViewPropsContext.get();
-
   let tableProps: TableProps = $derived({...viewProps, id, columns});
 
-  let attrs = $derived(mergeProps(props, context.getTableProps(tableProps)));
+  let attrs = $derived(mergeProps(props, datePicker.getTableProps(tableProps)));
 
   datePickerTablePropsContext.set(() => tableProps);
 </script>

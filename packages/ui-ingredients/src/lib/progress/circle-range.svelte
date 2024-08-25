@@ -10,9 +10,9 @@
 
   let {children, ...props}: ProgressCircleRangeProps = $props();
 
-  let context = progressContext.get();
+  let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getCircleRangeProps()));
+  let attrs = $derived(mergeProps(props, progress.getCircleRangeProps()));
 </script>
 
 <circle {...attrs}>

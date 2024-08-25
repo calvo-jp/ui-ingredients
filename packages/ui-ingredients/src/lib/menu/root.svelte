@@ -3,7 +3,7 @@
   import {type CreateMenuProps, type CreateMenuReturn} from './create-menu.svelte.js';
 
   export interface MenuRootProps extends CreateMenuProps {
-    children?: Snippet<[api: CreateMenuReturn]>;
+    children?: Snippet<[menu: CreateMenuReturn]>;
   }
 </script>
 
@@ -13,9 +13,9 @@
 
   let {children, ...props}: MenuRootProps = $props();
 
-  let context = createMenu(props);
+  let menu = createMenu(props);
 
-  menuContext.set(context);
+  menuContext.set(menu);
 </script>
 
-{@render children?.(context)}
+{@render children?.(menu)}

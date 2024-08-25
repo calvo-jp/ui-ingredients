@@ -10,9 +10,9 @@
 
   let {children, ...props}: SliderTrackProps = $props();
 
-  let context = sliderContext.get();
+  let slider = sliderContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTrackProps()));
+  let attrs = $derived(mergeProps(props, slider.getTrackProps()));
 </script>
 
 <div {...attrs}>

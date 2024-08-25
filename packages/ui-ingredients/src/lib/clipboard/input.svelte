@@ -10,9 +10,9 @@
 
   let {...props}: ClipboardInputProps = $props();
 
-  let context = clipboardContext.get();
+  let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getInputProps()));
+  let attrs = $derived(mergeProps(props, clipboard.getInputProps()));
 </script>
 
 <input {...attrs} />

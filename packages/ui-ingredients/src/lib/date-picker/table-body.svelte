@@ -10,11 +10,10 @@
 
   let {children, ...props}: DatePickerTableBodyProps = $props();
 
-  let context = datePickerContext.get();
-
+  let datePicker = datePickerContext.get();
   let tableProps = datePickerTablePropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTableBodyProps(tableProps)));
+  let attrs = $derived(mergeProps(props, datePicker.getTableBodyProps(tableProps)));
 </script>
 
 <div {...attrs}>

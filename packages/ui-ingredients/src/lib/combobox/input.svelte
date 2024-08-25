@@ -10,9 +10,9 @@
 
   let {...props}: ComboboxInputProps = $props();
 
-  let context = comboboxContext.get();
+  let combobox = comboboxContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getInputProps()));
+  let attrs = $derived(mergeProps(props, combobox.getInputProps()));
 </script>
 
 <input {...attrs} />

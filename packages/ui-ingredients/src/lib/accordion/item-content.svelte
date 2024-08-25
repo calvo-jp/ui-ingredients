@@ -10,11 +10,10 @@
 
   let {children, ...props}: AccordionItemContentProps = $props();
 
-  let context = accordionContext.get();
-
+  let accordion = accordionContext.get();
   let itemProps = accordionItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemContentProps(itemProps)));
+  let attrs = $derived(mergeProps(props, accordion.getItemContentProps(itemProps)));
 </script>
 
 <div {...attrs}>

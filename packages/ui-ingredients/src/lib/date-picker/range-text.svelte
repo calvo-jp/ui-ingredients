@@ -10,15 +10,15 @@
 
   let {children, ...props}: DatePickerRangeTextProps = $props();
 
-  let context = datePickerContext.get();
+  let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getRangeTextProps()));
+  let attrs = $derived(mergeProps(props, datePicker.getRangeTextProps()));
 </script>
 
 <div {...attrs}>
   {#if children}
     {@render children()}
   {:else}
-    {context.visibleRangeText.formatted}
+    {datePicker.visibleRangeText.formatted}
   {/if}
 </div>

@@ -11,9 +11,9 @@
 
   let {index, children, ...props}: DatePickerLabelProps = $props();
 
-  let context = datePickerContext.get();
+  let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps({index})));
+  let attrs = $derived(mergeProps(props, datePicker.getLabelProps({index})));
 </script>
 
 <label {...attrs}>

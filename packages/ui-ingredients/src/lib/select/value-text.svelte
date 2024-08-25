@@ -10,16 +10,16 @@
 
   let {children, placeholder, ...props}: SelectValueTextProps = $props();
 
-  let context = selectContext.get();
+  let select = selectContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getValueTextProps()));
+  let attrs = $derived(mergeProps(props, select.getValueTextProps()));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children?.()}
-  {:else if context.value.length}
-    {context.valueAsString}
+  {:else if select.value.length}
+    {select.valueAsString}
   {:else}
     {placeholder}
   {/if}

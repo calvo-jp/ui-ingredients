@@ -12,9 +12,9 @@
 
   let {value, children, ...props}: DatePickerPresetTriggerProps = $props();
 
-  let context = datePickerContext.get();
+  let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPresetTriggerProps({value})));
+  let attrs = $derived(mergeProps(props, datePicker.getPresetTriggerProps({value})));
 </script>
 
 <button type="button" {...attrs}>

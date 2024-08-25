@@ -10,9 +10,9 @@
 
   let {children, ...props}: TagsInputClearTriggerProps = $props();
 
-  let context = tagsInputContext.get();
+  let tagsInput = tagsInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getClearTriggerProps()));
+  let attrs = $derived(mergeProps(props, tagsInput.getClearTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

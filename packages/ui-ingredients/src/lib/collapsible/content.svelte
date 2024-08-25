@@ -10,9 +10,9 @@
 
   let {children, ...props}: CollapsibleContentProps = $props();
 
-  let context = collapsibleContext.get();
+  let collapsible = collapsibleContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getContentProps()));
+  let attrs = $derived(mergeProps(props, collapsible.getContentProps()));
 </script>
 
 <div {...attrs}>

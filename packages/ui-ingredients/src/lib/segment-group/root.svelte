@@ -8,7 +8,7 @@
 
   export interface SegmentGroupProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSegmentGroupProps> {
-    children?: Snippet<[api: CreateSegmentGroupReturn]>;
+    children?: Snippet<[segmentGroup: CreateSegmentGroupReturn]>;
   }
 </script>
 
@@ -33,7 +33,7 @@
     ...props
   }: SegmentGroupProps = $props();
 
-  let context = createSegmentGroup({
+  let segmentGroup = createSegmentGroup({
     id,
     ids,
     form,
@@ -45,11 +45,11 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps(), parts.root.attrs));
+  let attrs = $derived(mergeProps(props, segmentGroup.getRootProps(), parts.root.attrs));
 
-  segmentGroupContext.set(context);
+  segmentGroupContext.set(segmentGroup);
 </script>
 
 <div {...ensureStyleIsString(attrs)}>
-  {@render children?.(context)}
+  {@render children?.(segmentGroup)}
 </div>

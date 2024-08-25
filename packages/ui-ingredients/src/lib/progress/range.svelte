@@ -10,9 +10,9 @@
 
   let {children, ...props}: ProgressRangeProps = $props();
 
-  let context = progressContext.get();
+  let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getRangeProps()));
+  let attrs = $derived(mergeProps(props, progress.getRangeProps()));
 </script>
 
 <div {...attrs}>

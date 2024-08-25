@@ -5,7 +5,7 @@
 
   export interface AccordionProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateAccordionProps> {
-    children?: Snippet<[context: CreateAccordionReturn]>;
+    children?: Snippet<[accordion: CreateAccordionReturn]>;
   }
 </script>
 
@@ -28,7 +28,7 @@
     ...props
   }: AccordionProps = $props();
 
-  let context = createAccordion({
+  let accordion = createAccordion({
     id,
     ids,
     value: $state.snapshot(value),
@@ -40,11 +40,11 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, accordion.getRootProps()));
 
-  accordionContext.set(context);
+  accordionContext.set(accordion);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(accordion)}
 </div>

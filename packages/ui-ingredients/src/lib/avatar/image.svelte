@@ -10,9 +10,9 @@
 
   let {...props}: AvatarImageProps = $props();
 
-  let context = avatarContext.get();
+  let avatar = avatarContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getImageProps()));
+  let attrs = $derived(mergeProps(props, avatar.getImageProps()));
 </script>
 
 <img {...attrs} />

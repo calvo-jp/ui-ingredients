@@ -3,7 +3,7 @@
   import type {CreatePopoverProps, CreatePopoverReturn} from './create-popover.svelte.js';
 
   export interface PopoverProps extends CreatePopoverProps {
-    children?: Snippet<[api: CreatePopoverReturn]>;
+    children?: Snippet<[popover: CreatePopoverReturn]>;
   }
 </script>
 
@@ -13,9 +13,9 @@
 
   let {children, ...props}: PopoverProps = $props();
 
-  let context = createPopover(props);
+  let popover = createPopover(props);
 
-  popoverContext.set(context);
+  popoverContext.set(popover);
 </script>
 
-{@render children?.(context)}
+{@render children?.(popover)}

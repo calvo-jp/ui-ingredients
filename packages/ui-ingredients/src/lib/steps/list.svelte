@@ -10,9 +10,9 @@
 
   let {children, ...props}: StepsListProps = $props();
 
-  let context = stepsContext.get();
+  let steps = stepsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getListProps()));
+  let attrs = $derived(mergeProps(props, steps.getListProps()));
 </script>
 
 <div {...attrs}>

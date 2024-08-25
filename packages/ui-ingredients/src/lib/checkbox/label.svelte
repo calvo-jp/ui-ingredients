@@ -10,9 +10,9 @@
 
   let {children, ...props}: CheckboxLabelProps = $props();
 
-  let context = checkboxContext.get();
+  let checkbox = checkboxContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps()));
+  let attrs = $derived(mergeProps(props, checkbox.getLabelProps()));
 </script>
 
 <span {...attrs}>

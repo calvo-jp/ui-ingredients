@@ -12,9 +12,9 @@
 
   let {action, children, ...props}: TimerActionTriggerProps = $props();
 
-  let context = timerContext.get();
+  let timer = timerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getActionTriggerProps({action})));
+  let attrs = $derived(mergeProps(props, timer.getActionTriggerProps({action})));
 </script>
 
 <button type="button" {...attrs}>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: EditableEditTriggerProps = $props();
 
-  let context = editableContext.get();
+  let editable = editableContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getEditTriggerProps()));
+  let attrs = $derived(mergeProps(props, editable.getEditTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

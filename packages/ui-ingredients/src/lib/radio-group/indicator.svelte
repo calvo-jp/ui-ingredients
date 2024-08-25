@@ -10,9 +10,9 @@
 
   let {children, ...props}: RadioGroupIndicatorProps = $props();
 
-  let context = radioGroupContext.get();
+  let radioGroup = radioGroupContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getIndicatorProps()));
+  let attrs = $derived(mergeProps(props, radioGroup.getIndicatorProps()));
 </script>
 
 <span {...attrs}>

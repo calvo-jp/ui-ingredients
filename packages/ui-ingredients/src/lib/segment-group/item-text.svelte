@@ -12,12 +12,11 @@
 
   let {children, ...props}: SegmentGroupItemTextProps = $props();
 
-  let context = segmentGroupContext.get();
-
+  let segmentGroup = segmentGroupContext.get();
   let itemProps = segmentGroupItemPropsContext.get();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemTextProps(itemProps), parts.itemText.attrs),
+    mergeProps(props, segmentGroup.getItemTextProps(itemProps), parts.itemText.attrs),
   );
 </script>
 

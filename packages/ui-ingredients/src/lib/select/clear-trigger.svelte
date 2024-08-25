@@ -10,9 +10,9 @@
 
   let {children, ...props}: SelectClearTriggerProps = $props();
 
-  let context = selectContext.get();
+  let select = selectContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getClearTriggerProps()));
+  let attrs = $derived(mergeProps(props, select.getClearTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

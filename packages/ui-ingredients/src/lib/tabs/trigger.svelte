@@ -11,12 +11,12 @@
 
   let {value, disabled, children, ...props}: TabsTriggerProps = $props();
 
-  let context = tabsContext.get();
+  let tabs = tabsContext.get();
 
   let attrs = $derived(
     mergeProps(
       props,
-      context.getTriggerProps({
+      tabs.getTriggerProps({
         value,
         disabled,
       }),

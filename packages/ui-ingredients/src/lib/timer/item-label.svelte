@@ -10,11 +10,10 @@
 
   let {children, ...props}: TimerItemLabelProps = $props();
 
-  let context = timerContext.get();
-
+  let timer = timerContext.get();
   let itemProps = timerItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemLabelProps(itemProps)));
+  let attrs = $derived(mergeProps(props, timer.getItemLabelProps(itemProps)));
 </script>
 
 <span {...attrs}>

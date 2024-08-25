@@ -5,7 +5,7 @@
 
   export interface DatePickerProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateDatePickerProps> {
-    children?: Snippet<[api: CreateDatePickerReturn]>;
+    children?: Snippet<[datePicker: CreateDatePickerReturn]>;
   }
 </script>
 
@@ -46,7 +46,7 @@
     ...props
   }: DatePickerProps = $props();
 
-  let context = createDatePicker({
+  let datePicker = createDatePicker({
     id,
     ids,
     min,
@@ -76,11 +76,11 @@
     isDateUnavailable,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, datePicker.getRootProps()));
 
-  datePickerContext.set(context);
+  datePickerContext.set(datePicker);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(datePicker)}
 </div>

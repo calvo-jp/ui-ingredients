@@ -10,14 +10,13 @@
 
   let {children, ...props}: ComboboxItemGroupLabelProps = $props();
 
-  let context = comboboxContext.get();
-
+  let combobox = comboboxContext.get();
   let itemGroupProps = comboboxItemGroupPropsContext.get();
 
   let attrs = $derived(
     mergeProps(
       props,
-      context.getItemGroupLabelProps({
+      combobox.getItemGroupLabelProps({
         htmlFor: itemGroupProps.id,
       }),
     ),

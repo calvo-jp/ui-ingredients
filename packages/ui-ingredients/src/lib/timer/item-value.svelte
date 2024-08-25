@@ -10,17 +10,16 @@
 
   let {children, ...props}: TimerItemValueProps = $props();
 
-  let context = timerContext.get();
-
+  let timer = timerContext.get();
   let itemProps = timerItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemValueProps(itemProps)));
+  let attrs = $derived(mergeProps(props, timer.getItemValueProps(itemProps)));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
-    {context.formattedTime[itemProps.type]}
+    {timer.formattedTime[itemProps.type]}
   {/if}
 </span>

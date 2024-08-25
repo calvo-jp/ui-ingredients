@@ -5,7 +5,7 @@
 
   export interface PinInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreatePinInputProps> {
-    children?: Snippet<[api: CreatePinInputReturn]>;
+    children?: Snippet<[pinInput: CreatePinInputReturn]>;
   }
 </script>
 
@@ -40,7 +40,7 @@
     ...props
   }: PinInputProps = $props();
 
-  let context = createPinInputContext({
+  let pinInput = createPinInputContext({
     id,
     ids,
     otp,
@@ -64,11 +64,11 @@
     onValueComplete,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, pinInput.getRootProps()));
 
-  pinInputContext.set(context);
+  pinInputContext.set(pinInput);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(pinInput)}
 </div>

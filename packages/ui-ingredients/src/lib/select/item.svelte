@@ -14,15 +14,14 @@
 
   let {item, persistFocus, children, ...props}: SelectItemProps = $props();
 
-  let context = selectContext.get();
-
+  let select = selectContext.get();
   let itemProps = $derived({
     item,
     persistFocus,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(select.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, select.getItemProps(itemProps)));
 
   selectItemPropsContext.set(() => itemProps);
 </script>

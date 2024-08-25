@@ -13,7 +13,7 @@
 
   let {id, children, ...props}: MenuItemGroupProps = $props();
 
-  let context = menuContext.get();
+  let menu = menuContext.get();
 
   let uid = createUniqueId();
 
@@ -21,7 +21,7 @@
     id: id ?? uid,
   });
 
-  let attrs = $derived(mergeProps(props, context.getItemGroupProps(itemGroupProps)));
+  let attrs = $derived(mergeProps(props, menu.getItemGroupProps(itemGroupProps)));
 
   menuItemGroupPropsContext.set(() => itemGroupProps);
 </script>

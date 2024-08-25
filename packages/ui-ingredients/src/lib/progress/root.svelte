@@ -5,7 +5,7 @@
 
   export interface ProgressProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateProgressProps> {
-    children?: Snippet<[api: CreateProgressReturn]>;
+    children?: Snippet<[progress: CreateProgressReturn]>;
   }
 </script>
 
@@ -27,7 +27,7 @@
     ...props
   }: ProgressProps = $props();
 
-  let context = createProgress({
+  let progress = createProgress({
     id,
     ids,
     max,
@@ -37,11 +37,11 @@
     translations,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, progress.getRootProps()));
 
-  progressContext.set(context);
+  progressContext.set(progress);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(progress)}
 </div>

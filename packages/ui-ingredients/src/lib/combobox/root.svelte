@@ -5,7 +5,7 @@
 
   export interface ComboboxProps<T>
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateComboboxProps<T>> {
-    children?: Snippet<[api: CreateComboboxReturn]>;
+    children?: Snippet<[combobox: CreateComboboxReturn]>;
   }
 </script>
 
@@ -60,7 +60,7 @@
     ...props
   }: ComboboxProps<T> = $props();
 
-  let context = createCombobox({
+  let combobox = createCombobox({
     id,
     ids,
     name,
@@ -104,11 +104,11 @@
     scrollToIndexFn,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, combobox.getRootProps()));
 
-  comboboxContext.set(context);
+  comboboxContext.set(combobox);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(combobox)}
 </div>

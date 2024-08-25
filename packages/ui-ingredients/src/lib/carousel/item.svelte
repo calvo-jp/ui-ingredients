@@ -15,10 +15,10 @@
 
   let {index, children, ...props}: CarouselItemProps = $props();
 
-  let context = carouselContext.get();
+  let carousel = carouselContext.get();
 
-  let state = $derived(context.getItemState({index}));
-  let attrs = $derived(mergeProps(props, context.getItemProps({index})));
+  let state = $derived(carousel.getItemState({index}));
+  let attrs = $derived(mergeProps(props, carousel.getItemProps({index})));
 </script>
 
 <button type="button" {...attrs}>

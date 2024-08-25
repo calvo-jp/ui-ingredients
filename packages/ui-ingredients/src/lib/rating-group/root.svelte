@@ -8,7 +8,7 @@
 
   export interface RatingGroupProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateRatingGroupProps> {
-    children?: Snippet<[api: CreateRatingGroupReturn]>;
+    children?: Snippet<[radioGroup: CreateRatingGroupReturn]>;
   }
 </script>
 
@@ -36,7 +36,7 @@
     ...props
   }: RatingGroupProps = $props();
 
-  let context = createRatingGroup({
+  let radioGroup = createRatingGroup({
     id,
     ids,
     form,
@@ -53,11 +53,11 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, radioGroup.getRootProps()));
 
-  ratingGroupContext.set(context);
+  ratingGroupContext.set(radioGroup);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(radioGroup)}
 </div>

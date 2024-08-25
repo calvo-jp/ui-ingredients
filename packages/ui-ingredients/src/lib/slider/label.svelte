@@ -10,9 +10,9 @@
 
   let {children, ...props}: SliderLabelProps = $props();
 
-  let context = sliderContext.get();
+  let slider = sliderContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps()));
+  let attrs = $derived(mergeProps(props, slider.getLabelProps()));
 </script>
 
 <label {...attrs}>

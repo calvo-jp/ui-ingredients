@@ -12,9 +12,9 @@
 
   let {copied = false, children, ...props}: ClipboardIndicatorProps = $props();
 
-  let context = clipboardContext.get();
+  let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getIndicatorProps({copied})));
+  let attrs = $derived(mergeProps(props, clipboard.getIndicatorProps({copied})));
 </script>
 
 <span {...attrs}>

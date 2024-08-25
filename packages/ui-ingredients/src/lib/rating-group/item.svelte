@@ -15,11 +15,10 @@
 
   let {index, children, ...props}: RatingGroupItemProps = $props();
 
-  let context = ratingGroupContext.get();
+  let radioGroup = ratingGroupContext.get();
 
-  let state = $derived(context.getItemState({index}));
-
-  let attrs = $derived(mergeProps(props, context.getItemProps({index})));
+  let state = $derived(radioGroup.getItemState({index}));
+  let attrs = $derived(mergeProps(props, radioGroup.getItemProps({index})));
 </script>
 
 <div {...attrs}>

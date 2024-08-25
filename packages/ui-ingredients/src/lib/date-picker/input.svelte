@@ -11,9 +11,9 @@
 
   let {index, children, ...props}: DatePickerInputProps = $props();
 
-  let context = datePickerContext.get();
+  let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getInputProps({index})));
+  let attrs = $derived(mergeProps(props, datePicker.getInputProps({index})));
 </script>
 
 <input {...attrs} />

@@ -10,17 +10,16 @@
 
   let {children, ...props}: SelectItemTextProps = $props();
 
-  let context = selectContext.get();
-
+  let select = selectContext.get();
   let itemProps = selectItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemTextProps(itemProps)));
+  let attrs = $derived(mergeProps(props, select.getItemTextProps(itemProps)));
 </script>
 
 <span {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
-    {context.collection.stringifyItem(itemProps.item)}
+    {select.collection.stringifyItem(itemProps.item)}
   {/if}
 </span>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: TimerSeparatorProps = $props();
 
-  let context = timerContext.get();
+  let timer = timerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getSeparatorProps()));
+  let attrs = $derived(mergeProps(props, timer.getSeparatorProps()));
 </script>
 
 <span {...attrs}>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: MenuIndicatorProps = $props();
 
-  let context = menuContext.get();
+  let menu = menuContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getIndicatorProps()));
+  let attrs = $derived(mergeProps(props, menu.getIndicatorProps()));
 </script>
 
 <span {...attrs}>

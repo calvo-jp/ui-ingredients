@@ -10,9 +10,9 @@
 
   let {children, ...props}: SelectLabelProps = $props();
 
-  let context = selectContext.get();
+  let select = selectContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps()));
+  let attrs = $derived(mergeProps(props, select.getLabelProps()));
 </script>
 
 <label {...attrs}>

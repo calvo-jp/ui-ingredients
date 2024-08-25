@@ -10,11 +10,10 @@
 
   let {children, ...props}: MenuOptionItemTextProps = $props();
 
-  let context = menuContext.get();
-
+  let menu = menuContext.get();
   let optionItemProps = menuOptionItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemTextProps(optionItemProps)));
+  let attrs = $derived(mergeProps(props, menu.getItemTextProps(optionItemProps)));
 </script>
 
 <span {...attrs}>

@@ -10,11 +10,10 @@
 
   let {...props}: SliderHiddenInputProps = $props();
 
-  let context = sliderContext.get();
-
+  let slider = sliderContext.get();
   let thumbProps = sliderThumbPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getHiddenInputProps(thumbProps)));
+  let attrs = $derived(mergeProps(props, slider.getHiddenInputProps(thumbProps)));
 </script>
 
 <input {...attrs} />

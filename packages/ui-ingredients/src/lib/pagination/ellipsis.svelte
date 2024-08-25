@@ -11,9 +11,9 @@
 
   let {index, children, ...props}: PaginationEllipsisProps = $props();
 
-  let context = paginationContext.get();
+  let pagination = paginationContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getEllipsisProps({index})));
+  let attrs = $derived(mergeProps(props, pagination.getEllipsisProps({index})));
 </script>
 
 <span {...attrs}>

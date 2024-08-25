@@ -3,7 +3,7 @@
   import type {CreateDialogProps, CreateDialogReturn} from './create-dialog.svelte.js';
 
   export interface DialogProps extends CreateDialogProps {
-    children?: Snippet<[api: CreateDialogReturn]>;
+    children?: Snippet<[dialog: CreateDialogReturn]>;
   }
 </script>
 
@@ -13,9 +13,9 @@
 
   let {children, ...props}: DialogProps = $props();
 
-  let context = createDialog(props);
+  let dialog = createDialog(props);
 
-  dialogContext.set(context);
+  dialogContext.set(dialog);
 </script>
 
-{@render children?.(context)}
+{@render children?.(dialog)}

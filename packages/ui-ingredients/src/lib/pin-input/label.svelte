@@ -10,9 +10,9 @@
 
   let {children, ...props}: PinInputLabelProps = $props();
 
-  let context = pinInputContext.get();
+  let pinInput = pinInputContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps()));
+  let attrs = $derived(mergeProps(props, pinInput.getLabelProps()));
 </script>
 
 <label {...attrs}>

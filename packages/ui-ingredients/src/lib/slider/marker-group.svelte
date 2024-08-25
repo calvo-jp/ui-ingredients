@@ -10,9 +10,9 @@
 
   let {children, ...props}: SliderMarkerGroupProps = $props();
 
-  let context = sliderContext.get();
+  let slider = sliderContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getMarkerGroupProps()));
+  let attrs = $derived(mergeProps(props, slider.getMarkerGroupProps()));
 </script>
 
 <div {...attrs}>

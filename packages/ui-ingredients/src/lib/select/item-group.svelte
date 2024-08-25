@@ -13,7 +13,7 @@
 
   let {id, children, ...props}: SelectItemGroupProps = $props();
 
-  let context = selectContext.get();
+  let select = selectContext.get();
 
   let uid = createUniqueId();
 
@@ -21,7 +21,7 @@
     id: id ?? uid,
   });
 
-  let attrs = $derived(mergeProps(props, context.getItemGroupProps(itemGroupProps)));
+  let attrs = $derived(mergeProps(props, select.getItemGroupProps(itemGroupProps)));
 
   selectItemGroupPropsContext.set(() => itemGroupProps);
 </script>

@@ -25,8 +25,7 @@
     ...props
   }: MenuOptionItemProps = $props();
 
-  let context = menuContext.get();
-
+  let menu = menuContext.get();
   let itemProps: OptionItemProps = $derived({
     type,
     value,
@@ -37,8 +36,8 @@
     onCheckedChange,
   });
 
-  let state = $derived(context.getOptionItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getOptionItemProps(itemProps)));
+  let state = $derived(menu.getOptionItemState(itemProps));
+  let attrs = $derived(mergeProps(props, menu.getOptionItemProps(itemProps)));
 
   menuOptionItemPropsContext.set(() => itemProps);
 </script>

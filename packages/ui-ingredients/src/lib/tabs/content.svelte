@@ -11,9 +11,9 @@
 
   let {value, children, ...props}: TabsContentProps = $props();
 
-  let context = tabsContext.get();
+  let tabs = tabsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getContentProps({value})));
+  let attrs = $derived(mergeProps(props, tabs.getContentProps({value})));
 </script>
 
 <div {...attrs}>

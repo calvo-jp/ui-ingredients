@@ -10,9 +10,9 @@
 
   let {children, ...props}: ComboboxTriggerProps = $props();
 
-  let context = comboboxContext.get();
+  let combobox = comboboxContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, combobox.getTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

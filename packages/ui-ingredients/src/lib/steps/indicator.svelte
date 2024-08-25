@@ -10,11 +10,10 @@
 
   let {children, ...props}: StepsIndicatorProps = $props();
 
-  let context = stepsContext.get();
-
+  let steps = stepsContext.get();
   let itemProps = stepsItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getIndicatorProps(itemProps)));
+  let attrs = $derived(mergeProps(props, steps.getIndicatorProps(itemProps)));
 </script>
 
 <div {...attrs}>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: TabsListProps = $props();
 
-  let context = tabsContext.get();
+  let tabs = tabsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getListProps()));
+  let attrs = $derived(mergeProps(props, tabs.getListProps()));
 </script>
 
 <div {...attrs}>

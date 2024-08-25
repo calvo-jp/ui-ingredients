@@ -3,7 +3,7 @@
   import type {CreateHoverCardProps, CreateHoverCardReturn} from './create-hover-card.svelte.js';
 
   export interface HoverCardProps extends CreateHoverCardProps {
-    children?: Snippet<[api: CreateHoverCardReturn]>;
+    children?: Snippet<[hoverCard: CreateHoverCardReturn]>;
   }
 </script>
 
@@ -13,9 +13,9 @@
 
   let {id, children, ...props}: HoverCardProps = $props();
 
-  let context = createHoverCard({id, ...props});
+  let hoverCard = createHoverCard({id, ...props});
 
-  hoverCardContext.set(context);
+  hoverCardContext.set(hoverCard);
 </script>
 
-{@render children?.(context)}
+{@render children?.(hoverCard)}

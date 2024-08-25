@@ -10,9 +10,9 @@
 
   let {children, ...props}: ComboboxPositionerProps = $props();
 
-  let context = comboboxContext.get();
+  let combobox = comboboxContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPositionerProps()));
+  let attrs = $derived(mergeProps(props, combobox.getPositionerProps()));
 </script>
 
 <div {...attrs}>

@@ -10,9 +10,9 @@
 
   let {...props}: EditableInputProps = $props();
 
-  let context = editableContext.get();
+  let editable = editableContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getInputProps()));
+  let attrs = $derived(mergeProps(props, editable.getInputProps()));
 </script>
 
 <input {...attrs} />

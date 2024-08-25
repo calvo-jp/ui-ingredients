@@ -9,14 +9,14 @@
 
   let {children, onclick, ...props}: PinInputClearTriggerProps = $props();
 
-  let context = pinInputContext.get();
+  let pinInput = pinInputContext.get();
 </script>
 
 <button
   type="button"
   onclick={(e) => {
     onclick?.(e);
-    context.clearValue();
+    pinInput.clearValue();
   }}
   {...props}
 >

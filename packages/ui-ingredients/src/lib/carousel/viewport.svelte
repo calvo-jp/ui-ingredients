@@ -10,9 +10,9 @@
 
   let {children, ...props}: CarouselViewportProps = $props();
 
-  let context = carouselContext.get();
+  let carousel = carouselContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getViewportProps()));
+  let attrs = $derived(mergeProps(props, carousel.getViewportProps()));
 </script>
 
 <div {...attrs}>

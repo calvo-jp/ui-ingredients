@@ -10,9 +10,9 @@
 
   let {children, ...props}: MenuContextTriggerProps = $props();
 
-  let context = menuContext.get();
+  let menu = menuContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getContextTriggerProps()));
+  let attrs = $derived(mergeProps(props, menu.getContextTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

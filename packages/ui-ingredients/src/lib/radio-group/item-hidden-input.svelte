@@ -10,11 +10,10 @@
 
   let {...props}: RadioGroupItemHiddenInputProps = $props();
 
-  let context = radioGroupContext.get();
-
+  let radioGroup = radioGroupContext.get();
   let itemProps = radioGroupItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getItemHiddenInputProps(itemProps)));
+  let attrs = $derived(mergeProps(props, radioGroup.getItemHiddenInputProps(itemProps)));
 </script>
 
 <input {...attrs} />

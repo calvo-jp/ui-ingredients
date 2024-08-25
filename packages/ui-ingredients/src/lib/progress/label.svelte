@@ -10,9 +10,9 @@
 
   let {children, ...props}: ProgressLabelProps = $props();
 
-  let context = progressContext.get();
+  let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getLabelProps()));
+  let attrs = $derived(mergeProps(props, progress.getLabelProps()));
 </script>
 
 <div {...attrs}>

@@ -10,12 +10,11 @@
 
   let {children, ...props}: SelectItemGroupLabelProps = $props();
 
-  let context = selectContext.get();
-
+  let select = selectContext.get();
   let itemGroupProps = selectItemGroupPropsContext.get();
 
   let attrs = $derived(
-    mergeProps(props, context.getItemGroupLabelProps({htmlFor: itemGroupProps.id})),
+    mergeProps(props, select.getItemGroupLabelProps({htmlFor: itemGroupProps.id})),
   );
 </script>
 

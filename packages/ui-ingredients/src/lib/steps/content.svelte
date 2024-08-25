@@ -11,9 +11,9 @@
 
   let {index, children, ...props}: StepsContentProps = $props();
 
-  let context = stepsContext.get();
+  let steps = stepsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getContentProps({index})));
+  let attrs = $derived(mergeProps(props, steps.getContentProps({index})));
 </script>
 
 <div {...attrs}>

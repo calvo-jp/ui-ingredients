@@ -10,11 +10,10 @@
 
   let {children, ...props}: DatePickerViewControlProps = $props();
 
-  let context = datePickerContext.get();
-
+  let datePicker = datePickerContext.get();
   let viewProps = datePickerViewPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getViewControlProps(viewProps)));
+  let attrs = $derived(mergeProps(props, datePicker.getViewControlProps(viewProps)));
 </script>
 
 <div {...attrs}>

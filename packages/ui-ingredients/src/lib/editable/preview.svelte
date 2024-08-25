@@ -10,15 +10,15 @@
 
   let {children, ...props}: EditablePreviewProps = $props();
 
-  let context = editableContext.get();
+  let editable = editableContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPreviewProps()));
+  let attrs = $derived(mergeProps(props, editable.getPreviewProps()));
 </script>
 
 <div {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
-    {context.value}
+    {editable.value}
   {/if}
 </div>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: CarouselPrevTriggerProps = $props();
 
-  let context = carouselContext.get();
+  let carousel = carouselContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getPrevTriggerProps()));
+  let attrs = $derived(mergeProps(props, carousel.getPrevTriggerProps()));
 </script>
 
 <button type="button" {...attrs}>

@@ -10,9 +10,9 @@
 
   let {children, ...props}: DatePickerYearSelectProps = $props();
 
-  let context = datePickerContext.get();
+  let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getYearSelectProps()));
+  let attrs = $derived(mergeProps(props, datePicker.getYearSelectProps()));
 
   function getYears() {
     const currentYear = new Date().getFullYear();

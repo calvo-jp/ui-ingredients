@@ -5,7 +5,7 @@
 
   export interface CarouselProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateCarouselProps> {
-    children?: Snippet<[api: CreateCarouselReturn]>;
+    children?: Snippet<[carousel: CreateCarouselReturn]>;
   }
 </script>
 
@@ -28,7 +28,7 @@
     ...props
   }: CarouselProps = $props();
 
-  let context = createCarousel({
+  let carousel = createCarousel({
     id,
     ids,
     loop,
@@ -40,11 +40,11 @@
     onIndexChange,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, carousel.getRootProps()));
 
-  carouselContext.set(context);
+  carouselContext.set(carousel);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(carousel)}
 </div>

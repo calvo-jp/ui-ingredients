@@ -5,7 +5,7 @@
 
   export interface SelectProps<T>
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSelectProps<T>> {
-    children?: Snippet<[api: CreateSelectReturn]>;
+    children?: Snippet<[select: CreateSelectReturn]>;
   }
 </script>
 
@@ -47,7 +47,7 @@
     ...props
   }: SelectProps<T> = $props();
 
-  let context = createSelect({
+  let select = createSelect({
     id,
     ids,
     form,
@@ -78,11 +78,11 @@
     scrollToIndexFn,
   });
 
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, select.getRootProps()));
 
-  selectContext.set(context);
+  selectContext.set(select);
 </script>
 
 <div {...attrs}>
-  {@render children?.(context)}
+  {@render children?.(select)}
 </div>

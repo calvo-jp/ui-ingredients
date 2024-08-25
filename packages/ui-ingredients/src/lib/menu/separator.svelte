@@ -10,9 +10,9 @@
 
   let {children, ...props}: MenuSeparatorProps = $props();
 
-  let context = menuContext.get();
+  let menu = menuContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getSeparatorProps()));
+  let attrs = $derived(mergeProps(props, menu.getSeparatorProps()));
 </script>
 
 <div {...attrs}>

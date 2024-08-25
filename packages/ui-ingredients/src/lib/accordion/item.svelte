@@ -15,15 +15,14 @@
 
   let {value, disabled, children, ...props}: AccordionItemProps = $props();
 
-  let context = accordionContext.get();
-
+  let accordion = accordionContext.get();
   let itemProps = $derived({
     value,
     disabled,
   });
 
-  let state = $derived(context.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, context.getItemProps(itemProps)));
+  let state = $derived(accordion.getItemState(itemProps));
+  let attrs = $derived(mergeProps(props, accordion.getItemProps(itemProps)));
 
   accordionItemPropsContext.set(() => itemProps);
 </script>

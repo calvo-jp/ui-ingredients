@@ -10,9 +10,9 @@
 
   let {children, ...props}: DatePickerMonthSelectProps = $props();
 
-  let context = datePickerContext.get();
+  let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getMonthSelectProps()));
+  let attrs = $derived(mergeProps(props, datePicker.getMonthSelectProps()));
 
   const months = [
     'January',
