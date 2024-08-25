@@ -1,6 +1,6 @@
-export {anatomy as comboboxAnatomy} from '@zag-js/combobox';
-export type {ComboboxClearTriggerProps} from './clear-trigger.svelte';
 export * as Combobox from './combobox.js';
+
+export type {ComboboxClearTriggerProps} from './clear-trigger.svelte';
 export type {ComboboxContentProps} from './content.svelte';
 export type {ComboboxControlProps} from './control.svelte';
 export type {ComboboxInputProps} from './input.svelte';

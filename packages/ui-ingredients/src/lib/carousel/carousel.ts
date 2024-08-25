@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/carousel';
 export {default as IndicatorGroup} from './indicator-group.svelte';
 export {default as Indicator} from './indicator.svelte';
 export {default as ItemGroup} from './item-group.svelte';

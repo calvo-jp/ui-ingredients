@@ -1,5 +1,5 @@
-export {anatomy as carouselAnatomy} from '@zag-js/carousel';
 export * as Carousel from './carousel.js';
+
 export type {CarouselIndicatorGroupProps} from './indicator-group.svelte';
 export type {CarouselIndicatorProps} from './indicator.svelte';
 export type {CarouselItemGroupProps} from './item-group.svelte';

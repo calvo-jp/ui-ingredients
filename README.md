@@ -41,12 +41,13 @@ npm install ui-ingredients
 - 🟢 Checkbox
 - 🟢 Clipboard
 - 🟢 Collapsible
-- ⚪ ColorPicker
+- 🟡 ColorPicker
 - 🟢 Combobox
 - 🟢 DatePicker
 - 🟢 Dialog
 - 🟢 Editable
 - 🟢 FileUpload
+- ⚪ FloatingPanel
 - 🟢 HoverCard
 - 🟢 Menu
 - 🟢 NumberInput
@@ -54,7 +55,7 @@ npm install ui-ingredients
 - 🟢 PinInput
 - 🟢 Popover
 - 🟢 Portal
-- 🟢 Presence
+- ⚪ Presence
 - 🟢 Progress
 - 🟢 QRCode
 - 🟢 RadioGroup
@@ -68,10 +69,12 @@ npm install ui-ingredients
 - 🟢 Switch
 - 🟢 Tabs
 - 🟢 TagsInput
+- 🟡 TimePicker
 - 🟢 Timer
 - 🟢 Toast
 - 🟢 ToggleGroup
 - 🟢 Tooltip
-- ⚪ TreeView
+- ⚪ Tour
+- 🟡 TreeView
 
 View components demo [here](https://ui-ingredients.vercel.app/)

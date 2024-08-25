@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/number-input';
 export {default as Control} from './control.svelte';
 export {default as DecrementTrigger} from './decrement-trigger.svelte';
 export {default as IncrementTrigger} from './increment-trigger.svelte';

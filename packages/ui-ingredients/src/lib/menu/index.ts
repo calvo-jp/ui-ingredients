@@ -1,4 +1,5 @@
-export {anatomy as menuAnatomy} from '@zag-js/menu';
+export * as Menu from './menu.js';
+
 export {type MenuArrowTipProps} from './arrow-tip.svelte';
 export {type MenuArrowProps} from './arrow.svelte';
 export {type MenuContentProps} from './content.svelte';
@@ -7,7 +8,6 @@ export {type MenuIndicatorProps} from './indicator.svelte';
 export {type MenuItemGroupLabelProps} from './item-group-label.svelte';
 export {type MenuItemGroupProps} from './item-group.svelte';
 export {type MenuItemProps} from './item.svelte';
-export * as Menu from './menu.js';
 export {type MenuOptionItemIndicatorProps} from './option-item-indicator.svelte';
 export {type MenuOptionItemTextProps} from './option-item-text.svelte';
 export {type MenuOptionItemProps} from './option-item.svelte';

@@ -89,6 +89,9 @@ importers:
       '@zag-js/file-upload':
         specifier: 0.65.1
         version: 0.65.1
+      '@zag-js/floating-panel':
+        specifier: 0.65.1
+        version: 0.65.1
       '@zag-js/hover-card':
         specifier: 0.65.1
         version: 0.65.1
@@ -152,6 +155,9 @@ importers:
       '@zag-js/tags-input':
         specifier: 0.65.1
         version: 0.65.1
+      '@zag-js/time-picker':
+        specifier: 0.65.1
+        version: 0.65.1
       '@zag-js/timer':
         specifier: 0.65.1
         version: 0.65.1
@@ -162,6 +168,9 @@ importers:
         specifier: 0.65.1
         version: 0.65.1
       '@zag-js/tooltip':
+        specifier: 0.65.1
+        version: 0.65.1
+      '@zag-js/tour':
         specifier: 0.65.1
         version: 0.65.1
       '@zag-js/tree-view':
@@ -862,6 +871,9 @@ packages:
   '@zag-js/file-utils@0.65.1':
     resolution: {integrity: sha512-HaceufxzpwBM9Zn7J90As+9U53EbNGg5nfWFmCbuGrFArQVmpK+dA+7L3m8/cgNrN9vq79li7ym/FIx/blF75w==}
 
+  '@zag-js/floating-panel@0.65.1':
+    resolution: {integrity: sha512-XoInKnAR3cp+jrOGKr3pbLbytVx2lb5gpVcJmbSs3Aigh0cHMVtZsy1OkTYK+BhaBZGCY7uavGKNR+ntERMgNg==}
+
   '@zag-js/form-utils@0.65.1':
     resolution: {integrity: sha512-dkFiXjVr5htrvNB8yNVeDCHLPXNNubMTCTYM8eUIBjoUjaYdjut9qewZUZjEnUg0S1Ca32bkeID7RlecoGe0dA==}
 
@@ -957,6 +969,9 @@ packages:
   '@zag-js/text-selection@0.65.1':
     resolution: {integrity: sha512-XFYolGxy4shshX7vfDlXBaMOQGa4gX0dt8wlt6Apk08S9yoPe3vqm46xU8pUEoiBuLqCLwpqYJu2Pfga83GqlA==}
 
+  '@zag-js/time-picker@0.65.1':
+    resolution: {integrity: sha512-DyLrYvzeOB/26d2pqIVa36rk8/EoPOoKCteXPKqOQUAuWPXHBdGwEMlKdElj+G+S46R2TIknmYTzQ9o4Cvv2cw==}
+
   '@zag-js/timer@0.65.1':
     resolution: {integrity: sha512-oB+vo5GieM6W+Ugq4A6NyukhGC5f24v85D6zCK14qkUWRiYAPuJ10i0OE/9eBcuSZIvVQzhJ5PUPHf3mmq3BVg==}
 
@@ -968,6 +983,9 @@ packages:
 
   '@zag-js/tooltip@0.65.1':
     resolution: {integrity: sha512-/0DlZ647DDsX7Hs+XTFv1poRzpL7odJj5FL6Hg9m7XIlbJpXHY2LzNfb4GNnAqTi4s0LPSOUJdSOcpBFQLmHoA==}
+
+  '@zag-js/tour@0.65.1':
+    resolution: {integrity: sha512-G7UTM51yqiS/hOdlg1jmsneoTbgC+SHNeJybZUaBOZmdOGpLk9rZjsTzXWTfnM3ad6Eu5wRLc86xuOiIRLUw/w==}
 
   '@zag-js/tree-view@0.65.1':
     resolution: {integrity: sha512-X2KGh9xpMWoa26cNjVa551jicyqVEXq6p2ClSL0riGwceku4L0D39970vtcDDdN5rXLjwuonll9rt/vpS7FD1A==}
@@ -3942,6 +3960,20 @@ snapshots:
     dependencies:
       '@zag-js/i18n-utils': 0.65.1
 
+  '@zag-js/floating-panel@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dismissable': 0.65.1
+      '@zag-js/dom-event': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/numeric-range': 0.65.1
+      '@zag-js/popper': 0.65.1
+      '@zag-js/rect-utils': 0.65.1
+      '@zag-js/store': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
+
   '@zag-js/form-utils@0.65.1': {}
 
   '@zag-js/hover-card@0.65.1':
@@ -4180,6 +4212,18 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 0.65.1
 
+  '@zag-js/time-picker@0.65.1':
+    dependencies:
+      '@internationalized/date': 3.5.5
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dismissable': 0.65.1
+      '@zag-js/dom-event': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/popper': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
+
   '@zag-js/timer@0.65.1':
     dependencies:
       '@zag-js/anatomy': 0.65.1
@@ -4215,6 +4259,17 @@ snapshots:
       '@zag-js/popper': 0.65.1
       '@zag-js/types': 0.65.1
       '@zag-js/utils': 0.65.1
+
+  '@zag-js/tour@0.65.1':
+    dependencies:
+      '@zag-js/anatomy': 0.65.1
+      '@zag-js/core': 0.65.1
+      '@zag-js/dismissable': 0.65.1
+      '@zag-js/dom-query': 0.65.1
+      '@zag-js/popper': 0.65.1
+      '@zag-js/types': 0.65.1
+      '@zag-js/utils': 0.65.1
+      focus-trap: 7.5.4
 
   '@zag-js/tree-view@0.65.1':
     dependencies:

@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/pin-input';
 export {default as ClearTrigger} from './clear-trigger.svelte';
 export {default as HiddenInput} from './hidden-input.svelte';
 export {default as Input} from './input.svelte';

@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/popover';
 export {default as ArrowTip} from './arrow-tip.svelte';
 export {default as Arrow} from './arrow.svelte';
 export {default as CloseTrigger} from './close-trigger.svelte';

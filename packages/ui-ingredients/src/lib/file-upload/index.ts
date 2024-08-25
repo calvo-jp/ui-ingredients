@@ -1,6 +1,6 @@
-export {anatomy as fileUploadAnatomy} from '@zag-js/file-upload';
-export type {FileUploadDropzoneProps} from './dropzone.svelte';
 export * as FileUpload from './file-upload.js';
+
+export type {FileUploadDropzoneProps} from './dropzone.svelte';
 export type {FileUploadHiddenInputProps} from './hidden-input.svelte';
 export type {FileUploadItemDeleteTriggerProps} from './item-delete-trigger.svelte';
 export type {FileUploadItemGroupProps} from './item-group.svelte';

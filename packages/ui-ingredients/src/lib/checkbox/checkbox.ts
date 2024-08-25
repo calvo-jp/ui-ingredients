@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/checkbox';
 export {default as Control} from './control.svelte';
 export {default as HiddenInput} from './hidden-input.svelte';
 export {default as Indicator} from './indicator.svelte';

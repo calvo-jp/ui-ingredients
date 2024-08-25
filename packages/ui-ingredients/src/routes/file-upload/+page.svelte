@@ -5,7 +5,7 @@
 <FileUpload.Root maxFiles={3}>
   {#snippet children(context)}
     <FileUpload.Dropzone
-      class="flex w-[26rem] flex-col items-center justify-center gap-4 border-2 border-dashed px-8 py-12"
+      class="flex max-w-[26rem] flex-col items-center justify-center gap-4 border-2 border-dashed px-8 py-12"
     >
       <span>Drag your file(s) here</span>
       <FileUpload.HiddenInput />

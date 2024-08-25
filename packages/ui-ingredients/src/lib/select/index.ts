@@ -1,4 +1,5 @@
-export {anatomy as selectAnatomy} from '@zag-js/select';
+export * as Select from './select.js';
+
 export type {SelectClearTriggerProps} from './clear-trigger.svelte';
 export type {SelectContentProps} from './content.svelte';
 export type {SelectControlProps} from './control.svelte';
@@ -13,6 +14,5 @@ export type {SelectLabelProps} from './label.svelte';
 export type {SelectListProps} from './list.svelte';
 export type {SelectPositionerProps} from './positioner.svelte';
 export type {SelectProps} from './root.svelte';
-export * as Select from './select.js';
 export type {SelectTriggerProps} from './trigger.svelte';
 export type {SelectValueTextProps} from './value-text.svelte';

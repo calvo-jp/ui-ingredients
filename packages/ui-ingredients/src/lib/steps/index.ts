@@ -1,4 +1,5 @@
-export {anatomy as stepsAnatomy} from '@zag-js/steps';
+export * as Steps from './steps.js';
+
 export type {StepsContentProps} from './content.svelte';
 export type {StepsIndicatorProps} from './indicator.svelte';
 export type {StepsItemProps} from './item.svelte';
@@ -8,5 +9,4 @@ export type {StepsPrevTriggerProps} from './prev-trigger.svelte';
 export type {StepsProgressProps} from './progress.svelte';
 export type {StepsProps} from './root.svelte';
 export type {StepsSeparatorProps} from './separator.svelte';
-export * as Steps from './steps.js';
 export type {StepsTriggerProps} from './trigger.svelte';

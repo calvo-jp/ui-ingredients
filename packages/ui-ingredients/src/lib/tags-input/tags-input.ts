@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/tags-input';
 export {default as ClearTrigger} from './clear-trigger.svelte';
 export {default as Control} from './control.svelte';
 export {default as HiddenInput} from './hidden-input.svelte';

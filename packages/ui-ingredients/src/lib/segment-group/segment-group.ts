@@ -1,3 +1,4 @@
+export {anatomy} from './anatomy.js';
 export {default as Indicator} from './indicator.svelte';
 export {default as ItemControl} from './item-control.svelte';
 export {default as ItemHiddenInput} from './item-hidden-input.svelte';

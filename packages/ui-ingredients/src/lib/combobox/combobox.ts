@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/combobox';
 export {default as ClearTrigger} from './clear-trigger.svelte';
 export {default as Content} from './content.svelte';
 export {default as Control} from './control.svelte';

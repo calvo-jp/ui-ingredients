@@ -1,5 +1,5 @@
-export {anatomy as clipboardAnatomy} from '@zag-js/clipboard';
 export * as Clipboard from './clipboard.js';
+
 export type {ClipboardControlProps} from './control.svelte';
 export type {ClipboardIndicatorProps} from './indicator.svelte';
 export type {ClipboardInputProps} from './input.svelte';

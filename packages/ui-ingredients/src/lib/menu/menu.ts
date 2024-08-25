@@ -1,3 +1,4 @@
+export {anatomy} from '@zag-js/menu';
 export {default as ArrowTip} from './arrow-tip.svelte';
 export {default as Arrow} from './arrow.svelte';
 export {default as Content} from './content.svelte';

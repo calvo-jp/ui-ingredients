@@ -1,4 +1,4 @@
-import {anatomy} from '@zag-js/date-picker';
+import {anatomy as _} from '@zag-js/date-picker';
 
-export const datePickerAnatomy = anatomy.extendWith('view');
-export const parts = datePickerAnatomy.build();
+export const anatomy = _.extendWith('view');
+export const parts = anatomy.build();

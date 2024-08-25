@@ -1,5 +1,4 @@
-import {anatomy} from '@zag-js/radio-group';
+import {anatomy as _} from '@zag-js/radio-group';
 
-export const segmentGroupAnatomy = anatomy.rename('segment-group');
-
-export const parts = segmentGroupAnatomy.build();
+export const anatomy = _.rename('segment-group');
+export const parts = anatomy.build();

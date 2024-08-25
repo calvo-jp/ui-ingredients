@@ -1,5 +1,3 @@
-export {parse as parseDate} from '@zag-js/date-picker';
-export {datePickerAnatomy} from './anatomy.js';
 export * as DatePicker from './date-picker.js';
 
 export type {DatePickerClearTriggerProps} from './clear-trigger.svelte';
