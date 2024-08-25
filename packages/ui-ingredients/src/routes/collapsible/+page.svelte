@@ -1,15 +1,8 @@
 <script lang="ts">
   import {Collapsible} from '$lib/index.js';
-
-  let open = $state(false);
 </script>
 
-<Collapsible.Root
-  {open}
-  onOpenChange={(detail) => {
-    open = detail.open;
-  }}
->
+<Collapsible.Root>
   <Collapsible.Trigger class="h-11 border px-3.5">Open</Collapsible.Trigger>
   <Collapsible.Content
     class="data-open:animate-collapse-in data-closed:animate-collapse-out mt-3 max-w-[32rem] overflow-hidden bg-neutral-800/50 text-neutral-400"
