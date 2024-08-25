@@ -1,13 +1,13 @@
 <script lang="ts" module>
   import type {Assign, HtmlProps} from '$lib/types.js';
-  import type {Context} from '@zag-js/presence';
+  import type {CreatePresenceProps} from './create-presence.svelte.js';
 
-  export interface PresenceProps extends Assign<HtmlProps<'div'>, Context> {}
+  export interface PresenceProps extends Assign<HtmlProps<'div'>, CreatePresenceProps> {}
 </script>
 
 <script lang="ts">
-  import * as presence from '@zag-js/presence';
-  import {normalizeProps, useMachine} from '@zag-js/svelte';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createPresence} from './create-presence.svelte.js';
 
   let {
     /**/
@@ -18,24 +18,15 @@
     ...props
   }: PresenceProps = $props();
 
-  let [machineState, send] = useMachine(
-    presence.machine({
-      present,
-      immediate,
-      onExitComplete,
-    }),
-  );
+  let presence = createPresence({
+    present,
+    immediate,
+    onExitComplete,
+  });
 
-  let api = $derived(presence.connect(machineState, send, normalizeProps));
+  let attrs = $derived(mergeProps(props, presence.getRootProps()));
 </script>
 
-<div
-  use:api.setNode
-  hidden={!api.present}
-  data-scope="presence"
-  data-part="root"
-  data-state={api.skip ? undefined : present ? 'open' : 'closed'}
-  {...props}
->
+<div use:presence.ref {...attrs}>
   {@render children?.()}
 </div>

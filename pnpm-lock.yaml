@@ -50,6 +50,9 @@ importers:
       '@zag-js/accordion':
         specifier: 0.65.1
         version: 0.65.1
+      '@zag-js/anatomy':
+        specifier: 0.65.1
+        version: 0.65.1
       '@zag-js/avatar':
         specifier: 0.65.1
         version: 0.65.1

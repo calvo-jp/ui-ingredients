@@ -23,8 +23,6 @@
     container,
     getRootNode: environment?.getRootNode,
   }}
-  data-scope="portal"
-  data-part="root"
 >
   {@render children?.()}
 </div>
