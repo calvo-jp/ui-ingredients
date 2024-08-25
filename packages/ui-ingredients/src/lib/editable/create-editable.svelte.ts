@@ -7,6 +7,7 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 export interface CreateEditableProps
   extends Omit<editable.Context, 'id' | 'dir' | 'getRootNode' | 'edit.controlled'> {
   id?: string | null;
+  defaultEdit?: boolean;
 }
 
 export interface CreateEditableReturn extends editable.Api {}
@@ -20,6 +21,7 @@ export function createEditable(props: CreateEditableProps): CreateEditableReturn
       ...props,
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
+      edit: props.defaultEdit,
       getRootNode: environmentContext?.getRootNode,
       'edit.controlled': props.edit != null,
     }),

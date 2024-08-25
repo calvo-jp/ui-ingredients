@@ -7,6 +7,7 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 export interface CreateMenuProps
   extends Omit<menu.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
   id?: string | null;
+  defaultOpen?: boolean;
 }
 
 export interface CreateMenuReturn extends menu.Api {}
@@ -20,6 +21,7 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
       ...props,
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
+      open: props.defaultOpen,
       getRootNode: environmentContext?.getRootNode,
       'open.controlled': props.open != null,
     }),

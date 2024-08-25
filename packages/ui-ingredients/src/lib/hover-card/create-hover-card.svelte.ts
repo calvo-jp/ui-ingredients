@@ -7,6 +7,7 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 export interface CreateHoverCardProps
   extends Omit<hoverCard.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
   id?: string | null;
+  defaultOpen?: boolean;
 }
 
 export interface CreateHoverCardReturn extends hoverCard.Api {}
@@ -20,6 +21,7 @@ export function createHoverCard(props: CreateHoverCardProps): CreateHoverCardRet
       ...props,
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
+      open: props.defaultOpen,
       getRootNode: environmentContext?.getRootNode,
       'open.controlled': props.open != null,
     }),

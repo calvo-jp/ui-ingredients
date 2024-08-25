@@ -7,6 +7,7 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 export interface CreateCollapsibleProps
   extends Omit<collapsible.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
   id?: string | null;
+  defaultOpen?: boolean;
 }
 
 export interface CreateCollapsibleReturn extends collapsible.Api {}
@@ -20,6 +21,7 @@ export function createCollapsible(props: CreateCollapsibleProps): CreateCollapsi
       ...props,
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
+      open: props.defaultOpen,
       getRootNode: environmentContext?.getRootNode,
       'open.controlled': props.open != null,
     }),

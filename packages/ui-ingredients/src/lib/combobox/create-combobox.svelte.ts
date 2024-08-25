@@ -11,6 +11,7 @@ export interface CreateComboboxProps<T>
   itemToString?: (item: T) => string;
   itemToValue?: (item: T) => string;
   isItemDisabled?: (item: T) => boolean;
+  defaultOpen?: boolean;
 }
 
 export interface CreateComboboxReturn extends combobox.Api {}
@@ -33,6 +34,7 @@ export function createCombobox<T>(props: CreateComboboxProps<T>): CreateCombobox
       ...props,
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
+      open: props.defaultOpen,
       getRootNode: environmentContext?.getRootNode,
       'open.controlled': props.open != null,
       collection,

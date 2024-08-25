@@ -7,6 +7,7 @@ import * as tooltip from '@zag-js/tooltip';
 export interface CreateTooltipProps
   extends Omit<tooltip.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
   id?: string | null;
+  defaultOpen?: boolean;
 }
 
 export interface CreateTooltipReturn extends tooltip.Api {}
@@ -20,6 +21,7 @@ export function createTooltip(props: CreateTooltipProps) {
       ...props,
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
+      open: props.defaultOpen,
       getRootNode: environmentContext?.getRootNode,
       'open.controlled': props.open != null,
     }),

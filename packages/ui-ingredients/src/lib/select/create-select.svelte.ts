@@ -11,6 +11,7 @@ export interface CreateSelectProps<T>
   itemToString?: (item: T) => string;
   itemToValue?: (item: T) => string;
   isItemDisabled?: (item: T) => boolean;
+  defaultOpen?: boolean;
 }
 
 export interface CreateSelectReturn extends select.Api {}
@@ -33,6 +34,7 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
       ...props,
       id: props.id ?? createUniqueId(),
       dir: localeContext?.dir,
+      open: props.defaultOpen,
       getRootNode: environmentContext?.getRootNode,
       collection,
       'open.controlled': props.open != null,

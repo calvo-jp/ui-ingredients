@@ -22,6 +22,7 @@
     ids,
     open,
     disabled,
+    defaultOpen,
     onOpenChange,
     onExitComplete,
     children,
@@ -33,6 +34,7 @@
     ids,
     open,
     disabled,
+    defaultOpen,
     onOpenChange,
     onExitComplete,
   });
