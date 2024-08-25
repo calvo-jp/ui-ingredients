@@ -1,25 +1,11 @@
-import * as datePicker from '@zag-js/date-picker';
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {getContext, setContext} from 'svelte';
+import {Context} from '$lib/utils.svelte.js';
+import type {DayTableCellProps, TableCellProps, TableProps, ViewProps} from '@zag-js/date-picker';
+import type {CreateDatePickerReturn} from './create-date-picker.svelte.js';
 
-export interface CreateDatePickerContextProps extends datePicker.Context {}
-export interface CreateDatePickerContextReturn
-  extends ReturnType<typeof createDatePickerContext> {}
-
-export function createDatePickerContext(props: CreateDatePickerContextProps) {
-  const [state, send] = useMachine(datePicker.machine(props));
-
-  const api = $derived(
-    reflect(() => datePicker.connect(state, send, normalizeProps)),
-  );
-
-  return api;
-}
-
-export function setDatePickerContext(value: CreateDatePickerContextReturn) {
-  setContext('DatePicker', value);
-}
-
-export function useDatePickerContext() {
-  return getContext<CreateDatePickerContextReturn>('DatePicker');
-}
+export const datePickerContext = new Context<CreateDatePickerReturn>('DatePicker');
+export const datePickerViewPropsContext = new Context<ViewProps>('DatePickerView');
+export const datePickerTablePropsContext = new Context<TableProps>('DatePickerTable');
+export const datePickerTableCellPropsContext = new Context<TableCellProps>('DatePickerTableCell');
+export const datePickerDayTableCellPropsContext = new Context<DayTableCellProps>(
+  'DatePickerDayTableCell',
+);

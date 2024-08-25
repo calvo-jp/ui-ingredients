@@ -1,3 +1,41 @@
-<script lang="ts" module></script>
+<script lang="ts" module>
+  import type {HtmlProps} from '$lib/types.js';
 
-<script lang="ts"></script>
+  export interface DatePickerMonthSelectProps extends HtmlProps<'select'> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {datePickerContext} from './context.svelte.js';
+
+  let {children, ...props}: DatePickerMonthSelectProps = $props();
+
+  let context = datePickerContext.get();
+
+  let attrs = $derived(mergeProps(props, context.getMonthSelectProps()));
+
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+</script>
+
+<select {...attrs}>
+  {#if children}
+    {@render children()}
+  {:else}
+    {#each months as month, index}
+      <option value={index}>{month}</option>
+    {/each}
+  {/if}
+</select>

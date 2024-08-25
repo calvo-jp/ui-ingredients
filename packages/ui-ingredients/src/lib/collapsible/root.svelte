@@ -39,11 +39,11 @@
     onExitComplete,
   });
 
-  let mergedProps = $derived(mergeProps(props, context.getRootProps()));
+  let attrs = $derived(mergeProps(props, context.getRootProps()));
 
   collapsibleContext.set(context);
 </script>
 
-<div {...mergedProps}>
+<div {...attrs}>
   {@render children?.(context)}
 </div>

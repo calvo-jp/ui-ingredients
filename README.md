@@ -43,7 +43,7 @@ npm install ui-ingredients
 - 🟢 Collapsible
 - ⚪ ColorPicker
 - 🟢 Combobox
-- 🟡 DatePicker
+- 🟢 DatePicker
 - 🟢 Dialog
 - 🟢 Editable
 - 🟡 FileUpload

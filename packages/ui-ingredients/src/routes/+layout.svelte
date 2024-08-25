@@ -136,6 +136,10 @@
       label: 'Nested Menu',
       path: '/menu/nested',
     },
+    {
+      label: 'Date Picker',
+      path: '/date-picker',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));

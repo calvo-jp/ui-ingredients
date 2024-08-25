@@ -12,9 +12,9 @@
 
   let context = collapsibleContext.get();
 
-  let mergedProps = $derived(mergeProps(props, context.getTriggerProps()));
+  let attrs = $derived(mergeProps(props, context.getTriggerProps()));
 </script>
 
-<button type="button" {...mergedProps}>
+<button type="button" {...attrs}>
   {@render children?.()}
 </button>
