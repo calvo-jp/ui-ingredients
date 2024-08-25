@@ -11,15 +11,15 @@ export interface CreateSwitchProps extends Omit<switch$.Context, 'id' | 'dir' | 
 export interface CreateSwitchReturn extends switch$.Api {}
 
 export function createSwitch(props: CreateSwitchProps) {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     switch$.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

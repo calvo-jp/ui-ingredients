@@ -12,16 +12,16 @@ export interface CreateNumberInputProps
 export interface CreateNumberInputReturn extends numberInput.Api {}
 
 export function createNumberInput(props: CreateNumberInputProps): CreateNumberInputReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     numberInput.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      locale: localeContext?.locale,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      locale: locale?.locale,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

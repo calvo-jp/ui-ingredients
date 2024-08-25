@@ -13,16 +13,16 @@ export interface CreateCollapsibleProps
 export interface CreateCollapsibleReturn extends collapsible.Api {}
 
 export function createCollapsible(props: CreateCollapsibleProps): CreateCollapsibleReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     collapsible.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
+      dir: locale?.dir,
       open: props.defaultOpen,
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
     }),
   );

@@ -12,15 +12,15 @@ export interface CreatePaginationProps
 export interface CreatePaginationReturn extends pagination.Api {}
 
 export function createPagination(props: CreatePaginationProps): CreatePaginationReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     pagination.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

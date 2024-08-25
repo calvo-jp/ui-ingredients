@@ -10,13 +10,13 @@ export interface CreateTimerProps extends Omit<timer.Context, 'id' | 'getRootNod
 export interface CreateTimerReturn extends timer.Api {}
 
 export function createTimer(props: CreateTimerProps): CreateTimerReturn {
-  const environmentContext = getEnvironmentContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     timer.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

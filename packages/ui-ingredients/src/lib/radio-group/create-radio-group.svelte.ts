@@ -12,15 +12,15 @@ export interface CreateRadioGroupProps
 export interface CreateRadioGroupReturn extends radioGroup.Api {}
 
 export function createRadioGroup(props: CreateRadioGroupProps): CreateRadioGroupReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     radioGroup.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

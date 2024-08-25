@@ -12,15 +12,15 @@ export interface CreateAccordionProps
 export interface CreateAccordionReturn extends accordion.Api {}
 
 export function createAccordion(props: CreateAccordionProps): CreateAccordionReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     accordion.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

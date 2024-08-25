@@ -13,16 +13,16 @@ export interface CreateDialogProps
 export interface CreateDialogReturn extends dialog.Api {}
 
 export function createDialog(props: CreateDialogProps): CreateDialogReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     dialog.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
+      dir: locale?.dir,
       open: props.defaultOpen,
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
     }),
   );

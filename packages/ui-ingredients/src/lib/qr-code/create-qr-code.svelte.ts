@@ -11,15 +11,15 @@ export interface CreateQRCodeProps extends Omit<qrCode.Context, 'id' | 'dir' | '
 export interface CreateQRCodeReturn extends qrCode.Api {}
 
 export function createQRCode(props: CreateQRCodeProps): CreateQRCodeReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     qrCode.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

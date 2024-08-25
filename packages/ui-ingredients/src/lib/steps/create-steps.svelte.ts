@@ -11,15 +11,15 @@ export interface CreateStepsProps extends Omit<steps.Context, 'id' | 'dir' | 'ge
 export interface CreateStepsReturn extends steps.Api {}
 
 export function createSteps(props: CreateStepsProps) {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     steps.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

@@ -13,16 +13,16 @@ export interface CreateEditableProps
 export interface CreateEditableReturn extends editable.Api {}
 
 export function createEditable(props: CreateEditableProps): CreateEditableReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     editable.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
+      dir: locale?.dir,
       edit: props.defaultEdit,
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
       'edit.controlled': props.edit != null,
     }),
   );

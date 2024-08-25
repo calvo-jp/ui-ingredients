@@ -12,15 +12,15 @@ export interface CreateRatingGroupProps
 export interface CreateRatingGroupReturn extends ratingGroup.Api {}
 
 export function createRatingGroup(props: CreateRatingGroupProps): CreateRatingGroupReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     ratingGroup.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

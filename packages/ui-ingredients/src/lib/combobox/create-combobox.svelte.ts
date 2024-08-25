@@ -26,16 +26,16 @@ export function createCombobox<T>(props: CreateComboboxProps<T>): CreateCombobox
     }),
   );
 
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     combobox.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
+      dir: locale?.dir,
       open: props.defaultOpen,
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
       collection,
     }),

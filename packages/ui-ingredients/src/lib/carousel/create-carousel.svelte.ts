@@ -11,15 +11,15 @@ export interface CreateCarouselProps extends Omit<carousel.Context, 'id' | 'dir'
 export interface CreateCarouselReturn extends carousel.Api {}
 
 export function createCarousel(props: CreateCarouselProps): CreateCarouselReturn {
-  const localeContexts = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     carousel.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContexts?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

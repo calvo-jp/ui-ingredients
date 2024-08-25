@@ -12,15 +12,15 @@ export interface CreateToggleGroupProps
 export interface CreateToggleGroupReturn extends toggleGroup.Api {}
 
 export function createToggleGroup(props: CreateToggleGroupProps): CreateToggleGroupReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     toggleGroup.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

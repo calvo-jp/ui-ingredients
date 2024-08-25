@@ -11,15 +11,15 @@ export interface CreateTabsProps extends Omit<tabs.Context, 'id' | 'dir' | 'getR
 export interface CreateTabsReturn extends tabs.Api {}
 
 export function createTabs(props: CreateTabsProps) {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     tabs.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

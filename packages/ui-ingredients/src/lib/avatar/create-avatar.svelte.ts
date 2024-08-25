@@ -11,15 +11,15 @@ export interface CreateAvatarProps extends Omit<avatar.Context, 'id' | 'dir' | '
 export interface CreateAvatarReturn extends avatar.Api {}
 
 export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     avatar.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

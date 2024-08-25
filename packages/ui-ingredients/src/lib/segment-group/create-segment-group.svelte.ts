@@ -12,15 +12,15 @@ export interface CreateSegmentGroupProps
 export interface CreateSegmentGroupReturn extends segmentGroup.Api {}
 
 export function createSegmentGroup(props: CreateSegmentGroupProps): CreateSegmentGroupReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     segmentGroup.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

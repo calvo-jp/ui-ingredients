@@ -20,15 +20,15 @@ export interface CreateToasterProps {
 export interface CreateToasterReturn extends ReturnType<typeof createToaster> {}
 
 export function createToaster(props?: CreateToasterProps) {
-  const localContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const machine = $derived(
     toast.group.machine({
       ...props,
       id: props?.id ?? createUniqueId(),
-      dir: localContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

@@ -11,15 +11,15 @@ export interface CreatePinInputProps extends Omit<pinInput.Context, 'id' | 'dir'
 export interface CreatePinInputReturn extends pinInput.Api {}
 
 export function createPinInputContext(props: CreatePinInputProps): CreatePinInputReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     pinInput.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 

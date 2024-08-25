@@ -13,16 +13,16 @@ export interface CreateHoverCardProps
 export interface CreateHoverCardReturn extends hoverCard.Api {}
 
 export function createHoverCard(props: CreateHoverCardProps): CreateHoverCardReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     hoverCard.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
+      dir: locale?.dir,
       open: props.defaultOpen,
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
     }),
   );

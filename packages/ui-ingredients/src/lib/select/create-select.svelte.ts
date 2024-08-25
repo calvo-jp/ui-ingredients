@@ -26,16 +26,16 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
     }),
   );
 
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     select.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
+      dir: locale?.dir,
       open: props.defaultOpen,
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
       collection,
       'open.controlled': props.open != null,
     }),

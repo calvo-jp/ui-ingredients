@@ -13,16 +13,16 @@ export interface CreateMenuProps
 export interface CreateMenuReturn extends menu.Api {}
 
 export function createMenu(props: CreateMenuProps): CreateMenuReturn {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     menu.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
+      dir: locale?.dir,
       open: props.defaultOpen,
-      getRootNode: environmentContext?.getRootNode,
+      getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
     }),
   );

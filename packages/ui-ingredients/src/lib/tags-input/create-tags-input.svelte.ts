@@ -12,15 +12,15 @@ export interface CreateTagsInputProps
 export interface CreateTagsInputReturn extends tagsInput.Api {}
 
 export function createTagsInputt(props: CreateTagsInputProps) {
-  const localeContext = getLocaleContext();
-  const environmentContext = getEnvironmentContext();
+  const locale = getLocaleContext();
+  const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     tagsInput.machine({
       ...props,
       id: props.id ?? createUniqueId(),
-      dir: localeContext?.dir,
-      getRootNode: environmentContext?.getRootNode,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
     }),
   );
 
