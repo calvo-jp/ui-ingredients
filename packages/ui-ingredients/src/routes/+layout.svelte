@@ -140,6 +140,10 @@
       label: 'Date Picker',
       path: '/date-picker',
     },
+    {
+      label: 'File Upload',
+      path: '/file-upload',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));

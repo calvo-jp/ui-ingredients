@@ -1,27 +1,6 @@
-import * as fileUpload from '@zag-js/file-upload';
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {getContext, setContext} from 'svelte';
+import {Context} from '$lib/utils.svelte.js';
+import type {ItemProps} from '@zag-js/file-upload';
+import type {CreateFileUploadReturn} from './create-file-upload.svelte.js';
 
-export interface CreateFileUploadContextProps extends fileUpload.Context {}
-export interface CreateFileUploadContextReturn
-  extends ReturnType<typeof createFileUploadContext> {}
-
-export function createFileUploadContext(
-  props: CreateFileUploadContextProps,
-): fileUpload.Api<any> {
-  const [state, send] = useMachine(fileUpload.machine(props));
-
-  const api = $derived(
-    reflect(() => fileUpload.connect(state, send, normalizeProps)),
-  );
-
-  return api;
-}
-
-export function setFileUploadContext(value: CreateFileUploadContextReturn) {
-  return setContext('FileUpload', value);
-}
-
-export function useFileUploadContext() {
-  return getContext<CreateFileUploadContextReturn>('FileUpload');
-}
+export const fileUploadContext = new Context<CreateFileUploadReturn>('FileUpload');
+export const fileUploadItemPropsContext = new Context<ItemProps>('FileUploadItem');

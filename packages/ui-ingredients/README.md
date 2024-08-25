@@ -41,12 +41,12 @@ npm install ui-ingredients
 - 🟢 Checkbox
 - 🟢 Clipboard
 - 🟢 Collapsible
-- ⚪ ColorPicker
+- 🟡 ColorPicker
 - 🟢 Combobox
 - 🟢 DatePicker
 - 🟢 Dialog
 - 🟢 Editable
-- 🟡 FileUpload
+- 🟢 FileUpload
 - 🟢 HoverCard
 - 🟢 Menu
 - 🟢 NumberInput

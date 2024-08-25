@@ -11,7 +11,6 @@ type Omitted =
   | 'max'
   | 'value'
   | 'focusedValue'
-  | 'locale'
   | 'getRootNode'
   | 'open.controlled';
 
@@ -41,7 +40,7 @@ export function createDatePicker(props: CreateDatePickerProps): CreateDatePicker
       focusedValue: props.focusedValue ? datePicker.parse(props.focusedValue) : undefined,
       open: props.defaultOpen,
       'open.controlled': props.open != null,
-      locale: locale?.locale,
+      locale: props.locale ?? locale?.locale,
       getRootNode: environment?.getRootNode,
     }),
   );

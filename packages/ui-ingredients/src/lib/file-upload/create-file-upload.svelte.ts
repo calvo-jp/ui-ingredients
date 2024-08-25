@@ -1,22 +1,22 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import {createUniqueId} from '$lib/utils.svelte.js';
-import * as numberInput from '@zag-js/number-input';
+import * as fileUpload from '@zag-js/file-upload';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateNumberInputProps
-  extends Omit<numberInput.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateFileUploadProps
+  extends Omit<fileUpload.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
-export interface CreateNumberInputReturn extends numberInput.Api {}
+export interface CreateFileUploadReturn extends fileUpload.Api<any> {}
 
-export function createNumberInput(props: CreateNumberInputProps): CreateNumberInputReturn {
+export function createFileUpload(props: CreateFileUploadProps): CreateFileUploadReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
-    numberInput.machine({
+    fileUpload.machine({
       ...props,
       id: props.id ?? createUniqueId(),
       dir: locale?.dir,
@@ -25,7 +25,7 @@ export function createNumberInput(props: CreateNumberInputProps): CreateNumberIn
     }),
   );
 
-  const api = $derived(reflect(() => numberInput.connect(state, send, normalizeProps)));
+  const api = $derived(reflect(() => fileUpload.connect(state, send, normalizeProps)));
 
   return api;
 }
