@@ -62,7 +62,7 @@ npm install ui-ingredients
 - 🟢 RatingGroup
 - 🟢 Select
 - 🟢 SegmentGroup
-- ⚪ SignaturePad
+- 🟢 SignaturePad
 - 🟢 Slider
 - ⚪ Splitter
 - 🟢 Steps

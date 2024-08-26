@@ -1,4 +1,5 @@
 export {anatomy} from '@zag-js/steps';
+export {default as CompletedContent} from './completed-content.svelte';
 export {default as Content} from './content.svelte';
 export {default as Indicator} from './indicator.svelte';
 export {default as Item} from './item.svelte';

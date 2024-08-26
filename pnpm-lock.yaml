@@ -44,9 +44,6 @@ importers:
 
   packages/ui-ingredients:
     dependencies:
-      '@internationalized/date':
-        specifier: 3.5.5
-        version: 3.5.5
       '@zag-js/accordion':
         specifier: 0.65.1
         version: 0.65.1

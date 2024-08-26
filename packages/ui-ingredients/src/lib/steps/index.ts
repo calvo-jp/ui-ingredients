@@ -1,5 +1,6 @@
 export * as Steps from './steps.js';
 
+export type {StepsCompletedContentProps} from './completed-content.svelte';
 export type {StepsContentProps} from './content.svelte';
 export type {StepsIndicatorProps} from './indicator.svelte';
 export type {StepsItemProps} from './item.svelte';

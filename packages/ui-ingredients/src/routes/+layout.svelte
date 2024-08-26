@@ -144,6 +144,10 @@
       label: 'File Upload',
       path: '/file-upload',
     },
+    {
+      label: 'Signature Pad',
+      path: '/signature-pad',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));

@@ -13,9 +13,7 @@
     value = detail.value;
   }}
 >
-  <PinInput.Label class="mb-1 inline-block text-neutral-400"
-    >Enter OTP</PinInput.Label
-  >
+  <PinInput.Label class="mb-1 inline-block text-neutral-400">Enter OTP</PinInput.Label>
   <PinInput.HiddenInput />
 
   <div class="flex gap-1">

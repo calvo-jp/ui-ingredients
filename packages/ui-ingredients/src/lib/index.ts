@@ -25,6 +25,7 @@ export * from './radio-group/index.js';
 export * from './rating-group/index.js';
 export * from './segment-group/index.js';
 export * from './select/index.js';
+export * from './signature-pad/index.js';
 export * from './slider/index.js';
 export * from './steps/index.js';
 export * from './switch/index.js';
