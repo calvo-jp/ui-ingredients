@@ -1,18 +1,20 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {HiddenInputProps} from '@zag-js/signature-pad';
 
-  export interface SignaturePadHiddenInputProps extends HtmlProps<'input'> {}
+  export interface SignaturePadHiddenInputProps
+    extends Assign<HtmlProps<'input'>, HiddenInputProps> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '@zag-js/svelte';
   import {signaturePadContext} from './context.svelte.js';
 
-  let {...props}: SignaturePadHiddenInputProps = $props();
+  let {value, ...props}: SignaturePadHiddenInputProps = $props();
 
   let signaturePad = signaturePadContext.get();
 
-  let attrs = $derived(mergeProps(props, signaturePad.getHiddenInputProps()));
+  let attrs = $derived(mergeProps(props, signaturePad.getHiddenInputProps({value})));
 </script>
 
 <input {...attrs} />
