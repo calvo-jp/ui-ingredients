@@ -148,6 +148,10 @@
       label: 'Signature Pad',
       path: '/signature-pad',
     },
+    {
+      label: 'Tree View',
+      path: '/tree-view',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));
