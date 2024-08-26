@@ -8,13 +8,13 @@
   import {mergeProps} from '@zag-js/svelte';
   import {signaturePadContext} from './context.svelte.js';
 
-  let {children,...props}: SignaturePadGuideProps = $props();
+  let {children, ...props}: SignaturePadGuideProps = $props();
 
   let signaturePad = signaturePadContext.get();
 
   let attrs = $derived(mergeProps(props, signaturePad.getGuideProps()));
 </script>
 
-<div  {...attrs} >
+<div {...attrs}>
   {@render children?.()}
 </div>

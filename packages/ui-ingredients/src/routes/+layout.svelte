@@ -152,6 +152,14 @@
       label: 'Tree View',
       path: '/tree-view',
     },
+    {
+      label: 'Time Picker',
+      path: '/time-picker',
+    },
+    {
+      label: 'Splitter',
+      path: '/splitter',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));

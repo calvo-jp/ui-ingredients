@@ -23,6 +23,7 @@ export {default as TableRow} from './table-row.svelte';
 export {default as Table} from './table.svelte';
 export {default as Trigger} from './trigger.svelte';
 export {default as ViewControl} from './view-control.svelte';
+export {default as ViewTrigger} from './view-trigger.svelte';
 export {default as View} from './view.svelte';
 export {default as YearSelect} from './year-select.svelte';
 export {default as YearTableCellTrigger} from './year-table-cell-trigger.svelte';

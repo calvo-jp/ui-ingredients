@@ -7,3 +7,4 @@ export {default as Range} from './range.svelte';
 export {default as Root} from './root.svelte';
 export {default as Track} from './track.svelte';
 export {default as ValueText} from './value-text.svelte';
+export {default as View} from './view.svelte';

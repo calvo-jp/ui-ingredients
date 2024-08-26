@@ -41,7 +41,7 @@ npm install ui-ingredients
 - 🟢 Checkbox
 - 🟢 Clipboard
 - 🟢 Collapsible
-- 🟡 ColorPicker
+- ⚪ ColorPicker
 - 🟢 Combobox
 - 🟢 DatePicker
 - 🟢 Dialog
@@ -55,7 +55,7 @@ npm install ui-ingredients
 - 🟢 PinInput
 - 🟢 Popover
 - 🟢 Portal
-- ⚪ Presence
+- 🟡 Presence
 - 🟢 Progress
 - 🟢 QRCode
 - 🟢 RadioGroup
@@ -64,12 +64,12 @@ npm install ui-ingredients
 - 🟢 SegmentGroup
 - 🟢 SignaturePad
 - 🟢 Slider
-- ⚪ Splitter
+- 🟢 Splitter
 - 🟢 Steps
 - 🟢 Switch
 - 🟢 Tabs
 - 🟢 TagsInput
-- 🟡 TimePicker
+- 🟢 TimePicker
 - 🟢 Timer
 - 🟢 Toast
 - 🟢 ToggleGroup

@@ -6,6 +6,7 @@
     'w-32',
     'flex',
     'items-center',
+    'text-left',
     'cursor-default',
     'data-disabled:cursor-not-allowed',
     'data-disabled:opacity-75',
@@ -22,9 +23,7 @@
 </script>
 
 <Menu.Root>
-  <Menu.Trigger class="flex h-11 items-center gap-2 border px-3.5">
-    Open
-  </Menu.Trigger>
+  <Menu.Trigger class="flex h-11 items-center gap-2 border px-3.5">Open</Menu.Trigger>
 
   <Menu.Positioner>
     <Menu.Content class={menuContentStyle}>
@@ -35,7 +34,22 @@
           placement: 'right',
         }}
       >
-        <Menu.TriggerItem class={menuItemStyle}>Three</Menu.TriggerItem>
+        <Menu.TriggerItem class={menuItemStyle}>
+          <span class="grow">Three</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M9 18L15 12L9 6"></path>
+          </svg>
+        </Menu.TriggerItem>
         <Menu.Positioner>
           <Menu.Content class={menuContentStyle}>
             <Menu.Item class={menuItemStyle} value="4">Four</Menu.Item>

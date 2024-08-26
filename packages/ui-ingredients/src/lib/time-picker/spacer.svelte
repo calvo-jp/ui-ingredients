@@ -1,0 +1,20 @@
+<script lang="ts" module>
+  import type {HtmlProps} from '$lib/types.js';
+
+  export interface TimePickerSpacerProps extends HtmlProps<'div'> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {timePickerContext} from './context.svelte.js';
+
+  let {children, ...props}: TimePickerSpacerProps = $props();
+
+  let timePicker = timePickerContext.get();
+
+  let attrs = $derived(mergeProps(props, timePicker.getSpacerProps()));
+</script>
+
+<div {...attrs}>
+  {@render children?.()}
+</div>

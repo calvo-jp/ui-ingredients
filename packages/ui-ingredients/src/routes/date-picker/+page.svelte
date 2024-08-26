@@ -68,14 +68,9 @@
               </svg>
             </DatePicker.PrevTrigger>
 
-            <button
-              onclick={() => {
-                api.setView('month');
-              }}
-            >
-              {months[api.focusedValue.month]}
-              {api.focusedValue.year}
-            </button>
+            <DatePicker.ViewTrigger>
+              <DatePicker.RangeText />
+            </DatePicker.ViewTrigger>
 
             <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
               <svg
@@ -143,13 +138,9 @@
                 <path d="M15 18L9 12L15 6"></path>
               </svg>
             </DatePicker.PrevTrigger>
-            <button
-              onclick={() => {
-                api.setView('year');
-              }}
-            >
-              {api.focusedValue.year}
-            </button>
+            <DatePicker.ViewTrigger>
+              <DatePicker.RangeText />
+            </DatePicker.ViewTrigger>
             <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
               <svg
                 width="24"
@@ -204,14 +195,9 @@
                 <path d="M15 18L9 12L15 6"></path>
               </svg>
             </DatePicker.PrevTrigger>
-            <button
-              onclick={() => {
-                api.setView('day');
-              }}
-            >
-              {api.getYears()[0].label}-
-              {api.getYears().at(-1)?.label}
-            </button>
+            <DatePicker.ViewTrigger>
+              <DatePicker.RangeText />
+            </DatePicker.ViewTrigger>
             <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
               <svg
                 width="24"

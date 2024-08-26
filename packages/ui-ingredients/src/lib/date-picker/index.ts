@@ -23,6 +23,7 @@ export type {DatePickerTableRowProps} from './table-row.svelte';
 export type {DatePickerTableProps} from './table.svelte';
 export type {DatePickerTriggerProps} from './trigger.svelte';
 export type {DatePickerViewControlProps} from './view-control.svelte';
+export type {DatePickerViewTriggerProps} from './view-trigger.svelte';
 export type {DatePickerViewProps} from './view.svelte';
 export type {DatePickerYearSelectProps} from './year-select.svelte';
 export type {DatePickerYearTableCellTriggerProps} from './year-table-cell-trigger.svelte';
