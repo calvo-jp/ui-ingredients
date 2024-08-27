@@ -1,9 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTimerProps, CreateTimerReturn} from './create-timer.svelte.js';
 
   export interface TimerProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTimerProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, timer: CreateTimerReturn]>;
     children?: Snippet<[timer: CreateTimerReturn]>;
   }
 </script>
@@ -22,6 +23,7 @@
     countdown,
     onTick,
     onComplete,
+    asChild,
     children,
     ...props
   }: TimerProps = $props();
@@ -42,6 +44,10 @@
   timerContext.set(timer);
 </script>
 
-<div {...attrs}>
-  {@render children?.(timer)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, timer)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(timer)}
+  </div>
+{/if}

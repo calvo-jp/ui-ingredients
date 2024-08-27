@@ -5,6 +5,7 @@
 
   export interface ToggleGroupItemProps
     extends Assign<Omit<HtmlProps<'button'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
@@ -13,7 +14,7 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {toggleGroupContext} from './context.svelte.js';
 
-  let {value, disabled, children, ...props}: ToggleGroupItemProps = $props();
+  let {value, disabled, asChild, children, ...props}: ToggleGroupItemProps = $props();
 
   let toggleGroup = toggleGroupContext.get();
   let itemProps = $derived({
@@ -25,6 +26,10 @@
   let attrs = $derived(mergeProps(props, toggleGroup.getItemProps(itemProps)));
 </script>
 
-<button type="button" {...attrs}>
-  {@render children?.(state)}
-</button>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <button type="button" {...attrs}>
+    {@render children?.(state)}
+  </button>
+{/if}

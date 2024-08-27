@@ -5,6 +5,7 @@
 
   export interface SwitchProps
     extends Assign<Omit<HtmlProps<'label'>, 'children'>, CreateSwitchProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'label'>, 'children'>]>;
     children?: Snippet<[switch$: CreateSwitchReturn]>;
   }
 </script>
@@ -27,6 +28,7 @@
     readOnly,
     required,
     onCheckedChange,
+    asChild,
     children,
     ...props
   }: SwitchProps = $props();
@@ -51,6 +53,10 @@
   switchContext.set(switch$);
 </script>
 
-<label {...attrs}>
-  {@render children?.(switch$)}
-</label>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <label {...attrs}>
+    {@render children?.(switch$)}
+  </label>
+{/if}

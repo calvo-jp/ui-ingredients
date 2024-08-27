@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateNumberInputProps,
@@ -8,6 +8,9 @@
 
   export interface NumberInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateNumberInputProps> {
+    asChild?: Snippet<
+      [attrs: Omit<GenericHtmlProps, 'children'>, numberInput: CreateNumberInputReturn]
+    >;
     children?: Snippet<[numberInput: CreateNumberInputReturn]>;
   }
 </script>
@@ -43,6 +46,7 @@
     onFocusChange,
     onValueChange,
     onValueInvalid,
+    asChild,
     children,
     ...props
   }: NumberInputProps = $props();
@@ -80,6 +84,10 @@
   numberInputContext.set(numberInput);
 </script>
 
-<div {...attrs}>
-  {@render children?.(numberInput)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, numberInput)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(numberInput)}
+  </div>
+{/if}

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateToggleGroupProps,
@@ -8,6 +8,9 @@
 
   export interface ToggleGroupProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateToggleGroupProps> {
+    asChild?: Snippet<
+      [attrs: Omit<GenericHtmlProps, 'children'>, toggleGroup: CreateToggleGroupReturn]
+    >;
     children?: Snippet<[toggleGroup: CreateToggleGroupReturn]>;
   }
 </script>
@@ -27,6 +30,7 @@
     rovingFocus,
     orientation,
     onValueChange,
+    asChild,
     children,
     ...props
   }: ToggleGroupProps = $props();
@@ -48,6 +52,10 @@
   toggleGroupContext.set(toggleGroup);
 </script>
 
-<div {...attrs}>
-  {@render children?.(toggleGroup)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, toggleGroup)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(toggleGroup)}
+  </div>
+{/if}

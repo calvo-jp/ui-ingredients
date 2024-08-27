@@ -10,7 +10,7 @@
     onclick={() => {
       present = !present;
     }}
-    class="h-11 border px-3"
+    class="h-12 rounded border px-3.5"
   >
     Toggle
   </button>

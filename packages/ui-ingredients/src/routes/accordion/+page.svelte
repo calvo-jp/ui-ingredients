@@ -25,7 +25,7 @@
 <Accordion.Root
   {value}
   multiple
-  class="max-w-[32rem]"
+  class="w-full lg:max-w-[32rem]"
   onValueChange={(detail) => {
     value = detail.value;
   }}
