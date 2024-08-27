@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {clipboardContext} from './context.svelte.js';
   import {createClipboard} from './create-clipboard.svelte.js';
 

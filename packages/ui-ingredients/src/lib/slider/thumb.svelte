@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {sliderContext, sliderThumbPropsContext} from './context.svelte.js';
 
   let {name, index, children, ...props}: SliderThumbProps = $props();

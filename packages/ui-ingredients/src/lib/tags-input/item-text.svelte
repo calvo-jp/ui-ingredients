@@ -1,11 +1,11 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
 
-  export interface TagsInputItemTextProps extends HtmlProps<'span'> {}
+  export interface TagsInputItemTextProps extends HtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {tagsInputContext, tagsInputItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: TagsInputItemTextProps = $props();
@@ -16,6 +16,6 @@
   let attrs = $derived(mergeProps(props, tagsInput.getItemTextProps(itemProps)));
 </script>
 
-<span {...attrs}>
+<div {...attrs}>
   {@render children?.()}
-</span>
+</div>

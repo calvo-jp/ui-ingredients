@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts" generics="T">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {comboboxContext} from './context.svelte.js';
   import {createCombobox} from './create-combobox.svelte.js';
 

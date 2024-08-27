@@ -13,7 +13,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {numberInputContext} from './context.svelte.js';
   import {createNumberInput} from './create-number-input.svelte.js';
 

@@ -5,12 +5,13 @@
 
   export interface CarouselProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateCarouselProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'div'>, 'children'>, carousel: CreateCarouselReturn]>;
     children?: Snippet<[carousel: CreateCarouselReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {carouselContext} from './context.svelte.js';
   import {createCarousel} from './create-carousel.svelte.js';
 
@@ -24,6 +25,7 @@
     orientation,
     slidesPerView,
     onIndexChange,
+    asChild,
     children,
     ...props
   }: CarouselProps = $props();
@@ -45,6 +47,10 @@
   carouselContext.set(carousel);
 </script>
 
-<div {...attrs}>
-  {@render children?.(carousel)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, carousel)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(carousel)}
+  </div>
+{/if}

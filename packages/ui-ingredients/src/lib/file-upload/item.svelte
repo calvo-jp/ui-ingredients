@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {fileUploadContext, fileUploadItemPropsContext} from './context.svelte.js';
 
   let {file, children, ...props}: FileUploadItemProps = $props();

@@ -1,11 +1,11 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
 
-  export interface ComboboxItemTextProps extends HtmlProps<'span'> {}
+  export interface ComboboxItemTextProps extends HtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {comboboxContext, comboboxItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: ComboboxItemTextProps = $props();
@@ -16,10 +16,10 @@
   let attrs = $derived(mergeProps(props, combobox.getItemTextProps(itemProps)));
 </script>
 
-<span {...attrs}>
+<div {...attrs}>
   {#if children}
     {@render children?.()}
   {:else}
     {combobox.collection.stringifyItem(itemProps.item)}
   {/if}
-</span>
+</div>

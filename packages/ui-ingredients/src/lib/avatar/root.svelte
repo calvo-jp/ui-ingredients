@@ -5,23 +5,17 @@
 
   export interface AvatarProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateAvatarProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'img'>, 'children'>, avatar: CreateAvatarReturn]>;
     children?: Snippet<[avatar: CreateAvatarReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {avatarContext} from './context.svelte.js';
   import {createAvatar} from './create-avatar.svelte.js';
 
-  let {
-    /**/
-    id,
-    ids,
-    onStatusChange,
-    children,
-    ...props
-  }: AvatarProps = $props();
+  let {id, ids, onStatusChange, asChild, children, ...props}: AvatarProps = $props();
 
   let avatar = createAvatar({
     id,
@@ -34,6 +28,10 @@
   avatarContext.set(avatar);
 </script>
 
-<div {...attrs}>
-  {@render children?.(avatar)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, avatar)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(avatar)}
+  </div>
+{/if}

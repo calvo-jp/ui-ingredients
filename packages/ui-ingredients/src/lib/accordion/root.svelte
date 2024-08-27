@@ -5,12 +5,15 @@
 
   export interface AccordionProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateAccordionProps> {
+    asChild?: Snippet<
+      [attrs: Omit<HtmlProps<'div'>, 'children'>, accordion: CreateAccordionReturn]
+    >;
     children?: Snippet<[accordion: CreateAccordionReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {accordionContext} from './context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
 
@@ -24,6 +27,7 @@
     collapsible,
     onFocusChange,
     onValueChange,
+    asChild,
     children,
     ...props
   }: AccordionProps = $props();
@@ -45,6 +49,10 @@
   accordionContext.set(accordion);
 </script>
 
-<div {...attrs}>
-  {@render children?.(accordion)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, accordion)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(accordion)}
+  </div>
+{/if}

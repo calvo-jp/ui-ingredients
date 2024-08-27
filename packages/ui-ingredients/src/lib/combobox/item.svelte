@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {comboboxContext, comboboxItemPropsContext} from './context.svelte.js';
 
   let {children, item, persistFocus, ...props}: ComboboxItemProps = $props();

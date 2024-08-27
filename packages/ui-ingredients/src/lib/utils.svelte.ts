@@ -1,29 +1,27 @@
-import {reflect} from '@zag-js/svelte';
+import {mergeProps as originalMergeProps, reflect} from '@zag-js/svelte';
 import {getContext, hasContext, setContext} from 'svelte';
 import {uid} from 'uid';
 
 export const createUniqueId = () => uid();
 
-function isObject<T extends Record<string, unknown>>(value: unknown): value is T {
+export function isObject<T extends Record<string, unknown>>(value: unknown): value is T {
   return Object.prototype.toString.call(value) === '[object Object]' && value === Object(value);
 }
 
-export function ensureStyleIsString<
-  T extends {style?: null | string | Record<string, string | number>},
->(o: T) {
-  const c = {...o};
+export function mergeProps<T extends Record<string, any>>(...l: T[]): T {
+  const r = originalMergeProps<Record<string, any>>(...l);
 
-  if (isObject<Record<string, any>>(c.style)) {
+  if (r.style && isObject<Record<string, any>>(r.style)) {
     let s = '';
 
-    for (const k in c.style) {
-      s += `${k}:${c.style[k]};`;
+    for (const k in r.style) {
+      s += `${k}:${r.style[k]};`;
     }
 
-    c.style = s;
+    r.style = s;
   }
 
-  return c as Omit<T, 'style'> & {style?: string | null};
+  return r as T;
 }
 
 export class Context<T extends Record<string, any>> {

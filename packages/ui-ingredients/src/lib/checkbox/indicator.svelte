@@ -1,20 +1,27 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface CheckboxIndicatorProps extends HtmlProps<'span'> {}
+  export interface CheckboxIndicatorProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'div'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {checkboxContext} from './context.svelte.js';
 
-  let {children, ...props}: CheckboxIndicatorProps = $props();
+  let {asChild, children, ...props}: CheckboxIndicatorProps = $props();
 
   let checkbox = checkboxContext.get();
 
   let attrs = $derived(mergeProps(props, checkbox.getIndicatorProps()));
 </script>
 
-<span {...attrs}>
-  {@render children?.()}
-</span>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

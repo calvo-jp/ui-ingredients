@@ -7,8 +7,7 @@
 </script>
 
 <script lang="ts">
-  import {createUniqueId} from '$lib/utils.svelte.js';
-  import {mergeProps} from '@zag-js/svelte';
+  import {createUniqueId, mergeProps} from '$lib/utils.svelte.js';
   import {selectContext, selectItemGroupPropsContext} from './context.svelte.js';
 
   let {id, children, ...props}: SelectItemGroupProps = $props();

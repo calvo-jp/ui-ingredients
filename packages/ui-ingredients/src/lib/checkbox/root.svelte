@@ -5,12 +5,15 @@
 
   export interface CheckboxProps
     extends Assign<Omit<HtmlProps<'label'>, 'children'>, CreateCheckboxProps> {
+    asChild?: Snippet<
+      [attrs: Omit<HtmlProps<'label'>, 'children'>, checkbox: CreateCheckboxReturn]
+    >;
     children?: Snippet<[checkbox: CreateCheckboxReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {checkboxContext} from './context.svelte.js';
   import {createCheckbox} from './create-checkbox.svelte.js';
 
@@ -26,6 +29,7 @@
     readOnly,
     required,
     onCheckedChange,
+    asChild,
     children,
     ...props
   }: CheckboxProps = $props();
@@ -49,6 +53,10 @@
   checkboxContext.set(checkbox);
 </script>
 
-<label {...attrs}>
-  {@render children?.(checkbox)}
-</label>
+{#if asChild}
+  {@render asChild(attrs, checkbox)}
+{:else}
+  <label {...attrs}>
+    {@render children?.(checkbox)}
+  </label>
+{/if}

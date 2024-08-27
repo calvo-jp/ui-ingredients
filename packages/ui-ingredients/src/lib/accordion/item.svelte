@@ -5,15 +5,16 @@
 
   export interface AccordionItemProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {accordionContext, accordionItemPropsContext} from './context.svelte.js';
 
-  let {value, disabled, children, ...props}: AccordionItemProps = $props();
+  let {value, disabled, asChild, children, ...props}: AccordionItemProps = $props();
 
   let accordion = accordionContext.get();
   let itemProps = $derived({
@@ -27,6 +28,10 @@
   accordionItemPropsContext.set(() => itemProps);
 </script>
 
-<div {...attrs}>
-  {@render children?.(state)}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(state)}
+  </div>
+{/if}

@@ -1,11 +1,11 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
 
-  export interface TimerSeparatorProps extends HtmlProps<'span'> {}
+  export interface TimerSeparatorProps extends HtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {timerContext} from './context.svelte.js';
 
   let {children, ...props}: TimerSeparatorProps = $props();
@@ -15,6 +15,6 @@
   let attrs = $derived(mergeProps(props, timer.getSeparatorProps()));
 </script>
 
-<span {...attrs}>
+<div {...attrs}>
   {@render children?.()}
-</span>
+</div>

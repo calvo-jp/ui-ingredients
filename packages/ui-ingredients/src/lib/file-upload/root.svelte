@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {fileUploadContext} from './context.svelte.js';
   import {createFileUpload} from './create-file-upload.svelte.js';
 

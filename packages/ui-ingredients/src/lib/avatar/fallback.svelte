@@ -1,20 +1,27 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface AvatarFallbackProps extends HtmlProps<'div'> {}
+  export interface AvatarFallbackProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'div'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {avatarContext} from './context.svelte.js';
 
-  let {children, ...props}: AvatarFallbackProps = $props();
+  let {asChild, children, ...props}: AvatarFallbackProps = $props();
 
   let avatar = avatarContext.get();
 
   let attrs = $derived(mergeProps(props, avatar.getFallbackProps()));
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

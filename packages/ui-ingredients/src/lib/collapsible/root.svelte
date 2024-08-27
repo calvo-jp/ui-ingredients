@@ -8,12 +8,15 @@
 
   export interface CollapsibleProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateCollapsibleProps> {
+    asChild?: Snippet<
+      [attrs: Omit<HtmlProps<'button'>, 'children'>, collapsible: CreateCollapsibleReturn]
+    >;
     children?: Snippet<[collapsible: CreateCollapsibleReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {collapsibleContext} from './context.svelte.js';
   import {createCollapsible} from './create-collapsible.svelte.js';
 
@@ -25,6 +28,7 @@
     defaultOpen,
     onOpenChange,
     onExitComplete,
+    asChild,
     children,
     ...props
   }: CollapsibleProps = $props();
@@ -44,6 +48,10 @@
   collapsibleContext.set(collapsible);
 </script>
 
-<div {...attrs}>
-  {@render children?.(collapsible)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, collapsible)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(collapsible)}
+  </div>
+{/if}

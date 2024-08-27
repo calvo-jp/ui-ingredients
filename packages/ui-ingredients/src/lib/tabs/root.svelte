@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {tabsContext} from './context.svelte.js';
   import {createTabs} from './create-tabs.svelte.js';
 

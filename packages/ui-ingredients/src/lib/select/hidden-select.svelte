@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {selectContext} from './context.svelte.js';
 
   let {children, ...props}: SelectHiddenSelectProps = $props();

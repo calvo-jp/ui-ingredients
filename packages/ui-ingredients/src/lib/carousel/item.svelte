@@ -5,15 +5,16 @@
 
   export interface CarouselItemProps
     extends Assign<Omit<HtmlProps<'button'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>, state: ItemState]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {carouselContext} from './context.svelte.js';
 
-  let {index, children, ...props}: CarouselItemProps = $props();
+  let {index, asChild, children, ...props}: CarouselItemProps = $props();
 
   let carousel = carouselContext.get();
 
@@ -21,6 +22,10 @@
   let attrs = $derived(mergeProps(props, carousel.getItemProps({index})));
 </script>
 
-<button type="button" {...attrs}>
-  {@render children?.(state)}
-</button>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <button type="button" {...attrs}>
+    {@render children?.(state)}
+  </button>
+{/if}

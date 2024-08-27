@@ -3,11 +3,11 @@
   import type {IndicatorProps} from '@zag-js/clipboard';
 
   export interface ClipboardIndicatorProps
-    extends Assign<HtmlProps<'span'>, Partial<IndicatorProps>> {}
+    extends Assign<HtmlProps<'div'>, Partial<IndicatorProps>> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {clipboardContext} from './context.svelte.js';
 
   let {copied = false, children, ...props}: ClipboardIndicatorProps = $props();
@@ -17,6 +17,6 @@
   let attrs = $derived(mergeProps(props, clipboard.getIndicatorProps({copied})));
 </script>
 
-<span {...attrs}>
+<div {...attrs}>
   {@render children?.()}
-</span>
+</div>

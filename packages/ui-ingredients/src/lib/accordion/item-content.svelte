@@ -1,14 +1,17 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface AccordionItemContentProps extends HtmlProps<'div'> {}
+  export interface AccordionItemContentProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'div'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {accordionContext, accordionItemPropsContext} from './context.svelte.js';
 
-  let {children, ...props}: AccordionItemContentProps = $props();
+  let {asChild, children, ...props}: AccordionItemContentProps = $props();
 
   let accordion = accordionContext.get();
   let itemProps = accordionItemPropsContext.get();
@@ -16,6 +19,10 @@
   let attrs = $derived(mergeProps(props, accordion.getItemContentProps(itemProps)));
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

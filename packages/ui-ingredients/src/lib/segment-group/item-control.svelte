@@ -5,8 +5,7 @@
 </script>
 
 <script lang="ts">
-  import {ensureStyleIsString} from '$lib/utils.svelte.js';
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {parts} from './anatomy.js';
   import {segmentGroupContext, segmentGroupItemPropsContext} from './context.svelte.js';
 
@@ -20,6 +19,6 @@
   );
 </script>
 
-<div {...ensureStyleIsString(attrs)}>
+<div {...attrs}>
   {@render children?.()}
 </div>

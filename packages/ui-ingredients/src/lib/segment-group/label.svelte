@@ -1,12 +1,11 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
 
-  export interface SegmentGroupLabelProps extends HtmlProps<'span'> {}
+  export interface SegmentGroupLabelProps extends HtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
-  import {ensureStyleIsString} from '$lib/utils.svelte.js';
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {parts} from './anatomy.js';
   import {segmentGroupContext} from './context.svelte.js';
 
@@ -17,6 +16,6 @@
   let attrs = $derived(mergeProps(props, segmentGroup.getLabelProps(), parts.label.attrs));
 </script>
 
-<span {...ensureStyleIsString(attrs)}>
+<div {...attrs}>
   {@render children?.()}
-</span>
+</div>

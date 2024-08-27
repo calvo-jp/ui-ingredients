@@ -1,11 +1,11 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
 
-  export interface SliderValueTextProps extends HtmlProps<'span'> {}
+  export interface SliderValueTextProps extends HtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {sliderContext} from './context.svelte.js';
 
   let {children, ...props}: SliderValueTextProps = $props();
@@ -15,10 +15,10 @@
   let attrs = $derived(mergeProps(props, slider.getValueTextProps()));
 </script>
 
-<span {...attrs}>
+<div {...attrs}>
   {#if children}
     {@render children()}
   {:else}
     {slider.value.join(', ')}
   {/if}
-</span>
+</div>

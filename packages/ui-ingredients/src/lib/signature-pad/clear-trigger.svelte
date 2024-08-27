@@ -5,16 +5,16 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {signaturePadContext} from './context.svelte.js';
 
-  let {children,...props}: SignaturePadClearTriggerProps = $props();
+  let {children, ...props}: SignaturePadClearTriggerProps = $props();
 
   let signaturePad = signaturePadContext.get();
 
   let attrs = $derived(mergeProps(props, signaturePad.getClearTriggerProps()));
 </script>
 
-<button type="button" {...attrs} >
+<button type="button" {...attrs}>
   {@render children?.()}
 </button>

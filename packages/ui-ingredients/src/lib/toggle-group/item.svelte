@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {toggleGroupContext} from './context.svelte.js';
 
   let {value, disabled, children, ...props}: ToggleGroupItemProps = $props();

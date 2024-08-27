@@ -13,7 +13,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {ratingGroupContext} from './context.svelte.js';
   import {createRatingGroup} from './create-rating-group.svelte.js';
 

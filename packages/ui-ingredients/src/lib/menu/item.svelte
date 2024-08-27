@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {menuContext} from './context.svelte.js';
 
   let {value, valueText, disabled, closeOnSelect, children, ...props}: MenuItemProps = $props();

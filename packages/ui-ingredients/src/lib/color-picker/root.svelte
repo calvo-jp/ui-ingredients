@@ -13,7 +13,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {colorPickerContext} from './context.svelte.js';
   import {createColorPicker} from './create-color-picker.svelte.js';
 

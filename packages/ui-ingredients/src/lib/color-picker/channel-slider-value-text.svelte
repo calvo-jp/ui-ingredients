@@ -6,7 +6,7 @@
 
 <script lang="ts">
   import {localeContext} from '$lib/locale-provider/context.svelte.js';
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {colorPickerChannelSliderPropsContext, colorPickerContext} from './context.svelte.js';
 
   let {children, ...props}: ColorPickerChannelSliderValueTextProps = $props();

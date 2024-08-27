@@ -1,11 +1,11 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
 
-  export interface SelectItemIndicatorProps extends HtmlProps<'span'> {}
+  export interface SelectItemIndicatorProps extends HtmlProps<'div'> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '$lib/utils.svelte.js';
   import {selectContext, selectItemPropsContext} from './context.svelte.js';
 
   let {children, ...props}: SelectItemIndicatorProps = $props();
@@ -16,6 +16,6 @@
   let attrs = $derived(mergeProps(props, select.getItemIndicatorProps(itemProps)));
 </script>
 
-<span {...attrs}>
+<div {...attrs}>
   {@render children?.()}
-</span>
+</div>
