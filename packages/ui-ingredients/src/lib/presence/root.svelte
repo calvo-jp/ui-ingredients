@@ -11,22 +11,22 @@
 
   let {
     /**/
-    present,
-    immediate,
-    onExitComplete,
+    present = $bindable(false),
+    keepMounted,
     children,
     ...props
   }: PresenceProps = $props();
 
   let presence = createPresence({
     present,
-    immediate,
-    onExitComplete,
+    keepMounted,
   });
 
   let attrs = $derived(mergeProps(props, presence.getRootProps()));
 </script>
 
-<div use:presence.ref {...attrs}>
-  {@render children?.()}
-</div>
+{#if !presence.unmounted}
+  <div use:presence.ref {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

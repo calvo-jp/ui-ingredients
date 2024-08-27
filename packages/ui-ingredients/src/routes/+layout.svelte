@@ -160,6 +160,10 @@
       label: 'Splitter',
       path: '/splitter',
     },
+    {
+      label: 'Presence',
+      path: '/presence',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));
