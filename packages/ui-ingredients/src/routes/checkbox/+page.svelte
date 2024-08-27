@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Checkbox} from '$lib/index.js';
+  import {CheckIcon} from '@untitled-theme/icons-svelte';
 
   let checked = $state(false);
 </script>
@@ -14,21 +15,10 @@
   }}
 >
   <Checkbox.Control
-    class="data-checked:border-green-600 data-checked:bg-green-600 group flex h-5 w-5 items-center justify-center border transition-colors duration-200"
+    class="data-checked:border-accent data-checked:bg-accent group flex size-6 items-center justify-center rounded border transition-colors duration-200"
   >
     <Checkbox.Indicator class="animate-fade-out group-data-checked:animate-fade-in">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="h-4.5 w-4.5 text-white"
-      >
-        <path d="M20 6L9 17L4 12"></path>
-      </svg>
+      <CheckIcon class="size-4 text-white" />
     </Checkbox.Indicator>
   </Checkbox.Control>
   <Checkbox.Label>I accept the terms and conditions</Checkbox.Label>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Pagination} from '$lib/index.js';
+  import {ChevronLeftIcon, ChevronRightIcon} from '@untitled-theme/icons-svelte';
 
   let page = $state(1);
 
@@ -7,7 +8,7 @@
 </script>
 
 <Pagination.Root
-  count={100}
+  count={50}
   pageSize={10}
   class="flex items-center gap-2"
   {page}
@@ -17,56 +18,30 @@
 >
   {#snippet children(context)}
     <Pagination.PrevTrigger
-      class="flex size-11 items-center justify-center border disabled:cursor-not-allowed disabled:opacity-50"
+      class="flex size-12 items-center justify-center rounded border disabled:cursor-not-allowed disabled:opacity-50"
     >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M15 18L9 12L15 6"></path>
-      </svg>
+      <ChevronLeftIcon />
     </Pagination.PrevTrigger>
 
     {#each context.pages as page, index}
       {#if page.type === 'page'}
         <Pagination.Item
           value={page.value}
-          class="aria-page:border-indigo-800 aria-page:text-indigo-400 aria-page:bg-indigo-800/25 aria-page:font-semibold flex h-11 min-w-11 items-center justify-center border transition-all duration-200"
+          class="aria-page:border-accent aria-page:text-accent aria-page:bg-accent/15 aria-page:font-semibold flex size-12 items-center justify-center rounded border transition-all duration-200"
         >
           {page.value}
         </Pagination.Item>
       {:else}
-        <Pagination.Ellipsis
-          {index}
-          class="flex size-11 items-center justify-center"
+        <Pagination.Ellipsis {index} class="flex size-12 items-center justify-center"
           >...</Pagination.Ellipsis
         >
       {/if}
     {/each}
 
     <Pagination.NextTrigger
-      class="flex size-11 items-center justify-center border disabled:cursor-not-allowed disabled:opacity-50"
+      class="flex size-12 items-center justify-center rounded border disabled:cursor-not-allowed disabled:opacity-50"
     >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M9 18L15 12L9 6"></path>
-      </svg>
+      <ChevronRightIcon />
     </Pagination.NextTrigger>
   {/snippet}
 </Pagination.Root>

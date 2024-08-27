@@ -6,29 +6,21 @@
   {#snippet children(context)}
     <div class="flex items-center gap-2">
       <Progress.Label>Label</Progress.Label>
-      <Progress.ValueText class="text-sm text-neutral-500" />
+      <Progress.ValueText class="text-muted text-sm" />
     </div>
-    <Progress.Circle
-      class="mt-3 [--size:theme(spacing.16)] [--thickness:theme(spacing.2)]"
-    >
+    <Progress.Circle class="mt-3 [--size:theme(spacing.16)] [--thickness:theme(spacing.2)]">
       <Progress.CircleTrack class="stroke-neutral-600" />
-      <Progress.CircleRange
-        class="stroke-indigo-500 transition-all duration-200"
-      />
+      <Progress.CircleRange class="stroke-accent transition-all duration-200" />
     </Progress.Circle>
 
-    <Progress.Track
-      class="mt-5 h-2.5 overflow-hidden rounded-full bg-neutral-600"
-    >
-      <Progress.Range
-        class="h-full bg-indigo-500 transition-all duration-200 [--translate-x:100%]"
-      />
+    <Progress.Track class="mt-5 h-2.5 overflow-hidden rounded-full bg-neutral-600">
+      <Progress.Range class="bg-accent h-full transition-all duration-200 [--translate-x:100%]" />
     </Progress.Track>
 
     <div class="mt-5 flex gap-3">
       <button
         type="button"
-        class="h-10 border px-3 text-sm"
+        class="h-10 rounded border px-3 text-sm"
         onclick={() => {
           context.setValue((context.value ?? 0) - 10);
         }}
@@ -37,7 +29,7 @@
       </button>
       <button
         type="button"
-        class="h-10 border px-3 text-sm"
+        class="h-10 rounded border px-3 text-sm"
         onclick={() => {
           context.setValue((context.value ?? 0) + 10);
         }}

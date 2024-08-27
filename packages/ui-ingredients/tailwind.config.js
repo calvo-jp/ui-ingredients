@@ -1,3 +1,4 @@
+import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme.js';
 
 /** @type {import('tailwindcss').Config} */
@@ -9,7 +10,28 @@ export default {
       sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
       mono: ["'Fira Code'", ...defaultTheme.fontFamily.mono],
     },
+
     extend: {
+      colors: {
+        muted: colors.neutral[500],
+        accent: colors.indigo[500],
+        success: colors.green[500],
+        disabled: colors.neutral[600],
+      },
+      borderColor: {
+        DEFAULT: colors.neutral[800],
+        light: colors.neutral[700],
+        lighter: colors.neutral[600],
+        accent: colors.indigo[500],
+        success: colors.green[500],
+      },
+      backgroundColor: {
+        DEFAULT: colors.neutral[900],
+        light: colors.neutral[800],
+        lighter: colors.neutral[700],
+        accent: colors.indigo[500],
+        success: colors.green[500],
+      },
       zIndex: {
         hide: '-1',
         auto: 'auto',
@@ -101,12 +123,6 @@ export default {
         'fade-out': 'fade-out 200ms ease-in-out',
         'slide-in-left': 'slide-in-left 200ms ease-in-out',
         'slide-out-left': 'slide-out-left 200ms ease-in-out',
-      },
-      borderColor(theme) {
-        return {
-          ...theme('colors'),
-          DEFAULT: theme('colors.neutral.700'),
-        };
       },
     },
   },

@@ -1,91 +1,41 @@
 <script lang="ts">
   import {DatePicker} from '$lib/index.js';
-
-  let months = [
-    /**/
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+  import {CalendarIcon, ChevronLeftIcon, ChevronRightIcon} from '@untitled-theme/icons-svelte';
 </script>
 
 <DatePicker.Root
-  class="max-w-[20rem]"
+  class="w-full lg:max-w-[20rem]"
   fixedWeeks
   positioning={{
     sameWidth: true,
   }}
 >
   {#snippet children(api)}
-    <DatePicker.Label class="mb-1 inline-block text-neutral-400">Choose Date</DatePicker.Label>
+    <DatePicker.Label class="text-muted mb-1 inline-block font-medium">Choose Date</DatePicker.Label
+    >
     <DatePicker.Control class="flex gap-2">
-      <DatePicker.Input class="h-11 grow border px-3 placeholder:text-neutral-500" />
-      <DatePicker.Trigger class="flex size-11 items-center justify-center border">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z"
-          ></path>
-        </svg>
+      <DatePicker.Input class="h-12 grow rounded border px-3.5" />
+      <DatePicker.Trigger class="flex size-12 items-center justify-center rounded border">
+        <CalendarIcon class="size-5" />
       </DatePicker.Trigger>
     </DatePicker.Control>
 
     <DatePicker.Positioner>
-      <DatePicker.Content class="bg-neutral-800">
+      <DatePicker.Content class="bg-light overflow-hidden rounded">
         <DatePicker.View view="day">
-          <DatePicker.ViewControl class="flex items-center justify-between border px-4 py-2">
+          <DatePicker.ViewControl
+            class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-2"
+          >
             <DatePicker.PrevTrigger class="flex size-10 items-center justify-center">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M15 18L9 12L15 6"></path>
-              </svg>
+              <ChevronLeftIcon class="size-5" />
             </DatePicker.PrevTrigger>
 
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText />
+              <DatePicker.RangeText class="font-semibold" />
             </DatePicker.ViewTrigger>
 
             <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M9 18L15 12L9 6"></path>
-              </svg>
+              <ChevronRightIcon class="size-5" />
             </DatePicker.NextTrigger>
           </DatePicker.ViewControl>
 
@@ -108,7 +58,7 @@
                   {#each week as day}
                     <DatePicker.DayTableCell value={day} class="aspect-square w-full">
                       <DatePicker.DayTableCellTrigger
-                        class="data-disabled:opacity-50 data-selected:text-indigo-500 flex size-full items-center justify-center"
+                        class="data-disabled:opacity-50 data-selected:text-accent flex size-full items-center justify-center"
                       >
                         {day.day}
                       </DatePicker.DayTableCellTrigger>
@@ -165,7 +115,7 @@
                   {#each months as month}
                     <DatePicker.MonthTableCell value={month.value} class="w-full">
                       <DatePicker.MonthTableCellTrigger
-                        class="data-selected:text-indigo-500 flex size-full items-center justify-center"
+                        class="data-selected:text-accent flex size-full items-center justify-center"
                       >
                         {month.label}
                       </DatePicker.MonthTableCellTrigger>
@@ -222,7 +172,7 @@
                   {#each years as year}
                     <DatePicker.YearTableCell value={year.value} class="w-full">
                       <DatePicker.YearTableCellTrigger
-                        class="data-selected:text-indigo-500 flex size-full items-center justify-center"
+                        class="data-selected:text-accent flex size-full items-center justify-center"
                       >
                         {year.label}
                       </DatePicker.YearTableCellTrigger>

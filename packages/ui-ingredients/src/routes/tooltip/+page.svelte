@@ -3,11 +3,11 @@
 </script>
 
 <Tooltip.Root openDelay={0} closeDelay={50}>
-  <Tooltip.Trigger class="h-11 border px-3">Hover me</Tooltip.Trigger>
+  <Tooltip.Trigger class="h-12 rounded border px-3.5">Hover me</Tooltip.Trigger>
   <Portal>
     <Tooltip.Positioner>
       <Tooltip.Content
-        class="data-open:animate-fade-in data-closed:animate-fade-out rounded bg-neutral-800 px-3.5 py-2.5 text-neutral-100 shadow-md"
+        class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded px-3.5 py-2.5 shadow-md"
       >
         <Tooltip.Arrow
           class="data-closed:hidden [--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"

@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Combobox} from '$lib/index.js';
+  import {CheckIcon, ChevronDownIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
 
   let items = [
     {
@@ -22,9 +23,7 @@
   let inputValue = $state('');
 
   let matches = $derived(
-    items.filter((item) =>
-      item.label.toLowerCase().includes(inputValue.toLowerCase()),
-    ),
+    items.filter((item) => item.label.toLowerCase().includes(inputValue.toLowerCase())),
   );
 
   $inspect({
@@ -50,81 +49,34 @@
     sameWidth: true,
   }}
 >
-  <Combobox.Label class="mb-1 inline-block text-neutral-400"
-    >Select Frameworks</Combobox.Label
+  <Combobox.Label class="text-muted mb-1 inline-block font-medium">Select Frameworks</Combobox.Label
   >
-  <Combobox.Control class="flex max-w-[20rem]">
-    <Combobox.Input class="h-11 grow border px-3" />
+  <Combobox.Control class="flex w-full gap-2 lg:max-w-[24rem]">
+    <Combobox.Input class="h-12 grow rounded border px-3.5" />
     <Combobox.Trigger
-      class="group flex size-11 shrink-0 items-center justify-center border border-l-0"
+      class="group flex size-12 shrink-0 items-center justify-center rounded border"
     >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="group-data-open:rotate-180 transition-transform duration-200"
-      >
-        <path d="M6 9L12 15L18 9"></path>
-      </svg>
+      <ChevronDownIcon class="size-5" />
     </Combobox.Trigger>
-    <Combobox.ClearTrigger
-      class="flex size-11 shrink-0 items-center justify-center border border-l-0"
-    >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M17 7L7 17M7 7L17 17"></path>
-      </svg>
+    <Combobox.ClearTrigger class="flex size-12 shrink-0 items-center justify-center rounded border">
+      <XCloseIcon class="size-5" />
     </Combobox.ClearTrigger>
   </Combobox.Control>
   <Combobox.Positioner>
     <Combobox.Content
-      class="data-open:animate-fade-in data-closed:animate-fade-out border bg-neutral-800 px-3 py-2"
+      class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
     >
-      <Combobox.ItemGroup>
-        <Combobox.ItemGroupLabel class="text-sm text-neutral-500"
-          >Frameworks</Combobox.ItemGroupLabel
+      {#each matches as item}
+        <Combobox.Item
+          {item}
+          class="data-disabled:cursor-not-allowed data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"
         >
-
-        {#each matches as item}
-          <Combobox.Item
-            {item}
-            class="data-disabled:cursor-not-allowed data-disabled:opacity-75 flex cursor-default items-center"
-          >
-            <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
-            <Combobox.ItemIndicator>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-5 w-5 text-green-600"
-              >
-                <path d="M20 6L9 17L4 12"></path>
-              </svg>
-            </Combobox.ItemIndicator>
-          </Combobox.Item>
-        {/each}
-      </Combobox.ItemGroup>
+          <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
+          <Combobox.ItemIndicator>
+            <CheckIcon class="text-success size-5" />
+          </Combobox.ItemIndicator>
+        </Combobox.Item>
+      {/each}
     </Combobox.Content>
   </Combobox.Positioner>
 </Combobox.Root>

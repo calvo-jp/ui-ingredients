@@ -13,12 +13,12 @@
     value = detail.value;
   }}
 >
-  <PinInput.Label class="mb-1 inline-block text-neutral-400">Enter OTP</PinInput.Label>
+  <PinInput.Label class="text-muted mb-1 inline-block font-medium">Enter OTP</PinInput.Label>
   <PinInput.HiddenInput />
 
   <div class="flex gap-1">
     {#each Array.from({length: 6}) as _, i}
-      <PinInput.Input index={i} class="size-11 border text-center" />
+      <PinInput.Input index={i} class="size-12 rounded border text-center" />
     {/each}
   </div>
 </PinInput.Root>

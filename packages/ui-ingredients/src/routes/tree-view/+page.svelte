@@ -1,7 +1,6 @@
 <script lang="ts">
   import {TreeView} from '$lib/index.js';
-
-  let value = $state([0, 25]);
+  import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
 </script>
 
 <TreeView.Root>
@@ -15,18 +14,7 @@
     <TreeView.Branch value="2" depth={3}>
       <TreeView.BranchControl class="flex items-center gap-1">
         <TreeView.BranchIndicator class="data-open:rotate-90 transition-transform duration-200">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="size-5"
-          >
-            <path d="M9 18L15 12L9 6"></path>
-          </svg>
+          <ChevronRightIcon class="size-5" />
         </TreeView.BranchIndicator>
         <TreeView.BranchText>Item 2</TreeView.BranchText>
       </TreeView.BranchControl>
@@ -44,18 +32,7 @@
     <TreeView.Branch value="3" depth={3}>
       <TreeView.BranchControl class="flex items-center gap-1">
         <TreeView.BranchIndicator class="data-open:rotate-90 transition-transform duration-200">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="size-5"
-          >
-            <path d="M9 18L15 12L9 6"></path>
-          </svg>
+          <ChevronRightIcon class="size-5" />
         </TreeView.BranchIndicator>
         <TreeView.BranchText>Item 3</TreeView.BranchText>
       </TreeView.BranchControl>
@@ -68,18 +45,7 @@
         <TreeView.Branch value="3.2" depth={3}>
           <TreeView.BranchControl class="flex items-center gap-1">
             <TreeView.BranchIndicator class="data-open:rotate-90 transition-transform duration-200">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="size-5"
-              >
-                <path d="M9 18L15 12L9 6"></path>
-              </svg>
+              <ChevronRightIcon class="size-5" />
             </TreeView.BranchIndicator>
             <TreeView.BranchText>Item 3.2.1</TreeView.BranchText>
           </TreeView.BranchControl>

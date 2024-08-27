@@ -12,6 +12,11 @@
       label: 'Item 2',
       content: 'Item 2 Description',
     },
+    {
+      value: 'three',
+      label: 'Item 3',
+      content: 'Item 3 Description',
+    },
   ];
 
   let value = $state([items[0].value]);
@@ -26,9 +31,12 @@
   }}
 >
   {#each items as { label, value, content }}
-    <Accordion.Item {value} class="border-x border-b p-4 first:border-t">
+    <Accordion.Item
+      {value}
+      class="border-x border-b p-4 first:rounded-t first:border-t last:rounded-b"
+    >
       <Accordion.ItemTrigger class="flex w-full text-left">
-        <span class="grow">{label}</span>
+        <span class="grow font-semibold">{label}</span>
 
         <Accordion.ItemIndicator class="data-open:rotate-180 transition-all duration-200">
           <svg
@@ -46,7 +54,7 @@
           </svg>
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
-      <Accordion.ItemContent class="text-neutral-500">{content}</Accordion.ItemContent>
+      <Accordion.ItemContent class="text-muted">{content}</Accordion.ItemContent>
     </Accordion.Item>
   {/each}
 </Accordion.Root>

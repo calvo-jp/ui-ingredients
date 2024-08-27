@@ -3,11 +3,11 @@
 </script>
 
 <Collapsible.Root>
-  <Collapsible.Trigger class="h-11 border px-3.5">Open</Collapsible.Trigger>
+  <Collapsible.Trigger class="h-12 rounded border px-3.5">Open</Collapsible.Trigger>
   <Collapsible.Content
-    class="data-open:animate-collapse-in data-closed:animate-collapse-out mt-3 max-w-[32rem] overflow-hidden bg-neutral-800/50 text-neutral-400"
+    class="data-open:animate-collapse-in lg: data-closed:animate-collapse-out mt-3 w-full max-w-[32rem] overflow-hidden rounded"
   >
-    <div class="border p-4 text-sm">
+    <div class="rounded border p-4">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odit optio, eaque
       laborum nesciunt dolores temporibus accusantium neque quasi dolore, id itaque architecto
       libero voluptatem laboriosam soluta nobis consectetur earum?

@@ -7,18 +7,16 @@
     placement: 'bottom-start',
   }}
 >
-  <Popover.Trigger class="h-11 border px-3">Click me</Popover.Trigger>
+  <Popover.Trigger class="h-12 rounded border px-3.5">Click me</Popover.Trigger>
   <Popover.Positioner>
     <Popover.Content
-      class="data-open:animate-fade-in data-closed:animate-fade-out w-[20rem] border bg-neutral-800 p-4"
+      class="data-open:animate-fade-in data-closed:animate-fade-out bg-light w-[80vw] rounded border p-4 lg:w-[20rem]"
     >
-      <Popover.Title class="text-neutral-300">Title</Popover.Title>
-      <Popover.Description class="text-sm text-neutral-500"
-        >Description</Popover.Description
-      >
-      <Popover.CloseTrigger class="mt-3 h-10 w-full border px-3.5"
-        >Close</Popover.CloseTrigger
-      >
+      <Popover.Title class="font-medium">Title</Popover.Title>
+      <Popover.Description class="text-muted text-sm">Description</Popover.Description>
+      <Popover.CloseTrigger class="border-lighter mt-3 h-12 w-full rounded border px-3.5">
+        Close
+      </Popover.CloseTrigger>
     </Popover.Content>
   </Popover.Positioner>
 </Popover.Root>

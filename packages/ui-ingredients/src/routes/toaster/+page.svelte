@@ -13,7 +13,7 @@
 </script>
 
 <button
-  class="h-11 border px-3.5"
+  class="h-12 rounded border px-3.5"
   onclick={() => {
     toaster.create({
       title: `Hello ${randInt(1, 100)}`,
@@ -30,10 +30,12 @@
       class={cx(
         'p-4',
         'border',
-        'bg-neutral-800',
+        'rounded',
+        'bg-light',
         'duration-300',
         'transition-all',
-        'min-w-[20rem]',
+        'min-w-[90vw]',
+        'lg:min-w-[20rem]',
         'h-[var(--height)]',
         'z-[var(--z-index)]',
         '[translate:var(--x)_var(--y)_0]',
@@ -42,8 +44,10 @@
       )}
     >
       <Toast.Title class="font-medium" />
-      <Toast.Description class="text-sm text-neutral-500" />
-      <Toast.CloseTrigger class="mt-3 block h-11 w-full border">Close</Toast.CloseTrigger>
+      <Toast.Description class="text-muted text-sm" />
+      <Toast.CloseTrigger class="border-lighter mt-3 block h-12 w-full rounded border">
+        Close
+      </Toast.CloseTrigger>
     </Toast.Root>
   {/snippet}
 </Toaster>

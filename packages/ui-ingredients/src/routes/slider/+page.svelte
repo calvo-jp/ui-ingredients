@@ -17,8 +17,8 @@
   <Slider.ValueText class="text-sm text-neutral-500" />
 
   <Slider.Control class="relative mt-3 flex items-center">
-    <Slider.Track class="h-3 grow overflow-hidden rounded-full bg-neutral-600">
-      <Slider.Range class="h-4 bg-indigo-500" />
+    <Slider.Track class="bg-disabled h-3 grow overflow-hidden rounded-full">
+      <Slider.Range class="bg-accent h-4" />
     </Slider.Track>
     <Slider.Thumb index={0} class="size-5 rounded-full bg-white shadow-md">
       <Slider.HiddenInput />

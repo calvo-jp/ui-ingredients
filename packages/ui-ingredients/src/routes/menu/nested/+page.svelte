@@ -4,18 +4,22 @@
 
   let menuItemStyle = cx(
     'w-32',
+    'px-2.5',
+    'py-1',
     'flex',
     'items-center',
     'text-left',
+    'rounded',
     'cursor-default',
+    'data-highlighted:bg-lighter/50',
     'data-disabled:cursor-not-allowed',
     'data-disabled:opacity-75',
   );
 
   let menuContentStyle = cx(
-    'px-3',
-    'py-2',
+    'p-2',
     'border',
+    'rounded',
     'bg-neutral-800',
     'data-open:animate-fade-in',
     'data-closed:animate-fade-out',

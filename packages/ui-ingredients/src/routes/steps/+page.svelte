@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Steps} from '$lib/index.js';
+  import {CheckIcon} from '@untitled-theme/icons-svelte';
   import {cx} from '../shared/utils.js';
 
   const items = [
@@ -35,28 +36,17 @@
               'border-2',
               'transition-all',
               'duration-200',
-              'data-current:border-indigo-600',
-              'data-complete:border-indigo-600',
-              'data-complete:bg-indigo-600',
+              'data-current:border-accent',
+              'data-complete:border-accent',
+              'data-complete:bg-accent',
             )}
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="group-data-complete:block hidden size-4 text-white"
-            >
-              <path d="M20 6L9 17L4 12"></path>
-            </svg>
+            <CheckIcon class="group-data-complete:block hidden size-4 text-white" />
           </Steps.Indicator>
           <span>{item.title}</span>
         </Steps.Trigger>
         {#if index + 1 < items.length}
-          <Steps.Separator class="h-0.5 w-8 bg-neutral-800" />
+          <Steps.Separator class="bg-light h-0.5 w-8" />
         {/if}
       </Steps.Item>
     {/each}
@@ -64,21 +54,25 @@
 
   <div class="mt-5">
     {#each items as item, index}
-      <Steps.Content {index} class="max-w-[32rem] bg-neutral-800 p-5">
+      <Steps.Content {index} class="bg-light w-full rounded p-5 lg:max-w-[32rem]">
         {item.content}
       </Steps.Content>
     {/each}
 
-    <Steps.CompletedContent class="max-w-[32rem] bg-neutral-800 p-5">
+    <Steps.CompletedContent class="bg-light w-full rounded p-5 lg:max-w-[32rem]">
       Done!🚀
     </Steps.CompletedContent>
   </div>
 
   <div class="mt-5 flex items-center gap-3">
-    <Steps.PrevTrigger class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50">
+    <Steps.PrevTrigger
+      class="h-10 rounded border px-3.5 disabled:cursor-not-allowed disabled:opacity-50"
+    >
       Back
     </Steps.PrevTrigger>
-    <Steps.NextTrigger class="h-10 border px-3.5 disabled:cursor-not-allowed disabled:opacity-50">
+    <Steps.NextTrigger
+      class="h-10 rounded border px-3.5 disabled:cursor-not-allowed disabled:opacity-50"
+    >
       Next
     </Steps.NextTrigger>
   </div>

@@ -4,6 +4,10 @@
 
 @layer base {
   [hidden] {
-    display: none !important;
+    @apply !hidden;
+  }
+
+  input {
+    @apply placeholder:text-muted;
   }
 }

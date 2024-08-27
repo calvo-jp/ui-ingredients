@@ -192,7 +192,6 @@
           'shrink-0',
           'border-r',
           'overflow-y-auto',
-          'border-neutral-800',
         )}
       >
         <ul>
@@ -200,7 +199,7 @@
             <li class="block w-full">
               <a
                 href={item.path}
-                class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
+                class="aria-page:text-accent aria-page:font-medium group flex items-center transition-colors duration-200"
                 aria-current={item.path === currentItem?.path ? 'page' : undefined}
               >
                 {item.label}
@@ -210,14 +209,10 @@
         </ul>
       </nav>
 
-      <header
-        class="sticky top-0 flex h-16 items-center border-b border-neutral-800 bg-neutral-900 px-4 lg:hidden"
-      >
+      <header class="bg sticky top-0 flex h-16 items-center border-b px-4 lg:hidden">
         <Dialog.Root>
           <div class="flex items-center gap-3">
-            <Dialog.Trigger
-              class="flex size-9 items-center justify-center border border-neutral-800"
-            >
+            <Dialog.Trigger class="flex size-10 items-center justify-center rounded border">
               <svg
                 width="24"
                 height="24"
@@ -232,7 +227,7 @@
                 <path d="M3 8.5H21M3 15.5H21"></path>
               </svg>
             </Dialog.Trigger>
-            <span class="block bg-neutral-800/50 px-2.5 py-0.5 font-mono">
+            <span class="font-mono text-lg font-semibold">
               {currentItem?.label}
             </span>
           </div>
@@ -243,11 +238,11 @@
                 class="data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 top-0 bg-black/25 backdrop-blur-sm"
               />
               <Dialog.Content
-                class="data-open:animate-slide-in-left data-closed:animate-slide-out-left fixed bottom-0 left-0 top-0 w-64 border-r bg-neutral-800"
+                class="data-open:animate-slide-in-left data-closed:animate-slide-out-left bg fixed bottom-0 left-0 top-0 w-64 border-r"
               >
                 <div class="flex h-16 items-center justify-end border-b px-4">
                   <Dialog.CloseTrigger
-                    class="flex size-9 items-center justify-center border border-neutral-700"
+                    class="flex size-10 items-center justify-center rounded border"
                   >
                     <svg
                       width="24"
@@ -271,7 +266,7 @@
                       <li class="block w-full">
                         <a
                           href={item.path}
-                          class="aria-page:text-indigo-400 aria-page:font-medium group flex items-center transition-colors duration-200"
+                          class="aria-page:text-accent aria-page:font-medium group flex items-center transition-colors duration-200"
                           aria-current={item.path === currentItem?.path ? 'page' : undefined}
                         >
                           {item.label}

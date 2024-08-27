@@ -189,6 +189,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: 4.0.0-next.6
         version: 4.0.0-next.6(svelte@5.0.0-next.239)(vite@5.4.2)
+      '@untitled-theme/icons-svelte':
+        specifier: 0.10.7
+        version: 0.10.7(svelte@5.0.0-next.239)
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.41)
@@ -767,6 +770,11 @@ packages:
   '@typescript-eslint/visitor-keys@8.2.0':
     resolution: {integrity: sha512-sbgsPMW9yLvS7IhCi8IpuK1oBmtbWUNP+hBdwl/I9nzqVsszGnNGti5r9dUtF5RLivHUFFIdRvLiTsPhzSyJ3Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@untitled-theme/icons-svelte@0.10.7':
+    resolution: {integrity: sha512-sX2AWREXCbyReZnL483NsWuRZ9cvZXRgfPCBaKSZZ7foD4fOe9CWaUrQtt4oL1vDv/oD+5HFL5MfqWYqMgLF+w==}
+    peerDependencies:
+      svelte: '>=5.0.0'
 
   '@vercel/nft@0.27.3':
     resolution: {integrity: sha512-oySTdDSzUAFDXpsSLk9Q943o+/Yu/+TCFxnehpFQEf/3khi2stMpTHPVNwFdvZq/Z4Ky93lE+MGHpXCRpMkSCA==}
@@ -3724,6 +3732,10 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.2.0
       eslint-visitor-keys: 3.4.3
+
+  '@untitled-theme/icons-svelte@0.10.7(svelte@5.0.0-next.239)':
+    dependencies:
+      svelte: 5.0.0-next.239
 
   '@vercel/nft@0.27.3':
     dependencies:
