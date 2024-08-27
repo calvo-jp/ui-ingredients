@@ -84,7 +84,7 @@
             <TreeView.BranchText>Item 3.2.1</TreeView.BranchText>
           </TreeView.BranchControl>
           <TreeView.BranchContent class="pl-6">
-            <TreeView.Item value="3.1" depth={3}>
+            <TreeView.Item value="3.1" depth={3} class="pl-6">
               <TreeView.ItemText>Item 3.2.2</TreeView.ItemText>
             </TreeView.Item>
           </TreeView.BranchContent>

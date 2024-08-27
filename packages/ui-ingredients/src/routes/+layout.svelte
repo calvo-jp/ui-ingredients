@@ -187,6 +187,7 @@
           'p-12',
           'shrink-0',
           'border-r',
+          'overflow-y-auto',
           'border-neutral-800',
         )}
       >
