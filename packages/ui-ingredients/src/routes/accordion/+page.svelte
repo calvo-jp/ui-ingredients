@@ -56,9 +56,7 @@
       </Accordion.ItemTrigger>
       <Accordion.ItemContent class="text-muted">
         {#snippet asChild(attrs)}
-          <p {...attrs}>
-            {content}
-          </p>
+          <p {...attrs}>{content}</p>
         {/snippet}
       </Accordion.ItemContent>
     </Accordion.Item>

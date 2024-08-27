@@ -27,7 +27,7 @@
 </script>
 
 <Menu.Root>
-  <Menu.Trigger class="flex h-11 items-center gap-2 border px-3.5">Open</Menu.Trigger>
+  <Menu.Trigger class="flex h-12 items-center gap-2 rounded border px-3.5">Open</Menu.Trigger>
 
   <Menu.Positioner>
     <Menu.Content class={menuContentStyle}>

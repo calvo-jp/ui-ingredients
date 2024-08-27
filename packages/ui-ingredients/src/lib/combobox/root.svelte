@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateComboboxProps, CreateComboboxReturn} from './create-combobox.svelte.js';
 
   export interface ComboboxProps<T>
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateComboboxProps<T>> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, combobox: CreateComboboxReturn]>;
     children?: Snippet<[combobox: CreateComboboxReturn]>;
   }
 </script>
@@ -56,6 +57,7 @@
     onPointerDownOutside,
     getSelectionValue,
     scrollToIndexFn,
+    asChild,
     children,
     ...props
   }: ComboboxProps<T> = $props();
@@ -109,6 +111,10 @@
   comboboxContext.set(combobox);
 </script>
 
-<div {...attrs}>
-  {@render children?.(combobox)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, combobox)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(combobox)}
+  </div>
+{/if}

@@ -1,11 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/carousel';
   import type {Snippet} from 'svelte';
 
-  export interface CarouselItemProps
-    extends Assign<Omit<HtmlProps<'button'>, 'children'>, ItemProps> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>, state: ItemState]>;
+  export interface CarouselItemProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: ItemState]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
@@ -25,7 +24,7 @@
 {#if asChild}
   {@render asChild(attrs, state)}
 {:else}
-  <button type="button" {...attrs}>
+  <div {...attrs}>
     {@render children?.(state)}
-  </button>
+  </div>
 {/if}

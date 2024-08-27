@@ -1,10 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateClipboardProps, CreateClipboardReturn} from './create-clipboard.svelte.js';
 
   export interface ClipboardProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateClipboardProps> {
+    asChild?: Snippet<
+      [attrs: Omit<GenericHtmlProps, 'children'>, clipboard: CreateClipboardReturn]
+    >;
     children?: Snippet<[clipboard: CreateClipboardReturn]>;
   }
 </script>
@@ -21,6 +24,7 @@
     value,
     timeout,
     onStatusChange,
+    asChild,
     children,
     ...props
   }: ClipboardProps = $props();
@@ -38,6 +42,10 @@
   clipboardContext.set(clipboard);
 </script>
 
-<div {...attrs}>
-  {@render children?.(clipboard)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, clipboard)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(clipboard)}
+  </div>
+{/if}

@@ -1,4 +1,4 @@
-import type {SvelteHTMLElements} from 'svelte/elements';
+import type {HTMLAttributes, SvelteHTMLElements} from 'svelte/elements';
 
 export type Assign<Target, Source> = Omit<Target, keyof Source> & Source;
 
@@ -11,3 +11,4 @@ type IntrinsicElements = keyof {
 };
 
 export type HtmlProps<T extends IntrinsicElements> = SvelteHTMLElements[T];
+export type GenericHtmlProps = HTMLAttributes<HTMLElement>;

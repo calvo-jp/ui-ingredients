@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateCollapsibleProps,
@@ -9,7 +9,7 @@
   export interface CollapsibleProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateCollapsibleProps> {
     asChild?: Snippet<
-      [attrs: Omit<HtmlProps<'button'>, 'children'>, collapsible: CreateCollapsibleReturn]
+      [attrs: Omit<GenericHtmlProps, 'children'>, collapsible: CreateCollapsibleReturn]
     >;
     children?: Snippet<[collapsible: CreateCollapsibleReturn]>;
   }

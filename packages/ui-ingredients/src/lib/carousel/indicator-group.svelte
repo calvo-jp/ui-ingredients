@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
 
   export interface CarouselIndicatorGroupProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'div'>, 'children'>]>;
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
   }
 </script>
 

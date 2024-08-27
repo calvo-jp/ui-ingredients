@@ -8,8 +8,8 @@ export function isObject<T extends Record<string, unknown>>(value: unknown): val
   return Object.prototype.toString.call(value) === '[object Object]' && value === Object(value);
 }
 
-export function mergeProps<T extends Record<string, any>>(...l: T[]): T {
-  const r = originalMergeProps<Record<string, any>>(...l);
+export function mergeProps<T extends Record<string, any>>(...args: T[]): T {
+  const r = originalMergeProps<Record<string, any>>(...args);
 
   if (r.style && isObject<Record<string, any>>(r.style)) {
     let s = '';
