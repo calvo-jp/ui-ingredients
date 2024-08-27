@@ -1,0 +1,29 @@
+<script lang="ts" module>
+  import type {HtmlProps} from '$lib/types.js';
+
+  export interface ColorPickerChannelSliderValueTextProps extends HtmlProps<'div'> {}
+</script>
+
+<script lang="ts">
+  import {localeContext} from '$lib/locale-provider/context.svelte.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {colorPickerChannelSliderPropsContext, colorPickerContext} from './context.svelte.js';
+
+  let {children, ...props}: ColorPickerChannelSliderValueTextProps = $props();
+
+  let locale = localeContext.get();
+  let colorPicker = colorPickerContext.get();
+  let channelSliderProps = colorPickerChannelSliderPropsContext.get();
+
+  let attrs = $derived(
+    mergeProps(props, colorPicker.getChannelSliderValueTextProps(channelSliderProps)),
+  );
+</script>
+
+<div {...attrs}>
+  {#if children}
+    {@render children()}
+  {:else}
+    {colorPicker.getChannelValueText(channelSliderProps.channel, locale.locale)}
+  {/if}
+</div>

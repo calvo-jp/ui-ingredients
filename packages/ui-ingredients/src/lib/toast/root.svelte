@@ -4,7 +4,7 @@
   import type {CreateToastReturn} from './create-toast.svelte.js';
 
   export interface ToastProps extends Omit<HtmlProps<'div'>, 'children'> {
-    children?: Snippet<[api: CreateToastReturn]>;
+    children?: Snippet<[toast: CreateToastReturn]>;
   }
 </script>
 
@@ -14,15 +14,14 @@
 
   let {children, ...props}: ToastProps = $props();
 
-  let context = toastContext.get();
-
-  let attrs = $derived(mergeProps(props, context.getRootProps()));
+  let toast = toastContext.get();
+  let attrs = $derived(mergeProps(props, toast.getRootProps()));
 </script>
 
 <div {...attrs}>
-  <div {...context.getGhostBeforeProps()}></div>
+  <div {...toast.getGhostBeforeProps()}></div>
 
-  {@render children?.(context)}
+  {@render children?.(toast)}
 
-  <div {...context.getGhostAfterProps()}></div>
+  <div {...toast.getGhostAfterProps()}></div>
 </div>

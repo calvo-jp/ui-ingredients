@@ -8,7 +8,7 @@
 
   export interface ToggleGroupProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateToggleGroupProps> {
-    children?: Snippet<[api: CreateToggleGroupReturn]>;
+    children?: Snippet<[toggleGroup: CreateToggleGroupReturn]>;
   }
 </script>
 

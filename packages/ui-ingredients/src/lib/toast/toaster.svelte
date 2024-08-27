@@ -6,7 +6,7 @@
 
   export interface ToasterProps extends Omit<HtmlProps<'div'>, 'children'> {
     toaster: CreateToasterReturn;
-    children: Snippet<[api: CreateToastReturn]>;
+    children: Snippet<[toast: CreateToastReturn]>;
   }
 </script>
 

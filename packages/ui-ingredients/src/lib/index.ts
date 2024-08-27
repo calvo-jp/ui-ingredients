@@ -4,6 +4,7 @@ export * from './carousel/index.js';
 export * from './checkbox/index.js';
 export * from './clipboard/index.js';
 export * from './collapsible/index.js';
+export * from './color-picker/index.js';
 export * from './combobox/index.js';
 export * from './date-picker/index.js';
 export * from './dialog/index.js';

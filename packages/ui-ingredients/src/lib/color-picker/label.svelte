@@ -1,0 +1,20 @@
+<script lang="ts" module>
+  import type {HtmlProps} from '$lib/types.js';
+
+  export interface ColorPickerLabelProps extends HtmlProps<'label'> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {colorPickerContext} from './context.svelte.js';
+
+  let {children, ...props}: ColorPickerLabelProps = $props();
+
+  let colorPicker = colorPickerContext.get();
+
+  let attrs = $derived(mergeProps(props, colorPicker.getLabelProps()));
+</script>
+
+<label {...attrs}>
+  {@render children?.()}
+</label>

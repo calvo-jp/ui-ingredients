@@ -1,0 +1,23 @@
+<script lang="ts" module>
+  import type {HtmlProps} from '$lib/types.js';
+
+  export interface ColorPickerChannelSliderTrackProps extends HtmlProps<'div'> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {colorPickerChannelSliderPropsContext, colorPickerContext} from './context.svelte.js';
+
+  let {children, ...props}: ColorPickerChannelSliderTrackProps = $props();
+
+  let colorPicker = colorPickerContext.get();
+  let channelSliderProps = colorPickerChannelSliderPropsContext.get();
+
+  let attrs = $derived(
+    mergeProps(props, colorPicker.getChannelSliderTrackProps(channelSliderProps)),
+  );
+</script>
+
+<div {...attrs}>
+  {@render children?.()}
+</div>

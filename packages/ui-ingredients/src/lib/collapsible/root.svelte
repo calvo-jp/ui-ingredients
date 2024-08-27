@@ -8,7 +8,7 @@
 
   export interface CollapsibleProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateCollapsibleProps> {
-    children?: Snippet<[api: CreateCollapsibleReturn]>;
+    children?: Snippet<[collapsible: CreateCollapsibleReturn]>;
   }
 </script>
 

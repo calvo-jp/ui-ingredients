@@ -1,0 +1,28 @@
+<script lang="ts" module>
+  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {ChannelInputProps} from '@zag-js/color-picker';
+
+  export interface ColorPickerChannelInputProps
+    extends Assign<HtmlProps<'input'>, ChannelInputProps> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '@zag-js/svelte';
+  import {colorPickerContext} from './context.svelte.js';
+
+  let {channel, orientation, ...props}: ColorPickerChannelInputProps = $props();
+
+  let colorPicker = colorPickerContext.get();
+
+  let attrs = $derived(
+    mergeProps(
+      props,
+      colorPicker.getChannelInputProps({
+        channel,
+        orientation,
+      }),
+    ),
+  );
+</script>
+
+<input {...attrs} />
