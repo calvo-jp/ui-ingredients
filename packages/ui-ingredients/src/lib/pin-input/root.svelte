@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreatePinInputProps, CreatePinInputReturn} from './create-pin-input.svelte.js';
 
   export interface PinInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreatePinInputProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, pinInput: CreatePinInputReturn]>;
     children?: Snippet<[pinInput: CreatePinInputReturn]>;
   }
 </script>
@@ -36,6 +37,7 @@
     onValueChange,
     onValueInvalid,
     onValueComplete,
+    asChild,
     children,
     ...props
   }: PinInputProps = $props();
@@ -69,6 +71,10 @@
   pinInputContext.set(pinInput);
 </script>
 
-<div {...attrs}>
-  {@render children?.(pinInput)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, pinInput)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(pinInput)}
+  </div>
+{/if}

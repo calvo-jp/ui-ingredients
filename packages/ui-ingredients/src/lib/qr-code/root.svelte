@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateQRCodeProps, CreateQRCodeReturn} from './create-qr-code.svelte.js';
 
   export interface QRCodeProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateQRCodeProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, qrCode: CreateQRCodeReturn]>;
     children?: Snippet<[qrCode: CreateQRCodeReturn]>;
   }
 </script>
@@ -20,6 +21,7 @@
     ids,
     value,
     encoding,
+    asChild,
     children,
     ...props
   }: QRCodeProps = $props();
@@ -36,6 +38,10 @@
   qrCodeContext.set(qrCode);
 </script>
 
-<div {...attrs}>
-  {@render children?.(qrCode)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, qrCode)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(qrCode)}
+  </div>
+{/if}

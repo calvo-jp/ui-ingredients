@@ -1,20 +1,27 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface ProgressCircleTrackProps extends HtmlProps<'circle'> {}
+  export interface ProgressCircleTrackProps extends HtmlProps<'circle'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'circle'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {progressContext} from './context.svelte.js';
 
-  let {children, ...props}: ProgressCircleTrackProps = $props();
+  let {asChild, children, ...props}: ProgressCircleTrackProps = $props();
 
   let progress = progressContext.get();
 
   let attrs = $derived(mergeProps(props, progress.getCircleTrackProps()));
 </script>
 
-<circle {...attrs}>
-  {@render children?.()}
-</circle>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <circle {...attrs}>
+    {@render children?.()}
+  </circle>
+{/if}

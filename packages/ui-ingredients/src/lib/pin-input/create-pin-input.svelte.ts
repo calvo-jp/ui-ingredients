@@ -1,5 +1,6 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
+import type {HtmlProps} from '$lib/types.js';
 import {createUniqueId} from '$lib/utils.svelte.js';
 import * as pinInput from '@zag-js/pin-input';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
@@ -8,7 +9,9 @@ export interface CreatePinInputProps extends Omit<pinInput.Context, 'id' | 'dir'
   id?: string | null;
 }
 
-export interface CreatePinInputReturn extends pinInput.Api {}
+export interface CreatePinInputReturn extends pinInput.Api {
+  getClearTriggerProps(): HtmlProps<'button'>;
+}
 
 export function createPinInputContext(props: CreatePinInputProps): CreatePinInputReturn {
   const locale = getLocaleContext();
@@ -23,7 +26,22 @@ export function createPinInputContext(props: CreatePinInputProps): CreatePinInpu
     }),
   );
 
-  const api = $derived(reflect(() => pinInput.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => {
+      const o = pinInput.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getClearTriggerProps(): HtmlProps<'button'> {
+          return {
+            onclick() {
+              o.clearValue();
+            },
+          };
+        },
+      };
+    }),
+  );
 
   return api;
 }

@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateProgressProps, CreateProgressReturn} from './create-progress.svelte.js';
 
   export interface ProgressProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateProgressProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
     children?: Snippet<[progress: CreateProgressReturn]>;
   }
 </script>
@@ -23,6 +24,7 @@
     value,
     orientation,
     translations,
+    asChild,
     children,
     ...props
   }: ProgressProps = $props();
@@ -42,6 +44,10 @@
   progressContext.set(progress);
 </script>
 
-<div {...attrs}>
-  {@render children?.(progress)}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(progress)}
+  </div>
+{/if}

@@ -1,19 +1,26 @@
 <script lang="ts" module>
   import type {Assign, HtmlProps} from '$lib/types.js';
   import type {InputProps} from '@zag-js/pin-input';
+  import type {Snippet} from 'svelte';
 
-  export interface PinInputInputProps extends Assign<HtmlProps<'input'>, InputProps> {}
+  export interface PinInputInputProps extends Assign<HtmlProps<'input'>, InputProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'input'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {pinInputContext} from './context.svelte.js';
 
-  let {index, ...props}: PinInputInputProps = $props();
+  let {index, asChild, ...props}: PinInputInputProps = $props();
 
   let pinInput = pinInputContext.get();
 
   let attrs = $derived(mergeProps(props, pinInput.getInputProps({index})));
 </script>
 
-<input {...attrs} />
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <input {...attrs} />
+{/if}

@@ -1,10 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreatePaginationProps, CreatePaginationReturn} from './create-pagination.svelte.js';
 
   export interface PaginationProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreatePaginationProps> {
+    asChild?: Snippet<
+      [attrs: Omit<GenericHtmlProps, 'children'>, pagination: CreatePaginationReturn]
+    >;
     children?: Snippet<[pagination: CreatePaginationReturn]>;
   }
 </script>
@@ -25,6 +28,7 @@
     translations,
     onPageChange,
     onPageSizeChange,
+    asChild,
     children,
     ...props
   }: PaginationProps = $props();
@@ -47,6 +51,10 @@
   paginationContext.set(pagination);
 </script>
 
-<div {...attrs}>
-  {@render children?.(pagination)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, pagination)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(pagination)}
+  </div>
+{/if}
