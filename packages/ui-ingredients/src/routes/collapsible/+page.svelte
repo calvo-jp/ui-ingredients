@@ -1,9 +1,15 @@
 <script lang="ts">
   import {Collapsible} from '$lib/index.js';
+  import {Button} from '../shared/index.js';
 </script>
 
 <Collapsible.Root>
-  <Collapsible.Trigger class="h-12 rounded border px-3.5">Open</Collapsible.Trigger>
+  <Collapsible.Trigger>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Open</Button>
+    {/snippet}
+  </Collapsible.Trigger>
+
   <Collapsible.Content
     class="data-open:animate-collapse-in lg: data-closed:animate-collapse-out mt-3 w-full max-w-[32rem] overflow-hidden rounded"
   >

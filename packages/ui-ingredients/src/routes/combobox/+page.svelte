@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Combobox} from '$lib/index.js';
   import {CheckIcon, ChevronDownIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
+  import {IconButton, Input, Label} from '../shared/index.js';
 
   let items = [
     {
@@ -49,19 +50,34 @@
     sameWidth: true,
   }}
 >
-  <Combobox.Label class="text-muted mb-1 inline-block font-medium">Select Frameworks</Combobox.Label
-  >
+  <Combobox.Label class="text-muted mb-1 inline-block font-medium">
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Select Frameworks</Label>
+    {/snippet}
+  </Combobox.Label>
+
   <Combobox.Control class="flex w-full gap-2 lg:max-w-[24rem]">
-    <Combobox.Input class="h-12 grow rounded border px-3.5" />
-    <Combobox.Trigger
-      class="group flex size-12 shrink-0 items-center justify-center rounded border"
-    >
-      <ChevronDownIcon class="size-5" />
+    <Combobox.Input>
+      {#snippet asChild(attrs)}
+        <Input {...attrs} />
+      {/snippet}
+    </Combobox.Input>
+    <Combobox.Trigger class="group">
+      {#snippet asChild(attrs)}
+        <IconButton {...attrs}>
+          <ChevronDownIcon class="group-data-open:rotate-180 transition-transform duration-200" />
+        </IconButton>
+      {/snippet}
     </Combobox.Trigger>
-    <Combobox.ClearTrigger class="flex size-12 shrink-0 items-center justify-center rounded border">
-      <XCloseIcon class="size-5" />
+    <Combobox.ClearTrigger>
+      {#snippet asChild(attrs)}
+        <IconButton {...attrs}>
+          <XCloseIcon />
+        </IconButton>
+      {/snippet}
     </Combobox.ClearTrigger>
   </Combobox.Control>
+
   <Combobox.Positioner>
     <Combobox.Content
       class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"

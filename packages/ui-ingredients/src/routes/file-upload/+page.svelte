@@ -1,6 +1,7 @@
 <script lang="ts">
   import {FileUpload} from '$lib/index.js';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
+  import {Button} from '../shared/index.js';
 </script>
 
 <FileUpload.Root maxFiles={3}>
@@ -10,7 +11,11 @@
     >
       <span class="text-lg font-medium">Drag your file(s) here</span>
       <FileUpload.HiddenInput />
-      <FileUpload.Trigger class="h-12 rounded border px-5">Browse Files</FileUpload.Trigger>
+      <FileUpload.Trigger>
+        {#snippet asChild(attrs)}
+          <Button {...attrs}>Browse Files</Button>
+        {/snippet}
+      </FileUpload.Trigger>
     </FileUpload.Dropzone>
 
     <FileUpload.ItemGroup class="mt-4 flex gap-3">

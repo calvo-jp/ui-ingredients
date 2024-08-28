@@ -1,6 +1,7 @@
 <script lang="ts">
   import {TagsInput} from '$lib/index.js';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
+  import {Button, Label} from '../shared/index.js';
 
   let value = $state(['Svelte']);
 
@@ -15,7 +16,11 @@
   class="w-full lg:max-w-[24rem]"
 >
   {#snippet children(context)}
-    <TagsInput.Label class="text-muted mb-1 inline-block">Frameworks</TagsInput.Label>
+    <TagsInput.Label>
+      {#snippet asChild(attrs)}
+        <Label {...attrs}>Frameworks</Label>
+      {/snippet}
+    </TagsInput.Label>
 
     <div class="flex min-h-12 flex-wrap gap-2 rounded border p-2">
       <TagsInput.Control class="flex flex-wrap gap-2">
@@ -33,6 +38,7 @@
           </TagsInput.Item>
         {/each}
       </TagsInput.Control>
+
       <TagsInput.Input
         class="w-32 shrink-0 bg-transparent outline-none"
         autofocus
@@ -40,9 +46,11 @@
       />
     </div>
 
-    <TagsInput.ClearTrigger class="bg-light/25 mt-4 block h-12 w-full rounded border"
-      >Clear</TagsInput.ClearTrigger
-    >
+    <TagsInput.ClearTrigger class="bg-light/25 mt-4 w-full">
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>Clear</Button>
+      {/snippet}
+    </TagsInput.ClearTrigger>
 
     <TagsInput.HiddenInput />
   {/snippet}

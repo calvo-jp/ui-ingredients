@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Select} from '$lib/index.js';
   import {CheckIcon, ChevronDownIcon} from '@untitled-theme/icons-svelte';
+  import {Button, Label} from '../shared/index.js';
 
   let items = [
     {value: '1', label: 'React'},
@@ -29,12 +30,20 @@
   }}
 >
   <Select.Control class="w-full lg:max-w-[24rem]">
-    <Select.Label class="text-muted mb-1 inline-block font-medium">Framework</Select.Label>
-    <Select.Trigger class="flex h-12 w-full items-center gap-2 rounded border px-3.5 text-left">
-      <Select.ValueText placeholder="Please Select" class="grow" />
-      <Select.Indicator class="group">
-        <ChevronDownIcon class="group-data-open:rotate-180 transition-transform duration-200" />
-      </Select.Indicator>
+    <Select.Label>
+      {#snippet asChild(attrs)}
+        <Label {...attrs}>Framework</Label>
+      {/snippet}
+    </Select.Label>
+    <Select.Trigger class="w-full text-left font-normal">
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>
+          <Select.ValueText placeholder="Please Select" class="grow" />
+          <Select.Indicator class="group">
+            <ChevronDownIcon class="group-data-open:rotate-180 transition-transform duration-200" />
+          </Select.Indicator>
+        </Button>
+      {/snippet}
     </Select.Trigger>
   </Select.Control>
 

@@ -1,12 +1,19 @@
 <script lang="ts">
   import {Dialog, Portal} from '$lib/index.js';
+  import {Button} from '../shared/index.js';
 </script>
 
 <Dialog.Root>
-  <Dialog.Trigger class="h-12 rounded border px-3.5">Open</Dialog.Trigger>
+  <Dialog.Trigger>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Open</Button>
+    {/snippet}
+  </Dialog.Trigger>
+
   <Dialog.Backdrop
     class="z-overlay data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 bg-black/50 backdrop-blur-sm"
   />
+
   <Portal>
     <Dialog.Positioner>
       <Dialog.Content

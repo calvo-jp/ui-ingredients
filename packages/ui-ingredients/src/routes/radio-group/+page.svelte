@@ -1,6 +1,7 @@
 <script lang="ts">
   import {RadioGroup} from '$lib/index.js';
   import {CheckIcon} from '@untitled-theme/icons-svelte';
+  import {Label} from '../shared/index.js';
 
   let items = [
     {value: '1', label: 'Item 1'},
@@ -19,7 +20,11 @@
     value = detail.value;
   }}
 >
-  <RadioGroup.Label class="text-muted mb-1.5 inline-block font-medium">Choose one</RadioGroup.Label>
+  <RadioGroup.Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Choose one</Label>
+    {/snippet}
+  </RadioGroup.Label>
 
   <div class="flex flex-col gap-1">
     {#each items as { value, label }}

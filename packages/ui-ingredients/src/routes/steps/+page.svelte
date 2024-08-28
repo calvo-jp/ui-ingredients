@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Steps} from '$lib/index.js';
   import {CheckIcon} from '@untitled-theme/icons-svelte';
+  import {Button} from '../shared/index.js';
   import {cx} from '../shared/utils.js';
 
   const items = [
@@ -65,15 +66,15 @@
   </div>
 
   <div class="mt-5 flex items-center gap-3">
-    <Steps.PrevTrigger
-      class="h-10 rounded border px-3.5 disabled:cursor-not-allowed disabled:opacity-50"
-    >
-      Back
+    <Steps.PrevTrigger>
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>Back</Button>
+      {/snippet}
     </Steps.PrevTrigger>
-    <Steps.NextTrigger
-      class="h-10 rounded border px-3.5 disabled:cursor-not-allowed disabled:opacity-50"
-    >
-      Next
+    <Steps.NextTrigger>
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>Next</Button>
+      {/snippet}
     </Steps.NextTrigger>
   </div>
 </Steps.Root>

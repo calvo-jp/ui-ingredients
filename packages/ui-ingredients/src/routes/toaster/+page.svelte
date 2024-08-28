@@ -1,6 +1,6 @@
 <script lang="ts">
   import {createToaster, Toast, Toaster} from '$lib/index.js';
-  import {cx} from '../shared/utils.js';
+  import {Button, cx} from '../shared/index.js';
 
   function randInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -12,8 +12,7 @@
   });
 </script>
 
-<button
-  class="h-12 rounded border px-3.5"
+<Button
   onclick={() => {
     toaster.create({
       title: `Hello ${randInt(1, 100)}`,
@@ -22,7 +21,7 @@
   }}
 >
   Create
-</button>
+</Button>
 
 <Toaster {toaster}>
   {#snippet children()}

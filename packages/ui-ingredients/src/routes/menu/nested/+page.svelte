@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Menu} from '$lib/index.js';
+  import {Button} from '../../shared/index.js';
   import {cx} from '../../shared/utils.js';
 
   let menuItemStyle = cx(
@@ -27,7 +28,11 @@
 </script>
 
 <Menu.Root>
-  <Menu.Trigger class="flex h-12 items-center gap-2 rounded border px-3.5">Open</Menu.Trigger>
+  <Menu.Trigger>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Open</Button>
+    {/snippet}
+  </Menu.Trigger>
 
   <Menu.Positioner>
     <Menu.Content class={menuContentStyle}>

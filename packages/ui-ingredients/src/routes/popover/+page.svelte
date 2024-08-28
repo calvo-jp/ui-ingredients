@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Popover} from '$lib/index.js';
+  import {Button} from '../shared/index.js';
 </script>
 
 <Popover.Root
@@ -7,7 +8,11 @@
     placement: 'bottom-start',
   }}
 >
-  <Popover.Trigger class="h-12 rounded border px-3.5">Click me</Popover.Trigger>
+  <Popover.Trigger>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Click me</Button>
+    {/snippet}
+  </Popover.Trigger>
   <Popover.Positioner>
     <Popover.Content
       class="data-open:animate-fade-in data-closed:animate-fade-out bg-light w-[80vw] rounded border p-4 lg:w-[20rem]"

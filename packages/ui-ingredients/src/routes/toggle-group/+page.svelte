@@ -1,6 +1,7 @@
 <script lang="ts">
   import {ToggleGroup} from '$lib/index.js';
   import {Bold01Icon, Italic01Icon, Underline01Icon} from '@untitled-theme/icons-svelte';
+  import {IconButton} from '../shared/index.js';
 
   let value: string[] = $state([]);
 
@@ -15,22 +16,28 @@
   }}
   multiple
 >
-  <ToggleGroup.Item
-    class="aria-pressed:bg-light/25 flex size-12 items-center justify-center rounded-l border"
-    value="1"
-  >
-    <Bold01Icon />
+  <ToggleGroup.Item class="aria-pressed:bg-light/25 rounded-r-none border-r-0" value="1">
+    {#snippet asChild(attrs)}
+      <IconButton {...attrs}>
+        <Bold01Icon />
+      </IconButton>
+    {/snippet}
   </ToggleGroup.Item>
   <ToggleGroup.Item
-    class="aria-pressed:bg-light/25 flex size-12 items-center justify-center border border-l-0 transition-colors duration-200"
+    class="aria-pressed:bg-light/25 rounded-l-none rounded-r-none border-r-0"
     value="2"
   >
-    <Underline01Icon />
+    {#snippet asChild(attrs)}
+      <IconButton {...attrs}>
+        <Underline01Icon />
+      </IconButton>
+    {/snippet}
   </ToggleGroup.Item>
-  <ToggleGroup.Item
-    class="aria-pressed:bg-light/25 flex size-12 items-center justify-center rounded-r border border-l-0 transition-colors duration-200"
-    value="3"
-  >
-    <Italic01Icon />
+  <ToggleGroup.Item class="aria-pressed:bg-light/25 rounded-l-none" value="3">
+    {#snippet asChild(attrs)}
+      <IconButton {...attrs}>
+        <Italic01Icon />
+      </IconButton>
+    {/snippet}
   </ToggleGroup.Item>
 </ToggleGroup.Root>

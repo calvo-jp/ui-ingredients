@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Menu} from '$lib/index.js';
+  import {Button} from '../../shared/index.js';
 
   let items = [
     /**/
@@ -12,8 +13,10 @@
 </script>
 
 <Menu.Root>
-  <Menu.ContextTrigger class="flex h-12 items-center gap-2 rounded border border-dashed px-3.5">
-    Right click
+  <Menu.ContextTrigger class="border-dashed">
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Right click</Button>
+    {/snippet}
   </Menu.ContextTrigger>
 
   <Menu.Positioner>

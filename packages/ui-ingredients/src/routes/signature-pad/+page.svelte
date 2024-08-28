@@ -1,12 +1,16 @@
 <script lang="ts">
   import {SignaturePad} from '$lib/index.js';
+  import {Label} from '../shared/index.js';
 </script>
 
 <SignaturePad.Root>
   {#snippet children(context)}
-    <SignaturePad.Label class="text-muted mb-1 inline-block font-medium"
-      >Signature</SignaturePad.Label
-    >
+    <SignaturePad.Label class="text-muted mb-1 inline-block font-medium">
+      {#snippet asChild(attrs)}
+        <Label {...attrs}>Signature</Label>
+      {/snippet}
+    </SignaturePad.Label>
+
     <SignaturePad.Control class="bg-light h-[16rem] w-full rounded lg:max-w-[32rem]">
       <SignaturePad.Segment>
         {#each context.paths as path}

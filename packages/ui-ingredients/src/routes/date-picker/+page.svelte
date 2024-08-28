@@ -1,22 +1,34 @@
 <script lang="ts">
   import {DatePicker} from '$lib/index.js';
   import {CalendarIcon, ChevronLeftIcon, ChevronRightIcon} from '@untitled-theme/icons-svelte';
+  import {IconButton, Input, Label} from '../shared/index.js';
 </script>
 
 <DatePicker.Root
-  class="w-full lg:max-w-[20rem]"
+  class="w-full lg:max-w-[24rem]"
   fixedWeeks
   positioning={{
     sameWidth: true,
   }}
 >
   {#snippet children(api)}
-    <DatePicker.Label class="text-muted mb-1 inline-block font-medium">Choose Date</DatePicker.Label
-    >
+    <DatePicker.Label>
+      {#snippet asChild(attrs)}
+        <Label {...attrs}>Choose Date</Label>
+      {/snippet}
+    </DatePicker.Label>
     <DatePicker.Control class="flex gap-2">
-      <DatePicker.Input class="h-12 grow rounded border px-3.5" />
-      <DatePicker.Trigger class="flex size-12 items-center justify-center rounded border">
-        <CalendarIcon class="size-5" />
+      <DatePicker.Input>
+        {#snippet asChild(attrs)}
+          <Input {...attrs} />
+        {/snippet}
+      </DatePicker.Input>
+      <DatePicker.Trigger>
+        {#snippet asChild(attrs)}
+          <IconButton {...attrs}>
+            <CalendarIcon />
+          </IconButton>
+        {/snippet}
       </DatePicker.Trigger>
     </DatePicker.Control>
 
@@ -27,7 +39,7 @@
             class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-2"
           >
             <DatePicker.PrevTrigger class="flex size-10 items-center justify-center">
-              <ChevronLeftIcon class="size-5" />
+              <ChevronLeftIcon />
             </DatePicker.PrevTrigger>
 
             <DatePicker.ViewTrigger>
@@ -35,7 +47,7 @@
             </DatePicker.ViewTrigger>
 
             <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
-              <ChevronRightIcon class="size-5" />
+              <ChevronRightIcon />
             </DatePicker.NextTrigger>
           </DatePicker.ViewControl>
 

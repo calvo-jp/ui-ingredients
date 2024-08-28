@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Pagination} from '$lib/index.js';
   import {ChevronLeftIcon, ChevronRightIcon} from '@untitled-theme/icons-svelte';
+  import {Button, IconButton} from '../shared/index.js';
 
   let page = $state(1);
 
@@ -17,31 +18,39 @@
   }}
 >
   {#snippet children(context)}
-    <Pagination.PrevTrigger
-      class="flex size-12 items-center justify-center rounded border disabled:cursor-not-allowed disabled:opacity-50"
-    >
-      <ChevronLeftIcon />
+    <Pagination.PrevTrigger>
+      {#snippet asChild(attrs)}
+        <IconButton {...attrs}>
+          <ChevronLeftIcon />
+        </IconButton>
+      {/snippet}
     </Pagination.PrevTrigger>
 
     {#each context.pages as page, index}
       {#if page.type === 'page'}
         <Pagination.Item
           value={page.value}
-          class="aria-page:border-accent aria-page:text-accent aria-page:bg-accent/15 aria-page:font-semibold flex size-12 items-center justify-center rounded border transition-all duration-200"
+          class="aria-page:border-accent aria-page:text-accent aria-page:bg-accent/15"
         >
-          {page.value}
+          {#snippet asChild(attrs)}
+            <Button {...attrs}>
+              {page.value}
+            </Button>
+          {/snippet}
         </Pagination.Item>
       {:else}
-        <Pagination.Ellipsis {index} class="flex size-12 items-center justify-center"
-          >...</Pagination.Ellipsis
-        >
+        <Pagination.Ellipsis {index} class="flex size-12 items-center justify-center">
+          ...
+        </Pagination.Ellipsis>
       {/if}
     {/each}
 
-    <Pagination.NextTrigger
-      class="flex size-12 items-center justify-center rounded border disabled:cursor-not-allowed disabled:opacity-50"
-    >
-      <ChevronRightIcon />
+    <Pagination.NextTrigger>
+      {#snippet asChild(attrs)}
+        <IconButton {...attrs}>
+          <ChevronRightIcon />
+        </IconButton>
+      {/snippet}
     </Pagination.NextTrigger>
   {/snippet}
 </Pagination.Root>

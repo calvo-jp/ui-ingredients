@@ -1,9 +1,15 @@
 <script lang="ts">
   import {Portal, Tooltip} from '$lib/index.js';
+  import {Button} from '../shared/index.js';
 </script>
 
 <Tooltip.Root openDelay={0} closeDelay={50}>
-  <Tooltip.Trigger class="h-12 rounded border px-3.5">Hover me</Tooltip.Trigger>
+  <Tooltip.Trigger>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Hover me</Button>
+    {/snippet}
+  </Tooltip.Trigger>
+
   <Portal>
     <Tooltip.Positioner>
       <Tooltip.Content

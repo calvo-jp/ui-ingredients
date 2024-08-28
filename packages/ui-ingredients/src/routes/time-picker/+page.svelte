@@ -1,21 +1,39 @@
 <script lang="ts">
   import {TimePicker} from '$lib/index.js';
   import {ClockIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
+  import {IconButton, Input, Label} from '../shared/index.js';
 </script>
 
-<TimePicker.Root allowSeconds>
+<TimePicker.Root allowSeconds class="w-full lg:max-w-[24rem]">
   {#snippet children(context)}
-    <TimePicker.Label class="text-muted mb-1 inline-block font-medium">Choose Time</TimePicker.Label
-    >
-    <TimePicker.Control class="flex gap-2 ">
-      <TimePicker.Input class="h-12 rounded border px-3.5" />
-      <TimePicker.Trigger class="flex size-12 items-center justify-center rounded border">
-        <ClockIcon class="size-5" />
+    <TimePicker.Label>
+      {#snippet asChild(attrs)}
+        <Label {...attrs}>Choose Time</Label>
+      {/snippet}
+    </TimePicker.Label>
+
+    <TimePicker.Control class="flex gap-2">
+      <TimePicker.Input>
+        {#snippet asChild(attrs)}
+          <Input {...attrs} />
+        {/snippet}
+      </TimePicker.Input>
+      <TimePicker.Trigger>
+        {#snippet asChild(attrs)}
+          <IconButton {...attrs}>
+            <ClockIcon />
+          </IconButton>
+        {/snippet}
       </TimePicker.Trigger>
-      <TimePicker.ClearTrigger class="flex size-12 items-center justify-center rounded border">
-        <XCloseIcon class="size-5" />
+      <TimePicker.ClearTrigger>
+        {#snippet asChild(attrs)}
+          <IconButton {...attrs}>
+            <XCloseIcon />
+          </IconButton>
+        {/snippet}
       </TimePicker.ClearTrigger>
     </TimePicker.Control>
+
     <TimePicker.Positioner>
       <TimePicker.Content class="bg-light flex rounded border p-4">
         <TimePicker.Column unit="hour" class="snap-y snap-mandatory">

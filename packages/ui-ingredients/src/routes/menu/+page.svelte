@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Menu} from '$lib/index.js';
   import {CheckIcon, ChevronDownIcon} from '@untitled-theme/icons-svelte';
+  import {Button} from '../shared/index.js';
 
   let items = [
     /**/
@@ -16,11 +17,15 @@
 
 <div class="flex gap-2">
   <Menu.Root>
-    <Menu.Trigger class="flex h-12 items-center gap-2 rounded border px-3.5">
-      <span>Basic</span>
-      <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
-        <ChevronDownIcon class="size-5" />
-      </Menu.Indicator>
+    <Menu.Trigger>
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>
+          <span>Basic</span>
+          <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
+            <ChevronDownIcon />
+          </Menu.Indicator>
+        </Button>
+      {/snippet}
     </Menu.Trigger>
 
     <Menu.Positioner>
@@ -41,11 +46,15 @@
   </Menu.Root>
 
   <Menu.Root>
-    <Menu.Trigger class="flex h-12 items-center gap-2 rounded border px-3.5">
-      <span>Checkbox</span>
-      <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
-        <ChevronDownIcon class="size-5" />
-      </Menu.Indicator>
+    <Menu.Trigger>
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>
+          <span>Checkbox</span>
+          <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
+            <ChevronDownIcon />
+          </Menu.Indicator>
+        </Button>
+      {/snippet}
     </Menu.Trigger>
 
     <Menu.Positioner>

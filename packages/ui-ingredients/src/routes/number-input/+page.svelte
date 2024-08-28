@@ -1,6 +1,7 @@
 <script lang="ts">
   import {NumberInput} from '$lib/index.js';
   import {ChevronDownIcon, ChevronUpIcon} from '@untitled-theme/icons-svelte';
+  import {Input, Label} from '../shared/index.js';
 
   let value = $state('0');
 
@@ -15,11 +16,19 @@
     value = detail.value;
   }}
 >
-  <NumberInput.Label class="text-muted mb-1 inline-block font-medium">
-    Enter Amount
+  <NumberInput.Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Enter Amount</Label>
+    {/snippet}
   </NumberInput.Label>
+
   <NumberInput.Control class="flex w-full lg:max-w-[24rem]">
-    <NumberInput.Input class="h-12 grow rounded-l border px-3.5" />
+    <NumberInput.Input class="rounded-r-none">
+      {#snippet asChild(attrs)}
+        <Input {...attrs} />
+      {/snippet}
+    </NumberInput.Input>
+
     <div class="flex h-full shrink-0 flex-col">
       <NumberInput.IncrementTrigger
         class="flex size-6 items-center justify-center rounded-tr border border-l-0"
