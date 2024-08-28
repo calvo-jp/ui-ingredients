@@ -1,20 +1,27 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface MenuTriggerProps extends HtmlProps<'button'> {}
+  export interface MenuTriggerProps extends HtmlProps<'button'> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {menuContext} from './context.svelte.js';
 
-  let {children, ...props}: MenuTriggerProps = $props();
+  let {asChild, children, ...props}: MenuTriggerProps = $props();
 
   let menu = menuContext.get();
 
   let attrs = $derived(mergeProps(props, menu.getTriggerProps()));
 </script>
 
-<button type="button" {...attrs}>
-  {@render children?.()}
-</button>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <button type="button" {...attrs}>
+    {@render children?.()}
+  </button>
+{/if}

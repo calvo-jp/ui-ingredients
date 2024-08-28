@@ -1,14 +1,17 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface SelectItemGroupLabelProps extends HtmlProps<'div'> {}
+  export interface SelectItemGroupLabelProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {selectContext, selectItemGroupPropsContext} from './context.svelte.js';
 
-  let {children, ...props}: SelectItemGroupLabelProps = $props();
+  let {asChild, children, ...props}: SelectItemGroupLabelProps = $props();
 
   let select = selectContext.get();
   let itemGroupProps = selectItemGroupPropsContext.get();
@@ -18,6 +21,10 @@
   );
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

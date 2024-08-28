@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateSliderProps, CreateSliderReturn} from './create-slider.svelte.js';
 
   export interface SliderProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSliderProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, slider: CreateSliderReturn]>;
     children?: Snippet<[slider: CreateSliderReturn]>;
   }
 </script>
@@ -37,6 +38,7 @@
     onValueChange,
     onValueChangeEnd,
     getAriaValueText,
+    asChild,
     children,
     ...props
   }: SliderProps = $props();
@@ -71,6 +73,10 @@
   sliderContext.set(slider);
 </script>
 
-<div {...attrs}>
-  {@render children?.(slider)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, slider)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(slider)}
+  </div>
+{/if}

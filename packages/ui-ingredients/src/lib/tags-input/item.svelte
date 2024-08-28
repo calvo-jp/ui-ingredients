@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/tags-input';
   import type {Snippet} from 'svelte';
 
   export interface TagsInputItemProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: ItemState]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
@@ -13,14 +14,7 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {tagsInputContext, tagsInputItemPropsContext} from './context.svelte.js';
 
-  let {
-    /**/
-    index,
-    value,
-    disabled,
-    children,
-    ...props
-  }: TagsInputItemProps = $props();
+  let {index, value, disabled, asChild, children, ...props}: TagsInputItemProps = $props();
 
   let tagsInput = tagsInputContext.get();
   let itemProps = $derived({
@@ -35,6 +29,10 @@
   tagsInputItemPropsContext.set(() => itemProps);
 </script>
 
-<div {...attrs}>
-  {@render children?.(state)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(state)}
+  </div>
+{/if}

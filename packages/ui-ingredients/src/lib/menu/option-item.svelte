@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {OptionItemProps, OptionItemState} from '@zag-js/menu';
   import type {Snippet} from 'svelte';
 
   export interface MenuOptionItemProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, OptionItemProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: OptionItemState]>;
     children?: Snippet<[state: OptionItemState]>;
   }
 </script>
@@ -21,6 +22,7 @@
     valueText,
     closeOnSelect,
     onCheckedChange,
+    asChild,
     children,
     ...props
   }: MenuOptionItemProps = $props();
@@ -42,6 +44,10 @@
   menuOptionItemPropsContext.set(() => itemProps);
 </script>
 
-<div {...attrs}>
-  {@render children?.(state)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(state)}
+  </div>
+{/if}

@@ -1,14 +1,17 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface DatePickerTableRowProps extends HtmlProps<'div'> {}
+  export interface DatePickerTableRowProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {datePickerContext, datePickerTablePropsContext} from './context.svelte.js';
 
-  let {children, ...props}: DatePickerTableRowProps = $props();
+  let {asChild, children, ...props}: DatePickerTableRowProps = $props();
 
   let datePicker = datePickerContext.get();
   let tableProps = datePickerTablePropsContext.get();
@@ -16,6 +19,10 @@
   let attrs = $derived(mergeProps(props, datePicker.getTableRowProps(tableProps)));
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

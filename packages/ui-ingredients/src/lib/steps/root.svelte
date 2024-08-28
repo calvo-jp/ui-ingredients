@@ -1,9 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateStepsProps, CreateStepsReturn} from './create-steps.svelte.js';
 
   export interface StepsProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateStepsProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, steps: CreateStepsReturn]>;
     children?: Snippet<[steps: CreateStepsReturn]>;
   }
 </script>
@@ -22,6 +23,7 @@
     orientation,
     onStepChange,
     onStepComplete,
+    asChild,
     children,
     ...props
   }: StepsProps = $props();
@@ -37,11 +39,15 @@
     onStepComplete,
   });
 
-  let attrs = $derived(mergeProps(props, steps.getRootProps()));
+  let attrs = $derived(mergeProps<Record<string, any>>(props, steps.getRootProps()));
 
   stepsContext.set(steps);
 </script>
 
-<div {...attrs}>
-  {@render children?.(steps)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, steps)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(steps)}
+  </div>
+{/if}

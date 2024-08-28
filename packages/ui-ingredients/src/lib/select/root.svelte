@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateSelectProps, CreateSelectReturn} from './create-select.svelte.js';
 
   export interface SelectProps<T>
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSelectProps<T>> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, select: CreateSelectReturn]>;
     children?: Snippet<[select: CreateSelectReturn]>;
   }
 </script>
@@ -43,6 +44,7 @@
     onInteractOutside,
     onPointerDownOutside,
     scrollToIndexFn,
+    asChild,
     children,
     ...props
   }: SelectProps<T> = $props();
@@ -78,11 +80,15 @@
     scrollToIndexFn,
   });
 
-  let attrs = $derived(mergeProps(props, select.getRootProps()));
+  let attrs = $derived(mergeProps<Record<string, any>>(props, select.getRootProps()));
 
   selectContext.set(select);
 </script>
 
-<div {...attrs}>
-  {@render children?.(select)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, select)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(select)}
+  </div>
+{/if}

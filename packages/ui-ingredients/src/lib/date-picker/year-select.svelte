@@ -1,14 +1,17 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface DatePickerYearSelectProps extends HtmlProps<'select'> {}
+  export interface DatePickerYearSelectProps extends HtmlProps<'select'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'select'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {datePickerContext} from './context.svelte.js';
 
-  let {children, ...props}: DatePickerYearSelectProps = $props();
+  let {asChild, children, ...props}: DatePickerYearSelectProps = $props();
 
   let datePicker = datePickerContext.get();
 
@@ -30,12 +33,16 @@
   }
 </script>
 
-<select {...attrs}>
-  {#if children}
-    {@render children()}
-  {:else}
-    {#each getYears() as year}
-      <option value={year}>{year}</option>
-    {/each}
-  {/if}
-</select>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <select {...attrs}>
+    {#if children}
+      {@render children()}
+    {:else}
+      {#each getYears() as year}
+        <option value={year}>{year}</option>
+      {/each}
+    {/if}
+  </select>
+{/if}

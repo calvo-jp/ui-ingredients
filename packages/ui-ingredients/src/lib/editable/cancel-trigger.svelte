@@ -1,20 +1,27 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface EditableCancelTriggerProps extends HtmlProps<'button'> {}
+  export interface EditableCancelTriggerProps extends HtmlProps<'button'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {editableContext} from './context.svelte.js';
 
-  let {children, ...props}: EditableCancelTriggerProps = $props();
+  let {asChild, children, ...props}: EditableCancelTriggerProps = $props();
 
   let editable = editableContext.get();
 
   let attrs = $derived(mergeProps(props, editable.getCancelTriggerProps()));
 </script>
 
-<button type="button" {...attrs}>
-  {@render children?.()}
-</button>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <button type="button" {...attrs}>
+    {@render children?.()}
+  </button>
+{/if}

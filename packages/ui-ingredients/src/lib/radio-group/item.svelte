@@ -5,6 +5,7 @@
 
   export interface RadioGroupItemProps
     extends Assign<Omit<HtmlProps<'label'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'label'>, 'children'>, state: ItemState]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
@@ -13,14 +14,7 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {radioGroupContext, radioGroupItemPropsContext} from './context.svelte.js';
 
-  let {
-    /**/
-    value,
-    invalid,
-    disabled,
-    children,
-    ...props
-  }: RadioGroupItemProps = $props();
+  let {value, invalid, disabled, children, asChild, ...props}: RadioGroupItemProps = $props();
 
   let radioGroup = radioGroupContext.get();
   let itemProps = $derived({
@@ -35,6 +29,10 @@
   radioGroupItemPropsContext.set(() => itemProps);
 </script>
 
-<label {...attrs}>
-  {@render children?.(state)}
-</label>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <label {...attrs}>
+    {@render children?.(state)}
+  </label>
+{/if}

@@ -1,20 +1,27 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface DatePickerControlProps extends HtmlProps<'div'> {}
+  export interface DatePickerControlProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {datePickerContext} from './context.svelte.js';
 
-  let {children, ...props}: DatePickerControlProps = $props();
+  let {asChild, children, ...props}: DatePickerControlProps = $props();
 
   let datePicker = datePickerContext.get();
 
   let attrs = $derived(mergeProps(props, datePicker.getControlProps()));
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

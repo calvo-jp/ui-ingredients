@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTreeViewProps, CreateTreeViewReturn} from './create-tree-view.svelte.js';
 
   export interface TreeViewProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTreeViewProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, treeView: CreateTreeViewReturn]>;
     children?: Snippet<[treeView: CreateTreeViewReturn]>;
   }
 </script>
@@ -26,6 +27,7 @@
     onFocusChange,
     onExpandedChange,
     onSelectionChange,
+    asChild,
     children,
     ...props
   }: TreeViewProps = $props();
@@ -44,11 +46,15 @@
     onSelectionChange,
   });
 
-  let attrs = $derived(mergeProps(props, treeView.getRootProps()));
+  let attrs = $derived(mergeProps<Record<string, any>>(props, treeView.getRootProps()));
 
   treeViewContext.set(treeView);
 </script>
 
-<div {...attrs}>
-  {@render children?.(treeView)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, treeView)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(treeView)}
+  </div>
+{/if}

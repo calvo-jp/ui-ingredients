@@ -1,21 +1,28 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {ContentProps} from '@zag-js/tabs';
+  import type {Snippet} from 'svelte';
 
-  export interface TabsContentProps extends Assign<HtmlProps<'div'>, ContentProps> {}
+  export interface TabsContentProps extends Assign<HtmlProps<'div'>, ContentProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {tabsContext} from './context.svelte.js';
 
-  let {value, children, ...props}: TabsContentProps = $props();
+  let {value, asChild, children, ...props}: TabsContentProps = $props();
 
   let tabs = tabsContext.get();
 
   let attrs = $derived(mergeProps(props, tabs.getContentProps({value})));
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

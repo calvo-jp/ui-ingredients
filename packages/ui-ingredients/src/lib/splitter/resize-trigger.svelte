@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {ResizeTriggerProps} from '@zag-js/splitter';
 
   /* Currently not exported in zag */
@@ -14,6 +14,7 @@
 
   export interface SplitterResizeTriggerProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, ResizeTriggerProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: ResizeTriggerState]>;
     children?: Snippet<[state: ResizeTriggerState]>;
   }
 </script>
@@ -23,7 +24,7 @@
   import type {Snippet} from 'svelte';
   import {splitterContext} from './context.svelte.js';
 
-  let {id, step, disabled, children, ...props}: SplitterResizeTriggerProps = $props();
+  let {id, step, disabled, asChild, children, ...props}: SplitterResizeTriggerProps = $props();
 
   let splitter = splitterContext.get();
   let resizeTriggerProps: ResizeTriggerProps = $derived({
@@ -36,6 +37,10 @@
   let state = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
 </script>
 
-<div {...attrs}>
-  {@render children?.(state)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(state)}
+  </div>
+{/if}

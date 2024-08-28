@@ -1,14 +1,17 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface FileUploadItemPreviewImageProps extends HtmlProps<'img'> {}
+  export interface FileUploadItemPreviewImageProps extends HtmlProps<'img'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'img'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {fileUploadContext, fileUploadItemPropsContext} from './context.svelte.js';
 
-  let {...props}: FileUploadItemPreviewImageProps = $props();
+  let {asChild, ...props}: FileUploadItemPreviewImageProps = $props();
 
   let url = $state('');
 
@@ -24,4 +27,8 @@
   });
 </script>
 
-<img {...attrs} />
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <img {...attrs} />
+{/if}

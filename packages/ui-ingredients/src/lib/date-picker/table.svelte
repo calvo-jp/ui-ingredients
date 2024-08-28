@@ -1,9 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {TableProps} from '@zag-js/date-picker';
+  import type {Snippet} from 'svelte';
 
-  export interface DatePickerTableProps
-    extends Assign<HtmlProps<'div'>, Omit<TableProps, 'view'>> {}
+  export interface DatePickerTableProps extends Assign<HtmlProps<'div'>, Omit<TableProps, 'view'>> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
@@ -14,7 +16,7 @@
     datePickerViewPropsContext,
   } from './context.svelte.js';
 
-  let {id, columns, children, ...props}: DatePickerTableProps = $props();
+  let {id, columns, asChild, children, ...props}: DatePickerTableProps = $props();
 
   let datePicker = datePickerContext.get();
   let viewProps = datePickerViewPropsContext.get();
@@ -25,6 +27,10 @@
   datePickerTablePropsContext.set(() => tableProps);
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

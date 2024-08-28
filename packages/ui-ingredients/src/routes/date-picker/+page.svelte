@@ -89,7 +89,7 @@
               </svg>
             </DatePicker.PrevTrigger>
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText />
+              <DatePicker.RangeText class="font-semibold" />
             </DatePicker.ViewTrigger>
             <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
               <svg
@@ -146,7 +146,7 @@
               </svg>
             </DatePicker.PrevTrigger>
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText />
+              <DatePicker.RangeText class="font-semibold" />
             </DatePicker.ViewTrigger>
             <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
               <svg

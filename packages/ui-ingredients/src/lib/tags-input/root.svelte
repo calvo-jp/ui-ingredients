@@ -1,10 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTagsInputProps, CreateTagsInputReturn} from './create-tags-input.svelte.js';
 
   export interface TagsInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTagsInputProps> {
+    asChild?: Snippet<
+      [attrs: Omit<GenericHtmlProps, 'children'>, tagsInput: CreateTagsInputReturn]
+    >;
     children?: Snippet<[tagsInput: CreateTagsInputReturn]>;
   }
 </script>
@@ -42,6 +45,7 @@
     onHighlightChange,
     onInputValueChange,
     onPointerDownOutside,
+    asChild,
     children,
     ...props
   }: TagsInputProps = $props();
@@ -76,11 +80,15 @@
     onPointerDownOutside,
   });
 
-  let attrs = $derived(mergeProps(props, tagsInput.getRootProps()));
+  let attrs = $derived<Record<string, any>>(mergeProps(props, tagsInput.getRootProps()));
 
   tagsInputContext.set(tagsInput);
 </script>
 
-<div {...attrs}>
-  {@render children?.(tagsInput)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, tagsInput)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(tagsInput)}
+  </div>
+{/if}

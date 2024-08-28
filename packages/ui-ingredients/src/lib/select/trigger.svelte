@@ -1,20 +1,27 @@
 <script lang="ts" module>
   import type {HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface SelectTriggerProps extends HtmlProps<'button'> {}
+  export interface SelectTriggerProps extends HtmlProps<'button'> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {selectContext} from './context.svelte.js';
 
-  let {children, ...props}: SelectTriggerProps = $props();
+  let {asChild, children, ...props}: SelectTriggerProps = $props();
 
   let select = selectContext.get();
 
   let attrs = $derived(mergeProps(props, select.getTriggerProps()));
 </script>
 
-<button type="button" {...attrs}>
-  {@render children?.()}
-</button>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <button type="button" {...attrs}>
+    {@render children?.()}
+  </button>
+{/if}

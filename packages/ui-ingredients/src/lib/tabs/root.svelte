@@ -1,9 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTabsProps, CreateTabsReturn} from './create-tabs.svelte.js';
 
   export interface TabsProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTabsProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, tabs: CreateTabsReturn]>;
     children?: Snippet<[tabs: CreateTabsReturn]>;
   }
 </script>
@@ -24,6 +25,7 @@
     activationMode,
     onFocusChange,
     onValueChange,
+    asChild,
     children,
     ...props
   }: TabsProps = $props();
@@ -41,11 +43,15 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, tabs.getRootProps()));
+  let attrs = $derived<Record<string, any>>(mergeProps(props, tabs.getRootProps()));
 
   tabsContext.set(tabs);
 </script>
 
-<div {...attrs}>
-  {@render children?.(tabs)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, tabs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(tabs)}
+  </div>
+{/if}

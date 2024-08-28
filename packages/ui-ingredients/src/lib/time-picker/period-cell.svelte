@@ -1,15 +1,19 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
+
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {PeriodCellProps} from '@zag-js/time-picker';
 
-  export interface TimePickerPeriodCellProps extends Assign<HtmlProps<'div'>, PeriodCellProps> {}
+  export interface TimePickerPeriodCellProps extends Assign<HtmlProps<'div'>, PeriodCellProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {timePickerContext} from './context.svelte.js';
 
-  let {value, children, ...props}: TimePickerPeriodCellProps = $props();
+  let {value, asChild, children, ...props}: TimePickerPeriodCellProps = $props();
 
   let timePicker = timePickerContext.get();
 
@@ -23,6 +27,10 @@
   );
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

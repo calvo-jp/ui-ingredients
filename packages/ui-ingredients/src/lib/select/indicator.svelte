@@ -1,20 +1,27 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface SelectIndicatorProps extends HtmlProps<'div'> {}
+  export interface SelectIndicatorProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {selectContext} from './context.svelte.js';
 
-  let {children, ...props}: SelectIndicatorProps = $props();
+  let {asChild, children, ...props}: SelectIndicatorProps = $props();
 
   let select = selectContext.get();
 
   let attrs = $derived(mergeProps(props, select.getIndicatorProps()));
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

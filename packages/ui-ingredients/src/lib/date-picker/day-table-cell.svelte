@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {DayTableCellProps, DayTableCellState} from '@zag-js/date-picker';
   import type {Snippet} from 'svelte';
 
   export interface DatePickerDayTableCellProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, DayTableCellProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: DayTableCellState]>;
     children?: Snippet<[state: DayTableCellState]>;
   }
 </script>
@@ -13,14 +14,8 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {datePickerContext, datePickerDayTableCellPropsContext} from './context.svelte.js';
 
-  let {
-    /**/
-    value,
-    disabled,
-    visibleRange,
-    children,
-    ...props
-  }: DatePickerDayTableCellProps = $props();
+  let {value, disabled, visibleRange, asChild, children, ...props}: DatePickerDayTableCellProps =
+    $props();
 
   let datePicker = datePickerContext.get();
   let tableCellProps: DayTableCellProps = $derived({
@@ -35,6 +30,10 @@
   datePickerDayTableCellPropsContext.set(() => tableCellProps);
 </script>
 
-<div {...attrs}>
-  {@render children?.(state)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(state)}
+  </div>
+{/if}

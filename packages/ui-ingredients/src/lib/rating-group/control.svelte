@@ -1,20 +1,27 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {Snippet} from 'svelte';
 
-  export interface RatingGroupControlProps extends HtmlProps<'div'> {}
+  export interface RatingGroupControlProps extends HtmlProps<'div'> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {ratingGroupContext} from './context.svelte.js';
 
-  let {children, ...props}: RatingGroupControlProps = $props();
+  let {asChild, children, ...props}: RatingGroupControlProps = $props();
 
-  let radioGroup = ratingGroupContext.get();
+  let ratingGroup = ratingGroupContext.get();
 
-  let attrs = $derived(mergeProps(props, radioGroup.getControlProps()));
+  let attrs = $derived(mergeProps(props, ratingGroup.getControlProps()));
 </script>
 
-<div {...attrs}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(attrs)}
+{:else}
+  <div {...attrs}>
+    {@render children?.()}
+  </div>
+{/if}

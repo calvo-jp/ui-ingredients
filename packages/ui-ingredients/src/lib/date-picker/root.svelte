@@ -1,10 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateDatePickerProps, CreateDatePickerReturn} from './create-date-picker.svelte.js';
 
   export interface DatePickerProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateDatePickerProps> {
+    asChild?: Snippet<
+      [attrs: Omit<GenericHtmlProps, 'children'>, datePicker: CreateDatePickerReturn]
+    >;
     children?: Snippet<[datePicker: CreateDatePickerReturn]>;
   }
 </script>
@@ -43,6 +46,7 @@
     onValueChange,
     onFocusChange,
     isDateUnavailable,
+    asChild,
     children,
     ...props
   }: DatePickerProps = $props();
@@ -83,6 +87,10 @@
   datePickerContext.set(datePicker);
 </script>
 
-<div {...attrs}>
-  {@render children?.(datePicker)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, datePicker)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(datePicker)}
+  </div>
+{/if}

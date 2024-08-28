@@ -5,6 +5,7 @@
 
   export interface SegmentGroupItemProps
     extends Assign<Omit<HtmlProps<'label'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<HtmlProps<'label'>, 'children'>, state: ItemState]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
@@ -20,6 +21,7 @@
     invalid,
     disabled,
     children,
+    asChild,
     ...props
   }: SegmentGroupItemProps = $props();
 
@@ -36,6 +38,10 @@
   segmentGroupItemPropsContext.set(() => itemProps);
 </script>
 
-<label {...attrs}>
-  {@render children?.(state)}
-</label>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <label {...attrs}>
+    {@render children?.(state)}
+  </label>
+{/if}

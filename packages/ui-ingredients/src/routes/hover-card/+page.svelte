@@ -7,8 +7,7 @@
     placement: 'bottom-start',
   }}
 >
-  <HoverCard.Trigger href="#" class="underline-offset-2 hover:underline">Hover me</HoverCard.Trigger
-  >
+  <HoverCard.Trigger class="underline-offset-2 hover:underline">Hover me</HoverCard.Trigger>
   <Portal>
     <HoverCard.Positioner>
       <HoverCard.Content class="bg-light w-[90vw] rounded border p-4 lg:max-w-[24rem]">

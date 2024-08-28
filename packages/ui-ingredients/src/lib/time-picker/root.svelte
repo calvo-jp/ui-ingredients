@@ -1,10 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTimePickerProps, CreateTimePickerReturn} from './create-time-picker.svelte.js';
 
   export interface TimePickerProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTimePickerProps> {
+    asChild?: Snippet<
+      [attrs: Omit<GenericHtmlProps, 'children'>, timePicker: CreateTimePickerReturn]
+    >;
     children?: Snippet<[timePicker: CreateTimePickerReturn]>;
   }
 </script>
@@ -34,6 +37,7 @@
     onOpenChange,
     onValueChange,
     onFocusChange,
+    asChild,
     children,
     ...props
   }: TimePickerProps = $props();
@@ -65,6 +69,10 @@
   timePickerContext.set(timePicker);
 </script>
 
-<div {...attrs}>
-  {@render children?.(timePicker)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, timePicker)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(timePicker)}
+  </div>
+{/if}

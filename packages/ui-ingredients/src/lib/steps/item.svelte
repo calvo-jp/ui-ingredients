@@ -1,9 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/steps';
   import type {Snippet} from 'svelte';
 
   export interface StepsItemProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
+    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: ItemState]>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
@@ -12,7 +13,7 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {stepsContext, stepsItemPropsContext} from './context.svelte.js';
 
-  let {index, children, ...props}: StepsItemProps = $props();
+  let {index, asChild, children, ...props}: StepsItemProps = $props();
 
   let steps = stepsContext.get();
   let itemProps = $derived({
@@ -25,6 +26,10 @@
   stepsItemPropsContext.set(() => itemProps);
 </script>
 
-<div {...attrs}>
-  {@render children?.(state)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, state)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(state)}
+  </div>
+{/if}
