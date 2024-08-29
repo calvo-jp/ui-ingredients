@@ -10,6 +10,7 @@
   positioning={{
     sameWidth: true,
   }}
+  defaultOpen
 >
   {#snippet children(api)}
     <DatePicker.Label>
@@ -36,164 +37,142 @@
       <DatePicker.Content class="bg-light overflow-hidden rounded">
         <DatePicker.View view="day">
           <DatePicker.ViewControl
-            class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-2"
+            class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
           >
-            <DatePicker.PrevTrigger class="flex size-10 items-center justify-center">
+            <DatePicker.PrevTrigger
+              class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+            >
               <ChevronLeftIcon />
             </DatePicker.PrevTrigger>
 
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText class="font-semibold" />
+              <DatePicker.RangeText class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold" />
             </DatePicker.ViewTrigger>
 
-            <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
+            <DatePicker.NextTrigger
+              class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+            >
               <ChevronRightIcon />
             </DatePicker.NextTrigger>
           </DatePicker.ViewControl>
 
-          <DatePicker.Table class="w-full border border-t-0 p-4">
-            <DatePicker.TableHead>
-              <DatePicker.TableRow class="grid grid-cols-7">
-                {#each api.weekDays as weekDay}
-                  <DatePicker.TableHeader
-                    class="flex aspect-square w-full items-center justify-center text-sm font-semibold"
-                  >
-                    {weekDay.narrow}
-                  </DatePicker.TableHeader>
-                {/each}
-              </DatePicker.TableRow>
-            </DatePicker.TableHead>
-
-            <DatePicker.TableBody>
-              {#each api.weeks as week}
-                <DatePicker.TableRow class="grid grid-cols-7">
-                  {#each week as day}
-                    <DatePicker.DayTableCell value={day} class="aspect-square w-full">
-                      <DatePicker.DayTableCellTrigger
-                        class="data-disabled:opacity-50 data-selected:text-accent flex size-full items-center justify-center"
-                      >
-                        {day.day}
-                      </DatePicker.DayTableCellTrigger>
-                    </DatePicker.DayTableCell>
+          <div class="p-4">
+            <DatePicker.Table class="w-full">
+              <DatePicker.TableHead>
+                <DatePicker.TableRow>
+                  {#each api.weekDays as weekDay}
+                    <DatePicker.TableHeader>
+                      <div class="flex aspect-square w-full items-center justify-center text-sm">
+                        {weekDay.narrow}
+                      </div>
+                    </DatePicker.TableHeader>
                   {/each}
                 </DatePicker.TableRow>
-              {/each}
-            </DatePicker.TableBody>
-          </DatePicker.Table>
+              </DatePicker.TableHead>
+
+              <DatePicker.TableBody>
+                {#each api.weeks as week}
+                  <DatePicker.TableRow>
+                    {#each week as day}
+                      <DatePicker.DayTableCell value={day}>
+                        <DatePicker.DayTableCellTrigger
+                          class="data-disabled:opacity-50 data-selected:font-semibold data-selected:text-accent hover:bg-lighter/25 data-disabled:hover:bg-transparent data-disabled:cursor-not-allowed flex aspect-square w-full items-center justify-center rounded transition-colors duration-200"
+                        >
+                          {day.day}
+                        </DatePicker.DayTableCellTrigger>
+                      </DatePicker.DayTableCell>
+                    {/each}
+                  </DatePicker.TableRow>
+                {/each}
+              </DatePicker.TableBody>
+            </DatePicker.Table>
+          </div>
         </DatePicker.View>
 
         <!-- MONTH -->
         <DatePicker.View view="month">
-          <DatePicker.ViewControl class="flex items-center justify-between border px-4 py-2">
-            <DatePicker.PrevTrigger class="flex size-10 items-center justify-center">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M15 18L9 12L15 6"></path>
-              </svg>
+          <DatePicker.ViewControl
+            class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
+          >
+            <DatePicker.PrevTrigger
+              class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+            >
+              <ChevronLeftIcon />
             </DatePicker.PrevTrigger>
+
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText class="font-semibold" />
+              <DatePicker.RangeText class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold" />
             </DatePicker.ViewTrigger>
-            <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M9 18L15 12L9 6"></path>
-              </svg>
+
+            <DatePicker.NextTrigger
+              class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+            >
+              <ChevronRightIcon />
             </DatePicker.NextTrigger>
           </DatePicker.ViewControl>
 
-          <DatePicker.Table class="w-full border border-t-0 p-4">
-            <DatePicker.TableBody>
-              {#each api.getMonthsGrid({columns: 4, format: 'short'}) as months}
-                <DatePicker.TableRow class="grid grid-cols-4">
-                  {#each months as month}
-                    <DatePicker.MonthTableCell value={month.value} class="w-full">
-                      <DatePicker.MonthTableCellTrigger
-                        class="data-selected:text-accent flex size-full items-center justify-center"
-                      >
-                        {month.label}
-                      </DatePicker.MonthTableCellTrigger>
-                    </DatePicker.MonthTableCell>
-                  {/each}
-                </DatePicker.TableRow>
-              {/each}
-            </DatePicker.TableBody>
-          </DatePicker.Table>
+          <div class="p-4">
+            <DatePicker.Table class="w-full">
+              <DatePicker.TableBody>
+                {#each api.getMonthsGrid({columns: 4, format: 'short'}) as months}
+                  <DatePicker.TableRow>
+                    {#each months as month}
+                      <DatePicker.MonthTableCell value={month.value}>
+                        <DatePicker.MonthTableCellTrigger
+                          class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-200"
+                        >
+                          {month.label}
+                        </DatePicker.MonthTableCellTrigger>
+                      </DatePicker.MonthTableCell>
+                    {/each}
+                  </DatePicker.TableRow>
+                {/each}
+              </DatePicker.TableBody>
+            </DatePicker.Table>
+          </div>
         </DatePicker.View>
 
         <!-- YEAR -->
         <DatePicker.View view="year">
-          <DatePicker.ViewControl class="flex items-center justify-between border px-4 py-2">
-            <DatePicker.PrevTrigger class="flex size-10 items-center justify-center">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M15 18L9 12L15 6"></path>
-              </svg>
+          <DatePicker.ViewControl
+            class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
+          >
+            <DatePicker.PrevTrigger
+              class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+            >
+              <ChevronLeftIcon />
             </DatePicker.PrevTrigger>
+
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText class="font-semibold" />
+              <DatePicker.RangeText class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold" />
             </DatePicker.ViewTrigger>
-            <DatePicker.NextTrigger class="flex size-10 items-center justify-center">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M9 18L15 12L9 6"></path>
-              </svg>
+
+            <DatePicker.NextTrigger
+              class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+            >
+              <ChevronRightIcon />
             </DatePicker.NextTrigger>
           </DatePicker.ViewControl>
 
-          <DatePicker.Table class="w-full border border-t-0 p-4">
-            <DatePicker.TableBody>
-              {#each api.getYearsGrid({columns: 8}) as years}
-                <DatePicker.TableRow class="grid grid-cols-4">
-                  {#each years as year}
-                    <DatePicker.YearTableCell value={year.value} class="w-full">
-                      <DatePicker.YearTableCellTrigger
-                        class="data-selected:text-accent flex size-full items-center justify-center"
-                      >
-                        {year.label}
-                      </DatePicker.YearTableCellTrigger>
-                    </DatePicker.YearTableCell>
-                  {/each}
-                </DatePicker.TableRow>
-              {/each}
-            </DatePicker.TableBody>
-          </DatePicker.Table>
+          <div class="p-4">
+            <DatePicker.Table class="w-full">
+              <DatePicker.TableBody>
+                {#each api.getYearsGrid({columns: 4}) as years}
+                  <DatePicker.TableRow>
+                    {#each years as year}
+                      <DatePicker.YearTableCell value={year.value}>
+                        <DatePicker.YearTableCellTrigger
+                          class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-200"
+                        >
+                          {year.label}
+                        </DatePicker.YearTableCellTrigger>
+                      </DatePicker.YearTableCell>
+                    {/each}
+                  </DatePicker.TableRow>
+                {/each}
+              </DatePicker.TableBody>
+            </DatePicker.Table>
+          </div>
         </DatePicker.View>
       </DatePicker.Content>
     </DatePicker.Positioner>
