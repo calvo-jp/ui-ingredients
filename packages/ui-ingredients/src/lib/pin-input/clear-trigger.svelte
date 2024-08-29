@@ -16,7 +16,7 @@
   let pinInput = pinInputContext.get();
 
   let mergedProps = $derived(
-    mergeProps(props, parts.clearTrigger.mergedProps, pinInput.getClearTriggerProps()),
+    mergeProps(props, parts.clearTrigger.attrs, pinInput.getClearTriggerProps()),
   );
 </script>
 

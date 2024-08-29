@@ -15,9 +15,7 @@
 
   let segmentGroup = segmentGroupContext.get();
 
-  let mergedProps = $derived(
-    mergeProps(props, segmentGroup.getLabelProps(), parts.label.mergedProps),
-  );
+  let mergedProps = $derived(mergeProps(props, segmentGroup.getLabelProps(), parts.label.attrs));
 </script>
 
 {#if asChild}

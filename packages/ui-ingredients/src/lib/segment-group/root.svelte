@@ -46,9 +46,7 @@
     onValueChange,
   });
 
-  let mergedProps = $derived(
-    mergeProps(props, segmentGroup.getRootProps(), parts.root.mergedProps),
-  );
+  let mergedProps = $derived(mergeProps(props, segmentGroup.getRootProps(), parts.root.attrs));
 
   segmentGroupContext.set(segmentGroup);
 </script>
