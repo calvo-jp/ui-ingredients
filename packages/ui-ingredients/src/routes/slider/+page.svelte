@@ -1,11 +1,12 @@
 <script lang="ts">
   import {Slider} from '$lib/index.js';
+  import {Label} from '../shared/index.js';
 
   let value = $state([0, 25]);
 </script>
 
 <Slider.Root
-  class="flex max-w-[20rem] flex-col gap-1"
+  class="w-full lg:max-w-[24rem]"
   min={0}
   max={100}
   {value}
@@ -13,10 +14,13 @@
     console.log({value});
   }}
 >
-  <Slider.Label>Label</Slider.Label>
-  <Slider.ValueText class="text-sm text-neutral-500" />
+  <Slider.Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Label</Label>
+    {/snippet}
+  </Slider.Label>
 
-  <Slider.Control class="relative mt-3 flex items-center">
+  <Slider.Control class="relative mt-2 flex items-center">
     <Slider.Track class="bg-disabled h-3 grow overflow-hidden rounded-full">
       <Slider.Range class="bg-accent h-4" />
     </Slider.Track>
@@ -28,7 +32,7 @@
     </Slider.Thumb>
   </Slider.Control>
 
-  <Slider.MarkerGroup class="mt-1 text-sm font-medium text-neutral-500">
+  <Slider.MarkerGroup class="text-muted mt-2 text-sm font-semibold">
     <Slider.Marker value={25}>25</Slider.Marker>
     <Slider.Marker value={50}>50</Slider.Marker>
     <Slider.Marker value={75}>75</Slider.Marker>

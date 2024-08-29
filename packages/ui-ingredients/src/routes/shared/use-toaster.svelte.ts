@@ -5,7 +5,7 @@ let toaster: CreateToasterReturn;
 export function useToaster() {
   if (!toaster) {
     toaster = createToaster({
-      placement: 'bottom-end',
+      placement: 'bottom',
       overlap: true,
     });
   }

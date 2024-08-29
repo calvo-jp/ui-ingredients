@@ -13,7 +13,7 @@
   <Carousel.Viewport class="overflow-hidden rounded">
     <Carousel.ItemGroup>
       {#each items as src, index}
-        <Carousel.Item {index} class="h-[20rem] overflow-hidden">
+        <Carousel.Item {index} class="h-[16rem] overflow-hidden lg:h-[20rem]">
           <img {src} alt="" class="max-h-[125%] min-h-full min-w-full max-w-[125%]" />
         </Carousel.Item>
       {/each}
