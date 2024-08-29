@@ -92,8 +92,8 @@
       path: '/slider',
     },
     {
-      label: 'Toaster',
-      path: '/toaster',
+      label: 'Toast',
+      path: '/toast',
     },
     {
       label: 'Select',
