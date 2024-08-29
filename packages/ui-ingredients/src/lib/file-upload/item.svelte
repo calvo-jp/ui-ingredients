@@ -1,10 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/file-upload';
-  import type {Snippet} from 'svelte';
 
   export interface FileUploadItemProps extends Assign<HtmlProps<'div'>, ItemProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+    asChild?: AsChild;
   }
 </script>
 

@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface AccordionItemTriggerProps extends HtmlProps<'button'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'button'>>;
   }
 </script>
 

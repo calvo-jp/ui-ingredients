@@ -1,8 +1,9 @@
 <script lang="ts">
-  import {page} from '$app/stores';
-  import {Dialog, EnvironmentProvider, LocaleProvider, Portal} from '$lib/index.js';
   import '../app.css';
-  import {cx} from './shared/utils.js';
+
+  import {page} from '$app/stores';
+  import {Dialog, EnvironmentProvider, LocaleProvider, Portal, Toast, Toaster} from '$lib/index.js';
+  import {cx, toaster} from './shared/index.js';
 
   let {children} = $props();
 
@@ -277,5 +278,33 @@
         {@render children()}
       </main>
     </div>
+
+    <Toaster {toaster}>
+      {#snippet children()}
+        <Toast.Root
+          class={cx(
+            'p-4',
+            'border',
+            'rounded',
+            'bg-light',
+            'duration-300',
+            'transition-all',
+            'min-w-[90vw]',
+            'lg:min-w-[20rem]',
+            'h-[var(--height)]',
+            'z-[var(--z-index)]',
+            '[translate:var(--x)_var(--y)_0]',
+            'opacity-[var(--opacity)]',
+            'scale-[var(--scale)]',
+          )}
+        >
+          <Toast.Title class="font-medium" />
+          <Toast.Description class="text-muted text-sm" />
+          <Toast.CloseTrigger class="border-lighter mt-3 block h-12 w-full rounded border">
+            Close
+          </Toast.CloseTrigger>
+        </Toast.Root>
+      {/snippet}
+    </Toaster>
   </LocaleProvider>
 </EnvironmentProvider>

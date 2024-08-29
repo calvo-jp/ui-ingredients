@@ -1,11 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {SegmentPathProps} from '@zag-js/signature-pad';
-  import type {Snippet} from 'svelte';
 
   export interface SignaturePadSegmentPathProps
     extends Assign<HtmlProps<'path'>, SegmentPathProps> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'path'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'path'>>;
   }
 </script>
 

@@ -19,10 +19,10 @@
 
   let {toaster, children, ...props}: ToasterProps = $props();
 
-  let [state, send] = useMachine(toaster.machine);
+  let [snapshot, send] = useMachine(toaster.machine);
 
-  let placement = $derived(state.context.placement);
-  let api = $derived(toast.group.connect(state, send, normalizeProps));
+  let placement = $derived(snapshot.context.placement);
+  let api = $derived(toast.group.connect(snapshot, send, normalizeProps));
   let toasts = $derived(api.getToastsByPlacement(placement));
   let attrs = $derived(mergeProps(props, api.getGroupProps({placement})));
 </script>

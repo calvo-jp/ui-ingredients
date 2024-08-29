@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface SignaturePadCurrentSegmentPathProps extends HtmlProps<'path'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'path'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'path'>>;
   }
 </script>
 

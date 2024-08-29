@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface DatePickerTableHeadProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  export interface DatePickerTableHeadProps extends HtmlProps<'thead'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -22,7 +21,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <thead {...attrs}>
     {@render children?.()}
-  </div>
+  </thead>
 {/if}

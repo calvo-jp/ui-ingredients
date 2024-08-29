@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface TimerItemLabelProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  export interface TimerItemLabelProps extends HtmlProps<'span'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -22,7 +21,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <span {...attrs}>
     {@render children?.()}
-  </div>
+  </span>
 {/if}

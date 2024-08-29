@@ -1,13 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateDatePickerProps, CreateDatePickerReturn} from './create-date-picker.svelte.js';
 
   export interface DatePickerProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateDatePickerProps> {
-    asChild?: Snippet<
-      [attrs: Omit<GenericHtmlProps, 'children'>, datePicker: CreateDatePickerReturn]
-    >;
+    asChild?: AsChild<GenericHtmlProps, CreateDatePickerReturn>;
     children?: Snippet<[datePicker: CreateDatePickerReturn]>;
   }
 </script>

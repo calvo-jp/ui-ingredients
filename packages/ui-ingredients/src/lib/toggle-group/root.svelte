@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateToggleGroupProps,
@@ -8,9 +8,7 @@
 
   export interface ToggleGroupProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateToggleGroupProps> {
-    asChild?: Snippet<
-      [attrs: Omit<GenericHtmlProps, 'children'>, toggleGroup: CreateToggleGroupReturn]
-    >;
+    asChild?: AsChild<GenericHtmlProps, CreateToggleGroupReturn>;
     children?: Snippet<[toggleGroup: CreateToggleGroupReturn]>;
   }
 </script>

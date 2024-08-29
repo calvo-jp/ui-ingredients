@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface DatePickerMonthSelectProps extends HtmlProps<'select'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'select'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'select'>>;
   }
 </script>
 

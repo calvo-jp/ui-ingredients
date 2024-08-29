@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface SelectValueTextProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  export interface SelectValueTextProps extends HtmlProps<'span'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -21,7 +20,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <span {...attrs}>
     {#if children}
       {@render children?.()}
     {:else if select.value.length}
@@ -29,5 +28,5 @@
     {:else}
       {placeholder}
     {/if}
-  </div>
+  </span>
 {/if}

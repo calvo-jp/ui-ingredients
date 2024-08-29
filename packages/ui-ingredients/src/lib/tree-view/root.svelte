@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTreeViewProps, CreateTreeViewReturn} from './create-tree-view.svelte.js';
 
   export interface TreeViewProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTreeViewProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, treeView: CreateTreeViewReturn]>;
+    asChild?: AsChild<GenericHtmlProps, CreateTreeViewReturn>;
     children?: Snippet<[treeView: CreateTreeViewReturn]>;
   }
 </script>

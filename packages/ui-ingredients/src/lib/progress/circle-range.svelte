@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface ProgressCircleRangeProps extends HtmlProps<'circle'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'circle'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'circle'>>;
   }
 </script>
 

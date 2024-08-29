@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateProgressProps, CreateProgressReturn} from './create-progress.svelte.js';
 
   export interface ProgressProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateProgressProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+    asChild?: AsChild;
     children?: Snippet<[progress: CreateProgressReturn]>;
   }
 </script>

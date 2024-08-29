@@ -1,10 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {TriggerProps} from '@zag-js/tabs';
-  import type {Snippet} from 'svelte';
 
   export interface TabsTriggerProps extends Assign<HtmlProps<'button'>, TriggerProps> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'button'>>;
   }
 </script>
 

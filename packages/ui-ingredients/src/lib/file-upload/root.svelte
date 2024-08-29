@@ -1,10 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateFileUploadProps, CreateFileUploadReturn} from './create-file-upload.svelte.js';
 
   export interface FileUploadProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateFileUploadProps> {
+    asChild?: AsChild<GenericHtmlProps, CreateFileUploadReturn>;
     children?: Snippet<[fileUpload: CreateFileUploadReturn]>;
   }
 </script>
@@ -33,6 +34,7 @@
     onFileChange,
     onFileReject,
     translations,
+    asChild,
     children,
     ...props
   }: FileUploadProps = $props();
@@ -63,6 +65,10 @@
   fileUploadContext.set(fileUpload);
 </script>
 
-<div {...attrs}>
-  {@render children?.(fileUpload)}
-</div>
+{#if asChild}
+  {@render asChild(attrs, fileUpload)}
+{:else}
+  <div {...attrs}>
+    {@render children?.(fileUpload)}
+  </div>
+{/if}

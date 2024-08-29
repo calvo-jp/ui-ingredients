@@ -1,11 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {IndicatorProps} from '@zag-js/clipboard';
-  import type {Snippet} from 'svelte';
 
   export interface ClipboardIndicatorProps
-    extends Assign<HtmlProps<'div'>, Partial<IndicatorProps>> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+    extends Assign<HtmlProps<'span'>, Partial<IndicatorProps>> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -23,7 +22,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <span {...attrs}>
     {@render children?.()}
-  </div>
+  </span>
 {/if}
