@@ -21,7 +21,7 @@ export function createTimePicker(props: CreateTimePickerProps): CreateTimePicker
       ...props,
       id: props.id ?? createUniqueId(),
       dir: locale?.dir,
-      open: props.defaultOpen,
+      open: props.defaultOpen ?? props.open,
       locale: props.locale ?? locale?.locale,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.defaultOpen != null,

@@ -22,7 +22,7 @@ export function createColorPicker(props: CreateColorPickerProps): CreateColorPic
       ...props,
       id: props.id ?? createUniqueId(),
       dir: locale?.dir,
-      open: props.defaultOpen,
+      open: props.defaultOpen ?? props.open,
       value: props.value ? colorPicker.parse(props.value) : undefined,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,

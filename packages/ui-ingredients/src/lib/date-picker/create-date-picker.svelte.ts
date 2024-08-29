@@ -41,7 +41,7 @@ export function createDatePicker(props: CreateDatePickerProps): CreateDatePicker
       max: props.max ? datePicker.parse(props.max) : undefined,
       value: props.value ? datePicker.parse(props.value) : undefined,
       focusedValue: props.focusedValue ? datePicker.parse(props.focusedValue) : undefined,
-      open: props.defaultOpen,
+      open: props.defaultOpen ?? props.open,
       'open.controlled': props.open != null,
       locale: props.locale ?? locale?.locale,
       getRootNode: environment?.getRootNode,

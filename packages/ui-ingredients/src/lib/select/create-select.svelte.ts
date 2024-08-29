@@ -34,7 +34,7 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
       ...props,
       id: props.id ?? createUniqueId(),
       dir: locale?.dir,
-      open: props.defaultOpen,
+      open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,
       collection,
       'open.controlled': props.open != null,

@@ -10,7 +10,6 @@
   positioning={{
     sameWidth: true,
   }}
-  defaultOpen
 >
   {#snippet children(api)}
     <DatePicker.Label>

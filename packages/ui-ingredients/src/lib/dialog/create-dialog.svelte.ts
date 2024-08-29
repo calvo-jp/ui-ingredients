@@ -21,7 +21,7 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
       ...props,
       id: props.id ?? createUniqueId(),
       dir: locale?.dir,
-      open: props.defaultOpen,
+      open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
     }),
