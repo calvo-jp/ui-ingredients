@@ -5,4 +5,10 @@
   let {class: className, ...props}: SvelteHTMLElements['input'] = $props();
 </script>
 
-<input class={cx('block h-12 w-full rounded border px-4', className)} {...props} />
+<input
+  class={cx(
+    'block h-12 w-full rounded border bg-transparent px-4 placeholder:text-neutral-600',
+    className,
+  )}
+  {...props}
+/>

@@ -6,8 +6,4 @@
   [hidden] {
     @apply !hidden;
   }
-
-  input {
-    @apply placeholder:text-muted;
-  }
 }
