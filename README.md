@@ -55,7 +55,7 @@ npm install ui-ingredients
 - 🟢 PinInput
 - 🟢 Popover
 - 🟢 Portal
-- 🟡 Presence
+- ⚪ Presence
 - 🟢 Progress
 - 🟢 QRCode
 - 🟢 RadioGroup
