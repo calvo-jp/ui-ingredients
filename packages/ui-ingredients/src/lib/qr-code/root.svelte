@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateQRCodeProps, CreateQRCodeReturn} from './create-qr-code.svelte.js';
 
   export interface QRCodeProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateQRCodeProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateQRCodeReturn>;
-    children?: Snippet<[qrCode: CreateQRCodeReturn]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateQRCodeProps> {
+    asChild?: AsChild<CreateQRCodeReturn>;
+    children?: Snippet<[CreateQRCodeReturn]>;
   }
 </script>
 

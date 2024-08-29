@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/toggle-group';
   import type {Snippet} from 'svelte';
 
   export interface ToggleGroupItemProps
-    extends Assign<Omit<HtmlProps<'button'>, 'children'>, ItemProps> {
-    asChild?: AsChild<HtmlProps<'button'>>;
-    children?: Snippet<[state: ItemState]>;
+    extends Assign<Omit<HTMLProps<'button'>, 'children'>, ItemProps> {
+    asChild?: AsChild;
+    children?: Snippet<[ItemState]>;
   }
 </script>
 

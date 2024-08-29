@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface TagsInputInputProps extends HtmlProps<'input'> {
-    asChild?: AsChild<HtmlProps<'input'>>;
+  export interface TagsInputInputProps extends HTMLProps<'input'> {
+    asChild?: AsChild;
   }
 </script>
 

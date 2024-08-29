@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/file-upload';
 
-  export interface FileUploadItemProps extends Assign<HtmlProps<'div'>, ItemProps> {
+  export interface FileUploadItemProps extends Assign<HTMLProps<'div'>, ItemProps> {
     asChild?: AsChild;
   }
 </script>

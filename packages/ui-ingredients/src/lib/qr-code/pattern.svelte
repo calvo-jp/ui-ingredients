@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface QRCodePatternProps extends HtmlProps<'path'> {
-    asChild?: AsChild<HtmlProps<'path'>>;
+  export interface QRCodePatternProps extends HTMLProps<'path'> {
+    asChild?: AsChild;
   }
 </script>
 

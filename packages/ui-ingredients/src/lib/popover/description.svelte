@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface PopoverDescriptionProps extends HtmlProps<'p'> {
+  export interface PopoverDescriptionProps extends HTMLProps<'p'> {
     asChild?: AsChild;
   }
 </script>

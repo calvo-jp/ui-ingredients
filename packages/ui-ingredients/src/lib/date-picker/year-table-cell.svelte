@@ -1,39 +1,42 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {TableCellProps, TableCellState} from '@zag-js/date-picker';
   import type {Snippet} from 'svelte';
 
   export interface DatePickerYearTableCellProps
-    extends Assign<Omit<HtmlProps<'td'>, 'children'>, TableCellProps> {
-    asChild?: AsChild<GenericHtmlProps, TableCellState>;
-    children?: Snippet<[state: TableCellState]>;
+    extends Assign<Omit<HTMLProps<'td'>, 'children'>, TableCellProps> {
+    asChild?: AsChild<TableCellState>;
+    children?: Snippet<[TableCellState]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {datePickerContext, datePickerTableCellPropsContext} from './context.svelte.js';
 
-  let {value, disabled, columns, asChild, children, ...props}: DatePickerYearTableCellProps =
-    $props();
+  let {asChild, children, ...props}: DatePickerYearTableCellProps = $props();
 
   let datePicker = datePickerContext.get();
-  let tableCellProps: TableCellProps = $derived({
-    value,
-    disabled,
-    columns,
-  });
 
-  let state = $derived(datePicker.getYearTableCellState(tableCellProps));
-  let attrs = $derived(mergeProps(props, datePicker.getYearTableCellProps(tableCellProps)));
+  let [tableCellProps, otherProps] = createSplitProps<TableCellProps>([
+    'value',
+    'disabled',
+    'columns',
+  ])(props);
+
+  let tableCellState = $derived(datePicker.getYearTableCellState(tableCellProps));
+
+  let mergedProps = $derived(
+    mergeProps(otherProps, datePicker.getYearTableCellProps(tableCellProps)),
+  );
 
   datePickerTableCellPropsContext.set(() => tableCellProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, tableCellState)}
 {:else}
-  <td {...attrs}>
-    {@render children?.(state)}
+  <td {...mergedProps}>
+    {@render children?.(tableCellState)}
   </td>
 {/if}

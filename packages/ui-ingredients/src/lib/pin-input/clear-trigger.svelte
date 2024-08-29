@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface PinInputClearTriggerProps extends HtmlProps<'button'> {
-    asChild?: AsChild<HtmlProps<'button'>>;
+  export interface PinInputClearTriggerProps extends HTMLProps<'button'> {
+    asChild?: AsChild;
   }
 </script>
 

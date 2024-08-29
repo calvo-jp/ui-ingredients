@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateStepsProps, CreateStepsReturn} from './create-steps.svelte.js';
 
-  export interface StepsProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateStepsProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateStepsReturn>;
-    children?: Snippet<[steps: CreateStepsReturn]>;
+  export interface StepsProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateStepsProps> {
+    asChild?: AsChild<CreateStepsReturn>;
+    children?: Snippet<[CreateStepsReturn]>;
   }
 </script>
 

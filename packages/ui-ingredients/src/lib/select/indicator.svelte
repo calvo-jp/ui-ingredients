@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface SelectIndicatorProps extends HtmlProps<'span'> {
+  export interface SelectIndicatorProps extends HTMLProps<'span'> {
     asChild?: AsChild;
   }
 </script>

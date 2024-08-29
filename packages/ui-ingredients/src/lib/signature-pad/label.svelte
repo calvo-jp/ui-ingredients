@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface SignaturePadLabelProps extends HtmlProps<'label'> {
-    asChild?: AsChild<HtmlProps<'label'>>;
+  export interface SignaturePadLabelProps extends HTMLProps<'label'> {
+    asChild?: AsChild;
   }
 </script>
 

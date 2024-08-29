@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, HTMLProps} from '$lib/types.js';
   import type {HiddenInputProps} from '@zag-js/signature-pad';
 
   export interface SignaturePadHiddenInputProps
-    extends Assign<HtmlProps<'input'>, HiddenInputProps> {}
+    extends Assign<HTMLProps<'input'>, HiddenInputProps> {}
 </script>
 
 <script lang="ts">

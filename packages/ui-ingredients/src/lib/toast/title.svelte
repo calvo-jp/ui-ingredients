@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface ToastTitleProps extends HtmlProps<'h2'> {
+  export interface ToastTitleProps extends HTMLProps<'h2'> {
     asChild?: AsChild;
   }
 </script>

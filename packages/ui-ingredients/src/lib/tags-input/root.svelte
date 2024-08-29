@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTagsInputProps, CreateTagsInputReturn} from './create-tags-input.svelte.js';
 
   export interface TagsInputProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTagsInputProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateTagsInputReturn>;
-    children?: Snippet<[tagsInput: CreateTagsInputReturn]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateTagsInputProps> {
+    asChild?: AsChild<CreateTagsInputReturn>;
+    children?: Snippet<[CreateTagsInputReturn]>;
   }
 </script>
 

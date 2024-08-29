@@ -1,10 +1,10 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {PresetTriggerProps} from '@zag-js/date-picker';
 
   export interface DatePickerPresetTriggerProps
-    extends Assign<HtmlProps<'button'>, PresetTriggerProps> {
-    asChild?: AsChild<HtmlProps<'button'>>;
+    extends Assign<HTMLProps<'button'>, PresetTriggerProps> {
+    asChild?: AsChild;
   }
 </script>
 

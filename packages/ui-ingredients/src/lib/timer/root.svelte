@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTimerProps, CreateTimerReturn} from './create-timer.svelte.js';
 
-  export interface TimerProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTimerProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateTimerReturn>;
-    children?: Snippet<[timer: CreateTimerReturn]>;
+  export interface TimerProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateTimerProps> {
+    asChild?: AsChild<CreateTimerReturn>;
+    children?: Snippet<[CreateTimerReturn]>;
   }
 </script>
 

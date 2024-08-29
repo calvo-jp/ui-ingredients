@@ -1,37 +1,35 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/accordion';
   import type {Snippet} from 'svelte';
 
   export interface AccordionItemProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild;
     children?: Snippet<[state: ItemState]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {accordionContext, accordionItemPropsContext} from './context.svelte.js';
 
-  let {value, disabled, asChild, children, ...props}: AccordionItemProps = $props();
+  let {asChild, children, ...props}: AccordionItemProps = $props();
 
   let accordion = accordionContext.get();
-  let itemProps = $derived({
-    value,
-    disabled,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['value', 'disabled'])(props);
 
   let state = $derived(accordion.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, accordion.getItemProps(itemProps)));
+  let mergedProps = $derived(mergeProps(otherProps, accordion.getItemProps(itemProps)));
 
   accordionItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(state)}
   </div>
 {/if}

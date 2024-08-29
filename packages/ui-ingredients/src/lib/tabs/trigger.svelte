@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {TriggerProps} from '@zag-js/tabs';
 
-  export interface TabsTriggerProps extends Assign<HtmlProps<'button'>, TriggerProps> {
-    asChild?: AsChild<HtmlProps<'button'>>;
+  export interface TabsTriggerProps extends Assign<HTMLProps<'button'>, TriggerProps> {
+    asChild?: AsChild;
   }
 </script>
 

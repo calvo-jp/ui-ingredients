@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {InputProps} from '@zag-js/pin-input';
 
-  export interface PinInputInputProps extends Assign<HtmlProps<'input'>, InputProps> {
-    asChild?: AsChild<HtmlProps<'input'>>;
+  export interface PinInputInputProps extends Assign<HTMLProps<'input'>, InputProps> {
+    asChild?: AsChild;
   }
 </script>
 

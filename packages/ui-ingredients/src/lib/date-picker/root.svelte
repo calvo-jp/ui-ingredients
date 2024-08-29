@@ -1,94 +1,64 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateDatePickerProps, CreateDatePickerReturn} from './create-date-picker.svelte.js';
 
   export interface DatePickerProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateDatePickerProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateDatePickerReturn>;
-    children?: Snippet<[datePicker: CreateDatePickerReturn]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateDatePickerProps> {
+    asChild?: AsChild<CreateDatePickerReturn>;
+    children?: Snippet<[CreateDatePickerReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {datePickerContext} from './context.svelte.js';
   import {createDatePicker} from './create-date-picker.svelte.js';
 
-  let {
-    id,
-    ids,
-    min,
-    max,
-    name,
-    open,
-    view,
-    value,
-    modal,
-    locale,
-    disabled,
-    readOnly,
-    timeZone,
-    fixedWeeks,
-    startOfWeek,
-    defaultOpen,
-    positioning,
-    numOfMonths,
-    translations,
-    focusedValue,
-    closeOnSelect,
-    selectionMode,
-    format,
-    onViewChange,
-    onOpenChange,
-    onValueChange,
-    onFocusChange,
-    isDateUnavailable,
-    asChild,
-    children,
-    ...props
-  }: DatePickerProps = $props();
+  let {asChild, children, ...props}: DatePickerProps = $props();
 
-  let datePicker = createDatePicker({
-    id,
-    ids,
-    min,
-    max,
-    name,
-    open,
-    view,
-    value: $state.snapshot(value),
-    modal,
-    locale,
-    disabled,
-    readOnly,
-    timeZone,
-    fixedWeeks,
-    defaultOpen,
-    startOfWeek,
-    positioning,
-    numOfMonths,
-    translations,
-    focusedValue,
-    closeOnSelect,
-    selectionMode,
-    format,
-    onViewChange,
-    onOpenChange,
-    onValueChange,
-    onFocusChange,
-    isDateUnavailable,
-  });
+  let [datePickerProps, otherProps] = createSplitProps<CreateDatePickerProps>([
+    'id',
+    'ids',
+    'min',
+    'max',
+    'name',
+    'open',
+    'view',
+    'value',
+    'modal',
+    'format',
+    'locale',
+    'disabled',
+    'readOnly',
+    'timeZone',
+    'fixedWeeks',
+    'startOfWeek',
+    'defaultOpen',
+    'positioning',
+    'numOfMonths',
+    'translations',
+    'focusedValue',
+    'closeOnSelect',
+    'selectionMode',
+    'onViewChange',
+    'onOpenChange',
+    'onValueChange',
+    'onFocusChange',
+    'isDateUnavailable',
+  ])(props);
 
-  let attrs = $derived(mergeProps(props, datePicker.getRootProps()));
+  let datePicker = createDatePicker(datePickerProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, datePicker.getRootProps()));
 
   datePickerContext.set(datePicker);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, datePicker)}
+  {@render asChild(mergedProps, datePicker)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(datePicker)}
   </div>
 {/if}

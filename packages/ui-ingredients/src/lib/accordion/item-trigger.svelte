@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface AccordionItemTriggerProps extends HtmlProps<'button'> {
-    asChild?: AsChild<HtmlProps<'button'>>;
+  export interface AccordionItemTriggerProps extends HTMLProps<'button'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -15,13 +15,13 @@
   let accordion = accordionContext.get();
   let itemProps = accordionItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, accordion.getItemTriggerProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, accordion.getItemTriggerProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

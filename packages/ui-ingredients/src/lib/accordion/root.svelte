@@ -1,56 +1,44 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateAccordionProps, CreateAccordionReturn} from './create-accordion.svelte.js';
 
   export interface AccordionProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateAccordionProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateAccordionReturn>;
-    children?: Snippet<[accordion: CreateAccordionReturn]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateAccordionProps> {
+    asChild?: AsChild<CreateAccordionReturn>;
+    children?: Snippet<[CreateAccordionReturn]>;
   }
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {accordionContext} from './context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
 
-  let {
-    id,
-    ids,
-    value,
-    disabled,
-    multiple,
-    orientation,
-    collapsible,
-    onFocusChange,
-    onValueChange,
-    asChild,
-    children,
-    ...props
-  }: AccordionProps = $props();
+  let {asChild, children, ...props}: AccordionProps = $props();
 
-  let accordion = createAccordion({
-    id,
-    ids,
-    value: $state.snapshot(value),
-    multiple,
-    disabled,
-    collapsible,
-    orientation,
-    onFocusChange,
-    onValueChange,
-  });
+  let [accordionProps, otherProps] = createSplitProps<CreateAccordionProps>([
+    'id',
+    'ids',
+    'value',
+    'disabled',
+    'multiple',
+    'orientation',
+    'collapsible',
+    'onFocusChange',
+    'onValueChange',
+  ])(props);
 
-  let attrs = $derived(mergeProps(props, accordion.getRootProps()));
+  let accordion = createAccordion(accordionProps);
+  let mergedProps = mergeProps(otherProps, accordion.getRootProps());
 
   accordionContext.set(accordion);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, accordion)}
+  {@render asChild(mergedProps, accordion)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(accordion)}
   </div>
 {/if}

@@ -1,15 +1,14 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ViewProps} from '@zag-js/date-picker';
 
-  export interface DatePickerViewProps extends Assign<HtmlProps<'div'>, ViewProps> {
+  export interface DatePickerViewProps extends Assign<HTMLProps<'div'>, ViewProps> {
     asChild?: AsChild;
   }
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {parts} from './anatomy.js';
   import {datePickerContext, datePickerViewPropsContext} from './context.svelte.js';
 
   let {view, asChild, children, ...props}: DatePickerViewProps = $props();
@@ -20,17 +19,15 @@
     view: view ?? 'day',
   });
 
-  let attrs = $derived(
-    mergeProps(props, datePicker.getViewProps(viewProps), parts.view.attrs as Record<string, any>),
-  );
+  let mergedProps = $derived(mergeProps(props, datePicker.getViewProps(viewProps)));
 
   datePickerViewPropsContext.set(() => viewProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div hidden={datePicker.view !== view} {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

@@ -1,17 +1,21 @@
 import {mergeProps as originalMergeProps, reflect} from '@zag-js/svelte';
+import {createSplitProps as originalCreateSplitProps} from '@zag-js/utils';
 import {getContext, hasContext, setContext} from 'svelte';
 import {uid} from 'uid';
+import type {GenericObject} from './types.js';
 
-export const createUniqueId = () => uid();
+export function createUniqueId() {
+  return uid(16);
+}
 
-export function isObject<T extends Record<string, unknown>>(value: unknown): value is T {
+function isObject<T extends GenericObject>(value: unknown): value is T {
   return Object.prototype.toString.call(value) === '[object Object]' && value === Object(value);
 }
 
-export function mergeProps<T extends Record<string, any>>(...args: T[]): T {
-  const r = originalMergeProps<Record<string, any>>(...args);
+export function mergeProps<T extends GenericObject>(...args: T[]): T {
+  const r = originalMergeProps<GenericObject>(...args);
 
-  if (r.style && isObject<Record<string, any>>(r.style)) {
+  if (r.style && isObject(r.style)) {
     let s = '';
 
     for (const k in r.style) {
@@ -22,6 +26,13 @@ export function mergeProps<T extends Record<string, any>>(...args: T[]): T {
   }
 
   return r as T;
+}
+
+export function createSplitProps<T extends GenericObject>(k: (keyof T)[]) {
+  return function <P extends T>(p: P): [T, Omit<P, keyof T>] {
+    const r = $derived(originalCreateSplitProps(k)(p));
+    return r;
+  };
 }
 
 export class Context<T extends Record<string, any>> {

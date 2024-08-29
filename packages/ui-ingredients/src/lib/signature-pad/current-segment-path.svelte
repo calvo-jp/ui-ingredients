@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface SignaturePadCurrentSegmentPathProps extends HtmlProps<'path'> {
-    asChild?: AsChild<HtmlProps<'path'>>;
+  export interface SignaturePadCurrentSegmentPathProps extends HTMLProps<'path'> {
+    asChild?: AsChild;
   }
 </script>
 

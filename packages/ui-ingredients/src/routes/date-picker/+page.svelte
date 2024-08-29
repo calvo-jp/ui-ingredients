@@ -2,6 +2,10 @@
   import {DatePicker} from '$lib/index.js';
   import {CalendarIcon, ChevronLeftIcon, ChevronRightIcon} from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
+
+  let value: string[] = $state([]);
+
+  $inspect(value);
 </script>
 
 <DatePicker.Root
@@ -9,6 +13,10 @@
   fixedWeeks
   positioning={{
     sameWidth: true,
+  }}
+  {value}
+  onValueChange={(detail) => {
+    value = detail.valueAsString;
   }}
 >
   {#snippet children(api)}

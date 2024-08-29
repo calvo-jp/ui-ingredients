@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface StepsNextTriggerProps extends HtmlProps<'button'> {
+  export interface StepsNextTriggerProps extends HTMLProps<'button'> {
     asChild?: AsChild;
   }
 </script>

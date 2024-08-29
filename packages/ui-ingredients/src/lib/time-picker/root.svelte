@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateTimePickerProps, CreateTimePickerReturn} from './create-time-picker.svelte.js';
 
   export interface TimePickerProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateTimePickerProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateTimePickerReturn>;
-    children?: Snippet<[timePicker: CreateTimePickerReturn]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateTimePickerProps> {
+    asChild?: AsChild<CreateTimePickerReturn>;
+    children?: Snippet<[CreateTimePickerReturn]>;
   }
 </script>
 

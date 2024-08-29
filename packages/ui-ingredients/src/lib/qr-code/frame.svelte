@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface QRCodeFrameProps extends HtmlProps<'svg'> {
-    asChild?: AsChild<HtmlProps<'svg'>>;
+  export interface QRCodeFrameProps extends HTMLProps<'svg'> {
+    asChild?: AsChild;
   }
 </script>
 

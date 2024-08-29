@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateCarouselProps, CreateCarouselReturn} from './create-carousel.svelte.js';
 
   export interface CarouselProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateCarouselProps> {
-    asChild?: AsChild<GenericHtmlProps, CreateCarouselReturn>;
-    children?: Snippet<[carousel: CreateCarouselReturn]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateCarouselProps> {
+    asChild?: AsChild<CreateCarouselReturn>;
+    children?: Snippet<[CreateCarouselReturn]>;
   }
 </script>
 

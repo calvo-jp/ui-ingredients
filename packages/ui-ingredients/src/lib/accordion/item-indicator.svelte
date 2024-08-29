@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface AccordionIndicatorProps extends HtmlProps<'span'> {
+  export interface AccordionIndicatorProps extends HTMLProps<'span'> {
     asChild?: AsChild;
   }
 </script>
@@ -15,13 +15,13 @@
   let accordion = accordionContext.get();
   let itemProps = accordionItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, accordion.getItemIndicatorProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, accordion.getItemIndicatorProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

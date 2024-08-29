@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface DialogDescriptionProps extends HtmlProps<'p'> {
+  export interface DialogDescriptionProps extends HTMLProps<'p'> {
     asChild?: AsChild;
   }
 </script>

@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/rating-group';
   import type {Snippet} from 'svelte';
 
   export interface RatingGroupItemProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
-    asChild?: AsChild<GenericHtmlProps, ItemState>;
-    children: Snippet<[state: ItemState]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
+    asChild?: AsChild<ItemState>;
+    children: Snippet<[ItemState]>;
   }
 </script>
 

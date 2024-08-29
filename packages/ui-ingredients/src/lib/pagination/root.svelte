@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreatePaginationProps, CreatePaginationReturn} from './create-pagination.svelte.js';
 
   export interface PaginationProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreatePaginationProps> {
-    asChild?: AsChild<GenericHtmlProps, CreatePaginationReturn>;
-    children?: Snippet<[pagination: CreatePaginationReturn]>;
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreatePaginationProps> {
+    asChild?: AsChild<CreatePaginationReturn>;
+    children?: Snippet<[CreatePaginationReturn]>;
   }
 </script>
 

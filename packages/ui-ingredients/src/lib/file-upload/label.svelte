@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface FileUploadLabelProps extends HtmlProps<'label'> {
-    asChild?: AsChild<HtmlProps<'label'>>;
+  export interface FileUploadLabelProps extends HTMLProps<'label'> {
+    asChild?: AsChild;
   }
 </script>
 

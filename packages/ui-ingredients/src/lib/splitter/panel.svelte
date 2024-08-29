@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {PanelProps} from '@zag-js/splitter';
 
-  export interface SplitterPanelProps extends Assign<HtmlProps<'div'>, PanelProps> {
+  export interface SplitterPanelProps extends Assign<HTMLProps<'div'>, PanelProps> {
     asChild?: AsChild;
   }
 </script>

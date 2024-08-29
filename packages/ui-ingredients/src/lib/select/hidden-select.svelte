@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {HTMLProps} from '$lib/types.js';
 
-  export interface SelectHiddenSelectProps extends HtmlProps<'select'> {}
+  export interface SelectHiddenSelectProps extends HTMLProps<'select'> {}
 </script>
 
 <script lang="ts">

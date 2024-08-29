@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface TreeViewBranchControlProps extends HtmlProps<'div'> {
+  export interface TreeViewBranchControlProps extends HTMLProps<'div'> {
     asChild?: AsChild;
   }
 </script>

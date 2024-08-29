@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateColorPickerProps,
@@ -7,7 +7,7 @@
   } from './create-color-picker.svelte.js';
 
   export interface ColorPickerProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateColorPickerProps> {
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateColorPickerProps> {
     children?: Snippet<[colorPicker: CreateColorPickerReturn]>;
   }
 </script>

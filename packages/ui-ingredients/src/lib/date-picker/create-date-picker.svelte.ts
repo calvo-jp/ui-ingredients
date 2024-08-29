@@ -1,9 +1,10 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
-import type {GenericHtmlProps} from '$lib/types.js';
+import type {GenericObject} from '$lib/types.js';
 import {createUniqueId} from '$lib/utils.svelte.js';
 import * as datePicker from '@zag-js/date-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {parts} from './anatomy.js';
 
 type Omitted =
   | 'id'
@@ -25,7 +26,7 @@ export interface CreateDatePickerProps extends Omit<datePicker.Context, Omitted>
 }
 
 export interface CreateDatePickerReturn extends datePicker.Api {
-  getViewProps(props: datePicker.ViewProps): GenericHtmlProps;
+  getViewProps(props: datePicker.ViewProps): GenericObject;
 }
 
 export function createDatePicker(props: CreateDatePickerProps): CreateDatePickerReturn {
@@ -54,8 +55,9 @@ export function createDatePicker(props: CreateDatePickerProps): CreateDatePicker
 
       return {
         ...o,
-        getViewProps(props: datePicker.ViewProps): GenericHtmlProps {
+        getViewProps(props: datePicker.ViewProps): GenericObject {
           return {
+            ...parts.view.attrs,
             hidden: o.view !== props.view,
           };
         },

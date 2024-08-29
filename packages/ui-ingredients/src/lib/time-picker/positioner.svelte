@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface TimePickerPositionerProps extends HtmlProps<'div'> {
+  export interface TimePickerPositionerProps extends HTMLProps<'div'> {
     asChild?: AsChild;
   }
 </script>

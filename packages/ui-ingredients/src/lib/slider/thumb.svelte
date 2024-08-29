@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ThumbProps} from '@zag-js/slider';
 
-  export interface SliderThumbProps extends Assign<HtmlProps<'div'>, ThumbProps> {
+  export interface SliderThumbProps extends Assign<HTMLProps<'div'>, ThumbProps> {
     asChild?: AsChild;
   }
 </script>

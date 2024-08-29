@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface AvatarImageProps extends HtmlProps<'img'> {
-    asChild?: AsChild<HtmlProps<'img'>>;
+  export interface AvatarImageProps extends HTMLProps<'img'> {
+    asChild?: AsChild;
   }
 </script>
 

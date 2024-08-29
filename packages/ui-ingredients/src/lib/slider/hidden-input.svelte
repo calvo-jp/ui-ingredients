@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
+  import type {HTMLProps} from '$lib/types.js';
 
-  export interface SliderHiddenInputProps extends HtmlProps<'input'> {}
+  export interface SliderHiddenInputProps extends HTMLProps<'input'> {}
 </script>
 
 <script lang="ts">

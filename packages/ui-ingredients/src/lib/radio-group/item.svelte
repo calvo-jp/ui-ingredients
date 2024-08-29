@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/radio-group';
   import type {Snippet} from 'svelte';
 
   export interface RadioGroupItemProps
-    extends Assign<Omit<HtmlProps<'label'>, 'children'>, ItemProps> {
-    asChild?: AsChild<HtmlProps<'label'>, ItemState>;
-    children?: Snippet<[state: ItemState]>;
+    extends Assign<Omit<HTMLProps<'label'>, 'children'>, ItemProps> {
+    asChild?: AsChild<ItemState>;
+    children?: Snippet<[ItemState]>;
   }
 </script>
 

@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface ProgressCircleTrackProps extends HtmlProps<'circle'> {
-    asChild?: AsChild<HtmlProps<'circle'>>;
+  export interface ProgressCircleTrackProps extends HTMLProps<'circle'> {
+    asChild?: AsChild;
   }
 </script>
 
