@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface ProgressCircleProps extends HtmlProps<'svg'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'svg'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'svg'>>;
   }
 </script>
 

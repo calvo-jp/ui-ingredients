@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface ToastTitleProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  export interface ToastTitleProps extends HtmlProps<'h2'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -21,11 +20,11 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <h2 {...attrs}>
     {#if children}
       {@render children?.()}
     {:else}
       {context.title}
     {/if}
-  </div>
+  </h2>
 {/if}

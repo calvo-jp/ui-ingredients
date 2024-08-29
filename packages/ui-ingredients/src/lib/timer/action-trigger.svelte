@@ -1,10 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {ActionTriggerProps} from '@zag-js/timer';
-  import type {Snippet} from 'svelte';
 
   export interface TimerActionTriggerProps extends Assign<HtmlProps<'button'>, ActionTriggerProps> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'button'>>;
   }
 </script>
 

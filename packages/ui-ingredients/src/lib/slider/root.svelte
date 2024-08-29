@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateSliderProps, CreateSliderReturn} from './create-slider.svelte.js';
 
   export interface SliderProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateSliderProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, slider: CreateSliderReturn]>;
+    asChild?: AsChild<GenericHtmlProps, CreateSliderReturn>;
     children?: Snippet<[slider: CreateSliderReturn]>;
   }
 </script>

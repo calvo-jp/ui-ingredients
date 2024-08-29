@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface HoverCardTriggerProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  export interface HoverCardTriggerProps extends HtmlProps<'a'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -21,7 +20,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <a {...attrs}>
     {@render children?.()}
-  </div>
+  </a>
 {/if}

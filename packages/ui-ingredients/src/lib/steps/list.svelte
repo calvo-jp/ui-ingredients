@@ -1,10 +1,8 @@
 <script lang="ts" module>
-  import type {Snippet} from 'svelte';
-
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface StepsListProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+    asChild?: AsChild;
   }
 </script>
 

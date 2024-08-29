@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface PopoverTitleProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  export interface PopoverTitleProps extends HtmlProps<'h2'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -21,7 +20,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <h2 {...attrs}>
     {@render children?.()}
-  </div>
+  </h2>
 {/if}

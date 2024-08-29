@@ -1,10 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {ContentProps} from '@zag-js/tabs';
-  import type {Snippet} from 'svelte';
 
   export interface TabsContentProps extends Assign<HtmlProps<'div'>, ContentProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+    asChild?: AsChild;
   }
 </script>
 

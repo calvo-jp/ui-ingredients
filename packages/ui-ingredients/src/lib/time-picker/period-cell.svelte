@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {Snippet} from 'svelte';
-
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {PeriodCellProps} from '@zag-js/time-picker';
 
   export interface TimePickerPeriodCellProps extends Assign<HtmlProps<'div'>, PeriodCellProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+    asChild?: AsChild;
   }
 </script>
 

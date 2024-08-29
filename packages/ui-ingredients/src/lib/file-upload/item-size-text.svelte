@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {GenericHtmlProps, HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface FileUploadItemSizeTextProps extends HtmlProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+  export interface FileUploadItemSizeTextProps extends HtmlProps<'span'> {
+    asChild?: AsChild;
   }
 </script>
 
@@ -22,11 +21,11 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <span {...attrs}>
     {#if children}
       {@render children()}
     {:else}
       {fileUpload.getFileSize(itemProps.file)}
     {/if}
-  </div>
+  </span>
 {/if}

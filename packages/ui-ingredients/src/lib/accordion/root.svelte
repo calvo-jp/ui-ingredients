@@ -1,13 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateAccordionProps, CreateAccordionReturn} from './create-accordion.svelte.js';
 
   export interface AccordionProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateAccordionProps> {
-    asChild?: Snippet<
-      [attrs: Omit<HtmlProps<'div'>, 'children'>, accordion: CreateAccordionReturn]
-    >;
+    asChild?: AsChild<GenericHtmlProps, CreateAccordionReturn>;
     children?: Snippet<[accordion: CreateAccordionReturn]>;
   }
 </script>

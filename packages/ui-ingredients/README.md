@@ -41,7 +41,7 @@ npm install ui-ingredients
 - 🟢 Checkbox
 - 🟢 Clipboard
 - 🟢 Collapsible
-- 🟡 ColorPicker
+- ⚪ ColorPicker
 - 🟢 Combobox
 - 🟢 DatePicker
 - 🟢 Dialog

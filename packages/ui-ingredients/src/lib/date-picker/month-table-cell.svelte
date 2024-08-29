@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {TableCellProps, TableCellState} from '@zag-js/date-picker';
   import type {Snippet} from 'svelte';
 
   export interface DatePickerMonthTableCellProps
-    extends Assign<Omit<HtmlProps<'div'>, 'children'>, TableCellProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: TableCellState]>;
+    extends Assign<Omit<HtmlProps<'td'>, 'children'>, TableCellProps> {
+    asChild?: AsChild<GenericHtmlProps, TableCellState>;
     children?: Snippet<[state: TableCellState]>;
   }
 </script>
@@ -33,7 +33,7 @@
 {#if asChild}
   {@render asChild(attrs, state)}
 {:else}
-  <div {...attrs}>
+  <td {...attrs}>
     {@render children?.(state)}
-  </div>
+  </td>
 {/if}

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {ResizeTriggerProps} from '@zag-js/splitter';
 
   /* Currently not exported in zag */
@@ -14,7 +14,7 @@
 
   export interface SplitterResizeTriggerProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, ResizeTriggerProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: ResizeTriggerState]>;
+    asChild?: AsChild<GenericHtmlProps, ResizeTriggerState>;
     children?: Snippet<[state: ResizeTriggerState]>;
   }
 </script>

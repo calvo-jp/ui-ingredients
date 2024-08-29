@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreatePinInputProps, CreatePinInputReturn} from './create-pin-input.svelte.js';
 
   export interface PinInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreatePinInputProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, pinInput: CreatePinInputReturn]>;
+    asChild?: AsChild<GenericHtmlProps, CreatePinInputReturn>;
     children?: Snippet<[pinInput: CreatePinInputReturn]>;
   }
 </script>

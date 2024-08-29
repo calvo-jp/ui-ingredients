@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateComboboxProps, CreateComboboxReturn} from './create-combobox.svelte.js';
 
   export interface ComboboxProps<T>
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateComboboxProps<T>> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, combobox: CreateComboboxReturn]>;
+    asChild?: AsChild<GenericHtmlProps, CreateComboboxReturn>;
     children?: Snippet<[combobox: CreateComboboxReturn]>;
   }
 </script>

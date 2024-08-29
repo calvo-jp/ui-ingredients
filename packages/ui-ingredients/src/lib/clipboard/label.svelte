@@ -1,10 +1,8 @@
 <script lang="ts" module>
-  import type {Snippet} from 'svelte';
-
-  import type {HtmlProps} from '$lib/types.js';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface ClipboardLabelProps extends HtmlProps<'label'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'label'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'label'>>;
   }
 </script>
 

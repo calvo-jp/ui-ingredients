@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface PinInputLabelProps extends HtmlProps<'label'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'label'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'label'>>;
   }
 </script>
 

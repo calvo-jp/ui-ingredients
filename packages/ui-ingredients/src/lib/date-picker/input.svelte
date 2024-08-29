@@ -1,10 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {InputProps} from '@zag-js/date-picker';
-  import type {Snippet} from 'svelte';
 
   export interface DatePickerInputProps extends Assign<HtmlProps<'input'>, InputProps> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'input'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'input'>>;
   }
 </script>
 

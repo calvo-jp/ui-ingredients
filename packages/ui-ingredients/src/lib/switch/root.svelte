@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {CreateSwitchProps, CreateSwitchReturn} from './create-switch.svelte.js';
 
   export interface SwitchProps
     extends Assign<Omit<HtmlProps<'label'>, 'children'>, CreateSwitchProps> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'label'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'label'>, CreateSwitchReturn>;
     children?: Snippet<[switch$: CreateSwitchReturn]>;
   }
 </script>
@@ -54,7 +54,7 @@
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(attrs, switch$)}
 {:else}
   <label {...attrs}>
     {@render children?.(switch$)}

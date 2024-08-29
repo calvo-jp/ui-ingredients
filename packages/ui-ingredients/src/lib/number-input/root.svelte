@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
     CreateNumberInputProps,
@@ -8,9 +8,7 @@
 
   export interface NumberInputProps
     extends Assign<Omit<HtmlProps<'div'>, 'children'>, CreateNumberInputProps> {
-    asChild?: Snippet<
-      [attrs: Omit<GenericHtmlProps, 'children'>, numberInput: CreateNumberInputReturn]
-    >;
+    asChild?: AsChild<GenericHtmlProps, CreateNumberInputReturn>;
     children?: Snippet<[numberInput: CreateNumberInputReturn]>;
   }
 </script>

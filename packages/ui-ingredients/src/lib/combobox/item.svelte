@@ -1,10 +1,10 @@
 <script lang="ts" module>
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/combobox';
   import type {Snippet} from 'svelte';
 
   export interface ComboboxItemProps extends Assign<Omit<HtmlProps<'div'>, 'children'>, ItemProps> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>, state: ItemState]>;
+    asChild?: AsChild<GenericHtmlProps, ItemState>;
     children?: Snippet<[state: ItemState]>;
   }
 </script>

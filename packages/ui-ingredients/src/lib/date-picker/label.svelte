@@ -1,10 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {LabelProps} from '@zag-js/date-picker';
-  import type {Snippet} from 'svelte';
 
   export interface DatePickerLabelProps extends Assign<HtmlProps<'label'>, LabelProps> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'label'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'label'>>;
   }
 </script>
 

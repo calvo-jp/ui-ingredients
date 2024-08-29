@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface FileUploadItemPreviewImageProps extends HtmlProps<'img'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'img'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'img'>>;
   }
 </script>
 

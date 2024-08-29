@@ -1,10 +1,8 @@
 <script lang="ts" module>
-  import type {Snippet} from 'svelte';
-
-  import type {HtmlProps} from '$lib/types.js';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface TagsInputItemInputProps extends HtmlProps<'input'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'input'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'input'>>;
   }
 </script>
 

@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {HtmlProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {AsChild, HtmlProps} from '$lib/types.js';
 
   export interface EditableSubmitTriggerProps extends HtmlProps<'button'> {
-    asChild?: Snippet<[attrs: Omit<HtmlProps<'button'>, 'children'>]>;
+    asChild?: AsChild<HtmlProps<'button'>>;
   }
 </script>
 
@@ -21,7 +20,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <button type="submit" {...attrs}>
+  <button type="button" {...attrs}>
     {@render children?.()}
   </button>
 {/if}

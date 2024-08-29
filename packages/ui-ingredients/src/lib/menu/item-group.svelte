@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {Snippet} from 'svelte';
-
-  import type {Assign, GenericHtmlProps, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
   import type {ItemGroupProps} from '@zag-js/menu';
 
   export interface MenuItemGroupProps extends Assign<HtmlProps<'div'>, Omit<ItemGroupProps, 'id'>> {
-    asChild?: Snippet<[attrs: Omit<GenericHtmlProps, 'children'>]>;
+    asChild?: AsChild;
   }
 </script>
 
