@@ -14,13 +14,13 @@
 
   let numberInput = numberInputContext.get();
 
-  let attrs = $derived(mergeProps(props, numberInput.getScrubberProps()));
+  let mergedProps = $derived(mergeProps(props, numberInput.getScrubberProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

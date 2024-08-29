@@ -14,13 +14,13 @@
 
   let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, progress.getCircleTrackProps()));
+  let mergedProps = $derived(mergeProps(props, progress.getCircleTrackProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <circle {...attrs}>
+  <circle {...mergedProps}>
     {@render children?.()}
   </circle>
 {/if}

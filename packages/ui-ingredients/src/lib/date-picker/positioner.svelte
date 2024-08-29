@@ -14,13 +14,13 @@
 
   let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, datePicker.getPositionerProps()));
+  let mergedProps = $derived(mergeProps(props, datePicker.getPositionerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

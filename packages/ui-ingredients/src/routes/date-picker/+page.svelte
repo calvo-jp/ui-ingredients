@@ -21,19 +21,19 @@
 >
   {#snippet children(api)}
     <DatePicker.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Choose Date</Label>
+      {#snippet asChild(mergedProps)}
+        <Label {...mergedProps}>Choose Date</Label>
       {/snippet}
     </DatePicker.Label>
     <DatePicker.Control class="flex gap-2">
       <DatePicker.Input>
-        {#snippet asChild(attrs)}
-          <Input {...attrs} />
+        {#snippet asChild(mergedProps)}
+          <Input {...mergedProps} />
         {/snippet}
       </DatePicker.Input>
       <DatePicker.Trigger>
-        {#snippet asChild(attrs)}
-          <IconButton {...attrs}>
+        {#snippet asChild(mergedProps)}
+          <IconButton {...mergedProps}>
             <CalendarIcon />
           </IconButton>
         {/snippet}

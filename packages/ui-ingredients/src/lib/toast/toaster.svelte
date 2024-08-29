@@ -24,11 +24,11 @@
   let placement = $derived(snapshot.context.placement);
   let api = $derived(toast.group.connect(snapshot, send, normalizeProps));
   let toasts = $derived(api.getToastsByPlacement(placement));
-  let attrs = $derived(mergeProps(props, api.getGroupProps({placement})));
+  let mergedProps = $derived(mergeProps(props, api.getGroupProps({placement})));
 </script>
 
 <Portal>
-  <div {...attrs}>
+  <div {...mergedProps}>
     {#each toasts as toast (toast.id)}
       <ToastActor actor={toast}>
         {#snippet children$(ctx)}

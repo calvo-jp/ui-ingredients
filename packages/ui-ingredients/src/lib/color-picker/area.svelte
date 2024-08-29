@@ -17,11 +17,11 @@
     yChannel,
   });
 
-  let attrs = $derived(mergeProps(props, colorPicker.getAreaProps(areaProps)));
+  let mergedProps = $derived(mergeProps(props, colorPicker.getAreaProps(areaProps)));
 
   colorPickerAreaPropsContext.set(() => areaProps);
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {@render children?.()}
 </div>

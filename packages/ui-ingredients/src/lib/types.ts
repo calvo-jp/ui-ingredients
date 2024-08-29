@@ -17,5 +17,5 @@ type IntrinsicElements = keyof {
 export type HTMLProps<T extends IntrinsicElements> = SvelteHTMLElements[T];
 
 export type AsChild<Context = never> = [Context] extends [never]
-  ? Snippet<[attrs: GenericObject]>
-  : Snippet<[attrs: GenericObject, context: Context]>;
+  ? Snippet<[props: GenericObject]>
+  : Snippet<[props: GenericObject, context: Context]>;

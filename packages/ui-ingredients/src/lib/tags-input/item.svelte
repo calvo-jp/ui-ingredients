@@ -23,16 +23,16 @@
     disabled,
   });
 
-  let state = $derived(tagsInput.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, tagsInput.getItemProps(itemProps)));
+  let itemState = $derived(tagsInput.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, tagsInput.getItemProps(itemProps)));
 
   tagsInputItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

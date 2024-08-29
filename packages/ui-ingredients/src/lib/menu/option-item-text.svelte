@@ -15,13 +15,13 @@
   let menu = menuContext.get();
   let optionItemProps = menuOptionItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, menu.getItemTextProps(optionItemProps)));
+  let mergedProps = $derived(mergeProps(props, menu.getItemTextProps(optionItemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {#if children}
       {@render children()}
     {:else}

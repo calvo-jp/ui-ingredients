@@ -15,13 +15,13 @@
   let select = selectContext.get();
   let itemProps = selectItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, select.getItemTextProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, select.getItemTextProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

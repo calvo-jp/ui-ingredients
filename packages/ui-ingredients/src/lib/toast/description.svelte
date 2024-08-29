@@ -14,13 +14,13 @@
 
   let context = toastContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getDescriptionProps()));
+  let mergedProps = $derived(mergeProps(props, context.getDescriptionProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <p {...attrs}>
+  <p {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

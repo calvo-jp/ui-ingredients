@@ -80,15 +80,15 @@
     scrollToIndexFn,
   });
 
-  let attrs = $derived(mergeProps<Record<string, any>>(props, select.getRootProps()));
+  let mergedProps = $derived(mergeProps<Record<string, any>>(props, select.getRootProps()));
 
   selectContext.set(select);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, select)}
+  {@render asChild(mergedProps, select)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(select)}
   </div>
 {/if}

@@ -15,7 +15,7 @@
 
   let slider = sliderContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(
       props,
       slider.getMarkerProps({
@@ -26,9 +26,9 @@
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

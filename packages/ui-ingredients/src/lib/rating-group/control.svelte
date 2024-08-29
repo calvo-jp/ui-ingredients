@@ -14,13 +14,13 @@
 
   let ratingGroup = ratingGroupContext.get();
 
-  let attrs = $derived(mergeProps(props, ratingGroup.getControlProps()));
+  let mergedProps = $derived(mergeProps(props, ratingGroup.getControlProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

@@ -12,7 +12,7 @@
 
   let tagsInput = tagsInputContext.get();
 
-  let attrs = $derived(mergeProps(props, tagsInput.getHiddenInputProps()));
+  let mergedProps = $derived(mergeProps(props, tagsInput.getHiddenInputProps()));
 </script>
 
-<input {...attrs} />
+<input {...mergedProps} />

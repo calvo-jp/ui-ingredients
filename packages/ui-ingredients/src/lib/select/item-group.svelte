@@ -22,15 +22,15 @@
     id: id ?? uid,
   });
 
-  let attrs = $derived(mergeProps(props, select.getItemGroupProps(itemGroupProps)));
+  let mergedProps = $derived(mergeProps(props, select.getItemGroupProps(itemGroupProps)));
 
   selectItemGroupPropsContext.set(() => itemGroupProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

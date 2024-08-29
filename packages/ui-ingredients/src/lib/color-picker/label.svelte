@@ -12,9 +12,9 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let attrs = $derived(mergeProps(props, colorPicker.getLabelProps()));
+  let mergedProps = $derived(mergeProps(props, colorPicker.getLabelProps()));
 </script>
 
-<label {...attrs}>
+<label {...mergedProps}>
   {@render children?.()}
 </label>

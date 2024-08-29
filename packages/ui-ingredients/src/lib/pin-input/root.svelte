@@ -66,15 +66,15 @@
     onValueComplete,
   });
 
-  let attrs = $derived(mergeProps(props, pinInput.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, pinInput.getRootProps()));
 
   pinInputContext.set(pinInput);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, pinInput)}
+  {@render asChild(mergedProps, pinInput)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(pinInput)}
   </div>
 {/if}

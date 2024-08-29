@@ -15,15 +15,15 @@
 
   let pinInput = pinInputContext.get();
 
-  let attrs = $derived(
-    mergeProps(props, parts.clearTrigger.attrs, pinInput.getClearTriggerProps()),
+  let mergedProps = $derived(
+    mergeProps(props, parts.clearTrigger.mergedProps, pinInput.getClearTriggerProps()),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

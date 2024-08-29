@@ -14,13 +14,13 @@
 
   let slider = sliderContext.get();
 
-  let attrs = $derived(mergeProps(props, slider.getControlProps()));
+  let mergedProps = $derived(mergeProps(props, slider.getControlProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

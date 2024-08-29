@@ -44,15 +44,15 @@
     onPageSizeChange,
   });
 
-  let attrs = $derived(mergeProps(props, pagination.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, pagination.getRootProps()));
 
   paginationContext.set(pagination);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, pagination)}
+  {@render asChild(mergedProps, pagination)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(pagination)}
   </div>
 {/if}

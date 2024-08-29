@@ -17,14 +17,14 @@
 
   let carousel = carouselContext.get();
 
-  let state = $derived(carousel.getItemState({index}));
-  let attrs = $derived(mergeProps(props, carousel.getItemProps({index})));
+  let itemState = $derived(carousel.getItemState({index}));
+  let mergedProps = $derived(mergeProps(props, carousel.getItemProps({index})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

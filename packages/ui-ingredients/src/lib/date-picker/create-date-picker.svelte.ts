@@ -57,7 +57,7 @@ export function createDatePicker(props: CreateDatePickerProps): CreateDatePicker
         ...o,
         getViewProps(props: datePicker.ViewProps): GenericObject {
           return {
-            ...parts.view.attrs,
+            ...parts.view.mergedProps,
             hidden: o.view !== props.view,
           };
         },

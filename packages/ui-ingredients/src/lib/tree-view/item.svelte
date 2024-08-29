@@ -22,16 +22,16 @@
     disabled,
   });
 
-  let attrs = $derived(mergeProps(props, treeView.getItemProps(itemProps)));
-  let state = $derived(treeView.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, treeView.getItemProps(itemProps)));
+  let itemState = $derived(treeView.getItemState(itemProps));
 
   treeViewItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

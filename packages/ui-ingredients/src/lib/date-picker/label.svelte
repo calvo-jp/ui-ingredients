@@ -15,13 +15,13 @@
 
   let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, datePicker.getLabelProps({index})));
+  let mergedProps = $derived(mergeProps(props, datePicker.getLabelProps({index})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <label {...attrs}>
+  <label {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

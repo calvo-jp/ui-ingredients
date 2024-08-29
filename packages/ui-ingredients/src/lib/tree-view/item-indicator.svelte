@@ -15,13 +15,13 @@
   let treeView = treeViewContext.get();
   let itemProps = treeViewItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, treeView.getItemIndicatorProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, treeView.getItemIndicatorProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

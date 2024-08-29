@@ -22,15 +22,15 @@
   let viewProps = datePickerViewPropsContext.get();
   let tableProps: TableProps = $derived({...viewProps, id, columns});
 
-  let attrs = $derived(mergeProps(props, datePicker.getTableProps(tableProps)));
+  let mergedProps = $derived(mergeProps(props, datePicker.getTableProps(tableProps)));
 
   datePickerTablePropsContext.set(() => tableProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <table {...attrs}>
+  <table {...mergedProps}>
     {@render children?.()}
   </table>
 {/if}

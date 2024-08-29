@@ -15,13 +15,13 @@
   let steps = stepsContext.get();
   let itemProps = stepsItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, steps.getTriggerProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, steps.getTriggerProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

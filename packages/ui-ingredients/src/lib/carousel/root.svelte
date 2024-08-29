@@ -42,15 +42,15 @@
     onIndexChange,
   });
 
-  let attrs = $derived(mergeProps(props, carousel.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, carousel.getRootProps()));
 
   carouselContext.set(carousel);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, carousel)}
+  {@render asChild(mergedProps, carousel)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(carousel)}
   </div>
 {/if}

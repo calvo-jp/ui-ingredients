@@ -67,13 +67,13 @@
 
   <div class="mt-5 flex items-center gap-3">
     <Steps.PrevTrigger>
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>Back</Button>
+      {#snippet asChild(mergedProps)}
+        <Button {...mergedProps}>Back</Button>
       {/snippet}
     </Steps.PrevTrigger>
     <Steps.NextTrigger>
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>Next</Button>
+      {#snippet asChild(mergedProps)}
+        <Button {...mergedProps}>Next</Button>
       {/snippet}
     </Steps.NextTrigger>
   </div>

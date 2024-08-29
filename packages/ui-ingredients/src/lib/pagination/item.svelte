@@ -16,7 +16,7 @@
 
   let pagination = paginationContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(
       props,
       pagination.getItemProps({
@@ -28,9 +28,9 @@
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

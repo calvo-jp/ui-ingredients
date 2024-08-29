@@ -14,13 +14,13 @@
 
   let timePicker = timePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, timePicker.getLabelProps()));
+  let mergedProps = $derived(mergeProps(props, timePicker.getLabelProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <label {...attrs}>
+  <label {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

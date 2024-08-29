@@ -12,7 +12,7 @@
 
   let pinInput = pinInputContext.get();
 
-  let attrs = $derived(mergeProps(props, pinInput.getHiddenInputProps()));
+  let mergedProps = $derived(mergeProps(props, pinInput.getHiddenInputProps()));
 </script>
 
-<input {...attrs} />
+<input {...mergedProps} />

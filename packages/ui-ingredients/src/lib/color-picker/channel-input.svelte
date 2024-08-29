@@ -14,7 +14,7 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(
       props,
       colorPicker.getChannelInputProps({
@@ -25,4 +25,4 @@
   );
 </script>
 
-<input {...attrs} />
+<input {...mergedProps} />

@@ -15,7 +15,7 @@
   let menu = menuContext.get();
   let itemGroupProps = menuItemGroupPropsContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(
       props,
       menu.getItemGroupLabelProps({
@@ -26,9 +26,9 @@
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

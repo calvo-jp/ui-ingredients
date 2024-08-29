@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HtmlProps} from '$lib/types.js';
+  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {BranchProps, BranchState} from '@zag-js/tree-view';
   import type {Snippet} from 'svelte';
 
@@ -23,16 +23,16 @@
     disabled,
   });
 
-  let attrs = $derived(mergeProps(props, treeView.getBranchProps(branchProps)));
-  let state = $derived(treeView.getBranchState(branchProps));
+  let mergedProps = $derived(mergeProps(props, treeView.getBranchProps(branchProps)));
+  let itemState = $derived(treeView.getBranchState(branchProps));
 
   treeViewBranchPropsContext.set(() => branchProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

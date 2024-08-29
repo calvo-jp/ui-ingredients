@@ -14,13 +14,13 @@
 
   let select = selectContext.get();
 
-  let attrs = $derived(mergeProps(props, select.getLabelProps()));
+  let mergedProps = $derived(mergeProps(props, select.getLabelProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <label {...attrs}>
+  <label {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

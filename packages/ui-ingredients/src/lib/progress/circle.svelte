@@ -14,13 +14,13 @@
 
   let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, progress.getCircleProps()));
+  let mergedProps = $derived(mergeProps(props, progress.getCircleProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <svg {...attrs}>
+  <svg {...mergedProps}>
     {@render children?.()}
   </svg>
 {/if}

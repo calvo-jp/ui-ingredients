@@ -22,11 +22,11 @@
     keepMounted,
   });
 
-  let attrs = $derived(mergeProps(props, presence.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, presence.getRootProps()));
 </script>
 
 {#if !presence.unmounted}
-  <div use:presence.ref {...attrs}>
+  <div use:presence.ref {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

@@ -23,16 +23,16 @@
     disabled,
   });
 
-  let state = $derived(radioGroup.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, radioGroup.getItemProps(itemProps)));
+  let itemState = $derived(radioGroup.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, radioGroup.getItemProps(itemProps)));
 
   radioGroupItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <label {...attrs}>
-    {@render children?.(state)}
+  <label {...mergedProps}>
+    {@render children?.(itemState)}
   </label>
 {/if}

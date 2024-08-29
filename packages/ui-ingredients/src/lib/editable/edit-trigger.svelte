@@ -14,13 +14,13 @@
 
   let editable = editableContext.get();
 
-  let attrs = $derived(mergeProps(props, editable.getEditTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, editable.getEditTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

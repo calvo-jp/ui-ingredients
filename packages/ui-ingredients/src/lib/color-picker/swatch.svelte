@@ -17,11 +17,11 @@
     respectAlpha,
   });
 
-  let attrs = $derived(mergeProps(props, colorPicker.getSwatchProps(swatchProps)));
+  let mergedProps = $derived(mergeProps(props, colorPicker.getSwatchProps(swatchProps)));
 
   colorPickerSwatchPropsContext.set(() => swatchProps);
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {@render children?.()}
 </div>

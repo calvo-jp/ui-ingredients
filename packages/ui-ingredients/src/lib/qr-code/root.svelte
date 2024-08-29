@@ -33,15 +33,15 @@
     encoding,
   });
 
-  let attrs = $derived(mergeProps(props, qrCode.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, qrCode.getRootProps()));
 
   qrCodeContext.set(qrCode);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, qrCode)}
+  {@render asChild(mergedProps, qrCode)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(qrCode)}
   </div>
 {/if}

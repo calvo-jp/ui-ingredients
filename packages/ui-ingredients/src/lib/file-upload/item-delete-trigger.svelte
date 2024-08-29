@@ -15,13 +15,13 @@
   let fileUpload = fileUploadContext.get();
   let itemProps = fileUploadItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, fileUpload.getItemDeleteTriggerProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, fileUpload.getItemDeleteTriggerProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

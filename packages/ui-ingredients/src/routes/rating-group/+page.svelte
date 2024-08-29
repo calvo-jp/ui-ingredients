@@ -15,8 +15,8 @@
 >
   {#snippet children(context)}
     <RatingGroup.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Score</Label>
+      {#snippet asChild(mergedProps)}
+        <Label {...mergedProps}>Score</Label>
       {/snippet}
     </RatingGroup.Label>
 

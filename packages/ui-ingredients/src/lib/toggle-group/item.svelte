@@ -22,14 +22,14 @@
     disabled,
   });
 
-  let state = $derived(toggleGroup.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, toggleGroup.getItemProps(itemProps)));
+  let itemState = $derived(toggleGroup.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, toggleGroup.getItemProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
-    {@render children?.(state)}
+  <button type="button" {...mergedProps}>
+    {@render children?.(itemState)}
   </button>
 {/if}

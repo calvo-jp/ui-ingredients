@@ -14,13 +14,13 @@
 
   let slider = sliderContext.get();
 
-  let attrs = $derived(mergeProps(props, slider.getValueTextProps()));
+  let mergedProps = $derived(mergeProps(props, slider.getValueTextProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {#if children}
       {@render children()}
     {:else}

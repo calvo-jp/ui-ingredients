@@ -21,16 +21,16 @@
     persistFocus,
   });
 
-  let state = $derived(combobox.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, combobox.getItemProps(itemProps)));
+  let itemState = $derived(combobox.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, combobox.getItemProps(itemProps)));
 
   comboboxItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

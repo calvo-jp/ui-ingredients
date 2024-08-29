@@ -15,13 +15,13 @@
 
   let tabs = tabsContext.get();
 
-  let attrs = $derived(mergeProps(props, tabs.getContentProps({value})));
+  let mergedProps = $derived(mergeProps(props, tabs.getContentProps({value})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

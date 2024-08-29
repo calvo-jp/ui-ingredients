@@ -6,8 +6,8 @@
 <Progress.Root min={0} max={100} value={0} class="w-full lg:max-w-[24rem]">
   {#snippet children(context)}
     <Progress.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Label</Label>
+      {#snippet asChild(mergedProps)}
+        <Label {...mergedProps}>Label</Label>
       {/snippet}
     </Progress.Label>
 

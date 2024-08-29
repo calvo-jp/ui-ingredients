@@ -16,8 +16,8 @@
   class="w-full lg:max-w-[24rem]"
 >
   <PinInput.Label>
-    {#snippet asChild(attrs)}
-      <Label {...attrs}>Enter OTP</Label>
+    {#snippet asChild(mergedProps)}
+      <Label {...mergedProps}>Enter OTP</Label>
     {/snippet}
   </PinInput.Label>
 
@@ -26,8 +26,8 @@
   <div class="grid grid-cols-6 gap-2">
     {#each Array.from({length: 6}) as _, i}
       <PinInput.Input index={i} class="aspect-square h-auto w-full text-center text-xl font-bold">
-        {#snippet asChild(attrs)}
-          <Input {...attrs} />
+        {#snippet asChild(mergedProps)}
+          <Input {...mergedProps} />
         {/snippet}
       </PinInput.Input>
     {/each}

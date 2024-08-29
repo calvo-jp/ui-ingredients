@@ -42,15 +42,15 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, radioGroup.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, radioGroup.getRootProps()));
 
   radioGroupContext.set(radioGroup);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, radioGroup)}
+  {@render asChild(mergedProps, radioGroup)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(radioGroup)}
   </div>
 {/if}

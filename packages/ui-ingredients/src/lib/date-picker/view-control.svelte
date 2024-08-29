@@ -15,13 +15,13 @@
   let datePicker = datePickerContext.get();
   let viewProps = datePickerViewPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, datePicker.getViewControlProps(viewProps)));
+  let mergedProps = $derived(mergeProps(props, datePicker.getViewControlProps(viewProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

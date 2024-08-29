@@ -33,14 +33,14 @@
     disabled,
   });
 
-  let attrs = $derived(mergeProps(props, splitter.getResizeTriggerProps(resizeTriggerProps)));
-  let state = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
+  let mergedProps = $derived(mergeProps(props, splitter.getResizeTriggerProps(resizeTriggerProps)));
+  let itemState = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

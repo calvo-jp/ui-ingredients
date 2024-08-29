@@ -14,13 +14,13 @@
 
   let pagination = paginationContext.get();
 
-  let attrs = $derived(mergeProps(props, pagination.getPrevTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, pagination.getPrevTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

@@ -21,16 +21,16 @@
     persistFocus,
   });
 
-  let state = $derived(select.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, select.getItemProps(itemProps)));
+  let itemState = $derived(select.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, select.getItemProps(itemProps)));
 
   selectItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

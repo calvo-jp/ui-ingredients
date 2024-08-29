@@ -3,7 +3,7 @@
   import type {Snippet} from 'svelte';
 
   export interface DialogPositionerProps extends HTMLProps<'div'> {
-    asChild?: Snippet<[attrs: Omit<HTMLProps<'div'>, 'children'>]>;
+    asChild?: Snippet<[mergedProps: Omit<HTMLProps<'div'>, 'children'>]>;
   }
 </script>
 
@@ -15,13 +15,13 @@
 
   let dialog = dialogContext.get();
 
-  let attrs = $derived(mergeProps(props, dialog.getPositionerProps()));
+  let mergedProps = $derived(mergeProps(props, dialog.getPositionerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

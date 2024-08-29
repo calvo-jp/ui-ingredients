@@ -14,11 +14,11 @@
 
   let tagsInput = tagsInputContext.get();
 
-  let attrs = $derived(mergeProps(props, tagsInput.getInputProps()));
+  let mergedProps = $derived(mergeProps(props, tagsInput.getInputProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <input {...attrs} />
+  <input {...mergedProps} />
 {/if}

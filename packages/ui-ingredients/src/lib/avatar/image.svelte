@@ -14,11 +14,11 @@
 
   let avatar = avatarContext.get();
 
-  let attrs = $derived(mergeProps(props, avatar.getImageProps()));
+  let mergedProps = $derived(mergeProps(props, avatar.getImageProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <img {...attrs} />
+  <img {...mergedProps} />
 {/if}

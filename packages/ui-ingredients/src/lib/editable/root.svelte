@@ -76,15 +76,15 @@
     onPointerDownOutside,
   });
 
-  let attrs = $derived(mergeProps(props, editable.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, editable.getRootProps()));
 
   editableContext.set(editable);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, editable)}
+  {@render asChild(mergedProps, editable)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(editable)}
   </div>
 {/if}

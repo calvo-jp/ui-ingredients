@@ -14,13 +14,13 @@
 
   let pinInput = pinInputContext.get();
 
-  let attrs = $derived(mergeProps(props, pinInput.getLabelProps()));
+  let mergedProps = $derived(mergeProps(props, pinInput.getLabelProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <label {...attrs}>
+  <label {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

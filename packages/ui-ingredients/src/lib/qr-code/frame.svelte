@@ -14,13 +14,13 @@
 
   let qrCode = qrCodeContext.get();
 
-  let attrs = $derived(mergeProps(props, qrCode.getFrameProps()));
+  let mergedProps = $derived(mergeProps(props, qrCode.getFrameProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <svg {...attrs}>
+  <svg {...mergedProps}>
     {@render children?.()}
   </svg>
 {/if}

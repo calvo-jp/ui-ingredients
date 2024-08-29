@@ -15,13 +15,13 @@
   let tagsInput = tagsInputContext.get();
   let itemProps = tagsInputItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, tagsInput.getItemPreviewProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, tagsInput.getItemPreviewProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

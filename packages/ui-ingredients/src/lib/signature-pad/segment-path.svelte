@@ -16,13 +16,13 @@
 
   let signaturePad = signaturePadContext.get();
 
-  let attrs = $derived(mergeProps(props, signaturePad.getSegmentPathProps({path})));
+  let mergedProps = $derived(mergeProps(props, signaturePad.getSegmentPathProps({path})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <path {...attrs}>
+  <path {...mergedProps}>
     {@render children?.()}
   </path>
 {/if}

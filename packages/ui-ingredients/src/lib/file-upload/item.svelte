@@ -18,15 +18,15 @@
     file,
   });
 
-  let attrs = $derived(mergeProps(props, fileUpload.getItemProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, fileUpload.getItemProps(itemProps)));
 
   fileUploadItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

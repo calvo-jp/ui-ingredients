@@ -46,15 +46,17 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, segmentGroup.getRootProps(), parts.root.attrs));
+  let mergedProps = $derived(
+    mergeProps(props, segmentGroup.getRootProps(), parts.root.mergedProps),
+  );
 
   segmentGroupContext.set(segmentGroup);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, segmentGroup)}
+  {@render asChild(mergedProps, segmentGroup)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(segmentGroup)}
   </div>
 {/if}

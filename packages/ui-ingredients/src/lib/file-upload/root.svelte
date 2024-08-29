@@ -60,15 +60,15 @@
     translations,
   });
 
-  let attrs = $derived(mergeProps(props, fileUpload.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, fileUpload.getRootProps()));
 
   fileUploadContext.set(fileUpload);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, fileUpload)}
+  {@render asChild(mergedProps, fileUpload)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(fileUpload)}
   </div>
 {/if}

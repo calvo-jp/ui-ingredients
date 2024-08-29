@@ -5,8 +5,8 @@
 
 <Tooltip.Root openDelay={0} closeDelay={50}>
   <Tooltip.Trigger>
-    {#snippet asChild(attrs)}
-      <Button {...attrs}>Hover me</Button>
+    {#snippet asChild(mergedProps)}
+      <Button {...mergedProps}>Hover me</Button>
     {/snippet}
   </Tooltip.Trigger>
 

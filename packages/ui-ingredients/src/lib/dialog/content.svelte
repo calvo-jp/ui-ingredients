@@ -14,13 +14,13 @@
 
   let dialog = dialogContext.get();
 
-  let attrs = $derived(mergeProps(props, dialog.getContentProps()));
+  let mergedProps = $derived(mergeProps(props, dialog.getContentProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

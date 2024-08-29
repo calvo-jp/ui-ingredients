@@ -55,8 +55,8 @@
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
       <Accordion.ItemContent class="text-muted">
-        {#snippet asChild(attrs)}
-          <p {...attrs}>{content}</p>
+        {#snippet asChild(mergedProps)}
+          <p {...mergedProps}>{content}</p>
         {/snippet}
       </Accordion.ItemContent>
     </Accordion.Item>

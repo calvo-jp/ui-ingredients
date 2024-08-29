@@ -9,8 +9,8 @@
   }}
 >
   <Popover.Trigger>
-    {#snippet asChild(attrs)}
-      <Button {...attrs}>Click me</Button>
+    {#snippet asChild(mergedProps)}
+      <Button {...mergedProps}>Click me</Button>
     {/snippet}
   </Popover.Trigger>
   <Popover.Positioner>

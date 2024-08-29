@@ -12,8 +12,8 @@
       <span class="text-lg font-medium">Drag your file(s) here</span>
       <FileUpload.HiddenInput />
       <FileUpload.Trigger>
-        {#snippet asChild(attrs)}
-          <Button {...attrs}>Browse Files</Button>
+        {#snippet asChild(mergedProps)}
+          <Button {...mergedProps}>Browse Files</Button>
         {/snippet}
       </FileUpload.Trigger>
     </FileUpload.Dropzone>

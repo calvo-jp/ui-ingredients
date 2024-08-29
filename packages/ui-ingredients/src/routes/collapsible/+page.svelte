@@ -5,8 +5,8 @@
 
 <Collapsible.Root>
   <Collapsible.Trigger>
-    {#snippet asChild(attrs)}
-      <Button {...attrs}>Open</Button>
+    {#snippet asChild(mergedProps)}
+      <Button {...mergedProps}>Open</Button>
     {/snippet}
   </Collapsible.Trigger>
 

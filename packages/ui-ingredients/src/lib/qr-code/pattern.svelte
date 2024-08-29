@@ -14,13 +14,13 @@
 
   let qrCode = qrCodeContext.get();
 
-  let attrs = $derived(mergeProps(props, qrCode.getPatternProps()));
+  let mergedProps = $derived(mergeProps(props, qrCode.getPatternProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <path {...attrs}>
+  <path {...mergedProps}>
     {@render children?.()}
   </path>
 {/if}

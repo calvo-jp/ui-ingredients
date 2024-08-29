@@ -14,13 +14,13 @@
 
   let context = toastContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getCloseTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, context.getCloseTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

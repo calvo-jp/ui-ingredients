@@ -14,7 +14,7 @@
 
   let datePicker = datePickerContext.get();
 
-  let attrs = $derived(mergeProps(props, datePicker.getMonthSelectProps()));
+  let mergedProps = $derived(mergeProps(props, datePicker.getMonthSelectProps()));
 
   const months = [
     'January',
@@ -33,9 +33,9 @@
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <select {...attrs}>
+  <select {...mergedProps}>
     {#if children}
       {@render children()}
     {:else}

@@ -31,13 +31,13 @@
 >
   <Select.Control class="w-full lg:max-w-[24rem]">
     <Select.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Framework</Label>
+      {#snippet asChild(mergedProps)}
+        <Label {...mergedProps}>Framework</Label>
       {/snippet}
     </Select.Label>
     <Select.Trigger class="w-full text-left font-normal">
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>
+      {#snippet asChild(mergedProps)}
+        <Button {...mergedProps}>
           <Select.ValueText placeholder="Please Select" class="grow" />
           <Select.Indicator class="group">
             <ChevronDownIcon class="group-data-open:rotate-180 transition-transform duration-200" />

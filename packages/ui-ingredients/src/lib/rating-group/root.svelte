@@ -55,15 +55,15 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, ratingGroup.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, ratingGroup.getRootProps()));
 
   ratingGroupContext.set(ratingGroup);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, ratingGroup)}
+  {@render asChild(mergedProps, ratingGroup)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(ratingGroup)}
   </div>
 {/if}

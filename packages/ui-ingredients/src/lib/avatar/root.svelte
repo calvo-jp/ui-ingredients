@@ -23,15 +23,15 @@
     onStatusChange,
   });
 
-  let attrs = $derived(mergeProps(props, avatar.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, avatar.getRootProps()));
 
   avatarContext.set(avatar);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, avatar)}
+  {@render asChild(mergedProps, avatar)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(avatar)}
   </div>
 {/if}

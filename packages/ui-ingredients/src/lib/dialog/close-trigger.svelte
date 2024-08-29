@@ -14,13 +14,13 @@
 
   let dialog = dialogContext.get();
 
-  let attrs = $derived(mergeProps(props, dialog.getCloseTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, dialog.getCloseTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

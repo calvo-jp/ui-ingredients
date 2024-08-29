@@ -14,13 +14,13 @@
 
   let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, clipboard.getLabelProps()));
+  let mergedProps = $derived(mergeProps(props, clipboard.getLabelProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <label {...attrs}>
+  <label {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

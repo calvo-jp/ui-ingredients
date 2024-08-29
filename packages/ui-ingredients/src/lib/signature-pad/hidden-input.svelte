@@ -14,7 +14,7 @@
 
   let signaturePad = signaturePadContext.get();
 
-  let attrs = $derived(mergeProps(props, signaturePad.getHiddenInputProps({value})));
+  let mergedProps = $derived(mergeProps(props, signaturePad.getHiddenInputProps({value})));
 </script>
 
-<input {...attrs} />
+<input {...mergedProps} />

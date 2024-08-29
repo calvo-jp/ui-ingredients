@@ -39,15 +39,15 @@
     translations,
   });
 
-  let attrs = $derived(mergeProps(props, progress.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, progress.getRootProps()));
 
   progressContext.set(progress);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(progress)}
   </div>
 {/if}

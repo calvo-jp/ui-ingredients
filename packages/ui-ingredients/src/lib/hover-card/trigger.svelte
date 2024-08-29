@@ -14,13 +14,13 @@
 
   let hoverCard = hoverCardContext.get();
 
-  let attrs = $derived(mergeProps(props, hoverCard.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, hoverCard.getTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <a {...attrs}>
+  <a {...mergedProps}>
     {@render children?.()}
   </a>
 {/if}

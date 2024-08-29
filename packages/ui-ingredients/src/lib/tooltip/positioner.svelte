@@ -14,13 +14,13 @@
 
   let tooltip = tooltipContext.get();
 
-  let attrs = $derived(mergeProps(props, tooltip.getPositionerProps()));
+  let mergedProps = $derived(mergeProps(props, tooltip.getPositionerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

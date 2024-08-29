@@ -14,13 +14,13 @@
 
   let fileUpload = fileUploadContext.get();
 
-  let attrs = $derived(mergeProps(props, fileUpload.getDropzoneProps()));
+  let mergedProps = $derived(mergeProps(props, fileUpload.getDropzoneProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

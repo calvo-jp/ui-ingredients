@@ -45,15 +45,15 @@
     onValueChange,
   });
 
-  let attrs = $derived(mergeProps(props, toggleGroup.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, toggleGroup.getRootProps()));
 
   toggleGroupContext.set(toggleGroup);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, toggleGroup)}
+  {@render asChild(mergedProps, toggleGroup)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(toggleGroup)}
   </div>
 {/if}

@@ -47,15 +47,15 @@
     onDrawEnd,
   });
 
-  let attrs = $derived(mergeProps(props, signaturePad.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, signaturePad.getRootProps()));
 
   signaturePadContext.set(signaturePad);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, signaturePad)}
+  {@render asChild(mergedProps, signaturePad)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(signaturePad)}
   </div>
 {/if}

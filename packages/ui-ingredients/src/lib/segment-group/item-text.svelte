@@ -16,15 +16,15 @@
   let segmentGroup = segmentGroupContext.get();
   let itemProps = segmentGroupItemPropsContext.get();
 
-  let attrs = $derived(
-    mergeProps(props, segmentGroup.getItemTextProps(itemProps), parts.itemText.attrs),
+  let mergedProps = $derived(
+    mergeProps(props, segmentGroup.getItemTextProps(itemProps), parts.itemText.mergedProps),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

@@ -7,27 +7,27 @@
 <TimePicker.Root allowSeconds class="w-full lg:max-w-[24rem]">
   {#snippet children(context)}
     <TimePicker.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Choose Time</Label>
+      {#snippet asChild(mergedProps)}
+        <Label {...mergedProps}>Choose Time</Label>
       {/snippet}
     </TimePicker.Label>
 
     <TimePicker.Control class="flex gap-2">
       <TimePicker.Input>
-        {#snippet asChild(attrs)}
-          <Input {...attrs} />
+        {#snippet asChild(mergedProps)}
+          <Input {...mergedProps} />
         {/snippet}
       </TimePicker.Input>
       <TimePicker.Trigger>
-        {#snippet asChild(attrs)}
-          <IconButton {...attrs}>
+        {#snippet asChild(mergedProps)}
+          <IconButton {...mergedProps}>
             <ClockIcon />
           </IconButton>
         {/snippet}
       </TimePicker.Trigger>
       <TimePicker.ClearTrigger>
-        {#snippet asChild(attrs)}
-          <IconButton {...attrs}>
+        {#snippet asChild(mergedProps)}
+          <IconButton {...mergedProps}>
             <XCloseIcon />
           </IconButton>
         {/snippet}

@@ -38,16 +38,16 @@
     onCheckedChange,
   });
 
-  let state = $derived(menu.getOptionItemState(itemProps));
-  let attrs = $derived(mergeProps(props, menu.getOptionItemProps(itemProps)));
+  let itemState = $derived(menu.getOptionItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, menu.getOptionItemProps(itemProps)));
 
   menuOptionItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

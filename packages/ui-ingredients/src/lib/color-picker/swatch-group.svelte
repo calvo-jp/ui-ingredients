@@ -12,9 +12,9 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let attrs = $derived(mergeProps(props, colorPicker.getSwatchGroupProps()));
+  let mergedProps = $derived(mergeProps(props, colorPicker.getSwatchGroupProps()));
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {@render children?.()}
 </div>

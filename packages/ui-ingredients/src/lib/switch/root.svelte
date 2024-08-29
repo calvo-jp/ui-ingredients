@@ -48,15 +48,15 @@
     onCheckedChange,
   });
 
-  let attrs = $derived(mergeProps(props, switch$.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, switch$.getRootProps()));
 
   switchContext.set(switch$);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, switch$)}
+  {@render asChild(mergedProps, switch$)}
 {:else}
-  <label {...attrs}>
+  <label {...mergedProps}>
     {@render children?.(switch$)}
   </label>
 {/if}

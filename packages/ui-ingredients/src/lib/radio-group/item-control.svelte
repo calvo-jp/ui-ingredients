@@ -15,13 +15,13 @@
   let radioGroup = radioGroupContext.get();
   let itemProps = radioGroupItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, radioGroup.getItemControlProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, radioGroup.getItemControlProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

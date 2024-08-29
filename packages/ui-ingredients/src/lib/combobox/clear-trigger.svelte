@@ -14,13 +14,13 @@
 
   let combobox = comboboxContext.get();
 
-  let attrs = $derived(mergeProps(props, combobox.getClearTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, combobox.getClearTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

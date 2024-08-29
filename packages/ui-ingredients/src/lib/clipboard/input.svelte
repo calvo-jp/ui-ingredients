@@ -14,11 +14,11 @@
 
   let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, clipboard.getInputProps()));
+  let mergedProps = $derived(mergeProps(props, clipboard.getInputProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <input {...attrs} />
+  <input {...mergedProps} />
 {/if}

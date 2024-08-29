@@ -24,14 +24,14 @@
     closeOnSelect,
   });
 
-  let state = $derived(menu.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, menu.getItemProps(itemProps)));
+  let itemState = $derived(menu.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, menu.getItemProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

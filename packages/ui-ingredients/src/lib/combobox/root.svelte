@@ -106,15 +106,15 @@
     scrollToIndexFn,
   });
 
-  let attrs = $derived(mergeProps(props, combobox.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, combobox.getRootProps()));
 
   comboboxContext.set(combobox);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, combobox)}
+  {@render asChild(mergedProps, combobox)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(combobox)}
   </div>
 {/if}

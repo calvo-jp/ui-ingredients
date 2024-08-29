@@ -6,8 +6,8 @@
 <SignaturePad.Root>
   {#snippet children(context)}
     <SignaturePad.Label class="text-muted mb-1 inline-block font-medium">
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Signature</Label>
+      {#snippet asChild(mergedProps)}
+        <Label {...mergedProps}>Signature</Label>
       {/snippet}
     </SignaturePad.Label>
 

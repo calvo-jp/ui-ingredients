@@ -19,15 +19,15 @@
     index,
   });
 
-  let attrs = $derived(mergeProps(props, slider.getThumbProps(thumbProps)));
+  let mergedProps = $derived(mergeProps(props, slider.getThumbProps(thumbProps)));
 
   sliderThumbPropsContext.set(() => thumbProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

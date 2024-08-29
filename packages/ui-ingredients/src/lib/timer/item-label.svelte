@@ -15,13 +15,13 @@
   let timer = timerContext.get();
   let itemProps = timerItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, timer.getItemLabelProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, timer.getItemLabelProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

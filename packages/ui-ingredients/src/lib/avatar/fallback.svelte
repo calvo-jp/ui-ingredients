@@ -14,13 +14,13 @@
 
   let avatar = avatarContext.get();
 
-  let attrs = $derived(mergeProps(props, avatar.getFallbackProps()));
+  let mergedProps = $derived(mergeProps(props, avatar.getFallbackProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

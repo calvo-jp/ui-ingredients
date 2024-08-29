@@ -17,7 +17,9 @@
   let fileUpload = fileUploadContext.get();
   let itemProps = fileUploadItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, fileUpload.getItemPreviewImageProps({url, ...itemProps})));
+  let mergedProps = $derived(
+    mergeProps(props, fileUpload.getItemPreviewImageProps({url, ...itemProps})),
+  );
 
   $effect(() => {
     fileUpload.createFileUrl(itemProps.file, (result) => {
@@ -27,7 +29,7 @@
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <img {...attrs} />
+  <img {...mergedProps} />
 {/if}

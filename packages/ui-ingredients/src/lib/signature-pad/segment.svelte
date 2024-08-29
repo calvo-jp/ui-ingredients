@@ -14,13 +14,13 @@
 
   let signaturePad = signaturePadContext.get();
 
-  let attrs = $derived(mergeProps(props, signaturePad.getSegmentProps()));
+  let mergedProps = $derived(mergeProps(props, signaturePad.getSegmentProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <svg {...attrs}>
+  <svg {...mergedProps}>
     {@render children?.()}
   </svg>
 {/if}

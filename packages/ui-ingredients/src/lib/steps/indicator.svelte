@@ -15,13 +15,13 @@
   let steps = stepsContext.get();
   let itemProps = stepsItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, steps.getIndicatorProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, steps.getIndicatorProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

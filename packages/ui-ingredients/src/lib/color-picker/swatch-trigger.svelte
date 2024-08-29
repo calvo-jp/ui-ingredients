@@ -15,7 +15,7 @@
   let colorPicker = colorPickerContext.get();
   let swatchProps = colorPickerSwatchPropsContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(
       props,
       colorPicker.getSwatchTriggerProps({
@@ -26,6 +26,6 @@
   );
 </script>
 
-<button type="button" {...attrs}>
+<button type="button" {...mergedProps}>
   {@render children?.()}
 </button>

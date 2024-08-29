@@ -18,8 +18,8 @@
 <div class="flex gap-2">
   <Menu.Root>
     <Menu.Trigger>
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>
+      {#snippet asChild(mergedProps)}
+        <Button {...mergedProps}>
           <span>Basic</span>
           <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
             <ChevronDownIcon />
@@ -47,8 +47,8 @@
 
   <Menu.Root>
     <Menu.Trigger>
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>
+      {#snippet asChild(mergedProps)}
+        <Button {...mergedProps}>
           <span>Checkbox</span>
           <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
             <ChevronDownIcon />

@@ -21,8 +21,8 @@
   }}
 >
   <RadioGroup.Label>
-    {#snippet asChild(attrs)}
-      <Label {...attrs}>Choose one</Label>
+    {#snippet asChild(mergedProps)}
+      <Label {...mergedProps}>Choose one</Label>
     {/snippet}
   </RadioGroup.Label>
 

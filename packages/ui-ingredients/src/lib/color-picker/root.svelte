@@ -65,11 +65,11 @@
     onPointerDownOutside,
   });
 
-  let attrs = $derived(mergeProps(props, colorPicker.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, colorPicker.getRootProps()));
 
   colorPickerContext.set(colorPicker);
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {@render children?.(colorPicker)}
 </div>

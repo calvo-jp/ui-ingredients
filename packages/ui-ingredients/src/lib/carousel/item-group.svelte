@@ -14,13 +14,13 @@
 
   let carousel = carouselContext.get();
 
-  let attrs = $derived(mergeProps(props, carousel.getItemGroupProps()));
+  let mergedProps = $derived(mergeProps(props, carousel.getItemGroupProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

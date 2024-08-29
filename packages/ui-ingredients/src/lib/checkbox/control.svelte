@@ -14,13 +14,13 @@
 
   let checkbox = checkboxContext.get();
 
-  let attrs = $derived(mergeProps(props, checkbox.getControlProps()));
+  let mergedProps = $derived(mergeProps(props, checkbox.getControlProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

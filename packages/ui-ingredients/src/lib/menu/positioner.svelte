@@ -14,13 +14,13 @@
 
   let menu = menuContext.get();
 
-  let attrs = $derived(mergeProps(props, menu.getPositionerProps()));
+  let mergedProps = $derived(mergeProps(props, menu.getPositionerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

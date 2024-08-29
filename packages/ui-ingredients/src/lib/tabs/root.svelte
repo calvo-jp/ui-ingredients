@@ -43,15 +43,15 @@
     onValueChange,
   });
 
-  let attrs = $derived<Record<string, any>>(mergeProps(props, tabs.getRootProps()));
+  let mergedProps = $derived<Record<string, any>>(mergeProps(props, tabs.getRootProps()));
 
   tabsContext.set(tabs);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, tabs)}
+  {@render asChild(mergedProps, tabs)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(tabs)}
   </div>
 {/if}

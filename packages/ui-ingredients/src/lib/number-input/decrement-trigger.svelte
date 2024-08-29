@@ -14,13 +14,13 @@
 
   let numberInput = numberInputContext.get();
 
-  let attrs = $derived(mergeProps(props, numberInput.getDecrementTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, numberInput.getDecrementTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

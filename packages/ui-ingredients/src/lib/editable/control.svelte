@@ -14,13 +14,13 @@
 
   let editable = editableContext.get();
 
-  let attrs = $derived(mergeProps(props, editable.getControlProps()));
+  let mergedProps = $derived(mergeProps(props, editable.getControlProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

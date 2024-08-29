@@ -20,16 +20,16 @@
     index,
   });
 
-  let state = $derived(steps.getItemState(itemProps));
-  let attrs = $derived(mergeProps(props, steps.getItemProps(itemProps)));
+  let itemState = $derived(steps.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(props, steps.getItemProps(itemProps)));
 
   stepsItemPropsContext.set(() => itemProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children?.(state)}
+  <div {...mergedProps}>
+    {@render children?.(itemState)}
   </div>
 {/if}

@@ -21,15 +21,15 @@
     id: id ?? uid,
   });
 
-  let attrs = $derived(mergeProps(props, menu.getItemGroupProps(itemGroupProps)));
+  let mergedProps = $derived(mergeProps(props, menu.getItemGroupProps(itemGroupProps)));
 
   menuItemGroupPropsContext.set(() => itemGroupProps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

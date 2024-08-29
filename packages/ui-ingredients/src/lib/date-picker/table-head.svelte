@@ -15,13 +15,13 @@
   let datePicker = datePickerContext.get();
   let tableProps = datePickerTablePropsContext.get();
 
-  let attrs = $derived(mergeProps(props, datePicker.getTableHeadProps(tableProps)));
+  let mergedProps = $derived(mergeProps(props, datePicker.getTableHeadProps(tableProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <thead {...attrs}>
+  <thead {...mergedProps}>
     {@render children?.()}
   </thead>
 {/if}

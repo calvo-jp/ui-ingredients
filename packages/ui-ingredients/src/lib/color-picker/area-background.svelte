@@ -13,9 +13,9 @@
   let colorPicker = colorPickerContext.get();
   let areaProps = colorPickerAreaPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, colorPicker.getAreaBackgroundProps(areaProps)));
+  let mergedProps = $derived(mergeProps(props, colorPicker.getAreaBackgroundProps(areaProps)));
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {@render children?.()}
 </div>

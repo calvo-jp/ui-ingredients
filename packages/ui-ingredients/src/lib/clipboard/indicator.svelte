@@ -16,13 +16,13 @@
 
   let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, clipboard.getIndicatorProps({copied})));
+  let mergedProps = $derived(mergeProps(props, clipboard.getIndicatorProps({copied})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

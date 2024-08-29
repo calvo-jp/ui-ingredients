@@ -13,7 +13,7 @@
   let segmentGroup = segmentGroupContext.get();
   let itemProps = segmentGroupItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, segmentGroup.getItemHiddenInputProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, segmentGroup.getItemHiddenInputProps(itemProps)));
 </script>
 
-<input {...attrs} />
+<input {...mergedProps} />

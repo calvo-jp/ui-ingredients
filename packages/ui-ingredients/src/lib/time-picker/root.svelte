@@ -62,15 +62,15 @@
     onFocusChange,
   });
 
-  let attrs = $derived(mergeProps(props, timePicker.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, timePicker.getRootProps()));
 
   timePickerContext.set(timePicker);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, timePicker)}
+  {@render asChild(mergedProps, timePicker)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(timePicker)}
   </div>
 {/if}

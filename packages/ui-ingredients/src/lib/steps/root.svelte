@@ -39,15 +39,15 @@
     onStepComplete,
   });
 
-  let attrs = $derived(mergeProps<Record<string, any>>(props, steps.getRootProps()));
+  let mergedProps = $derived(mergeProps<Record<string, any>>(props, steps.getRootProps()));
 
   stepsContext.set(steps);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, steps)}
+  {@render asChild(mergedProps, steps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(steps)}
   </div>
 {/if}

@@ -14,8 +14,8 @@
 
 <Menu.Root>
   <Menu.ContextTrigger class="border-dashed">
-    {#snippet asChild(attrs)}
-      <Button {...attrs}>Right click</Button>
+    {#snippet asChild(mergedProps)}
+      <Button {...mergedProps}>Right click</Button>
     {/snippet}
   </Menu.ContextTrigger>
 

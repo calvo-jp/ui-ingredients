@@ -46,15 +46,15 @@
     onCheckedChange,
   });
 
-  let attrs = $derived(mergeProps(props, checkbox.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, checkbox.getRootProps()));
 
   checkboxContext.set(checkbox);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, checkbox)}
+  {@render asChild(mergedProps, checkbox)}
 {:else}
-  <label {...attrs}>
+  <label {...mergedProps}>
     {@render children?.(checkbox)}
   </label>
 {/if}

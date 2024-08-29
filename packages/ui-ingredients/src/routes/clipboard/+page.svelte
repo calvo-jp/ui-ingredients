@@ -18,21 +18,21 @@
 
 <Clipboard.Root value={randomString()}>
   <Clipboard.Label>
-    {#snippet asChild(attrs)}
-      <Label {...attrs}>Token</Label>
+    {#snippet asChild(mergedProps)}
+      <Label {...mergedProps}>Token</Label>
     {/snippet}
   </Clipboard.Label>
 
   <Clipboard.Control class="flex w-full gap-2 lg:max-w-[24rem]">
     <Clipboard.Input>
-      {#snippet asChild(attrs)}
-        <Input {...attrs} />
+      {#snippet asChild(mergedProps)}
+        <Input {...mergedProps} />
       {/snippet}
     </Clipboard.Input>
 
     <Clipboard.Trigger>
-      {#snippet asChild(attrs)}
-        <IconButton {...attrs}>
+      {#snippet asChild(mergedProps)}
+        <IconButton {...mergedProps}>
           <Clipboard.Indicator copied>
             <CheckIcon class="text-success" />
           </Clipboard.Indicator>

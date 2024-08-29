@@ -16,13 +16,13 @@
   let {asChild, children, ...props}: ToastProps = $props();
 
   let toast = toastContext.get();
-  let attrs = $derived(mergeProps(props, toast.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, toast.getRootProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, toast)}
+  {@render asChild(mergedProps, toast)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     <div {...toast.getGhostBeforeProps()}></div>
     {@render children?.(toast)}
     <div {...toast.getGhostAfterProps()}></div>

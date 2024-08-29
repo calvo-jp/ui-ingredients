@@ -78,15 +78,15 @@
     onPointerDownOutside,
   });
 
-  let attrs = $derived<Record<string, any>>(mergeProps(props, tagsInput.getRootProps()));
+  let mergedProps = $derived<Record<string, any>>(mergeProps(props, tagsInput.getRootProps()));
 
   tagsInputContext.set(tagsInput);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, tagsInput)}
+  {@render asChild(mergedProps, tagsInput)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(tagsInput)}
   </div>
 {/if}

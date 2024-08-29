@@ -18,14 +18,14 @@
 
   let ratingGroup = ratingGroupContext.get();
 
-  let state = $derived(ratingGroup.getItemState({index}));
-  let attrs = $derived(mergeProps(props, ratingGroup.getItemProps({index})));
+  let itemState = $derived(ratingGroup.getItemState({index}));
+  let mergedProps = $derived(mergeProps(props, ratingGroup.getItemProps({index})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, state)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...attrs}>
-    {@render children(state)}
+  <div {...mergedProps}>
+    {@render children(itemState)}
   </div>
 {/if}

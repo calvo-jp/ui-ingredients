@@ -77,15 +77,15 @@
     onValueInvalid,
   });
 
-  let attrs = $derived(mergeProps(props, numberInput.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, numberInput.getRootProps()));
 
   numberInputContext.set(numberInput);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, numberInput)}
+  {@render asChild(mergedProps, numberInput)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(numberInput)}
   </div>
 {/if}

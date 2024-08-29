@@ -15,12 +15,12 @@
   let colorPicker = colorPickerContext.get();
   let channelSliderProps = colorPickerChannelSliderPropsContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(props, colorPicker.getChannelSliderValueTextProps(channelSliderProps)),
   );
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {#if children}
     {@render children()}
   {:else}

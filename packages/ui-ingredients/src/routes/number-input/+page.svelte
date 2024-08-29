@@ -17,15 +17,15 @@
   }}
 >
   <NumberInput.Label>
-    {#snippet asChild(attrs)}
-      <Label {...attrs}>Enter Amount</Label>
+    {#snippet asChild(mergedProps)}
+      <Label {...mergedProps}>Enter Amount</Label>
     {/snippet}
   </NumberInput.Label>
 
   <NumberInput.Control class="flex w-full lg:max-w-[24rem]">
     <NumberInput.Input class="rounded-r-none">
-      {#snippet asChild(attrs)}
-        <Input {...attrs} />
+      {#snippet asChild(mergedProps)}
+        <Input {...mergedProps} />
       {/snippet}
     </NumberInput.Input>
 

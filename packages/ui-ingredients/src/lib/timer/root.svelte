@@ -39,15 +39,15 @@
     onComplete,
   });
 
-  let attrs = $derived(mergeProps(props, timer.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, timer.getRootProps()));
 
   timerContext.set(timer);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, timer)}
+  {@render asChild(mergedProps, timer)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(timer)}
   </div>
 {/if}

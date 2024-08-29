@@ -46,15 +46,15 @@
     onSelectionChange,
   });
 
-  let attrs = $derived(mergeProps<Record<string, any>>(props, treeView.getRootProps()));
+  let mergedProps = $derived(mergeProps<Record<string, any>>(props, treeView.getRootProps()));
 
   treeViewContext.set(treeView);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, treeView)}
+  {@render asChild(mergedProps, treeView)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(treeView)}
   </div>
 {/if}

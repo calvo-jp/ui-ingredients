@@ -6,7 +6,7 @@
   export interface AccordionItemProps
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild;
-    children?: Snippet<[state: ItemState]>;
+    children?: Snippet<[ItemState]>;
   }
 </script>
 
@@ -20,7 +20,7 @@
 
   let [itemProps, otherProps] = createSplitProps<ItemProps>(['value', 'disabled'])(props);
 
-  let state = $derived(accordion.getItemState(itemProps));
+  let itemState = $derived(accordion.getItemState(itemProps));
   let mergedProps = $derived(mergeProps(otherProps, accordion.getItemProps(itemProps)));
 
   accordionItemPropsContext.set(() => itemProps);
@@ -30,6 +30,6 @@
   {@render asChild(mergedProps)}
 {:else}
   <div {...mergedProps}>
-    {@render children?.(state)}
+    {@render children?.(itemState)}
   </div>
 {/if}

@@ -15,13 +15,13 @@
 
   let timer = timerContext.get();
 
-  let attrs = $derived(mergeProps(props, timer.getActionTriggerProps({action})));
+  let mergedProps = $derived(mergeProps(props, timer.getActionTriggerProps({action})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

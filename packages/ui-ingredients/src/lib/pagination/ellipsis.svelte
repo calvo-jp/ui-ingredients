@@ -15,13 +15,13 @@
 
   let pagination = paginationContext.get();
 
-  let attrs = $derived(mergeProps(props, pagination.getEllipsisProps({index})));
+  let mergedProps = $derived(mergeProps(props, pagination.getEllipsisProps({index})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

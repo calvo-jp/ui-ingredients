@@ -14,13 +14,13 @@
 
   let popover = popoverContext.get();
 
-  let attrs = $derived(mergeProps(props, popover.getDescriptionProps()));
+  let mergedProps = $derived(mergeProps(props, popover.getDescriptionProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <p {...attrs}>
+  <p {...mergedProps}>
     {@render children?.()}
   </p>
 {/if}

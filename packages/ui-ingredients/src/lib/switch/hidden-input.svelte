@@ -12,7 +12,7 @@
 
   let switch$ = switchContext.get();
 
-  let attrs = $derived(mergeProps(props, switch$.getHiddenInputProps()));
+  let mergedProps = $derived(mergeProps(props, switch$.getHiddenInputProps()));
 </script>
 
-<input {...attrs} />
+<input {...mergedProps} />

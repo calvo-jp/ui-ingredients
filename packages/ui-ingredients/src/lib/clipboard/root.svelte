@@ -35,15 +35,15 @@
     onStatusChange,
   });
 
-  let attrs = $derived(mergeProps(props, clipboard.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, clipboard.getRootProps()));
 
   clipboardContext.set(clipboard);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, clipboard)}
+  {@render asChild(mergedProps, clipboard)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(clipboard)}
   </div>
 {/if}

@@ -12,7 +12,7 @@
 
   let context = toastContext.get();
 
-  let attrs = $derived(mergeProps(props, context.getGhostBeforeProps()));
+  let mergedProps = $derived(mergeProps(props, context.getGhostBeforeProps()));
 </script>
 
-<span {...attrs}></span>
+<span {...mergedProps}></span>

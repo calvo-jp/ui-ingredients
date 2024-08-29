@@ -15,13 +15,15 @@
   let datePicker = datePickerContext.get();
   let tableCellProps = datePickerDayTableCellPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, datePicker.getDayTableCellTriggerProps(tableCellProps)));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getDayTableCellTriggerProps(tableCellProps)),
+  );
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

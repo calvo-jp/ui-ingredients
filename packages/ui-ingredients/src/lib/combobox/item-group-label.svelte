@@ -15,7 +15,7 @@
   let combobox = comboboxContext.get();
   let itemGroupProps = comboboxItemGroupPropsContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(
       props,
       combobox.getItemGroupLabelProps({
@@ -26,9 +26,9 @@
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

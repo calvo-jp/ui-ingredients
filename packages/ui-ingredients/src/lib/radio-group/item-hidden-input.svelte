@@ -13,7 +13,7 @@
   let radioGroup = radioGroupContext.get();
   let itemProps = radioGroupItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, radioGroup.getItemHiddenInputProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, radioGroup.getItemHiddenInputProps(itemProps)));
 </script>
 
-<input {...attrs} />
+<input {...mergedProps} />

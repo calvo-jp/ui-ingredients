@@ -15,15 +15,15 @@
   let select = selectContext.get();
   let itemGroupProps = selectItemGroupPropsContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(props, select.getItemGroupLabelProps({htmlFor: itemGroupProps.id})),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

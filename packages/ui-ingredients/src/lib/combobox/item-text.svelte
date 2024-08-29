@@ -15,13 +15,13 @@
   let combobox = comboboxContext.get();
   let itemProps = comboboxItemPropsContext.get();
 
-  let attrs = $derived(mergeProps(props, combobox.getItemTextProps(itemProps)));
+  let mergedProps = $derived(mergeProps(props, combobox.getItemTextProps(itemProps)));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

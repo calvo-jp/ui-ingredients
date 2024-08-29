@@ -15,11 +15,11 @@
 
   let pinInput = pinInputContext.get();
 
-  let attrs = $derived(mergeProps(props, pinInput.getInputProps({index})));
+  let mergedProps = $derived(mergeProps(props, pinInput.getInputProps({index})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <input {...attrs} />
+  <input {...mergedProps} />
 {/if}

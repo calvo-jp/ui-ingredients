@@ -36,15 +36,15 @@
     onSizeChangeEnd,
   });
 
-  let attrs = $derived(mergeProps(props, splitter.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, splitter.getRootProps()));
 
   splitterContext.set(splitter);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, splitter)}
+  {@render asChild(mergedProps, splitter)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(splitter)}
   </div>
 {/if}

@@ -14,7 +14,7 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(
       props,
       colorPicker.getTransparencyGridProps({
@@ -24,6 +24,6 @@
   );
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {@render children?.()}
 </div>

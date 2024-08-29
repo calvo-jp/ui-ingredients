@@ -19,11 +19,13 @@
     orientation,
   });
 
-  let attrs = $derived(mergeProps(props, colorPicker.getChannelSliderProps(channelSliderProps)));
+  let mergedProps = $derived(
+    mergeProps(props, colorPicker.getChannelSliderProps(channelSliderProps)),
+  );
 
   colorPickerChannelSliderPropsContext.set(() => channelSliderProps);
 </script>
 
-<div {...attrs}>
+<div {...mergedProps}>
   {@render children?.()}
 </div>

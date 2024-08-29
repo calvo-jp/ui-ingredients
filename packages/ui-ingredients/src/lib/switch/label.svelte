@@ -14,13 +14,13 @@
 
   let switch$ = switchContext.get();
 
-  let attrs = $derived(mergeProps(props, switch$.getLabelProps()));
+  let mergedProps = $derived(mergeProps(props, switch$.getLabelProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span {...attrs}>
+  <span {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

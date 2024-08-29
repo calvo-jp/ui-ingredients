@@ -14,13 +14,13 @@
 
   let clipboard = clipboardContext.get();
 
-  let attrs = $derived(mergeProps(props, clipboard.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(props, clipboard.getTriggerProps()));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...attrs}>
+  <button type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

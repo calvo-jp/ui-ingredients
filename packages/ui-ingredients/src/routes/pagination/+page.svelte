@@ -19,8 +19,8 @@
 >
   {#snippet children(context)}
     <Pagination.PrevTrigger>
-      {#snippet asChild(attrs)}
-        <IconButton {...attrs}>
+      {#snippet asChild(mergedProps)}
+        <IconButton {...mergedProps}>
           <ChevronLeftIcon />
         </IconButton>
       {/snippet}
@@ -32,8 +32,8 @@
           value={page.value}
           class="aria-page:border-accent aria-page:text-accent aria-page:bg-accent/15"
         >
-          {#snippet asChild(attrs)}
-            <Button {...attrs}>
+          {#snippet asChild(mergedProps)}
+            <Button {...mergedProps}>
               {page.value}
             </Button>
           {/snippet}
@@ -46,8 +46,8 @@
     {/each}
 
     <Pagination.NextTrigger>
-      {#snippet asChild(attrs)}
-        <IconButton {...attrs}>
+      {#snippet asChild(mergedProps)}
+        <IconButton {...mergedProps}>
           <ChevronRightIcon />
         </IconButton>
       {/snippet}

@@ -12,9 +12,9 @@
 
   let select = selectContext.get();
 
-  let attrs = $derived(mergeProps(props, select.getHiddenSelectProps()));
+  let mergedProps = $derived(mergeProps(props, select.getHiddenSelectProps()));
 </script>
 
-<select {...attrs}>
+<select {...mergedProps}>
   {@render children?.()}
 </select>

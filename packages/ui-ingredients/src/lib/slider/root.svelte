@@ -68,15 +68,15 @@
     getAriaValueText,
   });
 
-  let attrs = $derived(mergeProps(props, slider.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, slider.getRootProps()));
 
   sliderContext.set(slider);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, slider)}
+  {@render asChild(mergedProps, slider)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.(slider)}
   </div>
 {/if}

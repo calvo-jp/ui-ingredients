@@ -12,12 +12,12 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let attrs = $derived(mergeProps(props, colorPicker.getFormatSelectProps()));
+  let mergedProps = $derived(mergeProps(props, colorPicker.getFormatSelectProps()));
 
   let formats = ['rgba', 'hsla', 'hsba'];
 </script>
 
-<select {...attrs}>
+<select {...mergedProps}>
   {#if children}
     {@render children()}
   {:else}

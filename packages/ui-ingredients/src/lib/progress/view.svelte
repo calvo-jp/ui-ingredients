@@ -15,13 +15,13 @@
 
   let progress = progressContext.get();
 
-  let attrs = $derived(mergeProps(props, progress.getViewProps({state})));
+  let mergedProps = $derived(mergeProps(props, progress.getViewProps({state})));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div {...attrs}>
+  <div {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}
