@@ -9,7 +9,7 @@
 >
   <HoverCard.Trigger class="underline-offset-2 hover:underline">
     {#snippet asChild(attrs)}
-      <a {...attrs} href="/hover-card#">Hover me</a>
+      <button {...attrs}>Hover me</button>
     {/snippet}
   </HoverCard.Trigger>
   <Portal>

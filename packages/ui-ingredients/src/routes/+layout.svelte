@@ -3,9 +3,11 @@
 
   import {page} from '$app/stores';
   import {Dialog, EnvironmentProvider, LocaleProvider, Portal, Toast, Toaster} from '$lib/index.js';
-  import {cx, toaster} from './shared/index.js';
+  import {cx, useToaster} from './shared/index.js';
 
   let {children} = $props();
+
+  let toaster = useToaster();
 
   interface Item {
     path: string;

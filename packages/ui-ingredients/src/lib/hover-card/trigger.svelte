@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import type {AsChild, HtmlProps} from '$lib/types.js';
 
-  export interface HoverCardTriggerProps extends HtmlProps<'div'> {
+  export interface HoverCardTriggerProps extends HtmlProps<'a'> {
     asChild?: AsChild;
   }
 </script>
@@ -20,7 +20,7 @@
 {#if asChild}
   {@render asChild(attrs)}
 {:else}
-  <div {...attrs}>
+  <a {...attrs}>
     {@render children?.()}
-  </div>
+  </a>
 {/if}

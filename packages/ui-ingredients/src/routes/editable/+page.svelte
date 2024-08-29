@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Editable} from '$lib/index.js';
+  import {Label} from '../shared/index.js';
 
   let value = $state('Double click to edit');
 </script>
@@ -10,7 +11,12 @@
     value = detail.value;
   }}
 >
-  <Editable.Label class="text-muted mb-1 inline-block font-medium">Framework</Editable.Label>
+  <Editable.Label>
+    {#snippet asChild(attrs)}
+      <Label>Framework</Label>
+    {/snippet}
+  </Editable.Label>
+
   <Editable.Area>
     <Editable.Input />
     <Editable.Preview class="text-neutral-400" />

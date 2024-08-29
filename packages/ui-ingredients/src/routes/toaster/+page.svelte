@@ -1,5 +1,7 @@
 <script lang="ts">
-  import {Button, toaster} from '../shared/index.js';
+  import {Button, useToaster} from '../shared/index.js';
+
+  let toaster = useToaster();
 </script>
 
 <Button
