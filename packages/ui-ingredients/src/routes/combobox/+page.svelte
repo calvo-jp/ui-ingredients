@@ -15,6 +15,14 @@
     {
       label: 'Svelte',
       value: 'svelte',
+    },
+    {
+      label: 'Vue',
+      value: 'vue',
+    },
+    {
+      label: 'Angular',
+      value: 'angular',
       disabled: true,
     },
   ];
