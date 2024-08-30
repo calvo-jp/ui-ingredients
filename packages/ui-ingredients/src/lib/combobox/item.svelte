@@ -10,19 +10,17 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {comboboxContext, comboboxItemPropsContext} from './context.svelte.js';
 
-  let {item, persistFocus, asChild, children, ...props}: ComboboxItemProps = $props();
+  let {asChild, children, ...props}: ComboboxItemProps = $props();
 
   let combobox = comboboxContext.get();
-  let itemProps = $derived({
-    item,
-    persistFocus,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['item', 'persistFocus'])(props);
 
   let itemState = $derived(combobox.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(props, combobox.getItemProps(itemProps)));
+  let mergedProps = $derived(mergeProps(otherProps, combobox.getItemProps(itemProps)));
 
   comboboxItemPropsContext.set(() => itemProps);
 </script>

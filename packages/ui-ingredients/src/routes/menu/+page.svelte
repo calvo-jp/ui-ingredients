@@ -13,6 +13,8 @@
   ];
 
   let selected: string[] = $state([]);
+
+  $inspect(selected);
 </script>
 
 <div class="flex gap-2">

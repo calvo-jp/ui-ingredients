@@ -11,76 +11,46 @@
 </script>
 
 <script lang="ts" generics="T">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {selectContext} from './context.svelte.js';
   import {createSelect} from './create-select.svelte.js';
 
-  let {
-    id,
-    ids,
-    form,
-    name,
-    open,
-    defaultOpen,
-    value,
-    items,
-    invalid,
-    multiple,
-    disabled,
-    readOnly,
-    required,
-    loopFocus,
-    composite,
-    positioning,
-    closeOnSelect,
-    highlightedValue,
-    itemToValue,
-    itemToString,
-    isItemDisabled,
-    onOpenChange,
-    onValueChange,
-    onFocusOutside,
-    onHighlightChange,
-    onInteractOutside,
-    onPointerDownOutside,
-    scrollToIndexFn,
-    asChild,
-    children,
-    ...props
-  }: SelectProps<T> = $props();
+  let {asChild, children, ...props}: SelectProps<T> = $props();
 
-  let select = createSelect({
-    id,
-    ids,
-    form,
-    name,
-    open,
-    defaultOpen,
-    value: $state.snapshot(value),
-    items,
-    invalid,
-    multiple,
-    disabled,
-    readOnly,
-    required,
-    loopFocus,
-    composite,
-    positioning,
-    closeOnSelect,
-    highlightedValue,
-    itemToValue,
-    itemToString,
-    isItemDisabled,
-    onOpenChange,
-    onValueChange,
-    onFocusOutside,
-    onHighlightChange,
-    onInteractOutside,
-    onPointerDownOutside,
-    scrollToIndexFn,
-  });
+  let [selectProps, otherProps] = createSplitProps<CreateSelectProps<T>>([
+    'id',
+    'ids',
+    'form',
+    'name',
+    'open',
+    'defaultOpen',
+    'value',
+    'items',
+    'invalid',
+    'multiple',
+    'disabled',
+    'readOnly',
+    'required',
+    'loopFocus',
+    'composite',
+    'positioning',
+    'closeOnSelect',
+    'highlightedValue',
+    'itemToValue',
+    'itemToString',
+    'isItemDisabled',
+    'onOpenChange',
+    'onValueChange',
+    'onFocusOutside',
+    'onHighlightChange',
+    'onInteractOutside',
+    'onPointerDownOutside',
+    'scrollToIndexFn',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps<Record<string, any>>(props, select.getRootProps()));
+  let select = createSelect(selectProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, select.getRootProps()));
 
   selectContext.set(select);
 </script>

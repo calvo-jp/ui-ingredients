@@ -11,20 +11,19 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {radioGroupContext, radioGroupItemPropsContext} from './context.svelte.js';
 
-  let {value, invalid, disabled, children, asChild, ...props}: RadioGroupItemProps = $props();
+  let {children, asChild, ...props}: RadioGroupItemProps = $props();
 
   let radioGroup = radioGroupContext.get();
-  let itemProps = $derived({
-    value,
-    invalid,
-    disabled,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(
+    props,
+  );
 
   let itemState = $derived(radioGroup.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(props, radioGroup.getItemProps(itemProps)));
+  let mergedProps = $derived(mergeProps(otherProps, radioGroup.getItemProps(itemProps)));
 
   radioGroupItemPropsContext.set(() => itemProps);
 </script>

@@ -30,7 +30,7 @@ export function mergeProps<T extends GenericObject>(...args: T[]): T {
 
 export function createSplitProps<T extends GenericObject>(k: (keyof T)[]) {
   return function <P extends T>(p: P): [T, Omit<P, keyof T>] {
-    const r = $derived(originalCreateSplitProps(k)(p));
+    const r = $derived(reflect(() => originalCreateSplitProps(k)(p)));
     return r;
   };
 }

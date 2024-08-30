@@ -11,42 +11,29 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {checkboxContext} from './context.svelte.js';
   import {createCheckbox} from './create-checkbox.svelte.js';
 
-  let {
-    id,
-    ids,
-    form,
-    name,
-    value,
-    checked,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    onCheckedChange,
-    asChild,
-    children,
-    ...props
-  }: CheckboxProps = $props();
+  let {asChild, children, ...props}: CheckboxProps = $props();
 
-  let checkbox = createCheckbox({
-    id,
-    ids,
-    form,
-    name,
-    value: $state.snapshot(value),
-    checked,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    onCheckedChange,
-  });
+  let [checkboxProps, otherProps] = createSplitProps<CreateCheckboxProps>([
+    'id',
+    'ids',
+    'form',
+    'name',
+    'value',
+    'checked',
+    'invalid',
+    'disabled',
+    'readOnly',
+    'required',
+    'onCheckedChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, checkbox.getRootProps()));
+  let checkbox = createCheckbox(checkboxProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, checkbox.getRootProps()));
 
   checkboxContext.set(checkbox);
 </script>

@@ -11,32 +11,24 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {splitterContext} from './context.svelte.js';
   import {createSplitter} from './create-splitter.svelte.js';
 
-  let {
-    id,
-    ids,
-    size,
-    orientation,
-    onSizeChange,
-    onSizeChangeEnd,
-    asChild,
-    children,
-    ...props
-  }: SplitterProps = $props();
+  let {asChild, children, ...props}: SplitterProps = $props();
 
-  let splitter = createSplitter({
-    id,
-    ids,
-    size,
-    orientation,
-    onSizeChange,
-    onSizeChangeEnd,
-  });
+  let [splitterProps, otherProps] = createSplitProps<CreateSplitterProps>([
+    'id',
+    'ids',
+    'size',
+    'orientation',
+    'onSizeChange',
+    'onSizeChangeEnd',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, splitter.getRootProps()));
+  let splitter = createSplitter(splitterProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, splitter.getRootProps()));
 
   splitterContext.set(splitter);
 </script>

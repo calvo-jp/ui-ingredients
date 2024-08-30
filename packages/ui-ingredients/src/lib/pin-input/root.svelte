@@ -11,62 +11,39 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {pinInputContext} from './context.svelte.js';
   import {createPinInputContext} from './create-pin-input.svelte.js';
 
-  let {
-    id,
-    ids,
-    otp,
-    form,
-    mask,
-    name,
-    type,
-    value,
-    pattern,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    autoFocus,
-    placeholder,
-    translations,
-    selectOnFocus,
-    blurOnComplete,
-    onValueChange,
-    onValueInvalid,
-    onValueComplete,
-    asChild,
-    children,
-    ...props
-  }: PinInputProps = $props();
+  let {asChild, children, ...props}: PinInputProps = $props();
 
-  let pinInput = createPinInputContext({
-    id,
-    ids,
-    otp,
-    form,
-    mask,
-    name,
-    type,
-    value: $state.snapshot(value),
-    pattern,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    autoFocus,
-    placeholder,
-    translations,
-    selectOnFocus,
-    blurOnComplete,
-    onValueChange,
-    onValueInvalid,
-    onValueComplete,
-  });
+  let [pinInputProps, otherProps] = createSplitProps<CreatePinInputProps>([
+    'id',
+    'ids',
+    'otp',
+    'form',
+    'mask',
+    'name',
+    'type',
+    'value',
+    'pattern',
+    'invalid',
+    'disabled',
+    'readOnly',
+    'required',
+    'autoFocus',
+    'placeholder',
+    'translations',
+    'selectOnFocus',
+    'blurOnComplete',
+    'onValueChange',
+    'onValueInvalid',
+    'onValueComplete',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, pinInput.getRootProps()));
+  let pinInput = createPinInputContext(pinInputProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, pinInput.getRootProps()));
 
   pinInputContext.set(pinInput);
 </script>

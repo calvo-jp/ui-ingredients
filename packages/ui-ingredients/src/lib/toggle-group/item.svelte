@@ -11,19 +11,18 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {toggleGroupContext} from './context.svelte.js';
 
-  let {value, disabled, asChild, children, ...props}: ToggleGroupItemProps = $props();
+  let {asChild, children, ...props}: ToggleGroupItemProps = $props();
 
   let toggleGroup = toggleGroupContext.get();
-  let itemProps = $derived({
-    value,
-    disabled,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['value', 'disabled'])(props);
 
   let itemState = $derived(toggleGroup.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(props, toggleGroup.getItemProps(itemProps)));
+
+  let mergedProps = $derived(mergeProps(otherProps, toggleGroup.getItemProps(itemProps)));
 </script>
 
 {#if asChild}

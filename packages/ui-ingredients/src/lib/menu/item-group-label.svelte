@@ -13,6 +13,7 @@
   let {asChild, children, ...props}: MenuItemGroupLabelProps = $props();
 
   let menu = menuContext.get();
+
   let itemGroupProps = menuItemGroupPropsContext.get();
 
   let mergedProps = $derived(

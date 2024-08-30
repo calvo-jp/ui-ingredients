@@ -14,39 +14,28 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {parts} from './anatomy.js';
   import {segmentGroupContext} from './context.svelte.js';
   import {createSegmentGroup} from './create-segment-group.svelte.js';
 
-  let {
-    id,
-    ids,
-    form,
-    name,
-    value,
-    disabled,
-    readOnly,
-    orientation,
-    onValueChange,
-    asChild,
-    children,
-    ...props
-  }: SegmentGroupProps = $props();
+  let {asChild, children, ...props}: SegmentGroupProps = $props();
 
-  let segmentGroup = createSegmentGroup({
-    id,
-    ids,
-    form,
-    name,
-    value: $state.snapshot(value),
-    disabled,
-    readOnly,
-    orientation,
-    onValueChange,
-  });
+  let [segmentGroupProps, otherProps] = createSplitProps<CreateSegmentGroupProps>([
+    'id',
+    'ids',
+    'form',
+    'name',
+    'value',
+    'disabled',
+    'readOnly',
+    'orientation',
+    'onValueChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, segmentGroup.getRootProps(), parts.root.attrs));
+  let segmentGroup = createSegmentGroup(segmentGroupProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, segmentGroup.getRootProps(), parts.root.attrs));
 
   segmentGroupContext.set(segmentGroup);
 </script>

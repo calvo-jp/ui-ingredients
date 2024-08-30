@@ -14,40 +14,28 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {signaturePadContext} from './context.svelte.js';
   import {createSignaturePad} from './create-signature-pad.svelte.js';
 
-  let {
-    id,
-    ids,
-    name,
-    drawing,
-    required,
-    disabled,
-    readOnly,
-    translations,
-    onDraw,
-    onDrawEnd,
-    asChild,
-    children,
-    ...props
-  }: SignaturePadProps = $props();
+  let {asChild, children, ...props}: SignaturePadProps = $props();
 
-  let signaturePad = createSignaturePad({
-    id,
-    ids,
-    name,
-    drawing,
-    required,
-    disabled,
-    readOnly,
-    translations,
-    onDraw,
-    onDrawEnd,
-  });
+  let [signaturePadProps, otherProps] = createSplitProps<CreateSignaturePadProps>([
+    'id',
+    'ids',
+    'name',
+    'drawing',
+    'required',
+    'disabled',
+    'readOnly',
+    'translations',
+    'onDraw',
+    'onDrawEnd',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, signaturePad.getRootProps()));
+  let signaturePad = createSignaturePad(signaturePadProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, signaturePad.getRootProps()));
 
   signaturePadContext.set(signaturePad);
 </script>

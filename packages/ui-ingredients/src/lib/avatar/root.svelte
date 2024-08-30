@@ -11,19 +11,21 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {avatarContext} from './context.svelte.js';
   import {createAvatar} from './create-avatar.svelte.js';
 
-  let {id, ids, onStatusChange, asChild, children, ...props}: AvatarProps = $props();
+  let {asChild, children, ...props}: AvatarProps = $props();
 
-  let avatar = createAvatar({
-    id,
-    ids,
-    onStatusChange,
-  });
+  let [avatarProps, otherProps] = createSplitProps<CreateAvatarProps>([
+    'id',
+    'ids',
+    'onStatusChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, avatar.getRootProps()));
+  let avatar = createAvatar(avatarProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, avatar.getRootProps()));
 
   avatarContext.set(avatar);
 </script>

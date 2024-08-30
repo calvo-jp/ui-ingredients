@@ -10,15 +10,17 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {carouselContext} from './context.svelte.js';
 
-  let {index, asChild, children, ...props}: CarouselItemProps = $props();
+  let {asChild, children, ...props}: CarouselItemProps = $props();
 
   let carousel = carouselContext.get();
 
-  let itemState = $derived(carousel.getItemState({index}));
-  let mergedProps = $derived(mergeProps(props, carousel.getItemProps({index})));
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['index'])(props);
+
+  let itemState = $derived(carousel.getItemState(itemProps));
+  let mergedProps = $derived(mergeProps(otherProps, carousel.getItemProps(itemProps)));
 </script>
 
 {#if asChild}

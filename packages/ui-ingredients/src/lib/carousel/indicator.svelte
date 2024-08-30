@@ -8,22 +8,16 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {carouselContext} from './context.svelte.js';
 
-  let {index, readOnly, asChild, children, ...props}: CarouselIndicatorProps = $props();
+  let {asChild, children, ...props}: CarouselIndicatorProps = $props();
 
   let carousel = carouselContext.get();
 
-  let mergedProps = $derived(
-    mergeProps(
-      props,
-      carousel.getIndicatorProps({
-        index,
-        readOnly,
-      }),
-    ),
-  );
+  let [indicatorProps, otherProps] = createSplitProps<IndicatorProps>(['index', 'readOnly'])(props);
+
+  let mergedProps = $derived(mergeProps(otherProps, carousel.getIndicatorProps(indicatorProps)));
 </script>
 
 {#if asChild}

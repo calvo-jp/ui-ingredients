@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {ItemGroupProps} from '@zag-js/select';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface SelectItemGroupProps
-    extends Assign<HTMLProps<'div'>, Omit<ItemGroupProps, 'id'>> {
+  export interface SelectItemGroupProps extends HTMLProps<'div'> {
     asChild?: AsChild;
   }
 </script>

@@ -13,9 +13,10 @@
   let {asChild, children, ...props}: MenuOptionItemIndicatorProps = $props();
 
   let menu = menuContext.get();
-  let optionItemProps = menuOptionItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, menu.getItemIndicatorProps(optionItemProps)));
+  let itemProps = menuOptionItemPropsContext.get();
+
+  let mergedProps = $derived(mergeProps(props, menu.getItemIndicatorProps(itemProps)));
 </script>
 
 {#if asChild}

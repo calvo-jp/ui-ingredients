@@ -13,9 +13,10 @@
   let {asChild, children, ...props}: MenuOptionItemTextProps = $props();
 
   let menu = menuContext.get();
-  let optionItemProps = menuOptionItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, menu.getItemTextProps(optionItemProps)));
+  let itemProps = menuOptionItemPropsContext.get();
+
+  let mergedProps = $derived(mergeProps(props, menu.getItemTextProps(itemProps)));
 </script>
 
 {#if asChild}
@@ -25,7 +26,7 @@
     {#if children}
       {@render children()}
     {:else}
-      {optionItemProps.valueText}
+      {itemProps.valueText}
     {/if}
   </span>
 {/if}

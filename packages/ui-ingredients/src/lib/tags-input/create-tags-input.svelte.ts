@@ -11,7 +11,7 @@ export interface CreateTagsInputProps
 
 export interface CreateTagsInputReturn extends tagsInput.Api {}
 
-export function createTagsInputt(props: CreateTagsInputProps) {
+export function createTagsInput(props: CreateTagsInputProps) {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 

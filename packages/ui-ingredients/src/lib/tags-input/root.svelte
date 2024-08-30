@@ -11,74 +11,45 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {tagsInputContext} from './context.svelte.js';
-  import {createTagsInputt} from './create-tags-input.svelte.js';
+  import {createTagsInput} from './create-tags-input.svelte.js';
 
-  let {
-    id,
-    ids,
-    max,
-    form,
-    name,
-    value,
-    invalid,
-    disabled,
-    editable,
-    readOnly,
-    validate,
-    required,
-    delimiter,
-    autoFocus,
-    maxLength,
-    addOnPaste,
-    inputValue,
-    blurBehavior,
-    translations,
-    allowOverflow,
-    onValueChange,
-    onFocusOutside,
-    onValueInvalid,
-    onInteractOutside,
-    onHighlightChange,
-    onInputValueChange,
-    onPointerDownOutside,
-    asChild,
-    children,
-    ...props
-  }: TagsInputProps = $props();
+  let {asChild, children, ...props}: TagsInputProps = $props();
 
-  let tagsInput = createTagsInputt({
-    id,
-    ids,
-    max,
-    form,
-    name,
-    value: $state.snapshot(value),
-    invalid,
-    disabled,
-    editable,
-    readOnly,
-    validate,
-    required,
-    delimiter,
-    autoFocus,
-    maxLength,
-    addOnPaste,
-    inputValue,
-    blurBehavior,
-    translations,
-    allowOverflow,
-    onValueChange,
-    onFocusOutside,
-    onValueInvalid,
-    onInteractOutside,
-    onHighlightChange,
-    onInputValueChange,
-    onPointerDownOutside,
-  });
+  let [tagsInputProps, otherProps] = createSplitProps<CreateTagsInputProps>([
+    'id',
+    'ids',
+    'max',
+    'form',
+    'name',
+    'value',
+    'invalid',
+    'disabled',
+    'editable',
+    'readOnly',
+    'validate',
+    'required',
+    'delimiter',
+    'autoFocus',
+    'maxLength',
+    'addOnPaste',
+    'inputValue',
+    'blurBehavior',
+    'translations',
+    'allowOverflow',
+    'onValueChange',
+    'onFocusOutside',
+    'onValueInvalid',
+    'onInteractOutside',
+    'onHighlightChange',
+    'onInputValueChange',
+    'onPointerDownOutside',
+  ])(props);
 
-  let mergedProps = $derived<Record<string, any>>(mergeProps(props, tagsInput.getRootProps()));
+  let tagsInput = createTagsInput(tagsInputProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, tagsInput.getRootProps()));
 
   tagsInputContext.set(tagsInput);
 </script>

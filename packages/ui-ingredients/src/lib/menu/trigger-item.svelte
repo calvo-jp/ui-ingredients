@@ -12,6 +12,7 @@
 
   let {asChild, children, ...props}: MenuTriggerItemIndicatorProps = $props();
 
+  // 🐞 FIXME: should be a new instance of "createMenu"
   let menu = menuContext.get();
 
   let mergedProps = $derived(mergeProps(props, menu.getTriggerItemProps(menu)));

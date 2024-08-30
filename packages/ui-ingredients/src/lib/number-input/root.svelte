@@ -14,70 +14,43 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {numberInputContext} from './context.svelte.js';
   import {createNumberInput} from './create-number-input.svelte.js';
 
-  let {
-    id,
-    ids,
-    max,
-    min,
-    step,
-    name,
-    form,
-    value,
-    locale,
-    pattern,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    inputMode,
-    spinOnPress,
-    translations,
-    formatOptions,
-    allowOverflow,
-    allowMouseWheel,
-    clampValueOnBlur,
-    focusInputOnChange,
-    onFocusChange,
-    onValueChange,
-    onValueInvalid,
-    asChild,
-    children,
-    ...props
-  }: NumberInputProps = $props();
+  let {asChild, children, ...props}: NumberInputProps = $props();
 
-  let numberInput = createNumberInput({
-    id,
-    ids,
-    max,
-    min,
-    step,
-    name,
-    form,
-    value: $state.snapshot(value),
-    locale,
-    pattern,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    inputMode,
-    spinOnPress,
-    translations,
-    formatOptions,
-    allowOverflow,
-    allowMouseWheel,
-    clampValueOnBlur,
-    focusInputOnChange,
-    onFocusChange,
-    onValueChange,
-    onValueInvalid,
-  });
+  let [numberInputProps, otherProps] = createSplitProps<CreateNumberInputProps>([
+    'id',
+    'ids',
+    'max',
+    'min',
+    'step',
+    'name',
+    'form',
+    'value',
+    'locale',
+    'pattern',
+    'invalid',
+    'disabled',
+    'readOnly',
+    'required',
+    'inputMode',
+    'spinOnPress',
+    'translations',
+    'formatOptions',
+    'allowOverflow',
+    'allowMouseWheel',
+    'clampValueOnBlur',
+    'focusInputOnChange',
+    'onFocusChange',
+    'onValueChange',
+    'onValueInvalid',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, numberInput.getRootProps()));
+  let numberInput = createNumberInput(numberInputProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, numberInput.getRootProps()));
 
   numberInputContext.set(numberInput);
 </script>

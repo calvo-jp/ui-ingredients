@@ -11,56 +11,36 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {fileUploadContext} from './context.svelte.js';
   import {createFileUpload} from './create-file-upload.svelte.js';
 
-  let {
-    id,
-    ids,
-    name,
-    accept,
-    locale,
-    capture,
-    required,
-    disabled,
-    validate,
-    allowDrop,
-    directory,
-    maxFiles,
-    maxFileSize,
-    minFileSize,
-    onFileAccept,
-    onFileChange,
-    onFileReject,
-    translations,
-    asChild,
-    children,
-    ...props
-  }: FileUploadProps = $props();
+  let {asChild, children, ...props}: FileUploadProps = $props();
 
-  let fileUpload = createFileUpload({
-    id,
-    ids,
-    name,
-    accept,
-    locale,
-    capture,
-    required,
-    disabled,
-    validate,
-    allowDrop,
-    directory,
-    maxFiles,
-    maxFileSize,
-    minFileSize,
-    onFileAccept,
-    onFileChange,
-    onFileReject,
-    translations,
-  });
+  let [fileUploadProps, otherProps] = createSplitProps<CreateFileUploadProps>([
+    'id',
+    'ids',
+    'name',
+    'accept',
+    'locale',
+    'capture',
+    'required',
+    'disabled',
+    'validate',
+    'allowDrop',
+    'directory',
+    'maxFiles',
+    'maxFileSize',
+    'minFileSize',
+    'onFileAccept',
+    'onFileChange',
+    'onFileReject',
+    'translations',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getRootProps()));
+  let fileUpload = createFileUpload(fileUploadProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, fileUpload.getRootProps()));
 
   fileUploadContext.set(fileUpload);
 </script>

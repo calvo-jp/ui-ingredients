@@ -11,40 +11,28 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {paginationContext} from './context.svelte.js';
   import {createPagination} from './create-pagination.svelte.js';
 
-  let {
-    id,
-    ids,
-    type,
-    page,
-    pageSize,
-    count,
-    siblingCount,
-    translations,
-    onPageChange,
-    onPageSizeChange,
-    asChild,
-    children,
-    ...props
-  }: PaginationProps = $props();
+  let {asChild, children, ...props}: PaginationProps = $props();
 
-  let pagination = createPagination({
-    id,
-    ids,
-    type,
-    page,
-    pageSize,
-    count,
-    siblingCount,
-    translations,
-    onPageChange,
-    onPageSizeChange,
-  });
+  let [paginationProps, otherProps] = createSplitProps<CreatePaginationProps>([
+    'id',
+    'ids',
+    'type',
+    'page',
+    'pageSize',
+    'count',
+    'siblingCount',
+    'translations',
+    'onPageChange',
+    'onPageSizeChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, pagination.getRootProps()));
+  let pagination = createPagination(paginationProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, pagination.getRootProps()));
 
   paginationContext.set(pagination);
 </script>

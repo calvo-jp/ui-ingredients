@@ -11,30 +11,21 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {parts} from './anatomy.js';
   import {segmentGroupContext, segmentGroupItemPropsContext} from './context.svelte.js';
 
-  let {
-    /**/
-    value,
-    invalid,
-    disabled,
-    children,
-    asChild,
-    ...props
-  }: SegmentGroupItemProps = $props();
+  let {children, asChild, ...props}: SegmentGroupItemProps = $props();
 
   let segmentGroup = segmentGroupContext.get();
-  let itemProps = $derived({
-    value,
-    invalid,
-    disabled,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(
+    props,
+  );
 
   let itemState = $derived(segmentGroup.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(props, segmentGroup.getItemProps(itemProps), parts.item.attrs),
+    mergeProps(otherProps, segmentGroup.getItemProps(itemProps), parts.item.attrs),
   );
 
   segmentGroupItemPropsContext.set(() => itemProps);

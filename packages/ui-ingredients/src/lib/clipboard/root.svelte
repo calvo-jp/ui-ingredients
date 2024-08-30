@@ -11,31 +11,23 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {clipboardContext} from './context.svelte.js';
   import {createClipboard} from './create-clipboard.svelte.js';
 
-  let {
-    /**/
-    id,
-    ids,
-    value,
-    timeout,
-    onStatusChange,
-    asChild,
-    children,
-    ...props
-  }: ClipboardProps = $props();
+  let {asChild, children, ...props}: ClipboardProps = $props();
 
-  let clipboard = createClipboard({
-    id,
-    ids,
-    value: $state.snapshot(value),
-    timeout,
-    onStatusChange,
-  });
+  let [clipboardProps, otherProps] = createSplitProps<CreateClipboardProps>([
+    'id',
+    'ids',
+    'value',
+    'timeout',
+    'onStatusChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, clipboard.getRootProps()));
+  let clipboard = createClipboard(clipboardProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, clipboard.getRootProps()));
 
   clipboardContext.set(clipboard);
 </script>

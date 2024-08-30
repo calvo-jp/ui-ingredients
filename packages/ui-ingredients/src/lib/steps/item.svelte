@@ -10,18 +10,18 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {stepsContext, stepsItemPropsContext} from './context.svelte.js';
 
-  let {index, asChild, children, ...props}: StepsItemProps = $props();
+  let {asChild, children, ...props}: StepsItemProps = $props();
 
   let steps = stepsContext.get();
-  let itemProps = $derived({
-    index,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['index'])(props);
 
   let itemState = $derived(steps.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(props, steps.getItemProps(itemProps)));
+
+  let mergedProps = $derived(mergeProps(otherProps, steps.getItemProps(itemProps)));
 
   stepsItemPropsContext.set(() => itemProps);
 </script>

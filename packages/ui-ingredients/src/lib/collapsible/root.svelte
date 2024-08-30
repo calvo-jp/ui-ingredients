@@ -14,34 +14,25 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {collapsibleContext} from './context.svelte.js';
   import {createCollapsible} from './create-collapsible.svelte.js';
 
-  let {
-    id,
-    ids,
-    open,
-    disabled,
-    defaultOpen,
-    onOpenChange,
-    onExitComplete,
-    asChild,
-    children,
-    ...props
-  }: CollapsibleProps = $props();
+  let {asChild, children, ...props}: CollapsibleProps = $props();
 
-  let collapsible = createCollapsible({
-    id,
-    ids,
-    open,
-    disabled,
-    defaultOpen,
-    onOpenChange,
-    onExitComplete,
-  });
+  let [collapsibleProps, otherProps] = createSplitProps<CreateCollapsibleProps>([
+    'id',
+    'ids',
+    'open',
+    'disabled',
+    'defaultOpen',
+    'onOpenChange',
+    'onExitComplete',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, collapsible.getRootProps()));
+  let collapsible = createCollapsible(collapsibleProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, collapsible.getRootProps()));
 
   collapsibleContext.set(collapsible);
 </script>

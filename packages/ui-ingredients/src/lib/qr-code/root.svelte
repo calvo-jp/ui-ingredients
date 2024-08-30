@@ -11,29 +11,22 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {qrCodeContext} from './context.svelte.js';
   import {createQRCode} from './create-qr-code.svelte.js';
 
-  let {
-    /**/
-    id,
-    ids,
-    value,
-    encoding,
-    asChild,
-    children,
-    ...props
-  }: QRCodeProps = $props();
+  let {asChild, children, ...props}: QRCodeProps = $props();
 
-  let qrCode = createQRCode({
-    id,
-    ids,
-    value: $state.snapshot(value),
-    encoding,
-  });
+  let [qrCodeProps, otherProps] = createSplitProps<CreateQRCodeProps>([
+    'id',
+    'ids',
+    'value',
+    'encoding',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, qrCode.getRootProps()));
+  let qrCode = createQRCode(qrCodeProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, qrCode.getRootProps()));
 
   qrCodeContext.set(qrCode);
 </script>

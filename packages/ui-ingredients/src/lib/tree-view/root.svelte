@@ -46,7 +46,7 @@
     onSelectionChange,
   });
 
-  let mergedProps = $derived(mergeProps<Record<string, any>>(props, treeView.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, treeView.getRootProps()));
 
   treeViewContext.set(treeView);
 </script>

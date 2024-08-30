@@ -10,16 +10,14 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {selectContext, selectItemPropsContext} from './context.svelte.js';
 
-  let {item, persistFocus, asChild, children, ...props}: SelectItemProps = $props();
+  let {asChild, children, ...props}: SelectItemProps = $props();
 
   let select = selectContext.get();
-  let itemProps = $derived({
-    item,
-    persistFocus,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['item', 'persistFocus'])(props);
 
   let itemState = $derived(select.getItemState(itemProps));
   let mergedProps = $derived(mergeProps(props, select.getItemProps(itemProps)));

@@ -14,48 +14,32 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {ratingGroupContext} from './context.svelte.js';
   import {createRatingGroup} from './create-rating-group.svelte.js';
 
-  let {
-    id,
-    ids,
-    form,
-    name,
-    count,
-    value,
-    disabled,
-    readOnly,
-    required,
-    autoFocus,
-    allowHalf,
-    translations,
-    onHoverChange,
-    onValueChange,
-    asChild,
-    children,
-    ...props
-  }: RatingGroupProps = $props();
+  let {asChild, children, ...props}: RatingGroupProps = $props();
 
-  let ratingGroup = createRatingGroup({
-    id,
-    ids,
-    form,
-    name,
-    count,
-    value: $state.snapshot(value),
-    disabled,
-    readOnly,
-    required,
-    autoFocus,
-    allowHalf,
-    translations,
-    onHoverChange,
-    onValueChange,
-  });
+  let [ratingGroupProps, otherProps] = createSplitProps<CreateRatingGroupProps>([
+    'id',
+    'ids',
+    'form',
+    'name',
+    'count',
+    'value',
+    'disabled',
+    'readOnly',
+    'required',
+    'autoFocus',
+    'allowHalf',
+    'translations',
+    'onHoverChange',
+    'onValueChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, ratingGroup.getRootProps()));
+  let ratingGroup = createRatingGroup(ratingGroupProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, ratingGroup.getRootProps()));
 
   ratingGroupContext.set(ratingGroup);
 </script>

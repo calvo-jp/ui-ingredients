@@ -14,38 +14,27 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {toggleGroupContext} from './context.svelte.js';
   import {createToggleGroup} from './create-toggle-group.svelte.js';
 
-  let {
-    id,
-    ids,
-    value,
-    disabled,
-    multiple,
-    loopFocus,
-    rovingFocus,
-    orientation,
-    onValueChange,
-    asChild,
-    children,
-    ...props
-  }: ToggleGroupProps = $props();
+  let {asChild, children, ...props}: ToggleGroupProps = $props();
 
-  let toggleGroup = createToggleGroup({
-    id,
-    ids,
-    value: $state.snapshot(value),
-    disabled,
-    multiple,
-    loopFocus,
-    rovingFocus,
-    orientation,
-    onValueChange,
-  });
+  let [toggleGroupProps, otherProps] = createSplitProps<CreateToggleGroupProps>([
+    'id',
+    'ids',
+    'value',
+    'disabled',
+    'multiple',
+    'loopFocus',
+    'rovingFocus',
+    'orientation',
+    'onValueChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, toggleGroup.getRootProps()));
+  let toggleGroup = createToggleGroup(toggleGroupProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, toggleGroup.getRootProps()));
 
   toggleGroupContext.set(toggleGroup);
 </script>

@@ -11,35 +11,25 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {progressContext} from './context.svelte.js';
   import {createProgress} from './create-progress.svelte.js';
 
-  let {
-    /**/
-    id,
-    ids,
-    max,
-    min,
-    value,
-    orientation,
-    translations,
-    asChild,
-    children,
-    ...props
-  }: ProgressProps = $props();
+  let {asChild, children, ...props}: ProgressProps = $props();
 
-  let progress = createProgress({
-    id,
-    ids,
-    max,
-    min,
-    value: $state.snapshot(value),
-    orientation,
-    translations,
-  });
+  let [progressProps, otherProps] = createSplitProps<CreateProgressProps>([
+    'id',
+    'ids',
+    'max',
+    'min',
+    'value',
+    'orientation',
+    'translations',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, progress.getRootProps()));
+  let progress = createProgress(progressProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, progress.getRootProps()));
 
   progressContext.set(progress);
 </script>

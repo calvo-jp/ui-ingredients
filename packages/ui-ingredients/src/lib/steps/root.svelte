@@ -10,36 +10,26 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {stepsContext} from './context.svelte.js';
   import {createSteps} from './create-steps.svelte.js';
 
-  let {
-    id,
-    ids,
-    step,
-    count,
-    linear,
-    orientation,
-    onStepChange,
-    onStepComplete,
-    asChild,
-    children,
-    ...props
-  }: StepsProps = $props();
+  let {asChild, children, ...props}: StepsProps = $props();
 
-  let steps = createSteps({
-    id,
-    ids,
-    step,
-    count,
-    linear,
-    orientation,
-    onStepChange,
-    onStepComplete,
-  });
+  let [stepsProps, otherProps] = createSplitProps<CreateStepsProps>([
+    'id',
+    'ids',
+    'step',
+    'count',
+    'linear',
+    'orientation',
+    'onStepChange',
+    'onStepComplete',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps<Record<string, any>>(props, steps.getRootProps()));
+  let steps = createSteps(stepsProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, steps.getRootProps()));
 
   stepsContext.set(steps);
 </script>

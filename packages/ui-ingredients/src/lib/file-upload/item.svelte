@@ -8,17 +8,16 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {fileUploadContext, fileUploadItemPropsContext} from './context.svelte.js';
 
-  let {file, asChild, children, ...props}: FileUploadItemProps = $props();
+  let {asChild, children, ...props}: FileUploadItemProps = $props();
 
   let fileUpload = fileUploadContext.get();
-  let itemProps: ItemProps = $derived({
-    file,
-  });
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getItemProps(itemProps)));
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['file'])(props);
+
+  let mergedProps = $derived(mergeProps(otherProps, fileUpload.getItemProps(itemProps)));
 
   fileUploadItemPropsContext.set(() => itemProps);
 </script>

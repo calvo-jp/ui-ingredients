@@ -11,72 +11,44 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {editableContext} from './context.svelte.js';
   import {createEditable} from './create-editable.svelte.js';
 
-  let {
-    id,
-    ids,
-    name,
-    form,
-    edit,
-    value,
-    invalid,
-    readOnly,
-    required,
-    disabled,
-    maxLength,
-    submitMode,
-    autoResize,
-    defaultEdit,
-    placeholder,
-    finalFocusEl,
-    translations,
-    selectOnFocus,
-    onEditChange,
-    onValueChange,
-    onValueCommit,
-    onValueRevert,
-    activationMode,
-    onFocusOutside,
-    onInteractOutside,
-    onPointerDownOutside,
-    asChild,
-    children,
-    ...props
-  }: EditableProps = $props();
+  let {asChild, children, ...props}: EditableProps = $props();
 
-  let editable = createEditable({
-    id,
-    ids,
-    name,
-    form,
-    edit,
-    value: $state.snapshot(value),
-    invalid,
-    readOnly,
-    required,
-    disabled,
-    maxLength,
-    submitMode,
-    autoResize,
-    defaultEdit,
-    placeholder,
-    finalFocusEl,
-    translations,
-    selectOnFocus,
-    onEditChange,
-    onValueChange,
-    onValueCommit,
-    onValueRevert,
-    activationMode,
-    onFocusOutside,
-    onInteractOutside,
-    onPointerDownOutside,
-  });
+  let [editableProps, otherProps] = createSplitProps<CreateEditableProps>([
+    'id',
+    'ids',
+    'name',
+    'form',
+    'edit',
+    'value',
+    'invalid',
+    'readOnly',
+    'required',
+    'disabled',
+    'maxLength',
+    'submitMode',
+    'autoResize',
+    'defaultEdit',
+    'placeholder',
+    'finalFocusEl',
+    'translations',
+    'selectOnFocus',
+    'onEditChange',
+    'onValueChange',
+    'onValueCommit',
+    'onValueRevert',
+    'activationMode',
+    'onFocusOutside',
+    'onInteractOutside',
+    'onPointerDownOutside',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, editable.getRootProps()));
+  let editable = createEditable(editableProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, editable.getRootProps()));
 
   editableContext.set(editable);
 </script>

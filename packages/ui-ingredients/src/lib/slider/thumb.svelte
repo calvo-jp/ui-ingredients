@@ -8,18 +8,16 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {sliderContext, sliderThumbPropsContext} from './context.svelte.js';
 
-  let {name, index, asChild, children, ...props}: SliderThumbProps = $props();
+  let {asChild, children, ...props}: SliderThumbProps = $props();
 
   let slider = sliderContext.get();
-  let thumbProps = $derived({
-    name,
-    index,
-  });
 
-  let mergedProps = $derived(mergeProps(props, slider.getThumbProps(thumbProps)));
+  let [thumbProps, otherProps] = createSplitProps<ThumbProps>(['name', 'index'])(props);
+
+  let mergedProps = $derived(mergeProps(otherProps, slider.getThumbProps(thumbProps)));
 
   sliderThumbPropsContext.set(() => thumbProps);
 </script>

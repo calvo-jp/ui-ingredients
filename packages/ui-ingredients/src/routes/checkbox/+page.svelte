@@ -3,6 +3,8 @@
   import {CheckIcon} from '@untitled-theme/icons-svelte';
 
   let checked = $state(false);
+
+  $inspect(checked);
 </script>
 
 <Checkbox.Root

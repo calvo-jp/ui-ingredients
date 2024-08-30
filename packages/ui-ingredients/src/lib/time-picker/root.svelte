@@ -11,58 +11,37 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {timePickerContext} from './context.svelte.js';
   import {createTimePicker} from './create-time-picker.svelte.js';
 
-  let {
-    id,
-    ids,
-    min,
-    max,
-    name,
-    open,
-    steps,
-    value,
-    locale,
-    readOnly,
-    disabled,
-    defaultOpen,
-    placeholder,
-    positioning,
-    allowSeconds,
-    disableLayer,
-    onOpenChange,
-    onValueChange,
-    onFocusChange,
-    asChild,
-    children,
-    ...props
-  }: TimePickerProps = $props();
+  let {asChild, children, ...props}: TimePickerProps = $props();
 
-  let timePicker = createTimePicker({
-    id,
-    ids,
-    min,
-    max,
-    name,
-    open,
-    steps,
-    value,
-    locale,
-    readOnly,
-    disabled,
-    defaultOpen,
-    placeholder,
-    positioning,
-    allowSeconds,
-    disableLayer,
-    onOpenChange,
-    onValueChange,
-    onFocusChange,
-  });
+  let [timePickerProps, otherProps] = createSplitProps<CreateTimePickerProps>([
+    'id',
+    'ids',
+    'min',
+    'max',
+    'name',
+    'open',
+    'steps',
+    'value',
+    'locale',
+    'readOnly',
+    'disabled',
+    'defaultOpen',
+    'placeholder',
+    'positioning',
+    'allowSeconds',
+    'disableLayer',
+    'onOpenChange',
+    'onValueChange',
+    'onFocusChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, timePicker.getRootProps()));
+  let timePicker = createTimePicker(timePickerProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, timePicker.getRootProps()));
 
   timePickerContext.set(timePicker);
 </script>

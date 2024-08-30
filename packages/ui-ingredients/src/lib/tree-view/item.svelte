@@ -10,20 +10,18 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {treeViewContext, treeViewItemPropsContext} from './context.svelte.js';
 
-  let {depth, value, disabled, asChild, children, ...props}: TreeViewItemProps = $props();
+  let {asChild, children, ...props}: TreeViewItemProps = $props();
 
   let treeView = treeViewContext.get();
-  let itemProps: ItemProps = $derived({
-    depth,
-    value,
-    disabled,
-  });
 
-  let mergedProps = $derived(mergeProps(props, treeView.getItemProps(itemProps)));
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['depth', 'value', 'disabled'])(props);
+
   let itemState = $derived(treeView.getItemState(itemProps));
+
+  let mergedProps = $derived(mergeProps(otherProps, treeView.getItemProps(itemProps)));
 
   treeViewItemPropsContext.set(() => itemProps);
 </script>

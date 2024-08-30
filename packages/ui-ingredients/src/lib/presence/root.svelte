@@ -6,23 +6,19 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {createPresence} from './create-presence.svelte.js';
 
-  let {
-    /**/
-    present = $bindable(false),
-    keepMounted,
-    children,
-    ...props
-  }: PresenceProps = $props();
+  let {children, ...props}: PresenceProps = $props();
 
-  let presence = createPresence({
-    present,
-    keepMounted,
-  });
+  let [presenceProps, otherProps] = createSplitProps<CreatePresenceProps>([
+    'present',
+    'keepMounted',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, presence.getRootProps()));
+  let presence = createPresence(presenceProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, presence.getRootProps()));
 </script>
 
 {#if !presence.unmounted}

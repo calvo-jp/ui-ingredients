@@ -11,38 +11,27 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {carouselContext} from './context.svelte.js';
   import {createCarousel} from './create-carousel.svelte.js';
 
-  let {
-    id,
-    ids,
-    loop,
-    align,
-    index,
-    spacing,
-    orientation,
-    slidesPerView,
-    onIndexChange,
-    asChild,
-    children,
-    ...props
-  }: CarouselProps = $props();
+  let {asChild, children, ...props}: CarouselProps = $props();
 
-  let carousel = createCarousel({
-    id,
-    ids,
-    loop,
-    align,
-    index: $state.snapshot(index),
-    spacing,
-    orientation,
-    slidesPerView,
-    onIndexChange,
-  });
+  let [carouselProps, otherProps] = createSplitProps<CreateCarouselProps>([
+    'id',
+    'ids',
+    'loop',
+    'align',
+    'index',
+    'spacing',
+    'orientation',
+    'slidesPerView',
+    'onIndexChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, carousel.getRootProps()));
+  let carousel = createCarousel(carouselProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, carousel.getRootProps()));
 
   carouselContext.set(carousel);
 </script>

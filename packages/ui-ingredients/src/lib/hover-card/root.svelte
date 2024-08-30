@@ -11,9 +11,9 @@
   import {hoverCardContext} from './context.svelte.js';
   import {createHoverCard} from './create-hover-card.svelte.js';
 
-  let {id, children, ...props}: HoverCardProps = $props();
+  let {children, ...props}: HoverCardProps = $props();
 
-  let hoverCard = createHoverCard({id, ...props});
+  let hoverCard = createHoverCard(props);
 
   hoverCardContext.set(hoverCard);
 </script>

@@ -43,7 +43,7 @@
     onValueChange,
   });
 
-  let mergedProps = $derived<Record<string, any>>(mergeProps(props, tabs.getRootProps()));
+  let mergedProps = $derived(mergeProps(props, tabs.getRootProps()));
 
   tabsContext.set(tabs);
 </script>

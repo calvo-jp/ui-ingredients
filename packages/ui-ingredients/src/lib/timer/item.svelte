@@ -8,17 +8,16 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {timerContext, timerItemPropsContext} from './context.svelte.js';
 
-  let {type, asChild, children, ...props}: TimerItemProps = $props();
+  let {asChild, children, ...props}: TimerItemProps = $props();
 
   let timer = timerContext.get();
-  let itemProps = $derived({
-    type,
-  });
 
-  let mergedProps = $derived(mergeProps(props, timer.getItemProps(itemProps)));
+  let [itemProps, otherProps] = createSplitProps<ItemProps>(['type'])(props);
+
+  let mergedProps = $derived(mergeProps(otherProps, timer.getItemProps(itemProps)));
 
   timerItemPropsContext.set(() => itemProps);
 </script>

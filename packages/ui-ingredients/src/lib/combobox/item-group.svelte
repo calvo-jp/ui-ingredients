@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {ItemGroupProps} from '@zag-js/combobox';
+  import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface ComboboxItemGroupProps
-    extends Assign<HTMLProps<'div'>, Omit<ItemGroupProps, 'id'>> {
+  export interface ComboboxItemGroupProps extends HTMLProps<'div'> {
     asChild?: AsChild;
   }
 </script>

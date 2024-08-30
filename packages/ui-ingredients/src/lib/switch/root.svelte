@@ -11,44 +11,30 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {switchContext} from './context.svelte.js';
   import {createSwitch} from './create-switch.svelte.js';
 
-  let {
-    id,
-    ids,
-    form,
-    name,
-    label,
-    value,
-    checked,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    onCheckedChange,
-    asChild,
-    children,
-    ...props
-  }: SwitchProps = $props();
+  let {asChild, children, ...props}: SwitchProps = $props();
 
-  let switch$ = createSwitch({
-    id,
-    ids,
-    form,
-    name,
-    label,
-    value: $state.snapshot(value),
-    checked,
-    invalid,
-    disabled,
-    readOnly,
-    required,
-    onCheckedChange,
-  });
+  let [switchProps, otherProps] = createSplitProps<CreateSwitchProps>([
+    'id',
+    'ids',
+    'form',
+    'name',
+    'label',
+    'value',
+    'checked',
+    'invalid',
+    'disabled',
+    'readOnly',
+    'required',
+    'onCheckedChange',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, switch$.getRootProps()));
+  let switch$ = createSwitch(switchProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, switch$.getRootProps()));
 
   switchContext.set(switch$);
 </script>

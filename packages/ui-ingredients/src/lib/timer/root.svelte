@@ -10,36 +10,26 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {timerContext} from './context.svelte.js';
   import {createTimer} from './create-timer.svelte.js';
 
-  let {
-    id,
-    startMs,
-    targetMs,
-    interval,
-    autoStart,
-    countdown,
-    onTick,
-    onComplete,
-    asChild,
-    children,
-    ...props
-  }: TimerProps = $props();
+  let {asChild, children, ...props}: TimerProps = $props();
 
-  let timer = createTimer({
-    id,
-    startMs,
-    targetMs,
-    interval,
-    autoStart,
-    countdown,
-    onTick,
-    onComplete,
-  });
+  let [timerProps, otherProps] = createSplitProps<CreateTimerProps>([
+    'id',
+    'startMs',
+    'targetMs',
+    'interval',
+    'autoStart',
+    'countdown',
+    'onTick',
+    'onComplete',
+  ])(props);
 
-  let mergedProps = $derived(mergeProps(props, timer.getRootProps()));
+  let timer = createTimer(timerProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, timer.getRootProps()));
 
   timerContext.set(timer);
 </script>

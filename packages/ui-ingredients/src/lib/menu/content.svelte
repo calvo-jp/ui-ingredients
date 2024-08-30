@@ -12,9 +12,9 @@
 
   let {asChild, children, ...props}: MenuContentProps = $props();
 
-  let context = menuContext.get();
+  let menu = menuContext.get();
 
-  let mergedProps = $derived(mergeProps(props, context.getContentProps()));
+  let mergedProps = $derived(mergeProps(props, menu.getContentProps()));
 </script>
 
 {#if asChild}

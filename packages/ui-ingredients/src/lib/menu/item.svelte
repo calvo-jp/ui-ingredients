@@ -10,22 +10,22 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {menuContext} from './context.svelte.js';
 
-  let {value, valueText, disabled, closeOnSelect, asChild, children, ...props}: MenuItemProps =
-    $props();
+  let {asChild, children, ...props}: MenuItemProps = $props();
 
   let menu = menuContext.get();
-  let itemProps = $derived({
-    value,
-    valueText,
-    disabled,
-    closeOnSelect,
-  });
+
+  let [itemProps, otherProps] = createSplitProps<ItemProps>([
+    'value',
+    'valueText',
+    'disabled',
+    'closeOnSelect',
+  ])(props);
 
   let itemState = $derived(menu.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(props, menu.getItemProps(itemProps)));
+  let mergedProps = $derived(mergeProps(otherProps, menu.getItemProps(itemProps)));
 </script>
 
 {#if asChild}
