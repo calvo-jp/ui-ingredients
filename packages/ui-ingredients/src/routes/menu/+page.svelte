@@ -19,8 +19,8 @@
 <div class="flex gap-2">
   <Menu.Root>
     <Menu.Trigger>
-      {#snippet asChild(mergedProps)}
-        <Button {...mergedProps}>
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>
           <span>Basic</span>
           <Menu.Indicator
             class="data-open:rotate-180 transition-transform duration-200"
@@ -50,8 +50,8 @@
 
   <Menu.Root>
     <Menu.Trigger>
-      {#snippet asChild(mergedProps)}
-        <Button {...mergedProps}>
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>
           <span>Checkbox</span>
           <Menu.Indicator
             class="data-open:rotate-180 transition-transform duration-200"

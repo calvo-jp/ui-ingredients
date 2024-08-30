@@ -29,8 +29,8 @@
 
 <Menu.Root>
   <Menu.Trigger>
-    {#snippet asChild(mergedProps)}
-      <Button {...mergedProps}>Open</Button>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Open</Button>
     {/snippet}
   </Menu.Trigger>
 

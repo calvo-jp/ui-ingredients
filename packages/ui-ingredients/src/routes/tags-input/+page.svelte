@@ -17,8 +17,8 @@
 >
   {#snippet children(context)}
     <TagsInput.Label>
-      {#snippet asChild(mergedProps)}
-        <Label {...mergedProps}>Frameworks</Label>
+      {#snippet asChild(attrs)}
+        <Label {...attrs}>Frameworks</Label>
       {/snippet}
     </TagsInput.Label>
 
@@ -42,15 +42,15 @@
       </TagsInput.Control>
 
       <TagsInput.Input
-        class="w-32 shrink-0 bg-transparent outline-none"
+        class="placeholder:text-muted w-32 shrink-0 bg-transparent outline-none"
         autofocus
         placeholder="Framework"
       />
     </div>
 
     <TagsInput.ClearTrigger class="bg-light/25 mt-4 w-full">
-      {#snippet asChild(mergedProps)}
-        <Button {...mergedProps}>Clear</Button>
+      {#snippet asChild(attrs)}
+        <Button {...attrs}>Clear</Button>
       {/snippet}
     </TagsInput.ClearTrigger>
 

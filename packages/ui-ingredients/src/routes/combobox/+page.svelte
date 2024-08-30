@@ -65,20 +65,20 @@
   }}
 >
   <Combobox.Label class="text-muted mb-1 inline-block font-medium">
-    {#snippet asChild(mergedProps)}
-      <Label {...mergedProps}>Select Frameworks</Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Select Frameworks</Label>
     {/snippet}
   </Combobox.Label>
 
   <Combobox.Control class="flex w-full gap-2 lg:max-w-[24rem]">
     <Combobox.Input>
-      {#snippet asChild(mergedProps)}
-        <Input {...mergedProps} />
+      {#snippet asChild(attrs)}
+        <Input {...attrs} />
       {/snippet}
     </Combobox.Input>
     <Combobox.Trigger class="group">
-      {#snippet asChild(mergedProps)}
-        <IconButton {...mergedProps}>
+      {#snippet asChild(attrs)}
+        <IconButton {...attrs}>
           <ChevronDownIcon
             class="group-data-open:rotate-180 transition-transform duration-200"
           />
@@ -86,8 +86,8 @@
       {/snippet}
     </Combobox.Trigger>
     <Combobox.ClearTrigger>
-      {#snippet asChild(mergedProps)}
-        <IconButton {...mergedProps}>
+      {#snippet asChild(attrs)}
+        <IconButton {...attrs}>
           <XCloseIcon />
         </IconButton>
       {/snippet}

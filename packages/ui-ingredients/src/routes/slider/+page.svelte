@@ -15,8 +15,8 @@
   }}
 >
   <Slider.Label>
-    {#snippet asChild(mergedProps)}
-      <Label {...mergedProps}>Label</Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Label</Label>
     {/snippet}
   </Slider.Label>
 

@@ -11,7 +11,7 @@
     'https://images.pexels.com/photos/1192671/pexels-photo-1192671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   ];
 
-  let index = $state(1);
+  let index = $state(0);
 
   $inspect({index});
 </script>

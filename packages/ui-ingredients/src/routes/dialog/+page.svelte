@@ -5,8 +5,8 @@
 
 <Dialog.Root>
   <Dialog.Trigger>
-    {#snippet asChild(mergedProps)}
-      <Button {...mergedProps}>Open</Button>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Open</Button>
     {/snippet}
   </Dialog.Trigger>
 

@@ -8,8 +8,8 @@
   }}
 >
   <HoverCard.Trigger class="underline-offset-2 hover:underline">
-    {#snippet asChild(mergedProps)}
-      <button {...mergedProps}>Hover me</button>
+    {#snippet asChild(attrs)}
+      <button {...attrs}>Hover me</button>
     {/snippet}
   </HoverCard.Trigger>
   <Portal>

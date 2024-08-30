@@ -16,8 +16,8 @@
   class="w-full lg:max-w-[24rem]"
 >
   <PinInput.Label>
-    {#snippet asChild(mergedProps)}
-      <Label {...mergedProps}>Enter OTP</Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Enter OTP</Label>
     {/snippet}
   </PinInput.Label>
 
@@ -29,8 +29,8 @@
         index={i}
         class="aspect-square h-auto w-full text-center text-xl font-bold"
       >
-        {#snippet asChild(mergedProps)}
-          <Input {...mergedProps} />
+        {#snippet asChild(attrs)}
+          <Input {...attrs} />
         {/snippet}
       </PinInput.Input>
     {/each}
