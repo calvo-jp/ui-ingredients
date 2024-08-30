@@ -1,20 +1,28 @@
+<script lang="ts" module>
+  function randomString(length = 16) {
+    const result: string[] = [];
+
+    const chars =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+      'abcdefghijklmnopqrstuvwxyz' +
+      '0123456789';
+
+    const charsCount = chars.length;
+
+    for (let i = 0; i < length; i += 1) {
+      const random = chars.charAt(Math.floor(Math.random() * charsCount));
+
+      result.push(random);
+    }
+
+    return result.join('');
+  }
+</script>
+
 <script lang="ts">
   import {Clipboard} from '$lib/index.js';
   import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
-
-  function randomString(length = 16) {
-    let result = '';
-    const characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-  }
 </script>
 
 <Clipboard.Root value={randomString()}>
