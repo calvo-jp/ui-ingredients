@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as popover from '@zag-js/popover';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 
 export interface CreatePopoverProps
   extends Omit<
@@ -22,7 +22,7 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
   const [state, send] = useMachine(
     popover.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,

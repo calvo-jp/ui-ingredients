@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as pagination from '@zag-js/pagination';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 
 export interface CreatePaginationProps
   extends Omit<pagination.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -20,7 +20,7 @@ export function createPagination(
   const [state, send] = useMachine(
     pagination.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
     }),

@@ -1,7 +1,7 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timer from '@zag-js/timer';
+import {uid} from 'uid';
 
 export interface CreateTimerProps
   extends Omit<timer.Context, 'id' | 'getRootNode'> {
@@ -16,7 +16,7 @@ export function createTimer(props: CreateTimerProps): CreateTimerReturn {
   const [state, send] = useMachine(
     timer.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       getRootNode: environment?.getRootNode,
     }),
   );

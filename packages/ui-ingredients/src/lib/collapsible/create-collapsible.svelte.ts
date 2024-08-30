@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as collapsible from '@zag-js/collapsible';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 
 export interface CreateCollapsibleProps
   extends Omit<
@@ -24,7 +24,7 @@ export function createCollapsible(
   const [state, send] = useMachine(
     collapsible.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,

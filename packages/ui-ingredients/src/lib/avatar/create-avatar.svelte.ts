@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as avatar from '@zag-js/avatar';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 
 export interface CreateAvatarProps
   extends Omit<avatar.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -18,7 +18,7 @@ export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
   const [state, send] = useMachine(
     avatar.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
     }),

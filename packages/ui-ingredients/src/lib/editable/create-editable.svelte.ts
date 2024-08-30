@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as editable from '@zag-js/editable';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 
 export interface CreateEditableProps
   extends Omit<
@@ -24,7 +24,7 @@ export function createEditable(
   const [state, send] = useMachine(
     editable.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       edit: props.defaultEdit ?? props.edit,
       getRootNode: environment?.getRootNode,

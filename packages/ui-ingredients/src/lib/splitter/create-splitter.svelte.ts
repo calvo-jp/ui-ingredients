@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as splitter from '@zag-js/splitter';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 
 export interface CreateSplitterProps
   extends Omit<splitter.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -20,7 +20,7 @@ export function createSplitter(
   const [state, send] = useMachine(
     splitter.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
     }),

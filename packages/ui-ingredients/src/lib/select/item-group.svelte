@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-  import {createUniqueId} from '$lib/create-unique-id.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {uid} from 'uid';
   import {
     selectContext,
     selectItemGroupPropsContext,
@@ -18,10 +18,10 @@
 
   let select = selectContext.get();
 
-  let uid = createUniqueId();
+  let id_ = uid();
 
   let itemGroupProps = $derived({
-    id: id ?? uid,
+    id: id ?? id_,
   });
 
   let mergedProps = $derived(

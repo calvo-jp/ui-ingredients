@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as menu from '@zag-js/menu';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 
 export interface CreateMenuProps
   extends Omit<menu.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
@@ -19,7 +19,7 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
   const [state, send] = useMachine(
     menu.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,

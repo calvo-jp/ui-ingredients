@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/index.js';
 import {getLocaleContext} from '$lib/locale-provider/index.js';
 import {normalizeProps, reflect} from '@zag-js/svelte';
 import * as toast from '@zag-js/toast';
+import {uid} from 'uid';
 
 export interface CreateToasterProps {
   id?: string | null;
@@ -26,7 +26,7 @@ export function createToaster(props?: CreateToasterProps) {
   const machine = $derived(
     toast.group.machine({
       ...props,
-      id: props?.id ?? createUniqueId(),
+      id: props?.id ?? uid(),
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
     }),

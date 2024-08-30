@@ -1,9 +1,9 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import type {GenericObject} from '$lib/types.js';
 import * as datePicker from '@zag-js/date-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {uid} from 'uid';
 import {parts} from './anatomy.js';
 
 type Omitted =
@@ -39,7 +39,7 @@ export function createDatePicker(
   const [state, send] = useMachine(
     datePicker.machine({
       ...props,
-      id: props.id ?? createUniqueId(),
+      id: props.id ?? uid(),
       dir: locale?.dir,
       min: props.min ? datePicker.parse(props.min) : undefined,
       max: props.max ? datePicker.parse(props.max) : undefined,
