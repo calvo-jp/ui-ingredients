@@ -27,6 +27,6 @@
     "@untitled-theme/icons-svelte": "0.10.7",
     "tailwind-merge": "2.5.2",
     "tailwind-variants": "0.2.1",
-    "ui-ingredients": "0.0.29"
+    "ui-ingredients": "0.0.30"
   }
 }
