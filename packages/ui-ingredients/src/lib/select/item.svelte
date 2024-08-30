@@ -11,8 +11,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import {selectContext, selectItemPropsContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SelectItemProps = $props();

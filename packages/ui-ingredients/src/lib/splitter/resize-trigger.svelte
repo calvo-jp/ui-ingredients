@@ -19,8 +19,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import type {Snippet} from 'svelte';
   import {splitterContext} from './context.svelte.js';
 

@@ -14,8 +14,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import {sliderContext} from './context.svelte.js';
   import {createSlider} from './create-slider.svelte.js';
 

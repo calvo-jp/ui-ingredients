@@ -14,8 +14,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import {collapsibleContext} from './context.svelte.js';
   import {createCollapsible} from './create-collapsible.svelte.js';
 

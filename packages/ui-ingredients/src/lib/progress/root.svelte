@@ -14,8 +14,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import {progressContext} from './context.svelte.js';
   import {createProgress} from './create-progress.svelte.js';
 

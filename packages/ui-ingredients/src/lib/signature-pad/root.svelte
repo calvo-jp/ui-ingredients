@@ -17,8 +17,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import {signaturePadContext} from './context.svelte.js';
   import {createSignaturePad} from './create-signature-pad.svelte.js';
 

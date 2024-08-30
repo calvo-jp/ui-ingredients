@@ -17,8 +17,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import {parts} from './anatomy.js';
   import {segmentGroupContext} from './context.svelte.js';
   import {createSegmentGroup} from './create-segment-group.svelte.js';
