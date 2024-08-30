@@ -5,7 +5,10 @@ import * as select from '@zag-js/select';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateSelectProps<T>
-  extends Omit<select.Context, 'id' | 'dir' | 'getRootNode' | 'collection' | 'open.controlled'> {
+  extends Omit<
+    select.Context,
+    'id' | 'dir' | 'getRootNode' | 'collection' | 'open.controlled'
+  > {
   id?: string | null;
   items: T[];
   itemToString?: (item: T) => string;
@@ -20,9 +23,12 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
   const collection = $derived(
     select.collection({
       items: props.items,
-      itemToValue: (item) => (props.itemToValue ? props.itemToValue(item) : String(item)),
-      itemToString: (item) => (props.itemToString ? props.itemToString(item) : String(item)),
-      isItemDisabled: (item) => (props.isItemDisabled ? props.isItemDisabled(item) : false),
+      itemToValue: (item) =>
+        props.itemToValue ? props.itemToValue(item) : String(item),
+      itemToString: (item) =>
+        props.itemToString ? props.itemToString(item) : String(item),
+      isItemDisabled: (item) =>
+        props.isItemDisabled ? props.isItemDisabled(item) : false,
     }),
   );
 

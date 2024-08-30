@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {LabelProps} from '@zag-js/date-picker';
 
-  export interface DatePickerLabelProps extends Assign<HTMLProps<'label'>, LabelProps> {
+  export interface DatePickerLabelProps
+    extends Assign<HTMLProps<'label'>, LabelProps> {
     asChild?: AsChild;
   }
 </script>
@@ -15,7 +16,9 @@
 
   let datePicker = datePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getLabelProps({index})));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getLabelProps({index})),
+  );
 </script>
 
 {#if asChild}

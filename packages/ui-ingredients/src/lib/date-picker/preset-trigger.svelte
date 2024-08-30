@@ -12,11 +12,14 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {datePickerContext} from './context.svelte.js';
 
-  let {value, asChild, children, ...props}: DatePickerPresetTriggerProps = $props();
+  let {value, asChild, children, ...props}: DatePickerPresetTriggerProps =
+    $props();
 
   let datePicker = datePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getPresetTriggerProps({value})));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getPresetTriggerProps({value})),
+  );
 </script>
 
 {#if asChild}

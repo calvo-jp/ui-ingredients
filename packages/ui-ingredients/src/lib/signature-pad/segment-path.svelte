@@ -12,11 +12,14 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {signaturePadContext} from './context.svelte.js';
 
-  let {path, asChild, children, ...props}: SignaturePadSegmentPathProps = $props();
+  let {path, asChild, children, ...props}: SignaturePadSegmentPathProps =
+    $props();
 
   let signaturePad = signaturePadContext.get();
 
-  let mergedProps = $derived(mergeProps(props, signaturePad.getSegmentPathProps({path})));
+  let mergedProps = $derived(
+    mergeProps(props, signaturePad.getSegmentPathProps({path})),
+  );
 </script>
 
 {#if asChild}

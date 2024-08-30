@@ -13,7 +13,9 @@
   let slider = sliderContext.get();
   let thumbProps = sliderThumbPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, slider.getHiddenInputProps(thumbProps)));
+  let mergedProps = $derived(
+    mergeProps(props, slider.getHiddenInputProps(thumbProps)),
+  );
 </script>
 
 <input {...mergedProps} />

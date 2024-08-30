@@ -25,7 +25,10 @@
 
   <div class="grid grid-cols-6 gap-2">
     {#each Array.from({length: 6}) as _, i}
-      <PinInput.Input index={i} class="aspect-square h-auto w-full text-center text-xl font-bold">
+      <PinInput.Input
+        index={i}
+        class="aspect-square h-auto w-full text-center text-xl font-bold"
+      >
         {#snippet asChild(mergedProps)}
           <Input {...mergedProps} />
         {/snippet}

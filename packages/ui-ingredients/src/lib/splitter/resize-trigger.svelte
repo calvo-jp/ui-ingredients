@@ -24,7 +24,14 @@
   import type {Snippet} from 'svelte';
   import {splitterContext} from './context.svelte.js';
 
-  let {id, step, disabled, asChild, children, ...props}: SplitterResizeTriggerProps = $props();
+  let {
+    id,
+    step,
+    disabled,
+    asChild,
+    children,
+    ...props
+  }: SplitterResizeTriggerProps = $props();
 
   let splitter = splitterContext.get();
   let resizeTriggerProps: ResizeTriggerProps = $derived({
@@ -33,7 +40,9 @@
     disabled,
   });
 
-  let mergedProps = $derived(mergeProps(props, splitter.getResizeTriggerProps(resizeTriggerProps)));
+  let mergedProps = $derived(
+    mergeProps(props, splitter.getResizeTriggerProps(resizeTriggerProps)),
+  );
   let itemState = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
 </script>
 

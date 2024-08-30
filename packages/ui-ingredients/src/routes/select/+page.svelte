@@ -40,7 +40,9 @@
         <Button {...mergedProps}>
           <Select.ValueText placeholder="Please Select" class="grow" />
           <Select.Indicator class="group">
-            <ChevronDownIcon class="group-data-open:rotate-180 transition-transform duration-200" />
+            <ChevronDownIcon
+              class="group-data-open:rotate-180 transition-transform duration-200"
+            />
           </Select.Indicator>
         </Button>
       {/snippet}

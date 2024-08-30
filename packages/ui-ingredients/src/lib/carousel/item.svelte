@@ -3,7 +3,8 @@
   import type {ItemProps, ItemState} from '@zag-js/carousel';
   import type {Snippet} from 'svelte';
 
-  export interface CarouselItemProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
+  export interface CarouselItemProps
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild<ItemState>;
     children?: Snippet<[ItemState]>;
   }
@@ -17,10 +18,14 @@
 
   let carousel = carouselContext.get();
 
-  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['index'])(props));
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['index'])(props),
+  );
 
   let itemState = $derived(carousel.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(otherProps, carousel.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, carousel.getItemProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

@@ -3,8 +3,10 @@ import type {SvelteHTMLElements} from 'svelte/elements';
 
 export type GenericObject = Record<string, any>;
 
-export type Assign<Target extends GenericObject, Source extends GenericObject> = Source &
-  Omit<Target, keyof Source>;
+export type Assign<
+  Target extends GenericObject,
+  Source extends GenericObject,
+> = Source & Omit<Target, keyof Source>;
 
 type IntrinsicElements = keyof {
   [K in keyof SvelteHTMLElements as string extends K

@@ -12,7 +12,9 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getFormatTriggerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, colorPicker.getFormatTriggerProps()),
+  );
 </script>
 
 <button type="button" {...mergedProps}>

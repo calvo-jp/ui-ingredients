@@ -22,7 +22,9 @@
       {#snippet asChild(mergedProps)}
         <Button {...mergedProps}>
           <span>Basic</span>
-          <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
+          <Menu.Indicator
+            class="data-open:rotate-180 transition-transform duration-200"
+          >
             <ChevronDownIcon />
           </Menu.Indicator>
         </Button>
@@ -51,7 +53,9 @@
       {#snippet asChild(mergedProps)}
         <Button {...mergedProps}>
           <span>Checkbox</span>
-          <Menu.Indicator class="data-open:rotate-180 transition-transform duration-200">
+          <Menu.Indicator
+            class="data-open:rotate-180 transition-transform duration-200"
+          >
             <ChevronDownIcon />
           </Menu.Indicator>
         </Button>

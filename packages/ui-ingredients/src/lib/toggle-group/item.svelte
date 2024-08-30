@@ -18,11 +18,15 @@
 
   let toggleGroup = toggleGroupContext.get();
 
-  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['value', 'disabled'])(props));
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['value', 'disabled'])(props),
+  );
 
   let itemState = $derived(toggleGroup.getItemState(itemProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, toggleGroup.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, toggleGroup.getItemProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

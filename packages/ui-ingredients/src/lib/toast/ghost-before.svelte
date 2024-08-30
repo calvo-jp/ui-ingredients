@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HTMLProps} from '$lib/types.js';
 
-  export interface ToastGhostBeforeProps extends Omit<HTMLProps<'span'>, 'children'> {}
+  export interface ToastGhostBeforeProps
+    extends Omit<HTMLProps<'span'>, 'children'> {}
 </script>
 
 <script lang="ts">

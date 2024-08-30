@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {PanelProps} from '@zag-js/splitter';
 
-  export interface SplitterPanelProps extends Assign<HTMLProps<'div'>, PanelProps> {
+  export interface SplitterPanelProps
+    extends Assign<HTMLProps<'div'>, PanelProps> {
     asChild?: AsChild;
   }
 </script>
@@ -11,7 +12,8 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {splitterContext} from './context.svelte.js';
 
-  let {id, snapSize, asChild, children, ...props}: SplitterPanelProps = $props();
+  let {id, snapSize, asChild, children, ...props}: SplitterPanelProps =
+    $props();
 
   let splitter = splitterContext.get();
 

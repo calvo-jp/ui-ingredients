@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface SignaturePadCurrentSegmentPathProps extends HTMLProps<'path'> {
+  export interface SignaturePadCurrentSegmentPathProps
+    extends HTMLProps<'path'> {
     asChild?: AsChild;
   }
 </script>
@@ -10,7 +11,8 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {signaturePadContext} from './context.svelte.js';
 
-  let {path, asChild, children, ...props}: SignaturePadCurrentSegmentPathProps = $props();
+  let {path, asChild, children, ...props}: SignaturePadCurrentSegmentPathProps =
+    $props();
 
   let signaturePad = signaturePadContext.get();
 

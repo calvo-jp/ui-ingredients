@@ -11,13 +11,20 @@
       {/snippet}
     </SignaturePad.Label>
 
-    <SignaturePad.Control class="bg-light h-[16rem] w-full rounded lg:max-w-[32rem]">
+    <SignaturePad.Control
+      class="bg-light h-[16rem] w-full rounded lg:max-w-[32rem]"
+    >
       <SignaturePad.Segment>
         {#each context.paths as path}
-          <SignaturePad.SegmentPath {path} class="fill-neutral-200 stroke-neutral-200" />
+          <SignaturePad.SegmentPath
+            {path}
+            class="fill-neutral-200 stroke-neutral-200"
+          />
         {/each}
 
-        <SignaturePad.CurrentSegmentPath class="fill-neutral-200 stroke-neutral-200" />
+        <SignaturePad.CurrentSegmentPath
+          class="fill-neutral-200 stroke-neutral-200"
+        />
       </SignaturePad.Segment>
       <SignaturePad.Guide />
     </SignaturePad.Control>

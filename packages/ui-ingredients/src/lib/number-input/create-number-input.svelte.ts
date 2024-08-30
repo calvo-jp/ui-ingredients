@@ -11,7 +11,9 @@ export interface CreateNumberInputProps
 
 export interface CreateNumberInputReturn extends numberInput.Api {}
 
-export function createNumberInput(props: CreateNumberInputProps): CreateNumberInputReturn {
+export function createNumberInput(
+  props: CreateNumberInputProps,
+): CreateNumberInputReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -25,7 +27,9 @@ export function createNumberInput(props: CreateNumberInputProps): CreateNumberIn
     }),
   );
 
-  const api = $derived(reflect(() => numberInput.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => numberInput.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

@@ -19,7 +19,9 @@
   let ratingGroup = ratingGroupContext.get();
 
   let itemState = $derived(ratingGroup.getItemState({index}));
-  let mergedProps = $derived(mergeProps(props, ratingGroup.getItemProps({index})));
+  let mergedProps = $derived(
+    mergeProps(props, ratingGroup.getItemProps({index})),
+  );
 </script>
 
 {#if asChild}

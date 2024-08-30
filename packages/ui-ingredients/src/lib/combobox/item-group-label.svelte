@@ -8,7 +8,10 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {comboboxContext, comboboxItemGroupPropsContext} from './context.svelte.js';
+  import {
+    comboboxContext,
+    comboboxItemGroupPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: ComboboxItemGroupLabelProps = $props();
 

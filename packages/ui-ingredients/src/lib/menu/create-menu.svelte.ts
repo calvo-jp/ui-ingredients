@@ -27,7 +27,9 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
     }),
   );
 
-  const api = $derived(reflect(() => menu.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => menu.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

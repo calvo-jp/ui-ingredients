@@ -3,7 +3,8 @@
   import type {ItemProps, ItemState} from '@zag-js/tree-view';
   import type {Snippet} from 'svelte';
 
-  export interface TreeViewItemProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
+  export interface TreeViewItemProps
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild<ItemState>;
     children?: Snippet<[ItemState]>;
   }
@@ -23,7 +24,9 @@
 
   let itemState = $derived(treeView.getItemState(itemProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, treeView.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, treeView.getItemProps(itemProps)),
+  );
 
   treeViewItemPropsContext.set(() => itemProps);
 </script>

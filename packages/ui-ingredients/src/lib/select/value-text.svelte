@@ -10,7 +10,8 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {selectContext} from './context.svelte.js';
 
-  let {asChild, children, placeholder, ...props}: SelectValueTextProps = $props();
+  let {asChild, children, placeholder, ...props}: SelectValueTextProps =
+    $props();
 
   let select = selectContext.get();
 

@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HTMLProps} from '$lib/types.js';
 
-  export interface ColorPickerEyeDropperTriggerProps extends HTMLProps<'button'> {}
+  export interface ColorPickerEyeDropperTriggerProps
+    extends HTMLProps<'button'> {}
 </script>
 
 <script lang="ts">
@@ -12,7 +13,9 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getEyeDropperTriggerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, colorPicker.getEyeDropperTriggerProps()),
+  );
 </script>
 
 <button type="button" {...mergedProps}>

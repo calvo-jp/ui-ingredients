@@ -21,7 +21,9 @@
       >
         <Dialog.Title class="text-xl font-semibold">Title</Dialog.Title>
         <Dialog.Description>Description</Dialog.Description>
-        <Dialog.CloseTrigger class="border-lighter mt-3 h-12 w-full rounded border">
+        <Dialog.CloseTrigger
+          class="border-lighter mt-3 h-12 w-full rounded border"
+        >
           Close
         </Dialog.CloseTrigger>
       </Dialog.Content>

@@ -15,7 +15,9 @@
   let combobox = comboboxContext.get();
   let itemProps = comboboxItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, combobox.getItemIndicatorProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(props, combobox.getItemIndicatorProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

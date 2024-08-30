@@ -3,7 +3,9 @@
 </script>
 
 <ColorPicker.Root>
-  <ColorPicker.Label class="mb-1 inline-block text-neutral-400">Color</ColorPicker.Label>
+  <ColorPicker.Label class="mb-1 inline-block text-neutral-400"
+    >Color</ColorPicker.Label
+  >
   <ColorPicker.Control class="flex gap-2">
     <ColorPicker.ChannelInput channel="hex" class="h-11 border px-3" />
     <ColorPicker.ChannelInput channel="alpha" class="h-11 border px-3" />
@@ -16,13 +18,17 @@
     <ColorPicker.Content class="border bg-neutral-800 p-5">
       <ColorPicker.Area class="relative aspect-square w-full">
         <ColorPicker.AreaBackground class="absolute inset-0 size-full" />
-        <ColorPicker.AreaThumb class="size-4 rounded-full border-2 border-white" />
+        <ColorPicker.AreaThumb
+          class="size-4 rounded-full border-2 border-white"
+        />
       </ColorPicker.Area>
 
       <div class="mt-5">
         <ColorPicker.ChannelSlider channel="hue" class="relative">
           <ColorPicker.ChannelSliderTrack />
-          <ColorPicker.ChannelSliderThumb class="size-10 rounded-full bg-white" />
+          <ColorPicker.ChannelSliderThumb
+            class="size-10 rounded-full bg-white"
+          />
         </ColorPicker.ChannelSlider>
         <ColorPicker.ChannelSlider channel="alpha">
           <ColorPicker.TransparencyGrid />
@@ -78,8 +84,14 @@
 
       <div class="mt-3 flex gap-2">
         <ColorPicker.ChannelInput channel="hue" class="h-11 border px-3" />
-        <ColorPicker.ChannelInput channel="saturation" class="h-11 border px-3" />
-        <ColorPicker.ChannelInput channel="lightness" class="h-11 border px-3" />
+        <ColorPicker.ChannelInput
+          channel="saturation"
+          class="h-11 border px-3"
+        />
+        <ColorPicker.ChannelInput
+          channel="lightness"
+          class="h-11 border px-3"
+        />
       </div>
     </ColorPicker.Content>
   </ColorPicker.Positioner>

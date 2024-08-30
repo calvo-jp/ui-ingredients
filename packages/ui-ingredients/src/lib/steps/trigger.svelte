@@ -15,7 +15,9 @@
   let steps = stepsContext.get();
   let itemProps = stepsItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, steps.getTriggerProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(props, steps.getTriggerProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

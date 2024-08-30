@@ -40,7 +40,9 @@
       <Accordion.ItemTrigger class="flex w-full text-left">
         <span class="grow font-semibold">{label}</span>
 
-        <Accordion.ItemIndicator class="data-open:rotate-180 transition-all duration-200">
+        <Accordion.ItemIndicator
+          class="data-open:rotate-180 transition-all duration-200"
+        >
           <svg
             width="24"
             height="24"

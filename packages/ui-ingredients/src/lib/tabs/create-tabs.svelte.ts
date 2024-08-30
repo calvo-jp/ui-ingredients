@@ -4,7 +4,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tabs from '@zag-js/tabs';
 
-export interface CreateTabsProps extends Omit<tabs.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateTabsProps
+  extends Omit<tabs.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -23,7 +24,9 @@ export function createTabs(props: CreateTabsProps) {
     }),
   );
 
-  const api = $derived(reflect(() => tabs.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => tabs.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

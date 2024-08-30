@@ -3,7 +3,8 @@
   import type {ItemProps, ItemState} from '@zag-js/steps';
   import type {Snippet} from 'svelte';
 
-  export interface StepsItemProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
+  export interface StepsItemProps
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild<ItemState>;
     children?: Snippet<[ItemState]>;
   }
@@ -17,11 +18,15 @@
 
   let steps = stepsContext.get();
 
-  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['index'])(props));
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['index'])(props),
+  );
 
   let itemState = $derived(steps.getItemState(itemProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, steps.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, steps.getItemProps(itemProps)),
+  );
 
   stepsItemPropsContext.set(() => itemProps);
 </script>

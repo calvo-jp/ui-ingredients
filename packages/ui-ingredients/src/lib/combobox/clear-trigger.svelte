@@ -14,7 +14,9 @@
 
   let combobox = comboboxContext.get();
 
-  let mergedProps = $derived(mergeProps(props, combobox.getClearTriggerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, combobox.getClearTriggerProps()),
+  );
 </script>
 
 {#if asChild}

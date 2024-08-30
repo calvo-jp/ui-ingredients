@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {CellProps} from '@zag-js/time-picker';
 
-  export interface TimePickerMinuteCellProps extends Assign<HTMLProps<'div'>, CellProps> {
+  export interface TimePickerMinuteCellProps
+    extends Assign<HTMLProps<'div'>, CellProps> {
     asChild?: AsChild;
   }
 </script>
@@ -11,11 +12,14 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {timePickerContext} from './context.svelte.js';
 
-  let {value, asChild, children, ...props}: TimePickerMinuteCellProps = $props();
+  let {value, asChild, children, ...props}: TimePickerMinuteCellProps =
+    $props();
 
   let timePicker = timePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, timePicker.getMinuteCellProps({value})));
+  let mergedProps = $derived(
+    mergeProps(props, timePicker.getMinuteCellProps({value})),
+  );
 </script>
 
 {#if asChild}

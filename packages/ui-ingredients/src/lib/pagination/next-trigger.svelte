@@ -14,7 +14,9 @@
 
   let pagination = paginationContext.get();
 
-  let mergedProps = $derived(mergeProps(props, pagination.getNextTriggerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, pagination.getNextTriggerProps()),
+  );
 </script>
 
 {#if asChild}

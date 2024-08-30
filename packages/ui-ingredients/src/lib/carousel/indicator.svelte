@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {IndicatorProps} from '@zag-js/carousel';
 
-  export interface CarouselIndicatorProps extends Assign<HTMLProps<'button'>, IndicatorProps> {
+  export interface CarouselIndicatorProps
+    extends Assign<HTMLProps<'button'>, IndicatorProps> {
     asChild?: AsChild;
   }
 </script>
@@ -19,7 +20,9 @@
     createSplitProps<IndicatorProps>(['index', 'readOnly'])(props),
   );
 
-  let mergedProps = $derived(mergeProps(otherProps, carousel.getIndicatorProps(indicatorProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, carousel.getIndicatorProps(indicatorProps)),
+  );
 </script>
 
 {#if asChild}

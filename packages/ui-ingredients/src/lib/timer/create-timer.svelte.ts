@@ -3,7 +3,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timer from '@zag-js/timer';
 
-export interface CreateTimerProps extends Omit<timer.Context, 'id' | 'getRootNode'> {
+export interface CreateTimerProps
+  extends Omit<timer.Context, 'id' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -20,7 +21,9 @@ export function createTimer(props: CreateTimerProps): CreateTimerReturn {
     }),
   );
 
-  const api = $derived(reflect(() => timer.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => timer.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

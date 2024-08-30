@@ -12,7 +12,9 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getFormatSelectProps()));
+  let mergedProps = $derived(
+    mergeProps(props, colorPicker.getFormatSelectProps()),
+  );
 
   let formats = ['rgba', 'hsla', 'hsba'];
 </script>

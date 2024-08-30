@@ -5,14 +5,19 @@ import * as editable from '@zag-js/editable';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateEditableProps
-  extends Omit<editable.Context, 'id' | 'dir' | 'getRootNode' | 'edit.controlled'> {
+  extends Omit<
+    editable.Context,
+    'id' | 'dir' | 'getRootNode' | 'edit.controlled'
+  > {
   id?: string | null;
   defaultEdit?: boolean;
 }
 
 export interface CreateEditableReturn extends editable.Api {}
 
-export function createEditable(props: CreateEditableProps): CreateEditableReturn {
+export function createEditable(
+  props: CreateEditableProps,
+): CreateEditableReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -27,7 +32,9 @@ export function createEditable(props: CreateEditableProps): CreateEditableReturn
     }),
   );
 
-  const api = $derived(reflect(() => editable.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => editable.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

@@ -11,7 +11,9 @@ export interface CreateSegmentGroupProps
 
 export interface CreateSegmentGroupReturn extends segmentGroup.Api {}
 
-export function createSegmentGroup(props: CreateSegmentGroupProps): CreateSegmentGroupReturn {
+export function createSegmentGroup(
+  props: CreateSegmentGroupProps,
+): CreateSegmentGroupReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -24,7 +26,9 @@ export function createSegmentGroup(props: CreateSegmentGroupProps): CreateSegmen
     }),
   );
 
-  const api = $derived(reflect(() => segmentGroup.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => segmentGroup.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

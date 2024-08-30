@@ -14,7 +14,9 @@
 
   let datePicker = datePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getMonthSelectProps()));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getMonthSelectProps()),
+  );
 
   const months = [
     'January',

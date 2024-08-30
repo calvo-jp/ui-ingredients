@@ -9,7 +9,10 @@
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
   import {parts} from './anatomy.js';
-  import {segmentGroupContext, segmentGroupItemPropsContext} from './context.svelte.js';
+  import {
+    segmentGroupContext,
+    segmentGroupItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: SegmentGroupItemTextProps = $props();
 
@@ -17,7 +20,11 @@
   let itemProps = segmentGroupItemPropsContext.get();
 
   let mergedProps = $derived(
-    mergeProps(props, segmentGroup.getItemTextProps(itemProps), parts.itemText.attrs),
+    mergeProps(
+      props,
+      segmentGroup.getItemTextProps(itemProps),
+      parts.itemText.attrs,
+    ),
   );
 </script>
 

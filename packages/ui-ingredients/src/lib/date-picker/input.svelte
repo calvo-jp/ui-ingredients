@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {InputProps} from '@zag-js/date-picker';
 
-  export interface DatePickerInputProps extends Assign<HTMLProps<'input'>, InputProps> {
+  export interface DatePickerInputProps
+    extends Assign<HTMLProps<'input'>, InputProps> {
     asChild?: AsChild;
   }
 </script>
@@ -15,7 +16,9 @@
 
   let datePicker = datePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getInputProps({index})));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getInputProps({index})),
+  );
 </script>
 
 {#if asChild}

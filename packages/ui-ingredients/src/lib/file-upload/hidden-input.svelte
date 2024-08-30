@@ -12,7 +12,9 @@
 
   let fileUpload = fileUploadContext.get();
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getHiddenInputProps()));
+  let mergedProps = $derived(
+    mergeProps(props, fileUpload.getHiddenInputProps()),
+  );
 </script>
 
 <input {...mergedProps} />

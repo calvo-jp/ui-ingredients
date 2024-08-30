@@ -2,14 +2,19 @@
   import type {Assign, HTMLProps} from '$lib/types.js';
   import type {SwatchProps} from '@zag-js/color-picker';
 
-  export interface ColorPickerSwatchProps extends Assign<HTMLProps<'div'>, SwatchProps> {}
+  export interface ColorPickerSwatchProps
+    extends Assign<HTMLProps<'div'>, SwatchProps> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {colorPickerContext, colorPickerSwatchPropsContext} from './context.svelte.js';
+  import {
+    colorPickerContext,
+    colorPickerSwatchPropsContext,
+  } from './context.svelte.js';
 
-  let {value, respectAlpha, children, ...props}: ColorPickerSwatchProps = $props();
+  let {value, respectAlpha, children, ...props}: ColorPickerSwatchProps =
+    $props();
 
   let colorPicker = colorPickerContext.get();
   let swatchProps: SwatchProps = $derived({
@@ -17,7 +22,9 @@
     respectAlpha,
   });
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getSwatchProps(swatchProps)));
+  let mergedProps = $derived(
+    mergeProps(props, colorPicker.getSwatchProps(swatchProps)),
+  );
 
   colorPickerSwatchPropsContext.set(() => swatchProps);
 </script>

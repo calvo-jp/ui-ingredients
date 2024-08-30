@@ -1,7 +1,10 @@
 <script lang="ts" module>
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateAccordionProps, CreateAccordionReturn} from './create-accordion.svelte.js';
+  import type {
+    CreateAccordionProps,
+    CreateAccordionReturn,
+  } from './create-accordion.svelte.js';
 
   export interface AccordionProps
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateAccordionProps> {
@@ -32,7 +35,7 @@
   );
 
   let accordion = createAccordion(accordionProps);
-  let mergedProps = mergeProps(otherProps, accordion.getRootProps());
+  let mergedProps = $derived(mergeProps(otherProps, accordion.getRootProps()));
 
   accordionContext.set(accordion);
 </script>

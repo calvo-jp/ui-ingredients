@@ -34,7 +34,9 @@
 
   let collapsible = createCollapsible(collapsibleProps);
 
-  let mergedProps = $derived(mergeProps(otherProps, collapsible.getRootProps()));
+  let mergedProps = $derived(
+    mergeProps(otherProps, collapsible.getRootProps()),
+  );
 
   collapsibleContext.set(collapsible);
 </script>

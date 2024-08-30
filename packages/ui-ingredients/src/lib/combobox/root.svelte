@@ -1,7 +1,10 @@
 <script lang="ts" module>
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateComboboxProps, CreateComboboxReturn} from './create-combobox.svelte.js';
+  import type {
+    CreateComboboxProps,
+    CreateComboboxReturn,
+  } from './create-combobox.svelte.js';
 
   export interface ComboboxProps<T>
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateComboboxProps<T>> {

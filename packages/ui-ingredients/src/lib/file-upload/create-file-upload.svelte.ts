@@ -11,7 +11,9 @@ export interface CreateFileUploadProps
 
 export interface CreateFileUploadReturn extends fileUpload.Api<any> {}
 
-export function createFileUpload(props: CreateFileUploadProps): CreateFileUploadReturn {
+export function createFileUpload(
+  props: CreateFileUploadProps,
+): CreateFileUploadReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -25,7 +27,9 @@ export function createFileUpload(props: CreateFileUploadProps): CreateFileUpload
     }),
   );
 
-  const api = $derived(reflect(() => fileUpload.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => fileUpload.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

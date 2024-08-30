@@ -11,7 +11,9 @@ export interface CreateToggleGroupProps
 
 export interface CreateToggleGroupReturn extends toggleGroup.Api {}
 
-export function createToggleGroup(props: CreateToggleGroupProps): CreateToggleGroupReturn {
+export function createToggleGroup(
+  props: CreateToggleGroupProps,
+): CreateToggleGroupReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -24,7 +26,9 @@ export function createToggleGroup(props: CreateToggleGroupProps): CreateToggleGr
     }),
   );
 
-  const api = $derived(reflect(() => toggleGroup.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => toggleGroup.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

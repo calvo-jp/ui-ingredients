@@ -8,7 +8,10 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {fileUploadContext, fileUploadItemPropsContext} from './context.svelte.js';
+  import {
+    fileUploadContext,
+    fileUploadItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, ...props}: FileUploadItemPreviewImageProps = $props();
 

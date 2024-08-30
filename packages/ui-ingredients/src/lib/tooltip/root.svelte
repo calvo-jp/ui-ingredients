@@ -1,6 +1,9 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {CreateTooltipProps, CreateTooltipReturn} from './create-tooltip.svelte.js';
+  import type {
+    CreateTooltipProps,
+    CreateTooltipReturn,
+  } from './create-tooltip.svelte.js';
 
   export interface TooltipProps extends CreateTooltipProps {
     children?: Snippet<[tooltip: CreateTooltipReturn]>;

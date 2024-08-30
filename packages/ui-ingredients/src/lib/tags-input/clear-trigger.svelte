@@ -14,7 +14,9 @@
 
   let tagsInput = tagsInputContext.get();
 
-  let mergedProps = $derived(mergeProps(props, tagsInput.getClearTriggerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, tagsInput.getClearTriggerProps()),
+  );
 </script>
 
 {#if asChild}

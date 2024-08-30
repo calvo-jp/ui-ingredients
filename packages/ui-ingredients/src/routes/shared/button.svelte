@@ -2,7 +2,11 @@
   import type {SvelteHTMLElements} from 'svelte/elements';
   import {cx} from './utils.js';
 
-  let {class: className, children, ...props}: SvelteHTMLElements['button'] = $props();
+  let {
+    class: className,
+    children,
+    ...props
+  }: SvelteHTMLElements['button'] = $props();
 </script>
 
 <button

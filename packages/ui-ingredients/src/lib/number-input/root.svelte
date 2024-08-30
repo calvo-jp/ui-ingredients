@@ -52,7 +52,9 @@
 
   let numberInput = createNumberInput(numberInputProps);
 
-  let mergedProps = $derived(mergeProps(otherProps, numberInput.getRootProps()));
+  let mergedProps = $derived(
+    mergeProps(otherProps, numberInput.getRootProps()),
+  );
 
   numberInputContext.set(numberInput);
 </script>

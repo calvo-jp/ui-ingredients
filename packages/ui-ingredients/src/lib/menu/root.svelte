@@ -1,6 +1,9 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import {type CreateMenuProps, type CreateMenuReturn} from './create-menu.svelte.js';
+  import {
+    type CreateMenuProps,
+    type CreateMenuReturn,
+  } from './create-menu.svelte.js';
 
   export interface MenuRootProps extends CreateMenuProps {
     children?: Snippet<[menu: CreateMenuReturn]>;

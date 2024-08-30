@@ -16,6 +16,9 @@
   </button>
 </div>
 
-<Presence {present} class="data-open:animate-fade-in data-closed:animate-fade-out">
+<Presence
+  {present}
+  class="data-open:animate-fade-in data-closed:animate-fade-out"
+>
   Hello World
 </Presence>

@@ -1,6 +1,9 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {CreateHoverCardProps, CreateHoverCardReturn} from './create-hover-card.svelte.js';
+  import type {
+    CreateHoverCardProps,
+    CreateHoverCardReturn,
+  } from './create-hover-card.svelte.js';
 
   export interface HoverCardProps extends CreateHoverCardProps {
     children?: Snippet<[hoverCard: CreateHoverCardReturn]>;

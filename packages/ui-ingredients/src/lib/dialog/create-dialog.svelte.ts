@@ -5,7 +5,10 @@ import * as dialog from '@zag-js/dialog';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateDialogProps
-  extends Omit<dialog.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<
+    dialog.Context,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string | null;
   defaultOpen?: boolean;
 }
@@ -27,7 +30,9 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
     }),
   );
 
-  const api = $derived(reflect(() => dialog.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => dialog.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

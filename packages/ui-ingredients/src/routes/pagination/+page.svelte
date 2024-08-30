@@ -1,6 +1,9 @@
 <script lang="ts">
   import {Pagination} from '$lib/index.js';
-  import {ChevronLeftIcon, ChevronRightIcon} from '@untitled-theme/icons-svelte';
+  import {
+    ChevronLeftIcon,
+    ChevronRightIcon,
+  } from '@untitled-theme/icons-svelte';
   import {Button, IconButton} from '../shared/index.js';
 
   let page = $state(1);
@@ -39,7 +42,10 @@
           {/snippet}
         </Pagination.Item>
       {:else}
-        <Pagination.Ellipsis {index} class="flex size-12 items-center justify-center">
+        <Pagination.Ellipsis
+          {index}
+          class="flex size-12 items-center justify-center"
+        >
           ...
         </Pagination.Ellipsis>
       {/if}

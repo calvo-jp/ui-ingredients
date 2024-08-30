@@ -11,7 +11,9 @@ export interface CreateAccordionProps
 
 export interface CreateAccordionReturn extends accordion.Api {}
 
-export function createAccordion(props: CreateAccordionProps): CreateAccordionReturn {
+export function createAccordion(
+  props: CreateAccordionProps,
+): CreateAccordionReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -24,7 +26,9 @@ export function createAccordion(props: CreateAccordionProps): CreateAccordionRet
     }),
   );
 
-  const api = $derived(reflect(() => accordion.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => accordion.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

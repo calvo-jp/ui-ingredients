@@ -2,22 +2,30 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/file-upload';
 
-  export interface FileUploadItemProps extends Assign<HTMLProps<'div'>, ItemProps> {
+  export interface FileUploadItemProps
+    extends Assign<HTMLProps<'div'>, ItemProps> {
     asChild?: AsChild;
   }
 </script>
 
 <script lang="ts">
   import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
-  import {fileUploadContext, fileUploadItemPropsContext} from './context.svelte.js';
+  import {
+    fileUploadContext,
+    fileUploadItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: FileUploadItemProps = $props();
 
   let fileUpload = fileUploadContext.get();
 
-  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['file'])(props));
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['file'])(props),
+  );
 
-  let mergedProps = $derived(mergeProps(otherProps, fileUpload.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, fileUpload.getItemProps(itemProps)),
+  );
 
   fileUploadItemPropsContext.set(() => itemProps);
 </script>

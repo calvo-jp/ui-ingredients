@@ -12,7 +12,9 @@
 
   let colorPicker = colorPickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getHiddenInputProps()));
+  let mergedProps = $derived(
+    mergeProps(props, colorPicker.getHiddenInputProps()),
+  );
 </script>
 
 <input {...mergedProps} />

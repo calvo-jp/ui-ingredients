@@ -58,8 +58,12 @@
           {/each}
         </TimePicker.Column>
         <TimePicker.Column unit="period" class="snap-y snap-mandatory">
-          <TimePicker.PeriodCell value="am" class="snap-center">AM</TimePicker.PeriodCell>
-          <TimePicker.PeriodCell value="pm" class="snap-center">PM</TimePicker.PeriodCell>
+          <TimePicker.PeriodCell value="am" class="snap-center"
+            >AM</TimePicker.PeriodCell
+          >
+          <TimePicker.PeriodCell value="pm" class="snap-center"
+            >PM</TimePicker.PeriodCell
+          >
         </TimePicker.Column>
       </TimePicker.Content>
     </TimePicker.Positioner>

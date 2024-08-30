@@ -1,6 +1,10 @@
 <script lang="ts">
   import {DatePicker} from '$lib/index.js';
-  import {CalendarIcon, ChevronLeftIcon, ChevronRightIcon} from '@untitled-theme/icons-svelte';
+  import {
+    CalendarIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+  } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
   let value: string[] = $state([]);
@@ -53,7 +57,9 @@
             </DatePicker.PrevTrigger>
 
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold" />
+              <DatePicker.RangeText
+                class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold"
+              />
             </DatePicker.ViewTrigger>
 
             <DatePicker.NextTrigger
@@ -69,7 +75,9 @@
                 <DatePicker.TableRow>
                   {#each api.weekDays as weekDay}
                     <DatePicker.TableHeader>
-                      <div class="flex aspect-square w-full items-center justify-center text-sm">
+                      <div
+                        class="flex aspect-square w-full items-center justify-center text-sm"
+                      >
                         {weekDay.narrow}
                       </div>
                     </DatePicker.TableHeader>
@@ -108,7 +116,9 @@
             </DatePicker.PrevTrigger>
 
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold" />
+              <DatePicker.RangeText
+                class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold"
+              />
             </DatePicker.ViewTrigger>
 
             <DatePicker.NextTrigger
@@ -121,7 +131,7 @@
           <div class="p-4">
             <DatePicker.Table class="w-full">
               <DatePicker.TableBody>
-                {#each api.getMonthsGrid({columns: 4, format: 'short'}) as months}
+                {#each api.getMonthsGrid( {columns: 4, format: 'short'}, ) as months}
                   <DatePicker.TableRow>
                     {#each months as month}
                       <DatePicker.MonthTableCell value={month.value}>
@@ -151,7 +161,9 @@
             </DatePicker.PrevTrigger>
 
             <DatePicker.ViewTrigger>
-              <DatePicker.RangeText class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold" />
+              <DatePicker.RangeText
+                class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold"
+              />
             </DatePicker.ViewTrigger>
 
             <DatePicker.NextTrigger

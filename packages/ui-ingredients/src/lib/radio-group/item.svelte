@@ -12,7 +12,10 @@
 
 <script lang="ts">
   import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
-  import {radioGroupContext, radioGroupItemPropsContext} from './context.svelte.js';
+  import {
+    radioGroupContext,
+    radioGroupItemPropsContext,
+  } from './context.svelte.js';
 
   let {children, asChild, ...props}: RadioGroupItemProps = $props();
 
@@ -23,7 +26,9 @@
   );
 
   let itemState = $derived(radioGroup.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(otherProps, radioGroup.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, radioGroup.getItemProps(itemProps)),
+  );
 
   radioGroupItemPropsContext.set(() => itemProps);
 </script>

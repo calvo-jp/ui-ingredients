@@ -7,7 +7,10 @@
   } from './create-segment-group.svelte.js';
 
   export interface SegmentGroupProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateSegmentGroupProps> {
+    extends Assign<
+      Omit<HTMLProps<'div'>, 'children'>,
+      CreateSegmentGroupProps
+    > {
     asChild?: AsChild<CreateSegmentGroupReturn>;
     children?: Snippet<[CreateSegmentGroupReturn]>;
   }
@@ -37,7 +40,9 @@
 
   let segmentGroup = createSegmentGroup(segmentGroupProps);
 
-  let mergedProps = $derived(mergeProps(otherProps, segmentGroup.getRootProps(), parts.root.attrs));
+  let mergedProps = $derived(
+    mergeProps(otherProps, segmentGroup.getRootProps(), parts.root.attrs),
+  );
 
   segmentGroupContext.set(segmentGroup);
 </script>

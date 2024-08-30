@@ -12,7 +12,10 @@
 
 <script lang="ts">
   import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
-  import {tagsInputContext, tagsInputItemPropsContext} from './context.svelte.js';
+  import {
+    tagsInputContext,
+    tagsInputItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: TagsInputItemProps = $props();
 
@@ -24,7 +27,9 @@
 
   let itemState = $derived(tagsInput.getItemState(itemProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, tagsInput.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, tagsInput.getItemProps(itemProps)),
+  );
 
   tagsInputItemPropsContext.set(() => itemProps);
 </script>

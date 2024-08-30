@@ -12,17 +12,24 @@
 
 <script lang="ts">
   import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
-  import {datePickerContext, datePickerDayTableCellPropsContext} from './context.svelte.js';
+  import {
+    datePickerContext,
+    datePickerDayTableCellPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: DatePickerDayTableCellProps = $props();
 
   let datePicker = datePickerContext.get();
 
   let [tableCellProps, otherProps] = $derived(
-    createSplitProps<DayTableCellProps>(['value', 'disabled', 'visibleRange'])(props),
+    createSplitProps<DayTableCellProps>(['value', 'disabled', 'visibleRange'])(
+      props,
+    ),
   );
 
-  let tableCellState = $derived(datePicker.getDayTableCellState(tableCellProps));
+  let tableCellState = $derived(
+    datePicker.getDayTableCellState(tableCellProps),
+  );
 
   let mergedProps = $derived(
     mergeProps(otherProps, datePicker.getDayTableCellProps(tableCellProps)),

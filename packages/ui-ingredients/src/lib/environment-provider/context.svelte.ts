@@ -6,6 +6,10 @@ export interface Environment {
   getWindow: () => Window & typeof globalThis;
 }
 
-export const environmentContext = new Context<Environment>('EnvironmentProvider', false);
+export const environmentContext = new Context<Environment>(
+  'EnvironmentProvider',
+  false,
+);
 
-export const getEnvironmentContext = (): Environment | null => environmentContext.get();
+export const getEnvironmentContext = (): Environment | null =>
+  environmentContext.get();

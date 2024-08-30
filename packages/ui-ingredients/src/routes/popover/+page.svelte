@@ -18,8 +18,12 @@
       class="data-open:animate-fade-in data-closed:animate-fade-out bg-light w-[80vw] rounded border p-4 lg:w-[20rem]"
     >
       <Popover.Title class="font-medium">Title</Popover.Title>
-      <Popover.Description class="text-muted text-sm">Description</Popover.Description>
-      <Popover.CloseTrigger class="border-lighter mt-3 h-12 w-full rounded border px-3.5">
+      <Popover.Description class="text-muted text-sm"
+        >Description</Popover.Description
+      >
+      <Popover.CloseTrigger
+        class="border-lighter mt-3 h-12 w-full rounded border px-3.5"
+      >
         Close
       </Popover.CloseTrigger>
     </Popover.Content>

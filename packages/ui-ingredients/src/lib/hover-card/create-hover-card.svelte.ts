@@ -5,14 +5,19 @@ import * as hoverCard from '@zag-js/hover-card';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateHoverCardProps
-  extends Omit<hoverCard.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<
+    hoverCard.Context,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string | null;
   defaultOpen?: boolean;
 }
 
 export interface CreateHoverCardReturn extends hoverCard.Api {}
 
-export function createHoverCard(props: CreateHoverCardProps): CreateHoverCardReturn {
+export function createHoverCard(
+  props: CreateHoverCardProps,
+): CreateHoverCardReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -27,7 +32,9 @@ export function createHoverCard(props: CreateHoverCardProps): CreateHoverCardRet
     }),
   );
 
-  const api = $derived(reflect(() => hoverCard.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => hoverCard.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

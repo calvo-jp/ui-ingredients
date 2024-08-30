@@ -5,7 +5,10 @@ import * as popover from '@zag-js/popover';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreatePopoverProps
-  extends Omit<popover.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<
+    popover.Context,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string | null;
   defaultOpen?: boolean;
 }
@@ -27,7 +30,9 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
     }),
   );
 
-  const api = $derived(reflect(() => popover.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => popover.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

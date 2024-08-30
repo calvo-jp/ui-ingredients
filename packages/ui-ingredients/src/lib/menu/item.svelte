@@ -3,7 +3,8 @@
   import type {ItemProps, ItemState} from '@zag-js/menu';
   import type {Snippet} from 'svelte';
 
-  export interface MenuItemProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
+  export interface MenuItemProps
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild<ItemState>;
     children?: Snippet<[ItemState]>;
   }
@@ -18,11 +19,18 @@
   let menu = menuContext.get();
 
   let [itemProps, otherProps] = $derived(
-    createSplitProps<ItemProps>(['value', 'valueText', 'disabled', 'closeOnSelect'])(props),
+    createSplitProps<ItemProps>([
+      'value',
+      'valueText',
+      'disabled',
+      'closeOnSelect',
+    ])(props),
   );
 
   let itemState = $derived(menu.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(otherProps, menu.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, menu.getItemProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

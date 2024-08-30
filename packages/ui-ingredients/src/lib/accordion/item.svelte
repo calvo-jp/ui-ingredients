@@ -12,16 +12,23 @@
 
 <script lang="ts">
   import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
-  import {accordionContext, accordionItemPropsContext} from './context.svelte.js';
+  import {
+    accordionContext,
+    accordionItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: AccordionItemProps = $props();
 
   let accordion = accordionContext.get();
 
-  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['value', 'disabled'])(props));
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['value', 'disabled'])(props),
+  );
 
   let itemState = $derived(accordion.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(otherProps, accordion.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, accordion.getItemProps(itemProps)),
+  );
 
   accordionItemPropsContext.set(() => itemProps);
 </script>

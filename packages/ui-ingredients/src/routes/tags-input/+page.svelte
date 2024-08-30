@@ -30,7 +30,9 @@
               class="bg-light/25 flex h-full shrink-0 items-center gap-1 rounded border px-1.5 text-sm leading-[0.875rem]"
             >
               <TagsInput.ItemText>{value}</TagsInput.ItemText>
-              <TagsInput.ItemDeleteTrigger class="flex items-center justify-center">
+              <TagsInput.ItemDeleteTrigger
+                class="flex items-center justify-center"
+              >
                 <XCloseIcon class="size-4" />
               </TagsInput.ItemDeleteTrigger>
             </TagsInput.ItemPreview>

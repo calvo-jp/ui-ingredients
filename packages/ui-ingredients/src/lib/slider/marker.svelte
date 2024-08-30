@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {MarkerProps} from '@zag-js/slider';
 
-  export interface SliderMarkerProps extends Assign<HTMLProps<'div'>, MarkerProps> {
+  export interface SliderMarkerProps
+    extends Assign<HTMLProps<'div'>, MarkerProps> {
     asChild?: AsChild;
   }
 </script>

@@ -2,7 +2,14 @@
   import '../app.css';
 
   import {page} from '$app/stores';
-  import {Dialog, EnvironmentProvider, LocaleProvider, Portal, Toast, Toaster} from '$lib/index.js';
+  import {
+    Dialog,
+    EnvironmentProvider,
+    LocaleProvider,
+    Portal,
+    Toast,
+    Toaster,
+  } from '$lib/index.js';
   import {cx, useToaster} from './shared/index.js';
 
   let {children} = $props();
@@ -165,7 +172,9 @@
     },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
-  let currentItem = $derived(items.find((item) => item.path === $page.url.pathname));
+  let currentItem = $derived(
+    items.find((item) => item.path === $page.url.pathname),
+  );
 </script>
 
 <svelte:head>
@@ -195,7 +204,9 @@
               <a
                 href={item.path}
                 class="aria-page:text-accent aria-page:font-medium group flex items-center transition-colors duration-200"
-                aria-current={item.path === currentItem?.path ? 'page' : undefined}
+                aria-current={item.path === currentItem?.path
+                  ? 'page'
+                  : undefined}
               >
                 {item.label}
               </a>
@@ -204,10 +215,14 @@
         </ul>
       </nav>
 
-      <header class="bg sticky top-0 flex h-16 items-center border-b px-4 lg:hidden">
+      <header
+        class="bg sticky top-0 flex h-16 items-center border-b px-4 lg:hidden"
+      >
         <Dialog.Root>
           <div class="flex items-center gap-3">
-            <Dialog.Trigger class="flex size-10 items-center justify-center rounded border">
+            <Dialog.Trigger
+              class="flex size-10 items-center justify-center rounded border"
+            >
               <svg
                 width="24"
                 height="24"
@@ -255,14 +270,18 @@
                   </Dialog.CloseTrigger>
                 </div>
 
-                <nav class="h-[calc(100vh-theme(spacing.16))] overflow-y-auto p-4">
+                <nav
+                  class="h-[calc(100vh-theme(spacing.16))] overflow-y-auto p-4"
+                >
                   <ul>
                     {#each items as item}
                       <li class="block w-full">
                         <a
                           href={item.path}
                           class="aria-page:text-accent aria-page:font-medium group flex items-center transition-colors duration-200"
-                          aria-current={item.path === currentItem?.path ? 'page' : undefined}
+                          aria-current={item.path === currentItem?.path
+                            ? 'page'
+                            : undefined}
                         >
                           {item.label}
                         </a>
@@ -302,7 +321,9 @@
         >
           <Toast.Title class="font-medium" />
           <Toast.Description class="text-muted text-sm" />
-          <Toast.CloseTrigger class="border-lighter mt-3 block h-12 w-full rounded border">
+          <Toast.CloseTrigger
+            class="border-lighter mt-3 block h-12 w-full rounded border"
+          >
             Close
           </Toast.CloseTrigger>
         </Toast.Root>

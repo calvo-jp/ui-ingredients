@@ -32,7 +32,9 @@
 
   let itemState = $derived(menu.getOptionItemState(itemProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, menu.getOptionItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, menu.getOptionItemProps(itemProps)),
+  );
 
   menuOptionItemPropsContext.set(() => itemProps);
 </script>

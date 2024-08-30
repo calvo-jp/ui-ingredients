@@ -4,4 +4,6 @@ import type {CreateComboboxReturn} from './create-combobox.svelte.js';
 
 export const comboboxContext = new Context<CreateComboboxReturn>('Combobox');
 export const comboboxItemPropsContext = new Context<ItemProps>('ComboboxItem');
-export const comboboxItemGroupPropsContext = new Context<ItemGroupProps>('ComboboxItemGroup');
+export const comboboxItemGroupPropsContext = new Context<ItemGroupProps>(
+  'ComboboxItemGroup',
+);

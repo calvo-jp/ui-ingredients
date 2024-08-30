@@ -11,7 +11,9 @@ export interface CreateRadioGroupProps
 
 export interface CreateRadioGroupReturn extends radioGroup.Api {}
 
-export function createRadioGroup(props: CreateRadioGroupProps): CreateRadioGroupReturn {
+export function createRadioGroup(
+  props: CreateRadioGroupProps,
+): CreateRadioGroupReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -24,7 +26,9 @@ export function createRadioGroup(props: CreateRadioGroupProps): CreateRadioGroup
     }),
   );
 
-  const api = $derived(reflect(() => radioGroup.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => radioGroup.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

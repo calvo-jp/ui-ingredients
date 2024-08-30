@@ -4,7 +4,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import * as slider from '@zag-js/slider';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateSliderProps extends Omit<slider.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateSliderProps
+  extends Omit<slider.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -23,7 +24,9 @@ export function createSlider(props: CreateSliderProps): CreateSliderReturn {
     }),
   );
 
-  const api = $derived(reflect(() => slider.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => slider.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

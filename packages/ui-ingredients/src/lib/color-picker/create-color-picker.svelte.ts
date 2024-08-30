@@ -5,7 +5,10 @@ import * as colorPicker from '@zag-js/color-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateColorPickerProps
-  extends Omit<colorPicker.Context, 'id' | 'dir' | 'value' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<
+    colorPicker.Context,
+    'id' | 'dir' | 'value' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string | null;
   value?: string;
   defaultOpen?: boolean;
@@ -13,7 +16,9 @@ export interface CreateColorPickerProps
 
 export interface CreateColorPickerReturn extends colorPicker.Api {}
 
-export function createColorPicker(props: CreateColorPickerProps): CreateColorPickerReturn {
+export function createColorPicker(
+  props: CreateColorPickerProps,
+): CreateColorPickerReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -29,7 +34,9 @@ export function createColorPicker(props: CreateColorPickerProps): CreateColorPic
     }),
   );
 
-  const api = $derived(reflect(() => colorPicker.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => colorPicker.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

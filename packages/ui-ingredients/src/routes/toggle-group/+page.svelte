@@ -1,6 +1,10 @@
 <script lang="ts">
   import {ToggleGroup} from '$lib/index.js';
-  import {Bold01Icon, Italic01Icon, Underline01Icon} from '@untitled-theme/icons-svelte';
+  import {
+    Bold01Icon,
+    Italic01Icon,
+    Underline01Icon,
+  } from '@untitled-theme/icons-svelte';
   import {IconButton} from '../shared/index.js';
 
   let value: string[] = $state([]);
@@ -16,7 +20,10 @@
   }}
   multiple
 >
-  <ToggleGroup.Item class="aria-pressed:bg-light/25 rounded-r-none border-r-0" value="1">
+  <ToggleGroup.Item
+    class="aria-pressed:bg-light/25 rounded-r-none border-r-0"
+    value="1"
+  >
     {#snippet asChild(mergedProps)}
       <IconButton {...mergedProps}>
         <Bold01Icon />

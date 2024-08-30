@@ -6,14 +6,19 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {radioGroupContext, radioGroupItemPropsContext} from './context.svelte.js';
+  import {
+    radioGroupContext,
+    radioGroupItemPropsContext,
+  } from './context.svelte.js';
 
   let {...props}: RadioGroupItemHiddenInputProps = $props();
 
   let radioGroup = radioGroupContext.get();
   let itemProps = radioGroupItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, radioGroup.getItemHiddenInputProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(props, radioGroup.getItemHiddenInputProps(itemProps)),
+  );
 </script>
 
 <input {...mergedProps} />

@@ -11,7 +11,9 @@ export interface CreatePaginationProps
 
 export interface CreatePaginationReturn extends pagination.Api {}
 
-export function createPagination(props: CreatePaginationProps): CreatePaginationReturn {
+export function createPagination(
+  props: CreatePaginationProps,
+): CreatePaginationReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -24,7 +26,9 @@ export function createPagination(props: CreatePaginationProps): CreatePagination
     }),
   );
 
-  const api = $derived(reflect(() => pagination.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => pagination.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

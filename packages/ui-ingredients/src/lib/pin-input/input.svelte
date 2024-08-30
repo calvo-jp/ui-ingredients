@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {InputProps} from '@zag-js/pin-input';
 
-  export interface PinInputInputProps extends Assign<HTMLProps<'input'>, InputProps> {
+  export interface PinInputInputProps
+    extends Assign<HTMLProps<'input'>, InputProps> {
     asChild?: AsChild;
   }
 </script>
@@ -15,7 +16,9 @@
 
   let pinInput = pinInputContext.get();
 
-  let mergedProps = $derived(mergeProps(props, pinInput.getInputProps({index})));
+  let mergedProps = $derived(
+    mergeProps(props, pinInput.getInputProps({index})),
+  );
 </script>
 
 {#if asChild}

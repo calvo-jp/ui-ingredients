@@ -19,7 +19,9 @@
   <Checkbox.Control
     class="data-checked:border-accent data-checked:bg-accent group flex size-6 items-center justify-center rounded border transition-colors duration-200"
   >
-    <Checkbox.Indicator class="animate-fade-out group-data-checked:animate-fade-in">
+    <Checkbox.Indicator
+      class="animate-fade-out group-data-checked:animate-fade-in"
+    >
       <CheckIcon class="size-4 text-white" />
     </Checkbox.Indicator>
   </Checkbox.Control>

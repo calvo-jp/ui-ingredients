@@ -4,7 +4,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as treeView from '@zag-js/tree-view';
 
-export interface CreateTreeViewProps extends Omit<treeView.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateTreeViewProps
+  extends Omit<treeView.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -23,7 +24,9 @@ export function createTreeView(props: CreateTreeViewProps) {
     }),
   );
 
-  const api = $derived(reflect(() => treeView.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => treeView.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

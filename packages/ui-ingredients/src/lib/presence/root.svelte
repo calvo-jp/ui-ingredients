@@ -2,7 +2,8 @@
   import type {Assign, HTMLProps} from '$lib/types.js';
   import type {CreatePresenceProps} from './create-presence.svelte.js';
 
-  export interface PresenceProps extends Assign<HTMLProps<'div'>, CreatePresenceProps> {}
+  export interface PresenceProps
+    extends Assign<HTMLProps<'div'>, CreatePresenceProps> {}
 </script>
 
 <script lang="ts">

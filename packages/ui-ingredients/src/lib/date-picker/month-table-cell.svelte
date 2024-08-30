@@ -12,7 +12,10 @@
 
 <script lang="ts">
   import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
-  import {datePickerContext, datePickerTableCellPropsContext} from './context.svelte.js';
+  import {
+    datePickerContext,
+    datePickerTableCellPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: DatePickerMonthTableCellProps = $props();
 
@@ -22,7 +25,9 @@
     createSplitProps<TableCellProps>(['value', 'disabled', 'columns'])(props),
   );
 
-  let tableCellState = $derived(datePicker.getMonthTableCellState(tableCellProps));
+  let tableCellState = $derived(
+    datePicker.getMonthTableCellState(tableCellProps),
+  );
 
   let mergedProps = $derived(
     mergeProps(otherProps, datePicker.getMonthTableCellProps(tableCellProps)),

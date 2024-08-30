@@ -8,7 +8,10 @@
 
 <script lang="ts">
   import {createUniqueId, mergeProps} from '$lib/utils.svelte.js';
-  import {comboboxContext, comboboxItemGroupPropsContext} from './context.svelte.js';
+  import {
+    comboboxContext,
+    comboboxItemGroupPropsContext,
+  } from './context.svelte.js';
 
   let {id, asChild, children, ...props}: ComboboxItemGroupProps = $props();
 
@@ -20,7 +23,9 @@
     id: id ?? uid,
   });
 
-  let mergedProps = $derived(mergeProps(props, combobox.getItemGroupProps(comboboxItemGroupProps)));
+  let mergedProps = $derived(
+    mergeProps(props, combobox.getItemGroupProps(comboboxItemGroupProps)),
+  );
 
   comboboxItemGroupPropsContext.set(() => comboboxItemGroupProps);
 </script>

@@ -42,7 +42,9 @@
               'data-complete:bg-accent',
             )}
           >
-            <CheckIcon class="group-data-complete:block hidden size-4 text-white" />
+            <CheckIcon
+              class="group-data-complete:block hidden size-4 text-white"
+            />
           </Steps.Indicator>
           <span>{item.title}</span>
         </Steps.Trigger>
@@ -55,12 +57,17 @@
 
   <div class="mt-5">
     {#each items as item, index}
-      <Steps.Content {index} class="bg-light w-full rounded p-5 lg:max-w-[32rem]">
+      <Steps.Content
+        {index}
+        class="bg-light w-full rounded p-5 lg:max-w-[32rem]"
+      >
         {item.content}
       </Steps.Content>
     {/each}
 
-    <Steps.CompletedContent class="bg-light w-full rounded p-5 lg:max-w-[32rem]">
+    <Steps.CompletedContent
+      class="bg-light w-full rounded p-5 lg:max-w-[32rem]"
+    >
       Done!🚀
     </Steps.CompletedContent>
   </div>

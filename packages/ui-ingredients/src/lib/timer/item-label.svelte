@@ -15,7 +15,9 @@
   let timer = timerContext.get();
   let itemProps = timerItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, timer.getItemLabelProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(props, timer.getItemLabelProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

@@ -1,6 +1,9 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {CreatePopoverProps, CreatePopoverReturn} from './create-popover.svelte.js';
+  import type {
+    CreatePopoverProps,
+    CreatePopoverReturn,
+  } from './create-popover.svelte.js';
 
   export interface PopoverProps extends CreatePopoverProps {
     children?: Snippet<[popover: CreatePopoverReturn]>;

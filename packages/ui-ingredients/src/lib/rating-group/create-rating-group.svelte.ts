@@ -11,7 +11,9 @@ export interface CreateRatingGroupProps
 
 export interface CreateRatingGroupReturn extends ratingGroup.Api {}
 
-export function createRatingGroup(props: CreateRatingGroupProps): CreateRatingGroupReturn {
+export function createRatingGroup(
+  props: CreateRatingGroupProps,
+): CreateRatingGroupReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -24,7 +26,9 @@ export function createRatingGroup(props: CreateRatingGroupProps): CreateRatingGr
     }),
   );
 
-  const api = $derived(reflect(() => ratingGroup.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => ratingGroup.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

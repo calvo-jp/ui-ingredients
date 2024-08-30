@@ -4,4 +4,6 @@ import type {CreateTreeViewReturn} from './create-tree-view.svelte.js';
 
 export const treeViewContext = new Context<CreateTreeViewReturn>('TreeView');
 export const treeViewItemPropsContext = new Context<ItemProps>('TreeViewItem');
-export const treeViewBranchPropsContext = new Context<BranchProps>('TreeViewBranch');
+export const treeViewBranchPropsContext = new Context<BranchProps>(
+  'TreeViewBranch',
+);

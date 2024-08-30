@@ -2,12 +2,16 @@
   import type {Assign, HTMLProps} from '$lib/types.js';
   import type {AreaProps} from '@zag-js/color-picker';
 
-  export interface ColorPickerAreaProps extends Assign<HTMLProps<'div'>, AreaProps> {}
+  export interface ColorPickerAreaProps
+    extends Assign<HTMLProps<'div'>, AreaProps> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {colorPickerAreaPropsContext, colorPickerContext} from './context.svelte.js';
+  import {
+    colorPickerAreaPropsContext,
+    colorPickerContext,
+  } from './context.svelte.js';
 
   let {xChannel, yChannel, children, ...props}: ColorPickerAreaProps = $props();
 
@@ -17,7 +21,9 @@
     yChannel,
   });
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getAreaProps(areaProps)));
+  let mergedProps = $derived(
+    mergeProps(props, colorPicker.getAreaProps(areaProps)),
+  );
 
   colorPickerAreaPropsContext.set(() => areaProps);
 </script>

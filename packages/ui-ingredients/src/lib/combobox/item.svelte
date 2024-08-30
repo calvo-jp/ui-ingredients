@@ -3,7 +3,8 @@
   import type {ItemProps, ItemState} from '@zag-js/combobox';
   import type {Snippet} from 'svelte';
 
-  export interface ComboboxItemProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
+  export interface ComboboxItemProps
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild<ItemState>;
     children?: Snippet<[ItemState]>;
   }
@@ -22,7 +23,9 @@
   );
 
   let itemState = $derived(combobox.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(otherProps, combobox.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, combobox.getItemProps(itemProps)),
+  );
 
   comboboxItemPropsContext.set(() => itemProps);
 </script>

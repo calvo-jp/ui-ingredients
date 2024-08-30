@@ -7,7 +7,10 @@
   } from './create-signature-pad.svelte.js';
 
   export interface SignaturePadProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateSignaturePadProps> {
+    extends Assign<
+      Omit<HTMLProps<'div'>, 'children'>,
+      CreateSignaturePadProps
+    > {
     asChild?: AsChild<CreateSignaturePadReturn>;
     children?: Snippet<[CreateSignaturePadReturn]>;
   }
@@ -37,7 +40,9 @@
 
   let signaturePad = createSignaturePad(signaturePadProps);
 
-  let mergedProps = $derived(mergeProps(otherProps, signaturePad.getRootProps()));
+  let mergedProps = $derived(
+    mergeProps(otherProps, signaturePad.getRootProps()),
+  );
 
   signaturePadContext.set(signaturePad);
 </script>

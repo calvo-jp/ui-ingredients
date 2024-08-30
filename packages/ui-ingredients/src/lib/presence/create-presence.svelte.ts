@@ -6,7 +6,8 @@ export interface CreatePresenceProps {
   keepMounted?: boolean;
 }
 
-export interface CreatePresenceReturn extends ReturnType<typeof createPresence> {}
+export interface CreatePresenceReturn
+  extends ReturnType<typeof createPresence> {}
 
 export function createPresence(props: CreatePresenceProps) {
   const [state, send] = useMachine(

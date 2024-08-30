@@ -4,7 +4,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as switch$ from '@zag-js/switch';
 
-export interface CreateSwitchProps extends Omit<switch$.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateSwitchProps
+  extends Omit<switch$.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -23,7 +24,9 @@ export function createSwitch(props: CreateSwitchProps) {
     }),
   );
 
-  const api = $derived(reflect(() => switch$.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => switch$.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

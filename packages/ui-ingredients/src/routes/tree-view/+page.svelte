@@ -13,7 +13,9 @@
 
     <TreeView.Branch value="2" depth={3}>
       <TreeView.BranchControl class="flex items-center gap-1">
-        <TreeView.BranchIndicator class="data-open:rotate-90 transition-transform duration-200">
+        <TreeView.BranchIndicator
+          class="data-open:rotate-90 transition-transform duration-200"
+        >
           <ChevronRightIcon class="size-5" />
         </TreeView.BranchIndicator>
         <TreeView.BranchText>Item 2</TreeView.BranchText>
@@ -31,7 +33,9 @@
 
     <TreeView.Branch value="3" depth={3}>
       <TreeView.BranchControl class="flex items-center gap-1">
-        <TreeView.BranchIndicator class="data-open:rotate-90 transition-transform duration-200">
+        <TreeView.BranchIndicator
+          class="data-open:rotate-90 transition-transform duration-200"
+        >
           <ChevronRightIcon class="size-5" />
         </TreeView.BranchIndicator>
         <TreeView.BranchText>Item 3</TreeView.BranchText>
@@ -44,7 +48,9 @@
 
         <TreeView.Branch value="3.2" depth={3}>
           <TreeView.BranchControl class="flex items-center gap-1">
-            <TreeView.BranchIndicator class="data-open:rotate-90 transition-transform duration-200">
+            <TreeView.BranchIndicator
+              class="data-open:rotate-90 transition-transform duration-200"
+            >
               <ChevronRightIcon class="size-5" />
             </TreeView.BranchIndicator>
             <TreeView.BranchText>Item 3.2.1</TreeView.BranchText>

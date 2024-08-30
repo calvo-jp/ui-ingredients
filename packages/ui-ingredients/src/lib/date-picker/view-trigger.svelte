@@ -8,14 +8,19 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {datePickerContext, datePickerViewPropsContext} from './context.svelte.js';
+  import {
+    datePickerContext,
+    datePickerViewPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: DatePickerViewTriggerProps = $props();
 
   let datePicker = datePickerContext.get();
   let viewProps = datePickerViewPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getViewTriggerProps(viewProps)));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getViewTriggerProps(viewProps)),
+  );
 </script>
 
 {#if asChild}

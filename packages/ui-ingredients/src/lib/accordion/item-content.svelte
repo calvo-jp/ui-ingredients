@@ -8,14 +8,19 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {accordionContext, accordionItemPropsContext} from './context.svelte.js';
+  import {
+    accordionContext,
+    accordionItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: AccordionItemContentProps = $props();
 
   let accordion = accordionContext.get();
   let itemProps = accordionItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, accordion.getItemContentProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(props, accordion.getItemContentProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

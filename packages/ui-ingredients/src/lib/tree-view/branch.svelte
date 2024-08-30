@@ -12,7 +12,10 @@
 
 <script lang="ts">
   import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
-  import {treeViewBranchPropsContext, treeViewContext} from './context.svelte.js';
+  import {
+    treeViewBranchPropsContext,
+    treeViewContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: TreeViewBranchProps = $props();
 
@@ -24,7 +27,9 @@
 
   let itemState = $derived(treeView.getBranchState(branchProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, treeView.getBranchProps(branchProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, treeView.getBranchProps(branchProps)),
+  );
 
   treeViewBranchPropsContext.set(() => branchProps);
 </script>

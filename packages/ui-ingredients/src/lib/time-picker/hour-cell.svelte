@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {CellProps} from '@zag-js/time-picker';
 
-  export interface TimePickerHourCellProps extends Assign<HTMLProps<'div'>, CellProps> {
+  export interface TimePickerHourCellProps
+    extends Assign<HTMLProps<'div'>, CellProps> {
     asChild?: AsChild;
   }
 </script>
@@ -15,7 +16,9 @@
 
   let timePicker = timePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, timePicker.getHourCellProps({value})));
+  let mergedProps = $derived(
+    mergeProps(props, timePicker.getHourCellProps({value})),
+  );
 </script>
 
 {#if asChild}

@@ -4,7 +4,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import * as steps from '@zag-js/steps';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateStepsProps extends Omit<steps.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateStepsProps
+  extends Omit<steps.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -23,7 +24,9 @@ export function createSteps(props: CreateStepsProps) {
     }),
   );
 
-  const api = $derived(reflect(() => steps.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => steps.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

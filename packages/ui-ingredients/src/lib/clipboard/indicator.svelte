@@ -12,11 +12,18 @@
   import {mergeProps} from '$lib/utils.svelte.js';
   import {clipboardContext} from './context.svelte.js';
 
-  let {copied = false, asChild, children, ...props}: ClipboardIndicatorProps = $props();
+  let {
+    copied = false,
+    asChild,
+    children,
+    ...props
+  }: ClipboardIndicatorProps = $props();
 
   let clipboard = clipboardContext.get();
 
-  let mergedProps = $derived(mergeProps(props, clipboard.getIndicatorProps({copied})));
+  let mergedProps = $derived(
+    mergeProps(props, clipboard.getIndicatorProps({copied})),
+  );
 </script>
 
 {#if asChild}

@@ -1,6 +1,10 @@
 <script lang="ts">
   import {Combobox} from '$lib/index.js';
-  import {CheckIcon, ChevronDownIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
+  import {
+    CheckIcon,
+    ChevronDownIcon,
+    XCloseIcon,
+  } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
   let items = [
@@ -32,7 +36,9 @@
   let inputValue = $state('');
 
   let matches = $derived(
-    items.filter((item) => item.label.toLowerCase().includes(inputValue.toLowerCase())),
+    items.filter((item) =>
+      item.label.toLowerCase().includes(inputValue.toLowerCase()),
+    ),
   );
 
   $inspect({
@@ -73,7 +79,9 @@
     <Combobox.Trigger class="group">
       {#snippet asChild(mergedProps)}
         <IconButton {...mergedProps}>
-          <ChevronDownIcon class="group-data-open:rotate-180 transition-transform duration-200" />
+          <ChevronDownIcon
+            class="group-data-open:rotate-180 transition-transform duration-200"
+          />
         </IconButton>
       {/snippet}
     </Combobox.Trigger>

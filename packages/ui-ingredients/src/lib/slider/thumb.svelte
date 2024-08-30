@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ThumbProps} from '@zag-js/slider';
 
-  export interface SliderThumbProps extends Assign<HTMLProps<'div'>, ThumbProps> {
+  export interface SliderThumbProps
+    extends Assign<HTMLProps<'div'>, ThumbProps> {
     asChild?: AsChild;
   }
 </script>
@@ -15,9 +16,13 @@
 
   let slider = sliderContext.get();
 
-  let [thumbProps, otherProps] = $derived(createSplitProps<ThumbProps>(['name', 'index'])(props));
+  let [thumbProps, otherProps] = $derived(
+    createSplitProps<ThumbProps>(['name', 'index'])(props),
+  );
 
-  let mergedProps = $derived(mergeProps(otherProps, slider.getThumbProps(thumbProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, slider.getThumbProps(thumbProps)),
+  );
 
   sliderThumbPropsContext.set(() => thumbProps);
 </script>

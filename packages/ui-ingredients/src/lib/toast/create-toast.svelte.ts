@@ -7,7 +7,9 @@ export interface CreateToastReturn extends toast.Api {}
 export function createToast(props: CreateToastProps) {
   const [state, send] = useActor(props);
 
-  const api = $derived(reflect(() => toast.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => toast.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

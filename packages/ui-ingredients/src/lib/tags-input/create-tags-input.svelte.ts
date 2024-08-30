@@ -24,7 +24,9 @@ export function createTagsInput(props: CreateTagsInputProps) {
     }),
   );
 
-  const api = $derived(reflect(() => tagsInput.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => tagsInput.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

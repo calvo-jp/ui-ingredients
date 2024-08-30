@@ -4,7 +4,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import * as qrCode from '@zag-js/qr-code';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateQRCodeProps extends Omit<qrCode.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateQRCodeProps
+  extends Omit<qrCode.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -23,7 +24,9 @@ export function createQRCode(props: CreateQRCodeProps): CreateQRCodeReturn {
     }),
   );
 
-  const api = $derived(reflect(() => qrCode.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => qrCode.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

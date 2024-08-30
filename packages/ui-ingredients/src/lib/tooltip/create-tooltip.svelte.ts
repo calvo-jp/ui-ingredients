@@ -5,7 +5,10 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tooltip from '@zag-js/tooltip';
 
 export interface CreateTooltipProps
-  extends Omit<tooltip.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<
+    tooltip.Context,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string | null;
   defaultOpen?: boolean;
 }
@@ -27,7 +30,9 @@ export function createTooltip(props: CreateTooltipProps) {
     }),
   );
 
-  const api = $derived(reflect(() => tooltip.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => tooltip.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

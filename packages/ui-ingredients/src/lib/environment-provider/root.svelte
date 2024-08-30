@@ -3,7 +3,11 @@
   import {type Environment} from './context.svelte.js';
 
   export interface EnvironmentProviderProps {
-    rootNode?: ShadowRoot | Document | Node | (() => ShadowRoot | Document | Node);
+    rootNode?:
+      | ShadowRoot
+      | Document
+      | Node
+      | (() => ShadowRoot | Document | Node);
     children: Snippet;
   }
 </script>

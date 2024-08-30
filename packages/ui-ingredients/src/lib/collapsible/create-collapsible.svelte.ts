@@ -5,14 +5,19 @@ import * as collapsible from '@zag-js/collapsible';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateCollapsibleProps
-  extends Omit<collapsible.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<
+    collapsible.Context,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string | null;
   defaultOpen?: boolean;
 }
 
 export interface CreateCollapsibleReturn extends collapsible.Api {}
 
-export function createCollapsible(props: CreateCollapsibleProps): CreateCollapsibleReturn {
+export function createCollapsible(
+  props: CreateCollapsibleProps,
+): CreateCollapsibleReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -27,7 +32,9 @@ export function createCollapsible(props: CreateCollapsibleProps): CreateCollapsi
     }),
   );
 
-  const api = $derived(reflect(() => collapsible.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => collapsible.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

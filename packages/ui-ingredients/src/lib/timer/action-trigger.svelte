@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ActionTriggerProps} from '@zag-js/timer';
 
-  export interface TimerActionTriggerProps extends Assign<HTMLProps<'button'>, ActionTriggerProps> {
+  export interface TimerActionTriggerProps
+    extends Assign<HTMLProps<'button'>, ActionTriggerProps> {
     asChild?: AsChild;
   }
 </script>
@@ -15,7 +16,9 @@
 
   let timer = timerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, timer.getActionTriggerProps({action})));
+  let mergedProps = $derived(
+    mergeProps(props, timer.getActionTriggerProps({action})),
+  );
 </script>
 
 {#if asChild}

@@ -3,7 +3,8 @@
   import type {ItemProps, ItemState} from '@zag-js/select';
   import type {Snippet} from 'svelte';
 
-  export interface SelectItemProps extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
+  export interface SelectItemProps
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild<ItemState>;
     children?: Snippet<[ItemState]>;
   }
@@ -22,7 +23,9 @@
   );
 
   let itemState = $derived(select.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(otherProps, select.getItemProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(otherProps, select.getItemProps(itemProps)),
+  );
 
   selectItemPropsContext.set(() => itemProps);
 </script>

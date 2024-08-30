@@ -4,7 +4,8 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import * as avatar from '@zag-js/avatar';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateAvatarProps extends Omit<avatar.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateAvatarProps
+  extends Omit<avatar.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
@@ -23,7 +24,9 @@ export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
     }),
   );
 
-  const api = $derived(reflect(() => avatar.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => avatar.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

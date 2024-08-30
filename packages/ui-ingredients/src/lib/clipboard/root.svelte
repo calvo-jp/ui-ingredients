@@ -1,7 +1,10 @@
 <script lang="ts" module>
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateClipboardProps, CreateClipboardReturn} from './create-clipboard.svelte.js';
+  import type {
+    CreateClipboardProps,
+    CreateClipboardReturn,
+  } from './create-clipboard.svelte.js';
 
   export interface ClipboardProps
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateClipboardProps> {
@@ -18,9 +21,13 @@
   let {asChild, children, ...props}: ClipboardProps = $props();
 
   let [clipboardProps, otherProps] = $derived(
-    createSplitProps<CreateClipboardProps>(['id', 'ids', 'value', 'timeout', 'onStatusChange'])(
-      props,
-    ),
+    createSplitProps<CreateClipboardProps>([
+      'id',
+      'ids',
+      'value',
+      'timeout',
+      'onStatusChange',
+    ])(props),
   );
 
   let clipboard = createClipboard(clipboardProps);

@@ -20,7 +20,9 @@
     id: id ?? uid,
   });
 
-  let mergedProps = $derived(mergeProps(props, menu.getItemGroupProps(itemGroupProps)));
+  let mergedProps = $derived(
+    mergeProps(props, menu.getItemGroupProps(itemGroupProps)),
+  );
 
   menuItemGroupPropsContext.set(() => itemGroupProps);
 </script>

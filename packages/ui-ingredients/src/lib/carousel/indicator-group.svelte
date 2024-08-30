@@ -14,7 +14,9 @@
 
   let carousel = carouselContext.get();
 
-  let mergedProps = $derived(mergeProps(props, carousel.getIndicatorGroupProps()));
+  let mergedProps = $derived(
+    mergeProps(props, carousel.getIndicatorGroupProps()),
+  );
 </script>
 
 {#if asChild}

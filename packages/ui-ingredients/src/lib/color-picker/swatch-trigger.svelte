@@ -8,7 +8,10 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {colorPickerContext, colorPickerSwatchPropsContext} from './context.svelte.js';
+  import {
+    colorPickerContext,
+    colorPickerSwatchPropsContext,
+  } from './context.svelte.js';
 
   let {disabled, children, ...props}: ColorPickerSwatchTriggerProps = $props();
 

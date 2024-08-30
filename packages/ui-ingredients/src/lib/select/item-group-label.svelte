@@ -8,7 +8,10 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {selectContext, selectItemGroupPropsContext} from './context.svelte.js';
+  import {
+    selectContext,
+    selectItemGroupPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: SelectItemGroupLabelProps = $props();
 
@@ -16,7 +19,10 @@
   let itemGroupProps = selectItemGroupPropsContext.get();
 
   let mergedProps = $derived(
-    mergeProps(props, select.getItemGroupLabelProps({htmlFor: itemGroupProps.id})),
+    mergeProps(
+      props,
+      select.getItemGroupLabelProps({htmlFor: itemGroupProps.id}),
+    ),
   );
 </script>
 

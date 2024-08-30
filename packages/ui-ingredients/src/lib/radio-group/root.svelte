@@ -1,7 +1,10 @@
 <script lang="ts" module>
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import type {CreateRadioGroupProps, CreateRadioGroupReturn} from './create-radio-group.svelte.js';
+  import type {
+    CreateRadioGroupProps,
+    CreateRadioGroupReturn,
+  } from './create-radio-group.svelte.js';
 
   export interface RadioGroupProps
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateRadioGroupProps> {

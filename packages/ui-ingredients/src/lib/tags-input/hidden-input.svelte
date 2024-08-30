@@ -12,7 +12,9 @@
 
   let tagsInput = tagsInputContext.get();
 
-  let mergedProps = $derived(mergeProps(props, tagsInput.getHiddenInputProps()));
+  let mergedProps = $derived(
+    mergeProps(props, tagsInput.getHiddenInputProps()),
+  );
 </script>
 
 <input {...mergedProps} />

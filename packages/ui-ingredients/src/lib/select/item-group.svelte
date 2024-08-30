@@ -8,7 +8,10 @@
 
 <script lang="ts">
   import {createUniqueId, mergeProps} from '$lib/utils.svelte.js';
-  import {selectContext, selectItemGroupPropsContext} from './context.svelte.js';
+  import {
+    selectContext,
+    selectItemGroupPropsContext,
+  } from './context.svelte.js';
 
   let {id, asChild, children, ...props}: SelectItemGroupProps = $props();
 
@@ -20,7 +23,9 @@
     id: id ?? uid,
   });
 
-  let mergedProps = $derived(mergeProps(props, select.getItemGroupProps(itemGroupProps)));
+  let mergedProps = $derived(
+    mergeProps(props, select.getItemGroupProps(itemGroupProps)),
+  );
 
   selectItemGroupPropsContext.set(() => itemGroupProps);
 </script>

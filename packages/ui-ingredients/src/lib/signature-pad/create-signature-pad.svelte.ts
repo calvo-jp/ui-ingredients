@@ -11,7 +11,9 @@ export interface CreateSignaturePadProps
 
 export interface CreateSignaturePadReturn extends signaturePad.Api {}
 
-export function createSignaturePad(props: CreateSignaturePadProps): CreateSignaturePadReturn {
+export function createSignaturePad(
+  props: CreateSignaturePadProps,
+): CreateSignaturePadReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -24,7 +26,9 @@ export function createSignaturePad(props: CreateSignaturePadProps): CreateSignat
     }),
   );
 
-  const api = $derived(reflect(() => signaturePad.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => signaturePad.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

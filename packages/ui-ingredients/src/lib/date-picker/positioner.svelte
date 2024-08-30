@@ -14,7 +14,9 @@
 
   let datePicker = datePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getPositionerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getPositionerProps()),
+  );
 </script>
 
 {#if asChild}

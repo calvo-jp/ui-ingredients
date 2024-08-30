@@ -5,7 +5,10 @@ import * as combobox from '@zag-js/combobox';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreateComboboxProps<T>
-  extends Omit<combobox.Context, 'id' | 'dir' | 'collection' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<
+    combobox.Context,
+    'id' | 'dir' | 'collection' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string | null;
   items: T[];
   itemToString?: (item: T) => string;
@@ -16,13 +19,18 @@ export interface CreateComboboxProps<T>
 
 export interface CreateComboboxReturn extends combobox.Api {}
 
-export function createCombobox<T>(props: CreateComboboxProps<T>): CreateComboboxReturn {
+export function createCombobox<T>(
+  props: CreateComboboxProps<T>,
+): CreateComboboxReturn {
   const collection = $derived(
     combobox.collection({
       items: props.items,
-      itemToValue: (item) => (props.itemToValue ? props.itemToValue(item) : String(item)),
-      itemToString: (item) => (props.itemToString ? props.itemToString(item) : String(item)),
-      isItemDisabled: (item) => (props.isItemDisabled ? props.isItemDisabled(item) : false),
+      itemToValue: (item) =>
+        props.itemToValue ? props.itemToValue(item) : String(item),
+      itemToString: (item) =>
+        props.itemToString ? props.itemToString(item) : String(item),
+      isItemDisabled: (item) =>
+        props.isItemDisabled ? props.isItemDisabled(item) : false,
     }),
   );
 

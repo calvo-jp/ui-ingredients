@@ -2,7 +2,8 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ColumnProps} from '@zag-js/time-picker';
 
-  export interface TimePickerColumnProps extends Assign<HTMLProps<'div'>, ColumnProps> {
+  export interface TimePickerColumnProps
+    extends Assign<HTMLProps<'div'>, ColumnProps> {
     asChild?: AsChild;
   }
 </script>
@@ -15,7 +16,9 @@
 
   let timePicker = timePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, timePicker.getColumnProps({unit})));
+  let mergedProps = $derived(
+    mergeProps(props, timePicker.getColumnProps({unit})),
+  );
 </script>
 
 {#if asChild}

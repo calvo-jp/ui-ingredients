@@ -1,7 +1,10 @@
 <script lang="ts" module>
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
-  import {type CreateAvatarProps, type CreateAvatarReturn} from './create-avatar.svelte.js';
+  import {
+    type CreateAvatarProps,
+    type CreateAvatarReturn,
+  } from './create-avatar.svelte.js';
 
   export interface AvatarProps
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateAvatarProps> {

@@ -4,13 +4,16 @@ import {createUniqueId} from '$lib/utils.svelte.js';
 import * as splitter from '@zag-js/splitter';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
-export interface CreateSplitterProps extends Omit<splitter.Context, 'id' | 'dir' | 'getRootNode'> {
+export interface CreateSplitterProps
+  extends Omit<splitter.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
 export interface CreateSplitterReturn extends splitter.Api {}
 
-export function createSplitter(props: CreateSplitterProps): CreateSplitterReturn {
+export function createSplitter(
+  props: CreateSplitterProps,
+): CreateSplitterReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
@@ -23,7 +26,9 @@ export function createSplitter(props: CreateSplitterProps): CreateSplitterReturn
     }),
   );
 
-  const api = $derived(reflect(() => splitter.connect(state, send, normalizeProps)));
+  const api = $derived(
+    reflect(() => splitter.connect(state, send, normalizeProps)),
+  );
 
   return api;
 }

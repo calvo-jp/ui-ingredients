@@ -1,6 +1,9 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import type {CreateDialogProps, CreateDialogReturn} from './create-dialog.svelte.js';
+  import type {
+    CreateDialogProps,
+    CreateDialogReturn,
+  } from './create-dialog.svelte.js';
 
   export interface DialogProps extends CreateDialogProps {
     children?: Snippet<[dialog: CreateDialogReturn]>;

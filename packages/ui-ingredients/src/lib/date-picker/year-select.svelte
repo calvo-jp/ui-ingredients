@@ -14,7 +14,9 @@
 
   let datePicker = datePickerContext.get();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getYearSelectProps()));
+  let mergedProps = $derived(
+    mergeProps(props, datePicker.getYearSelectProps()),
+  );
 
   function getYears() {
     const currentYear = new Date().getFullYear();

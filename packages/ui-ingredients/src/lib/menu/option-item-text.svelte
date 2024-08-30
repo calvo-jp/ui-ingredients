@@ -16,7 +16,9 @@
 
   let itemProps = menuOptionItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, menu.getItemTextProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(props, menu.getItemTextProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

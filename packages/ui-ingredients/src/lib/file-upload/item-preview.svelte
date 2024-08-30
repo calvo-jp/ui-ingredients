@@ -8,14 +8,19 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {fileUploadContext, fileUploadItemPropsContext} from './context.svelte.js';
+  import {
+    fileUploadContext,
+    fileUploadItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: FileUploadItemPreviewProps = $props();
 
   let fileUpload = fileUploadContext.get();
   let itemProps = fileUploadItemPropsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getItemPreviewProps(itemProps)));
+  let mergedProps = $derived(
+    mergeProps(props, fileUpload.getItemPreviewProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

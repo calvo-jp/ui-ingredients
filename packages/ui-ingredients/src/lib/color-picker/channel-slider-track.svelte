@@ -1,12 +1,16 @@
 <script lang="ts" module>
   import type {HTMLProps} from '$lib/types.js';
 
-  export interface ColorPickerChannelSliderTrackProps extends HTMLProps<'div'> {}
+  export interface ColorPickerChannelSliderTrackProps
+    extends HTMLProps<'div'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/utils.svelte.js';
-  import {colorPickerChannelSliderPropsContext, colorPickerContext} from './context.svelte.js';
+  import {
+    colorPickerChannelSliderPropsContext,
+    colorPickerContext,
+  } from './context.svelte.js';
 
   let {children, ...props}: ColorPickerChannelSliderTrackProps = $props();
 
@@ -14,7 +18,10 @@
   let channelSliderProps = colorPickerChannelSliderPropsContext.get();
 
   let mergedProps = $derived(
-    mergeProps(props, colorPicker.getChannelSliderTrackProps(channelSliderProps)),
+    mergeProps(
+      props,
+      colorPicker.getChannelSliderTrackProps(channelSliderProps),
+    ),
   );
 </script>
 

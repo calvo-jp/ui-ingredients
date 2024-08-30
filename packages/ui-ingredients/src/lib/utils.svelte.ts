@@ -9,7 +9,10 @@ export function createUniqueId() {
 }
 
 function isObject<T extends GenericObject>(value: unknown): value is T {
-  return Object.prototype.toString.call(value) === '[object Object]' && value === Object(value);
+  return (
+    Object.prototype.toString.call(value) === '[object Object]' &&
+    value === Object(value)
+  );
 }
 
 export function mergeProps<T extends GenericObject>(...args: T[]): T {
