@@ -16,6 +16,7 @@
   let {asChild, children, ...props}: ToastProps = $props();
 
   let toast = toastContext.get();
+
   let mergedProps = $derived(mergeProps(props, toast.getRootProps()));
 </script>
 

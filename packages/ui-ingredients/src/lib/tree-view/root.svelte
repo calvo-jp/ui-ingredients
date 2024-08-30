@@ -14,42 +14,31 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {treeViewContext} from './context.svelte.js';
   import {createTreeView} from './create-tree-view.svelte.js';
 
-  let {
-    id,
-    ids,
-    typeahead,
-    focusedValue,
-    expandedValue,
-    expandOnClick,
-    selectedValue,
-    selectionMode,
-    onFocusChange,
-    onExpandedChange,
-    onSelectionChange,
-    asChild,
-    children,
-    ...props
-  }: TreeViewProps = $props();
+  let {asChild, children, ...props}: TreeViewProps = $props();
 
-  let treeView = createTreeView({
-    id,
-    ids,
-    typeahead,
-    focusedValue,
-    expandedValue,
-    expandOnClick,
-    selectedValue,
-    selectionMode,
-    onFocusChange,
-    onExpandedChange,
-    onSelectionChange,
-  });
+  let [treeViewProps, otherProps] = $derived(
+    createSplitProps<CreateTreeViewProps>([
+      'id',
+      'ids',
+      'typeahead',
+      'focusedValue',
+      'expandedValue',
+      'expandOnClick',
+      'selectedValue',
+      'selectionMode',
+      'onFocusChange',
+      'onExpandedChange',
+      'onSelectionChange',
+    ])(props),
+  );
 
-  let mergedProps = $derived(mergeProps(props, treeView.getRootProps()));
+  let treeView = createTreeView(treeViewProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, treeView.getRootProps()));
 
   treeViewContext.set(treeView);
 </script>

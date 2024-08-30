@@ -2,7 +2,7 @@
   import type {AsChild, HTMLProps} from '$lib/types.js';
 
   export interface TimePickerInputProps extends HTMLProps<'input'> {
-    asChild?: AsChild<HTMLProps<'input'>>;
+    asChild?: AsChild;
   }
 </script>
 

@@ -25,7 +25,7 @@
     createSplitProps<BranchProps>(['depth', 'value', 'disabled'])(props),
   );
 
-  let itemState = $derived(treeView.getBranchState(branchProps));
+  let branchState = $derived(treeView.getBranchState(branchProps));
 
   let mergedProps = $derived(
     mergeProps(otherProps, treeView.getBranchProps(branchProps)),
@@ -35,9 +35,9 @@
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps, itemState)}
+  {@render asChild(mergedProps, branchState)}
 {:else}
   <div {...mergedProps}>
-    {@render children?.(itemState)}
+    {@render children?.(branchState)}
   </div>
 {/if}

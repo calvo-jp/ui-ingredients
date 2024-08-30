@@ -2,7 +2,6 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {ResizeTriggerProps} from '@zag-js/splitter';
 
-  /* Currently not exported in zag */
   interface ResizeTriggerState {
     min: number | undefined;
     max: number | undefined;
@@ -20,30 +19,23 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import type {Snippet} from 'svelte';
   import {splitterContext} from './context.svelte.js';
 
-  let {
-    id,
-    step,
-    disabled,
-    asChild,
-    children,
-    ...props
-  }: SplitterResizeTriggerProps = $props();
+  let {asChild, children, ...props}: SplitterResizeTriggerProps = $props();
 
   let splitter = splitterContext.get();
-  let resizeTriggerProps: ResizeTriggerProps = $derived({
-    id,
-    step,
-    disabled,
-  });
+
+  let [resizeTriggerProps, otherProps] = $derived(
+    createSplitProps<ResizeTriggerProps>(['id', 'step', 'disabled'])(props),
+  );
+
+  let itemState = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
 
   let mergedProps = $derived(
-    mergeProps(props, splitter.getResizeTriggerProps(resizeTriggerProps)),
+    mergeProps(otherProps, splitter.getResizeTriggerProps(resizeTriggerProps)),
   );
-  let itemState = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
 </script>
 
 {#if asChild}

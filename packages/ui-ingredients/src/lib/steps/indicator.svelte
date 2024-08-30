@@ -13,6 +13,7 @@
   let {asChild, children, ...props}: StepsIndicatorProps = $props();
 
   let steps = stepsContext.get();
+
   let itemProps = stepsItemPropsContext.get();
 
   let mergedProps = $derived(

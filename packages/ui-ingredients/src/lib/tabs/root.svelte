@@ -14,40 +14,30 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {tabsContext} from './context.svelte.js';
   import {createTabs} from './create-tabs.svelte.js';
 
-  let {
-    id,
-    ids,
-    value,
-    loopFocus,
-    composite,
-    orientation,
-    translations,
-    activationMode,
-    onFocusChange,
-    onValueChange,
-    asChild,
-    children,
-    ...props
-  }: TabsProps = $props();
+  let {asChild, children, ...props}: TabsProps = $props();
 
-  let tabs = createTabs({
-    id,
-    ids,
-    value: $state.snapshot(value),
-    loopFocus,
-    composite,
-    orientation,
-    translations,
-    activationMode,
-    onFocusChange,
-    onValueChange,
-  });
+  let [tabsProps, otherProps] = $derived(
+    createSplitProps<CreateTabsProps>([
+      'id',
+      'ids',
+      'value',
+      'loopFocus',
+      'composite',
+      'orientation',
+      'translations',
+      'activationMode',
+      'onFocusChange',
+      'onValueChange',
+    ])(props),
+  );
 
-  let mergedProps = $derived(mergeProps(props, tabs.getRootProps()));
+  let tabs = createTabs(tabsProps);
+
+  let mergedProps = $derived(mergeProps(otherProps, tabs.getRootProps()));
 
   tabsContext.set(tabs);
 </script>

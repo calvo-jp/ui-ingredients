@@ -9,22 +9,19 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {tabsContext} from './context.svelte.js';
 
-  let {value, disabled, asChild, children, ...props}: TabsTriggerProps =
-    $props();
+  let {asChild, children, ...props}: TabsTriggerProps = $props();
 
   let tabs = tabsContext.get();
 
+  let [triggerProps, otherProps] = $derived(
+    createSplitProps<TriggerProps>(['value', 'disabled'])(props),
+  );
+
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      tabs.getTriggerProps({
-        value,
-        disabled,
-      }),
-    ),
+    mergeProps(otherProps, tabs.getTriggerProps(triggerProps)),
   );
 </script>
 

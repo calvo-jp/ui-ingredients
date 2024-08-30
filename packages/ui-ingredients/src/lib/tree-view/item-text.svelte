@@ -13,6 +13,7 @@
   let {asChild, children, ...props}: TreeViewItemTextProps = $props();
 
   let treeView = treeViewContext.get();
+
   let itemProps = treeViewItemPropsContext.get();
 
   let mergedProps = $derived(

@@ -9,14 +9,20 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {tabsContext} from './context.svelte.js';
 
-  let {value, asChild, children, ...props}: TabsContentProps = $props();
+  let {asChild, children, ...props}: TabsContentProps = $props();
 
   let tabs = tabsContext.get();
 
-  let mergedProps = $derived(mergeProps(props, tabs.getContentProps({value})));
+  let [contentProps, otherProps] = $derived(
+    createSplitProps<ContentProps>(['value'])(props),
+  );
+
+  let mergedProps = $derived(
+    mergeProps(otherProps, tabs.getContentProps(contentProps)),
+  );
 </script>
 
 {#if asChild}

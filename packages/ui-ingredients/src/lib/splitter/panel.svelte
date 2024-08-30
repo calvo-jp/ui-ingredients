@@ -9,22 +9,19 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
   import {splitterContext} from './context.svelte.js';
 
-  let {id, snapSize, asChild, children, ...props}: SplitterPanelProps =
-    $props();
+  let {asChild, children, ...props}: SplitterPanelProps = $props();
 
   let splitter = splitterContext.get();
 
+  let [panelProps, otherProps] = $derived(
+    createSplitProps<PanelProps>(['id', 'snapSize'])(props),
+  );
+
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      splitter.getPanelProps({
-        id,
-        snapSize,
-      }),
-    ),
+    mergeProps(otherProps, splitter.getPanelProps(panelProps)),
   );
 </script>
 
