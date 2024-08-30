@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {splitterContext} from './context.svelte.js';
   import {createSplitter} from './create-splitter.svelte.js';
@@ -32,7 +33,7 @@
     ])(props),
   );
 
-  let splitter = createSplitter(splitterProps);
+  let splitter = createSplitter(reflect(() => splitterProps));
 
   let mergedProps = $derived(mergeProps(otherProps, splitter.getRootProps()));
 

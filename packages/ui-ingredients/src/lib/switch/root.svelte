@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {switchContext} from './context.svelte.js';
   import {createSwitch} from './create-switch.svelte.js';
@@ -38,7 +39,7 @@
     ])(props),
   );
 
-  let switch$ = createSwitch(switchProps);
+  let switch$ = createSwitch(reflect(() => switchProps));
 
   let mergedProps = $derived(mergeProps(otherProps, switch$.getRootProps()));
 

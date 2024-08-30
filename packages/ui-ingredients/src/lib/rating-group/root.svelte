@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {ratingGroupContext} from './context.svelte.js';
   import {createRatingGroup} from './create-rating-group.svelte.js';
@@ -40,7 +41,7 @@
     ])(props),
   );
 
-  let ratingGroup = createRatingGroup(ratingGroupProps);
+  let ratingGroup = createRatingGroup(reflect(() => ratingGroupProps));
 
   let mergedProps = $derived(
     mergeProps(otherProps, ratingGroup.getRootProps()),

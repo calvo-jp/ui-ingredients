@@ -11,8 +11,7 @@
   import {parts} from './anatomy.js';
   import {pinInputContext} from './context.svelte.js';
 
-  let {asChild, children, onclick, ...props}: PinInputClearTriggerProps =
-    $props();
+  let {asChild, children, ...props}: PinInputClearTriggerProps = $props();
 
   let pinInput = pinInputContext.get();
 

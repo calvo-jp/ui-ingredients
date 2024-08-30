@@ -12,7 +12,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {datePickerContext} from './context.svelte.js';
 
-  let {index, asChild, children, ...props}: DatePickerInputProps = $props();
+  let {index, asChild, ...props}: DatePickerInputProps = $props();
 
   let datePicker = datePickerContext.get();
 

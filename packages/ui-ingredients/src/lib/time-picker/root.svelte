@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {timePickerContext} from './context.svelte.js';
   import {createTimePicker} from './create-time-picker.svelte.js';
@@ -45,7 +46,7 @@
     ])(props),
   );
 
-  let timePicker = createTimePicker(timePickerProps);
+  let timePicker = createTimePicker(reflect(() => timePickerProps));
 
   let mergedProps = $derived(mergeProps(otherProps, timePicker.getRootProps()));
 

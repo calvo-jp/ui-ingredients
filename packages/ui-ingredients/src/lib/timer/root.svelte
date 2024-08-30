@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {timerContext} from './context.svelte.js';
   import {createTimer} from './create-timer.svelte.js';
@@ -34,7 +35,7 @@
     ])(props),
   );
 
-  let timer = createTimer(timerProps);
+  let timer = createTimer(reflect(() => timerProps));
 
   let mergedProps = $derived(mergeProps(otherProps, timer.getRootProps()));
 

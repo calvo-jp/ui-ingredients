@@ -15,6 +15,7 @@
 
 <script lang="ts" generics="T">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {comboboxContext} from './context.svelte.js';
   import {createCombobox} from './create-combobox.svelte.js';
@@ -67,7 +68,7 @@
     ])(props),
   );
 
-  let combobox = createCombobox(comboboxProps);
+  let combobox = createCombobox(reflect(() => comboboxProps));
 
   let mergedProps = $derived(mergeProps(otherProps, combobox.getRootProps()));
 

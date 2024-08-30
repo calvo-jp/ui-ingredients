@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {radioGroupContext} from './context.svelte.js';
   import {createRadioGroup} from './create-radio-group.svelte.js';
@@ -35,7 +36,7 @@
     ])(props),
   );
 
-  let radioGroup = createRadioGroup(radioGroupProps);
+  let radioGroup = createRadioGroup(reflect(() => radioGroupProps));
 
   let mergedProps = $derived(mergeProps(otherProps, radioGroup.getRootProps()));
 

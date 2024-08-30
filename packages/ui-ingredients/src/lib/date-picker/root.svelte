@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {datePickerContext} from './context.svelte.js';
   import {createDatePicker} from './create-date-picker.svelte.js';
@@ -54,7 +55,7 @@
     ])(props),
   );
 
-  let datePicker = createDatePicker(datePickerProps);
+  let datePicker = createDatePicker(reflect(() => datePickerProps));
 
   let mergedProps = $derived(mergeProps(otherProps, datePicker.getRootProps()));
 

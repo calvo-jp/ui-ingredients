@@ -18,6 +18,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {parts} from './anatomy.js';
   import {segmentGroupContext} from './context.svelte.js';
@@ -39,7 +40,7 @@
     ])(props),
   );
 
-  let segmentGroup = createSegmentGroup(segmentGroupProps);
+  let segmentGroup = createSegmentGroup(reflect(() => segmentGroupProps));
 
   let mergedProps = $derived(
     mergeProps(otherProps, segmentGroup.getRootProps(), parts.root.attrs),

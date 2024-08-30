@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {paginationContext} from './context.svelte.js';
   import {createPagination} from './create-pagination.svelte.js';
@@ -36,7 +37,7 @@
     ])(props),
   );
 
-  let pagination = createPagination(paginationProps);
+  let pagination = createPagination(reflect(() => paginationProps));
 
   let mergedProps = $derived(mergeProps(otherProps, pagination.getRootProps()));
 

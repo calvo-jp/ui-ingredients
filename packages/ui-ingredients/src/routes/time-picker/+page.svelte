@@ -69,18 +69,3 @@
     </TimePicker.Positioner>
   {/snippet}
 </TimePicker.Root>
-
-<!-- svelte-ignore css_unused_selector -->
-<style>
-  :global([data-part='column']) {
-    height: 1rem;
-    font-size: 1rem !important;
-    line-height: 1rem;
-    overflow-y: auto;
-    padding: 0.25rem;
-  }
-
-  :global([data-part='column']::-webkit-scrollbar) {
-    display: none;
-  }
-</style>

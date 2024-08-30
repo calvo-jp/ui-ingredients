@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {pinInputContext} from './context.svelte.js';
   import {createPinInputContext} from './create-pin-input.svelte.js';
@@ -47,7 +48,7 @@
     ])(props),
   );
 
-  let pinInput = createPinInputContext(pinInputProps);
+  let pinInput = createPinInputContext(reflect(() => pinInputProps));
 
   let mergedProps = $derived(mergeProps(otherProps, pinInput.getRootProps()));
 

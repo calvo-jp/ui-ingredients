@@ -19,6 +19,8 @@
   import {checkboxContext} from './context.svelte.js';
   import {createCheckbox} from './create-checkbox.svelte.js';
 
+  import {reflect} from '@zag-js/svelte';
+
   let {asChild, children, ...props}: CheckboxProps = $props();
 
   let [checkboxProps, otherProps] = $derived(
@@ -37,7 +39,7 @@
     ])(props),
   );
 
-  let checkbox = createCheckbox(checkboxProps);
+  let checkbox = createCheckbox(reflect(() => checkboxProps));
 
   let mergedProps = $derived(mergeProps(otherProps, checkbox.getRootProps()));
 

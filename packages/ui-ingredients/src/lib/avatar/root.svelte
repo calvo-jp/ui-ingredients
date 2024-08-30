@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {avatarContext} from './context.svelte.js';
   import {createAvatar} from './create-avatar.svelte.js';
@@ -25,7 +26,7 @@
     createSplitProps<CreateAvatarProps>(['id', 'ids', 'onStatusChange'])(props),
   );
 
-  let avatar = createAvatar(avatarProps);
+  let avatar = createAvatar(reflect(() => avatarProps));
 
   let mergedProps = $derived(mergeProps(otherProps, avatar.getRootProps()));
 

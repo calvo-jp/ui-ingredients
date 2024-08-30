@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {carouselContext} from './context.svelte.js';
   import {createCarousel} from './create-carousel.svelte.js';
@@ -35,7 +36,7 @@
     ])(props),
   );
 
-  let carousel = createCarousel(carouselProps);
+  let carousel = createCarousel(reflect(() => carouselProps));
 
   let mergedProps = $derived(mergeProps(otherProps, carousel.getRootProps()));
 

@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {sliderContext} from './context.svelte.js';
   import {createSlider} from './create-slider.svelte.js';
@@ -48,7 +49,7 @@
     ])(props),
   );
 
-  let slider = createSlider(sliderProps);
+  let slider = createSlider(reflect(() => sliderProps));
 
   let mergedProps = $derived(mergeProps(otherProps, slider.getRootProps()));
 

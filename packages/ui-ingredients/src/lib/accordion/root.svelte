@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {accordionContext} from './context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
@@ -35,7 +36,8 @@
     ])(props),
   );
 
-  let accordion = createAccordion(accordionProps);
+  let accordion = createAccordion(reflect(() => accordionProps));
+
   let mergedProps = $derived(mergeProps(otherProps, accordion.getRootProps()));
 
   accordionContext.set(accordion);

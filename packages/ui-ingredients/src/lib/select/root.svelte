@@ -15,6 +15,7 @@
 
 <script lang="ts" generics="T">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {selectContext} from './context.svelte.js';
   import {createSelect} from './create-select.svelte.js';
@@ -54,7 +55,7 @@
     ])(props),
   );
 
-  let select = createSelect(selectProps);
+  let select = createSelect(reflect(() => selectProps));
 
   let mergedProps = $derived(mergeProps(otherProps, select.getRootProps()));
 

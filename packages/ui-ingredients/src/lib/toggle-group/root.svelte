@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {toggleGroupContext} from './context.svelte.js';
   import {createToggleGroup} from './create-toggle-group.svelte.js';
@@ -35,7 +36,7 @@
     ])(props),
   );
 
-  let toggleGroup = createToggleGroup(toggleGroupProps);
+  let toggleGroup = createToggleGroup(reflect(() => toggleGroupProps));
 
   let mergedProps = $derived(
     mergeProps(otherProps, toggleGroup.getRootProps()),

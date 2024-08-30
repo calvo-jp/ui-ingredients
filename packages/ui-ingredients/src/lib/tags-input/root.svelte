@@ -15,6 +15,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {tagsInputContext} from './context.svelte.js';
   import {createTagsInput} from './create-tags-input.svelte.js';
@@ -53,7 +54,7 @@
     ])(props),
   );
 
-  let tagsInput = createTagsInput(tagsInputProps);
+  let tagsInput = createTagsInput(reflect(() => tagsInputProps));
 
   let mergedProps = $derived(mergeProps(otherProps, tagsInput.getRootProps()));
 

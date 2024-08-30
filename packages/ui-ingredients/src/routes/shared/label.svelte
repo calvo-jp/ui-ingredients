@@ -9,6 +9,6 @@
   }: SvelteHTMLElements['label'] = $props();
 </script>
 
-<label class={cx('text-muted mb-1 block font-medium')} {...props}>
+<label class={cx('text-muted mb-1 block font-medium', className)} {...props}>
   {@render children?.()}
 </label>

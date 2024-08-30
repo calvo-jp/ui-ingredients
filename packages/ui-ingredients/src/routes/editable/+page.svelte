@@ -12,8 +12,8 @@
   }}
 >
   <Editable.Label>
-    {#snippet asChild(mergedProps)}
-      <Label>Framework</Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Framework</Label>
     {/snippet}
   </Editable.Label>
 
