@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {ItemGroupProps, ItemProps} from '@zag-js/select';
 import type {CreateSelectReturn} from './create-select.svelte.js';
 

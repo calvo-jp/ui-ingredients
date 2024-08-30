@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {ItemProps} from '@zag-js/radio-group';
 import type {CreateRadioGroupReturn} from './create-radio-group.svelte.js';
 

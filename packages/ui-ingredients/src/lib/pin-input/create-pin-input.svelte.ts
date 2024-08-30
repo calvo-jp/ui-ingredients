@@ -1,7 +1,7 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import type {HTMLProps} from '$lib/types.js';
-import {createUniqueId} from '$lib/utils.svelte.js';
 import * as pinInput from '@zag-js/pin-input';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 

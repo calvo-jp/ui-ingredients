@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {signaturePadContext} from './context.svelte.js';
 
   let {path, asChild, children, ...props}: SignaturePadSegmentPathProps =

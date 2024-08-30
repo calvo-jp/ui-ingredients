@@ -1,6 +1,6 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
-import {createUniqueId} from '$lib/utils.svelte.js';
 import * as pagination from '@zag-js/pagination';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 

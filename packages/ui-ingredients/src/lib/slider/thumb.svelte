@@ -9,7 +9,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps} from '$lib/create-split-props.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {sliderContext, sliderThumbPropsContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SliderThumbProps = $props();

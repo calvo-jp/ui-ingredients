@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {ItemProps} from '@zag-js/tags-input';
 import type {CreateTagsInputReturn} from './create-tags-input.svelte.js';
 

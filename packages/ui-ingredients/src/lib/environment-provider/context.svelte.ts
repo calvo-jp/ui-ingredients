@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 
 export interface Environment {
   getRootNode: () => ShadowRoot | Document | Node;

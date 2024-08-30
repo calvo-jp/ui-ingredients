@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {toastContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: ToastProps = $props();

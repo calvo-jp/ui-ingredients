@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {ItemGroupProps, OptionItemProps} from '@zag-js/menu';
 import type {CreateMenuReturn} from './create-menu.svelte.js';
 

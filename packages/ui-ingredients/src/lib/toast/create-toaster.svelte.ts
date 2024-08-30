@@ -1,6 +1,6 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/index.js';
 import {getLocaleContext} from '$lib/locale-provider/index.js';
-import {createUniqueId} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect} from '@zag-js/svelte';
 import * as toast from '@zag-js/toast';
 

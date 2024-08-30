@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {BranchProps, ItemProps} from '@zag-js/tree-view';
 import type {CreateTreeViewReturn} from './create-tree-view.svelte.js';
 

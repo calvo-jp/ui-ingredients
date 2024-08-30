@@ -7,7 +7,8 @@
 </script>
 
 <script lang="ts">
-  import {createUniqueId, mergeProps} from '$lib/utils.svelte.js';
+  import {createUniqueId} from '$lib/create-unique-id.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {
     comboboxContext,
     comboboxItemGroupPropsContext,

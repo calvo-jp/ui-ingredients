@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {paginationContext} from './context.svelte.js';
 
   let {value, asChild, children, ...props}: PaginationItemProps = $props();

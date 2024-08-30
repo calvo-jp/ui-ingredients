@@ -1,6 +1,6 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
-import {createUniqueId} from '$lib/utils.svelte.js';
 import * as slider from '@zag-js/slider';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 

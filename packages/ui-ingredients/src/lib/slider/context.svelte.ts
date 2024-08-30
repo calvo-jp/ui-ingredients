@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {ThumbProps} from '@zag-js/slider';
 import type {CreateSliderReturn} from './create-slider.svelte.js';
 

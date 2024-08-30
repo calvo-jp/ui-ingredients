@@ -11,8 +11,8 @@
 </script>
 
 <script lang="ts">
+  import {mergeProps} from '$lib/merge-props.js';
   import {Portal} from '$lib/portal/index.js';
-  import {mergeProps} from '$lib/utils.svelte.js';
   import {normalizeProps, useMachine} from '@zag-js/svelte';
   import * as toast from '@zag-js/toast';
   import ToastActor from './actor.svelte';

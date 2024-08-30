@@ -14,7 +14,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps} from '$lib/create-split-props.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {editableContext} from './context.svelte.js';
   import {createEditable} from './create-editable.svelte.js';
 

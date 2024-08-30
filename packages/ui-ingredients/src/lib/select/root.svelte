@@ -14,7 +14,8 @@
 </script>
 
 <script lang="ts" generics="T">
-  import {createSplitProps, mergeProps} from '$lib/utils.svelte.js';
+  import {createSplitProps} from '$lib/create-split-props.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {selectContext} from './context.svelte.js';
   import {createSelect} from './create-select.svelte.js';
 

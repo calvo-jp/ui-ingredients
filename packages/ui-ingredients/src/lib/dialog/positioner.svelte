@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {dialogContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: DialogPositionerProps = $props();

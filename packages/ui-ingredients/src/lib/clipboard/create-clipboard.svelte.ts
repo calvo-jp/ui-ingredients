@@ -1,5 +1,5 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
-import {createUniqueId} from '$lib/utils.svelte.js';
 import * as clipboard from '@zag-js/clipboard';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 

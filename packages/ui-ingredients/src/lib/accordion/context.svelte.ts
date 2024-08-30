@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {ItemProps} from '@zag-js/accordion';
 import type {CreateAccordionReturn} from './create-accordion.svelte.js';
 

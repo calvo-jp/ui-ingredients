@@ -1,5 +1,5 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
-import {createUniqueId} from '$lib/utils.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timer from '@zag-js/timer';
 

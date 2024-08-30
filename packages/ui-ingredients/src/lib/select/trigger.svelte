@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/utils.svelte.js';
+  import {mergeProps} from '$lib/merge-props.js';
   import {selectContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SelectTriggerProps = $props();

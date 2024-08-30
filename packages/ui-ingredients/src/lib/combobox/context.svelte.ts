@@ -1,4 +1,4 @@
-import {Context} from '$lib/utils.svelte.js';
+import {Context} from '$lib/context.svelte.js';
 import type {ItemGroupProps, ItemProps} from '@zag-js/combobox';
 import type {CreateComboboxReturn} from './create-combobox.svelte.js';
 
