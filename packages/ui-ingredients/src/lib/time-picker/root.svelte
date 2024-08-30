@@ -17,27 +17,29 @@
 
   let {asChild, children, ...props}: TimePickerProps = $props();
 
-  let [timePickerProps, otherProps] = createSplitProps<CreateTimePickerProps>([
-    'id',
-    'ids',
-    'min',
-    'max',
-    'name',
-    'open',
-    'steps',
-    'value',
-    'locale',
-    'readOnly',
-    'disabled',
-    'defaultOpen',
-    'placeholder',
-    'positioning',
-    'allowSeconds',
-    'disableLayer',
-    'onOpenChange',
-    'onValueChange',
-    'onFocusChange',
-  ])(props);
+  let [timePickerProps, otherProps] = $derived(
+    createSplitProps<CreateTimePickerProps>([
+      'id',
+      'ids',
+      'min',
+      'max',
+      'name',
+      'open',
+      'steps',
+      'value',
+      'locale',
+      'readOnly',
+      'disabled',
+      'defaultOpen',
+      'placeholder',
+      'positioning',
+      'allowSeconds',
+      'disableLayer',
+      'onOpenChange',
+      'onValueChange',
+      'onFocusChange',
+    ])(props),
+  );
 
   let timePicker = createTimePicker(timePickerProps);
 

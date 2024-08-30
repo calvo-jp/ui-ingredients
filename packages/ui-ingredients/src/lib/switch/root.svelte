@@ -17,20 +17,22 @@
 
   let {asChild, children, ...props}: SwitchProps = $props();
 
-  let [switchProps, otherProps] = createSplitProps<CreateSwitchProps>([
-    'id',
-    'ids',
-    'form',
-    'name',
-    'label',
-    'value',
-    'checked',
-    'invalid',
-    'disabled',
-    'readOnly',
-    'required',
-    'onCheckedChange',
-  ])(props);
+  let [switchProps, otherProps] = $derived(
+    createSplitProps<CreateSwitchProps>([
+      'id',
+      'ids',
+      'form',
+      'name',
+      'label',
+      'value',
+      'checked',
+      'invalid',
+      'disabled',
+      'readOnly',
+      'required',
+      'onCheckedChange',
+    ])(props),
+  );
 
   let switch$ = createSwitch(switchProps);
 

@@ -11,10 +11,9 @@
 
   let {children, ...props}: PresenceProps = $props();
 
-  let [presenceProps, otherProps] = createSplitProps<CreatePresenceProps>([
-    'present',
-    'keepMounted',
-  ])(props);
+  let [presenceProps, otherProps] = $derived(
+    createSplitProps<CreatePresenceProps>(['present', 'keepMounted'])(props),
+  );
 
   let presence = createPresence(presenceProps);
 

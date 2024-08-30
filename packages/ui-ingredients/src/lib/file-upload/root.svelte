@@ -17,26 +17,28 @@
 
   let {asChild, children, ...props}: FileUploadProps = $props();
 
-  let [fileUploadProps, otherProps] = createSplitProps<CreateFileUploadProps>([
-    'id',
-    'ids',
-    'name',
-    'accept',
-    'locale',
-    'capture',
-    'required',
-    'disabled',
-    'validate',
-    'allowDrop',
-    'directory',
-    'maxFiles',
-    'maxFileSize',
-    'minFileSize',
-    'onFileAccept',
-    'onFileChange',
-    'onFileReject',
-    'translations',
-  ])(props);
+  let [fileUploadProps, otherProps] = $derived(
+    createSplitProps<CreateFileUploadProps>([
+      'id',
+      'ids',
+      'name',
+      'accept',
+      'locale',
+      'capture',
+      'required',
+      'disabled',
+      'validate',
+      'allowDrop',
+      'directory',
+      'maxFiles',
+      'maxFileSize',
+      'minFileSize',
+      'onFileAccept',
+      'onFileChange',
+      'onFileReject',
+      'translations',
+    ])(props),
+  );
 
   let fileUpload = createFileUpload(fileUploadProps);
 

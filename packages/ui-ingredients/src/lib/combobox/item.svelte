@@ -17,7 +17,9 @@
 
   let combobox = comboboxContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['item', 'persistFocus'])(props);
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['item', 'persistFocus'])(props),
+  );
 
   let itemState = $derived(combobox.getItemState(itemProps));
   let mergedProps = $derived(mergeProps(otherProps, combobox.getItemProps(itemProps)));

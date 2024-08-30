@@ -17,10 +17,12 @@
 
   let select = selectContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['item', 'persistFocus'])(props);
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['item', 'persistFocus'])(props),
+  );
 
   let itemState = $derived(select.getItemState(itemProps));
-  let mergedProps = $derived(mergeProps(props, select.getItemProps(itemProps)));
+  let mergedProps = $derived(mergeProps(otherProps, select.getItemProps(itemProps)));
 
   selectItemPropsContext.set(() => itemProps);
 </script>

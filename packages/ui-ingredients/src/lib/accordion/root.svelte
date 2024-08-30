@@ -17,17 +17,19 @@
 
   let {asChild, children, ...props}: AccordionProps = $props();
 
-  let [accordionProps, otherProps] = createSplitProps<CreateAccordionProps>([
-    'id',
-    'ids',
-    'value',
-    'disabled',
-    'multiple',
-    'orientation',
-    'collapsible',
-    'onFocusChange',
-    'onValueChange',
-  ])(props);
+  let [accordionProps, otherProps] = $derived(
+    createSplitProps<CreateAccordionProps>([
+      'id',
+      'ids',
+      'value',
+      'disabled',
+      'multiple',
+      'orientation',
+      'collapsible',
+      'onFocusChange',
+      'onValueChange',
+    ])(props),
+  );
 
   let accordion = createAccordion(accordionProps);
   let mergedProps = mergeProps(otherProps, accordion.getRootProps());

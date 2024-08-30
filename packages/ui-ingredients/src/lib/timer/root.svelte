@@ -16,16 +16,18 @@
 
   let {asChild, children, ...props}: TimerProps = $props();
 
-  let [timerProps, otherProps] = createSplitProps<CreateTimerProps>([
-    'id',
-    'startMs',
-    'targetMs',
-    'interval',
-    'autoStart',
-    'countdown',
-    'onTick',
-    'onComplete',
-  ])(props);
+  let [timerProps, otherProps] = $derived(
+    createSplitProps<CreateTimerProps>([
+      'id',
+      'startMs',
+      'targetMs',
+      'interval',
+      'autoStart',
+      'countdown',
+      'onTick',
+      'onComplete',
+    ])(props),
+  );
 
   let timer = createTimer(timerProps);
 

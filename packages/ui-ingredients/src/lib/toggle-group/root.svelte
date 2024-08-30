@@ -20,17 +20,19 @@
 
   let {asChild, children, ...props}: ToggleGroupProps = $props();
 
-  let [toggleGroupProps, otherProps] = createSplitProps<CreateToggleGroupProps>([
-    'id',
-    'ids',
-    'value',
-    'disabled',
-    'multiple',
-    'loopFocus',
-    'rovingFocus',
-    'orientation',
-    'onValueChange',
-  ])(props);
+  let [toggleGroupProps, otherProps] = $derived(
+    createSplitProps<CreateToggleGroupProps>([
+      'id',
+      'ids',
+      'value',
+      'disabled',
+      'multiple',
+      'loopFocus',
+      'rovingFocus',
+      'orientation',
+      'onValueChange',
+    ])(props),
+  );
 
   let toggleGroup = createToggleGroup(toggleGroupProps);
 

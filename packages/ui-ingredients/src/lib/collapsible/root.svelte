@@ -20,15 +20,17 @@
 
   let {asChild, children, ...props}: CollapsibleProps = $props();
 
-  let [collapsibleProps, otherProps] = createSplitProps<CreateCollapsibleProps>([
-    'id',
-    'ids',
-    'open',
-    'disabled',
-    'defaultOpen',
-    'onOpenChange',
-    'onExitComplete',
-  ])(props);
+  let [collapsibleProps, otherProps] = $derived(
+    createSplitProps<CreateCollapsibleProps>([
+      'id',
+      'ids',
+      'open',
+      'disabled',
+      'defaultOpen',
+      'onOpenChange',
+      'onExitComplete',
+    ])(props),
+  );
 
   let collapsible = createCollapsible(collapsibleProps);
 

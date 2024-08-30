@@ -18,8 +18,8 @@
 
   let treeView = treeViewContext.get();
 
-  let [branchProps, otherProps] = createSplitProps<BranchProps>(['depth', 'value', 'disabled'])(
-    props,
+  let [branchProps, otherProps] = $derived(
+    createSplitProps<BranchProps>(['depth', 'value', 'disabled'])(props),
   );
 
   let itemState = $derived(treeView.getBranchState(branchProps));

@@ -17,7 +17,7 @@
 
   let carousel = carouselContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['index'])(props);
+  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['index'])(props));
 
   let itemState = $derived(carousel.getItemState(itemProps));
   let mergedProps = $derived(mergeProps(otherProps, carousel.getItemProps(itemProps)));

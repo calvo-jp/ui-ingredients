@@ -18,15 +18,17 @@
 
   let menu = menuContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<OptionItemProps>([
-    'type',
-    'value',
-    'checked',
-    'disabled',
-    'valueText',
-    'closeOnSelect',
-    'onCheckedChange',
-  ])(props);
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<OptionItemProps>([
+      'type',
+      'value',
+      'checked',
+      'disabled',
+      'valueText',
+      'closeOnSelect',
+      'onCheckedChange',
+    ])(props),
+  );
 
   let itemState = $derived(menu.getOptionItemState(itemProps));
 

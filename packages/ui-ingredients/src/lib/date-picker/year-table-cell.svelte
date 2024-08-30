@@ -18,11 +18,9 @@
 
   let datePicker = datePickerContext.get();
 
-  let [tableCellProps, otherProps] = createSplitProps<TableCellProps>([
-    'value',
-    'disabled',
-    'columns',
-  ])(props);
+  let [tableCellProps, otherProps] = $derived(
+    createSplitProps<TableCellProps>(['value', 'disabled', 'columns'])(props),
+  );
 
   let tableCellState = $derived(datePicker.getYearTableCellState(tableCellProps));
 

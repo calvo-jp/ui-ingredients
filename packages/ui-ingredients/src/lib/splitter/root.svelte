@@ -17,14 +17,16 @@
 
   let {asChild, children, ...props}: SplitterProps = $props();
 
-  let [splitterProps, otherProps] = createSplitProps<CreateSplitterProps>([
-    'id',
-    'ids',
-    'size',
-    'orientation',
-    'onSizeChange',
-    'onSizeChangeEnd',
-  ])(props);
+  let [splitterProps, otherProps] = $derived(
+    createSplitProps<CreateSplitterProps>([
+      'id',
+      'ids',
+      'size',
+      'orientation',
+      'onSizeChange',
+      'onSizeChangeEnd',
+    ])(props),
+  );
 
   let splitter = createSplitter(splitterProps);
 

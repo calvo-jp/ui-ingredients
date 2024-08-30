@@ -17,17 +17,19 @@
 
   let {asChild, children, ...props}: CarouselProps = $props();
 
-  let [carouselProps, otherProps] = createSplitProps<CreateCarouselProps>([
-    'id',
-    'ids',
-    'loop',
-    'align',
-    'index',
-    'spacing',
-    'orientation',
-    'slidesPerView',
-    'onIndexChange',
-  ])(props);
+  let [carouselProps, otherProps] = $derived(
+    createSplitProps<CreateCarouselProps>([
+      'id',
+      'ids',
+      'loop',
+      'align',
+      'index',
+      'spacing',
+      'orientation',
+      'slidesPerView',
+      'onIndexChange',
+    ])(props),
+  );
 
   let carousel = createCarousel(carouselProps);
 

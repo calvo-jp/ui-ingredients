@@ -18,7 +18,7 @@
 
   let toggleGroup = toggleGroupContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['value', 'disabled'])(props);
+  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['value', 'disabled'])(props));
 
   let itemState = $derived(toggleGroup.getItemState(itemProps));
 

@@ -20,33 +20,35 @@
 
   let {asChild, children, ...props}: NumberInputProps = $props();
 
-  let [numberInputProps, otherProps] = createSplitProps<CreateNumberInputProps>([
-    'id',
-    'ids',
-    'max',
-    'min',
-    'step',
-    'name',
-    'form',
-    'value',
-    'locale',
-    'pattern',
-    'invalid',
-    'disabled',
-    'readOnly',
-    'required',
-    'inputMode',
-    'spinOnPress',
-    'translations',
-    'formatOptions',
-    'allowOverflow',
-    'allowMouseWheel',
-    'clampValueOnBlur',
-    'focusInputOnChange',
-    'onFocusChange',
-    'onValueChange',
-    'onValueInvalid',
-  ])(props);
+  let [numberInputProps, otherProps] = $derived(
+    createSplitProps<CreateNumberInputProps>([
+      'id',
+      'ids',
+      'max',
+      'min',
+      'step',
+      'name',
+      'form',
+      'value',
+      'locale',
+      'pattern',
+      'invalid',
+      'disabled',
+      'readOnly',
+      'required',
+      'inputMode',
+      'spinOnPress',
+      'translations',
+      'formatOptions',
+      'allowOverflow',
+      'allowMouseWheel',
+      'clampValueOnBlur',
+      'focusInputOnChange',
+      'onFocusChange',
+      'onValueChange',
+      'onValueInvalid',
+    ])(props),
+  );
 
   let numberInput = createNumberInput(numberInputProps);
 

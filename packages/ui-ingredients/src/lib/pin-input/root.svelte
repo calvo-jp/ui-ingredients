@@ -17,29 +17,31 @@
 
   let {asChild, children, ...props}: PinInputProps = $props();
 
-  let [pinInputProps, otherProps] = createSplitProps<CreatePinInputProps>([
-    'id',
-    'ids',
-    'otp',
-    'form',
-    'mask',
-    'name',
-    'type',
-    'value',
-    'pattern',
-    'invalid',
-    'disabled',
-    'readOnly',
-    'required',
-    'autoFocus',
-    'placeholder',
-    'translations',
-    'selectOnFocus',
-    'blurOnComplete',
-    'onValueChange',
-    'onValueInvalid',
-    'onValueComplete',
-  ])(props);
+  let [pinInputProps, otherProps] = $derived(
+    createSplitProps<CreatePinInputProps>([
+      'id',
+      'ids',
+      'otp',
+      'form',
+      'mask',
+      'name',
+      'type',
+      'value',
+      'pattern',
+      'invalid',
+      'disabled',
+      'readOnly',
+      'required',
+      'autoFocus',
+      'placeholder',
+      'translations',
+      'selectOnFocus',
+      'blurOnComplete',
+      'onValueChange',
+      'onValueInvalid',
+      'onValueComplete',
+    ])(props),
+  );
 
   let pinInput = createPinInputContext(pinInputProps);
 

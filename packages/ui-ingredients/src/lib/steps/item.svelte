@@ -17,7 +17,7 @@
 
   let steps = stepsContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['index'])(props);
+  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['index'])(props));
 
   let itemState = $derived(steps.getItemState(itemProps));
 

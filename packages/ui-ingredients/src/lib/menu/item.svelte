@@ -17,12 +17,9 @@
 
   let menu = menuContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>([
-    'value',
-    'valueText',
-    'disabled',
-    'closeOnSelect',
-  ])(props);
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['value', 'valueText', 'disabled', 'closeOnSelect'])(props),
+  );
 
   let itemState = $derived(menu.getItemState(itemProps));
   let mergedProps = $derived(mergeProps(otherProps, menu.getItemProps(itemProps)));

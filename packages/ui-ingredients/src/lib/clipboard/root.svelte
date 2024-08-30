@@ -17,13 +17,11 @@
 
   let {asChild, children, ...props}: ClipboardProps = $props();
 
-  let [clipboardProps, otherProps] = createSplitProps<CreateClipboardProps>([
-    'id',
-    'ids',
-    'value',
-    'timeout',
-    'onStatusChange',
-  ])(props);
+  let [clipboardProps, otherProps] = $derived(
+    createSplitProps<CreateClipboardProps>(['id', 'ids', 'value', 'timeout', 'onStatusChange'])(
+      props,
+    ),
+  );
 
   let clipboard = createClipboard(clipboardProps);
 

@@ -17,11 +17,9 @@
 
   let {asChild, children, ...props}: AvatarProps = $props();
 
-  let [avatarProps, otherProps] = createSplitProps<CreateAvatarProps>([
-    'id',
-    'ids',
-    'onStatusChange',
-  ])(props);
+  let [avatarProps, otherProps] = $derived(
+    createSplitProps<CreateAvatarProps>(['id', 'ids', 'onStatusChange'])(props),
+  );
 
   let avatar = createAvatar(avatarProps);
 

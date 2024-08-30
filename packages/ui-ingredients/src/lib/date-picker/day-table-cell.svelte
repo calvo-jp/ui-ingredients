@@ -18,11 +18,9 @@
 
   let datePicker = datePickerContext.get();
 
-  let [tableCellProps, otherProps] = createSplitProps<DayTableCellProps>([
-    'value',
-    'disabled',
-    'visibleRange',
-  ])(props);
+  let [tableCellProps, otherProps] = $derived(
+    createSplitProps<DayTableCellProps>(['value', 'disabled', 'visibleRange'])(props),
+  );
 
   let tableCellState = $derived(datePicker.getDayTableCellState(tableCellProps));
 

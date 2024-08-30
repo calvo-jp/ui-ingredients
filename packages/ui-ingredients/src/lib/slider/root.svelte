@@ -17,30 +17,32 @@
 
   let {asChild, children, ...props}: SliderProps = $props();
 
-  let [sliderProps, otherProps] = createSplitProps<CreateSliderProps>([
-    'id',
-    'ids',
-    'max',
-    'min',
-    'step',
-    'form',
-    'name',
-    'value',
-    'origin',
-    'invalid',
-    'readOnly',
-    'disabled',
-    'orientation',
-    'thumbAlignment',
-    'thumbSize',
-    'minStepsBetweenThumbs',
-    'onFocusChange',
-    'onValueChange',
-    'onValueChangeEnd',
-    'getAriaValueText',
-    'aria-label',
-    'aria-labelledby',
-  ])(props);
+  let [sliderProps, otherProps] = $derived(
+    createSplitProps<CreateSliderProps>([
+      'id',
+      'ids',
+      'max',
+      'min',
+      'step',
+      'form',
+      'name',
+      'value',
+      'origin',
+      'invalid',
+      'readOnly',
+      'disabled',
+      'orientation',
+      'thumbAlignment',
+      'thumbSize',
+      'minStepsBetweenThumbs',
+      'onFocusChange',
+      'onValueChange',
+      'onValueChangeEnd',
+      'getAriaValueText',
+      'aria-label',
+      'aria-labelledby',
+    ])(props),
+  );
 
   let slider = createSlider(sliderProps);
 

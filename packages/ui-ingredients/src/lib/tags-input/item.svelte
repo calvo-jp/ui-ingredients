@@ -18,7 +18,9 @@
 
   let tagsInput = tagsInputContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['index', 'value', 'disabled'])(props);
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['index', 'value', 'disabled'])(props),
+  );
 
   let itemState = $derived(tagsInput.getItemState(itemProps));
 

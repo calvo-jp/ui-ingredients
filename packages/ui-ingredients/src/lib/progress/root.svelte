@@ -17,15 +17,17 @@
 
   let {asChild, children, ...props}: ProgressProps = $props();
 
-  let [progressProps, otherProps] = createSplitProps<CreateProgressProps>([
-    'id',
-    'ids',
-    'max',
-    'min',
-    'value',
-    'orientation',
-    'translations',
-  ])(props);
+  let [progressProps, otherProps] = $derived(
+    createSplitProps<CreateProgressProps>([
+      'id',
+      'ids',
+      'max',
+      'min',
+      'value',
+      'orientation',
+      'translations',
+    ])(props),
+  );
 
   let progress = createProgress(progressProps);
 

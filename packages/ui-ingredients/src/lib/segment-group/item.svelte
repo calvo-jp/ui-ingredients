@@ -19,8 +19,8 @@
 
   let segmentGroup = segmentGroupContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(
-    props,
+  let [itemProps, otherProps] = $derived(
+    createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(props),
   );
 
   let itemState = $derived(segmentGroup.getItemState(itemProps));

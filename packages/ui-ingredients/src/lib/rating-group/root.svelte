@@ -20,22 +20,24 @@
 
   let {asChild, children, ...props}: RatingGroupProps = $props();
 
-  let [ratingGroupProps, otherProps] = createSplitProps<CreateRatingGroupProps>([
-    'id',
-    'ids',
-    'form',
-    'name',
-    'count',
-    'value',
-    'disabled',
-    'readOnly',
-    'required',
-    'autoFocus',
-    'allowHalf',
-    'translations',
-    'onHoverChange',
-    'onValueChange',
-  ])(props);
+  let [ratingGroupProps, otherProps] = $derived(
+    createSplitProps<CreateRatingGroupProps>([
+      'id',
+      'ids',
+      'form',
+      'name',
+      'count',
+      'value',
+      'disabled',
+      'readOnly',
+      'required',
+      'autoFocus',
+      'allowHalf',
+      'translations',
+      'onHoverChange',
+      'onValueChange',
+    ])(props),
+  );
 
   let ratingGroup = createRatingGroup(ratingGroupProps);
 

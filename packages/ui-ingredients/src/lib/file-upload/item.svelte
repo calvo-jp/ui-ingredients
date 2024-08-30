@@ -15,7 +15,7 @@
 
   let fileUpload = fileUploadContext.get();
 
-  let [itemProps, otherProps] = createSplitProps<ItemProps>(['file'])(props);
+  let [itemProps, otherProps] = $derived(createSplitProps<ItemProps>(['file'])(props));
 
   let mergedProps = $derived(mergeProps(otherProps, fileUpload.getItemProps(itemProps)));
 

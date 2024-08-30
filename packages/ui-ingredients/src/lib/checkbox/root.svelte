@@ -17,19 +17,21 @@
 
   let {asChild, children, ...props}: CheckboxProps = $props();
 
-  let [checkboxProps, otherProps] = createSplitProps<CreateCheckboxProps>([
-    'id',
-    'ids',
-    'form',
-    'name',
-    'value',
-    'checked',
-    'invalid',
-    'disabled',
-    'readOnly',
-    'required',
-    'onCheckedChange',
-  ])(props);
+  let [checkboxProps, otherProps] = $derived(
+    createSplitProps<CreateCheckboxProps>([
+      'id',
+      'ids',
+      'form',
+      'name',
+      'value',
+      'checked',
+      'invalid',
+      'disabled',
+      'readOnly',
+      'required',
+      'onCheckedChange',
+    ])(props),
+  );
 
   let checkbox = createCheckbox(checkboxProps);
 

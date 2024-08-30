@@ -82,7 +82,7 @@
     <Combobox.Content
       class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
     >
-      {#each matches as item}
+      {#each matches as item (item.value)}
         <Combobox.Item
           {item}
           class="data-disabled:cursor-not-allowed data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"

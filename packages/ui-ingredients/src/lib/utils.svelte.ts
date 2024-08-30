@@ -13,29 +13,24 @@ function isObject<T extends GenericObject>(value: unknown): value is T {
 }
 
 export function mergeProps<T extends GenericObject>(...args: T[]): T {
-  const r = $derived.by(() => {
-    const o = originalMergeProps<GenericObject>(...args);
+  const r = originalMergeProps<GenericObject>(...args);
 
-    if (o.style && isObject(o.style)) {
-      let s = '';
+  if (r.style && isObject(r.style)) {
+    let s = '';
 
-      for (const k in o.style) {
-        s += `${k}:${o.style[k]};`;
-      }
-
-      o.style = s;
+    for (const k in r.style) {
+      s += `${k}:${r.style[k]};`;
     }
 
-    return o;
-  });
+    r.style = s;
+  }
 
   return r as T;
 }
 
 export function createSplitProps<T extends GenericObject>(k: (keyof T)[]) {
   return function <P extends T>(p: P): [T, Omit<P, keyof T>] {
-    const r = $derived(originalCreateSplitProps(k)(p));
-    return r;
+    return originalCreateSplitProps(k)(p);
   };
 }
 

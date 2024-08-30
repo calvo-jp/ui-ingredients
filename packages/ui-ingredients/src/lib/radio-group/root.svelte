@@ -17,17 +17,19 @@
 
   let {asChild, children, ...props}: RadioGroupProps = $props();
 
-  let [radioGroupProps, otherProps] = createSplitProps<CreateRadioGroupProps>([
-    'id',
-    'ids',
-    'form',
-    'name',
-    'value',
-    'disabled',
-    'readOnly',
-    'orientation',
-    'onValueChange',
-  ])(props);
+  let [radioGroupProps, otherProps] = $derived(
+    createSplitProps<CreateRadioGroupProps>([
+      'id',
+      'ids',
+      'form',
+      'name',
+      'value',
+      'disabled',
+      'readOnly',
+      'orientation',
+      'onValueChange',
+    ])(props),
+  );
 
   let radioGroup = createRadioGroup(radioGroupProps);
 

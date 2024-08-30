@@ -16,16 +16,18 @@
 
   let {asChild, children, ...props}: StepsProps = $props();
 
-  let [stepsProps, otherProps] = createSplitProps<CreateStepsProps>([
-    'id',
-    'ids',
-    'step',
-    'count',
-    'linear',
-    'orientation',
-    'onStepChange',
-    'onStepComplete',
-  ])(props);
+  let [stepsProps, otherProps] = $derived(
+    createSplitProps<CreateStepsProps>([
+      'id',
+      'ids',
+      'step',
+      'count',
+      'linear',
+      'orientation',
+      'onStepChange',
+      'onStepComplete',
+    ])(props),
+  );
 
   let steps = createSteps(stepsProps);
 

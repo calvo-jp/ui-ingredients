@@ -20,18 +20,20 @@
 
   let {asChild, children, ...props}: SignaturePadProps = $props();
 
-  let [signaturePadProps, otherProps] = createSplitProps<CreateSignaturePadProps>([
-    'id',
-    'ids',
-    'name',
-    'drawing',
-    'required',
-    'disabled',
-    'readOnly',
-    'translations',
-    'onDraw',
-    'onDrawEnd',
-  ])(props);
+  let [signaturePadProps, otherProps] = $derived(
+    createSplitProps<CreateSignaturePadProps>([
+      'id',
+      'ids',
+      'name',
+      'drawing',
+      'required',
+      'disabled',
+      'readOnly',
+      'translations',
+      'onDraw',
+      'onDrawEnd',
+    ])(props),
+  );
 
   let signaturePad = createSignaturePad(signaturePadProps);
 

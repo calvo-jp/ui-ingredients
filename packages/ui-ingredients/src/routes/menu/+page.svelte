@@ -4,12 +4,11 @@
   import {Button} from '../shared/index.js';
 
   let items = [
-    /**/
-    'React',
-    'Svelte',
-    'Solid',
-    'Vue',
-    'Angular',
+    {value: 'React'},
+    {value: 'Svelte'},
+    {value: 'Solid'},
+    {value: 'Vue'},
+    {value: 'Angular', disabled: true},
   ];
 
   let selected: string[] = $state([]);
@@ -34,13 +33,13 @@
       <Menu.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
       >
-        {#each items as item}
+        {#each items as item (item.value)}
           <Menu.Item
             class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 flex w-32 cursor-default items-center rounded px-2.5 py-1"
-            value={item}
-            disabled={item === 'Angular'}
+            value={item.value}
+            disabled={item.disabled}
           >
-            {item}
+            {item.value}
           </Menu.Item>
         {/each}
       </Menu.Content>
@@ -63,16 +62,19 @@
       <Menu.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
       >
-        {#each items as item}
+        {#each items as item (item.value)}
           <Menu.OptionItem
             class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 group flex w-32 cursor-default items-center gap-2 rounded px-2.5 py-1"
             type="checkbox"
-            value={item}
-            valueText={item}
+            value={item.value}
+            valueText={item.value}
+            disabled={item.disabled}
             closeOnSelect={false}
-            checked={selected.includes(item)}
+            checked={selected.includes(item.value)}
             onCheckedChange={(checked) => {
-              selected = checked ? [...selected, item] : selected.filter((i) => i !== item);
+              selected = checked
+                ? [...selected, item.value]
+                : [...selected].filter((value) => value !== item.value);
             }}
           >
             <div

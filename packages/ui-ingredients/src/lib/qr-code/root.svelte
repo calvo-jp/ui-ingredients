@@ -17,12 +17,9 @@
 
   let {asChild, children, ...props}: QRCodeProps = $props();
 
-  let [qrCodeProps, otherProps] = createSplitProps<CreateQRCodeProps>([
-    'id',
-    'ids',
-    'value',
-    'encoding',
-  ])(props);
+  let [qrCodeProps, otherProps] = $derived(
+    createSplitProps<CreateQRCodeProps>(['id', 'ids', 'value', 'encoding'])(props),
+  );
 
   let qrCode = createQRCode(qrCodeProps);
 

@@ -15,7 +15,9 @@
 
   let carousel = carouselContext.get();
 
-  let [indicatorProps, otherProps] = createSplitProps<IndicatorProps>(['index', 'readOnly'])(props);
+  let [indicatorProps, otherProps] = $derived(
+    createSplitProps<IndicatorProps>(['index', 'readOnly'])(props),
+  );
 
   let mergedProps = $derived(mergeProps(otherProps, carousel.getIndicatorProps(indicatorProps)));
 </script>

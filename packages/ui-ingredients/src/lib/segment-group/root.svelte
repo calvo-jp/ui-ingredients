@@ -21,17 +21,19 @@
 
   let {asChild, children, ...props}: SegmentGroupProps = $props();
 
-  let [segmentGroupProps, otherProps] = createSplitProps<CreateSegmentGroupProps>([
-    'id',
-    'ids',
-    'form',
-    'name',
-    'value',
-    'disabled',
-    'readOnly',
-    'orientation',
-    'onValueChange',
-  ])(props);
+  let [segmentGroupProps, otherProps] = $derived(
+    createSplitProps<CreateSegmentGroupProps>([
+      'id',
+      'ids',
+      'form',
+      'name',
+      'value',
+      'disabled',
+      'readOnly',
+      'orientation',
+      'onValueChange',
+    ])(props),
+  );
 
   let segmentGroup = createSegmentGroup(segmentGroupProps);
 

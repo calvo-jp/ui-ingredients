@@ -17,18 +17,20 @@
 
   let {asChild, children, ...props}: PaginationProps = $props();
 
-  let [paginationProps, otherProps] = createSplitProps<CreatePaginationProps>([
-    'id',
-    'ids',
-    'type',
-    'page',
-    'pageSize',
-    'count',
-    'siblingCount',
-    'translations',
-    'onPageChange',
-    'onPageSizeChange',
-  ])(props);
+  let [paginationProps, otherProps] = $derived(
+    createSplitProps<CreatePaginationProps>([
+      'id',
+      'ids',
+      'type',
+      'page',
+      'pageSize',
+      'count',
+      'siblingCount',
+      'translations',
+      'onPageChange',
+      'onPageSizeChange',
+    ])(props),
+  );
 
   let pagination = createPagination(paginationProps);
 
