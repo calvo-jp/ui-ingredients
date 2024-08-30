@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Accordion} from '$lib/index.js';
+  import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
 
   let items = [
     {
@@ -43,19 +44,7 @@
         <Accordion.ItemIndicator
           class="data-open:rotate-180 transition-all duration-200"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M6 9L12 15L18 9"></path>
-          </svg>
+          <ChevronDownIcon />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
       <Accordion.ItemContent class="text-muted">

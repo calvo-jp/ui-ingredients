@@ -6,7 +6,7 @@
   export interface RatingGroupItemProps
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
     asChild?: AsChild<ItemState>;
-    children: Snippet<[ItemState]>;
+    children?: Snippet<[ItemState]>;
   }
 </script>
 

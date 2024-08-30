@@ -17,6 +17,12 @@
       <HoverCard.Content
         class="bg-light w-[90vw] rounded border p-4 lg:max-w-[24rem]"
       >
+        <HoverCard.Arrow
+          class="data-closed:hidden [--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"
+        >
+          <HoverCard.ArrowTip />
+        </HoverCard.Arrow>
+
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed omnis natus
         neque, tenetur praesentium laboriosam esse eius at maxime quam magni
         rerum animi ducimus debitis?

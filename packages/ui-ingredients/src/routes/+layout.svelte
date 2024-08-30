@@ -10,6 +10,7 @@
     Toast,
     Toaster,
   } from '$lib/index.js';
+  import {ChevronLeftIcon, Menu05Icon} from '@untitled-theme/icons-svelte';
   import {cx, useToaster} from './shared/index.js';
 
   let {children} = $props();
@@ -198,12 +199,12 @@
           'overflow-y-auto',
         )}
       >
-        <ul>
+        <ul class="space-y-0.5">
           {#each items as item}
             <li class="block w-full">
               <a
                 href={item.path}
-                class="aria-page:text-accent aria-page:font-medium group flex items-center transition-colors duration-200"
+                class="aria-page:text-accent aria-page:font-semibold group flex items-center font-medium text-neutral-400/90 transition-colors duration-200"
                 aria-current={item.path === currentItem?.path
                   ? 'page'
                   : undefined}
@@ -223,19 +224,7 @@
             <Dialog.Trigger
               class="flex size-10 items-center justify-center rounded border"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 8.5H21M3 15.5H21"></path>
-              </svg>
+              <Menu05Icon />
             </Dialog.Trigger>
             <span class="font-mono text-lg font-semibold">
               {currentItem?.label}
@@ -254,31 +243,19 @@
                   <Dialog.CloseTrigger
                     class="flex size-10 items-center justify-center rounded border"
                   >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M15 18L9 12L15 6"></path>
-                    </svg>
+                    <ChevronLeftIcon />
                   </Dialog.CloseTrigger>
                 </div>
 
                 <nav
                   class="h-[calc(100vh-theme(spacing.16))] overflow-y-auto p-4"
                 >
-                  <ul>
+                  <ul class="space-y-0.5">
                     {#each items as item}
                       <li class="block w-full">
                         <a
                           href={item.path}
-                          class="aria-page:text-accent aria-page:font-medium group flex items-center transition-colors duration-200"
+                          class="aria-page:text-accent aria-page:font-bold group flex items-center font-medium text-neutral-400/90 transition-colors duration-200"
                           aria-current={item.path === currentItem?.path
                             ? 'page'
                             : undefined}
