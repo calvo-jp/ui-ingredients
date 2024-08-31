@@ -24,7 +24,7 @@
     {#if children}
       {@render children()}
     {:else}
-      {datePicker.visibleRangeText.formatted}
+      {datePicker.visibleRangeText.start}
     {/if}
   </span>
 {/if}

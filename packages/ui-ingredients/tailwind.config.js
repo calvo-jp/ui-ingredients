@@ -57,6 +57,10 @@ export default {
         selected: 'selected',
         complete: 'complete',
         highlighted: 'highlighted',
+        today: 'today',
+        'in-range': 'in-range',
+        'range-start': 'range-start',
+        'range-end': 'range-end',
       },
       aria: {
         page: 'current="page"',

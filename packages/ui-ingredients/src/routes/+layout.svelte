@@ -171,6 +171,10 @@
       label: 'Splitter',
       path: '/splitter',
     },
+    {
+      label: 'Range Date Picker',
+      path: '/date-picker/range',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(
