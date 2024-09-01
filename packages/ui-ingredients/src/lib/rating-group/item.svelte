@@ -28,6 +28,6 @@
   {@render asChild(mergedProps, itemState)}
 {:else}
   <div {...mergedProps}>
-    {@render children(itemState)}
+    {@render children?.(itemState)}
   </div>
 {/if}
