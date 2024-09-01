@@ -56,7 +56,7 @@ npm install ui-ingredients
 - [Popover](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/popover.md)
 - [Portal](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/portal.md)
 - [Progress](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/progress.md)
-- [QRCode](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/qr-code.md)
+- [QrCode](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/qr-code.md)
 - [RadioGroup](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/radio-group.md)
 - [RatingGroup](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/rating-group.md)
 - [Select](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/select.md)
