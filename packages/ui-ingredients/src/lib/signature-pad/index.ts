@@ -9,3 +9,5 @@ export type {SignaturePadLabelProps} from './label.svelte';
 export type {SignaturePadProps} from './root.svelte';
 export type {SignaturePadSegmentPathProps} from './segment-path.svelte';
 export type {SignaturePadSegmentProps} from './segment.svelte';
+
+export {anatomy as signaturePadAnatomy} from '@zag-js/signature-pad';

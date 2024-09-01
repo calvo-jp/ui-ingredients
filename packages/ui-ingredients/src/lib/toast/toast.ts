@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/toast';
 export {default as ActionTrigger} from './action-trigger.svelte';
 export {default as CloseTrigger} from './close-trigger.svelte';
 export {default as Description} from './description.svelte';

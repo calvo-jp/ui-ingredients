@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/clipboard';
 export {default as Control} from './control.svelte';
 export {default as Indicator} from './indicator.svelte';
 export {default as Input} from './input.svelte';

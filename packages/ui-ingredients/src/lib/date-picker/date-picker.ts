@@ -1,5 +1,4 @@
 export {parse} from '@zag-js/date-picker';
-export {anatomy} from './anatomy.js';
 export {default as ClearTrigger} from './clear-trigger.svelte';
 export {default as Content} from './content.svelte';
 export {default as Control} from './control.svelte';

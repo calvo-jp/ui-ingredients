@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/signature-pad';
 export {default as ClearTrigger} from './clear-trigger.svelte';
 export {default as Control} from './control.svelte';
 export {default as CurrentSegmentPath} from './current-segment-path.svelte';

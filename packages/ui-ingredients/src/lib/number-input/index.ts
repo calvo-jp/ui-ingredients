@@ -7,3 +7,5 @@ export type {NumberInputInputProps} from './input.svelte';
 export type {NumberInputLabelProps} from './label.svelte';
 export type {NumberInputProps} from './root.svelte';
 export type {NumberInputScrubberProps} from './scrubber.svelte';
+
+export {anatomy as numberInputAnatomy} from '@zag-js/number-input';

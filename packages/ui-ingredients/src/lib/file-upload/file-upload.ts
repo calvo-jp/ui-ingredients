@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/file-upload';
 export {default as Dropzone} from './dropzone.svelte';
 export {default as HiddenInput} from './hidden-input.svelte';
 export {default as ItemDeleteTrigger} from './item-delete-trigger.svelte';

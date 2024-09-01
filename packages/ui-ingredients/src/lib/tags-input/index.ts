@@ -11,3 +11,5 @@ export type {TagsInputItemTextProps} from './item-text.svelte';
 export type {TagsInputItemProps} from './item.svelte';
 export type {TagsInputLabelProps} from './label.svelte';
 export type {TagsInputProps} from './root.svelte';
+
+export {anatomy as tagsInputAnatomy} from '@zag-js/tags-input';

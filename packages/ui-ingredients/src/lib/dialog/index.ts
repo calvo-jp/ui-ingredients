@@ -8,3 +8,5 @@ export type {DialogPositionerProps} from './positioner.svelte';
 export type {DialogProps} from './root.svelte';
 export type {DialogTitleProps} from './title.svelte';
 export type {DialogTriggerProps} from './trigger.svelte';
+
+export {anatomy as dialogAnatomy} from '@zag-js/dialog';

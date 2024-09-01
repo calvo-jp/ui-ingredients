@@ -8,3 +8,5 @@ export type {CarouselNextTriggerProps} from './next-trigger.svelte';
 export type {CarouselPrevTriggerProps} from './prev-trigger.svelte';
 export type {CarouselProps} from './root.svelte';
 export type {CarouselViewportProps} from './viewport.svelte';
+
+export {anatomy as carouselAnatomy} from '@zag-js/carousel';

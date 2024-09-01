@@ -5,3 +5,5 @@ export type {CheckboxHiddenInputProps} from './hidden-input.svelte';
 export type {CheckboxIndicatorProps} from './indicator.svelte';
 export type {CheckboxLabelProps} from './label.svelte';
 export type {CheckboxProps} from './root.svelte';
+
+export {anatomy as checkboxAnatomy} from '@zag-js/checkbox';

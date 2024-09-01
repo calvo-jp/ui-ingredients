@@ -14,3 +14,5 @@ export type {ComboboxListProps} from './list.svelte';
 export type {ComboboxPositionerProps} from './positioner.svelte';
 export type {ComboboxProps} from './root.svelte';
 export type {ComboboxTriggerProps} from './trigger.svelte';
+
+export {anatomy as comboboxAnatomy} from '@zag-js/combobox';

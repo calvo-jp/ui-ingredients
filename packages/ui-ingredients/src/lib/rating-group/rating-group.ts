@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/rating-group';
 export {default as Control} from './control.svelte';
 export {default as HiddenInput} from './hidden-input.svelte';
 export {default as Item} from './item.svelte';

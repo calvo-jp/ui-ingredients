@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/dialog';
 export {default as Backdrop} from './backdrop.svelte';
 export {default as CloseTrigger} from './close-trigger.svelte';
 export {default as Content} from './content.svelte';

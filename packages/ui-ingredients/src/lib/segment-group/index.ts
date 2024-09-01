@@ -7,3 +7,5 @@ export type {SegmentGroupItemTextProps} from './item-text.svelte';
 export type {SegmentGroupItemProps} from './item.svelte';
 export type {SegmentGroupLabelProps} from './label.svelte';
 export type {SegmentGroupProps} from './root.svelte';
+
+export {anatomy as segmentGroupAnatomy} from './anatomy.js';

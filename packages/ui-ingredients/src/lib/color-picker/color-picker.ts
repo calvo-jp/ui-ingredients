@@ -1,4 +1,4 @@
-export {anatomy, parse} from '@zag-js/color-picker';
+export {parse} from '@zag-js/color-picker';
 export {default as AreaBackground} from './area-background.svelte';
 export {default as AreaThumb} from './area-thumb.svelte';
 export {default as Area} from './area.svelte';

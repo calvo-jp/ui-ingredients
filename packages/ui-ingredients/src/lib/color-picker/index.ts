@@ -25,3 +25,5 @@ export type {ColorPickerSwatchProps} from './swatch.svelte';
 export type {ColorPickerTransparencyGridProps} from './transparency-grid.svelte';
 export type {ColorPickerTriggerProps} from './trigger.svelte';
 export type {ColorPickerValueTextProps} from './value-text.svelte';
+
+export {anatomy as colorPickerAnatomy} from '@zag-js/color-picker';

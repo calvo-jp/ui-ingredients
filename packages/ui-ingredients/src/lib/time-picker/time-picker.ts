@@ -1,4 +1,4 @@
-export {anatomy, parse} from '@zag-js/time-picker';
+export {parse} from '@zag-js/time-picker';
 export {default as ClearTrigger} from './clear-trigger.svelte';
 export {default as Column} from './column.svelte';
 export {default as Content} from './content.svelte';

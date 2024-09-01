@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/editable';
 export {default as Area} from './area.svelte';
 export {default as CancelTrigger} from './cancel-trigger.svelte';
 export {default as Control} from './control.svelte';

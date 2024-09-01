@@ -1,4 +1,3 @@
-export {anatomy} from '@zag-js/progress';
 export {default as CircleRange} from './circle-range.svelte';
 export {default as CircleTrack} from './circle-track.svelte';
 export {default as Circle} from './circle.svelte';

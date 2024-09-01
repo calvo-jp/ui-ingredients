@@ -16,3 +16,5 @@ export type {SelectPositionerProps} from './positioner.svelte';
 export type {SelectProps} from './root.svelte';
 export type {SelectTriggerProps} from './trigger.svelte';
 export type {SelectValueTextProps} from './value-text.svelte';
+
+export {anatomy as selectAnatomy} from '@zag-js/select';
