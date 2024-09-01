@@ -1,4 +1,5 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getFieldContext} from '$lib/field/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as editable from '@zag-js/editable';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
@@ -18,11 +19,20 @@ export interface CreateEditableReturn extends editable.Api {}
 export function createEditable(
   props: CreateEditableProps,
 ): CreateEditableReturn {
+  const field = getFieldContext();
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     editable.machine({
+      ids: {
+        label: field?.ids.label,
+        input: field?.ids.control,
+      },
+      invalid: field?.invalid,
+      disabled: field?.disabled,
+      readOnly: field?.readOnly,
+      required: field?.required,
       ...props,
       id: props.id ?? uid(),
       dir: locale?.dir,

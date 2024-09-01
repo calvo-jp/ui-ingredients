@@ -1,4 +1,5 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getFieldContext} from '$lib/field/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as select from '@zag-js/select';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
@@ -32,11 +33,20 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
     }),
   );
 
+  const field = getFieldContext();
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     select.machine({
+      ids: {
+        label: field?.ids.label,
+        hiddenSelect: field?.ids.control,
+      },
+      invalid: field?.invalid,
+      disabled: field?.disabled,
+      readOnly: field?.readOnly,
+      required: field?.required,
       ...props,
       id: props.id ?? uid(),
       dir: locale?.dir,

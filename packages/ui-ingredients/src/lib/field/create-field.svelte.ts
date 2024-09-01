@@ -1,5 +1,6 @@
+import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import type {HTMLProps} from '$lib/types.js';
-import {ariaAttr, dataAttr} from '@zag-js/dom-query';
+import {ariaAttr, dataAttr, getDocument, getWindow} from '@zag-js/dom-query';
 import {uid} from 'uid';
 import {parts} from './anatomy.js';
 
@@ -23,6 +24,8 @@ export interface CreateFieldProps {
 export interface CreateFieldReturn extends ReturnType<typeof createField> {}
 
 export function createField(props: CreateFieldProps) {
+  const environment = getEnvironmentContext();
+
   const id_ = uid();
 
   const {
@@ -31,7 +34,7 @@ export function createField(props: CreateFieldProps) {
     invalid,
     disabled,
     required,
-    readonly,
+    readOnly,
   } = $derived.by(() => {
     const id = props.id ?? id_;
 
@@ -48,7 +51,7 @@ export function createField(props: CreateFieldProps) {
       invalid: props.invalid ?? false,
       required: props.required ?? false,
       disabled: props.disabled ?? false,
-      readonly: props.readOnly ?? false,
+      readOnly: props.readOnly ?? false,
     };
   });
 
@@ -70,15 +73,22 @@ export function createField(props: CreateFieldProps) {
   });
 
   $effect(() => {
-    if (invalid && document.getElementById(ids.errorText)) {
-      hasErrorText = true;
-    }
-  });
+    const rootNode = environment?.getRootNode() ?? document;
 
-  $effect(() => {
-    if (document.getElementById(ids.helperText)) {
-      hasHelperText = true;
+    const doc = getDocument(rootNode);
+    const win = getWindow(rootNode);
+
+    function handler() {
+      hasErrorText = invalid && doc.getElementById(ids.errorText) !== null;
+      hasHelperText = doc.getElementById(ids.helperText) !== null;
     }
+
+    handler();
+
+    const observer = new win.MutationObserver(handler);
+    observer.observe(rootNode, {childList: true, subtree: true});
+
+    return () => observer.disconnect();
   });
 
   function getRootProps(): HTMLProps<'div'> {
@@ -89,7 +99,7 @@ export function createField(props: CreateFieldProps) {
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readonly),
+      'data-readonly': dataAttr(readOnly),
     };
   }
 
@@ -101,7 +111,7 @@ export function createField(props: CreateFieldProps) {
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readonly),
+      'data-readonly': dataAttr(readOnly),
     };
   }
 
@@ -113,7 +123,7 @@ export function createField(props: CreateFieldProps) {
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readonly),
+      'data-readonly': dataAttr(readOnly),
     };
   }
 
@@ -123,7 +133,7 @@ export function createField(props: CreateFieldProps) {
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readonly),
+      'data-readonly': dataAttr(readOnly),
     };
   }
 
@@ -133,13 +143,13 @@ export function createField(props: CreateFieldProps) {
       id: ids.control,
       disabled,
       required,
-      readonly,
+      readonly: readOnly,
       'aria-invalid': ariaAttr(invalid),
       'aria-describedby': ariaDescribedby,
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readonly),
+      'data-readonly': dataAttr(readOnly),
     };
   }
 
@@ -150,12 +160,12 @@ export function createField(props: CreateFieldProps) {
       disabled,
       required,
       'aria-invalid': ariaAttr(invalid),
-      'aria-readonly': ariaAttr(readonly),
+      'aria-readonly': ariaAttr(readOnly),
       'aria-describedby': ariaDescribedby,
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readonly),
+      'data-readonly': dataAttr(readOnly),
     };
   }
 
@@ -165,16 +175,31 @@ export function createField(props: CreateFieldProps) {
       id: ids.control,
       disabled,
       required,
-      readonly,
+      readonly: readOnly,
       'aria-describedby': ariaDescribedby,
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readonly),
+      'data-readonly': dataAttr(readOnly),
     };
   }
 
   return {
+    get ids() {
+      return ids;
+    },
+    get disabled() {
+      return disabled;
+    },
+    get required() {
+      return required;
+    },
+    get readOnly() {
+      return readOnly;
+    },
+    get invalid() {
+      return invalid;
+    },
     getRootProps,
     getLabelProps,
     getErrorTextProps,

@@ -1,4 +1,5 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getFieldContext} from '$lib/field/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import type {HTMLProps} from '$lib/types.js';
 import * as pinInput from '@zag-js/pin-input';
@@ -17,11 +18,20 @@ export interface CreatePinInputReturn extends pinInput.Api {
 export function createPinInputContext(
   props: CreatePinInputProps,
 ): CreatePinInputReturn {
+  const field = getFieldContext();
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     pinInput.machine({
+      ids: {
+        label: field?.ids.label,
+        hiddenInput: field?.ids.control,
+      },
+      invalid: field?.invalid,
+      required: field?.required,
+      disabled: field?.disabled,
+      readOnly: field?.readOnly,
       ...props,
       id: props.id ?? uid(),
       dir: locale?.dir,

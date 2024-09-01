@@ -1,4 +1,5 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getFieldContext} from '$lib/field/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import * as ratingGroup from '@zag-js/rating-group';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
@@ -14,11 +15,19 @@ export interface CreateRatingGroupReturn extends ratingGroup.Api {}
 export function createRatingGroup(
   props: CreateRatingGroupProps,
 ): CreateRatingGroupReturn {
+  const field = getFieldContext();
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
   const [state, send] = useMachine(
     ratingGroup.machine({
+      ids: {
+        label: field?.ids.label,
+        hiddenInput: field?.ids.control,
+      },
+      required: field?.required,
+      disabled: field?.disabled,
+      readOnly: field?.readOnly,
       ...props,
       id: props.id ?? uid(),
       dir: locale?.dir,
