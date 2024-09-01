@@ -46,7 +46,7 @@ npm install ui-ingredients
 - 🟢 DatePicker
 - 🟢 Dialog
 - 🟢 Editable
-- 🟡 Field
+- 🟢 Field
 - 🟢 FileUpload
 - ⚪ FloatingPanel
 - 🟢 HoverCard
