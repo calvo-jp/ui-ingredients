@@ -6,7 +6,7 @@
 
 ```ts
 // lib/use-toaster.svelte.ts
-import {createToaster, type CreateToasterReturn} from '$lib/index.js';
+import {createToaster, type CreateToasterReturn} from 'ui-ingredients';
 
 let toaster: CreateToasterReturn;
 
