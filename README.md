@@ -75,4 +75,11 @@ npm install ui-ingredients
 - [Tooltip](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tooltip.md)
 - [TreeView](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tree-view.md)
 
+## Credits
+
+- [zag](https://zagjs.com/) - The fantastic library that powers UI ingredients
+- [ark](https://ark-ui.com/) - The outstanding headless component library that greatly inspired this one
+
+## Demo
+
 View components demo [here](https://ui-ingredients.vercel.app/)
