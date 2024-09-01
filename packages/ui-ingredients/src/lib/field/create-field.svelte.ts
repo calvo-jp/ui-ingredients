@@ -200,6 +200,9 @@ export function createField(props: CreateFieldProps) {
     get invalid() {
       return invalid;
     },
+    get 'aria-describedby'() {
+      return ariaDescribedby;
+    },
     getRootProps,
     getLabelProps,
     getErrorTextProps,

@@ -5,11 +5,13 @@
 </script>
 
 <script lang="ts">
+  import {getFieldContext} from '$lib/field/context.svelte.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {tagsInputContext} from './context.svelte.js';
 
   let {...props}: TagsInputHiddenInputProps = $props();
 
+  let field = getFieldContext();
   let tagsInput = tagsInputContext.get();
 
   let mergedProps = $derived(
@@ -17,4 +19,4 @@
   );
 </script>
 
-<input {...mergedProps} />
+<input aria-describedby={field?.['aria-describedby']} {...mergedProps} />
