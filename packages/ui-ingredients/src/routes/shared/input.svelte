@@ -7,7 +7,18 @@
 
 <input
   class={cx(
-    'block h-12 w-full rounded border bg-transparent px-4 placeholder:text-neutral-600',
+    'block',
+    'h-12',
+    'w-full',
+    'rounded',
+    'border',
+    'bg-transparent',
+    'px-4',
+    'placeholder:text-neutral-600',
+    'data-invalid:border-danger',
+    'data-invalid:focus:outline',
+    'data-invalid:focus:outline-1',
+    'data-invalid:focus:outline-danger',
     className,
   )}
   {...props}

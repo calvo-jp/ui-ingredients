@@ -16,6 +16,7 @@ export default {
         muted: colors.neutral[500],
         accent: colors.indigo[500],
         success: colors.green[500],
+        danger: colors.red[500],
         disabled: colors.neutral[600],
       },
       borderColor: {
@@ -24,6 +25,7 @@ export default {
         lighter: colors.neutral[600],
         accent: colors.indigo[500],
         success: colors.green[500],
+        danger: colors.red[500],
       },
       backgroundColor: {
         DEFAULT: colors.neutral[900],
@@ -31,6 +33,7 @@ export default {
         lighter: colors.neutral[700],
         accent: colors.indigo[500],
         success: colors.green[500],
+        danger: colors.red[500],
       },
       zIndex: {
         hide: '-1',
@@ -53,6 +56,7 @@ export default {
         checked: 'state="checked"',
         unchecked: 'state="unchecked"',
         disabled: 'disabled',
+        invalid: 'invalid',
         current: 'current',
         selected: 'selected',
         complete: 'complete',

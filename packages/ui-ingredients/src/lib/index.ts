@@ -10,6 +10,7 @@ export * from './date-picker/index.js';
 export * from './dialog/index.js';
 export * from './editable/index.js';
 export * from './environment-provider/index.js';
+export * from './field/index.js';
 export * from './file-upload/index.js';
 export * from './hover-card/index.js';
 export * from './locale-provider/index.js';

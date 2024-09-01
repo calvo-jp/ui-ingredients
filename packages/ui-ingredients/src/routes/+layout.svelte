@@ -175,6 +175,10 @@
       label: 'Range Date Picker',
       path: '/date-picker/range',
     },
+    {
+      label: 'Field',
+      path: '/field',
+    },
   ].toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(

@@ -1,0 +1,24 @@
+<script lang="ts" module>
+  import type {AsChild, HTMLProps} from '$lib/types.js';
+
+  export interface FieldTextareaProps extends HTMLProps<'textarea'> {
+    asChild?: AsChild;
+  }
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '$lib/merge-props.js';
+  import {fieldContext} from './context.svelte.js';
+
+  let {asChild, ...props}: FieldTextareaProps = $props();
+
+  let field = fieldContext.get();
+
+  let mergedProps = $derived(mergeProps(props, field.getTextareaProps()));
+</script>
+
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <textarea {...mergedProps}></textarea>
+{/if}
