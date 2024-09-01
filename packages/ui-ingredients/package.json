@@ -1,7 +1,7 @@
 {
   "name": "ui-ingredients",
   "type": "module",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "packageManager": "pnpm@9.7.0",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
