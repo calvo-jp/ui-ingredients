@@ -1,5 +1,7 @@
 # DatePicker
 
+A component for selecting a date from a calendar interface.
+
 ## Usage
 
 ### Single

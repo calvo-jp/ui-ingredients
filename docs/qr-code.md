@@ -1,5 +1,7 @@
 # QRCode
 
+A component for generating and displaying QR codes for quick scanning and access to information.
+
 ## Usage
 
 ```svelte

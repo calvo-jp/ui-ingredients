@@ -1,5 +1,7 @@
 # FileUpload
 
+A component for selecting and uploading files from the user's device.
+
 ## Usage
 
 ```svelte

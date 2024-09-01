@@ -1,5 +1,7 @@
 # Popover
 
+A component that displays additional content or information in a small overlay when triggered.
+
 ## Usage
 
 ```svelte

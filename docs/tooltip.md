@@ -1,5 +1,7 @@
 # Tooltip
 
+A component for displaying brief, contextual information when hovering over or focusing on an element.
+
 ## Usage
 
 ```svelte

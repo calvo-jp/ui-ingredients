@@ -1,5 +1,7 @@
 # Splitter
 
+A component for resizing and adjusting the size of adjacent panes or sections.
+
 ## Usage
 
 ```svelte

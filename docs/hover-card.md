@@ -1,5 +1,7 @@
 # HoverCard
 
+A component that displays additional information when hovering over an element.
+
 ## Usage
 
 ```svelte

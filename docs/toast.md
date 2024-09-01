@@ -1,5 +1,7 @@
 # Toast
 
+A component for displaying brief, non-intrusive notifications or messages.
+
 ## Usage
 
 - Create a `useToaster` utility
@@ -22,19 +24,27 @@ export function useToaster() {
 }
 ```
 
-- Add `Toaster` in your root layout
+- Add `Toaster` and `Toast` components in your root layout
 
 ```svelte
 <!-- +layout.svelte -->
 <script>
-  import {Toaster} from 'ui-ingredients';
+  import {useToaster} from '$lib/use-toaster.svelte.ts';
+  import {Toaster, Toast} from 'ui-ingredients';
 
   let {children} = $props();
+  let toaster = useToaster();
 </script>
 
 {@render children()}
 
-<Toaster />
+<Toaster {toaster}>
+  <Toast.Root>
+    <Toast.Title />
+    <Toast.Description />
+    <Toast.CloseTrigger>Close</Toast.CloseTrigger>
+  </Toast.Root>
+</Toaster>
 ```
 
 - Use `toaster` in your components

@@ -1,5 +1,7 @@
 # PinInput
 
+A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
+
 ## Usage
 
 ```svelte

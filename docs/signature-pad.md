@@ -1,5 +1,7 @@
 # SignaturePad
 
+A component for capturing and displaying handwritten signatures.
+
 ## Usage
 
 ```svelte

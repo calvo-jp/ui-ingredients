@@ -1,5 +1,7 @@
 # Progress
 
+A component for displaying the completion status of a task or process.
+
 ## Usage
 
 ### Linear Progress

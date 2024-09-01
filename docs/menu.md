@@ -1,5 +1,7 @@
 # Menu
 
+A component for navigating through a list of options or actions.
+
 ## Usage
 
 ### Basic Menu

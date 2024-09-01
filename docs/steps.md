@@ -1,5 +1,7 @@
 # Steps
 
+A component for displaying a sequence of steps or stages in a process, often used for navigation or progress tracking.
+
 ## Usage
 
 ```svelte

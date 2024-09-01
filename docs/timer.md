@@ -1,5 +1,7 @@
 # Timer
 
+A component for counting down or tracking elapsed time.
+
 ## Usage
 
 ```svelte

@@ -1,5 +1,7 @@
 # Collapsible
 
+A component that expands or collapses to show or hide content.
+
 ## Usage
 
 ```svelte

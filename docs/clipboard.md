@@ -1,5 +1,7 @@
 # Clipboard
 
+A component for copying text or content to the user's clipboard.
+
 ## Usage
 
 ```svelte

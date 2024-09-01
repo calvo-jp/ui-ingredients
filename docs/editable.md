@@ -1,5 +1,7 @@
 # Editable
 
+A component that allows users to modify its content.
+
 ## Usage
 
 ```svelte

@@ -1,5 +1,7 @@
 # Avatar
 
+A visual component for displaying a user’s profile image or initials.
+
 ## Usage
 
 ```svelte

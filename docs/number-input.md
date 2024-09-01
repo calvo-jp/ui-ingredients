@@ -1,5 +1,7 @@
 # NumberInput
 
+A component for entering numeric values.
+
 ## Usage
 
 ```svelte

@@ -1,5 +1,7 @@
 # Carousel
 
+A rotating component for cycling through images or content slides.
+
 ## Usage
 
 ```svelte

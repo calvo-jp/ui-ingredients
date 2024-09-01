@@ -1,5 +1,7 @@
 # TagsInput
 
+A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
+
 ## Usage
 
 ```svelte

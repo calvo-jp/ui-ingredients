@@ -1,5 +1,7 @@
 # TreeBranch
 
+A component for displaying hierarchical data in a tree structure, allowing users to expand and collapse branches.
+
 ## Usage
 
 ```svelte

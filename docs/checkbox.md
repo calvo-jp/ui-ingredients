@@ -1,5 +1,7 @@
 # Checkbox
 
+An interactive component for selecting one or multiple options in a list.
+
 ## Usage
 
 ```svelte
@@ -12,20 +14,18 @@
   $inspect(checked);
 </script>
 
-<Field.Root>
-  <Checkbox.Root
-    {checked}
-    onCheckedChange={function (detail) {
-      checked = detail.checked;
-    }}
-  >
-    <Checkbox.Control>
-      <Checkbox.Indicator>
-        <CheckIcon />
-      </Checkbox.Indicator>
-    </Checkbox.Control>
-    <Checkbox.Label>Label</Checkbox.Label>
-    <Checkbox.HiddenInput />
-  </Checkbox.Root>
-</Field.Root>
+<Checkbox.Root
+  {checked}
+  onCheckedChange={function (detail) {
+    checked = detail.checked;
+  }}
+>
+  <Checkbox.Control>
+    <Checkbox.Indicator>
+      <CheckIcon />
+    </Checkbox.Indicator>
+  </Checkbox.Control>
+  <Checkbox.Label>Label</Checkbox.Label>
+  <Checkbox.HiddenInput />
+</Checkbox.Root>
 ```

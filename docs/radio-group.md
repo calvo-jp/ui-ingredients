@@ -1,5 +1,7 @@
 # RadioGroup
 
+A component for selecting one option from a set of mutually exclusive choices.
+
 ## Usage
 
 ```svelte

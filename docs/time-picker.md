@@ -1,5 +1,7 @@
 # TimePicker
 
+A component for selecting a time from a dropdown or input interface.
+
 ## Usage
 
 ```svelte

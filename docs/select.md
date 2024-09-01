@@ -1,5 +1,7 @@
 # Select
 
+A component for choosing an option from a dropdown list.
+
 ## Usage
 
 ```svelte
