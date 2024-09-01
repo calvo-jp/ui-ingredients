@@ -8,11 +8,7 @@
   import {XCloseIcon} from '$lib/icons';
 </script>
 
-<Popover.Root
-  positioning={{
-    placement: 'bottom-start',
-  }}
->
+<Popover.Root>
   <Popover.Trigger>Trigger</Popover.Trigger>
   <Popover.Positioner>
     <Popover.Content>

@@ -1,23 +1,28 @@
-<script lang="ts">
-  import {Timer} from '$lib/index.js';
+# Timer
+
+## Usage
+
+```svelte
+<script>
+  import {Timer} from 'ui-ingredients';
 </script>
 
 <Timer.Root
-  class="flex"
   startMs={1000 * 60 * 60}
   targetMs={1000 * 60 * 60 * 5}
   autoStart
   countdown
 >
   <Timer.Item type="hours">
-    <Timer.ItemValue class="text-2xl font-semibold" />
+    <Timer.ItemValue />
   </Timer.Item>
   <Timer.Separator>:</Timer.Separator>
   <Timer.Item type="minutes">
-    <Timer.ItemValue class="text-2xl font-semibold" />
+    <Timer.ItemValue />
   </Timer.Item>
   <Timer.Separator>:</Timer.Separator>
   <Timer.Item type="seconds">
-    <Timer.ItemValue class="text-2xl font-semibold" />
+    <Timer.ItemValue />
   </Timer.Item>
 </Timer.Root>
+```

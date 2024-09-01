@@ -3,6 +3,8 @@
   import {Label} from '../shared/index.js';
 
   let value = $state([0, 25]);
+
+  $inspect(value);
 </script>
 
 <Slider.Root
@@ -10,8 +12,8 @@
   min={0}
   max={100}
   {value}
-  onValueChangeEnd={({value}) => {
-    console.log({value});
+  onValueChangeEnd={(detail) => {
+    value = detail.value;
   }}
 >
   <Slider.Label>
