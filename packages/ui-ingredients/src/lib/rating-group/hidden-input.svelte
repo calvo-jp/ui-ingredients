@@ -5,13 +5,11 @@
 </script>
 
 <script lang="ts">
-  import {getFieldContext} from '$lib/field/context.svelte.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {ratingGroupContext} from './context.svelte.js';
 
   let {...props}: RatingGroupHiddenInputProps = $props();
 
-  let field = getFieldContext();
   let radioGroup = ratingGroupContext.get();
 
   let mergedProps = $derived(
@@ -19,4 +17,4 @@
   );
 </script>
 
-<input aria-describedby={field?.['aria-describedby']} {...mergedProps} />
+<input {...mergedProps} />

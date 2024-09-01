@@ -58,10 +58,20 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
   );
 
   const api = $derived(
-    reflect(() => ({
-      ...select.connect(state, send, normalizeProps),
-      collection,
-    })),
+    reflect(() => {
+      const o = select.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        collection,
+        getHiddenSelectProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getHiddenSelectProps(),
+          };
+        },
+      };
+    }),
   );
 
   return api;

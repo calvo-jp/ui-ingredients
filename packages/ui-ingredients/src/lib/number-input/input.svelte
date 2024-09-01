@@ -7,13 +7,11 @@
 </script>
 
 <script lang="ts">
-  import {getFieldContext} from '$lib/field/context.svelte.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {numberInputContext} from './context.svelte.js';
 
   let {asChild, ...props}: NumberInputInputProps = $props();
 
-  let field = getFieldContext();
   let numberInput = numberInputContext.get();
 
   let mergedProps = $derived(mergeProps(props, numberInput.getInputProps()));
@@ -22,5 +20,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input aria-describedby={field?.['aria-describedby']} {...mergedProps} />
+  <input {...mergedProps} />
 {/if}

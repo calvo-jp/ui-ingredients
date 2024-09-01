@@ -43,7 +43,19 @@ export function createEditable(
   );
 
   const api = $derived(
-    reflect(() => editable.connect(state, send, normalizeProps)),
+    reflect(() => {
+      const o = editable.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getInputProps(),
+          };
+        },
+      };
+    }),
   );
 
   return api;

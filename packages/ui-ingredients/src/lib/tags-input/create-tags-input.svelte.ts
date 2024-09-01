@@ -35,7 +35,19 @@ export function createTagsInput(props: CreateTagsInputProps) {
   );
 
   const api = $derived(
-    reflect(() => tagsInput.connect(state, send, normalizeProps)),
+    reflect(() => {
+      const o = tagsInput.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getHiddenInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getHiddenInputProps(),
+          };
+        },
+      };
+    }),
   );
 
   return api;

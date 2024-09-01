@@ -38,7 +38,19 @@ export function createNumberInput(
   );
 
   const api = $derived(
-    reflect(() => numberInput.connect(state, send, normalizeProps)),
+    reflect(() => {
+      const o = numberInput.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getInputProps(),
+          };
+        },
+      };
+    }),
   );
 
   return api;

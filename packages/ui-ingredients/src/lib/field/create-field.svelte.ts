@@ -120,6 +120,7 @@ export function createField(props: CreateFieldProps) {
       ...parts.errorText.attrs,
       id: ids.errorText,
       hidden: !hasErrorText,
+      'aria-live': 'polite',
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),

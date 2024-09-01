@@ -52,6 +52,12 @@ export function createPinInputContext(
             },
           };
         },
+        getHiddenInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getHiddenInputProps(),
+          };
+        },
       };
     }),
   );

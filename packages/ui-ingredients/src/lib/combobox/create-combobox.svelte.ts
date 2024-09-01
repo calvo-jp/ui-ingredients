@@ -60,10 +60,20 @@ export function createCombobox<T>(
   );
 
   const api = $derived(
-    reflect(() => ({
-      ...combobox.connect(state, send, normalizeProps),
-      collection,
-    })),
+    reflect(() => {
+      const o = combobox.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getInputProps(),
+          };
+        },
+        collection,
+      };
+    }),
   );
 
   return api;

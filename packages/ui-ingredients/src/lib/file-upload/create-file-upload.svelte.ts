@@ -36,7 +36,19 @@ export function createFileUpload(
   );
 
   const api = $derived(
-    reflect(() => fileUpload.connect(state, send, normalizeProps)),
+    reflect(() => {
+      const o = fileUpload.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getHiddenInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getHiddenInputProps(),
+          };
+        },
+      };
+    }),
   );
 
   return api;

@@ -36,7 +36,19 @@ export function createRatingGroup(
   );
 
   const api = $derived(
-    reflect(() => ratingGroup.connect(state, send, normalizeProps)),
+    reflect(() => {
+      const o = ratingGroup.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getHiddenInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getHiddenInputProps(),
+          };
+        },
+      };
+    }),
   );
 
   return api;

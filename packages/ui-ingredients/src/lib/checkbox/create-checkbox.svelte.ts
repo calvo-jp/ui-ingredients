@@ -37,7 +37,19 @@ export function createCheckbox(
   );
 
   const api = $derived(
-    reflect(() => checkbox.connect(state, send, normalizeProps)),
+    reflect(() => {
+      const o = checkbox.connect(state, send, normalizeProps);
+
+      return {
+        ...o,
+        getHiddenInputProps() {
+          return {
+            'aria-describedby': field?.['aria-describedby'],
+            ...o.getHiddenInputProps(),
+          };
+        },
+      };
+    }),
   );
 
   return api;
