@@ -3,7 +3,7 @@
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Portal, Tooltip} from 'ui-ingredients';
 </script>
 

@@ -3,7 +3,7 @@
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Switch} from 'ui-ingredients';
 
   let checked = $state(false);

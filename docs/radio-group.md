@@ -3,7 +3,7 @@
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {RadioGroup} from 'ui-ingredients';
   import {CheckIcon} from '$lib/icons';
 
