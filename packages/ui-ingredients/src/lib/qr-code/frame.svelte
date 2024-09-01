@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import type {AsChild, HTMLProps} from '$lib/types.js';
 
-  export interface QRCodeFrameProps extends HTMLProps<'svg'> {
+  export interface QrCodeFrameProps extends HTMLProps<'svg'> {
     asChild?: AsChild;
   }
 </script>
@@ -10,7 +10,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {qrCodeContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: QRCodeFrameProps = $props();
+  let {asChild, children, ...props}: QrCodeFrameProps = $props();
 
   let qrCode = qrCodeContext.get();
 

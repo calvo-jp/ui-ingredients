@@ -2,14 +2,14 @@
   import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
   import type {Snippet} from 'svelte';
   import type {
-    CreateQRCodeProps,
-    CreateQRCodeReturn,
+    CreateQrCodeProps,
+    CreateQrCodeReturn,
   } from './create-qr-code.svelte.js';
 
-  export interface QRCodeProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateQRCodeProps> {
-    asChild?: AsChild<CreateQRCodeReturn>;
-    children?: Snippet<[CreateQRCodeReturn]>;
+  export interface QrCodeProps
+    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateQrCodeProps> {
+    asChild?: AsChild<CreateQrCodeReturn>;
+    children?: Snippet<[CreateQrCodeReturn]>;
   }
 </script>
 
@@ -20,10 +20,10 @@
   import {qrCodeContext} from './context.svelte.js';
   import {createQRCode} from './create-qr-code.svelte.js';
 
-  let {asChild, children, ...props}: QRCodeProps = $props();
+  let {asChild, children, ...props}: QrCodeProps = $props();
 
   let [qrCodeProps, otherProps] = $derived(
-    createSplitProps<CreateQRCodeProps>(['id', 'ids', 'value', 'encoding'])(
+    createSplitProps<CreateQrCodeProps>(['id', 'ids', 'value', 'encoding'])(
       props,
     ),
   );

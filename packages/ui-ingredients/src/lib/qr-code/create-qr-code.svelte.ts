@@ -4,14 +4,14 @@ import * as qrCode from '@zag-js/qr-code';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {uid} from 'uid';
 
-export interface CreateQRCodeProps
+export interface CreateQrCodeProps
   extends Omit<qrCode.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
-export interface CreateQRCodeReturn extends qrCode.Api {}
+export interface CreateQrCodeReturn extends qrCode.Api {}
 
-export function createQRCode(props: CreateQRCodeProps): CreateQRCodeReturn {
+export function createQRCode(props: CreateQrCodeProps): CreateQrCodeReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
