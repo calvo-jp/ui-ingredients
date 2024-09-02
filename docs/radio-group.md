@@ -25,8 +25,6 @@ A component for selecting one option from a set of mutually exclusive choices.
   ];
 
   let value = $state('1');
-
-  $inspect(value);
 </script>
 
 <RadioGroup.Root
@@ -37,16 +35,14 @@ A component for selecting one option from a set of mutually exclusive choices.
 >
   <RadioGroup.Label>Label</RadioGroup.Label>
 
-  <div>
-    {#each items as { value, label }}
-      <RadioGroup.Item {value}>
-        <RadioGroup.ItemHiddenInput />
-        <RadioGroup.ItemControl>
-          <CheckIcon />
-        </RadioGroup.ItemControl>
-        <RadioGroup.ItemText>{label}</RadioGroup.ItemText>
-      </RadioGroup.Item>
-    {/each}
-  </div>
+  {#each items as { value, label }}
+    <RadioGroup.Item {value}>
+      <RadioGroup.ItemHiddenInput />
+      <RadioGroup.ItemControl>
+        <CheckIcon />
+      </RadioGroup.ItemControl>
+      <RadioGroup.ItemText>{label}</RadioGroup.ItemText>
+    </RadioGroup.Item>
+  {/each}
 </RadioGroup.Root>
 ```

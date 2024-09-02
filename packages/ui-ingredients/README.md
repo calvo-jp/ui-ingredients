@@ -6,6 +6,8 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 
 ```bash
 npm install ui-ingredients
+# yarn add ui-ingredients
+# pnpm add ui-ingredients
 ```
 
 ## Usage
@@ -74,6 +76,8 @@ npm install ui-ingredients
 - [ToggleGroup](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/toggle-group.md)
 - [Tooltip](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tooltip.md)
 - [TreeView](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tree-view.md)
+- [The `asChild` prop](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/aschild.md)
+- [Styling](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/styling.md)
 
 ## Credits
 

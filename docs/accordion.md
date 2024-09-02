@@ -29,8 +29,6 @@ A toggle component for expanding and collapsing sections of content.
 
   /** @type {string} */
   let value = $state([]);
-
-  $inspect(value);
 </script>
 
 <Accordion.Root

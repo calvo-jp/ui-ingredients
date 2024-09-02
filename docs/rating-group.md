@@ -10,8 +10,6 @@ A component for selecting a rating value, typically represented by stars or othe
   import {StarIcon} from '$lib/icons';
 
   let value = $state(1);
-
-  $inspect(value);
 </script>
 
 <RatingGroup.Root
@@ -21,8 +19,33 @@ A component for selecting a rating value, typically represented by stars or othe
   }}
 >
   <RatingGroup.Label>Label</RatingGroup.Label>
+  <RatingGroup.HiddenInput />
 
-  <div>
+  {#each context.items as index}
+    <RatingGroup.Item {index}>
+      {#snippet children(state)}
+        <StarIcon
+          class={state.highlighted ? 'text-yellow-500' : 'text-gray-500'}
+        />
+      {/snippet}
+    </RatingGroup.Item>
+  {/each}
+</RatingGroup.Root>
+```
+
+### Using the `Field` component
+
+```svelte
+<script>
+  import {RatingGroup, Field} from 'ui-ingredients';
+  import {StarIcon} from '$lib/icons';
+</script>
+
+<Field.Root>
+  <RatingGroup.Root>
+    <RatingGroup.Label>Label</RatingGroup.Label>
+    <RatingGroup.HiddenInput />
+
     {#each context.items as index}
       <RatingGroup.Item {index}>
         {#snippet children(state)}
@@ -32,6 +55,9 @@ A component for selecting a rating value, typically represented by stars or othe
         {/snippet}
       </RatingGroup.Item>
     {/each}
-  </div>
-</RatingGroup.Root>
+  </RatingGroup.Root>
+
+  <Field.HelperText>This is a helper text</Field.HelperText>
+  <Field.ErrorText>This is an error text</Field.ErrorText>
+</Field.Root>
 ```

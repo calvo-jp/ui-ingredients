@@ -13,8 +13,6 @@ A component for selecting a date from a calendar interface.
 
   /** @type {string[]} */
   let value = $state([]);
-
-  $inspect(value);
 </script>
 
 <DatePicker.Root
@@ -155,8 +153,6 @@ A component for selecting a date from a calendar interface.
 
   /** @type {string[]} */
   let value = $state([]);
-
-  $inspect(value);
 </script>
 
 <DatePicker.Root

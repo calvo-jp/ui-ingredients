@@ -26,9 +26,7 @@ A component for organizing and switching between multiple sections of content wi
     },
   ];
 
-  let value = $state(items[0].value);
-
-  $inspect(value);
+  let value = $state('1');
 </script>
 
 <Tabs.Root

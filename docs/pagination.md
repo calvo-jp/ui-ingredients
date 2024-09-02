@@ -10,8 +10,6 @@ A component for navigating through multiple pages of content.
   import {ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 
   let page = $state(1);
-
-  $inspect(page);
 </script>
 
 <Pagination.Root

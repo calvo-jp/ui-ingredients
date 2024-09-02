@@ -25,8 +25,6 @@ A component for displaying a sequence of steps or stages in a process, often use
   ];
 
   let step = $state(1);
-
-  $inspect(step);
 </script>
 
 <Steps.Root

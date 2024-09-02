@@ -10,8 +10,6 @@ A component for entering numeric values.
   import {ChevronDownIcon, ChevronUpIcon} from '$lib/icons';
 
   let value = $state('0');
-
-  $inspect(value);
 </script>
 
 <NumberInput.Root
@@ -33,4 +31,31 @@ A component for entering numeric values.
     </NumberInput.DecrementTrigger>
   </NumberInput.Control>
 </NumberInput.Root>
+```
+
+### Using the `Field` component
+
+```svelte
+<script>
+  import {NumberInput, Field} from 'ui-ingredients';
+  import {ChevronDownIcon, ChevronUpIcon} from '$lib/icons';
+</script>
+
+<Field.Root>
+  <NumberInput.Root>
+    <NumberInput.Label>Label</NumberInput.Label>
+    <NumberInput.Control>
+      <NumberInput.Input />
+      <NumberInput.IncrementTrigger>
+        <ChevronUpIcon />
+      </NumberInput.IncrementTrigger>
+      <NumberInput.DecrementTrigger>
+        <ChevronDownIcon />
+      </NumberInput.DecrementTrigger>
+    </NumberInput.Control>
+  </NumberInput.Root>
+
+  <Field.HelperText>This is a helper text</Field.HelperText>
+  <Field.ErrorText>This is an error text</Field.ErrorText>
+</Field.Root>
 ```

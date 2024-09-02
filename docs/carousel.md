@@ -16,8 +16,6 @@ A rotating component for cycling through images or content slides.
   ];
 
   let index = $state(0);
-
-  $inspect(index);
 </script>
 
 <Carousel.Root

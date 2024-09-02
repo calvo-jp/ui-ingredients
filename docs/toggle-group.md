@@ -11,8 +11,6 @@ A component for grouping multiple toggle switches, allowing users to switch betw
 
   /** @type {string[]} */
   let value = $state([]);
-
-  $inspect(value);
 </script>
 
 <ToggleGroup.Root

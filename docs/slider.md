@@ -9,8 +9,6 @@ A component for adjusting values or selecting ranges through a draggable handle.
   import {Slider} from 'ui-ingredients';
 
   let value = $state([0, 25]);
-
-  $inspect(value);
 </script>
 
 <Slider.Root
