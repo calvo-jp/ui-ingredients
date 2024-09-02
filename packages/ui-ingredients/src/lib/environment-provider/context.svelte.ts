@@ -6,7 +6,5 @@ export interface Environment {
   getWindow: () => Window & typeof globalThis;
 }
 
-export const [getEnvironmentContext, setEnvironmentContext] = createContext(
-  'EnvironmentProvider',
-  false,
-);
+export const [getEnvironmentContext, setEnvironmentContext] =
+  createContext<Environment>('EnvironmentProvider', false);
