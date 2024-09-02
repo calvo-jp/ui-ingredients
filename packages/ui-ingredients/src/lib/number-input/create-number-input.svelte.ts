@@ -21,7 +21,7 @@ export function createNumberInput(
 
   const id = uid();
 
-  const context = $derived(
+  const context: numberInput.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

@@ -23,7 +23,7 @@ export function createCollapsible(
 
   const id = uid();
 
-  const context = $derived(
+  const context: collapsible.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

@@ -17,7 +17,7 @@ export function createSteps(props: CreateStepsProps) {
 
   const id = uid();
 
-  const context = $derived(
+  const context: steps.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

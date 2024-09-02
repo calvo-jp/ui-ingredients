@@ -17,7 +17,7 @@ export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
 
   const id = uid();
 
-  const context = $derived(
+  const context: avatar.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

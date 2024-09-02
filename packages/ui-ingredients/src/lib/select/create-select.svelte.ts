@@ -39,7 +39,7 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
 
   const id = uid();
 
-  const context = $derived({
+  const context: select.Context = $derived({
     ids: {
       label: field?.ids.label,
       hiddenSelect: field?.ids.control,

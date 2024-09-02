@@ -21,7 +21,7 @@ export function createRatingGroup(
 
   const id = uid();
 
-  const context = $derived(
+  const context: ratingGroup.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

@@ -19,7 +19,7 @@ export function createSegmentGroup(
 
   const id = uid();
 
-  const context = $derived(
+  const context: segmentGroup.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

@@ -15,7 +15,7 @@ export function createTimer(props: CreateTimerProps): CreateTimerReturn {
 
   const id = uid();
 
-  const context = $derived(
+  const context: timer.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

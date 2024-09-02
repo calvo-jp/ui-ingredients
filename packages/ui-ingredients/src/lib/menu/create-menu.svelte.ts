@@ -18,7 +18,7 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
 
   const id = uid();
 
-  const context = $derived(
+  const context: menu.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

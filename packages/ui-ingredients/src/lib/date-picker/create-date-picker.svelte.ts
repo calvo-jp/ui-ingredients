@@ -38,7 +38,7 @@ export function createDatePicker(
 
   const id = uid();
 
-  const context = $derived({
+  const context: datePicker.Context = $derived({
     ...props,
     id: props.id ?? id,
     dir: locale?.dir,

@@ -17,7 +17,7 @@ export function createQRCode(props: CreateQrCodeProps): CreateQrCodeReturn {
 
   const id = uid();
 
-  const context = $derived(
+  const context: qrCode.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

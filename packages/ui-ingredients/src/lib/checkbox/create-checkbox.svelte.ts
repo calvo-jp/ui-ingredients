@@ -21,7 +21,7 @@ export function createCheckbox(
 
   const id = uid();
 
-  const context = $derived(
+  const context: checkbox.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

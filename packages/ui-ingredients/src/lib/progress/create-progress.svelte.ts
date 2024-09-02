@@ -19,7 +19,7 @@ export function createProgress(
 
   const id = uid();
 
-  const context = $derived(
+  const context: progress.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

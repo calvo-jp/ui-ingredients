@@ -164,6 +164,10 @@
       path: '/tree-view',
     },
     {
+      label: 'QR Code',
+      path: '/qr-code',
+    },
+    {
       label: 'Time Picker',
       path: '/time-picker',
     },

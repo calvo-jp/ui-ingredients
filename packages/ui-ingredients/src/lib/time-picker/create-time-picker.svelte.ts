@@ -23,7 +23,7 @@ export function createTimePicker(
 
   const id = uid();
 
-  const context = $derived(
+  const context: timePicker.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

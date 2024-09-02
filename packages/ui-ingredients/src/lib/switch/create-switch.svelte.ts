@@ -19,7 +19,7 @@ export function createSwitch(props: CreateSwitchProps) {
 
   const id = uid();
 
-  const context = $derived(
+  const context: switch$.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

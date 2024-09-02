@@ -24,7 +24,7 @@ export function createColorPicker(
 
   const id = uid();
 
-  const context = $derived(
+  const context: colorPicker.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

@@ -23,7 +23,7 @@ export function createHoverCard(
 
   const id = uid();
 
-  const context = $derived(
+  const context: hoverCard.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

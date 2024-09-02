@@ -19,7 +19,7 @@ export function createSignaturePad(
 
   const id = uid();
 
-  const context = $derived(
+  const context: signaturePad.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

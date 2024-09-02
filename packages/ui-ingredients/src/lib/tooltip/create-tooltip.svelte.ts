@@ -21,7 +21,7 @@ export function createTooltip(props: CreateTooltipProps) {
 
   const id = uid();
 
-  const context = $derived(
+  const context: tooltip.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

@@ -17,7 +17,7 @@ export function createSlider(props: CreateSliderProps): CreateSliderReturn {
 
   const id = uid();
 
-  const context = $derived(
+  const context: slider.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

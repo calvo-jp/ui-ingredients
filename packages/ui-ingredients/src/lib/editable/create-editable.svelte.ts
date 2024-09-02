@@ -25,7 +25,7 @@ export function createEditable(
 
   const id = uid();
 
-  const context = $derived(
+  const context: editable.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

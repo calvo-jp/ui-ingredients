@@ -1,9 +1,16 @@
 <script lang="ts">
   import {Collapsible} from '$lib/index.js';
   import {Button} from '../shared/index.js';
+
+  let open = $state(true);
 </script>
 
-<Collapsible.Root>
+<Collapsible.Root
+  {open}
+  onOpenChange={(detail) => {
+    open = detail.open;
+  }}
+>
   <Collapsible.Trigger>
     {#snippet asChild(attrs)}
       <Button {...attrs}>Open</Button>

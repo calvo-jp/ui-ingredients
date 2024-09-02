@@ -19,7 +19,7 @@ export function createRadioGroup(
 
   const id = uid();
 
-  const context = $derived(
+  const context: radioGroup.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

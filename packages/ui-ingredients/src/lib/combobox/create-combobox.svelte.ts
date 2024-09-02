@@ -41,7 +41,7 @@ export function createCombobox<T>(
 
   const id = uid();
 
-  const context = $derived({
+  const context: combobox.Context = $derived({
     ids: {
       label: field?.ids.label,
       input: field?.ids.control,

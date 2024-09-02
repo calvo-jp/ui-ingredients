@@ -21,7 +21,7 @@ export function createFileUpload(
 
   const id = uid();
 
-  const context = $derived(
+  const context: fileUpload.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

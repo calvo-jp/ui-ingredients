@@ -19,7 +19,7 @@ export function createPagination(
 
   const id = uid();
 
-  const context = $derived(
+  const context: pagination.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

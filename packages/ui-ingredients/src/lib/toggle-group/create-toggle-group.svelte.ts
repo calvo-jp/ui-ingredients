@@ -19,7 +19,7 @@ export function createToggleGroup(
 
   const id = uid();
 
-  const context = $derived(
+  const context: toggleGroup.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

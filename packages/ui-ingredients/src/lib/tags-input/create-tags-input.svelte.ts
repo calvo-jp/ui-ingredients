@@ -19,7 +19,7 @@ export function createTagsInput(props: CreateTagsInputProps) {
 
   const id = uid();
 
-  const context = $derived(
+  const context: tagsInput.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

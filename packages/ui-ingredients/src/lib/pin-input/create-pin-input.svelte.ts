@@ -24,7 +24,7 @@ export function createPinInputContext(
 
   const id = uid();
 
-  const context = $derived(
+  const context: pinInput.Context = $derived(
     reflect(() => ({
       ids: {
         label: field?.ids.label,

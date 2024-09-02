@@ -17,7 +17,7 @@ export function createSplitter(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context = $derived(
+  const context: splitter.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? uid(),

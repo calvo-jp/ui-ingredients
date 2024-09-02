@@ -21,7 +21,7 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
 
   const id = uid();
 
-  const context = $derived(
+  const context: dialog.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

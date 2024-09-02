@@ -19,7 +19,7 @@ export function createAccordion(
 
   const id = uid();
 
-  const context = $derived(
+  const context: accordion.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

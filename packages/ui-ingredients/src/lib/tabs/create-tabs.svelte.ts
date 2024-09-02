@@ -17,7 +17,7 @@ export function createTabs(props: CreateTabsProps) {
 
   const id = uid();
 
-  const context = $derived(
+  const context: tabs.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,

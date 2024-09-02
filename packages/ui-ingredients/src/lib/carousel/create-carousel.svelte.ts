@@ -19,7 +19,7 @@ export function createCarousel(
 
   const id = uid();
 
-  const context = $derived(
+  const context: carousel.Context = $derived(
     reflect(() => ({
       ...props,
       id: props.id ?? id,
