@@ -41,25 +41,33 @@ export function createCombobox<T>(
 
   const id = uid();
 
-  const context: combobox.Context = $derived({
-    ids: {
-      label: field?.ids.label,
-      input: field?.ids.control,
-    },
-    invalid: field?.invalid,
-    required: field?.required,
-    disabled: field?.disabled,
-    readOnly: field?.readOnly,
-    ...props,
-    id: props.id ?? id,
-    dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
-    getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
-    collection,
-  });
+  const context: Omit<combobox.Context, 'collection'> = $derived(
+    reflect(() => ({
+      ids: {
+        label: field?.ids.label,
+        input: field?.ids.control,
+      },
+      invalid: field?.invalid,
+      required: field?.required,
+      disabled: field?.disabled,
+      readOnly: field?.readOnly,
+      ...props,
+      id: props.id ?? id,
+      dir: locale?.dir,
+      open: props.defaultOpen ?? props.open,
+      getRootNode: environment?.getRootNode,
+      'open.controlled': props.open != null,
+    })),
+  );
 
-  const [state, send] = useMachine(combobox.machine(context), {context});
+  const initialContext: combobox.Context = $derived(
+    reflect(() => ({
+      ...context,
+      collection,
+    })),
+  );
+
+  const [state, send] = useMachine(combobox.machine(initialContext), {context});
 
   const api = $derived(
     reflect(() => {

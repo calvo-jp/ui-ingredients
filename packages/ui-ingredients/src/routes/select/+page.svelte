@@ -12,8 +12,6 @@
   ];
 
   let value: string[] = $state([]);
-
-  $inspect(value);
 </script>
 
 <Select.Root

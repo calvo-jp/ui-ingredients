@@ -39,25 +39,33 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
 
   const id = uid();
 
-  const context: select.Context = $derived({
-    ids: {
-      label: field?.ids.label,
-      hiddenSelect: field?.ids.control,
-    },
-    invalid: field?.invalid,
-    disabled: field?.disabled,
-    readOnly: field?.readOnly,
-    required: field?.required,
-    ...props,
-    id: props.id ?? id,
-    dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
-    getRootNode: environment?.getRootNode,
-    collection,
-    'open.controlled': props.open != null,
-  });
+  const context: Omit<select.Context, 'collection'> = $derived(
+    reflect(() => ({
+      ids: {
+        label: field?.ids.label,
+        hiddenSelect: field?.ids.control,
+      },
+      invalid: field?.invalid,
+      disabled: field?.disabled,
+      readOnly: field?.readOnly,
+      required: field?.required,
+      ...props,
+      id: props.id ?? id,
+      dir: locale?.dir,
+      open: props.defaultOpen ?? props.open,
+      getRootNode: environment?.getRootNode,
+      'open.controlled': props.open != null,
+    })),
+  );
 
-  const [state, send] = useMachine(select.machine(context), {context});
+  const initialContext: select.Context = $derived(
+    reflect(() => ({
+      ...context,
+      collection,
+    })),
+  );
+
+  const [state, send] = useMachine(select.machine(initialContext), {context});
 
   const api = $derived(
     reflect(() => {

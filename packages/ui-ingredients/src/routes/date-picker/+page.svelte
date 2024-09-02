@@ -7,6 +7,7 @@
   } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
+  let open = $state(false);
   let value: string[] = $state([]);
 
   $inspect(value);
@@ -18,9 +19,9 @@
   positioning={{
     sameWidth: true,
   }}
-  {value}
-  onValueChange={(detail) => {
-    value = detail.valueAsString;
+  {open}
+  onOpenChange={(detail) => {
+    open = detail.open;
   }}
 >
   {#snippet children(api)}
