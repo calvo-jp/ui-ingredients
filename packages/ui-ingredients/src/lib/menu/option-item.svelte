@@ -13,11 +13,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {menuContext, menuOptionItemPropsContext} from './context.svelte.js';
+  import {
+    getMenuContext,
+    setMenuOptionItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: MenuOptionItemProps = $props();
 
-  let menu = menuContext.get();
+  let menu = getMenuContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<OptionItemProps>([
@@ -37,7 +40,7 @@
     mergeProps(otherProps, menu.getOptionItemProps(itemProps)),
   );
 
-  menuOptionItemPropsContext.set(() => itemProps);
+  setMenuOptionItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

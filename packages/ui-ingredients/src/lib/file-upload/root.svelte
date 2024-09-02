@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {fileUploadContext} from './context.svelte.js';
+  import {setFileUploadContext} from './context.svelte.js';
   import {createFileUpload} from './create-file-upload.svelte.js';
 
   let {asChild, children, ...props}: FileUploadProps = $props();
@@ -49,7 +49,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, fileUpload.getRootProps()));
 
-  fileUploadContext.set(fileUpload);
+  setFileUploadContext(fileUpload);
 </script>
 
 {#if asChild}

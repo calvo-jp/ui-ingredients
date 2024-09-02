@@ -17,14 +17,18 @@ export function createPagination(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    pagination.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(pagination.machine(context), {context});
 
   const api = $derived(
     reflect(() => pagination.connect(state, send, normalizeProps)),

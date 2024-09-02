@@ -1,4 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreateToastReturn} from './create-toast.svelte.js';
 
-export const toastContext = new Context<CreateToastReturn>('Toast');
+export const [getToastContext, setToastContext] =
+  createContext<CreateToastReturn>('Toast');

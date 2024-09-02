@@ -7,3 +7,4 @@ export type {AccordionItemProps} from './item.svelte';
 export type {AccordionProps} from './root.svelte';
 
 export {anatomy as accordionAnatomy} from '@zag-js/accordion';
+export {getAccordionContext} from './context.svelte.js';

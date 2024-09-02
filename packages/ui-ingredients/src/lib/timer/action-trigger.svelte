@@ -10,11 +10,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {timerContext} from './context.svelte.js';
+  import {getTimerContext} from './context.svelte.js';
 
   let {action, asChild, children, ...props}: TimerActionTriggerProps = $props();
 
-  let timer = timerContext.get();
+  let timer = getTimerContext();
 
   let mergedProps = $derived(
     mergeProps(props, timer.getActionTriggerProps({action})),

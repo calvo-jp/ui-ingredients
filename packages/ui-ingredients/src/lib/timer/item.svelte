@@ -10,11 +10,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {timerContext, timerItemPropsContext} from './context.svelte.js';
+  import {getTimerContext, setTimerItemPropsContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TimerItemProps = $props();
 
-  let timer = timerContext.get();
+  let timer = getTimerContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['type'])(props),
@@ -24,7 +24,7 @@
     mergeProps(otherProps, timer.getItemProps(itemProps)),
   );
 
-  timerItemPropsContext.set(() => itemProps);
+  setTimerItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

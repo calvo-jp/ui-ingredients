@@ -9,11 +9,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {parts} from './anatomy.js';
-  import {pinInputContext} from './context.svelte.js';
+  import {getPinInputContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: PinInputClearTriggerProps = $props();
 
-  let pinInput = pinInputContext.get();
+  let pinInput = getPinInputContext();
 
   let mergedProps = $derived(
     mergeProps(

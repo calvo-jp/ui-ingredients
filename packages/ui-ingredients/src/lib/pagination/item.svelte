@@ -10,11 +10,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {paginationContext} from './context.svelte.js';
+  import {getPaginationContext} from './context.svelte.js';
 
   let {value, asChild, children, ...props}: PaginationItemProps = $props();
 
-  let pagination = paginationContext.get();
+  let pagination = getPaginationContext();
 
   let mergedProps = $derived(
     mergeProps(

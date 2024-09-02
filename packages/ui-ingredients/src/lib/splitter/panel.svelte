@@ -11,11 +11,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {splitterContext} from './context.svelte.js';
+  import {getSplitterContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SplitterPanelProps = $props();
 
-  let splitter = splitterContext.get();
+  let splitter = getSplitterContext();
 
   let [panelProps, otherProps] = $derived(
     createSplitProps<PanelProps>(['id', 'snapSize'])(props),

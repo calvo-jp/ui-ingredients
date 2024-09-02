@@ -9,14 +9,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    accordionContext,
-    accordionItemPropsContext,
+    getAccordionContext,
+    getAccordionItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: AccordionItemContentProps = $props();
 
-  let accordion = accordionContext.get();
-  let itemProps = accordionItemPropsContext.get();
+  let accordion = getAccordionContext();
+  let itemProps = getAccordionItemPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, accordion.getItemContentProps(itemProps)),

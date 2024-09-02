@@ -17,14 +17,18 @@ export function createCarousel(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    carousel.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(carousel.machine(context), {context});
 
   const api = $derived(
     reflect(() => carousel.connect(state, send, normalizeProps)),

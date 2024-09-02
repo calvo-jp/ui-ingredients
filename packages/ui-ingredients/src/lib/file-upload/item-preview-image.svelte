@@ -9,16 +9,16 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    fileUploadContext,
-    fileUploadItemPropsContext,
+    getFileUploadContext,
+    getFileUploadItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, ...props}: FileUploadItemPreviewImageProps = $props();
 
   let url = $state('');
 
-  let fileUpload = fileUploadContext.get();
-  let itemProps = fileUploadItemPropsContext.get();
+  let fileUpload = getFileUploadContext();
+  let itemProps = getFileUploadItemPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, fileUpload.getItemPreviewImageProps({url, ...itemProps})),

@@ -13,11 +13,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {selectContext, selectItemPropsContext} from './context.svelte.js';
+  import {
+    getSelectContext,
+    setSelectItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: SelectItemProps = $props();
 
-  let select = selectContext.get();
+  let select = getSelectContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['item', 'persistFocus'])(props),
@@ -28,7 +31,7 @@
     mergeProps(otherProps, select.getItemProps(itemProps)),
   );
 
-  selectItemPropsContext.set(() => itemProps);
+  setSelectItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

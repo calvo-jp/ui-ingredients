@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {stepsContext} from './context.svelte.js';
+  import {setStepsContext} from './context.svelte.js';
   import {createSteps} from './create-steps.svelte.js';
 
   let {asChild, children, ...props}: StepsProps = $props();
@@ -39,7 +39,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, steps.getRootProps()));
 
-  stepsContext.set(steps);
+  setStepsContext(steps);
 </script>
 
 {#if asChild}

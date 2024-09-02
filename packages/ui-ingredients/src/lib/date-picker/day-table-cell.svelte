@@ -14,13 +14,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
   import {
-    datePickerContext,
-    datePickerDayTableCellPropsContext,
+    getDatePickerContext,
+    setDatePickerDayTableCellPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: DatePickerDayTableCellProps = $props();
 
-  let datePicker = datePickerContext.get();
+  let datePicker = getDatePickerContext();
 
   let [tableCellProps, otherProps] = $derived(
     createSplitProps<DayTableCellProps>(['value', 'disabled', 'visibleRange'])(
@@ -36,7 +36,7 @@
     mergeProps(otherProps, datePicker.getDayTableCellProps(tableCellProps)),
   );
 
-  datePickerDayTableCellPropsContext.set(() => tableCellProps);
+  setDatePickerDayTableCellPropsContext(() => tableCellProps);
 </script>
 
 {#if asChild}

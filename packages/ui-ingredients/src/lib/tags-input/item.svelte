@@ -14,13 +14,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
   import {
-    tagsInputContext,
-    tagsInputItemPropsContext,
+    getTagsInputContext,
+    setTagsInputItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: TagsInputItemProps = $props();
 
-  let tagsInput = tagsInputContext.get();
+  let tagsInput = getTagsInputContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['index', 'value', 'disabled'])(props),
@@ -32,7 +32,7 @@
     mergeProps(otherProps, tagsInput.getItemProps(itemProps)),
   );
 
-  tagsInputItemPropsContext.set(() => itemProps);
+  setTagsInputItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

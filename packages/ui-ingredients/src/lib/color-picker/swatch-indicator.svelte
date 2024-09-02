@@ -7,14 +7,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    colorPickerContext,
-    colorPickerSwatchPropsContext,
+    getColorPickerContext,
+    getColorPickerSwatchPropsContext,
   } from './context.svelte.js';
 
   let {children, ...props}: ColorPickerSwatchIndicatorProps = $props();
 
-  let colorPicker = colorPickerContext.get();
-  let swatchProps = colorPickerSwatchPropsContext.get();
+  let colorPicker = getColorPickerContext();
+  let swatchProps = getColorPickerSwatchPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, colorPicker.getSwatchIndicatorProps(swatchProps)),

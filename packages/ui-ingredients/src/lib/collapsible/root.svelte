@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {collapsibleContext} from './context.svelte.js';
+  import {setCollapsibleContext} from './context.svelte.js';
   import {createCollapsible} from './create-collapsible.svelte.js';
 
   let {asChild, children, ...props}: CollapsibleProps = $props();
@@ -40,7 +40,7 @@
     mergeProps(otherProps, collapsible.getRootProps()),
   );
 
-  collapsibleContext.set(collapsible);
+  setCollapsibleContext(collapsible);
 </script>
 
 {#if asChild}

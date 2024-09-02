@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {colorPickerContext} from './context.svelte.js';
+  import {getColorPickerContext} from './context.svelte.js';
 
   let {size, children, ...props}: ColorPickerTransparencyGridProps = $props();
 
-  let colorPicker = colorPickerContext.get();
+  let colorPicker = getColorPickerContext();
 
   let mergedProps = $derived(
     mergeProps(

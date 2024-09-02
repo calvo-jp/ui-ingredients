@@ -10,7 +10,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {clipboardContext} from './context.svelte.js';
+  import {getClipboardContext} from './context.svelte.js';
 
   let {
     copied = false,
@@ -19,7 +19,7 @@
     ...props
   }: ClipboardIndicatorProps = $props();
 
-  let clipboard = clipboardContext.get();
+  let clipboard = getClipboardContext();
 
   let mergedProps = $derived(
     mergeProps(props, clipboard.getIndicatorProps({copied})),

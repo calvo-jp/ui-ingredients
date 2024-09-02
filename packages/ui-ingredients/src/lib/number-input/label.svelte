@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {numberInputContext} from './context.svelte.js';
+  import {getNumberInputContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: NumberInputLabelProps = $props();
 
-  let numberInput = numberInputContext.get();
+  let numberInput = getNumberInputContext();
 
   let mergedProps = $derived(mergeProps(props, numberInput.getLabelProps()));
 </script>

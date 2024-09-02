@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {fieldContext} from './context.svelte.js';
+  import {getFieldContext} from './context.svelte.js';
 
   let {children, asChild, ...props}: FieldSelectProps = $props();
 
-  let field = fieldContext.get();
+  let field = getFieldContext();
 
   let mergedProps = $derived(mergeProps(props, field.getSelectProps()));
 </script>

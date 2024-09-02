@@ -17,8 +17,10 @@ export function createTagsInput(props: CreateTagsInputProps) {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    tagsInput.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ids: {
         label: field?.ids.label,
         hiddenInput: field?.ids.control,
@@ -28,11 +30,13 @@ export function createTagsInput(props: CreateTagsInputProps) {
       readOnly: field?.readOnly,
       required: field?.required,
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(tagsInput.machine(context), {context});
 
   const api = $derived(
     reflect(() => {

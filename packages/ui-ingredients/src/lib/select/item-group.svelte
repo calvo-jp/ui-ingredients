@@ -10,13 +10,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {uid} from 'uid';
   import {
-    selectContext,
-    selectItemGroupPropsContext,
+    getSelectContext,
+    setSelectItemGroupPropsContext,
   } from './context.svelte.js';
 
   let {id, asChild, children, ...props}: SelectItemGroupProps = $props();
 
-  let select = selectContext.get();
+  let select = getSelectContext();
 
   let id_ = uid();
 
@@ -28,7 +28,7 @@
     mergeProps(props, select.getItemGroupProps(itemGroupProps)),
   );
 
-  selectItemGroupPropsContext.set(() => itemGroupProps);
+  setSelectItemGroupPropsContext(() => itemGroupProps);
 </script>
 
 {#if asChild}

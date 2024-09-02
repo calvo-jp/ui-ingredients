@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {comboboxContext} from './context.svelte.js';
+  import {getComboboxContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: ComboboxPositionerProps = $props();
 
-  let combobox = comboboxContext.get();
+  let combobox = getComboboxContext();
 
   let mergedProps = $derived(mergeProps(props, combobox.getPositionerProps()));
 </script>

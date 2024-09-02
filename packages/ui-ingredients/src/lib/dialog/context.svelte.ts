@@ -1,4 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreateDialogReturn} from './create-dialog.svelte.js';
 
-export const dialogContext = new Context<CreateDialogReturn>('Dialog');
+export const [getDialogContext, setDialogContext] =
+  createContext<CreateDialogReturn>('Dialog');

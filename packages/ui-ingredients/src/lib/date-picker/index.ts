@@ -30,3 +30,4 @@ export type {DatePickerYearTableCellTriggerProps} from './year-table-cell-trigge
 export type {DatePickerYearTableCellProps} from './year-table-cell.svelte';
 
 export {anatomy as datePickerAnatomy} from './anatomy.js';
+export {getDatePickerContext} from './context.svelte.js';

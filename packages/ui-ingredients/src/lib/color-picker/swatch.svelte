@@ -9,14 +9,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    colorPickerContext,
-    colorPickerSwatchPropsContext,
+    getColorPickerContext,
+    setColorPickerSwatchPropsContext,
   } from './context.svelte.js';
 
   let {value, respectAlpha, children, ...props}: ColorPickerSwatchProps =
     $props();
 
-  let colorPicker = colorPickerContext.get();
+  let colorPicker = getColorPickerContext();
   let swatchProps: SwatchProps = $derived({
     value,
     respectAlpha,
@@ -26,7 +26,7 @@
     mergeProps(props, colorPicker.getSwatchProps(swatchProps)),
   );
 
-  colorPickerSwatchPropsContext.set(() => swatchProps);
+  setColorPickerSwatchPropsContext(() => swatchProps);
 </script>
 
 <div {...mergedProps}>

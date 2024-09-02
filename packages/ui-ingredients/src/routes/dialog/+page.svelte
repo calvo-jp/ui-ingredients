@@ -1,9 +1,16 @@
 <script lang="ts">
   import {Dialog, Portal} from '$lib/index.js';
   import {Button} from '../shared/index.js';
+
+  let open = $state(false);
 </script>
 
-<Dialog.Root>
+<Dialog.Root
+  {open}
+  onOpenChange={(detail) => {
+    open = detail.open;
+  }}
+>
   <Dialog.Trigger>
     {#snippet asChild(attrs)}
       <Button {...attrs}>Open</Button>

@@ -13,13 +13,17 @@ export interface CreateTimerReturn extends timer.Api {}
 export function createTimer(props: CreateTimerProps): CreateTimerReturn {
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    timer.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(timer.machine(context), {context});
 
   const api = $derived(
     reflect(() => timer.connect(state, send, normalizeProps)),

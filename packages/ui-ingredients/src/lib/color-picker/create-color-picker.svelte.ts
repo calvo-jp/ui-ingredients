@@ -22,17 +22,21 @@ export function createColorPicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    colorPicker.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       value: props.value ? colorPicker.parse(props.value) : undefined,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(colorPicker.machine(context), {context});
 
   const api = $derived(
     reflect(() => colorPicker.connect(state, send, normalizeProps)),

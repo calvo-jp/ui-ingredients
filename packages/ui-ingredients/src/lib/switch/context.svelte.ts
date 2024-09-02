@@ -1,4 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreateSwitchReturn} from './create-switch.svelte.js';
 
-export const switchContext = new Context<CreateSwitchReturn>('Switch');
+export const [getSwitchContext, setSwitchContext] =
+  createContext<CreateSwitchReturn>('Switch');

@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {timerContext} from './context.svelte.js';
+  import {getTimerContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TimerSeparatorProps = $props();
 
-  let timer = timerContext.get();
+  let timer = getTimerContext();
 
   let mergedProps = $derived(mergeProps(props, timer.getSeparatorProps()));
 </script>

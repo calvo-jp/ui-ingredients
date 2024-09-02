@@ -19,16 +19,20 @@ export function createTooltip(props: CreateTooltipProps) {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    tooltip.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(tooltip.machine(context), {context});
 
   const api = $derived(
     reflect(() => tooltip.connect(state, send, normalizeProps)),

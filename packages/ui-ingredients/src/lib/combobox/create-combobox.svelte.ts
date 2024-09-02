@@ -39,25 +39,27 @@ export function createCombobox<T>(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    combobox.machine({
-      ids: {
-        label: field?.ids.label,
-        input: field?.ids.control,
-      },
-      invalid: field?.invalid,
-      required: field?.required,
-      disabled: field?.disabled,
-      readOnly: field?.readOnly,
-      ...props,
-      id: props.id ?? uid(),
-      dir: locale?.dir,
-      open: props.defaultOpen ?? props.open,
-      getRootNode: environment?.getRootNode,
-      'open.controlled': props.open != null,
-      collection,
-    }),
-  );
+  const id = uid();
+
+  const context = $derived({
+    ids: {
+      label: field?.ids.label,
+      input: field?.ids.control,
+    },
+    invalid: field?.invalid,
+    required: field?.required,
+    disabled: field?.disabled,
+    readOnly: field?.readOnly,
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    open: props.defaultOpen ?? props.open,
+    getRootNode: environment?.getRootNode,
+    'open.controlled': props.open != null,
+    collection,
+  });
+
+  const [state, send] = useMachine(combobox.machine(context), {context});
 
   const api = $derived(
     reflect(() => {
@@ -71,7 +73,6 @@ export function createCombobox<T>(
             ...o.getInputProps(),
           };
         },
-        collection,
       };
     }),
   );

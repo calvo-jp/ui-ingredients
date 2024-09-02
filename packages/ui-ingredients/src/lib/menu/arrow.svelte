@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {menuContext} from './context.svelte.js';
+  import {getMenuContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: MenuArrowProps = $props();
 
-  let menu = menuContext.get();
+  let menu = getMenuContext();
 
   let mergedProps = $derived(mergeProps(props, menu.getArrowProps()));
 </script>

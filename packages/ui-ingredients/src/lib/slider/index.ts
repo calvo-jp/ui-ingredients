@@ -12,3 +12,4 @@ export type {SliderTrackProps} from './track.svelte';
 export type {SliderValueTextProps} from './value-text.svelte';
 
 export {anatomy as sliderAnatomy} from '@zag-js/slider';
+export {getSliderContext} from './context.svelte.js';

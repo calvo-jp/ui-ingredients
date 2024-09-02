@@ -16,7 +16,7 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {checkboxContext} from './context.svelte.js';
+  import {setCheckboxContext} from './context.svelte.js';
   import {createCheckbox} from './create-checkbox.svelte.js';
 
   import {reflect} from '@zag-js/svelte';
@@ -43,7 +43,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, checkbox.getRootProps()));
 
-  checkboxContext.set(checkbox);
+  setCheckboxContext(checkbox);
 </script>
 
 {#if asChild}

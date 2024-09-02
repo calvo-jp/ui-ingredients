@@ -10,11 +10,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {sliderContext} from './context.svelte.js';
+  import {getSliderContext} from './context.svelte.js';
 
   let {value, asChild, children, ...props}: SliderMarkerProps = $props();
 
-  let slider = sliderContext.get();
+  let slider = getSliderContext();
 
   let mergedProps = $derived(
     mergeProps(

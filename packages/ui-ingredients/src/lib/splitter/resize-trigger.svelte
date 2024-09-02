@@ -22,11 +22,11 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
   import type {Snippet} from 'svelte';
-  import {splitterContext} from './context.svelte.js';
+  import {getSplitterContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SplitterResizeTriggerProps = $props();
 
-  let splitter = splitterContext.get();
+  let splitter = getSplitterContext();
 
   let [resizeTriggerProps, otherProps] = $derived(
     createSplitProps<ResizeTriggerProps>(['id', 'step', 'disabled'])(props),

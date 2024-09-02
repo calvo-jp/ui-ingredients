@@ -15,13 +15,13 @@
   import {createSplitProps} from '@zag-js/utils';
   import {parts} from './anatomy.js';
   import {
-    segmentGroupContext,
-    segmentGroupItemPropsContext,
+    getSegmentGroupContext,
+    setSegmentGroupItemPropsContext,
   } from './context.svelte.js';
 
   let {children, asChild, ...props}: SegmentGroupItemProps = $props();
 
-  let segmentGroup = segmentGroupContext.get();
+  let segmentGroup = getSegmentGroupContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(props),
@@ -36,7 +36,7 @@
     ),
   );
 
-  segmentGroupItemPropsContext.set(() => itemProps);
+  setSegmentGroupItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

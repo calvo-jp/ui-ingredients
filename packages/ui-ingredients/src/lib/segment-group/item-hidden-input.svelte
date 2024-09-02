@@ -8,14 +8,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    segmentGroupContext,
-    segmentGroupItemPropsContext,
+    getSegmentGroupContext,
+    getSegmentGroupItemPropsContext,
   } from './context.svelte.js';
 
   let {...props}: SegmentGroupItemHiddenInputProps = $props();
 
-  let segmentGroup = segmentGroupContext.get();
-  let itemProps = segmentGroupItemPropsContext.get();
+  let segmentGroup = getSegmentGroupContext();
+  let itemProps = getSegmentGroupItemPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, segmentGroup.getItemHiddenInputProps(itemProps)),

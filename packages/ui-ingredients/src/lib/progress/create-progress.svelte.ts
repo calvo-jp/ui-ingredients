@@ -17,14 +17,18 @@ export function createProgress(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    progress.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(progress.machine(context), {context});
 
   const api = $derived(
     reflect(() => progress.connect(state, send, normalizeProps)),

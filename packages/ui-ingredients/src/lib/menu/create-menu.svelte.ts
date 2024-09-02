@@ -16,16 +16,20 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    menu.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(menu.machine(context), {context});
 
   const api = $derived(
     reflect(() => menu.connect(state, send, normalizeProps)),

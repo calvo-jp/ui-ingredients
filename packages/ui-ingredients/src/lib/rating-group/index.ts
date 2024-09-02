@@ -7,3 +7,4 @@ export type {RatingGroupLabelProps} from './label.svelte';
 export type {RatingGroupProps} from './root.svelte';
 
 export {anatomy as ratingGroupAnatomy} from '@zag-js/rating-group';
+export {getRatingGroupContext} from './context.svelte.js';

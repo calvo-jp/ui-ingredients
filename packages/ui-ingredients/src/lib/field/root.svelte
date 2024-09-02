@@ -14,7 +14,7 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {fieldContext} from './context.svelte.js';
+  import {setFieldContext} from './context.svelte.js';
   import {createField} from './create-field.svelte.js';
 
   let {asChild, children, ...props}: FieldProps = $props();
@@ -32,7 +32,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, field.getRootProps()));
 
-  fieldContext.set(field);
+  setFieldContext(field);
 </script>
 
 {#if asChild}

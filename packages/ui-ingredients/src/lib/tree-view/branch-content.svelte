@@ -9,15 +9,15 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    treeViewBranchPropsContext,
-    treeViewContext,
+    getTreeViewBranchPropsContext,
+    getTreeViewContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: TreeViewBranchContentProps = $props();
 
-  let treeView = treeViewContext.get();
+  let treeView = getTreeViewContext();
 
-  let branchProps = treeViewBranchPropsContext.get();
+  let branchProps = getTreeViewBranchPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, treeView.getBranchContentProps(branchProps)),

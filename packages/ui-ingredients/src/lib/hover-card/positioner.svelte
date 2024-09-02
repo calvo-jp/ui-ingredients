@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {hoverCardContext} from './context.svelte.js';
+  import {getHoverCardContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: HoverCardPositionerProps = $props();
 
-  let hoverCard = hoverCardContext.get();
+  let hoverCard = getHoverCardContext();
 
   let mergedProps = $derived(mergeProps(props, hoverCard.getPositionerProps()));
 </script>

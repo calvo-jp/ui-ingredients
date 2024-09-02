@@ -1,4 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreatePopoverReturn} from './create-popover.svelte.js';
 
-export const popoverContext = new Context<CreatePopoverReturn>('Popover');
+export const [getPopoverContext, setPopoverContext] =
+  createContext<CreatePopoverReturn>('Popover');

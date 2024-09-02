@@ -20,7 +20,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {signaturePadContext} from './context.svelte.js';
+  import {setSignaturePadContext} from './context.svelte.js';
   import {createSignaturePad} from './create-signature-pad.svelte.js';
 
   let {asChild, children, ...props}: SignaturePadProps = $props();
@@ -46,7 +46,7 @@
     mergeProps(otherProps, signaturePad.getRootProps()),
   );
 
-  signaturePadContext.set(signaturePad);
+  setSignaturePadContext(signaturePad);
 </script>
 
 {#if asChild}

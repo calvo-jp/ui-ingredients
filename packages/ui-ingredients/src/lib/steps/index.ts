@@ -13,3 +13,4 @@ export type {StepsSeparatorProps} from './separator.svelte';
 export type {StepsTriggerProps} from './trigger.svelte';
 
 export {anatomy as stepsAnatomy} from '@zag-js/steps';
+export {getStepsContext} from './context.svelte.js';

@@ -10,11 +10,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {paginationContext} from './context.svelte.js';
+  import {getPaginationContext} from './context.svelte.js';
 
   let {index, asChild, children, ...props}: PaginationEllipsisProps = $props();
 
-  let pagination = paginationContext.get();
+  let pagination = getPaginationContext();
 
   let mergedProps = $derived(
     mergeProps(props, pagination.getEllipsisProps({index})),

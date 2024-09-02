@@ -1,10 +1,11 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {ItemProps} from '@zag-js/radio-group';
 import type {CreateSegmentGroupReturn} from './create-segment-group.svelte.js';
 
-export const segmentGroupContext = new Context<CreateSegmentGroupReturn>(
-  'SegmentGroup',
-);
-export const segmentGroupItemPropsContext = new Context<ItemProps>(
-  'SegmentGroupItem',
-);
+export const [getSegmentGroupContext, setSegmentGroupContext] =
+  createContext<CreateSegmentGroupReturn>('SegmentGroup');
+
+export const [
+  getSegmentGroupItemPropsContext,
+  setSegmentGroupItemPropsContext,
+] = createContext<ItemProps>('SegmentGroupItem');

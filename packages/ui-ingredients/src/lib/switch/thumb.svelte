@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {switchContext} from './context.svelte.js';
+  import {getSwitchContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SwitchThumbProps = $props();
 
-  let switch$ = switchContext.get();
+  let switch$ = getSwitchContext();
 
   let mergedProps = $derived(mergeProps(props, switch$.getThumbProps()));
 </script>

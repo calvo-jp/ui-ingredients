@@ -10,3 +10,4 @@ export type {CarouselProps} from './root.svelte';
 export type {CarouselViewportProps} from './viewport.svelte';
 
 export {anatomy as carouselAnatomy} from '@zag-js/carousel';
+export {getCarouselContext} from './context.svelte.js';

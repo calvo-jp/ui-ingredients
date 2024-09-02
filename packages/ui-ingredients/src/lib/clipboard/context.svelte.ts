@@ -1,4 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreateClipboardReturn} from './create-clipboard.svelte.js';
 
-export const clipboardContext = new Context<CreateClipboardReturn>('Clipboard');
+export const [getClipboardContext, setClipboardContext] =
+  createContext<CreateClipboardReturn>('Clipboard');

@@ -17,14 +17,18 @@ export function createToggleGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    toggleGroup.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(toggleGroup.machine(context), {context});
 
   const api = $derived(
     reflect(() => toggleGroup.connect(state, send, normalizeProps)),

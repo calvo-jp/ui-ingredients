@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {tabsContext} from './context.svelte.js';
+  import {setTabsContext} from './context.svelte.js';
   import {createTabs} from './create-tabs.svelte.js';
 
   let {asChild, children, ...props}: TabsProps = $props();
@@ -41,7 +41,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, tabs.getRootProps()));
 
-  tabsContext.set(tabs);
+  setTabsContext(tabs);
 </script>
 
 {#if asChild}

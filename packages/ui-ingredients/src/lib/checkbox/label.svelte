@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {checkboxContext} from './context.svelte.js';
+  import {getCheckboxContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: CheckboxLabelProps = $props();
 
-  let checkbox = checkboxContext.get();
+  let checkbox = getCheckboxContext();
 
   let mergedProps = $derived(mergeProps(props, checkbox.getLabelProps()));
 </script>

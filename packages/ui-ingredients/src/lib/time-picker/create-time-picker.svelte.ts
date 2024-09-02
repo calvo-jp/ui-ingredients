@@ -21,17 +21,21 @@ export function createTimePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    timePicker.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       locale: props.locale ?? locale?.locale,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.defaultOpen != null,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(timePicker.machine(context), {context});
 
   const api = $derived(
     reflect(() => timePicker.connect(state, send, normalizeProps)),

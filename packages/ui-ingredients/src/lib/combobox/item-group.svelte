@@ -10,13 +10,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {uid} from 'uid';
   import {
-    comboboxContext,
-    comboboxItemGroupPropsContext,
+    getComboboxContext,
+    setComboboxItemGroupPropsContext,
   } from './context.svelte.js';
 
   let {id, asChild, children, ...props}: ComboboxItemGroupProps = $props();
 
-  let combobox = comboboxContext.get();
+  let combobox = getComboboxContext();
 
   let id_ = uid();
 
@@ -28,7 +28,7 @@
     mergeProps(props, combobox.getItemGroupProps(comboboxItemGroupProps)),
   );
 
-  comboboxItemGroupPropsContext.set(() => comboboxItemGroupProps);
+  setComboboxItemGroupPropsContext(() => comboboxItemGroupProps);
 </script>
 
 {#if asChild}

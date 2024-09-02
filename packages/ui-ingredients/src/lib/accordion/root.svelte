@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {accordionContext} from './context.svelte.js';
+  import {setAccordionContext} from './context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
 
   let {asChild, children, ...props}: AccordionProps = $props();
@@ -40,7 +40,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, accordion.getRootProps()));
 
-  accordionContext.set(accordion);
+  setAccordionContext(accordion);
 </script>
 
 {#if asChild}

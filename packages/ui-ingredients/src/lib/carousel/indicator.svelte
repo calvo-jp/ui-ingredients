@@ -11,11 +11,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {carouselContext} from './context.svelte.js';
+  import {getCarouselContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: CarouselIndicatorProps = $props();
 
-  let carousel = carouselContext.get();
+  let carousel = getCarouselContext();
 
   let [indicatorProps, otherProps] = $derived(
     createSplitProps<IndicatorProps>(['index', 'readOnly'])(props),

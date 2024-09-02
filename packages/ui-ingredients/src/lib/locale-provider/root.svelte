@@ -9,7 +9,7 @@
 
 <script lang="ts">
   import {isRTL, type Locale} from '@zag-js/i18n-utils';
-  import {localeContext} from './context.svelte.js';
+  import {setLocaleContext} from './context.svelte.js';
 
   let {children, ...props}: LocaleProviderProps = $props();
 
@@ -18,7 +18,7 @@
     dir: isRTL(props.locale) ? 'rtl' : 'ltr',
   });
 
-  localeContext.set(() => locale);
+  setLocaleContext(() => locale);
 </script>
 
 {@render children()}

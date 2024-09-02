@@ -1,4 +1,4 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {
   AreaProps,
   ChannelProps,
@@ -7,17 +7,23 @@ import type {
 } from '@zag-js/color-picker';
 import type {CreateColorPickerReturn} from './create-color-picker.svelte.js';
 
-export const colorPickerContext = new Context<CreateColorPickerReturn>(
-  'ColorPicker',
-);
-export const colorPickerAreaPropsContext = new Context<AreaProps>(
-  'ColorPickerArea',
-);
-export const colorPickerSwatchPropsContext = new Context<SwatchProps>(
-  'ColorPickerSwatch',
-);
-export const colorPickerChannelPropsContext = new Context<ChannelProps>(
-  'ColorPickerChannel',
-);
-export const colorPickerChannelSliderPropsContext =
-  new Context<ChannelSliderProps>('ColorPickerChannelSlider');
+export const [getColorPickerContext, setColorPickerContext] =
+  createContext<CreateColorPickerReturn>('ColorPicker');
+
+export const [getColorPickerAreaPropsContext, setColorPickerAreaPropsContext] =
+  createContext<AreaProps>('ColorPickerArea');
+
+export const [
+  getColorPickerSwatchPropsContext,
+  setColorPickerSwatchPropsContext,
+] = createContext<SwatchProps>('ColorPickerSwatch');
+
+export const [
+  getColorPickerChannelPropsContext,
+  setColorPickerChannelPropsContext,
+] = createContext<ChannelProps>('ColorPickerChannel');
+
+export const [
+  getColorPickerChannelSliderPropsContext,
+  setColorPickerChannelSliderPropsContext,
+] = createContext<ChannelSliderProps>('ColorPickerChannelSlider');

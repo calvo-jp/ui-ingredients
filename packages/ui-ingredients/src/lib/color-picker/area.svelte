@@ -9,13 +9,13 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    colorPickerAreaPropsContext,
-    colorPickerContext,
+    getColorPickerContext,
+    setColorPickerAreaPropsContext,
   } from './context.svelte.js';
 
   let {xChannel, yChannel, children, ...props}: ColorPickerAreaProps = $props();
 
-  let colorPicker = colorPickerContext.get();
+  let colorPicker = getColorPickerContext();
   let areaProps: AreaProps = $derived({
     xChannel,
     yChannel,
@@ -25,7 +25,7 @@
     mergeProps(props, colorPicker.getAreaProps(areaProps)),
   );
 
-  colorPickerAreaPropsContext.set(() => areaProps);
+  setColorPickerAreaPropsContext(() => areaProps);
 </script>
 
 <div {...mergedProps}>

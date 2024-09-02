@@ -8,3 +8,4 @@ export type {HoverCardProps} from './root.svelte';
 export type {HoverCardTriggerProps} from './trigger.svelte';
 
 export {anatomy as hoverCardAnatomy} from '@zag-js/hover-card';
+export {getHoverCardContext} from './context.svelte.js';

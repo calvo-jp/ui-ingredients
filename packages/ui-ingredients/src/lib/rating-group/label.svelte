@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {ratingGroupContext} from './context.svelte.js';
+  import {getRatingGroupContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: RatingGroupLabelProps = $props();
 
-  let ratingGroup = ratingGroupContext.get();
+  let ratingGroup = getRatingGroupContext();
 
   let mergedProps = $derived(mergeProps(props, ratingGroup.getLabelProps()));
 </script>

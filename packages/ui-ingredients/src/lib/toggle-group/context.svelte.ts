@@ -1,6 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreateToggleGroupReturn} from './create-toggle-group.svelte.js';
 
-export const toggleGroupContext = new Context<CreateToggleGroupReturn>(
-  'ToggleGroup',
-);
+export const [getToggleGroupContext, setToggleGroupContext] =
+  createContext<CreateToggleGroupReturn>('ToggleGroup');

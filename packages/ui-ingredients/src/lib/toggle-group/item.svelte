@@ -13,11 +13,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {toggleGroupContext} from './context.svelte.js';
+  import {getToggleGroupContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: ToggleGroupItemProps = $props();
 
-  let toggleGroup = toggleGroupContext.get();
+  let toggleGroup = getToggleGroupContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['value', 'disabled'])(props),

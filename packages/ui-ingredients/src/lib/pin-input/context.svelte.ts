@@ -1,4 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreatePinInputReturn} from './create-pin-input.svelte.js';
 
-export const pinInputContext = new Context<CreatePinInputReturn>('PinInput');
+export const [getPinInputContext, setPinInputContext] =
+  createContext<CreatePinInputReturn>('PinInput');

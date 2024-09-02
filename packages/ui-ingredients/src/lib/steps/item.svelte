@@ -13,11 +13,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {stepsContext, stepsItemPropsContext} from './context.svelte.js';
+  import {getStepsContext, setStepsItemPropsContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: StepsItemProps = $props();
 
-  let steps = stepsContext.get();
+  let steps = getStepsContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['index'])(props),
@@ -29,7 +29,7 @@
     mergeProps(otherProps, steps.getItemProps(itemProps)),
   );
 
-  stepsItemPropsContext.set(() => itemProps);
+  setStepsItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

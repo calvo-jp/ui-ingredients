@@ -9,11 +9,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {uid} from 'uid';
-  import {menuContext, menuItemGroupPropsContext} from './context.svelte.js';
+  import {
+    getMenuContext,
+    setMenuItemGroupPropsContext,
+  } from './context.svelte.js';
 
   let {id, asChild, children, ...props}: MenuItemGroupProps = $props();
 
-  let menu = menuContext.get();
+  let menu = getMenuContext();
 
   let id_ = uid();
 
@@ -25,7 +28,7 @@
     mergeProps(props, menu.getItemGroupProps(itemGroupProps)),
   );
 
-  menuItemGroupPropsContext.set(() => itemGroupProps);
+  setMenuItemGroupPropsContext(() => itemGroupProps);
 </script>
 
 {#if asChild}

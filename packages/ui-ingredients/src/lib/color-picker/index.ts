@@ -27,3 +27,4 @@ export type {ColorPickerTriggerProps} from './trigger.svelte';
 export type {ColorPickerValueTextProps} from './value-text.svelte';
 
 export {anatomy as colorPickerAnatomy} from '@zag-js/color-picker';
+export {getColorPickerContext} from './context.svelte.js';

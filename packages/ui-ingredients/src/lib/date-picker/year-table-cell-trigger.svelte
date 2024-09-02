@@ -10,15 +10,15 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    datePickerContext,
-    datePickerTableCellPropsContext,
+    getDatePickerContext,
+    getDatePickerTableCellPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: DatePickerYearTableCellTriggerProps =
     $props();
 
-  let datePicker = datePickerContext.get();
-  let tableCellProps = datePickerTableCellPropsContext.get();
+  let datePicker = getDatePickerContext();
+  let tableCellProps = getDatePickerTableCellPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, datePicker.getYearTableCellTriggerProps(tableCellProps)),

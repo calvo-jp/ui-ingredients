@@ -13,11 +13,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {treeViewContext, treeViewItemPropsContext} from './context.svelte.js';
+  import {
+    getTreeViewContext,
+    setTreeViewItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: TreeViewItemProps = $props();
 
-  let treeView = treeViewContext.get();
+  let treeView = getTreeViewContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['depth', 'value', 'disabled'])(props),
@@ -29,7 +32,7 @@
     mergeProps(otherProps, treeView.getItemProps(itemProps)),
   );
 
-  treeViewItemPropsContext.set(() => itemProps);
+  setTreeViewItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

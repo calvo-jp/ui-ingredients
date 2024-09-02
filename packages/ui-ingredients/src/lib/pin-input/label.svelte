@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {pinInputContext} from './context.svelte.js';
+  import {getPinInputContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: PinInputLabelProps = $props();
 
-  let pinInput = pinInputContext.get();
+  let pinInput = getPinInputContext();
 
   let mergedProps = $derived(mergeProps(props, pinInput.getLabelProps()));
 </script>

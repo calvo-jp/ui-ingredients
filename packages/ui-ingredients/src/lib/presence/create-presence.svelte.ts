@@ -1,5 +1,5 @@
 import * as presence from '@zag-js/presence';
-import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 
 export interface CreatePresenceProps {
   present?: boolean;
@@ -10,12 +10,14 @@ export interface CreatePresenceReturn
   extends ReturnType<typeof createPresence> {}
 
 export function createPresence(props: CreatePresenceProps) {
-  const [state, send] = useMachine(
-    presence.machine({
+  const context = $derived(
+    reflect(() => ({
       present: props.present,
       immediate: false,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(presence.machine(context), {context});
 
   const api = $derived(presence.connect(state, send, normalizeProps));
 

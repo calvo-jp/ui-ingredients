@@ -10,11 +10,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {progressContext} from './context.svelte.js';
+  import {getProgressContext} from './context.svelte.js';
 
   let {state, asChild, children, ...props}: ProgressViewProps = $props();
 
-  let progress = progressContext.get();
+  let progress = getProgressContext();
 
   let mergedProps = $derived(mergeProps(props, progress.getViewProps({state})));
 </script>

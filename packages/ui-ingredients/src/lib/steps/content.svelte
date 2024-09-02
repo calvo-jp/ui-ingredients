@@ -10,11 +10,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {stepsContext} from './context.svelte.js';
+  import {getStepsContext} from './context.svelte.js';
 
   let {index, asChild, children, ...props}: StepsContentProps = $props();
 
-  let steps = stepsContext.get();
+  let steps = getStepsContext();
 
   let mergedProps = $derived(mergeProps(props, steps.getContentProps({index})));
 </script>

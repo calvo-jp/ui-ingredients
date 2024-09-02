@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {selectContext} from './context.svelte.js';
+  import {setSelectContext} from './context.svelte.js';
   import {createSelect} from './create-select.svelte.js';
 
   let {asChild, children, ...props}: SelectProps<T> = $props();
@@ -59,7 +59,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, select.getRootProps()));
 
-  selectContext.set(select);
+  setSelectContext(select);
 </script>
 
 {#if asChild}

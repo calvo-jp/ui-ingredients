@@ -5,3 +5,4 @@ export type {CollapsibleProps} from './root.svelte';
 export type {CollapsibleTriggerProps} from './trigger.svelte';
 
 export {anatomy as collapsibleAnatomy} from '@zag-js/collapsible';
+export {getCollapsibleContext} from './context.svelte.js';

@@ -15,14 +15,18 @@ export function createTabs(props: CreateTabsProps) {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    tabs.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(tabs.machine(context), {context});
 
   const api = $derived(
     reflect(() => tabs.connect(state, send, normalizeProps)),

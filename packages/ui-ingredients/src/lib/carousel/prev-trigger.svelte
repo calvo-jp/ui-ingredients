@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {carouselContext} from './context.svelte.js';
+  import {getCarouselContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: CarouselPrevTriggerProps = $props();
 
-  let carousel = carouselContext.get();
+  let carousel = getCarouselContext();
 
   let mergedProps = $derived(mergeProps(props, carousel.getPrevTriggerProps()));
 </script>

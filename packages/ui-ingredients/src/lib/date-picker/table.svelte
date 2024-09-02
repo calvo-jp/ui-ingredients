@@ -11,23 +11,23 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    datePickerContext,
-    datePickerTablePropsContext,
-    datePickerViewPropsContext,
+    getDatePickerContext,
+    getDatePickerViewPropsContext,
+    setDatePickerTablePropsContext,
   } from './context.svelte.js';
 
   let {id, columns, asChild, children, ...props}: DatePickerTableProps =
     $props();
 
-  let datePicker = datePickerContext.get();
-  let viewProps = datePickerViewPropsContext.get();
+  let datePicker = getDatePickerContext();
+  let viewProps = getDatePickerViewPropsContext();
   let tableProps: TableProps = $derived({...viewProps, id, columns});
 
   let mergedProps = $derived(
     mergeProps(props, datePicker.getTableProps(tableProps)),
   );
 
-  datePickerTablePropsContext.set(() => tableProps);
+  setDatePickerTablePropsContext(() => tableProps);
 </script>
 
 {#if asChild}

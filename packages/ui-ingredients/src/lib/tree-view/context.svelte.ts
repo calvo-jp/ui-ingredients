@@ -1,9 +1,12 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {BranchProps, ItemProps} from '@zag-js/tree-view';
 import type {CreateTreeViewReturn} from './create-tree-view.svelte.js';
 
-export const treeViewContext = new Context<CreateTreeViewReturn>('TreeView');
-export const treeViewItemPropsContext = new Context<ItemProps>('TreeViewItem');
-export const treeViewBranchPropsContext = new Context<BranchProps>(
-  'TreeViewBranch',
-);
+export const [getTreeViewContext, setTreeViewContext] =
+  createContext<CreateTreeViewReturn>('TreeView');
+
+export const [getTreeViewItemPropsContext, setTreeViewItemPropsContext] =
+  createContext<ItemProps>('TreeViewItem');
+
+export const [getTreeViewBranchPropsContext, setTreeViewBranchPropsContext] =
+  createContext<BranchProps>('TreeViewBranch');

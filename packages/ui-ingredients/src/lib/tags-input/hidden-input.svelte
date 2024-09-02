@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {tagsInputContext} from './context.svelte.js';
+  import {getTagsInputContext} from './context.svelte.js';
 
   let {...props}: TagsInputHiddenInputProps = $props();
 
-  let tagsInput = tagsInputContext.get();
+  let tagsInput = getTagsInputContext();
 
   let mergedProps = $derived(
     mergeProps(props, tagsInput.getHiddenInputProps()),

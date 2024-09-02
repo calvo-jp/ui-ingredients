@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {clipboardContext} from './context.svelte.js';
+  import {setClipboardContext} from './context.svelte.js';
   import {createClipboard} from './create-clipboard.svelte.js';
 
   let {asChild, children, ...props}: ClipboardProps = $props();
@@ -36,7 +36,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, clipboard.getRootProps()));
 
-  clipboardContext.set(clipboard);
+  setClipboardContext(clipboard);
 </script>
 
 {#if asChild}

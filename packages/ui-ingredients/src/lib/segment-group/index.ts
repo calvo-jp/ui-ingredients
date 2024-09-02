@@ -9,3 +9,4 @@ export type {SegmentGroupLabelProps} from './label.svelte';
 export type {SegmentGroupProps} from './root.svelte';
 
 export {anatomy as segmentGroupAnatomy} from './anatomy.js';
+export {getSegmentGroupContext} from './context.svelte.js';

@@ -1,4 +1,4 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 
 export interface Environment {
   getRootNode: () => ShadowRoot | Document | Node;
@@ -6,10 +6,7 @@ export interface Environment {
   getWindow: () => Window & typeof globalThis;
 }
 
-export const environmentContext = new Context<Environment>(
+export const [getEnvironmentContext, setEnvironmentContext] = createContext(
   'EnvironmentProvider',
   false,
 );
-
-export const getEnvironmentContext = (): Environment | null =>
-  environmentContext.get();

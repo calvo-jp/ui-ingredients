@@ -11,14 +11,14 @@
 </script>
 
 <script lang="ts">
-  import {hoverCardContext} from './context.svelte.js';
+  import {setHoverCardContext} from './context.svelte.js';
   import {createHoverCard} from './create-hover-card.svelte.js';
 
   let {children, ...props}: HoverCardProps = $props();
 
   let hoverCard = createHoverCard(props);
 
-  hoverCardContext.set(hoverCard);
+  setHoverCardContext(hoverCard);
 </script>
 
 {@render children?.(hoverCard)}

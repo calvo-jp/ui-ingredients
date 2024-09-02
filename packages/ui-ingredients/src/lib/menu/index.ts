@@ -18,3 +18,4 @@ export {type MenuTriggerItemIndicatorProps} from './trigger-item.svelte';
 export {type MenuTriggerProps} from './trigger.svelte';
 
 export {anatomy as menuAnatomy} from '@zag-js/menu';
+export {getMenuContext} from './context.svelte.js';

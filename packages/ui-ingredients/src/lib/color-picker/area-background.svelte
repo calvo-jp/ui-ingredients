@@ -7,14 +7,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    colorPickerAreaPropsContext,
-    colorPickerContext,
+    getColorPickerAreaPropsContext,
+    getColorPickerContext,
   } from './context.svelte.js';
 
   let {children, ...props}: ColorPickerAreaBackgroundProps = $props();
 
-  let colorPicker = colorPickerContext.get();
-  let areaProps = colorPickerAreaPropsContext.get();
+  let colorPicker = getColorPickerContext();
+  let areaProps = getColorPickerAreaPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, colorPicker.getAreaBackgroundProps(areaProps)),

@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {qrCodeContext} from './context.svelte.js';
+  import {getQrCodeContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: QrCodeFrameProps = $props();
 
-  let qrCode = qrCodeContext.get();
+  let qrCode = getQrCodeContext();
 
   let mergedProps = $derived(mergeProps(props, qrCode.getFrameProps()));
 </script>

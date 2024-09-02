@@ -8,13 +8,16 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {menuContext, menuItemGroupPropsContext} from './context.svelte.js';
+  import {
+    getMenuContext,
+    getMenuItemGroupPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: MenuItemGroupLabelProps = $props();
 
-  let menu = menuContext.get();
+  let menu = getMenuContext();
 
-  let itemGroupProps = menuItemGroupPropsContext.get();
+  let itemGroupProps = getMenuItemGroupPropsContext();
 
   let mergedProps = $derived(
     mergeProps(

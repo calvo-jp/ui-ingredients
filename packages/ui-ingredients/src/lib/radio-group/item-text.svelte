@@ -9,14 +9,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    radioGroupContext,
-    radioGroupItemPropsContext,
+    getRadioGroupContext,
+    getRadioGroupItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: RadioGroupItemTextProps = $props();
 
-  let radioGroup = radioGroupContext.get();
-  let itemProps = radioGroupItemPropsContext.get();
+  let radioGroup = getRadioGroupContext();
+  let itemProps = getRadioGroupItemPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, radioGroup.getItemTextProps(itemProps)),

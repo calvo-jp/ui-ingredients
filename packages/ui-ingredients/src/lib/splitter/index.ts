@@ -5,3 +5,4 @@ export type {SplitterResizeTriggerProps} from './resize-trigger.svelte';
 export type {SplitterProps} from './root.svelte';
 
 export {anatomy as splitterAnatomy} from '@zag-js/splitter';
+export {getSplitterContext} from './context.svelte.js';

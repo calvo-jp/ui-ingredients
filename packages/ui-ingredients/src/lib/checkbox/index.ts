@@ -7,3 +7,4 @@ export type {CheckboxLabelProps} from './label.svelte';
 export type {CheckboxProps} from './root.svelte';
 
 export {anatomy as checkboxAnatomy} from '@zag-js/checkbox';
+export {getCheckboxContext} from './context.svelte.js';

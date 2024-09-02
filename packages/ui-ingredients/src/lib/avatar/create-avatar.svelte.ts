@@ -15,14 +15,18 @@ export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    avatar.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(avatar.machine(context), {context});
 
   const api = $derived(
     reflect(() => avatar.connect(state, send, normalizeProps)),

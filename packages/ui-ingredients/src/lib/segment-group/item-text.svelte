@@ -10,14 +10,14 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {parts} from './anatomy.js';
   import {
-    segmentGroupContext,
-    segmentGroupItemPropsContext,
+    getSegmentGroupContext,
+    getSegmentGroupItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: SegmentGroupItemTextProps = $props();
 
-  let segmentGroup = segmentGroupContext.get();
-  let itemProps = segmentGroupItemPropsContext.get();
+  let segmentGroup = getSegmentGroupContext();
+  let itemProps = getSegmentGroupItemPropsContext();
 
   let mergedProps = $derived(
     mergeProps(

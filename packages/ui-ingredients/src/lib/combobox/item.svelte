@@ -13,11 +13,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {comboboxContext, comboboxItemPropsContext} from './context.svelte.js';
+  import {
+    getComboboxContext,
+    setComboboxItemPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: ComboboxItemProps = $props();
 
-  let combobox = comboboxContext.get();
+  let combobox = getComboboxContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['item', 'persistFocus'])(props),
@@ -28,7 +31,7 @@
     mergeProps(otherProps, combobox.getItemProps(itemProps)),
   );
 
-  comboboxItemPropsContext.set(() => itemProps);
+  setComboboxItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

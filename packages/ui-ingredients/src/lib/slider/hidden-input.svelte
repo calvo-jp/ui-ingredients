@@ -6,12 +6,15 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {sliderContext, sliderThumbPropsContext} from './context.svelte.js';
+  import {
+    getSliderContext,
+    getSliderThumbPropsContext,
+  } from './context.svelte.js';
 
   let {...props}: SliderHiddenInputProps = $props();
 
-  let slider = sliderContext.get();
-  let thumbProps = sliderThumbPropsContext.get();
+  let slider = getSliderContext();
+  let thumbProps = getSliderThumbPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, slider.getHiddenInputProps(thumbProps)),

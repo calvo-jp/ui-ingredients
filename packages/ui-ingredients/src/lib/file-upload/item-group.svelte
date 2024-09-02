@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {fileUploadContext} from './context.svelte.js';
+  import {getFileUploadContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: FileUploadItemGroupProps = $props();
 
-  let fileUpload = fileUploadContext.get();
+  let fileUpload = getFileUploadContext();
 
   let mergedProps = $derived(mergeProps(props, fileUpload.getItemGroupProps()));
 </script>

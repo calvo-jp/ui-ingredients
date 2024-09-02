@@ -8,12 +8,12 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {stepsContext, stepsItemPropsContext} from './context.svelte.js';
+  import {getStepsContext, getStepsItemPropsContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: StepsTriggerProps = $props();
 
-  let steps = stepsContext.get();
-  let itemProps = stepsItemPropsContext.get();
+  let steps = getStepsContext();
+  let itemProps = getStepsItemPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, steps.getTriggerProps(itemProps)),

@@ -9,11 +9,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {parts} from './anatomy.js';
-  import {segmentGroupContext} from './context.svelte.js';
+  import {getSegmentGroupContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SegmentGroupLabelProps = $props();
 
-  let segmentGroup = segmentGroupContext.get();
+  let segmentGroup = getSegmentGroupContext();
 
   let mergedProps = $derived(
     mergeProps(props, segmentGroup.getLabelProps(), parts.label.attrs),

@@ -17,14 +17,18 @@ export function createSegmentGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    segmentGroup.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(segmentGroup.machine(context));
 
   const api = $derived(
     reflect(() => segmentGroup.connect(state, send, normalizeProps)),

@@ -8,14 +8,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    colorPickerChannelSliderPropsContext,
-    colorPickerContext,
+    getColorPickerChannelSliderPropsContext,
+    getColorPickerContext,
   } from './context.svelte.js';
 
   let {children, ...props}: ColorPickerChannelSliderThumbProps = $props();
 
-  let colorPicker = colorPickerContext.get();
-  let channelSliderProps = colorPickerChannelSliderPropsContext.get();
+  let colorPicker = getColorPickerContext();
+  let channelSliderProps = getColorPickerChannelSliderPropsContext();
 
   let mergedProps = $derived(
     mergeProps(

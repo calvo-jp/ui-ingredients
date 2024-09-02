@@ -1,9 +1,25 @@
 <script lang="ts">
   import {Progress} from '$lib/index.js';
   import {Button, Label} from '../shared/index.js';
+
+  let value = $state(0);
+
+  $effect(() => {
+    const interval = setInterval(() => {
+      value += 10;
+
+      if (value >= 100) {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+  });
 </script>
 
-<Progress.Root min={0} max={100} value={0} class="w-full lg:max-w-[24rem]">
+<Progress.Root min={0} max={100} {value} class="w-full lg:max-w-[24rem]">
   {#snippet children(context)}
     <Progress.Label>
       {#snippet asChild(attrs)}

@@ -11,14 +11,14 @@
 </script>
 
 <script lang="ts">
-  import {menuContext} from './context.svelte.js';
+  import {setMenuContext} from './context.svelte.js';
   import {createMenu} from './create-menu.svelte.js';
 
   let {children, ...props}: MenuRootProps = $props();
 
   let menu = createMenu(props);
 
-  menuContext.set(menu);
+  setMenuContext(menu);
 </script>
 
 {@render children?.(menu)}

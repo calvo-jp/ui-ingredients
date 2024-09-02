@@ -7,5 +7,3 @@ export {default as Positioner} from './positioner.svelte';
 export {default as Root} from './root.svelte';
 export {default as Title} from './title.svelte';
 export {default as Trigger} from './trigger.svelte';
-
-export {anatomy as popoverAnatomy} from '@zag-js/popover';

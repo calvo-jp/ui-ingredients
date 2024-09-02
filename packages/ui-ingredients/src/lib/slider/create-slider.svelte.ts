@@ -15,14 +15,18 @@ export function createSlider(props: CreateSliderProps): CreateSliderReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    slider.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(slider.machine(context), {context});
 
   const api = $derived(
     reflect(() => slider.connect(state, send, normalizeProps)),

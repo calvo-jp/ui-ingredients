@@ -9,14 +9,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    datePickerContext,
-    datePickerTablePropsContext,
+    getDatePickerContext,
+    getDatePickerTablePropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: DatePickerTableBodyProps = $props();
 
-  let datePicker = datePickerContext.get();
-  let tableProps = datePickerTablePropsContext.get();
+  let datePicker = getDatePickerContext();
+  let tableProps = getDatePickerTablePropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, datePicker.getTableBodyProps(tableProps)),

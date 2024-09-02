@@ -10,3 +10,4 @@ export type {DialogTitleProps} from './title.svelte';
 export type {DialogTriggerProps} from './trigger.svelte';
 
 export {anatomy as dialogAnatomy} from '@zag-js/dialog';
+export {getDialogContext} from './context.svelte.js';

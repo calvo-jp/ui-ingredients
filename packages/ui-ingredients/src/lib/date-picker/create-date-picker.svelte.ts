@@ -36,23 +36,25 @@ export function createDatePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    datePicker.machine({
-      ...props,
-      id: props.id ?? uid(),
-      dir: locale?.dir,
-      min: props.min ? datePicker.parse(props.min) : undefined,
-      max: props.max ? datePicker.parse(props.max) : undefined,
-      value: props.value ? datePicker.parse(props.value) : undefined,
-      focusedValue: props.focusedValue
-        ? datePicker.parse(props.focusedValue)
-        : undefined,
-      open: props.defaultOpen ?? props.open,
-      'open.controlled': props.open != null,
-      locale: props.locale ?? locale?.locale,
-      getRootNode: environment?.getRootNode,
-    }),
-  );
+  const id = uid();
+
+  const context = $derived({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    min: props.min ? datePicker.parse(props.min) : undefined,
+    max: props.max ? datePicker.parse(props.max) : undefined,
+    value: props.value ? datePicker.parse(props.value) : undefined,
+    focusedValue: props.focusedValue
+      ? datePicker.parse(props.focusedValue)
+      : undefined,
+    open: props.defaultOpen ?? props.open,
+    'open.controlled': props.open != null,
+    locale: props.locale ?? locale?.locale,
+    getRootNode: environment?.getRootNode,
+  });
+
+  const [state, send] = useMachine(datePicker.machine(context), {context});
 
   const api = $derived(
     reflect(() => {

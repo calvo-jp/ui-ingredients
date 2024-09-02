@@ -11,11 +11,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {sliderContext, sliderThumbPropsContext} from './context.svelte.js';
+  import {
+    getSliderContext,
+    setSliderThumbPropsContext,
+  } from './context.svelte.js';
 
   let {asChild, children, ...props}: SliderThumbProps = $props();
 
-  let slider = sliderContext.get();
+  let slider = getSliderContext();
 
   let [thumbProps, otherProps] = $derived(
     createSplitProps<ThumbProps>(['name', 'index'])(props),
@@ -25,7 +28,7 @@
     mergeProps(otherProps, slider.getThumbProps(thumbProps)),
   );
 
-  sliderThumbPropsContext.set(() => thumbProps);
+  setSliderThumbPropsContext(() => thumbProps);
 </script>
 
 {#if asChild}

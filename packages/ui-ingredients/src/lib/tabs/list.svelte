@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {tabsContext} from './context.svelte.js';
+  import {getTabsContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TabsListProps = $props();
 
-  let tabs = tabsContext.get();
+  let tabs = getTabsContext();
 
   let mergedProps = $derived(mergeProps(props, tabs.getListProps()));
 </script>

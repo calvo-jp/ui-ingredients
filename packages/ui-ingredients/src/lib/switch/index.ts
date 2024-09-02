@@ -7,3 +7,4 @@ export type {SwitchProps} from './root.svelte';
 export type {SwitchThumbProps} from './thumb.svelte';
 
 export {anatomy as switchAnatomy} from '@zag-js/switch';
+export {getSwitchContext} from './context.svelte.js';

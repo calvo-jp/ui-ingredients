@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {toggleGroupContext} from './context.svelte.js';
+  import {setToggleGroupContext} from './context.svelte.js';
   import {createToggleGroup} from './create-toggle-group.svelte.js';
 
   let {asChild, children, ...props}: ToggleGroupProps = $props();
@@ -42,7 +42,7 @@
     mergeProps(otherProps, toggleGroup.getRootProps()),
   );
 
-  toggleGroupContext.set(toggleGroup);
+  setToggleGroupContext(toggleGroup);
 </script>
 
 {#if asChild}

@@ -1,6 +1,9 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {ItemProps} from '@zag-js/steps';
 import type {CreateStepsReturn} from './create-steps.svelte.js';
 
-export const stepsContext = new Context<CreateStepsReturn>('Steps');
-export const stepsItemPropsContext = new Context<ItemProps>('StepsItem');
+export const [getStepsContext, setStepsContext] =
+  createContext<CreateStepsReturn>('Steps');
+
+export const [getStepsItemPropsContext, setStepsItemPropsContext] =
+  createContext<ItemProps>('StepsItem');

@@ -19,8 +19,10 @@ export function createNumberInput(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    numberInput.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ids: {
         label: field?.ids.label,
         input: field?.ids.control,
@@ -30,12 +32,14 @@ export function createNumberInput(
       readOnly: field?.readOnly,
       required: field?.required,
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       locale: props.locale ?? locale?.locale,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(numberInput.machine(context), {context});
 
   const api = $derived(
     reflect(() => {

@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {popoverContext} from './context.svelte.js';
+  import {getPopoverContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: PopoverTitleProps = $props();
 
-  let popover = popoverContext.get();
+  let popover = getPopoverContext();
 
   let mergedProps = $derived(mergeProps(props, popover.getTitleProps()));
 </script>

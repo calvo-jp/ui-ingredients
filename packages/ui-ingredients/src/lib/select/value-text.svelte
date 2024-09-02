@@ -8,12 +8,12 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {selectContext} from './context.svelte.js';
+  import {getSelectContext} from './context.svelte.js';
 
   let {asChild, children, placeholder, ...props}: SelectValueTextProps =
     $props();
 
-  let select = selectContext.get();
+  let select = getSelectContext();
 
   let mergedProps = $derived(mergeProps(props, select.getValueTextProps()));
 </script>

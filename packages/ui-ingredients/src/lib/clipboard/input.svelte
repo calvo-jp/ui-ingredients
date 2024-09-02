@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {clipboardContext} from './context.svelte.js';
+  import {getClipboardContext} from './context.svelte.js';
 
   let {asChild, ...props}: ClipboardInputProps = $props();
 
-  let clipboard = clipboardContext.get();
+  let clipboard = getClipboardContext();
 
   let mergedProps = $derived(mergeProps(props, clipboard.getInputProps()));
 </script>

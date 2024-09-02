@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {sliderContext} from './context.svelte.js';
+  import {setSliderContext} from './context.svelte.js';
   import {createSlider} from './create-slider.svelte.js';
 
   let {asChild, children, ...props}: SliderProps = $props();
@@ -53,7 +53,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, slider.getRootProps()));
 
-  sliderContext.set(slider);
+  setSliderContext(slider);
 </script>
 
 {#if asChild}

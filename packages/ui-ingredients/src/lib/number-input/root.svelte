@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {numberInputContext} from './context.svelte.js';
+  import {setNumberInputContext} from './context.svelte.js';
   import {createNumberInput} from './create-number-input.svelte.js';
 
   let {asChild, children, ...props}: NumberInputProps = $props();
@@ -58,7 +58,7 @@
     mergeProps(otherProps, numberInput.getRootProps()),
   );
 
-  numberInputContext.set(numberInput);
+  setNumberInputContext(numberInput);
 </script>
 
 {#if asChild}

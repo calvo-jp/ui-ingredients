@@ -8,3 +8,4 @@ export type {ClipboardProps} from './root.svelte';
 export type {ClipboardTriggerProps} from './trigger.svelte';
 
 export {anatomy as clipboardAnatomy} from '@zag-js/clipboard';
+export {getClipboardContext} from './context.svelte.js';

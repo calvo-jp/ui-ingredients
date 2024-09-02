@@ -4,3 +4,4 @@ export type {ToggleGroupItemProps} from './item.svelte';
 export type {ToggleGroupProps} from './root.svelte';
 
 export {anatomy as toggleGroupAnatomy} from '@zag-js/toggle-group';
+export {getToggleGroupContext} from './context.svelte.js';

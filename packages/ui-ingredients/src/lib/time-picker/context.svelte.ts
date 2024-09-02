@@ -1,6 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreateTimePickerReturn} from './create-time-picker.svelte.js';
 
-export const timePickerContext = new Context<CreateTimePickerReturn>(
-  'TimePicker',
-);
+export const [getTimePickerContext, setTimePickerContext] =
+  createContext<CreateTimePickerReturn>('TimePicker');

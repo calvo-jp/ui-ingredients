@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {tooltipContext} from './context.svelte.js';
+  import {getTooltipContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TooltipTriggerProps = $props();
 
-  let tooltip = tooltipContext.get();
+  let tooltip = getTooltipContext();
 
   let mergedProps = $derived(mergeProps(props, tooltip.getTriggerProps()));
 </script>

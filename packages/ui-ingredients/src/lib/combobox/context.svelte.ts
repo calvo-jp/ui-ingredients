@@ -1,9 +1,14 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {ItemGroupProps, ItemProps} from '@zag-js/combobox';
 import type {CreateComboboxReturn} from './create-combobox.svelte.js';
 
-export const comboboxContext = new Context<CreateComboboxReturn>('Combobox');
-export const comboboxItemPropsContext = new Context<ItemProps>('ComboboxItem');
-export const comboboxItemGroupPropsContext = new Context<ItemGroupProps>(
-  'ComboboxItemGroup',
-);
+export const [getComboboxContext, setComboboxContext] =
+  createContext<CreateComboboxReturn>('Combobox');
+
+export const [getComboboxItemPropsContext, setComboboxItemPropsContext] =
+  createContext<ItemProps>('ComboboxItem');
+
+export const [
+  getComboboxItemGroupPropsContext,
+  setComboboxItemGroupPropsContext,
+] = createContext<ItemGroupProps>('ComboboxItemGroup');

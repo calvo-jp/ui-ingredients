@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {collapsibleContext} from './context.svelte.js';
+  import {getCollapsibleContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: CollapsibleTriggerProps = $props();
 
-  let collapsible = collapsibleContext.get();
+  let collapsible = getCollapsibleContext();
 
   let mergedProps = $derived(mergeProps(props, collapsible.getTriggerProps()));
 </script>

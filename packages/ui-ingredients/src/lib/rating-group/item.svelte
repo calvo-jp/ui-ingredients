@@ -12,11 +12,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {ratingGroupContext} from './context.svelte.js';
+  import {getRatingGroupContext} from './context.svelte.js';
 
   let {index, asChild, children, ...props}: RatingGroupItemProps = $props();
 
-  let ratingGroup = ratingGroupContext.get();
+  let ratingGroup = getRatingGroupContext();
 
   let itemState = $derived(ratingGroup.getItemState({index}));
   let mergedProps = $derived(

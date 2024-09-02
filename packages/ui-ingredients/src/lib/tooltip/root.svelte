@@ -11,14 +11,14 @@
 </script>
 
 <script lang="ts">
-  import {tooltipContext} from './context.svelte.js';
+  import {setTooltipContext} from './context.svelte.js';
   import {createTooltip} from './create-tooltip.svelte.js';
 
   let {children, ...props}: TooltipProps = $props();
 
   let tooltip = createTooltip(props);
 
-  tooltipContext.set(tooltip);
+  setTooltipContext(tooltip);
 </script>
 
 {@render children?.(tooltip)}

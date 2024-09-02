@@ -1,4 +1,5 @@
-import {Context} from '$lib/context.svelte.js';
+import {createContext} from '$lib/create-context.svelte.js';
 import type {CreateProgressReturn} from './create-progress.svelte.js';
 
-export const progressContext = new Context<CreateProgressReturn>('Progress');
+export const [getProgressContext, setProgressContext] =
+  createContext<CreateProgressReturn>('Progress');

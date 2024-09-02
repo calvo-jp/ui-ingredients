@@ -12,13 +12,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
   import {
-    fileUploadContext,
-    fileUploadItemPropsContext,
+    getFileUploadContext,
+    setFileUploadItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: FileUploadItemProps = $props();
 
-  let fileUpload = fileUploadContext.get();
+  let fileUpload = getFileUploadContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['file'])(props),
@@ -28,7 +28,7 @@
     mergeProps(otherProps, fileUpload.getItemProps(itemProps)),
   );
 
-  fileUploadItemPropsContext.set(() => itemProps);
+  setFileUploadItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

@@ -9,11 +9,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {dialogContext} from './context.svelte.js';
+  import {getDialogContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: DialogPositionerProps = $props();
 
-  let dialog = dialogContext.get();
+  let dialog = getDialogContext();
 
   let mergedProps = $derived(mergeProps(props, dialog.getPositionerProps()));
 </script>

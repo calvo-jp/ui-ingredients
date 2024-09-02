@@ -8,3 +8,4 @@ export type {TimerProps} from './root.svelte';
 export type {TimerSeparatorProps} from './separator.svelte';
 
 export {anatomy as timerAnatomy} from '@zag-js/timer';
+export {getTimerContext} from './context.svelte.js';

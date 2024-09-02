@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import {getDocument, getWindow} from '@zag-js/dom-query';
-  import {environmentContext} from './context.svelte.js';
+  import {setEnvironmentContext} from './context.svelte.js';
 
   let {rootNode, children}: EnvironmentProviderProps = $props();
 
@@ -34,7 +34,7 @@
     getWindow: () => getWindow(getRootNode()),
   });
 
-  environmentContext.set(() => environment);
+  setEnvironmentContext(() => environment);
 </script>
 
 {@render children()}

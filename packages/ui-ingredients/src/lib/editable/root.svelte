@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {editableContext} from './context.svelte.js';
+  import {setEditableContext} from './context.svelte.js';
   import {createEditable} from './create-editable.svelte.js';
 
   let {asChild, children, ...props}: EditableProps = $props();
@@ -57,7 +57,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, editable.getRootProps()));
 
-  editableContext.set(editable);
+  setEditableContext(editable);
 </script>
 
 {#if asChild}

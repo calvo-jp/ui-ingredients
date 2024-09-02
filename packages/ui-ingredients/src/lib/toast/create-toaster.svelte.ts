@@ -23,10 +23,12 @@ export function createToaster(props?: CreateToasterProps) {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
+  const id = uid();
+
   const machine = $derived(
     toast.group.machine({
       ...props,
-      id: props?.id ?? uid(),
+      id: props?.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
     }),

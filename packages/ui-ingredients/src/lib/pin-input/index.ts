@@ -7,3 +7,4 @@ export type {PinInputLabelProps} from './label.svelte';
 export type {PinInputProps} from './root.svelte';
 
 export {anatomy as pinInputAnatomy} from './anatomy.js';
+export {getPinInputContext} from './context.svelte.js';

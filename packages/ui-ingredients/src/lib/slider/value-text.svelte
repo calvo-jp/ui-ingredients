@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {sliderContext} from './context.svelte.js';
+  import {getSliderContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SliderValueTextProps = $props();
 
-  let slider = sliderContext.get();
+  let slider = getSliderContext();
 
   let mergedProps = $derived(mergeProps(props, slider.getValueTextProps()));
 </script>

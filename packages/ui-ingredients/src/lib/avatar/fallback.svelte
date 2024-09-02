@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {avatarContext} from './context.svelte.js';
+  import {getAvatarContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: AvatarFallbackProps = $props();
 
-  let avatar = avatarContext.get();
+  let avatar = getAvatarContext();
 
   let mergedProps = $derived(mergeProps(props, avatar.getFallbackProps()));
 </script>

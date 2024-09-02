@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {progressContext} from './context.svelte.js';
+  import {getProgressContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: ProgressValueTextProps = $props();
 
-  let progress = progressContext.get();
+  let progress = getProgressContext();
 
   let mergedProps = $derived(mergeProps(props, progress.getValueTextProps()));
 </script>

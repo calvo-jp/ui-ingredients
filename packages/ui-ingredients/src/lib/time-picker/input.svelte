@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {timePickerContext} from './context.svelte.js';
+  import {getTimePickerContext} from './context.svelte.js';
 
   let {asChild, ...props}: TimePickerInputProps = $props();
 
-  let timePicker = timePickerContext.get();
+  let timePicker = getTimePickerContext();
 
   let mergedProps = $derived(mergeProps(props, timePicker.getInputProps()));
 </script>

@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {progressContext} from './context.svelte.js';
+  import {setProgressContext} from './context.svelte.js';
   import {createProgress} from './create-progress.svelte.js';
 
   let {asChild, children, ...props}: ProgressProps = $props();
@@ -38,7 +38,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, progress.getRootProps()));
 
-  progressContext.set(progress);
+  setProgressContext(progress);
 </script>
 
 {#if asChild}

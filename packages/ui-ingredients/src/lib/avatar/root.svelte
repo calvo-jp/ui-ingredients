@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {avatarContext} from './context.svelte.js';
+  import {setAvatarContext} from './context.svelte.js';
   import {createAvatar} from './create-avatar.svelte.js';
 
   let {asChild, children, ...props}: AvatarProps = $props();
@@ -30,7 +30,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, avatar.getRootProps()));
 
-  avatarContext.set(avatar);
+  setAvatarContext(avatar);
 </script>
 
 {#if asChild}

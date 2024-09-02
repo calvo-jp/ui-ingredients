@@ -22,8 +22,10 @@ export function createPinInputContext(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    pinInput.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ids: {
         label: field?.ids.label,
         hiddenInput: field?.ids.control,
@@ -33,11 +35,13 @@ export function createPinInputContext(
       disabled: field?.disabled,
       readOnly: field?.readOnly,
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(pinInput.machine(context), {context});
 
   const api = $derived(
     reflect(() => {

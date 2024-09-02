@@ -21,16 +21,20 @@ export function createHoverCard(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    hoverCard.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       open: props.defaultOpen ?? props.open,
       getRootNode: environment?.getRootNode,
       'open.controlled': props.open != null,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(hoverCard.machine(context), {context});
 
   const api = $derived(
     reflect(() => hoverCard.connect(state, send, normalizeProps)),

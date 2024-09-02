@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {treeViewContext} from './context.svelte.js';
+  import {setTreeViewContext} from './context.svelte.js';
   import {createTreeView} from './create-tree-view.svelte.js';
 
   let {asChild, children, ...props}: TreeViewProps = $props();
@@ -42,7 +42,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, treeView.getRootProps()));
 
-  treeViewContext.set(treeView);
+  setTreeViewContext(treeView);
 </script>
 
 {#if asChild}

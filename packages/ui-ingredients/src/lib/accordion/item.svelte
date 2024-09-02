@@ -14,13 +14,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
   import {
-    accordionContext,
-    accordionItemPropsContext,
+    getAccordionContext,
+    setAccordionItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, children, ...props}: AccordionItemProps = $props();
 
-  let accordion = accordionContext.get();
+  let accordion = getAccordionContext();
 
   let [itemProps, otherProps] = $derived(
     createSplitProps<ItemProps>(['value', 'disabled'])(props),
@@ -31,7 +31,7 @@
     mergeProps(otherProps, accordion.getItemProps(itemProps)),
   );
 
-  accordionItemPropsContext.set(() => itemProps);
+  setAccordionItemPropsContext(() => itemProps);
 </script>
 
 {#if asChild}

@@ -23,8 +23,10 @@ export function createEditable(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    editable.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ids: {
         label: field?.ids.label,
         input: field?.ids.control,
@@ -34,13 +36,15 @@ export function createEditable(
       readOnly: field?.readOnly,
       required: field?.required,
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       edit: props.defaultEdit ?? props.edit,
       getRootNode: environment?.getRootNode,
       'edit.controlled': props.edit != null,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(editable.machine(context), {context});
 
   const api = $derived(
     reflect(() => {

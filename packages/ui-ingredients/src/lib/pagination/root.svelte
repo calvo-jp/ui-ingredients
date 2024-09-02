@@ -17,7 +17,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {paginationContext} from './context.svelte.js';
+  import {setPaginationContext} from './context.svelte.js';
   import {createPagination} from './create-pagination.svelte.js';
 
   let {asChild, children, ...props}: PaginationProps = $props();
@@ -41,7 +41,7 @@
 
   let mergedProps = $derived(mergeProps(otherProps, pagination.getRootProps()));
 
-  paginationContext.set(pagination);
+  setPaginationContext(pagination);
 </script>
 
 {#if asChild}

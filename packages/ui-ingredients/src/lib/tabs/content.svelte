@@ -11,11 +11,11 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {tabsContext} from './context.svelte.js';
+  import {getTabsContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TabsContentProps = $props();
 
-  let tabs = tabsContext.get();
+  let tabs = getTabsContext();
 
   let [contentProps, otherProps] = $derived(
     createSplitProps<ContentProps>(['value'])(props),

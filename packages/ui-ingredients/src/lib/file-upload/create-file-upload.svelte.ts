@@ -19,8 +19,10 @@ export function createFileUpload(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const [state, send] = useMachine(
-    fileUpload.machine({
+  const id = uid();
+
+  const context = $derived(
+    reflect(() => ({
       ids: {
         label: field?.ids.label,
         hiddenInput: field?.ids.control,
@@ -28,12 +30,14 @@ export function createFileUpload(
       disabled: field?.disabled,
       required: field?.required,
       ...props,
-      id: props.id ?? uid(),
+      id: props.id ?? id,
       dir: locale?.dir,
       locale: props.locale ?? locale?.locale,
       getRootNode: environment?.getRootNode,
-    }),
+    })),
   );
+
+  const [state, send] = useMachine(fileUpload.machine(context), {context});
 
   const api = $derived(
     reflect(() => {

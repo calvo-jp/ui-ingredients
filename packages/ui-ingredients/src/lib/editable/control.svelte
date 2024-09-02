@@ -8,11 +8,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {editableContext} from './context.svelte.js';
+  import {getEditableContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: EditableControlProps = $props();
 
-  let editable = editableContext.get();
+  let editable = getEditableContext();
 
   let mergedProps = $derived(mergeProps(props, editable.getControlProps()));
 </script>

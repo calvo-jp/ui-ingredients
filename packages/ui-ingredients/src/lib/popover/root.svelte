@@ -11,14 +11,14 @@
 </script>
 
 <script lang="ts">
-  import {popoverContext} from './context.svelte.js';
+  import {setPopoverContext} from './context.svelte.js';
   import {createPopover} from './create-popover.svelte.js';
 
   let {children, ...props}: PopoverProps = $props();
 
   let popover = createPopover(props);
 
-  popoverContext.set(popover);
+  setPopoverContext(popover);
 </script>
 
 {@render children?.(popover)}

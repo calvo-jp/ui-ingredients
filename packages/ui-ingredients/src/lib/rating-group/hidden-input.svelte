@@ -6,11 +6,11 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {ratingGroupContext} from './context.svelte.js';
+  import {getRatingGroupContext} from './context.svelte.js';
 
   let {...props}: RatingGroupHiddenInputProps = $props();
 
-  let radioGroup = ratingGroupContext.get();
+  let radioGroup = getRatingGroupContext();
 
   let mergedProps = $derived(
     mergeProps(props, radioGroup.getHiddenInputProps()),

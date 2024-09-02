@@ -9,14 +9,14 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    tagsInputContext,
-    tagsInputItemPropsContext,
+    getTagsInputContext,
+    getTagsInputItemPropsContext,
   } from './context.svelte.js';
 
   let {asChild, ...props}: TagsInputItemInputProps = $props();
 
-  let tagsInput = tagsInputContext.get();
-  let itemProps = tagsInputItemPropsContext.get();
+  let tagsInput = getTagsInputContext();
+  let itemProps = getTagsInputItemPropsContext();
 
   let mergedProps = $derived(
     mergeProps(props, tagsInput.getItemInputProps(itemProps)),

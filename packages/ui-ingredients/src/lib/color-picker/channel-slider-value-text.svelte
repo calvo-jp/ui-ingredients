@@ -6,18 +6,18 @@
 </script>
 
 <script lang="ts">
-  import {localeContext} from '$lib/locale-provider/context.svelte.js';
+  import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    colorPickerChannelSliderPropsContext,
-    colorPickerContext,
+    getColorPickerChannelSliderPropsContext,
+    getColorPickerContext,
   } from './context.svelte.js';
 
   let {children, ...props}: ColorPickerChannelSliderValueTextProps = $props();
 
-  let locale = localeContext.get();
-  let colorPicker = colorPickerContext.get();
-  let channelSliderProps = colorPickerChannelSliderPropsContext.get();
+  let locale = getLocaleContext();
+  let colorPicker = getColorPickerContext();
+  let channelSliderProps = getColorPickerChannelSliderPropsContext();
 
   let mergedProps = $derived(
     mergeProps(

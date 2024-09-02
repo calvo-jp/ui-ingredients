@@ -7,3 +7,4 @@ export type {PaginationPrevTriggerProps} from './prev-trigger.svelte';
 export type {PaginationProps} from './root.svelte';
 
 export {anatomy as paginationAnatomy} from '@zag-js/pagination';
+export {getPaginationContext} from './context.svelte.js';
