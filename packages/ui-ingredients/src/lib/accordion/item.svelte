@@ -5,7 +5,7 @@
 
   export interface AccordionItemProps
     extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
-    asChild?: AsChild;
+    asChild?: AsChild<ItemState>;
     children?: Snippet<[ItemState]>;
   }
 </script>
@@ -35,7 +35,7 @@
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
   <div {...mergedProps}>
     {@render children?.(itemState)}
