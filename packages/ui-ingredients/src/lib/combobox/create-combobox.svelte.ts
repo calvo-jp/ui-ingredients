@@ -63,7 +63,6 @@ export function createCombobox<T>(
 
       return {
         ...o,
-        collection,
         getInputProps() {
           return {
             'aria-describedby': field?.['aria-describedby'],
