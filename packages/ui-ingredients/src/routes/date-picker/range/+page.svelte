@@ -6,7 +6,8 @@
     ChevronRightIcon,
     XCloseIcon,
   } from '@untitled-theme/icons-svelte';
-  import {cx, IconButton, Input, Label} from '../../shared/index.js';
+  import {twMerge} from 'tailwind-merge';
+  import {IconButton, Input, Label} from '../../shared/index.js';
 
   let value: string[] = $state([]);
 
@@ -105,7 +106,7 @@
                     {#each week as day}
                       <DatePicker.DayTableCell value={day}>
                         <DatePicker.DayTableCellTrigger
-                          class={cx(
+                          class={twMerge(
                             'flex',
                             'items-center',
                             'justify-center',

@@ -1,8 +1,8 @@
 <script lang="ts">
   import {Steps} from '$lib/index.js';
   import {CheckIcon} from '@untitled-theme/icons-svelte';
+  import {twMerge} from 'tailwind-merge';
   import {Button} from '../shared/index.js';
-  import {cx} from '../shared/utils.js';
 
   const items = [
     {title: 'Step 1', content: 'Step 1 Content'},
@@ -27,7 +27,7 @@
       <Steps.Item {index} class="flex items-center gap-2">
         <Steps.Trigger class="flex items-center gap-2">
           <Steps.Indicator
-            class={cx(
+            class={twMerge(
               'group',
               'flex',
               'items-center',

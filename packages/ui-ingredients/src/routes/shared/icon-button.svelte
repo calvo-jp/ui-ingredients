@@ -1,20 +1,25 @@
 <script lang="ts">
+  import type {Assign} from '$lib/types.js';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {cx} from './utils.js';
+  import {
+    iconButtonRecipe,
+    type IconButtonRecipeProps,
+  } from './icon-button.recipe.js';
 
   let {
     class: className,
+    variant,
     children,
     ...props
-  }: SvelteHTMLElements['button'] = $props();
+  }: Assign<SvelteHTMLElements['button'], IconButtonRecipeProps> = $props();
 </script>
 
 <button
   type="button"
-  class={cx(
-    'flex size-12 shrink-0 items-center justify-center rounded border transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50',
+  class={iconButtonRecipe({
+    variant,
     className,
-  )}
+  })}
   {...props}
 >
   {@render children?.()}

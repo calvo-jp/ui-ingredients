@@ -1,6 +1,6 @@
 <script lang="ts">
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {cx} from './utils.js';
+  import {twMerge} from 'tailwind-merge';
 
   let {
     class: className,
@@ -9,6 +9,9 @@
   }: SvelteHTMLElements['label'] = $props();
 </script>
 
-<label class={cx('text-muted mb-1 block font-medium', className)} {...props}>
+<label
+  class={twMerge('text-muted mb-1 block font-medium', className)}
+  {...props}
+>
   {@render children?.()}
 </label>

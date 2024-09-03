@@ -1,10 +1,10 @@
 <script lang="ts">
   import {Menu} from '$lib/index.js';
   import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
+  import {twMerge} from 'tailwind-merge';
   import {Button} from '../../shared/index.js';
-  import {cx} from '../../shared/utils.js';
 
-  let menuItemStyle = cx(
+  let menuItemStyle = twMerge(
     'w-32',
     'px-2.5',
     'py-1',
@@ -18,7 +18,7 @@
     'data-disabled:opacity-75',
   );
 
-  let menuContentStyle = cx(
+  let menuContentStyle = twMerge(
     'p-2',
     'border',
     'rounded',

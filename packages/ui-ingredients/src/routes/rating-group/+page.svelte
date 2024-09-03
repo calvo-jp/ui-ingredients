@@ -1,6 +1,7 @@
 <script lang="ts">
   import {RatingGroup} from '$lib/index.js';
-  import {cx, Label} from '../shared/index.js';
+  import {twMerge} from 'tailwind-merge';
+  import {Label} from '../shared/index.js';
 
   let value = $state(1);
 
@@ -28,7 +29,7 @@
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              class={cx(
+              class={twMerge(
                 'size-8',
                 'transition-colors',
                 'duration-200',

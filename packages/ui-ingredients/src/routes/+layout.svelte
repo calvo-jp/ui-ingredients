@@ -11,7 +11,8 @@
     Toaster,
   } from '$lib/index.js';
   import {ChevronLeftIcon, Menu05Icon} from '@untitled-theme/icons-svelte';
-  import {cx, useToaster} from './shared/index.js';
+  import {twMerge} from 'tailwind-merge';
+  import {useToaster} from './shared/index.js';
 
   let {children} = $props();
 
@@ -206,7 +207,7 @@
   <LocaleProvider locale="en-US">
     <div class="lg:flex lg:items-start">
       <nav
-        class={cx(
+        class={twMerge(
           'hidden',
           'lg:block',
           'sticky',
@@ -300,7 +301,7 @@
     <Toaster {toaster}>
       {#snippet children()}
         <Toast.Root
-          class={cx(
+          class={twMerge(
             'p-4',
             'border',
             'rounded',

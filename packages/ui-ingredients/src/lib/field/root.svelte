@@ -13,22 +13,25 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setFieldContext} from './context.svelte.js';
   import {createField} from './create-field.svelte.js';
 
   let {asChild, children, ...props}: FieldProps = $props();
 
-  let [fieldProps, otherProps] = createSplitProps<CreateFieldProps>([
-    'id',
-    'ids',
-    'invalid',
-    'disabled',
-    'readOnly',
-    'required',
-  ])(props);
+  let [fieldProps, otherProps] = $derived(
+    createSplitProps<CreateFieldProps>([
+      'id',
+      'ids',
+      'invalid',
+      'disabled',
+      'readOnly',
+      'required',
+    ])(props),
+  );
 
-  let field = createField(fieldProps);
+  let field = createField(reflect(() => fieldProps));
 
   let mergedProps = $derived(mergeProps(otherProps, field.getRootProps()));
 

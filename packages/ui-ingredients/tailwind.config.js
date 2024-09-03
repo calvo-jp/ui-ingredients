@@ -1,8 +1,9 @@
+import {withTV} from 'tailwind-variants/transformer';
 import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme.js';
 
 /** @type {import('tailwindcss').Config} */
-export default {
+export default withTV({
   darkMode: 'class',
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
@@ -135,4 +136,4 @@ export default {
     },
   },
   plugins: [],
-};
+});

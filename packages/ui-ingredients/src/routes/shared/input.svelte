@@ -1,25 +1,19 @@
 <script lang="ts">
+  import type {Assign} from '$lib/types.js';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {cx} from './utils.js';
+  import {inputRecipe, type InputRecipeProps} from './input.recipe.js';
 
-  let {class: className, ...props}: SvelteHTMLElements['input'] = $props();
+  let {
+    class: className,
+    variant,
+    ...props
+  }: Assign<SvelteHTMLElements['input'], InputRecipeProps> = $props();
 </script>
 
 <input
-  class={cx(
-    'block',
-    'h-12',
-    'w-full',
-    'rounded',
-    'border',
-    'bg-transparent',
-    'px-4',
-    'placeholder:text-neutral-600',
-    'data-invalid:border-danger',
-    'data-invalid:focus:outline',
-    'data-invalid:focus:outline-1',
-    'data-invalid:focus:outline-danger',
+  class={inputRecipe({
+    variant,
     className,
-  )}
+  })}
   {...props}
 />
