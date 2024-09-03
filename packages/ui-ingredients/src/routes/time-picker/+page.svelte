@@ -4,7 +4,14 @@
   import {IconButton, Input, Label} from '../shared/index.js';
 </script>
 
-<TimePicker.Root allowSeconds class="w-full lg:max-w-[24rem]">
+<TimePicker.Root
+  allowSeconds
+  class="w-full lg:max-w-[24rem]"
+  positioning={{
+    sameWidth: true,
+  }}
+  open
+>
   {#snippet children(context)}
     <TimePicker.Label>
       {#snippet asChild(attrs)}
@@ -35,35 +42,33 @@
     </TimePicker.Control>
 
     <TimePicker.Positioner>
-      <TimePicker.Content class="bg-light flex rounded border p-4">
-        <TimePicker.Column unit="hour" class="snap-y snap-mandatory">
+      <TimePicker.Content
+        class="bg-light relative aspect-square rounded border p-4"
+      >
+        <TimePicker.Column unit="hour">
           {#each context.getHours() as item}
-            <TimePicker.HourCell value={item.value} class="snap-center">
+            <TimePicker.HourCell value={item.value}>
               {item.label}
             </TimePicker.HourCell>
           {/each}
         </TimePicker.Column>
-        <TimePicker.Column unit="minute" class="snap-y snap-mandatory">
+        <TimePicker.Column unit="minute">
           {#each context.getMinutes() as item}
-            <TimePicker.MinuteCell value={item.value} class="snap-center">
+            <TimePicker.MinuteCell value={item.value}>
               {item.label}
             </TimePicker.MinuteCell>
           {/each}
         </TimePicker.Column>
-        <TimePicker.Column unit="second" class="snap-y snap-mandatory">
+        <TimePicker.Column unit="second">
           {#each context.getSeconds() as item}
-            <TimePicker.SecondCell value={item.value} class="snap-center">
+            <TimePicker.SecondCell value={item.value}>
               {item.label}
             </TimePicker.SecondCell>
           {/each}
         </TimePicker.Column>
-        <TimePicker.Column unit="period" class="snap-y snap-mandatory">
-          <TimePicker.PeriodCell value="am" class="snap-center"
-            >AM</TimePicker.PeriodCell
-          >
-          <TimePicker.PeriodCell value="pm" class="snap-center"
-            >PM</TimePicker.PeriodCell
-          >
+        <TimePicker.Column unit="period">
+          <TimePicker.PeriodCell value="am">AM</TimePicker.PeriodCell>
+          <TimePicker.PeriodCell value="pm">PM</TimePicker.PeriodCell>
         </TimePicker.Column>
       </TimePicker.Content>
     </TimePicker.Positioner>

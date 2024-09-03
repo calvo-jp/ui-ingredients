@@ -168,10 +168,6 @@
       path: '/qr-code',
     },
     {
-      label: 'Time Picker',
-      path: '/time-picker',
-    },
-    {
       label: 'Splitter',
       path: '/splitter',
     },
@@ -183,7 +179,19 @@
       label: 'Field',
       path: '/field',
     },
-  ].toSorted((i, j) => i.label.localeCompare(j.label));
+    {
+      label: 'Time Picker',
+      path: '/time-picker',
+      hidden: true,
+    },
+    {
+      label: 'Color Picker',
+      path: '/color-picker',
+      hidden: true,
+    },
+  ]
+    .filter((o) => !o.hidden)
+    .toSorted((i, j) => i.label.localeCompare(j.label));
 
   let currentItem = $derived(
     items.find((item) => item.path === $page.url.pathname),
