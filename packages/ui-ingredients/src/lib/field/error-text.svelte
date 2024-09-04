@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FieldErrorTextProps extends HTMLProps<'div'> {
-    asChild?: AsChild;
-  }
+  export interface FieldErrorTextProps extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

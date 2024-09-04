@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, IngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {IndicatorProps} from '@zag-js/clipboard';
 
   export interface ClipboardIndicatorProps
-    extends Assign<IngredientProps<'span'>, Partial<IndicatorProps>> {}
+    extends Assign<HtmlIngredientProps<'span'>, Partial<IndicatorProps>> {}
 </script>
 
 <script lang="ts">

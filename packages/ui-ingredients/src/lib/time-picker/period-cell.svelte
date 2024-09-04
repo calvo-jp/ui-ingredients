@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {PeriodCellProps} from '@zag-js/time-picker';
 
   export interface TimePickerPeriodCellProps
-    extends Assign<HTMLProps<'div'>, PeriodCellProps> {
-    asChild?: AsChild;
-  }
+    extends Assign<HtmlIngredientProps<'div'>, PeriodCellProps> {}
 </script>
 
 <script lang="ts">

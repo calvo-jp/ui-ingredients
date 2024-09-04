@@ -1,19 +1,24 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ToastGhostAfterProps
-    extends Omit<HTMLProps<'span'>, 'children'> {}
+  export interface ToastGhostAfterProps extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {getToastContext} from './context.svelte.js';
 
-  let {...props}: ToastGhostAfterProps = $props();
+  let {asChild, children, ...props}: ToastGhostAfterProps = $props();
 
   let context = getToastContext();
 
   let mergedProps = $derived(mergeProps(props, context.getGhostAfterProps()));
 </script>
 
-<span {...mergedProps}></span>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <span {...mergedProps}>
+    {@render children?.()}
+  </span>
+{/if}

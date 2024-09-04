@@ -1,14 +1,15 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateFieldProps,
     CreateFieldReturn,
   } from './create-field.svelte.js';
 
   export interface FieldProps
-    extends Assign<HTMLProps<'div'>, CreateFieldProps> {
-    asChild?: AsChild<CreateFieldReturn>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'div', CreateFieldReturn>,
+      CreateFieldProps
+    > {}
 </script>
 
 <script lang="ts">
@@ -42,6 +43,6 @@
   {@render asChild(mergedProps, field)}
 {:else}
   <div {...mergedProps}>
-    {@render children?.()}
+    {@render children?.(field)}
   </div>
 {/if}

@@ -6,7 +6,7 @@
   } from './create-dialog.svelte.js';
 
   export interface DialogProps extends CreateDialogProps {
-    children?: Snippet<[dialog: CreateDialogReturn]>;
+    children?: Snippet<[CreateDialogReturn]>;
   }
 </script>
 

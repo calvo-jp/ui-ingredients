@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {AreaProps} from '@zag-js/color-picker';
 
   export interface ColorPickerAreaProps
-    extends Assign<HTMLProps<'div'>, AreaProps> {}
+    extends Assign<HtmlIngredientProps<'div'>, AreaProps> {}
 </script>
 
 <script lang="ts">

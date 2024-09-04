@@ -6,7 +6,7 @@
   } from './create-menu.svelte.js';
 
   export interface MenuRootProps extends CreateMenuProps {
-    children?: Snippet<[menu: CreateMenuReturn]>;
+    children?: Snippet<[CreateMenuReturn]>;
   }
 </script>
 

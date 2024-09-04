@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FileUploadItemPreviewImageProps extends HTMLProps<'img'> {
-    asChild?: AsChild;
-  }
+  export interface FileUploadItemPreviewImageProps
+    extends HtmlIngredientProps<'img'> {}
 </script>
 
 <script lang="ts">

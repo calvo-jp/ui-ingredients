@@ -1,12 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {HtmlIngredientProps} from '$lib/types.js';
   import type {CreateToastReturn} from './create-toast.svelte.js';
 
-  export interface ToastProps extends Omit<HTMLProps<'div'>, 'children'> {
-    asChild?: AsChild<CreateToastReturn>;
-    children?: Snippet<[CreateToastReturn]>;
-  }
+  export interface ToastProps
+    extends HtmlIngredientProps<'div', CreateToastReturn> {}
 </script>
 
 <script lang="ts">

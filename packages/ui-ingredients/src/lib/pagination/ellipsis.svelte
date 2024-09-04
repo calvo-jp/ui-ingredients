@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {EllipsisProps} from '@zag-js/pagination';
 
   export interface PaginationEllipsisProps
-    extends Assign<HTMLProps<'span'>, EllipsisProps> {
-    asChild?: AsChild;
-  }
+    extends Assign<HtmlIngredientProps<'span'>, EllipsisProps> {}
 </script>
 
 <script lang="ts">

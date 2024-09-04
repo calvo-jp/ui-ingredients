@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {SwatchProps} from '@zag-js/color-picker';
 
   export interface ColorPickerSwatchProps
-    extends Assign<HTMLProps<'div'>, SwatchProps> {}
+    extends Assign<HtmlIngredientProps<'div'>, SwatchProps> {}
 </script>
 
 <script lang="ts">

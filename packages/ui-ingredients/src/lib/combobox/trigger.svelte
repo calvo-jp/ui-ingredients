@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ComboboxTriggerProps extends HTMLProps<'button'> {
-    asChild?: AsChild;
-  }
+  export interface ComboboxTriggerProps extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

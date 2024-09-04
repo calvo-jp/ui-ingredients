@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ViewProps} from '@zag-js/date-picker';
 
   export interface DatePickerViewProps
-    extends Assign<HTMLProps<'div'>, ViewProps> {
-    asChild?: AsChild;
-  }
+    extends Assign<HtmlIngredientProps<'div'>, ViewProps> {}
 </script>
 
 <script lang="ts">

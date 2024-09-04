@@ -1,14 +1,15 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface TagsInputHiddenInputProps extends HTMLProps<'input'> {}
+  export interface TagsInputHiddenInputProps
+    extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {getTagsInputContext} from './context.svelte.js';
 
-  let {...props}: TagsInputHiddenInputProps = $props();
+  let {asChild, ...props}: TagsInputHiddenInputProps = $props();
 
   let tagsInput = getTagsInputContext();
 
@@ -17,4 +18,8 @@
   );
 </script>
 
-<input {...mergedProps} />
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <input {...mergedProps} />
+{/if}

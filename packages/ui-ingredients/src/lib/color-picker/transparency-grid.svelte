@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {TransparencyGridProps} from '@zag-js/color-picker';
 
   export interface ColorPickerTransparencyGridProps
-    extends Assign<HTMLProps<'div'>, TransparencyGridProps> {}
+    extends Assign<HtmlIngredientProps<'div'>, TransparencyGridProps> {}
 </script>
 
 <script lang="ts">

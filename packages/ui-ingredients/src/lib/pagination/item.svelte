@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/pagination';
 
   export interface PaginationItemProps
-    extends Assign<HTMLProps<'button'>, Omit<ItemProps, 'type'>> {
-    asChild?: AsChild;
-  }
+    extends Assign<HtmlIngredientProps<'button'>, Omit<ItemProps, 'type'>> {}
 </script>
 
 <script lang="ts">

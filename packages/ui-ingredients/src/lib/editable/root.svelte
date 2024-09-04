@@ -1,16 +1,15 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateEditableProps,
     CreateEditableReturn,
   } from './create-editable.svelte.js';
 
   export interface EditableProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateEditableProps> {
-    asChild?: AsChild<CreateEditableReturn>;
-    children?: Snippet<[CreateEditableReturn]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'div', CreateEditableReturn>,
+      CreateEditableProps
+    > {}
 </script>
 
 <script lang="ts">

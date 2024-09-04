@@ -1,10 +1,7 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface DialogPositionerProps extends HTMLProps<'div'> {
-    asChild?: Snippet<[mergedProps: Omit<HTMLProps<'div'>, 'children'>]>;
-  }
+  export interface DialogPositionerProps extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

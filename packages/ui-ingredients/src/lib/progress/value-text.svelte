@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ProgressValueTextProps extends HTMLProps<'span'> {
-    asChild?: AsChild;
-  }
+  export interface ProgressValueTextProps extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">

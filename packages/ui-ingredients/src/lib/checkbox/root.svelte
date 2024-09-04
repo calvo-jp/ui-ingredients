@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, IngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateCheckboxProps,
     CreateCheckboxReturn,
@@ -7,7 +7,7 @@
 
   export interface CheckboxProps
     extends Assign<
-      IngredientProps<'label', CreateCheckboxReturn>,
+      HtmlIngredientProps<'label', CreateCheckboxReturn>,
       CreateCheckboxProps
     > {}
 </script>

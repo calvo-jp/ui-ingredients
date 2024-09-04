@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, IngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/accordion';
 
   export interface AccordionItemProps
-    extends Assign<IngredientProps<'div', ItemState>, ItemProps> {}
+    extends Assign<HtmlIngredientProps<'div', ItemState>, ItemProps> {}
 </script>
 
 <script lang="ts">

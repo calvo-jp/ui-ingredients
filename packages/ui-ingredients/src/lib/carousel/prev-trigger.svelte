@@ -1,7 +1,8 @@
 <script lang="ts" module>
-  import type {IngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface CarouselPrevTriggerProps extends IngredientProps<'button'> {}
+  export interface CarouselPrevTriggerProps
+    extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

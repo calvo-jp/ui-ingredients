@@ -6,7 +6,7 @@
   } from './create-popover.svelte.js';
 
   export interface PopoverProps extends CreatePopoverProps {
-    children?: Snippet<[popover: CreatePopoverReturn]>;
+    children?: Snippet<[CreatePopoverReturn]>;
   }
 </script>
 

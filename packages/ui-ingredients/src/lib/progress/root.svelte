@@ -1,16 +1,15 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateProgressProps,
     CreateProgressReturn,
   } from './create-progress.svelte.js';
 
   export interface ProgressProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateProgressProps> {
-    asChild?: AsChild;
-    children?: Snippet<[progress: CreateProgressReturn]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'div', CreateProgressReturn>,
+      CreateProgressProps
+    > {}
 </script>
 
 <script lang="ts">
@@ -42,7 +41,7 @@
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps)}
+  {@render asChild(mergedProps, progress)}
 {:else}
   <div {...mergedProps}>
     {@render children?.(progress)}

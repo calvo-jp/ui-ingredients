@@ -1,13 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {OptionItemProps, OptionItemState} from '@zag-js/menu';
-  import type {Snippet} from 'svelte';
 
   export interface MenuOptionItemProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, OptionItemProps> {
-    asChild?: AsChild<OptionItemState>;
-    children?: Snippet<[OptionItemState]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'div', OptionItemState>,
+      OptionItemProps
+    > {}
 </script>
 
 <script lang="ts">

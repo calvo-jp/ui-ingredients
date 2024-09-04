@@ -1,13 +1,12 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {DayTableCellProps, DayTableCellState} from '@zag-js/date-picker';
-  import type {Snippet} from 'svelte';
 
   export interface DatePickerDayTableCellProps
-    extends Assign<Omit<HTMLProps<'td'>, 'children'>, DayTableCellProps> {
-    asChild?: AsChild<DayTableCellState>;
-    children?: Snippet<[DayTableCellState]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'td', DayTableCellState>,
+      DayTableCellProps
+    > {}
 </script>
 
 <script lang="ts">

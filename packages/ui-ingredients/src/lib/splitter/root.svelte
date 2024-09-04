@@ -1,16 +1,15 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateSplitterProps,
     CreateSplitterReturn,
   } from './create-splitter.svelte.js';
 
   export interface SplitterProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateSplitterProps> {
-    asChild?: AsChild<CreateSplitterReturn>;
-    children?: Snippet<[CreateSplitterReturn]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'div', CreateSplitterReturn>,
+      CreateSplitterProps
+    > {}
 </script>
 
 <script lang="ts">

@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface NumberInputControlTriggerProps extends HTMLProps<'div'> {
-    asChild?: AsChild;
-  }
+  export interface NumberInputControlTriggerProps
+    extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

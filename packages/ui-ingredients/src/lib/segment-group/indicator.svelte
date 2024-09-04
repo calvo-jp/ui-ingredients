@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SegmentGroupIndicatorProps extends HTMLProps<'span'> {
-    asChild?: AsChild;
-  }
+  export interface SegmentGroupIndicatorProps
+    extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">

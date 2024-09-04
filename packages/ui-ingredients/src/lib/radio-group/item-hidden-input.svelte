@@ -1,7 +1,8 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface RadioGroupItemHiddenInputProps extends HTMLProps<'input'> {}
+  export interface RadioGroupItemHiddenInputProps
+    extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
@@ -11,7 +12,7 @@
     getRadioGroupItemPropsContext,
   } from './context.svelte.js';
 
-  let {...props}: RadioGroupItemHiddenInputProps = $props();
+  let {asChild, ...props}: RadioGroupItemHiddenInputProps = $props();
 
   let radioGroup = getRadioGroupContext();
   let itemProps = getRadioGroupItemPropsContext();
@@ -21,4 +22,8 @@
   );
 </script>
 
-<input {...mergedProps} />
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <input {...mergedProps} />
+{/if}

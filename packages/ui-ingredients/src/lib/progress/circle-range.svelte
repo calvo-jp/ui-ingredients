@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ProgressCircleRangeProps extends HTMLProps<'circle'> {
-    asChild?: AsChild;
-  }
+  export interface ProgressCircleRangeProps
+    extends HtmlIngredientProps<'circle'> {}
 </script>
 
 <script lang="ts">

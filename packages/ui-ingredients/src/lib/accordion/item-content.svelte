@@ -1,7 +1,8 @@
 <script lang="ts" module>
-  import type {IngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface AccordionItemContentProps extends IngredientProps<'div'> {}
+  export interface AccordionItemContentProps
+    extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

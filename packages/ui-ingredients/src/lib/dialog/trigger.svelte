@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface DialogTriggerProps extends HTMLProps<'button'> {
-    asChild?: AsChild;
-  }
+  export interface DialogTriggerProps extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

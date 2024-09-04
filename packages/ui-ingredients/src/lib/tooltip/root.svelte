@@ -6,7 +6,7 @@
   } from './create-tooltip.svelte.js';
 
   export interface TooltipProps extends CreateTooltipProps {
-    children?: Snippet<[tooltip: CreateTooltipReturn]>;
+    children?: Snippet<[CreateTooltipReturn]>;
   }
 </script>
 

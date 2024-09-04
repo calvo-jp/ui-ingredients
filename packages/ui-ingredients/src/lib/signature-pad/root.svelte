@@ -1,6 +1,5 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateSignaturePadProps,
     CreateSignaturePadReturn,
@@ -8,12 +7,9 @@
 
   export interface SignaturePadProps
     extends Assign<
-      Omit<HTMLProps<'div'>, 'children'>,
+      HtmlIngredientProps<'div', CreateSignaturePadReturn>,
       CreateSignaturePadProps
-    > {
-    asChild?: AsChild<CreateSignaturePadReturn>;
-    children?: Snippet<[CreateSignaturePadReturn]>;
-  }
+    > {}
 </script>
 
 <script lang="ts">

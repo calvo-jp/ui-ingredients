@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import type {Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ChannelInputProps} from '@zag-js/color-picker';
 
   export interface ColorPickerChannelInputProps
-    extends Assign<HTMLProps<'input'>, ChannelInputProps> {}
+    extends Assign<HtmlIngredientProps<'input'>, ChannelInputProps> {}
 </script>
 
 <script lang="ts">

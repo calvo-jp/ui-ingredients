@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ResizeTriggerProps} from '@zag-js/splitter';
 
   interface ResizeTriggerState {
@@ -12,16 +12,15 @@
   }
 
   export interface SplitterResizeTriggerProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ResizeTriggerProps> {
-    asChild?: AsChild<ResizeTriggerState>;
-    children?: Snippet<[ResizeTriggerState]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'div', ResizeTriggerState>,
+      ResizeTriggerProps
+    > {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import type {Snippet} from 'svelte';
   import {getSplitterContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: SplitterResizeTriggerProps = $props();

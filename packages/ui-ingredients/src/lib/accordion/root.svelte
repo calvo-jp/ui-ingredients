@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, IngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateAccordionProps,
     CreateAccordionReturn,
@@ -7,7 +7,7 @@
 
   export interface AccordionProps
     extends Assign<
-      IngredientProps<'div', CreateAccordionReturn>,
+      HtmlIngredientProps<'div', CreateAccordionReturn>,
       CreateAccordionProps
     > {}
 </script>

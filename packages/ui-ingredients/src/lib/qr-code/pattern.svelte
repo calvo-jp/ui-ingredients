@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface QrCodePatternProps extends HTMLProps<'path'> {
-    asChild?: AsChild;
-  }
+  export interface QrCodePatternProps extends HtmlIngredientProps<'path'> {}
 </script>
 
 <script lang="ts">

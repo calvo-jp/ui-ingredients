@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface DatePickerTableHeaderProps extends HTMLProps<'th'> {
-    asChild?: AsChild;
-  }
+  export interface DatePickerTableHeaderProps
+    extends HtmlIngredientProps<'th'> {}
 </script>
 
 <script lang="ts">

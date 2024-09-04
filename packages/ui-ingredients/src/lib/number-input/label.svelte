@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface NumberInputLabelProps extends HTMLProps<'label'> {
-    asChild?: AsChild;
-  }
+  export interface NumberInputLabelProps extends HtmlIngredientProps<'label'> {}
 </script>
 
 <script lang="ts">

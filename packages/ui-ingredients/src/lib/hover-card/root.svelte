@@ -6,7 +6,7 @@
   } from './create-hover-card.svelte.js';
 
   export interface HoverCardProps extends CreateHoverCardProps {
-    children?: Snippet<[hoverCard: CreateHoverCardReturn]>;
+    children?: Snippet<[CreateHoverCardReturn]>;
   }
 </script>
 

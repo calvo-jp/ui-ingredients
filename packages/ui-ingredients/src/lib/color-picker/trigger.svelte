@@ -1,7 +1,8 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ColorPickerTriggerProps extends HTMLProps<'button'> {}
+  export interface ColorPickerTriggerProps
+    extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

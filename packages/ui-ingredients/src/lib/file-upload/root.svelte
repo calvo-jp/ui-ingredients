@@ -1,16 +1,15 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateFileUploadProps,
     CreateFileUploadReturn,
   } from './create-file-upload.svelte.js';
 
   export interface FileUploadProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateFileUploadProps> {
-    asChild?: AsChild<CreateFileUploadReturn>;
-    children?: Snippet<[CreateFileUploadReturn]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'div', CreateFileUploadReturn>,
+      CreateFileUploadProps
+    > {}
 </script>
 
 <script lang="ts">

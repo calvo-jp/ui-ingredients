@@ -1,12 +1,11 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {HtmlIngredientProps} from '$lib/types.js';
   import type {CreateToastReturn} from './create-toast.svelte.js';
   import type {CreateToasterReturn} from './create-toaster.svelte.js';
 
-  export interface ToasterProps extends Omit<HTMLProps<'div'>, 'children'> {
+  export interface ToasterProps
+    extends HtmlIngredientProps<'div', CreateToastReturn> {
     toaster: CreateToasterReturn;
-    children: Snippet<[toast: CreateToastReturn]>;
   }
 </script>
 
@@ -32,7 +31,7 @@
     {#each toasts as toast (toast.id)}
       <ToastActor actor={toast}>
         {#snippet children$(ctx)}
-          {@render children(ctx)}
+          {@render children?.(ctx)}
         {/snippet}
       </ToastActor>
     {/each}

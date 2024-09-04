@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, IngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import {
     type CreateAvatarProps,
     type CreateAvatarReturn,
@@ -7,7 +7,7 @@
 
   export interface AvatarProps
     extends Assign<
-      IngredientProps<'div', CreateAvatarReturn>,
+      HtmlIngredientProps<'div', CreateAvatarReturn>,
       CreateAvatarProps
     > {}
 </script>

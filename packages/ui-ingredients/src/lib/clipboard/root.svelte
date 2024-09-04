@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, IngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateClipboardProps,
     CreateClipboardReturn,
@@ -7,7 +7,7 @@
 
   export interface ClipboardProps
     extends Assign<
-      IngredientProps<'div', CreateClipboardReturn>,
+      HtmlIngredientProps<'div', CreateClipboardReturn>,
       CreateClipboardProps
     > {}
 </script>

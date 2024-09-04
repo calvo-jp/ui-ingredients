@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {IngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface AccordionItemTriggerProps
-    extends IngredientProps<'button'> {}
+    extends HtmlIngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

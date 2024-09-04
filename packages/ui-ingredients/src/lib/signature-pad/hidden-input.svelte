@@ -1,16 +1,16 @@
 <script lang="ts" module>
-  import type {Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {HiddenInputProps} from '@zag-js/signature-pad';
 
   export interface SignaturePadHiddenInputProps
-    extends Assign<HTMLProps<'input'>, HiddenInputProps> {}
+    extends Assign<HtmlIngredientProps<'input'>, HiddenInputProps> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {getSignaturePadContext} from './context.svelte.js';
 
-  let {value, ...props}: SignaturePadHiddenInputProps = $props();
+  let {value, asChild, ...props}: SignaturePadHiddenInputProps = $props();
 
   let signaturePad = getSignaturePadContext();
 
@@ -19,4 +19,8 @@
   );
 </script>
 
-<input {...mergedProps} />
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <input {...mergedProps} />
+{/if}

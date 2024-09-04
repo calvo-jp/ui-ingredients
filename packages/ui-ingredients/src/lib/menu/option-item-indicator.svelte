@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface MenuOptionItemIndicatorProps extends HTMLProps<'span'> {
-    asChild?: AsChild;
-  }
+  export interface MenuOptionItemIndicatorProps
+    extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">

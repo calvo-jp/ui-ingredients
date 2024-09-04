@@ -1,7 +1,8 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ColorPickerAreaBackgroundProps extends HTMLProps<'div'> {}
+  export interface ColorPickerAreaBackgroundProps
+    extends HtmlIngredientProps<'div'> {}
 </script>
 
 <script lang="ts">
@@ -11,7 +12,7 @@
     getColorPickerContext,
   } from './context.svelte.js';
 
-  let {children, ...props}: ColorPickerAreaBackgroundProps = $props();
+  let {asChild, children, ...props}: ColorPickerAreaBackgroundProps = $props();
 
   let colorPicker = getColorPickerContext();
   let areaProps = getColorPickerAreaPropsContext();

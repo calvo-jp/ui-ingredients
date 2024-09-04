@@ -1,13 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {BranchProps, BranchState} from '@zag-js/tree-view';
-  import type {Snippet} from 'svelte';
 
   export interface TreeViewBranchProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, BranchProps> {
-    asChild?: AsChild<BranchState>;
-    children?: Snippet<[BranchState]>;
-  }
+    extends Assign<HtmlIngredientProps<'div', BranchState>, BranchProps> {}
 </script>
 
 <script lang="ts">

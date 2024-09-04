@@ -1,8 +1,8 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface SegmentGroupItemHiddenInputProps
-    extends HTMLProps<'input'> {}
+    extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
@@ -12,7 +12,7 @@
     getSegmentGroupItemPropsContext,
   } from './context.svelte.js';
 
-  let {...props}: SegmentGroupItemHiddenInputProps = $props();
+  let {asChild, ...props}: SegmentGroupItemHiddenInputProps = $props();
 
   let segmentGroup = getSegmentGroupContext();
   let itemProps = getSegmentGroupItemPropsContext();
@@ -22,4 +22,8 @@
   );
 </script>
 
-<input {...mergedProps} />
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <input {...mergedProps} />
+{/if}

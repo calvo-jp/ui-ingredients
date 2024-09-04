@@ -17,7 +17,7 @@ export type IntrinsicElements = keyof {
       : K]: string;
 };
 
-export type HTMLProps<T extends IntrinsicElements> = SvelteHTMLElements[T];
+export type HtmlProps<T extends IntrinsicElements> = SvelteHTMLElements[T];
 
 export type TransitionFunction = (node: HTMLElement) => TransitionConfig;
 
@@ -33,11 +33,11 @@ export type AsChild<Context = never> = [Context] extends [never]
 
 export type Children<T = never> = [T] extends [never] ? Snippet : Snippet<[T]>;
 
-export type IngredientProps<
+export type HtmlIngredientProps<
   T extends IntrinsicElements,
   Context = never,
 > = TransitionProps &
-  Omit<HTMLProps<T>, 'children'> & {
+  Omit<HtmlProps<T>, 'children'> & {
     asChild?: AsChild<Context>;
     children?: Children<Context>;
   };

@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ViewProps} from '@zag-js/progress';
 
   export interface ProgressViewProps
-    extends Assign<HTMLProps<'div'>, ViewProps> {
-    asChild?: AsChild;
-  }
+    extends Assign<HtmlIngredientProps<'div'>, ViewProps> {}
 </script>
 
 <script lang="ts">

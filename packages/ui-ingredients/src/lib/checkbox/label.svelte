@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {IngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface CheckboxLabelProps extends IngredientProps<'span'> {}
+  export interface CheckboxLabelProps extends HtmlIngredientProps<'span'> {}
 </script>
 
 <script lang="ts">

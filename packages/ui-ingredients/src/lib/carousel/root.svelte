@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, IngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateCarouselProps,
     CreateCarouselReturn,
@@ -7,7 +7,7 @@
 
   export interface CarouselProps
     extends Assign<
-      IngredientProps<'div', CreateCarouselReturn>,
+      HtmlIngredientProps<'div', CreateCarouselReturn>,
       CreateCarouselProps
     > {}
 </script>

@@ -1,14 +1,15 @@
 <script lang="ts" module>
-  import type {HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FileUploadHiddenInputProps extends HTMLProps<'input'> {}
+  export interface FileUploadHiddenInputProps
+    extends HtmlIngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {getFileUploadContext} from './context.svelte.js';
 
-  let {...props}: FileUploadHiddenInputProps = $props();
+  let {asChild, ...props}: FileUploadHiddenInputProps = $props();
 
   let fileUpload = getFileUploadContext();
 
@@ -17,4 +18,8 @@
   );
 </script>
 
-<input {...mergedProps} />
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <input {...mergedProps} />
+{/if}

@@ -1,16 +1,15 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateSwitchProps,
     CreateSwitchReturn,
   } from './create-switch.svelte.js';
 
   export interface SwitchProps
-    extends Assign<Omit<HTMLProps<'label'>, 'children'>, CreateSwitchProps> {
-    asChild?: AsChild<CreateSwitchReturn>;
-    children?: Snippet<[CreateSwitchReturn]>;
-  }
+    extends Assign<
+      HtmlIngredientProps<'label', CreateSwitchReturn>,
+      CreateSwitchProps
+    > {}
 </script>
 
 <script lang="ts">

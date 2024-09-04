@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface EditableLabelProps extends HTMLProps<'label'> {
-    asChild?: AsChild;
-  }
+  export interface EditableLabelProps extends HtmlIngredientProps<'label'> {}
 </script>
 
 <script lang="ts">

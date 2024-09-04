@@ -1,13 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/toggle-group';
-  import type {Snippet} from 'svelte';
 
   export interface ToggleGroupItemProps
-    extends Assign<Omit<HTMLProps<'button'>, 'children'>, ItemProps> {
-    asChild?: AsChild;
-    children?: Snippet<[ItemState]>;
-  }
+    extends Assign<HtmlIngredientProps<'button', ItemState>, ItemProps> {}
 </script>
 
 <script lang="ts">
@@ -31,7 +27,7 @@
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps)}
+  {@render asChild(mergedProps, itemState)}
 {:else}
   <button type="button" {...mergedProps}>
     {@render children?.(itemState)}

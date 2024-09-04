@@ -1,9 +1,12 @@
 <script lang="ts" module>
-  import type {Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {SwatchTriggerProps} from '@zag-js/color-picker';
 
   export interface ColorPickerSwatchTriggerProps
-    extends Assign<HTMLProps<'button'>, Pick<SwatchTriggerProps, 'disabled'>> {}
+    extends Assign<
+      HtmlIngredientProps<'button'>,
+      Pick<SwatchTriggerProps, 'disabled'>
+    > {}
 </script>
 
 <script lang="ts">

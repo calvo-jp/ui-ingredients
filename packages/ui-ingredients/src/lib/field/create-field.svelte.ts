@@ -1,5 +1,5 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
-import type {HTMLProps} from '$lib/types.js';
+import type {HtmlProps} from '$lib/types.js';
 import {ariaAttr, dataAttr, getDocument, getWindow} from '@zag-js/dom-query';
 import {uid} from 'uid';
 import {parts} from './anatomy.js';
@@ -91,7 +91,7 @@ export function createField(props: CreateFieldProps) {
     return () => observer.disconnect();
   });
 
-  function getRootProps(): HTMLProps<'div'> {
+  function getRootProps(): HtmlProps<'div'> {
     return {
       ...parts.root.attrs,
       id: ids.root,
@@ -103,7 +103,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getLabelProps(): HTMLProps<'label'> {
+  function getLabelProps(): HtmlProps<'label'> {
     return {
       ...parts.label.attrs,
       id: ids.label,
@@ -115,7 +115,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getErrorTextProps(): HTMLProps<'div'> {
+  function getErrorTextProps(): HtmlProps<'div'> {
     return {
       ...parts.errorText.attrs,
       id: ids.errorText,
@@ -128,7 +128,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getHelperTextProps(): HTMLProps<'div'> {
+  function getHelperTextProps(): HtmlProps<'div'> {
     return {
       id: ids.helperText,
       'data-invalid': dataAttr(invalid),
@@ -138,7 +138,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getInputProps(): HTMLProps<'input'> {
+  function getInputProps(): HtmlProps<'input'> {
     return {
       ...parts.input.attrs,
       id: ids.control,
@@ -154,7 +154,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getSelectProps(): HTMLProps<'select'> {
+  function getSelectProps(): HtmlProps<'select'> {
     return {
       ...parts.select.attrs,
       id: ids.control,
@@ -170,7 +170,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getTextareaProps(): HTMLProps<'textarea'> {
+  function getTextareaProps(): HtmlProps<'textarea'> {
     return {
       ...parts.textarea.attrs,
       id: ids.control,

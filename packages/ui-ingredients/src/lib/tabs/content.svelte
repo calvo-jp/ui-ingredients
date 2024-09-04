@@ -1,11 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ContentProps} from '@zag-js/tabs';
 
   export interface TabsContentProps
-    extends Assign<HTMLProps<'div'>, ContentProps> {
-    asChild?: AsChild;
-  }
+    extends Assign<HtmlIngredientProps<'div'>, ContentProps> {}
 </script>
 
 <script lang="ts">
