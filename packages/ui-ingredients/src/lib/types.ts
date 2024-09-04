@@ -31,7 +31,9 @@ export type AsChild<Context = never> = [Context] extends [never]
   ? Snippet<[attrs: GenericObject]>
   : Snippet<[attrs: GenericObject, context: Context]>;
 
-export type Children<T = never> = [T] extends [never] ? Snippet : Snippet<[T]>;
+export type Children<T = never> = [T] extends [never]
+  ? Snippet
+  : Snippet<[context: T]>;
 
 export type HtmlIngredientProps<
   T extends IntrinsicElements,
