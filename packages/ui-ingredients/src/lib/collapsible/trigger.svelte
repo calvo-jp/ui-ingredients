@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {IngredientProps} from '$lib/types.js';
 
-  export interface CollapsibleTriggerProps extends HTMLProps<'button'> {
-    asChild?: AsChild;
-  }
+  export interface CollapsibleTriggerProps extends IngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

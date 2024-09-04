@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {IngredientProps} from '$lib/types.js';
 
-  export interface CarouselViewportProps extends HTMLProps<'div'> {
-    asChild?: AsChild;
-  }
+  export interface CarouselViewportProps extends IngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

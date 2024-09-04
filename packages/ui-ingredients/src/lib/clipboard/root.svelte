@@ -1,16 +1,15 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
-  import type {Snippet} from 'svelte';
+  import type {Assign, IngredientProps} from '$lib/types.js';
   import type {
     CreateClipboardProps,
     CreateClipboardReturn,
   } from './create-clipboard.svelte.js';
 
   export interface ClipboardProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, CreateClipboardProps> {
-    asChild?: AsChild<CreateClipboardReturn>;
-    children?: Snippet<[CreateClipboardReturn]>;
-  }
+    extends Assign<
+      IngredientProps<'div', CreateClipboardReturn>,
+      CreateClipboardProps
+    > {}
 </script>
 
 <script lang="ts">

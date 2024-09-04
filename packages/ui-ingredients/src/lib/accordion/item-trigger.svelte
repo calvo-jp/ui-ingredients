@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {IngredientProps} from '$lib/types.js';
 
-  export interface AccordionItemTriggerProps extends HTMLProps<'button'> {
-    asChild?: AsChild;
-  }
+  export interface AccordionItemTriggerProps
+    extends IngredientProps<'button'> {}
 </script>
 
 <script lang="ts">

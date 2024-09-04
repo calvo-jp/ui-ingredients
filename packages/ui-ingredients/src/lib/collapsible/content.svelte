@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {IngredientProps} from '$lib/types.js';
 
-  export interface CollapsibleContentProps extends HTMLProps<'div'> {
-    asChild?: AsChild;
-  }
+  export interface CollapsibleContentProps extends IngredientProps<'div'> {}
 </script>
 
 <script lang="ts">

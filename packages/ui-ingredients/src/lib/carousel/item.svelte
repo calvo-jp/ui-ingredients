@@ -1,13 +1,9 @@
 <script lang="ts" module>
-  import type {AsChild, Assign, HTMLProps} from '$lib/types.js';
+  import type {Assign, IngredientProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/carousel';
-  import type {Snippet} from 'svelte';
 
   export interface CarouselItemProps
-    extends Assign<Omit<HTMLProps<'div'>, 'children'>, ItemProps> {
-    asChild?: AsChild<ItemState>;
-    children?: Snippet<[ItemState]>;
-  }
+    extends Assign<IngredientProps<'div', ItemState>, ItemProps> {}
 </script>
 
 <script lang="ts">

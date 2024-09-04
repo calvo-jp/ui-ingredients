@@ -1,9 +1,7 @@
 <script lang="ts" module>
-  import type {AsChild, HTMLProps} from '$lib/types.js';
+  import type {IngredientProps} from '$lib/types.js';
 
-  export interface ClipboardInputProps extends HTMLProps<'input'> {
-    asChild?: AsChild;
-  }
+  export interface ClipboardInputProps extends IngredientProps<'input'> {}
 </script>
 
 <script lang="ts">
