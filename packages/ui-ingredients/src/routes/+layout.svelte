@@ -258,7 +258,7 @@
                 class="data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 top-0 bg-black/25 backdrop-blur-sm"
               />
               <Dialog.Content
-                class="data-open:animate-slide-in-left data-closed:animate-slide-out-left bg fixed bottom-0 left-0 top-0 w-64 border-r"
+                class="data-open:animate-slide-in-left data-closed:animate-slide-out-left bg fixed bottom-0 left-0 top-0 w-64 border-r pb-[env(safe-area-inset-bottom)]"
               >
                 <div class="flex h-16 items-center justify-end border-b px-4">
                   <Dialog.CloseTrigger
