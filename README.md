@@ -1,8 +1,8 @@
-⚠️ This project is currently in its early development stages. Use it with caution and at your own risk.
-
 # UI Ingredients
 
 Headless component library for [Svelte](https://svelte.dev/) powered by [zag](https://zagjs.com/)
+
+⚠️ This project is currently in its early development stages. Use it with caution and at your own risk.
 
 ## Installation
 
