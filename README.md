@@ -2,7 +2,7 @@
 
 Headless component library for [Svelte](https://svelte.dev/) powered by [zag](https://zagjs.com/)
 
-⚠️ This project is currently in its early development stages. Use it with caution and at your own risk.
+> ⚠️ This project is in early development. Feel free to use it, and contributions are welcome. Use with caution!
 
 ## Installation
 
