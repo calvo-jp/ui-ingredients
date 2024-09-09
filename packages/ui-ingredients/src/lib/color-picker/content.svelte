@@ -1,7 +1,9 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {Action} from 'svelte/action';
 
-  export interface ColorPickerContentProps extends HtmlIngredientProps<'div'> {}
+  export interface ColorPickerContentProps
+    extends HtmlIngredientProps<'div', never, Action> {}
 </script>
 
 <script lang="ts">

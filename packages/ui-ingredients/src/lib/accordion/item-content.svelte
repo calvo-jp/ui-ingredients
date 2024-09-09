@@ -1,8 +1,9 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {Action} from 'svelte/action';
 
   export interface AccordionItemContentProps
-    extends HtmlIngredientProps<'div'> {}
+    extends HtmlIngredientProps<'div', never, Action> {}
 </script>
 
 <script lang="ts">
@@ -34,7 +35,7 @@
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps)}
+  {@render asChild(presence.ref, mergedProps)}
 {:else}
   <div use:presence.ref {...mergedProps}>
     {@render children?.()}
