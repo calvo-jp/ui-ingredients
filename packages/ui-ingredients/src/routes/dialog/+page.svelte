@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Dialog, Portal} from '$lib/index.js';
+  import {twMerge} from 'tailwind-merge';
   import {Button} from '../shared/index.js';
 
   let open = $state(false);
@@ -18,13 +19,34 @@
   </Dialog.Trigger>
 
   <Dialog.Backdrop
-    class="z-overlay data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 bg-black/50 backdrop-blur-sm"
+    class={twMerge(
+      'z-overlay',
+      'fixed',
+      'inset-0',
+      'bg-black/50',
+      'backdrop-blur-sm',
+      'data-open:animate-fade-in',
+      'data-closed:animate-fade-out',
+    )}
   />
 
   <Portal>
     <Dialog.Positioner>
       <Dialog.Content
-        class="z-modal data-open:animate-fade-in data-closed:animate-fade-out bg-light fixed left-1/2 top-16 w-[90vw] -translate-x-1/2 rounded border p-8 lg:w-[26rem]"
+        class={twMerge(
+          'z-modal',
+          'bg-light',
+          'fixed',
+          'left-1/2',
+          'top-16',
+          'w-[90vw]',
+          '-translate-x-1/2',
+          'rounded',
+          'border',
+          'p-8 lg:w-[26rem]',
+          'data-open:animate-fade-in',
+          'data-closed:animate-fade-out',
+        )}
       >
         <Dialog.Title class="text-xl font-semibold">Title</Dialog.Title>
         <Dialog.Description>Description</Dialog.Description>

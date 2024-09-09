@@ -45,7 +45,9 @@
     </DatePicker.Control>
 
     <DatePicker.Positioner>
-      <DatePicker.Content class="bg-light overflow-hidden rounded">
+      <DatePicker.Content
+        class="bg-light data-open:animate-fade-in data-closed:animate-fade-out overflow-hidden rounded"
+      >
         <DatePicker.View view="day">
           <DatePicker.ViewControl
             class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"

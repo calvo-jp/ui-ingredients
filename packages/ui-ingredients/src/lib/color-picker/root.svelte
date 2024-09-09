@@ -14,6 +14,8 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {setPresenceContext} from '$lib/presence/context.svelte.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setColorPickerContext} from './context.svelte.js';
@@ -47,12 +49,18 @@
   );
 
   let colorPicker = createColorPicker(reflect(() => colorPickerProps));
+  let presence = createPresence({
+    get present() {
+      return colorPickerProps.open;
+    },
+  });
 
   let mergedProps = $derived(
     mergeProps(otherProps, colorPicker.getRootProps()),
   );
 
   setColorPickerContext(colorPicker);
+  setPresenceContext(presence);
 </script>
 
 <div {...mergedProps}>

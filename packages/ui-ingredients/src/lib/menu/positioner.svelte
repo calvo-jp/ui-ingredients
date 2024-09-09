@@ -6,13 +6,17 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getMenuContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: MenuPositionerProps = $props();
 
   let menu = getMenuContext();
+  let presence = getPresenceContext();
 
-  let mergedProps = $derived(mergeProps(props, menu.getPositionerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, menu.getPositionerProps(), presence.getPresenceProps()),
+  );
 </script>
 
 {#if asChild}

@@ -7,13 +7,21 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getHoverCardContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: HoverCardPositionerProps = $props();
 
   let hoverCard = getHoverCardContext();
+  let presence = getPresenceContext();
 
-  let mergedProps = $derived(mergeProps(props, hoverCard.getPositionerProps()));
+  let mergedProps = $derived(
+    mergeProps(
+      props,
+      hoverCard.getPositionerProps(),
+      presence.getPresenceProps(),
+    ),
+  );
 </script>
 
 {#if asChild}

@@ -35,11 +35,13 @@ export type Children<T = never> = [T] extends [never]
   ? Snippet
   : Snippet<[context: T]>;
 
+export type PropsWithoutChildren<T> = Omit<T, 'children'>;
+
 export type HtmlIngredientProps<
   T extends IntrinsicElements,
   Context = never,
 > = TransitionProps &
-  Omit<HtmlProps<T>, 'children'> & {
+  PropsWithoutChildren<HtmlProps<T>> & {
     asChild?: AsChild<Context>;
     children?: Children<Context>;
   };

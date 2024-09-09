@@ -6,13 +6,21 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getTooltipContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TooltipPositionerProps = $props();
 
   let tooltip = getTooltipContext();
+  let presence = getPresenceContext();
 
-  let mergedProps = $derived(mergeProps(props, tooltip.getPositionerProps()));
+  let mergedProps = $derived(
+    mergeProps(
+      props,
+      tooltip.getPositionerProps(),
+      presence.getPresenceProps(),
+    ),
+  );
 </script>
 
 {#if asChild}

@@ -6,15 +6,23 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getColorPickerContext} from './context.svelte.js';
 
   let {children, ...props}: ColorPickerContentProps = $props();
 
   let colorPicker = getColorPickerContext();
+  let presence = getPresenceContext();
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getContentProps()));
+  let mergedProps = $derived(
+    mergeProps(
+      props,
+      colorPicker.getContentProps(),
+      presence.getPresenceProps(),
+    ),
+  );
 </script>
 
-<div {...mergedProps}>
+<div use:presence.ref {...mergedProps}>
   {@render children?.()}
 </div>

@@ -6,19 +6,27 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {getDialogContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: DialogBackdropProps = $props();
 
   let dialog = getDialogContext();
+  let presence = createPresence({
+    get present() {
+      return dialog.open;
+    },
+  });
 
-  let mergedProps = $derived(mergeProps(props, dialog.getBackdropProps()));
+  let mergedProps = $derived(
+    mergeProps(props, dialog.getBackdropProps(), presence.getPresenceProps()),
+  );
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div use:presence.ref {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

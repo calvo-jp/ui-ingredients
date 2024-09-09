@@ -7,14 +7,20 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getDatePickerContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: DatePickerPositionerProps = $props();
 
   let datePicker = getDatePickerContext();
+  let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getPositionerProps()),
+    mergeProps(
+      props,
+      datePicker.getPositionerProps(),
+      presence.getPresenceProps(),
+    ),
   );
 </script>
 
