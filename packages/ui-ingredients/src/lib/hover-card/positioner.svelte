@@ -16,7 +16,11 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, hoverCard.getPositionerProps(), presence.getRootProps()),
+    mergeProps(
+      props,
+      hoverCard.getPositionerProps(),
+      presence.getPresenceProps(),
+    ),
   );
 </script>
 

@@ -15,10 +15,14 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, colorPicker.getContentProps(), presence.getRootProps()),
+    mergeProps(
+      props,
+      colorPicker.getContentProps(),
+      presence.getPresenceProps(),
+    ),
   );
 </script>
 
-<div {...mergedProps}>
+<div use:presence.ref {...mergedProps}>
   {@render children?.()}
 </div>

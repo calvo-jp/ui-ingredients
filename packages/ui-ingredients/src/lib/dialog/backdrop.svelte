@@ -19,14 +19,14 @@
   });
 
   let mergedProps = $derived(
-    mergeProps(props, dialog.getBackdropProps(), presence.getRootProps()),
+    mergeProps(props, dialog.getBackdropProps(), presence.getPresenceProps()),
   );
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div use:presence.ref {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

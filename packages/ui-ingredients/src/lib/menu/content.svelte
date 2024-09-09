@@ -15,14 +15,14 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, menu.getContentProps(), presence.getRootProps()),
+    mergeProps(props, menu.getContentProps(), presence.getPresenceProps()),
   );
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div use:presence.ref {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

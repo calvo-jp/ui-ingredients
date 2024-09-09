@@ -15,14 +15,14 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, hoverCard.getContentProps(), presence.getRootProps()),
+    mergeProps(props, hoverCard.getContentProps(), presence.getPresenceProps()),
   );
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div use:presence.ref {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

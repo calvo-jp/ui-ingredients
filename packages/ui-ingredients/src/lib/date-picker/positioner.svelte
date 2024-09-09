@@ -16,7 +16,11 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getPositionerProps(), presence.getRootProps()),
+    mergeProps(
+      props,
+      datePicker.getPositionerProps(),
+      presence.getPresenceProps(),
+    ),
   );
 </script>
 

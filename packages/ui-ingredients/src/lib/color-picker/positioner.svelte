@@ -19,7 +19,7 @@
     mergeProps(
       props,
       colorPicker.getPositionerProps(),
-      presence.getRootProps(),
+      presence.getPresenceProps(),
     ),
   );
 </script>

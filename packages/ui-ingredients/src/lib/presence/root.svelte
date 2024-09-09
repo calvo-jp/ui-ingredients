@@ -15,16 +15,16 @@
   let {children, ...props}: PresenceProps = $props();
 
   let [presenceProps, otherProps] = $derived(
-    createSplitProps<CreatePresenceProps>(['present', 'keepMounted'])(props),
+    createSplitProps<CreatePresenceProps>(['present'])(props),
   );
 
   let presence = createPresence(reflect(() => presenceProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, presence.getRootProps()));
+  let mergedProps = $derived(
+    mergeProps(otherProps, presence.getPresenceProps()),
+  );
 </script>
 
-{#if !presence.unmounted}
-  <div use:presence.ref {...mergedProps}>
-    {@render children?.()}
-  </div>
-{/if}
+<div use:presence.ref {...mergedProps}>
+  {@render children?.()}
+</div>

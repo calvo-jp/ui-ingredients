@@ -15,7 +15,7 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, select.getPositionerProps(), presence.getRootProps()),
+    mergeProps(props, select.getPositionerProps(), presence.getPresenceProps()),
   );
 </script>
 

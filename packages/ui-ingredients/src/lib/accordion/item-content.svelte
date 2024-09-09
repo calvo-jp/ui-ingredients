@@ -28,7 +28,7 @@
     mergeProps(
       props,
       accordion.getItemContentProps(itemProps),
-      presence.getRootProps(),
+      presence.getPresenceProps(),
     ),
   );
 </script>
@@ -36,7 +36,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div use:presence.ref {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

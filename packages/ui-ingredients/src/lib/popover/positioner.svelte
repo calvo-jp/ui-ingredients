@@ -15,7 +15,11 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, popover.getPositionerProps(), presence.getRootProps()),
+    mergeProps(
+      props,
+      popover.getPositionerProps(),
+      presence.getPresenceProps(),
+    ),
   );
 </script>
 

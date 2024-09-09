@@ -1,8 +1,7 @@
-import {browser} from '$app/environment';
 import * as presence from '@zag-js/presence';
 import {normalizeProps, useMachine} from '@zag-js/svelte';
+import {tick} from 'svelte';
 import type {HTMLAttributes} from 'svelte/elements';
-import {uid} from 'uid';
 
 export interface CreatePresenceProps {
   present?: boolean;
@@ -22,24 +21,21 @@ export function createPresence(props: CreatePresenceProps) {
 
   const api = $derived(presence.connect(state, send, normalizeProps));
 
-  function getRootProps(): HTMLAttributes<HTMLElement> {
-    const id = uid();
-
-    setTimeout(() => {
-      if (!browser) return;
-      const attr = '[data-id="%s"]'.replace('%s', id);
-      const node = document.querySelector<HTMLElement>(attr);
-      api.setNode(node);
-    }, 5);
-
+  function getPresenceProps(): HTMLAttributes<HTMLElement> {
     return {
       hidden: !api.present,
-      'data-id': id,
       'data-state': context.present ? 'open' : 'closed',
     };
   }
 
+  function ref(node: HTMLElement) {
+    tick().then(() => {
+      api.setNode(node);
+    });
+  }
+
   return {
-    getRootProps,
+    ref,
+    getPresenceProps,
   };
 }

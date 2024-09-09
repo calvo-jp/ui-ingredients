@@ -15,7 +15,7 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, dialog.getPositionerProps(), presence.getRootProps()),
+    mergeProps(props, dialog.getPositionerProps(), presence.getPresenceProps()),
   );
 </script>
 
