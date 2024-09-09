@@ -6,13 +6,17 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getComboboxContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: ComboboxContentProps = $props();
 
   let combobox = getComboboxContext();
+  let presence = getPresenceContext();
 
-  let mergedProps = $derived(mergeProps(props, combobox.getContentProps()));
+  let mergedProps = $derived(
+    mergeProps(props, combobox.getContentProps(), presence.getRootProps()),
+  );
 </script>
 
 {#if asChild}

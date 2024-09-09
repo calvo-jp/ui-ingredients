@@ -14,6 +14,8 @@
 
 <script lang="ts" generics="T">
   import {mergeProps} from '$lib/merge-props.js';
+  import {setPresenceContext} from '$lib/presence/context.svelte.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setSelectContext} from './context.svelte.js';
@@ -55,10 +57,16 @@
   );
 
   let select = createSelect(reflect(() => selectProps));
+  let presence = createPresence({
+    get present() {
+      return select.open;
+    },
+  });
 
   let mergedProps = $derived(mergeProps(otherProps, select.getRootProps()));
 
   setSelectContext(select);
+  setPresenceContext(presence);
 </script>
 
 {#if asChild}

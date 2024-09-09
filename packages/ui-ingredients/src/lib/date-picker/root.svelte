@@ -14,6 +14,8 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {setPresenceContext} from '$lib/presence/context.svelte.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setDatePickerContext} from './context.svelte.js';
@@ -55,10 +57,16 @@
   );
 
   let datePicker = createDatePicker(reflect(() => datePickerProps));
+  let presence = createPresence({
+    get present() {
+      return datePicker.open;
+    },
+  });
 
   let mergedProps = $derived(mergeProps(otherProps, datePicker.getRootProps()));
 
   setDatePickerContext(datePicker);
+  setPresenceContext(presence);
 </script>
 
 {#if asChild}

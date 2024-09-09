@@ -1,55 +1,45 @@
+import {browser} from '$app/environment';
 import * as presence from '@zag-js/presence';
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {normalizeProps, useMachine} from '@zag-js/svelte';
+import type {HTMLAttributes} from 'svelte/elements';
+import {uid} from 'uid';
 
 export interface CreatePresenceProps {
   present?: boolean;
-  keepMounted?: boolean;
 }
 
 export interface CreatePresenceReturn
   extends ReturnType<typeof createPresence> {}
 
 export function createPresence(props: CreatePresenceProps) {
-  const context = $derived(
-    reflect(() => ({
-      present: props.present,
-      immediate: false,
-    })),
-  );
+  const context = $derived({
+    get present() {
+      return props.present;
+    },
+  });
 
   const [state, send] = useMachine(presence.machine(context), {context});
 
   const api = $derived(presence.connect(state, send, normalizeProps));
 
-  function ref(node: HTMLElement) {
-    function update(elem: HTMLElement) {
-      api.setNode(elem);
-    }
+  function getRootProps(): HTMLAttributes<HTMLElement> {
+    const id = uid();
 
-    update(node);
+    setTimeout(() => {
+      if (!browser) return;
+      const attr = '[data-id="%s"]'.replace('%s', id);
+      const node = document.querySelector<HTMLElement>(attr);
+      api.setNode(node);
+    }, 5);
 
-    return {
-      update,
-      destroy() {
-        api.setNode(null);
-      },
-    };
-  }
-
-  const unmounted = $derived(!api.present && !props.keepMounted);
-
-  function getRootProps() {
     return {
       hidden: !api.present,
-      'data-state': api.skip ? undefined : api.present ? 'open' : 'closed',
+      'data-id': id,
+      'data-state': context.present ? 'open' : 'closed',
     };
   }
 
   return {
-    ref,
     getRootProps,
-    get unmounted() {
-      return unmounted;
-    },
   };
 }

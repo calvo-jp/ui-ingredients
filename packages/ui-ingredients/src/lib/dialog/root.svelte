@@ -11,14 +11,22 @@
 </script>
 
 <script lang="ts">
+  import {setPresenceContext} from '$lib/presence/context.svelte.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {setDialogContext} from './context.svelte.js';
   import {createDialog} from './create-dialog.svelte.js';
 
   let {children, ...props}: DialogProps = $props();
 
   let dialog = createDialog(props);
+  let presence = createPresence({
+    get present() {
+      return dialog.open;
+    },
+  });
 
   setDialogContext(dialog);
+  setPresenceContext(presence);
 </script>
 
 {@render children?.(dialog)}

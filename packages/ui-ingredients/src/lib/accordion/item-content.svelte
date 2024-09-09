@@ -7,6 +7,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {
     getAccordionContext,
     getAccordionItemPropsContext,
@@ -16,9 +17,19 @@
 
   let accordion = getAccordionContext();
   let itemProps = getAccordionItemPropsContext();
+  let itemsState = $derived(accordion.getItemState(itemProps));
+  let presence = createPresence({
+    get present() {
+      return itemsState.expanded;
+    },
+  });
 
   let mergedProps = $derived(
-    mergeProps(props, accordion.getItemContentProps(itemProps)),
+    mergeProps(
+      props,
+      accordion.getItemContentProps(itemProps),
+      presence.getRootProps(),
+    ),
   );
 </script>
 

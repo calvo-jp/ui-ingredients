@@ -14,6 +14,8 @@
 
 <script lang="ts" generics="T">
   import {mergeProps} from '$lib/merge-props.js';
+  import {setPresenceContext} from '$lib/presence/context.svelte.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setComboboxContext} from './context.svelte.js';
@@ -68,10 +70,16 @@
   );
 
   let combobox = createCombobox(reflect(() => comboboxProps));
+  let presence = createPresence({
+    get present() {
+      return combobox.open;
+    },
+  });
 
   let mergedProps = $derived(mergeProps(otherProps, combobox.getRootProps()));
 
   setComboboxContext(combobox);
+  setPresenceContext(presence);
 </script>
 
 {#if asChild}
