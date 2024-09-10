@@ -51,7 +51,7 @@
   let colorPicker = createColorPicker(reflect(() => colorPickerProps));
   let presence = createPresence({
     get present() {
-      return colorPickerProps.open;
+      return colorPicker.open;
     },
   });
 
