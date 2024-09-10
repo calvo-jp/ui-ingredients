@@ -59,6 +59,7 @@ npm install ui-ingredients
 - [PinInput](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/pin-input.md)
 - [Popover](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/popover.md)
 - [Portal](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/portal.md)
+- [Presence](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/presence.md)
 - [Progress](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/progress.md)
 - [QrCode](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/qr-code.md)
 - [RadioGroup](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/radio-group.md)
