@@ -18,7 +18,9 @@
 
 <Presence
   {present}
-  class="data-open:animate-fade-in data-closed:animate-fade-out"
+  class="data-open:animate-fade-in data-closed:animate-fade-out max-w-[32rem] rounded border p-5"
 >
-  Hello World
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto eligendi
+  corrupti veniam maxime rem eaque praesentium dignissimos asperiores. Beatae
+  modi nihil delectus eaque! Ipsam.
 </Presence>

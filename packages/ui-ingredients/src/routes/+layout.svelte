@@ -190,6 +190,10 @@
       path: '/color-picker',
       hidden: true,
     },
+    {
+      label: 'Presence',
+      path: '/presence',
+    },
   ]
     .filter((o) => !o.hidden)
     .toSorted((i, j) => i.label.localeCompare(j.label));
