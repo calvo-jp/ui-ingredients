@@ -240,7 +240,7 @@
       <header
         class="bg sticky top-0 flex h-16 items-center border-b px-4 lg:hidden"
       >
-        <Dialog.Root>
+        <Dialog.Root lazyMount keepMounted>
           <div class="flex items-center gap-3">
             <Dialog.Trigger
               class="flex size-10 items-center justify-center rounded border"
@@ -252,7 +252,7 @@
             </span>
           </div>
 
-          <Portal>
+          <Portal data-id="side-nav">
             <Dialog.Positioner>
               <Dialog.Backdrop
                 class="data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 top-0 bg-black/25 backdrop-blur-sm"

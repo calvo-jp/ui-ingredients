@@ -3,8 +3,8 @@
 </script>
 
 <HoverCard.Root
-  openDelay={0}
-  closeDelay={0}
+  lazyMount
+  keepMounted={false}
   positioning={{
     placement: 'bottom-start',
   }}
@@ -14,13 +14,14 @@
       <button {...attrs}>Hover me</button>
     {/snippet}
   </HoverCard.Trigger>
-  <Portal>
+
+  <Portal data-id="hover-card">
     <HoverCard.Positioner>
       <HoverCard.Content
         class="bg-light data-open:animate-fade-in data-closed:animate-fade-out w-[90vw] rounded border p-4 lg:max-w-[24rem]"
       >
         <HoverCard.Arrow
-          class="data-closed:hidden [--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"
+          class="[--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"
         >
           <HoverCard.ArrowTip />
         </HoverCard.Arrow>

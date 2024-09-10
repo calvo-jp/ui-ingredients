@@ -8,15 +8,24 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceStrategyPropsContext} from '$lib/presence/context.svelte.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {getDialogContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: DialogBackdropProps = $props();
 
   let dialog = getDialogContext();
+
+  let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence({
     get present() {
       return dialog.open;
+    },
+    get lazyMount() {
+      return presenceStrategyProps.lazyMount;
+    },
+    get keepMounted() {
+      return presenceStrategyProps.keepMounted;
     },
   });
 
@@ -25,10 +34,12 @@
   );
 </script>
 
-{#if asChild}
-  {@render asChild(presence.ref, mergedProps)}
-{:else}
-  <div use:presence.ref {...mergedProps}>
-    {@render children?.()}
-  </div>
+{#if presence.mounted}
+  {#if asChild}
+    {@render asChild(presence.ref, mergedProps)}
+  {:else}
+    <div use:presence.ref {...mergedProps}>
+      {@render children?.()}
+    </div>
+  {/if}
 {/if}

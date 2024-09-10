@@ -5,6 +5,7 @@
     container?: HTMLElement;
     disabled?: boolean;
     children: Snippet;
+    [x: `data-${string}`]: string | number | boolean | null | undefined;
   }
 </script>
 
@@ -12,7 +13,7 @@
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {portal} from '@zag-js/svelte';
 
-  let {container, disabled, children}: PortalProps = $props();
+  let {container, disabled, children, ...props}: PortalProps = $props();
 
   let environment = getEnvironmentContext();
 </script>
@@ -23,6 +24,9 @@
     container,
     getRootNode: environment?.getRootNode,
   }}
+  data-scope="portal"
+  data-part="root"
+  {...props}
 >
   {@render children?.()}
 </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Select} from '$lib/index.js';
+  import {Portal, Select} from '$lib/index.js';
   import {CheckIcon, ChevronDownIcon} from '@untitled-theme/icons-svelte';
   import {Button, Label} from '../shared/index.js';
 
@@ -26,6 +26,8 @@
   positioning={{
     sameWidth: true,
   }}
+  lazyMount
+  keepMounted={false}
 >
   <Select.Control class="w-full lg:max-w-[24rem]">
     <Select.Label>
@@ -47,21 +49,23 @@
     </Select.Trigger>
   </Select.Control>
 
-  <Select.Positioner>
-    <Select.Content
-      class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
-    >
-      {#each items as item}
-        <Select.Item
-          {item}
-          class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"
-        >
-          <Select.ItemText class="grow" />
-          <Select.ItemIndicator>
-            <CheckIcon class="text-success size-5" />
-          </Select.ItemIndicator>
-        </Select.Item>
-      {/each}
-    </Select.Content>
-  </Select.Positioner>
+  <Portal data-id="select">
+    <Select.Positioner>
+      <Select.Content
+        class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
+      >
+        {#each items as item}
+          <Select.Item
+            {item}
+            class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"
+          >
+            <Select.ItemText class="grow" />
+            <Select.ItemIndicator>
+              <CheckIcon class="text-success size-5" />
+            </Select.ItemIndicator>
+          </Select.Item>
+        {/each}
+      </Select.Content>
+    </Select.Positioner>
+  </Portal>
 </Select.Root>

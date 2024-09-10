@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateSelectProps,
@@ -7,9 +8,10 @@
 
   export interface SelectProps<T>
     extends Assign<
-      HtmlIngredientProps<'div', CreateSelectReturn>,
-      CreateSelectProps<T>
-    > {}
+        HtmlIngredientProps<'div', CreateSelectReturn>,
+        CreateSelectProps<T>
+      >,
+      PresenceStrategyProps {}
 </script>
 
 <script lang="ts" generics="T">
@@ -57,13 +59,26 @@
   );
 
   let select = createSelect(reflect(() => selectProps));
+
+  let [presenceStrategyProps, elementProps] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      otherProps,
+    ),
+  );
+
   let presence = createPresence({
     get present() {
       return select.open;
     },
+    get lazyMount() {
+      return presenceStrategyProps.lazyMount;
+    },
+    get keepMounted() {
+      return presenceStrategyProps.keepMounted;
+    },
   });
 
-  let mergedProps = $derived(mergeProps(otherProps, select.getRootProps()));
+  let mergedProps = $derived(mergeProps(elementProps, select.getRootProps()));
 
   setSelectContext(select);
   setPresenceContext(presence);

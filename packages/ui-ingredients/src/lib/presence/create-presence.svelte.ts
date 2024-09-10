@@ -1,19 +1,29 @@
 import * as presence from '@zag-js/presence';
 import {normalizeProps, useMachine} from '@zag-js/svelte';
-import {tick} from 'svelte';
 import type {HTMLAttributes} from 'svelte/elements';
 
-export interface CreatePresenceProps {
-  present?: boolean;
+export interface PresenceStrategyProps {
+  /** @default false */
+  lazyMount?: boolean;
+  /** @default true */
+  keepMounted?: boolean;
+}
+
+export interface CreatePresenceProps extends PresenceStrategyProps {
+  present: boolean;
 }
 
 export interface CreatePresenceReturn
   extends ReturnType<typeof createPresence> {}
 
 export function createPresence(props: CreatePresenceProps) {
+  const present = $derived(props.present);
+  const lazyMount = $derived(props.lazyMount ?? false);
+  const keepMounted = $derived(props.keepMounted ?? true);
+
   const context = $derived({
     get present() {
-      return props.present;
+      return present;
     },
   });
 
@@ -28,14 +38,30 @@ export function createPresence(props: CreatePresenceProps) {
     };
   }
 
+  let wasPresent = $state(false);
+
+  $effect(() => {
+    if (!api.present) return;
+    if (wasPresent) return;
+    wasPresent = true;
+  });
+
+  const unmounted = $derived.by(() => {
+    if (api.present) return false;
+    if (!wasPresent && lazyMount) return true;
+    if (wasPresent && !keepMounted) return true;
+    return false;
+  });
+
   function ref(node: HTMLElement) {
-    tick().then(() => {
-      api.setNode(node);
-    });
+    api.setNode(node);
   }
 
   return {
     ref,
     getPresenceProps,
+    get mounted() {
+      return !unmounted;
+    },
   };
 }

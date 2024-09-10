@@ -19,10 +19,12 @@
   );
 </script>
 
-{#if asChild}
-  {@render asChild(mergedProps)}
-{:else}
-  <div {...mergedProps}>
-    {@render children?.()}
-  </div>
+{#if presence.mounted}
+  {#if asChild}
+    {@render asChild(mergedProps)}
+  {:else}
+    <div {...mergedProps}>
+      {@render children?.()}
+    </div>
+  {/if}
 {/if}

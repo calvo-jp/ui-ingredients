@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateComboboxProps,
@@ -7,9 +8,10 @@
 
   export interface ComboboxProps<T>
     extends Assign<
-      HtmlIngredientProps<'div', CreateComboboxReturn>,
-      CreateComboboxProps<T>
-    > {}
+        HtmlIngredientProps<'div', CreateComboboxReturn>,
+        CreateComboboxProps<T>
+      >,
+      PresenceStrategyProps {}
 </script>
 
 <script lang="ts" generics="T">
@@ -23,7 +25,13 @@
 
   let {asChild, children, ...props}: ComboboxProps<T> = $props();
 
-  let [comboboxProps, otherProps] = $derived(
+  let [presenceStrategyProps, otherProps] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
+  );
+
+  let [comboboxProps, elementProps] = $derived(
     createSplitProps<CreateComboboxProps<T>>([
       'id',
       'ids',
@@ -66,17 +74,24 @@
       'onPointerDownOutside',
       'getSelectionValue',
       'scrollToIndexFn',
-    ])(props),
+    ])(otherProps),
   );
 
   let combobox = createCombobox(reflect(() => comboboxProps));
+
   let presence = createPresence({
     get present() {
       return combobox.open;
     },
+    get lazyMount() {
+      return presenceStrategyProps.lazyMount;
+    },
+    get keepMounted() {
+      return presenceStrategyProps.keepMounted;
+    },
   });
 
-  let mergedProps = $derived(mergeProps(otherProps, combobox.getRootProps()));
+  let mergedProps = $derived(mergeProps(elementProps, combobox.getRootProps()));
 
   setComboboxContext(combobox);
   setPresenceContext(presence);

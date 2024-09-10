@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateDatePickerProps,
@@ -7,9 +8,10 @@
 
   export interface DatePickerProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateDatePickerReturn>,
-      CreateDatePickerProps
-    > {}
+        HtmlIngredientProps<'div', CreateDatePickerReturn>,
+        CreateDatePickerProps
+      >,
+      PresenceStrategyProps {}
 </script>
 
 <script lang="ts">
@@ -23,7 +25,11 @@
 
   let {asChild, children, ...props}: DatePickerProps = $props();
 
-  let [datePickerProps, otherProps] = $derived(
+  let [presenceStrategyProps, otherProps] = $derived(
+    createSplitProps<PresenceStrategyProps>([])(props),
+  );
+
+  let [datePickerProps, elementProps] = $derived(
     createSplitProps<CreateDatePickerProps>([
       'id',
       'ids',
@@ -53,17 +59,26 @@
       'onValueChange',
       'onFocusChange',
       'isDateUnavailable',
-    ])(props),
+    ])(otherProps),
   );
 
   let datePicker = createDatePicker(reflect(() => datePickerProps));
+
   let presence = createPresence({
     get present() {
       return datePicker.open;
     },
+    get lazyMount() {
+      return presenceStrategyProps.lazyMount;
+    },
+    get keepMounted() {
+      return presenceStrategyProps.keepMounted;
+    },
   });
 
-  let mergedProps = $derived(mergeProps(otherProps, datePicker.getRootProps()));
+  let mergedProps = $derived(
+    mergeProps(elementProps, datePicker.getRootProps()),
+  );
 
   setDatePickerContext(datePicker);
   setPresenceContext(presence);

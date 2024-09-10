@@ -8,6 +8,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceStrategyPropsContext} from '$lib/presence/context.svelte.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {
     getAccordionContext,
@@ -19,9 +20,17 @@
   let accordion = getAccordionContext();
   let itemProps = getAccordionItemPropsContext();
   let itemsState = $derived(accordion.getItemState(itemProps));
+
+  let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence({
     get present() {
       return itemsState.expanded;
+    },
+    get lazyMount() {
+      return presenceStrategyProps.lazyMount;
+    },
+    get keepMounted() {
+      return presenceStrategyProps.keepMounted;
     },
   });
 
@@ -34,10 +43,12 @@
   );
 </script>
 
-{#if asChild}
-  {@render asChild(presence.ref, mergedProps)}
-{:else}
-  <div use:presence.ref {...mergedProps}>
-    {@render children?.()}
-  </div>
+{#if presence.mounted}
+  {#if asChild}
+    {@render asChild(presence.ref, mergedProps)}
+  {:else}
+    <div use:presence.ref {...mergedProps}>
+      {@render children?.()}
+    </div>
+  {/if}
 {/if}

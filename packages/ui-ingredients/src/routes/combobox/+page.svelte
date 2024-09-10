@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Combobox} from '$lib/index.js';
+  import {Combobox, Portal} from '$lib/index.js';
   import {
     CheckIcon,
     ChevronDownIcon,
@@ -63,6 +63,7 @@
   positioning={{
     sameWidth: true,
   }}
+  lazyMount
 >
   <Combobox.Label class="text-muted mb-1 inline-block font-medium">
     {#snippet asChild(attrs)}
@@ -94,21 +95,23 @@
     </Combobox.ClearTrigger>
   </Combobox.Control>
 
-  <Combobox.Positioner>
-    <Combobox.Content
-      class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
-    >
-      {#each matches as item (item.value)}
-        <Combobox.Item
-          {item}
-          class="data-disabled:cursor-not-allowed data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"
-        >
-          <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
-          <Combobox.ItemIndicator>
-            <CheckIcon class="text-success size-5" />
-          </Combobox.ItemIndicator>
-        </Combobox.Item>
-      {/each}
-    </Combobox.Content>
-  </Combobox.Positioner>
+  <Portal data-id="combobox">
+    <Combobox.Positioner>
+      <Combobox.Content
+        class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
+      >
+        {#each matches as item (item.value)}
+          <Combobox.Item
+            {item}
+            class="data-disabled:cursor-not-allowed data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"
+          >
+            <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
+            <Combobox.ItemIndicator>
+              <CheckIcon class="text-success size-5" />
+            </Combobox.ItemIndicator>
+          </Combobox.Item>
+        {/each}
+      </Combobox.Content>
+    </Combobox.Positioner>
+  </Portal>
 </Combobox.Root>

@@ -1,24 +1,34 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface TimePickerContentProps extends HtmlIngredientProps<'div'> {}
+  export interface TimePickerContentProps
+    extends HtmlIngredientProps<'div', never, Action> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {getPresenceContext} from '$lib/presence/context.svelte.js';
+  import type {Action} from 'svelte/action';
   import {getTimePickerContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TimePickerContentProps = $props();
 
   let timePicker = getTimePickerContext();
+  let presence = getPresenceContext();
 
-  let mergedProps = $derived(mergeProps(props, timePicker.getContentProps()));
+  let mergedProps = $derived(
+    mergeProps(
+      props,
+      timePicker.getContentProps(),
+      presence.getPresenceProps(),
+    ),
+  );
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps)}
+  {@render asChild(presence.ref, mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div use:presence.ref {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

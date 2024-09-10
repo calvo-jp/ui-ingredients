@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateTimePickerProps,
@@ -7,13 +8,16 @@
 
   export interface TimePickerProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateTimePickerReturn>,
-      CreateTimePickerProps
-    > {}
+        HtmlIngredientProps<'div', CreateTimePickerReturn>,
+        CreateTimePickerProps
+      >,
+      PresenceStrategyProps {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {setPresenceContext} from '$lib/presence/context.svelte.js';
+  import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setTimePickerContext} from './context.svelte.js';
@@ -47,9 +51,30 @@
 
   let timePicker = createTimePicker(reflect(() => timePickerProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, timePicker.getRootProps()));
+  let [presenceStrategyProps, elementProps] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      otherProps,
+    ),
+  );
+
+  let presence = createPresence({
+    get present() {
+      return timePicker.open;
+    },
+    get lazyMount() {
+      return presenceStrategyProps.lazyMount;
+    },
+    get keepMounted() {
+      return presenceStrategyProps.keepMounted;
+    },
+  });
+
+  let mergedProps = $derived(
+    mergeProps(elementProps, timePicker.getRootProps()),
+  );
 
   setTimePickerContext(timePicker);
+  setPresenceContext(presence);
 </script>
 
 {#if asChild}

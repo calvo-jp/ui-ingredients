@@ -11,6 +11,7 @@
   onOpenChange={(detail) => {
     open = detail.open;
   }}
+  lazyMount
 >
   <Dialog.Trigger>
     {#snippet asChild(attrs)}
@@ -30,7 +31,7 @@
     )}
   />
 
-  <Portal>
+  <Portal data-id="dialog">
     <Dialog.Positioner>
       <Dialog.Content
         class={twMerge(
