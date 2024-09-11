@@ -21,6 +21,8 @@ A component that controls content rendering and unmounting based on state.
 
 <Presence
   {present}
+  lazyMount
+  keepMounted={false}
   class="data-open:animate-fade-in data-closed:animate-fade-out"
 >
   Hello World
