@@ -1,12 +1,6 @@
 import {mergeProps as fn} from '@zag-js/svelte';
+import {isObject} from './is-object.js';
 import type {GenericObject} from './types.js';
-
-function isObject<T extends GenericObject>(value: unknown): value is T {
-  return (
-    Object.prototype.toString.call(value) === '[object Object]' &&
-    value === Object(value)
-  );
-}
 
 export function mergeProps<T extends GenericObject>(...args: T[]): T {
   const r = fn<GenericObject>(...args);
