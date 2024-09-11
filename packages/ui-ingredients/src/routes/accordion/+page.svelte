@@ -47,7 +47,9 @@
           <ChevronDownIcon />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
-      <Accordion.ItemContent class="text-muted">
+      <Accordion.ItemContent
+        class="text-muted data-open:animate-collapse-in data-closed:animate-collapse-out overflow-hidden [--height:1em]"
+      >
         {#snippet asChild(ref, attrs)}
           <p use:ref {...attrs}>{content}</p>
         {/snippet}
