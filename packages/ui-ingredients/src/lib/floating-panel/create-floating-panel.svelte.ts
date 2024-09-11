@@ -5,7 +5,9 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {uid} from 'uid';
 
 export interface CreateFloatingPanelProps
-  extends Omit<floatingPanel.Context, 'dir' | 'getRootNode'> {}
+  extends Omit<floatingPanel.Context, 'id' | 'dir' | 'getRootNode'> {
+  id?: string | null;
+}
 
 export interface CreateFloatingPanelReturn extends floatingPanel.Api<any> {}
 
@@ -19,6 +21,7 @@ export function createFloatingPanel(
 
   const context: floatingPanel.Context = $derived(
     reflect(() => ({
+      ...props,
       id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,

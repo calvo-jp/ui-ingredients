@@ -19,6 +19,7 @@ export function createTour(props: CreateTourProps): CreateTourReturn {
 
   const context: tour.Context = $derived(
     reflect(() => ({
+      ...props,
       id: props.id ?? id,
       dir: locale?.dir,
       getRootNode: environment?.getRootNode,
