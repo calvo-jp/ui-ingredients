@@ -29,6 +29,7 @@
       'accept',
       'locale',
       'capture',
+      'invalid',
       'required',
       'disabled',
       'validate',

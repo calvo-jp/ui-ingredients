@@ -27,6 +27,7 @@ export function createFileUpload(
         label: field?.ids.label,
         hiddenInput: field?.ids.control,
       },
+      invalid: field?.invalid,
       disabled: field?.disabled,
       required: field?.required,
       ...props,
