@@ -52,6 +52,7 @@ npm install ui-ingredients
 - [Editable](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/editable.md)
 - [Field](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/field.md)
 - [FileUpload](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/file-upload.md)
+- [FloatingPanel](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/floating-panel.md)
 - [HoverCard](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/hover-card.md)
 - [Menu](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/menu.md)
 - [NumberInput](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/number-input.md)
@@ -79,6 +80,7 @@ npm install ui-ingredients
 - [ToggleGroup](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/toggle-group.md)
 - [Tooltip](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tooltip.md)
 - [TreeView](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tree-view.md)
+- [Tour](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tour.md)
 - [The `asChild` prop](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/aschild.md)
 - [Styling](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/styling.md)
 

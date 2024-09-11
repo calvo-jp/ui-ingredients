@@ -8,15 +8,22 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {createSplitProps} from '@zag-js/utils';
   import {getFloatingPanelContext} from './context.svelte.js';
 
-  let {axis, asChild, children, ...props}: FloatingPanelResizeTriggerProps =
-    $props();
+  let {asChild, children, ...props}: FloatingPanelResizeTriggerProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
 
+  let [resizeTriggerProps, otherProps] = $derived(
+    createSplitProps<ResizeTriggerProps>([])(props),
+  );
+
   let mergedProps = $derived(
-    mergeProps(props, floatingPanel.getResizeTriggerProps({axis})),
+    mergeProps(
+      otherProps,
+      floatingPanel.getResizeTriggerProps(resizeTriggerProps),
+    ),
   );
 </script>
 
