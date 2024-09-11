@@ -19,13 +19,13 @@ export type IntrinsicElement = keyof {
 
 export type HtmlProps<T extends IntrinsicElement> = SvelteHTMLElements[T];
 
-export type AsChildWithRef<Ref extends Action, Context = never> = [
-  Context,
-] extends [never]
+type AsChildWithRef<Ref extends Action, Context = never> = [Context] extends [
+  never,
+]
   ? Snippet<[ref: Ref, attrs: GenericObject]>
   : Snippet<[ref: Ref, attrs: GenericObject, context: Context]>;
 
-export type AsChildWithoutRef<Context = never> = [Context] extends [never]
+type AsChildWithoutRef<Context = never> = [Context] extends [never]
   ? Snippet<[attrs: GenericObject]>
   : Snippet<[attrs: GenericObject, context: Context]>;
 
@@ -33,11 +33,11 @@ export type AsChild<Ref extends Action, Context = never> = [Ref] extends [never]
   ? AsChildWithoutRef<Context>
   : AsChildWithRef<Ref, Context>;
 
-export type Children<T = never> = [T] extends [never]
+type Children<T = never> = [T] extends [never]
   ? Snippet
   : Snippet<[context: T]>;
 
-export type PropsWithoutChildren<T> = Omit<T, 'children'>;
+type PropsWithoutChildren<T> = Omit<T, 'children'>;
 
 export type HtmlIngredientProps<
   Element extends IntrinsicElement,
