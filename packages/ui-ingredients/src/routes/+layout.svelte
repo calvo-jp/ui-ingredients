@@ -194,6 +194,10 @@
       label: 'Presence',
       path: '/presence',
     },
+    {
+      label: 'Highlight',
+      path: '/highlight',
+    },
   ]
     .filter((o) => !o.hidden)
     .toSorted((i, j) => i.label.localeCompare(j.label));
