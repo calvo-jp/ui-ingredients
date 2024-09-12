@@ -25,7 +25,7 @@
 
   let {asChild, children, ...props}: SelectProps<T> = $props();
 
-  let [selectProps, otherProps] = $derived(
+  let [selectProps, rest] = $derived(
     createSplitProps<CreateSelectProps<T>>([
       'id',
       'ids',
@@ -59,9 +59,7 @@
   );
 
   let [presenceStrategyProps, localProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      otherProps,
-    ),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
   let select = createSelect(reflect(() => selectProps));

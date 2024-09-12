@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: ProgressProps = $props();
 
-  let [progressProps, otherProps] = $derived(
+  let [progressProps, localProps] = $derived(
     createSplitProps<CreateProgressProps>([
       'id',
       'ids',
@@ -35,7 +35,7 @@
 
   let progress = createProgress(reflect(() => progressProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, progress.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, progress.getRootProps()));
 
   setProgressContext(progress);
 </script>

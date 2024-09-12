@@ -21,13 +21,13 @@
 
   let {asChild, children, ...props}: AvatarProps = $props();
 
-  let [avatarProps, otherProps] = $derived(
+  let [avatarProps, localProps] = $derived(
     createSplitProps<CreateAvatarProps>(['id', 'ids', 'onStatusChange'])(props),
   );
 
   let avatar = createAvatar(reflect(() => avatarProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, avatar.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, avatar.getRootProps()));
 
   setAvatarContext(avatar);
 </script>

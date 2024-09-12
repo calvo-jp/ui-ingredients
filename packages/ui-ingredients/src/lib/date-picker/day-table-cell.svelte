@@ -21,7 +21,7 @@
 
   let datePicker = getDatePickerContext();
 
-  let [tableCellProps, otherProps] = $derived(
+  let [tableCellProps, localProps] = $derived(
     createSplitProps<DayTableCellProps>(['value', 'disabled', 'visibleRange'])(
       props,
     ),
@@ -32,7 +32,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(otherProps, datePicker.getDayTableCellProps(tableCellProps)),
+    mergeProps(localProps, datePicker.getDayTableCellProps(tableCellProps)),
   );
 
   setDatePickerDayTableCellPropsContext(() => tableCellProps);

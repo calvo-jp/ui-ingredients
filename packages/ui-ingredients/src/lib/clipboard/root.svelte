@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: ClipboardProps = $props();
 
-  let [clipboardProps, otherProps] = $derived(
+  let [clipboardProps, localProps] = $derived(
     createSplitProps<CreateClipboardProps>([
       'id',
       'ids',
@@ -33,7 +33,7 @@
 
   let clipboard = createClipboard(reflect(() => clipboardProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, clipboard.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, clipboard.getRootProps()));
 
   setClipboardContext(clipboard);
 </script>

@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: TabsProps = $props();
 
-  let [tabsProps, otherProps] = $derived(
+  let [tabsProps, localProps] = $derived(
     createSplitProps<CreateTabsProps>([
       'id',
       'ids',
@@ -38,7 +38,7 @@
 
   let tabs = createTabs(reflect(() => tabsProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, tabs.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, tabs.getRootProps()));
 
   setTabsContext(tabs);
 </script>

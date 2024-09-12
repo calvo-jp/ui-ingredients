@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: StepsProps = $props();
 
-  let [stepsProps, otherProps] = $derived(
+  let [stepsProps, localProps] = $derived(
     createSplitProps<CreateStepsProps>([
       'id',
       'ids',
@@ -36,7 +36,7 @@
 
   let steps = createSteps(reflect(() => stepsProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, steps.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, steps.getRootProps()));
 
   setStepsContext(steps);
 </script>

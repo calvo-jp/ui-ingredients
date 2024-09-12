@@ -15,13 +15,13 @@
 
   let floatingPanel = getFloatingPanelContext();
 
-  let [resizeTriggerProps, otherProps] = $derived(
+  let [resizeTriggerProps, localProps] = $derived(
     createSplitProps<ResizeTriggerProps>([])(props),
   );
 
   let mergedProps = $derived(
     mergeProps(
-      otherProps,
+      localProps,
       floatingPanel.getResizeTriggerProps(resizeTriggerProps),
     ),
   );

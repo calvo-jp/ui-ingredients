@@ -15,14 +15,14 @@
 
   let steps = getStepsContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['index'])(props),
   );
 
   let itemState = $derived(steps.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(otherProps, steps.getItemProps(itemProps)),
+    mergeProps(localProps, steps.getItemProps(itemProps)),
   );
 
   setStepsItemPropsContext(() => itemProps);

@@ -18,12 +18,12 @@
 
   let slider = getSliderContext();
 
-  let [thumbProps, otherProps] = $derived(
+  let [thumbProps, localProps] = $derived(
     createSplitProps<ThumbProps>(['name', 'index'])(props),
   );
 
   let mergedProps = $derived(
-    mergeProps(otherProps, slider.getThumbProps(thumbProps)),
+    mergeProps(localProps, slider.getThumbProps(thumbProps)),
   );
 
   setSliderThumbPropsContext(() => thumbProps);

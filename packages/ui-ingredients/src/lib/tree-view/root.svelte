@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: TreeViewProps = $props();
 
-  let [treeViewProps, otherProps] = $derived(
+  let [treeViewProps, localProps] = $derived(
     createSplitProps<CreateTreeViewProps>([
       'id',
       'ids',
@@ -39,7 +39,7 @@
 
   let treeView = createTreeView(reflect(() => treeViewProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, treeView.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, treeView.getRootProps()));
 
   setTreeViewContext(treeView);
 </script>

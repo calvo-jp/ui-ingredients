@@ -18,14 +18,14 @@
 
   let tagsInput = getTagsInputContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['index', 'value', 'disabled'])(props),
   );
 
   let itemState = $derived(tagsInput.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(otherProps, tagsInput.getItemProps(itemProps)),
+    mergeProps(localProps, tagsInput.getItemProps(itemProps)),
   );
 
   setTagsInputItemPropsContext(() => itemProps);

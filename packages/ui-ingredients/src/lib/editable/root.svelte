@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: EditableProps = $props();
 
-  let [editableProps, otherProps] = $derived(
+  let [editableProps, localProps] = $derived(
     createSplitProps<CreateEditableProps>([
       'id',
       'ids',
@@ -54,7 +54,7 @@
 
   let editable = createEditable(reflect(() => editableProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, editable.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, editable.getRootProps()));
 
   setEditableContext(editable);
 </script>

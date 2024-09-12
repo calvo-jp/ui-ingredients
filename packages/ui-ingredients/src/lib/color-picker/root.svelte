@@ -23,7 +23,7 @@
 
   let {children, ...props}: ColorPickerProps = $props();
 
-  let [colorPickerProps, otherProps] = $derived(
+  let [colorPickerProps, localProps] = $derived(
     createSplitProps<CreateColorPickerProps>([
       'id',
       'ids',
@@ -56,7 +56,7 @@
   });
 
   let mergedProps = $derived(
-    mergeProps(otherProps, colorPicker.getRootProps()),
+    mergeProps(localProps, colorPicker.getRootProps()),
   );
 
   setColorPickerContext(colorPicker);

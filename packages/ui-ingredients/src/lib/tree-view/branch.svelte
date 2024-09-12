@@ -18,14 +18,14 @@
 
   let treeView = getTreeViewContext();
 
-  let [branchProps, otherProps] = $derived(
+  let [branchProps, localProps] = $derived(
     createSplitProps<BranchProps>(['depth', 'value', 'disabled'])(props),
   );
 
   let branchState = $derived(treeView.getBranchState(branchProps));
 
   let mergedProps = $derived(
-    mergeProps(otherProps, treeView.getBranchProps(branchProps)),
+    mergeProps(localProps, treeView.getBranchProps(branchProps)),
   );
 
   setTreeViewBranchPropsContext(() => branchProps);

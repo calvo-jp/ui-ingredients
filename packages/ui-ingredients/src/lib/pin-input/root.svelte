@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: PinInputProps = $props();
 
-  let [pinInputProps, otherProps] = $derived(
+  let [pinInputProps, localProps] = $derived(
     createSplitProps<CreatePinInputProps>([
       'id',
       'ids',
@@ -49,7 +49,7 @@
 
   let pinInput = createPinInputContext(reflect(() => pinInputProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, pinInput.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, pinInput.getRootProps()));
 
   setPinInputContext(pinInput);
 </script>

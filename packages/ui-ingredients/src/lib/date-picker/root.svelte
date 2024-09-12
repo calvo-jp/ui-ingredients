@@ -25,7 +25,7 @@
 
   let {asChild, children, ...props}: DatePickerProps = $props();
 
-  let [presenceStrategyProps, otherProps] = $derived(
+  let [presenceStrategyProps, rest] = $derived(
     createSplitProps<PresenceStrategyProps>([])(props),
   );
 
@@ -59,7 +59,7 @@
       'onValueChange',
       'onFocusChange',
       'isDateUnavailable',
-    ])(otherProps),
+    ])(rest),
   );
 
   let datePicker = createDatePicker(reflect(() => datePickerProps));

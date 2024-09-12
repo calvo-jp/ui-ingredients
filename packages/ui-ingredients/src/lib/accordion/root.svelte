@@ -24,7 +24,7 @@
 
   let {asChild, children, ...props}: AccordionProps = $props();
 
-  let [presenceStrategyProps, otherProps] = $derived(
+  let [presenceStrategyProps, rest] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
@@ -41,7 +41,7 @@
       'collapsible',
       'onFocusChange',
       'onValueChange',
-    ])(otherProps),
+    ])(rest),
   );
 
   let accordion = createAccordion(reflect(() => accordionProps));

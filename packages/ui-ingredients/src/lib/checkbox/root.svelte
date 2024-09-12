@@ -22,7 +22,7 @@
 
   let {asChild, children, ...props}: CheckboxProps = $props();
 
-  let [checkboxProps, otherProps] = $derived(
+  let [checkboxProps, localProps] = $derived(
     createSplitProps<CreateCheckboxProps>([
       'id',
       'ids',
@@ -40,7 +40,7 @@
 
   let checkbox = createCheckbox(reflect(() => checkboxProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, checkbox.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, checkbox.getRootProps()));
 
   setCheckboxContext(checkbox);
 </script>

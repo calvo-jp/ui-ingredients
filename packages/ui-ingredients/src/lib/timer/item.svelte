@@ -15,12 +15,12 @@
 
   let timer = getTimerContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['type'])(props),
   );
 
   let mergedProps = $derived(
-    mergeProps(otherProps, timer.getItemProps(itemProps)),
+    mergeProps(localProps, timer.getItemProps(itemProps)),
   );
 
   setTimerItemPropsContext(() => itemProps);

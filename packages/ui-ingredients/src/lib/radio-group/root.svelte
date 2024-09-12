@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: RadioGroupProps = $props();
 
-  let [radioGroupProps, otherProps] = $derived(
+  let [radioGroupProps, localProps] = $derived(
     createSplitProps<CreateRadioGroupProps>([
       'id',
       'ids',
@@ -37,7 +37,7 @@
 
   let radioGroup = createRadioGroup(reflect(() => radioGroupProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, radioGroup.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, radioGroup.getRootProps()));
 
   setRadioGroupContext(radioGroup);
 </script>

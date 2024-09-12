@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: CollapsibleProps = $props();
 
-  let [collapsibleProps, otherProps] = $derived(
+  let [collapsibleProps, localProps] = $derived(
     createSplitProps<CreateCollapsibleProps>([
       'id',
       'ids',
@@ -36,7 +36,7 @@
   let collapsible = createCollapsible(reflect(() => collapsibleProps));
 
   let mergedProps = $derived(
-    mergeProps(otherProps, collapsible.getRootProps()),
+    mergeProps(localProps, collapsible.getRootProps()),
   );
 
   setCollapsibleContext(collapsible);

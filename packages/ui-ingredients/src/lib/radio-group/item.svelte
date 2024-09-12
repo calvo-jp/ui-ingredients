@@ -18,14 +18,14 @@
 
   let radioGroup = getRadioGroupContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(props),
   );
 
   let itemState = $derived(radioGroup.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(otherProps, radioGroup.getItemProps(itemProps)),
+    mergeProps(localProps, radioGroup.getItemProps(itemProps)),
   );
 
   setRadioGroupItemPropsContext(() => itemProps);

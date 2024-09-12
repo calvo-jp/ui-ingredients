@@ -25,7 +25,7 @@
 
   let {asChild, children, ...props}: ComboboxProps<T> = $props();
 
-  let [presenceStrategyProps, otherProps] = $derived(
+  let [presenceStrategyProps, rest] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
@@ -74,7 +74,7 @@
       'onPointerDownOutside',
       'getSelectionValue',
       'scrollToIndexFn',
-    ])(otherProps),
+    ])(rest),
   );
 
   let combobox = createCombobox(reflect(() => comboboxProps));

@@ -18,12 +18,12 @@
 
   let fileUpload = getFileUploadContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['file'])(props),
   );
 
   let mergedProps = $derived(
-    mergeProps(otherProps, fileUpload.getItemProps(itemProps)),
+    mergeProps(localProps, fileUpload.getItemProps(itemProps)),
   );
 
   setFileUploadItemPropsContext(() => itemProps);

@@ -21,7 +21,7 @@
 
   let {asChild, children, ...props}: TagsInputProps = $props();
 
-  let [tagsInputProps, otherProps] = $derived(
+  let [tagsInputProps, localProps] = $derived(
     createSplitProps<CreateTagsInputProps>([
       'id',
       'ids',
@@ -55,7 +55,7 @@
 
   let tagsInput = createTagsInput(reflect(() => tagsInputProps));
 
-  let mergedProps = $derived(mergeProps(otherProps, tagsInput.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, tagsInput.getRootProps()));
 
   setTagsInputContext(tagsInput);
 </script>

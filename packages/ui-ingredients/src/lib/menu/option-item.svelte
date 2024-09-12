@@ -21,7 +21,7 @@
 
   let menu = getMenuContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<OptionItemProps>([
       'type',
       'value',
@@ -36,7 +36,7 @@
   let itemState = $derived(menu.getOptionItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(otherProps, menu.getOptionItemProps(itemProps)),
+    mergeProps(localProps, menu.getOptionItemProps(itemProps)),
   );
 
   setMenuOptionItemPropsContext(() => itemProps);

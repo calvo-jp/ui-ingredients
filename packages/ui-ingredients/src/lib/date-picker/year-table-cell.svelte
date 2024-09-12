@@ -18,7 +18,7 @@
 
   let datePicker = getDatePickerContext();
 
-  let [tableCellProps, otherProps] = $derived(
+  let [tableCellProps, localProps] = $derived(
     createSplitProps<TableCellProps>(['value', 'disabled', 'columns'])(props),
   );
 
@@ -27,7 +27,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(otherProps, datePicker.getYearTableCellProps(tableCellProps)),
+    mergeProps(localProps, datePicker.getYearTableCellProps(tableCellProps)),
   );
 
   setDatePickerTableCellPropsContext(() => tableCellProps);

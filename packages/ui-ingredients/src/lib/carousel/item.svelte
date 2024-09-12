@@ -15,13 +15,13 @@
 
   let carousel = getCarouselContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['index'])(props),
   );
 
   let itemState = $derived(carousel.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(otherProps, carousel.getItemProps(itemProps)),
+    mergeProps(localProps, carousel.getItemProps(itemProps)),
   );
 </script>
 

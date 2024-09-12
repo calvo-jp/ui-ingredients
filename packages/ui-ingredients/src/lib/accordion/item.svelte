@@ -18,13 +18,13 @@
 
   let accordion = getAccordionContext();
 
-  let [itemProps, otherProps] = $derived(
+  let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['value', 'disabled'])(props),
   );
 
   let itemState = $derived(accordion.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(otherProps, accordion.getItemProps(itemProps)),
+    mergeProps(localProps, accordion.getItemProps(itemProps)),
   );
 
   setAccordionItemPropsContext(() => itemProps);

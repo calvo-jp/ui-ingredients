@@ -15,12 +15,12 @@
 
   let tabs = getTabsContext();
 
-  let [contentProps, otherProps] = $derived(
+  let [contentProps, localProps] = $derived(
     createSplitProps<ContentProps>(['value'])(props),
   );
 
   let mergedProps = $derived(
-    mergeProps(otherProps, tabs.getContentProps(contentProps)),
+    mergeProps(localProps, tabs.getContentProps(contentProps)),
   );
 </script>
 
