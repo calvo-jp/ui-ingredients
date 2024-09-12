@@ -1,7 +1,11 @@
 <script lang="ts">
   import {Portal, Select} from '$lib/index.js';
-  import {CheckIcon, ChevronDownIcon} from '@untitled-theme/icons-svelte';
-  import {Button, Label} from '../shared/index.js';
+  import {
+    CheckIcon,
+    ChevronDownIcon,
+    XCloseIcon,
+  } from '@untitled-theme/icons-svelte';
+  import {Button, IconButton, Label} from '../shared/index.js';
 
   let items = $state([
     {value: '1', label: 'React'},
@@ -41,18 +45,27 @@
         <Label {...attrs}>Framework</Label>
       {/snippet}
     </Select.Label>
-    <Select.Trigger class="w-full text-left font-normal">
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>
-          <Select.ValueText placeholder="Please Select" class="grow" />
-          <Select.Indicator class="group">
-            <ChevronDownIcon
-              class="group-data-open:rotate-180 transition-transform duration-200"
-            />
-          </Select.Indicator>
-        </Button>
-      {/snippet}
-    </Select.Trigger>
+    <div class="flex gap-2">
+      <Select.Trigger class="grow text-left font-normal">
+        {#snippet asChild(attrs)}
+          <Button {...attrs}>
+            <Select.ValueText placeholder="Please Select" class="grow" />
+            <Select.Indicator class="group">
+              <ChevronDownIcon
+                class="group-data-open:rotate-180 transition-transform duration-200"
+              />
+            </Select.Indicator>
+          </Button>
+        {/snippet}
+      </Select.Trigger>
+      <Select.ClearTrigger>
+        {#snippet asChild(attrs)}
+          <IconButton {...attrs}>
+            <XCloseIcon />
+          </IconButton>
+        {/snippet}
+      </Select.ClearTrigger>
+    </div>
   </Select.Control>
 
   <Portal data-id="select">

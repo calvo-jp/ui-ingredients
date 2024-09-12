@@ -12,7 +12,7 @@
   $inspect(value);
 
   setTimeout(() => {
-    value = [new Date().toISOString()];
+    value = ['2022-01-01'];
   }, 1000);
 </script>
 

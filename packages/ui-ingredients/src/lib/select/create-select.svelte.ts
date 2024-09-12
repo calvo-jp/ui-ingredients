@@ -35,7 +35,7 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
 
   const id = uid();
 
-  const context: select.Context = $derived({
+  const context: select.Context = reflect(() => ({
     ids: {
       label: field?.ids.label,
       hiddenSelect: field?.ids.control,
@@ -51,7 +51,7 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
     'open.controlled': props.open != null,
     getRootNode: environment?.getRootNode,
     collection,
-  });
+  }));
 
   const [state, send] = useMachine(select.machine(context));
 
