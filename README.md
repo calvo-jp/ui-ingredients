@@ -53,6 +53,7 @@ npm install ui-ingredients
 - [Field](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/field.md)
 - [FileUpload](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/file-upload.md)
 - [FloatingPanel](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/floating-panel.md)
+- [Highlight](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/highlight.md)
 - [HoverCard](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/hover-card.md)
 - [Menu](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/menu.md)
 - [NumberInput](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/number-input.md)
