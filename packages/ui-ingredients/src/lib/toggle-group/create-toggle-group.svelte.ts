@@ -19,20 +19,14 @@ export function createToggleGroup(
 
   const id = uid();
 
-  const context: toggleGroup.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: toggleGroup.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(toggleGroup.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => toggleGroup.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => toggleGroup.connect(state, send, normalizeProps));
 }

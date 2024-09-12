@@ -23,22 +23,16 @@ export function createCollapsible(
 
   const id = uid();
 
-  const context: collapsible.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      open: props.defaultOpen ?? props.open,
-      getRootNode: environment?.getRootNode,
-      'open.controlled': props.open != null,
-    })),
-  );
+  const context: collapsible.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    open: props.defaultOpen ?? props.open,
+    getRootNode: environment?.getRootNode,
+    'open.controlled': props.open != null,
+  }));
 
   const [state, send] = useMachine(collapsible.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => collapsible.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => collapsible.connect(state, send, normalizeProps));
 }

@@ -17,20 +17,14 @@ export function createSplitter(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: splitter.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? uid(),
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: splitter.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? uid(),
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(splitter.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => splitter.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => splitter.connect(state, send, normalizeProps));
 }

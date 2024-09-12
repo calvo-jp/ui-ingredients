@@ -19,20 +19,14 @@ export function createAccordion(
 
   const id = uid();
 
-  const context: accordion.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: accordion.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(accordion.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => accordion.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => accordion.connect(state, send, normalizeProps));
 }

@@ -21,41 +21,35 @@ export function createNumberInput(
 
   const id = uid();
 
-  const context: numberInput.Context = $derived(
-    reflect(() => ({
-      ids: {
-        label: field?.ids.label,
-        input: field?.ids.control,
-      },
-      invalid: field?.invalid,
-      disabled: field?.disabled,
-      readOnly: field?.readOnly,
-      required: field?.required,
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      locale: props.locale ?? locale?.locale,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: numberInput.Context = reflect(() => ({
+    ids: {
+      label: field?.ids.label,
+      input: field?.ids.control,
+    },
+    invalid: field?.invalid,
+    disabled: field?.disabled,
+    readOnly: field?.readOnly,
+    required: field?.required,
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    locale: props.locale ?? locale?.locale,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(numberInput.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => {
-      const o = numberInput.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = numberInput.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getInputProps() {
-          return {
-            'aria-describedby': field?.['aria-describedby'],
-            ...o.getInputProps(),
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getInputProps() {
+        return {
+          'aria-describedby': field?.['aria-describedby'],
+          ...o.getInputProps(),
+        };
+      },
+    };
+  });
 }

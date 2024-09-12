@@ -30,7 +30,7 @@
     ),
   );
 
-  let [accordionProps, elementProps] = $derived(
+  let [accordionProps, localProps] = $derived(
     createSplitProps<CreateAccordionProps>([
       'id',
       'ids',
@@ -46,9 +46,7 @@
 
   let accordion = createAccordion(reflect(() => accordionProps));
 
-  let mergedProps = $derived(
-    mergeProps(elementProps, accordion.getRootProps()),
-  );
+  let mergedProps = $derived(mergeProps(localProps, accordion.getRootProps()));
 
   setAccordionContext(accordion);
   setPresenceStrategyPropsContext(() => presenceStrategyProps);

@@ -1,6 +1,7 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
 import type {HtmlProps} from '$lib/types.js';
 import {ariaAttr, dataAttr, getDocument, getWindow} from '@zag-js/dom-query';
+import {reflect} from '@zag-js/svelte';
 import {uid} from 'uid';
 import {parts} from './anatomy.js';
 
@@ -185,25 +186,13 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  return {
-    get ids() {
-      return ids;
-    },
-    get disabled() {
-      return disabled;
-    },
-    get required() {
-      return required;
-    },
-    get readOnly() {
-      return readOnly;
-    },
-    get invalid() {
-      return invalid;
-    },
-    get 'aria-describedby'() {
-      return ariaDescribedby;
-    },
+  return reflect(() => ({
+    ids,
+    disabled,
+    required,
+    readOnly,
+    invalid,
+    'aria-describedby': ariaDescribedby,
     getRootProps,
     getLabelProps,
     getErrorTextProps,
@@ -211,5 +200,5 @@ export function createField(props: CreateFieldProps) {
     getInputProps,
     getSelectProps,
     getTextareaProps,
-  };
+  }));
 }

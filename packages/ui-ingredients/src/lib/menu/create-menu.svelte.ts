@@ -18,22 +18,16 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
 
   const id = uid();
 
-  const context: menu.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      open: props.defaultOpen ?? props.open,
-      getRootNode: environment?.getRootNode,
-      'open.controlled': props.open != null,
-    })),
-  );
+  const context: menu.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    open: props.defaultOpen ?? props.open,
+    getRootNode: environment?.getRootNode,
+    'open.controlled': props.open != null,
+  }));
 
   const [state, send] = useMachine(menu.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => menu.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => menu.connect(state, send, normalizeProps));
 }

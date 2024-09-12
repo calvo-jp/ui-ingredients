@@ -58,27 +58,21 @@
     ])(props),
   );
 
-  let select = createSelect(reflect(() => selectProps));
-
-  let [presenceStrategyProps, elementProps] = $derived(
+  let [presenceStrategyProps, localProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       otherProps,
     ),
   );
 
-  let presence = createPresence({
-    get present() {
-      return select.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let select = createSelect(reflect(() => selectProps));
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: select.open,
+    })),
+  );
 
-  let mergedProps = $derived(mergeProps(elementProps, select.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, select.getRootProps()));
 
   setSelectContext(select);
   setPresenceContext(presence);

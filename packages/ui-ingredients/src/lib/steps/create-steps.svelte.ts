@@ -17,20 +17,14 @@ export function createSteps(props: CreateStepsProps) {
 
   const id = uid();
 
-  const context: steps.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: steps.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(steps.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => steps.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => steps.connect(state, send, normalizeProps));
 }

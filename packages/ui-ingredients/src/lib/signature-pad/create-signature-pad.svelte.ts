@@ -19,20 +19,14 @@ export function createSignaturePad(
 
   const id = uid();
 
-  const context: signaturePad.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: signaturePad.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(signaturePad.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => signaturePad.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => signaturePad.connect(state, send, normalizeProps));
 }

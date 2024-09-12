@@ -15,19 +15,13 @@ export function createTimer(props: CreateTimerProps): CreateTimerReturn {
 
   const id = uid();
 
-  const context: timer.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: timer.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(timer.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => timer.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => timer.connect(state, send, normalizeProps));
 }

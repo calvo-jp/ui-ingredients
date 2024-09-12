@@ -10,6 +10,10 @@
   let value: string[] = $state([]);
 
   $inspect(value);
+
+  setTimeout(() => {
+    value = [new Date().toISOString()];
+  }, 1000);
 </script>
 
 <DatePicker.Root

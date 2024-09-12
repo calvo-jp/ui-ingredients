@@ -17,20 +17,14 @@ export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
 
   const id = uid();
 
-  const context: avatar.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: avatar.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(avatar.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => avatar.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => avatar.connect(state, send, normalizeProps));
 }

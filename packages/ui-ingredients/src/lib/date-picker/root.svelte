@@ -29,7 +29,7 @@
     createSplitProps<PresenceStrategyProps>([])(props),
   );
 
-  let [datePickerProps, elementProps] = $derived(
+  let [datePickerProps, localProps] = $derived(
     createSplitProps<CreateDatePickerProps>([
       'id',
       'ids',
@@ -63,22 +63,14 @@
   );
 
   let datePicker = createDatePicker(reflect(() => datePickerProps));
-
-  let presence = createPresence({
-    get present() {
-      return datePicker.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
-
-  let mergedProps = $derived(
-    mergeProps(elementProps, datePicker.getRootProps()),
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: datePicker.open,
+    })),
   );
+
+  let mergedProps = $derived(mergeProps(localProps, datePicker.getRootProps()));
 
   setDatePickerContext(datePicker);
   setPresenceContext(presence);

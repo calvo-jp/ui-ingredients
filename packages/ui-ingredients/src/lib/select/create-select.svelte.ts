@@ -55,21 +55,17 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
 
   const [state, send] = useMachine(select.machine(context));
 
-  const api = $derived(
-    reflect(() => {
-      const o = select.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = select.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getHiddenSelectProps() {
-          return {
-            'aria-describedby': field?.['aria-describedby'],
-            ...o.getHiddenSelectProps(),
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getHiddenSelectProps() {
+        return {
+          'aria-describedby': field?.['aria-describedby'],
+          ...o.getHiddenSelectProps(),
+        };
+      },
+    };
+  });
 }

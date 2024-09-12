@@ -17,20 +17,14 @@ export function createTour(props: CreateTourProps): CreateTourReturn {
 
   const id = uid();
 
-  const context: tour.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: tour.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(tour.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => tour.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => tour.connect(state, send, normalizeProps));
 }

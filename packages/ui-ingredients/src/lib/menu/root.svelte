@@ -48,18 +48,12 @@
   );
 
   let menu = createMenu(reflect(() => menuProps));
-
-  let presence = createPresence({
-    get present() {
-      return menu.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: menu.open,
+    })),
+  );
 
   setMenuContext(menu);
   setPresenceContext(presence);

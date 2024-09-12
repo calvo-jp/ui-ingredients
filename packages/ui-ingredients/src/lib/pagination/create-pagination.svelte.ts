@@ -19,20 +19,14 @@ export function createPagination(
 
   const id = uid();
 
-  const context: pagination.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: pagination.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(pagination.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => pagination.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => pagination.connect(state, send, normalizeProps));
 }

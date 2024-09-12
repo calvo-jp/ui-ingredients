@@ -31,17 +31,12 @@
 
   let floatingPanel = createFloatingPanel(reflect(() => floatingPanelProps));
 
-  let presence = createPresence({
-    get present() {
-      return floatingPanel.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: floatingPanel.open,
+    })),
+  );
 
   setFloatingPanelContext(floatingPanel);
   setPresenceContext(presence);

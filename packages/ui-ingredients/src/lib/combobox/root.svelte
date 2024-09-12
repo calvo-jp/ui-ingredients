@@ -31,7 +31,7 @@
     ),
   );
 
-  let [comboboxProps, elementProps] = $derived(
+  let [comboboxProps, localProps] = $derived(
     createSplitProps<CreateComboboxProps<T>>([
       'id',
       'ids',
@@ -78,20 +78,14 @@
   );
 
   let combobox = createCombobox(reflect(() => comboboxProps));
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: combobox.open,
+    })),
+  );
 
-  let presence = createPresence({
-    get present() {
-      return combobox.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
-
-  let mergedProps = $derived(mergeProps(elementProps, combobox.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, combobox.getRootProps()));
 
   setComboboxContext(combobox);
   setPresenceContext(presence);

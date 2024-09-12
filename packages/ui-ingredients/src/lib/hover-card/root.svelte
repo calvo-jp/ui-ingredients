@@ -38,17 +38,12 @@
 
   let hoverCard = createHoverCard(reflect(() => hoverCardProps));
 
-  let presence = createPresence({
-    get present() {
-      return hoverCard.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: hoverCard.open,
+    })),
+  );
 
   setHoverCardContext(hoverCard);
   setPresenceContext(presence);

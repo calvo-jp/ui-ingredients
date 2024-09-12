@@ -19,20 +19,14 @@ export function createFloatingPanel(
 
   const id = uid();
 
-  const context: floatingPanel.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: floatingPanel.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(floatingPanel.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => floatingPanel.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => floatingPanel.connect(state, send, normalizeProps));
 }

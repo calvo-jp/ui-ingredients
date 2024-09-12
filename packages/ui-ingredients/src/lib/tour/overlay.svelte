@@ -8,24 +8,19 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getPresenceStrategyPropsContext} from '$lib/presence/context.svelte.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
+  import {reflect} from '@zag-js/svelte';
   import {getTourContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: TourOverlayProps = $props();
 
   let tour = getTourContext();
-
   let presenceStrategyProps = getPresenceStrategyPropsContext();
-  let presence = createPresence({
-    get present() {
-      return tour.currentStep != null;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: tour.currentStep != null,
+    })),
+  );
 
   let mergedProps = $derived(
     mergeProps(props, tour.getOverlayProps(), presence.getPresenceProps()),

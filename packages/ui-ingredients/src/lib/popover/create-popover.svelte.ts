@@ -21,22 +21,16 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
 
   const id = uid();
 
-  const context: popover.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      open: props.defaultOpen ?? props.open,
-      getRootNode: environment?.getRootNode,
-      'open.controlled': props.open != null,
-    })),
-  );
+  const context: popover.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    open: props.defaultOpen ?? props.open,
+    getRootNode: environment?.getRootNode,
+    'open.controlled': props.open != null,
+  }));
 
   const [state, send] = useMachine(popover.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => popover.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => popover.connect(state, send, normalizeProps));
 }

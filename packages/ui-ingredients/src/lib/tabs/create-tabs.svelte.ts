@@ -17,20 +17,14 @@ export function createTabs(props: CreateTabsProps) {
 
   const id = uid();
 
-  const context: tabs.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: tabs.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(tabs.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => tabs.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => tabs.connect(state, send, normalizeProps));
 }

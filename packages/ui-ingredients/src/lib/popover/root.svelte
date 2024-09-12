@@ -46,17 +46,12 @@
   );
 
   let popover = createPopover(reflect(() => popoverProps));
-  let presence = createPresence({
-    get present() {
-      return popover.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: popover.open,
+    })),
+  );
 
   setPopoverContext(popover);
   setPresenceContext(presence);

@@ -32,17 +32,12 @@
 
   let tour = createTour(reflect(() => tourProps));
 
-  let presence = createPresence({
-    get present() {
-      return tour.currentStep != null;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: tour.currentStep != null,
+    })),
+  );
 
   setTourContext(tour);
   setPresenceContext(presence);

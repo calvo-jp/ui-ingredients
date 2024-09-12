@@ -37,7 +37,7 @@ export function createCombobox<T>(
 
   const id = uid();
 
-  const context: combobox.Context = $derived({
+  const context: combobox.Context = reflect(() => ({
     ids: {
       label: field?.ids.label,
       input: field?.ids.control,
@@ -53,25 +53,21 @@ export function createCombobox<T>(
     'open.controlled': props.open != null,
     getRootNode: environment?.getRootNode,
     collection,
-  });
+  }));
 
   const [state, send] = useMachine(combobox.machine(context));
 
-  const api = $derived(
-    reflect(() => {
-      const o = combobox.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = combobox.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getInputProps() {
-          return {
-            'aria-describedby': field?.['aria-describedby'],
-            ...o.getInputProps(),
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getInputProps() {
+        return {
+          'aria-describedby': field?.['aria-describedby'],
+          ...o.getInputProps(),
+        };
+      },
+    };
+  });
 }

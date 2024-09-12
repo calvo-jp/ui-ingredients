@@ -19,20 +19,14 @@ export function createProgress(
 
   const id = uid();
 
-  const context: progress.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: progress.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(progress.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => progress.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => progress.connect(state, send, normalizeProps));
 }

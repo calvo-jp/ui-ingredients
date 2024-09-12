@@ -1,6 +1,5 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
-  import {type Environment} from './context.svelte.js';
 
   export interface EnvironmentProviderProps {
     rootNode?:
@@ -20,21 +19,19 @@
 
   let elem: HTMLSpanElement | null = $state(null);
 
-  let getRootNode = $derived.by(() => {
+  function getRootNode() {
     if (rootNode) {
-      return typeof rootNode === 'function' ? rootNode : () => rootNode;
+      return typeof rootNode === 'function' ? rootNode() : rootNode;
     } else {
-      return () => elem?.ownerDocument ?? document;
+      return elem?.ownerDocument ?? document;
     }
-  });
+  }
 
-  let environment: Environment = $derived({
+  setEnvironmentContext({
     getRootNode,
     getDocument: () => getDocument(getRootNode()),
     getWindow: () => getWindow(getRootNode()),
   });
-
-  setEnvironmentContext(() => environment);
 </script>
 
 {@render children()}

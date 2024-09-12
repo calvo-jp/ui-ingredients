@@ -23,22 +23,16 @@ export function createHoverCard(
 
   const id = uid();
 
-  const context: hoverCard.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      open: props.defaultOpen ?? props.open,
-      getRootNode: environment?.getRootNode,
-      'open.controlled': props.open != null,
-    })),
-  );
+  const context: hoverCard.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    open: props.defaultOpen ?? props.open,
+    getRootNode: environment?.getRootNode,
+    'open.controlled': props.open != null,
+  }));
 
   const [state, send] = useMachine(hoverCard.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => hoverCard.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => hoverCard.connect(state, send, normalizeProps));
 }

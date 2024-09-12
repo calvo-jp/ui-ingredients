@@ -34,12 +34,8 @@ export function createToaster(props?: CreateToasterProps) {
     }),
   );
 
-  const api = $derived(
-    reflect(() => ({
-      machine,
-      ...toast.group.connect(machine, machine.send, normalizeProps),
-    })),
-  );
-
-  return api;
+  return reflect(() => ({
+    machine,
+    ...toast.group.connect(machine, machine.send, normalizeProps),
+  }));
 }

@@ -49,29 +49,21 @@
     ])(props),
   );
 
-  let timePicker = createTimePicker(reflect(() => timePickerProps));
-
-  let [presenceStrategyProps, elementProps] = $derived(
+  let [presenceStrategyProps, localProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       otherProps,
     ),
   );
 
-  let presence = createPresence({
-    get present() {
-      return timePicker.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
-
-  let mergedProps = $derived(
-    mergeProps(elementProps, timePicker.getRootProps()),
+  let timePicker = createTimePicker(reflect(() => timePickerProps));
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: timePicker.open,
+    })),
   );
+
+  let mergedProps = $derived(mergeProps(localProps, timePicker.getRootProps()));
 
   setTimePickerContext(timePicker);
   setPresenceContext(presence);

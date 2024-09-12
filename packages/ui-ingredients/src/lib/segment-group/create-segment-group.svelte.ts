@@ -19,20 +19,14 @@ export function createSegmentGroup(
 
   const id = uid();
 
-  const context: segmentGroup.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: segmentGroup.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(segmentGroup.machine(context));
 
-  const api = $derived(
-    reflect(() => segmentGroup.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => segmentGroup.connect(state, send, normalizeProps));
 }

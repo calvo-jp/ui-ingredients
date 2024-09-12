@@ -23,23 +23,17 @@ export function createTimePicker(
 
   const id = uid();
 
-  const context: timePicker.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      open: props.defaultOpen ?? props.open,
-      locale: props.locale ?? locale?.locale,
-      getRootNode: environment?.getRootNode,
-      'open.controlled': props.defaultOpen != null,
-    })),
-  );
+  const context: timePicker.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    open: props.defaultOpen ?? props.open,
+    locale: props.locale ?? locale?.locale,
+    getRootNode: environment?.getRootNode,
+    'open.controlled': props.defaultOpen != null,
+  }));
 
   const [state, send] = useMachine(timePicker.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => timePicker.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => timePicker.connect(state, send, normalizeProps));
 }

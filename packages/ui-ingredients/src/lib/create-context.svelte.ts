@@ -21,15 +21,7 @@ export function createContext<T extends GenericObject>(
   }
 
   function s(context: T | (() => T)) {
-    const v = $derived.by(() => {
-      if (typeof context === 'function') {
-        return reflect(context);
-      } else {
-        return context;
-      }
-    });
-
-    setContext(key, v);
+    setContext(key, typeof context === 'function' ? reflect(context) : context);
   }
 
   return [g, s];

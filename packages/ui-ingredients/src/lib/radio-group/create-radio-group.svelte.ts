@@ -19,20 +19,14 @@ export function createRadioGroup(
 
   const id = uid();
 
-  const context: radioGroup.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: radioGroup.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(radioGroup.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => radioGroup.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => radioGroup.connect(state, send, normalizeProps));
 }

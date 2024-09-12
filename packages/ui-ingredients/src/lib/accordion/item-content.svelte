@@ -10,6 +10,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getPresenceStrategyPropsContext} from '$lib/presence/context.svelte.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
+  import {reflect} from '@zag-js/svelte';
   import {
     getAccordionContext,
     getAccordionItemPropsContext,
@@ -22,17 +23,12 @@
   let itemsState = $derived(accordion.getItemState(itemProps));
 
   let presenceStrategyProps = getPresenceStrategyPropsContext();
-  let presence = createPresence({
-    get present() {
-      return itemsState.expanded;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: itemsState.expanded,
+    })),
+  );
 
   let mergedProps = $derived(
     mergeProps(

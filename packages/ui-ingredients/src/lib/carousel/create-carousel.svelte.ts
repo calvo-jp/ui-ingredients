@@ -19,20 +19,14 @@ export function createCarousel(
 
   const id = uid();
 
-  const context: carousel.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: carousel.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(carousel.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => carousel.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => carousel.connect(state, send, normalizeProps));
 }

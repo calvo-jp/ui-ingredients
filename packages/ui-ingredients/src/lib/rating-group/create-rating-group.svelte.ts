@@ -21,39 +21,33 @@ export function createRatingGroup(
 
   const id = uid();
 
-  const context: ratingGroup.Context = $derived(
-    reflect(() => ({
-      ids: {
-        label: field?.ids.label,
-        hiddenInput: field?.ids.control,
-      },
-      required: field?.required,
-      disabled: field?.disabled,
-      readOnly: field?.readOnly,
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: ratingGroup.Context = reflect(() => ({
+    ids: {
+      label: field?.ids.label,
+      hiddenInput: field?.ids.control,
+    },
+    required: field?.required,
+    disabled: field?.disabled,
+    readOnly: field?.readOnly,
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(ratingGroup.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => {
-      const o = ratingGroup.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = ratingGroup.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getHiddenInputProps() {
-          return {
-            'aria-describedby': field?.['aria-describedby'],
-            ...o.getHiddenInputProps(),
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getHiddenInputProps() {
+        return {
+          'aria-describedby': field?.['aria-describedby'],
+          ...o.getHiddenInputProps(),
+        };
+      },
+    };
+  });
 }

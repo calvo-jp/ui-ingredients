@@ -17,20 +17,14 @@ export function createTreeView(props: CreateTreeViewProps) {
 
   const id = uid();
 
-  const context: treeView.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: treeView.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(treeView.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => treeView.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => treeView.connect(state, send, normalizeProps));
 }

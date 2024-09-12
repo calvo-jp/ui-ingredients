@@ -21,40 +21,34 @@ export function createCheckbox(
 
   const id = uid();
 
-  const context: checkbox.Context = $derived(
-    reflect(() => ({
-      ids: {
-        label: field?.ids.label,
-        hiddenInput: field?.ids.control,
-      },
-      invalid: field?.invalid,
-      disabled: field?.disabled,
-      readOnly: field?.readOnly,
-      required: field?.required,
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: checkbox.Context = reflect(() => ({
+    ids: {
+      label: field?.ids.label,
+      hiddenInput: field?.ids.control,
+    },
+    invalid: field?.invalid,
+    disabled: field?.disabled,
+    readOnly: field?.readOnly,
+    required: field?.required,
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(checkbox.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => {
-      const o = checkbox.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = checkbox.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getHiddenInputProps() {
-          return {
-            'aria-describedby': field?.['aria-describedby'],
-            ...o.getHiddenInputProps(),
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getHiddenInputProps() {
+        return {
+          'aria-describedby': field?.['aria-describedby'],
+          ...o.getHiddenInputProps(),
+        };
+      },
+    };
+  });
 }

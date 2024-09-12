@@ -33,18 +33,12 @@
   );
 
   let dialog = createDialog(reflect(() => dialogProps));
-
-  let presence = createPresence({
-    get present() {
-      return dialog.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: dialog.open,
+    })),
+  );
 
   setDialogContext(dialog);
   setPresenceContext(presence);

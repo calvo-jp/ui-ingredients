@@ -56,21 +56,17 @@ export function createDatePicker(
 
   const [state, send] = useMachine(datePicker.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => {
-      const o = datePicker.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = datePicker.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getViewProps(props: datePicker.ViewProps): GenericObject {
-          return {
-            ...parts.view.attrs,
-            hidden: o.view !== props.view,
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getViewProps(props: datePicker.ViewProps): GenericObject {
+        return {
+          ...parts.view.attrs,
+          hidden: o.view !== props.view,
+        };
+      },
+    };
+  });
 }

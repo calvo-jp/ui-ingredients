@@ -17,20 +17,14 @@ export function createSlider(props: CreateSliderProps): CreateSliderReturn {
 
   const id = uid();
 
-  const context: slider.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: slider.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(slider.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => slider.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => slider.connect(state, send, normalizeProps));
 }

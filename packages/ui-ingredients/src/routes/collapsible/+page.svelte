@@ -2,7 +2,7 @@
   import {Collapsible} from '$lib/index.js';
   import {Button} from '../shared/index.js';
 
-  let open = $state(true);
+  let open = $state(false);
 </script>
 
 <Collapsible.Root
@@ -13,7 +13,7 @@
 >
   <Collapsible.Trigger>
     {#snippet asChild(attrs)}
-      <Button {...attrs}>Open</Button>
+      <Button {...attrs}>Click me</Button>
     {/snippet}
   </Collapsible.Trigger>
 

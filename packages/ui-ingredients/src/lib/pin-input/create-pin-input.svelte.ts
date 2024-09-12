@@ -24,47 +24,41 @@ export function createPinInputContext(
 
   const id = uid();
 
-  const context: pinInput.Context = $derived(
-    reflect(() => ({
-      ids: {
-        label: field?.ids.label,
-        hiddenInput: field?.ids.control,
-      },
-      invalid: field?.invalid,
-      required: field?.required,
-      disabled: field?.disabled,
-      readOnly: field?.readOnly,
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: pinInput.Context = reflect(() => ({
+    ids: {
+      label: field?.ids.label,
+      hiddenInput: field?.ids.control,
+    },
+    invalid: field?.invalid,
+    required: field?.required,
+    disabled: field?.disabled,
+    readOnly: field?.readOnly,
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(pinInput.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => {
-      const o = pinInput.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = pinInput.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getClearTriggerProps(): HtmlProps<'button'> {
-          return {
-            onclick() {
-              o.clearValue();
-            },
-          };
-        },
-        getHiddenInputProps() {
-          return {
-            'aria-describedby': field?.['aria-describedby'],
-            ...o.getHiddenInputProps(),
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getClearTriggerProps(): HtmlProps<'button'> {
+        return {
+          onclick() {
+            o.clearValue();
+          },
+        };
+      },
+      getHiddenInputProps() {
+        return {
+          'aria-describedby': field?.['aria-describedby'],
+          ...o.getHiddenInputProps(),
+        };
+      },
+    };
+  });
 }

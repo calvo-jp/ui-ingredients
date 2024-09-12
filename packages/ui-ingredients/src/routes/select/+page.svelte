@@ -3,15 +3,21 @@
   import {CheckIcon, ChevronDownIcon} from '@untitled-theme/icons-svelte';
   import {Button, Label} from '../shared/index.js';
 
-  let items = [
+  let items = $state([
     {value: '1', label: 'React'},
     {value: '2', label: 'Solid'},
     {value: '3', label: 'Svelte'},
     {value: '4', label: 'Angular', disabled: true},
-    {value: '5', label: 'Vue'},
-  ];
+  ]);
 
   let value: string[] = $state([]);
+
+  $inspect(value);
+
+  setTimeout(() => {
+    value = ['1'];
+    items = [...items, {value: '5', label: 'Vue'}];
+  }, 1000);
 </script>
 
 <Select.Root

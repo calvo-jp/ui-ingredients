@@ -17,19 +17,13 @@ export function createClipboard(
 
   const id = uid();
 
-  const context: clipboard.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: clipboard.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(clipboard.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => clipboard.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => clipboard.connect(state, send, normalizeProps));
 }

@@ -17,20 +17,14 @@ export function createQRCode(props: CreateQrCodeProps): CreateQrCodeReturn {
 
   const id = uid();
 
-  const context: qrCode.Context = $derived(
-    reflect(() => ({
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: qrCode.Context = reflect(() => ({
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(qrCode.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => qrCode.connect(state, send, normalizeProps)),
-  );
-
-  return api;
+  return reflect(() => qrCode.connect(state, send, normalizeProps));
 }

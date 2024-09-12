@@ -89,6 +89,9 @@ importers:
       '@zag-js/floating-panel':
         specifier: 0.67.0
         version: 0.67.0
+      '@zag-js/highlight-word':
+        specifier: 0.67.0
+        version: 0.67.0
       '@zag-js/hover-card':
         specifier: 0.67.0
         version: 0.67.0
@@ -891,6 +894,9 @@ packages:
 
   '@zag-js/form-utils@0.67.0':
     resolution: {integrity: sha512-RCAUibdnqpO4P11VOLOrPZwY3p3qRUj6WxCHkTXhrQ4OZcNUHp9BjCM6FLicRiBqwQFQDeG97TE4iAuwJHr4cA==}
+
+  '@zag-js/highlight-word@0.67.0':
+    resolution: {integrity: sha512-onD0Id93DTsL1UQVwuBOV6fibSs7lGfcVoaMIU1UjLtp2xABUgd2OqFwOT+Jy8JnCg5lGn9zOR94gr3AS3XtOg==}
 
   '@zag-js/hover-card@0.67.0':
     resolution: {integrity: sha512-qpFNrj4o9epkrlmMQJp1i4ETsepBYmT6NIjqfZNJdH3rgLserU/yWoG7BA8v2cO3cxYtTRw4Ch0f2F5I4qtA+Q==}
@@ -3931,6 +3937,8 @@ snapshots:
       '@zag-js/utils': 0.67.0
 
   '@zag-js/form-utils@0.67.0': {}
+
+  '@zag-js/highlight-word@0.67.0': {}
 
   '@zag-js/hover-card@0.67.0':
     dependencies:

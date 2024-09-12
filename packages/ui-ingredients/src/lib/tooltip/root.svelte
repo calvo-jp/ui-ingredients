@@ -30,18 +30,12 @@
   );
 
   let tooltip = createTooltip(reflect(() => tooltipProps));
-
-  let presence = createPresence({
-    get present() {
-      return tooltip.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: tooltip.open,
+    })),
+  );
 
   setTooltipContext(tooltip);
   setPresenceContext(presence);

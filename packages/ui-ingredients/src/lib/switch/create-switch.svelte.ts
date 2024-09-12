@@ -19,40 +19,34 @@ export function createSwitch(props: CreateSwitchProps) {
 
   const id = uid();
 
-  const context: switch$.Context = $derived(
-    reflect(() => ({
-      ids: {
-        label: field?.ids.label,
-        hiddenInput: field?.ids.control,
-      },
-      disabled: field?.disabled,
-      readOnly: field?.readOnly,
-      invalid: field?.invalid,
-      required: field?.required,
-      ...props,
-      id: props.id ?? id,
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const context: switch$.Context = reflect(() => ({
+    ids: {
+      label: field?.ids.label,
+      hiddenInput: field?.ids.control,
+    },
+    disabled: field?.disabled,
+    readOnly: field?.readOnly,
+    invalid: field?.invalid,
+    required: field?.required,
+    ...props,
+    id: props.id ?? id,
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+  }));
 
   const [state, send] = useMachine(switch$.machine(context), {context});
 
-  const api = $derived(
-    reflect(() => {
-      const o = switch$.connect(state, send, normalizeProps);
+  return reflect(() => {
+    const o = switch$.connect(state, send, normalizeProps);
 
-      return {
-        ...o,
-        getHiddenInputProps() {
-          return {
-            'aria-describedby': field?.['aria-describedby'],
-            ...o.getHiddenInputProps(),
-          };
-        },
-      };
-    }),
-  );
-
-  return api;
+    return {
+      ...o,
+      getHiddenInputProps() {
+        return {
+          'aria-describedby': field?.['aria-describedby'],
+          ...o.getHiddenInputProps(),
+        };
+      },
+    };
+  });
 }

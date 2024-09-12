@@ -10,24 +10,19 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getPresenceStrategyPropsContext} from '$lib/presence/context.svelte.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
+  import {reflect} from '@zag-js/svelte';
   import {getDialogContext} from './context.svelte.js';
 
   let {asChild, children, ...props}: DialogBackdropProps = $props();
 
   let dialog = getDialogContext();
-
   let presenceStrategyProps = getPresenceStrategyPropsContext();
-  let presence = createPresence({
-    get present() {
-      return dialog.open;
-    },
-    get lazyMount() {
-      return presenceStrategyProps.lazyMount;
-    },
-    get keepMounted() {
-      return presenceStrategyProps.keepMounted;
-    },
-  });
+  let presence = createPresence(
+    reflect(() => ({
+      ...presenceStrategyProps,
+      present: dialog.open,
+    })),
+  );
 
   let mergedProps = $derived(
     mergeProps(props, dialog.getBackdropProps(), presence.getPresenceProps()),
