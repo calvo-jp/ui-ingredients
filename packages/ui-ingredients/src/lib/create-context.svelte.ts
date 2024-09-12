@@ -2,27 +2,41 @@ import type {GenericObject} from '$lib/types.js';
 import {reflect} from '@zag-js/svelte';
 import {getContext, hasContext, setContext} from 'svelte';
 
-type ContextGetter<T extends GenericObject> = () => T;
-type ContextSetter<T extends GenericObject> = (context: T | (() => T)) => void;
+type GetContext<T extends GenericObject> = () => T;
+type SetContext<T extends GenericObject> = (context: T | (() => T)) => T;
+type HasContext = () => boolean;
 
 export function createContext<T extends GenericObject>(
   key: string,
   strict = true,
-): [getContext: ContextGetter<T>, setContext: ContextSetter<T>] {
-  function g() {
-    if (strict && !hasContext(key)) {
-      const e = new Error();
-      e.name = 'ContextError';
-      e.message = `No context found for '${key}'`;
-      throw e;
-    }
+): [
+  getContext: GetContext<T>,
+  setContext: SetContext<T>,
+  hasContext: HasContext,
+] {
+  const has: HasContext = () => hasContext(key);
+
+  const set: SetContext<T> = (context) => {
+    return setContext<T>(
+      key,
+      typeof context === 'function' ? reflect(context) : context,
+    );
+  };
+
+  const get: GetContext<T> = () => {
+    if (strict && !has()) throw err(key);
 
     return getContext<T>(key);
-  }
+  };
 
-  function s(context: T | (() => T)) {
-    setContext(key, typeof context === 'function' ? reflect(context) : context);
-  }
+  return [get, set, has];
+}
 
-  return [g, s];
+function err(k: string) {
+  const e = new Error();
+
+  e.name = 'ContextError';
+  e.message = "No context found for '%s'".replace('%s', k);
+
+  throw e;
 }
