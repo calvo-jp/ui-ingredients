@@ -31,7 +31,7 @@
 <Menu.Root>
   <Menu.Trigger>
     {#snippet asChild(attrs)}
-      <Button {...attrs}>Open</Button>
+      <Button {...attrs}>Click me</Button>
     {/snippet}
   </Menu.Trigger>
 

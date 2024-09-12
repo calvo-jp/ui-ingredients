@@ -15,7 +15,7 @@
 >
   <Dialog.Trigger>
     {#snippet asChild(attrs)}
-      <Button {...attrs}>Open</Button>
+      <Button {...attrs}>Click me</Button>
     {/snippet}
   </Dialog.Trigger>
 
