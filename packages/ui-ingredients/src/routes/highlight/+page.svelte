@@ -9,7 +9,7 @@
   let query = $state('lorem');
 </script>
 
-<div class="max-w-[32rem]">
+<div class="w-full lg:max-w-[32rem]">
   <Input
     value={query}
     oninput={(e) => {
@@ -23,7 +23,7 @@
     ignoreCase
     class={twMerge(
       'p-4',
-      'mt-4',
+      'mt-5',
       'border',
       'rounded',
       '[&_mark]:bg-indigo-500',
