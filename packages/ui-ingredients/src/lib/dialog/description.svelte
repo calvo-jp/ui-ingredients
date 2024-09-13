@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getDialogContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: DialogDescriptionProps = $props();
+  let {this: e, asChild, children, ...props}: DialogDescriptionProps = $props();
 
   let dialog = getDialogContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <p {...mergedProps}>
+  <p bind:this={e} {...mergedProps}>
     {@render children?.()}
   </p>
 {/if}

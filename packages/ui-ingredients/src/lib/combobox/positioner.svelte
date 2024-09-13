@@ -9,7 +9,12 @@
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getComboboxContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: ComboboxPositionerProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ComboboxPositionerProps = $props();
 
   let combobox = getComboboxContext();
   let presence = getPresenceContext();
@@ -27,7 +32,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div {...mergedProps}>
+    <div bind:this={e} {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

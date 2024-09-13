@@ -11,6 +11,7 @@
   import {getClipboardContext} from './context.svelte.js';
 
   let {
+    this: e,
     copied = false,
     asChild,
     children,
@@ -27,7 +28,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

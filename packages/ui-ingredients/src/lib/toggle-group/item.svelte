@@ -11,7 +11,7 @@
   import {createSplitProps} from '@zag-js/utils';
   import {getToggleGroupContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: ToggleGroupItemProps = $props();
+  let {this: e, asChild, children, ...props}: ToggleGroupItemProps = $props();
 
   let toggleGroup = getToggleGroupContext();
 
@@ -29,7 +29,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.(itemState)}
   </button>
 {/if}

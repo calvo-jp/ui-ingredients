@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getClipboardContext} from './context.svelte.js';
 
-  let {asChild, ...props}: ClipboardInputProps = $props();
+  let {this: e, asChild, ...props}: ClipboardInputProps = $props();
 
   let clipboard = getClipboardContext();
 
@@ -18,5 +18,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

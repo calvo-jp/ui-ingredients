@@ -12,7 +12,12 @@
     getMenuItemGroupPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: MenuItemGroupLabelProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: MenuItemGroupLabelProps = $props();
 
   let menu = getMenuContext();
 
@@ -31,7 +36,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

@@ -19,7 +19,7 @@
   import {setAvatarContext} from './context.svelte.js';
   import {createAvatar} from './create-avatar.svelte.js';
 
-  let {asChild, children, ...props}: AvatarProps = $props();
+  let {this: e, asChild, children, ...props}: AvatarProps = $props();
 
   let [avatarProps, localProps] = $derived(
     createSplitProps<CreateAvatarProps>(['id', 'ids', 'onStatusChange'])(props),
@@ -35,7 +35,7 @@
 {#if asChild}
   {@render asChild(mergedProps, avatar)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(avatar)}
   </div>
 {/if}

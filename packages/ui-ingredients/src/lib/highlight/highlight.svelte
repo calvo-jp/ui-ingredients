@@ -13,7 +13,7 @@
   import {highlightWord} from '@zag-js/highlight-word';
   import {createSplitProps} from '@zag-js/utils';
 
-  let {asChild, ...props}: HighlightProps = $props();
+  let {this: e, asChild, ...props}: HighlightProps = $props();
 
   let [highlightProps, localProps] = $derived(
     createSplitProps<HighlightWordProps>([
@@ -30,7 +30,7 @@
 {#if asChild}
   {@render asChild(localProps)}
 {:else}
-  <div {...localProps}>
+  <div bind:this={e} {...localProps}>
     {#each chunks as chunk}
       {#if chunk.match}
         <mark>{chunk.text}</mark>

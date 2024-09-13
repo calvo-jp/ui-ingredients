@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getDatePickerContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: DatePickerRangeTextProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: DatePickerRangeTextProps = $props();
 
   let datePicker = getDatePickerContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {#if children}
       {@render children()}
     {:else}

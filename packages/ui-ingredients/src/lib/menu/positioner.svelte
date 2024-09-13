@@ -9,7 +9,7 @@
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getMenuContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: MenuPositionerProps = $props();
+  let {this: e, asChild, children, ...props}: MenuPositionerProps = $props();
 
   let menu = getMenuContext();
   let presence = getPresenceContext();
@@ -23,7 +23,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div {...mergedProps}>
+    <div bind:this={e} {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

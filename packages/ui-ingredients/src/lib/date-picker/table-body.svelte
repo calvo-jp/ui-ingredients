@@ -12,7 +12,12 @@
     getDatePickerTablePropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: DatePickerTableBodyProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: DatePickerTableBodyProps = $props();
 
   let datePicker = getDatePickerContext();
   let tableProps = getDatePickerTablePropsContext();
@@ -25,7 +30,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <tbody {...mergedProps}>
+  <tbody bind:this={e} {...mergedProps}>
     {@render children?.()}
   </tbody>
 {/if}

@@ -14,7 +14,7 @@
     setAccordionItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: AccordionItemProps = $props();
+  let {this: e, asChild, children, ...props}: AccordionItemProps = $props();
 
   let accordion = getAccordionContext();
 
@@ -33,7 +33,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

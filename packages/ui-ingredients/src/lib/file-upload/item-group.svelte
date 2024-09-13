@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFileUploadContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: FileUploadItemGroupProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: FileUploadItemGroupProps = $props();
 
   let fileUpload = getFileUploadContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

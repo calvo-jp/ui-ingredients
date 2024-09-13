@@ -8,8 +8,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSelectContext} from './context.svelte.js';
 
-  let {asChild, children, placeholder, ...props}: SelectValueTextProps =
-    $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    placeholder,
+    ...props
+  }: SelectValueTextProps = $props();
 
   let select = getSelectContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else if select.value.length}

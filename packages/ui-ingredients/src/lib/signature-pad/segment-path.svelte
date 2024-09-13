@@ -10,8 +10,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSignaturePadContext} from './context.svelte.js';
 
-  let {path, asChild, children, ...props}: SignaturePadSegmentPathProps =
-    $props();
+  let {
+    this: e,
+    path,
+    asChild,
+    children,
+    ...props
+  }: SignaturePadSegmentPathProps = $props();
 
   let signaturePad = getSignaturePadContext();
 
@@ -23,7 +28,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <path {...mergedProps}>
+  <path bind:this={e} {...mergedProps}>
     {@render children?.()}
   </path>
 {/if}

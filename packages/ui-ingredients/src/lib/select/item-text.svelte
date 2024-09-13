@@ -11,7 +11,7 @@
     getSelectItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: SelectItemTextProps = $props();
+  let {this: e, asChild, children, ...props}: SelectItemTextProps = $props();
 
   let select = getSelectContext();
   let itemProps = getSelectItemPropsContext();
@@ -24,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

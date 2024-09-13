@@ -23,7 +23,7 @@
   import {setSelectContext} from './context.svelte.js';
   import {createSelect} from './create-select.svelte.js';
 
-  let {asChild, children, ...props}: SelectProps<T> = $props();
+  let {this: e, asChild, children, ...props}: SelectProps<T> = $props();
 
   let [selectProps, rest] = $derived(
     createSplitProps<CreateSelectProps<T>>([
@@ -79,7 +79,7 @@
 {#if asChild}
   {@render asChild(mergedProps, select)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(select)}
   </div>
 {/if}

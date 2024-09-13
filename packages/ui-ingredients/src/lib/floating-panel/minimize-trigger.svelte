@@ -9,8 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFloatingPanelContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: FloatingPanelMinimizeTriggerProps =
-    $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: FloatingPanelMinimizeTriggerProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
 
@@ -22,7 +26,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

@@ -8,7 +8,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getCollapsibleContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: CollapsibleContentProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: CollapsibleContentProps = $props();
 
   let collapsible = getCollapsibleContext();
 
@@ -18,7 +23,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

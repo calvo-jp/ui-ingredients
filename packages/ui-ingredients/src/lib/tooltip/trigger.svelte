@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getTooltipContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TooltipTriggerProps = $props();
+  let {this: e, asChild, children, ...props}: TooltipTriggerProps = $props();
 
   let tooltip = getTooltipContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

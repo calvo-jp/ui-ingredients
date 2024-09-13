@@ -19,7 +19,7 @@
   import {setProgressContext} from './context.svelte.js';
   import {createProgress} from './create-progress.svelte.js';
 
-  let {asChild, children, ...props}: ProgressProps = $props();
+  let {this: e, asChild, children, ...props}: ProgressProps = $props();
 
   let [progressProps, localProps] = $derived(
     createSplitProps<CreateProgressProps>([
@@ -43,7 +43,7 @@
 {#if asChild}
   {@render asChild(mergedProps, progress)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(progress)}
   </div>
 {/if}

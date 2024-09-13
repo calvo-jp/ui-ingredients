@@ -19,7 +19,7 @@
   import {setCollapsibleContext} from './context.svelte.js';
   import {createCollapsible} from './create-collapsible.svelte.js';
 
-  let {asChild, children, ...props}: CollapsibleProps = $props();
+  let {this: e, asChild, children, ...props}: CollapsibleProps = $props();
 
   let [collapsibleProps, localProps] = $derived(
     createSplitProps<CreateCollapsibleProps>([
@@ -45,7 +45,7 @@
 {#if asChild}
   {@render asChild(mergedProps, collapsible)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(collapsible)}
   </div>
 {/if}

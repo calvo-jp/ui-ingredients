@@ -19,7 +19,7 @@
   import {setEditableContext} from './context.svelte.js';
   import {createEditable} from './create-editable.svelte.js';
 
-  let {asChild, children, ...props}: EditableProps = $props();
+  let {this: e, asChild, children, ...props}: EditableProps = $props();
 
   let [editableProps, localProps] = $derived(
     createSplitProps<CreateEditableProps>([
@@ -62,7 +62,7 @@
 {#if asChild}
   {@render asChild(mergedProps, editable)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(editable)}
   </div>
 {/if}

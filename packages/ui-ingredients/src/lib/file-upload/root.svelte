@@ -19,7 +19,7 @@
   import {setFileUploadContext} from './context.svelte.js';
   import {createFileUpload} from './create-file-upload.svelte.js';
 
-  let {asChild, children, ...props}: FileUploadProps = $props();
+  let {this: e, asChild, children, ...props}: FileUploadProps = $props();
 
   let [fileUploadProps, localProps] = $derived(
     createSplitProps<CreateFileUploadProps>([
@@ -55,7 +55,7 @@
 {#if asChild}
   {@render asChild(mergedProps, fileUpload)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(fileUpload)}
   </div>
 {/if}

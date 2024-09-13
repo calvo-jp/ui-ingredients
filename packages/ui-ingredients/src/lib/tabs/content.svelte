@@ -11,7 +11,7 @@
   import {createSplitProps} from '@zag-js/utils';
   import {getTabsContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TabsContentProps = $props();
+  let {this: e, asChild, children, ...props}: TabsContentProps = $props();
 
   let tabs = getTabsContext();
 
@@ -27,7 +27,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

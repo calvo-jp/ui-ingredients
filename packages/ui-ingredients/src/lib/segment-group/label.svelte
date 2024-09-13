@@ -9,7 +9,7 @@
   import {parts} from './anatomy.js';
   import {getSegmentGroupContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: SegmentGroupLabelProps = $props();
+  let {this: e, asChild, children, ...props}: SegmentGroupLabelProps = $props();
 
   let segmentGroup = getSegmentGroupContext();
 
@@ -21,7 +21,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

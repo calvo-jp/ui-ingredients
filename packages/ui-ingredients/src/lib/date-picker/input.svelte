@@ -10,7 +10,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getDatePickerContext} from './context.svelte.js';
 
-  let {index, asChild, ...props}: DatePickerInputProps = $props();
+  let {this: e, index, asChild, ...props}: DatePickerInputProps = $props();
 
   let datePicker = getDatePickerContext();
 
@@ -22,5 +22,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

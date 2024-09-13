@@ -8,17 +8,17 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSwitchContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: SwitchControlProps = $props();
+  let {this: e, asChild, children, ...props}: SwitchControlProps = $props();
 
-  let switch$ = getSwitchContext();
+  let switch_ = getSwitchContext();
 
-  let mergedProps = $derived(mergeProps(props, switch$.getControlProps()));
+  let mergedProps = $derived(mergeProps(props, switch_.getControlProps()));
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

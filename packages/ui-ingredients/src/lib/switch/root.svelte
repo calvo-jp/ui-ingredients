@@ -19,7 +19,7 @@
   import {setSwitchContext} from './context.svelte.js';
   import {createSwitch} from './create-switch.svelte.js';
 
-  let {asChild, children, ...props}: SwitchProps = $props();
+  let {this: e, asChild, children, ...props}: SwitchProps = $props();
 
   let [switchProps, localProps] = $derived(
     createSplitProps<CreateSwitchProps>([
@@ -38,17 +38,17 @@
     ])(props),
   );
 
-  let switch$ = createSwitch(reflect(() => switchProps));
+  let switch_ = createSwitch(reflect(() => switchProps));
 
-  let mergedProps = $derived(mergeProps(localProps, switch$.getRootProps()));
+  let mergedProps = $derived(mergeProps(localProps, switch_.getRootProps()));
 
-  setSwitchContext(switch$);
+  setSwitchContext(switch_);
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps, switch$)}
+  {@render asChild(mergedProps, switch_)}
 {:else}
-  <label {...mergedProps}>
-    {@render children?.(switch$)}
+  <label bind:this={e} {...mergedProps}>
+    {@render children?.(switch_)}
   </label>
 {/if}

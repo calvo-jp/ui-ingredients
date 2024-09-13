@@ -8,7 +8,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getPopoverContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: PopoverDescriptionProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: PopoverDescriptionProps = $props();
 
   let popover = getPopoverContext();
 
@@ -18,7 +23,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <p {...mergedProps}>
+  <p bind:this={e} {...mergedProps}>
     {@render children?.()}
   </p>
 {/if}

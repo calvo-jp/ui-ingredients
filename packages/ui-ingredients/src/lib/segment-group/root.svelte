@@ -20,7 +20,7 @@
   import {setSegmentGroupContext} from './context.svelte.js';
   import {createSegmentGroup} from './create-segment-group.svelte.js';
 
-  let {asChild, children, ...props}: SegmentGroupProps = $props();
+  let {this: e, asChild, children, ...props}: SegmentGroupProps = $props();
 
   let [segmentGroupProps, localProps] = $derived(
     createSplitProps<CreateSegmentGroupProps>([
@@ -48,7 +48,7 @@
 {#if asChild}
   {@render asChild(mergedProps, segmentGroup)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(segmentGroup)}
   </div>
 {/if}

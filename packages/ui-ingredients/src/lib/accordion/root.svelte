@@ -22,7 +22,7 @@
   import {setAccordionContext} from './context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
 
-  let {asChild, children, ...props}: AccordionProps = $props();
+  let {this: e, asChild, children, ...props}: AccordionProps = $props();
 
   let [presenceStrategyProps, rest] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
@@ -55,7 +55,7 @@
 {#if asChild}
   {@render asChild(mergedProps, accordion)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(accordion)}
   </div>
 {/if}

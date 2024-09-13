@@ -9,7 +9,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getTagsInputContext} from './context.svelte.js';
 
-  let {asChild, ...props}: TagsInputHiddenInputProps = $props();
+  let {this: e, asChild, ...props}: TagsInputHiddenInputProps = $props();
 
   let tagsInput = getTagsInputContext();
 
@@ -21,5 +21,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

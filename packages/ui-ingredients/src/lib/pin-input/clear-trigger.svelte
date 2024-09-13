@@ -10,7 +10,12 @@
   import {parts} from './anatomy.js';
   import {getPinInputContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: PinInputClearTriggerProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: PinInputClearTriggerProps = $props();
 
   let pinInput = getPinInputContext();
 
@@ -26,7 +31,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

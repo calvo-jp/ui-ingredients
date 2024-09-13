@@ -12,7 +12,12 @@
     getTagsInputItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: TagsInputItemDeleteTriggerProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: TagsInputItemDeleteTriggerProps = $props();
 
   let tagsInput = getTagsInputContext();
   let itemProps = getTagsInputItemPropsContext();
@@ -25,7 +30,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

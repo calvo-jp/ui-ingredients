@@ -19,7 +19,7 @@
   import {setCarouselContext} from './context.svelte.js';
   import {createCarousel} from './create-carousel.svelte.js';
 
-  let {asChild, children, ...props}: CarouselProps = $props();
+  let {this: e, asChild, children, ...props}: CarouselProps = $props();
 
   let [carouselProps, localProps] = $derived(
     createSplitProps<CreateCarouselProps>([
@@ -45,7 +45,7 @@
 {#if asChild}
   {@render asChild(mergedProps, carousel)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(carousel)}
   </div>
 {/if}

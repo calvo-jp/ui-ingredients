@@ -23,7 +23,7 @@
   import {setComboboxContext} from './context.svelte.js';
   import {createCombobox} from './create-combobox.svelte.js';
 
-  let {asChild, children, ...props}: ComboboxProps<T> = $props();
+  let {this: e, asChild, children, ...props}: ComboboxProps<T> = $props();
 
   let [presenceStrategyProps, rest] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
@@ -94,7 +94,7 @@
 {#if asChild}
   {@render asChild(mergedProps, combobox)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(combobox)}
   </div>
 {/if}

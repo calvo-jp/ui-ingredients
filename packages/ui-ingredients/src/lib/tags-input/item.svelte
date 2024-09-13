@@ -14,7 +14,7 @@
     setTagsInputItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: TagsInputItemProps = $props();
+  let {this: e, asChild, children, ...props}: TagsInputItemProps = $props();
 
   let tagsInput = getTagsInputContext();
 
@@ -34,7 +34,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

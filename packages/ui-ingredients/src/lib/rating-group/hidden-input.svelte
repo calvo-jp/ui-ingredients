@@ -9,7 +9,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getRatingGroupContext} from './context.svelte.js';
 
-  let {asChild, ...props}: RatingGroupHiddenInputProps = $props();
+  let {this: e, asChild, ...props}: RatingGroupHiddenInputProps = $props();
 
   let radioGroup = getRatingGroupContext();
 
@@ -21,5 +21,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

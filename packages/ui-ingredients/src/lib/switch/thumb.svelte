@@ -8,17 +8,17 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSwitchContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: SwitchThumbProps = $props();
+  let {this: e, asChild, children, ...props}: SwitchThumbProps = $props();
 
-  let switch$ = getSwitchContext();
+  let switch_ = getSwitchContext();
 
-  let mergedProps = $derived(mergeProps(props, switch$.getThumbProps()));
+  let mergedProps = $derived(mergeProps(props, switch_.getThumbProps()));
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

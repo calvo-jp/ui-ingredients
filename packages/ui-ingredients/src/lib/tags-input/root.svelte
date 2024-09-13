@@ -19,7 +19,7 @@
   import {setTagsInputContext} from './context.svelte.js';
   import {createTagsInput} from './create-tags-input.svelte.js';
 
-  let {asChild, children, ...props}: TagsInputProps = $props();
+  let {this: e, asChild, children, ...props}: TagsInputProps = $props();
 
   let [tagsInputProps, localProps] = $derived(
     createSplitProps<CreateTagsInputProps>([
@@ -63,7 +63,7 @@
 {#if asChild}
   {@render asChild(mergedProps, tagsInput)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(tagsInput)}
   </div>
 {/if}

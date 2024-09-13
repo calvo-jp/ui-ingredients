@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFieldContext} from './context.svelte.js';
 
-  let {children, asChild, ...props}: FieldSelectProps = $props();
+  let {this: e, children, asChild, ...props}: FieldSelectProps = $props();
 
   let field = getFieldContext();
 
@@ -18,5 +18,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <select {...mergedProps}>{@render children?.()}</select>
+  <select bind:this={e} {...mergedProps}>{@render children?.()}</select>
 {/if}

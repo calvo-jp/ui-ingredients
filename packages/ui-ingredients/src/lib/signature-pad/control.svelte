@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSignaturePadContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: SignaturePadControlProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: SignaturePadControlProps = $props();
 
   let signaturePad = getSignaturePadContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

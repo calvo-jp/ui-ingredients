@@ -8,7 +8,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getRatingGroupContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: RatingGroupControlProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: RatingGroupControlProps = $props();
 
   let ratingGroup = getRatingGroupContext();
 
@@ -18,7 +23,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

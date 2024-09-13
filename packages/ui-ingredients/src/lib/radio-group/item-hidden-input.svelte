@@ -12,7 +12,7 @@
     getRadioGroupItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, ...props}: RadioGroupItemHiddenInputProps = $props();
+  let {this: e, asChild, ...props}: RadioGroupItemHiddenInputProps = $props();
 
   let radioGroup = getRadioGroupContext();
   let itemProps = getRadioGroupItemPropsContext();
@@ -25,5 +25,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

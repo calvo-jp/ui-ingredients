@@ -12,7 +12,13 @@
     setSelectItemGroupPropsContext,
   } from './context.svelte.js';
 
-  let {id, asChild, children, ...props}: SelectItemGroupProps = $props();
+  let {
+    id,
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: SelectItemGroupProps = $props();
 
   let select = getSelectContext();
 
@@ -32,7 +38,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

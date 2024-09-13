@@ -10,7 +10,12 @@
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getDatePickerContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: DatePickerPositionerProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: DatePickerPositionerProps = $props();
 
   let datePicker = getDatePickerContext();
   let presence = getPresenceContext();
@@ -28,7 +33,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div {...mergedProps}>
+    <div bind:this={e} {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

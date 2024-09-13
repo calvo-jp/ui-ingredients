@@ -2,15 +2,15 @@ import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js
 import {getFieldContext} from '$lib/field/context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import * as switch$ from '@zag-js/switch';
+import * as switch_ from '@zag-js/switch';
 import {uid} from 'uid';
 
 export interface CreateSwitchProps
-  extends Omit<switch$.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<switch_.Context, 'id' | 'dir' | 'getRootNode'> {
   id?: string | null;
 }
 
-export interface CreateSwitchReturn extends switch$.Api {}
+export interface CreateSwitchReturn extends switch_.Api {}
 
 export function createSwitch(props: CreateSwitchProps) {
   const field = getFieldContext();
@@ -19,7 +19,7 @@ export function createSwitch(props: CreateSwitchProps) {
 
   const id = uid();
 
-  const context: switch$.Context = reflect(() => ({
+  const context: switch_.Context = reflect(() => ({
     ids: {
       label: field?.ids.label,
       hiddenInput: field?.ids.control,
@@ -34,10 +34,10 @@ export function createSwitch(props: CreateSwitchProps) {
     getRootNode: environment?.getRootNode,
   }));
 
-  const [state, send] = useMachine(switch$.machine(context), {context});
+  const [state, send] = useMachine(switch_.machine(context), {context});
 
   return reflect(() => {
-    const o = switch$.connect(state, send, normalizeProps);
+    const o = switch_.connect(state, send, normalizeProps);
 
     return {
       ...o,

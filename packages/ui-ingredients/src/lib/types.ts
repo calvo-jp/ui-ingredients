@@ -1,6 +1,7 @@
 import type {Snippet} from 'svelte';
 import type {Action} from 'svelte/action';
 import type {SvelteHTMLElements} from 'svelte/elements';
+import {type TransitionConfig} from 'svelte/transition';
 
 export type GenericObject = Record<string, any>;
 
@@ -44,6 +45,15 @@ export type HtmlIngredientProps<
   Context = never,
   Ref extends Action = never,
 > = PropsWithoutChildren<HtmlProps<Element>> & {
-  children?: Children<Context>;
+  this?: any;
   asChild?: AsChild<Ref, Context>;
+  children?: Children<Context>;
 };
+
+export type TransitionFn = (node: HTMLElement) => TransitionConfig;
+
+export interface TransitionProps {
+  in?: TransitionFn;
+  out?: TransitionFn;
+  transition?: TransitionFn;
+}

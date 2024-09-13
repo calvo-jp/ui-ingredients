@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getProgressContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: ProgressCircleRangeProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ProgressCircleRangeProps = $props();
 
   let progress = getProgressContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <circle {...mergedProps}>
+  <circle bind:this={e} {...mergedProps}>
     {@render children?.()}
   </circle>
 {/if}

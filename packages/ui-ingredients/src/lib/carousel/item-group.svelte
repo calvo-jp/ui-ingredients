@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getCarouselContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: CarouselItemGroupProps = $props();
+  let {this: e, asChild, children, ...props}: CarouselItemGroupProps = $props();
 
   let carousel = getCarouselContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

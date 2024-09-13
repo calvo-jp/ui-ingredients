@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getStepsContext, getStepsItemPropsContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: StepsSeparatorProps = $props();
+  let {this: e, asChild, children, ...props}: StepsSeparatorProps = $props();
 
   let steps = getStepsContext();
   let itemProps = getStepsItemPropsContext();
@@ -21,7 +21,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

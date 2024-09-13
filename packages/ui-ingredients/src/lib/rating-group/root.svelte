@@ -19,7 +19,7 @@
   import {setRatingGroupContext} from './context.svelte.js';
   import {createRatingGroup} from './create-rating-group.svelte.js';
 
-  let {asChild, children, ...props}: RatingGroupProps = $props();
+  let {this: e, asChild, children, ...props}: RatingGroupProps = $props();
 
   let [ratingGroupProps, localProps] = $derived(
     createSplitProps<CreateRatingGroupProps>([
@@ -52,7 +52,7 @@
 {#if asChild}
   {@render asChild(mergedProps, ratingGroup)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(ratingGroup)}
   </div>
 {/if}

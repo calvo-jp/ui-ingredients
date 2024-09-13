@@ -9,7 +9,7 @@
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getSelectContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: SelectPositionerProps = $props();
+  let {this: e, asChild, children, ...props}: SelectPositionerProps = $props();
 
   let select = getSelectContext();
   let presence = getPresenceContext();
@@ -23,7 +23,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div {...mergedProps}>
+    <div bind:this={e} {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

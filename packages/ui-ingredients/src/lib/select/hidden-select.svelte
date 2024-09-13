@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSelectContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: SelectHiddenSelectProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: SelectHiddenSelectProps = $props();
 
   let select = getSelectContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <select {...mergedProps}>
+  <select bind:this={e} {...mergedProps}>
     {@render children?.()}
   </select>
 {/if}

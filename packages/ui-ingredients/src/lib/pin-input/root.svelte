@@ -19,7 +19,7 @@
   import {setPinInputContext} from './context.svelte.js';
   import {createPinInputContext} from './create-pin-input.svelte.js';
 
-  let {asChild, children, ...props}: PinInputProps = $props();
+  let {this: e, asChild, children, ...props}: PinInputProps = $props();
 
   let [pinInputProps, localProps] = $derived(
     createSplitProps<CreatePinInputProps>([
@@ -57,7 +57,7 @@
 {#if asChild}
   {@render asChild(mergedProps, pinInput)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(pinInput)}
   </div>
 {/if}

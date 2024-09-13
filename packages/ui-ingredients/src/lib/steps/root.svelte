@@ -19,7 +19,7 @@
   import {setStepsContext} from './context.svelte.js';
   import {createSteps} from './create-steps.svelte.js';
 
-  let {asChild, children, ...props}: StepsProps = $props();
+  let {this: e, asChild, children, ...props}: StepsProps = $props();
 
   let [stepsProps, localProps] = $derived(
     createSplitProps<CreateStepsProps>([
@@ -44,7 +44,7 @@
 {#if asChild}
   {@render asChild(mergedProps, steps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(steps)}
   </div>
 {/if}

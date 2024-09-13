@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getQrCodeContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: QrCodeFrameProps = $props();
+  let {this: e, asChild, children, ...props}: QrCodeFrameProps = $props();
 
   let qrCode = getQrCodeContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <svg {...mergedProps}>
+  <svg bind:this={e} {...mergedProps}>
     {@render children?.()}
   </svg>
 {/if}

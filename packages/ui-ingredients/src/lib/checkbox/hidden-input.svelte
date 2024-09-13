@@ -9,7 +9,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getCheckboxContext} from './context.svelte.js';
 
-  let {asChild, ...props}: CheckboxHiddenInputProps = $props();
+  let {this: e, asChild, ...props}: CheckboxHiddenInputProps = $props();
 
   let checkbox = getCheckboxContext();
 
@@ -19,5 +19,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

@@ -12,7 +12,7 @@
     getFileUploadItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, ...props}: FileUploadItemPreviewImageProps = $props();
+  let {this: e, asChild, ...props}: FileUploadItemPreviewImageProps = $props();
 
   let url = $state('');
 
@@ -33,5 +33,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <img {...mergedProps} />
+  <img bind:this={e} {...mergedProps} />
 {/if}

@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getPopoverContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: PopoverArrowTipProps = $props();
+  let {this: e, asChild, children, ...props}: PopoverArrowTipProps = $props();
 
   let popover = getPopoverContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getNumberInputContext} from './context.svelte.js';
 
-  let {asChild, ...props}: NumberInputInputProps = $props();
+  let {this: e, asChild, ...props}: NumberInputInputProps = $props();
 
   let numberInput = getNumberInputContext();
 
@@ -18,5 +18,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

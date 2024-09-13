@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFieldContext} from './context.svelte.js';
 
-  let {children, asChild, ...props}: FieldLabelProps = $props();
+  let {this: e, children, asChild, ...props}: FieldLabelProps = $props();
 
   let field = getFieldContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <label {...mergedProps}>
+  <label bind:this={e} {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getEditableContext} from './context.svelte.js';
 
-  let {asChild, ...props}: EditableInputProps = $props();
+  let {this: e, asChild, ...props}: EditableInputProps = $props();
 
   let editable = getEditableContext();
 
@@ -18,5 +18,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

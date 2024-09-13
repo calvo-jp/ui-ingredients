@@ -17,7 +17,12 @@
     setDatePickerDayTableCellPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: DatePickerDayTableCellProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: DatePickerDayTableCellProps = $props();
 
   let datePicker = getDatePickerContext();
 
@@ -41,7 +46,7 @@
 {#if asChild}
   {@render asChild(mergedProps, tableCellState)}
 {:else}
-  <td {...mergedProps}>
+  <td bind:this={e} {...mergedProps}>
     {@render children?.(tableCellState)}
   </td>
 {/if}

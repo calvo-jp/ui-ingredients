@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getComboboxContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: ComboboxTriggerProps = $props();
+  let {this: e, asChild, children, ...props}: ComboboxTriggerProps = $props();
 
   let combobox = getComboboxContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

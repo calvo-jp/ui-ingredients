@@ -10,7 +10,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getPaginationContext} from './context.svelte.js';
 
-  let {index, asChild, children, ...props}: PaginationEllipsisProps = $props();
+  let {
+    this: e,
+    index,
+    asChild,
+    children,
+    ...props
+  }: PaginationEllipsisProps = $props();
 
   let pagination = getPaginationContext();
 
@@ -22,7 +28,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

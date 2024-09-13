@@ -19,7 +19,7 @@
   import {setNumberInputContext} from './context.svelte.js';
   import {createNumberInput} from './create-number-input.svelte.js';
 
-  let {asChild, children, ...props}: NumberInputProps = $props();
+  let {this: e, asChild, children, ...props}: NumberInputProps = $props();
 
   let [numberInputProps, localProps] = $derived(
     createSplitProps<CreateNumberInputProps>([
@@ -63,7 +63,7 @@
 {#if asChild}
   {@render asChild(mergedProps, numberInput)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(numberInput)}
   </div>
 {/if}

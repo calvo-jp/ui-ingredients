@@ -16,7 +16,12 @@
     getAccordionItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: AccordionItemContentProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: AccordionItemContentProps = $props();
 
   let accordion = getAccordionContext();
   let itemProps = getAccordionItemPropsContext();
@@ -43,7 +48,7 @@
   {#if asChild}
     {@render asChild(presence.ref, mergedProps)}
   {:else}
-    <div use:presence.ref {...mergedProps}>
+    <div bind:this={e} use:presence.ref {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

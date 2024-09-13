@@ -11,7 +11,12 @@
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getFloatingPanelContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: FloatingPanelContentProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: FloatingPanelContentProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
   let presence = getPresenceContext();
@@ -29,7 +34,7 @@
   {#if asChild}
     {@render asChild(presence.ref, mergedProps)}
   {:else}
-    <div use:presence.ref {...mergedProps}>
+    <div bind:this={e} use:presence.ref {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

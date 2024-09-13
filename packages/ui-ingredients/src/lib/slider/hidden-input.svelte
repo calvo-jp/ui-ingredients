@@ -12,7 +12,7 @@
     getSliderThumbPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, ...props}: SliderHiddenInputProps = $props();
+  let {this: e, asChild, ...props}: SliderHiddenInputProps = $props();
 
   let slider = getSliderContext();
   let thumbProps = getSliderThumbPropsContext();
@@ -25,5 +25,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input {...mergedProps} />
+  <input bind:this={e} {...mergedProps} />
 {/if}

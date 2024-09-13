@@ -9,7 +9,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getStepsContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: StepsPrevTriggerProps = $props();
+  let {this: e, asChild, children, ...props}: StepsPrevTriggerProps = $props();
 
   let steps = getStepsContext();
 
@@ -19,7 +19,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

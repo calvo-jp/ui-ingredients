@@ -10,7 +10,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getProgressContext} from './context.svelte.js';
 
-  let {state, asChild, children, ...props}: ProgressViewProps = $props();
+  let {
+    this: e,
+    state,
+    asChild,
+    children,
+    ...props
+  }: ProgressViewProps = $props();
 
   let progress = getProgressContext();
 
@@ -20,7 +26,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

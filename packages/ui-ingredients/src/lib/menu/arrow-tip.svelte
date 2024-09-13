@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getMenuContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: MenuArrowTipProps = $props();
+  let {this: e, asChild, children, ...props}: MenuArrowTipProps = $props();
 
   let menu = getMenuContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

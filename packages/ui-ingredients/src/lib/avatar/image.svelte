@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getAvatarContext} from './context.svelte.js';
 
-  let {asChild, ...props}: AvatarImageProps = $props();
+  let {this: e, asChild, ...props}: AvatarImageProps = $props();
 
   let avatar = getAvatarContext();
 
@@ -18,5 +18,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <img {...mergedProps} />
+  <img bind:this={e} {...mergedProps} />
 {/if}

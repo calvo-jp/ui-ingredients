@@ -19,7 +19,7 @@
   import {setRadioGroupContext} from './context.svelte.js';
   import {createRadioGroup} from './create-radio-group.svelte.js';
 
-  let {asChild, children, ...props}: RadioGroupProps = $props();
+  let {this: e, asChild, children, ...props}: RadioGroupProps = $props();
 
   let [radioGroupProps, localProps] = $derived(
     createSplitProps<CreateRadioGroupProps>([
@@ -45,7 +45,7 @@
 {#if asChild}
   {@render asChild(mergedProps, radioGroup)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(radioGroup)}
   </div>
 {/if}

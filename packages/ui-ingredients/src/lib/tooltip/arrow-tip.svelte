@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getTooltipContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TooltipArrowTipProps = $props();
+  let {this: e, asChild, children, ...props}: TooltipArrowTipProps = $props();
 
   let tooltip = getTooltipContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

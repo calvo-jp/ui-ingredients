@@ -14,7 +14,7 @@
     setFileUploadItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: FileUploadItemProps = $props();
+  let {this: e, asChild, children, ...props}: FileUploadItemProps = $props();
 
   let fileUpload = getFileUploadContext();
 
@@ -32,7 +32,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

@@ -15,6 +15,7 @@
 
   let {
     view = 'day',
+    this: e,
     asChild,
     children,
     ...props
@@ -34,7 +35,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

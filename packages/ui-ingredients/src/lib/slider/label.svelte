@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSliderContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: SliderLabelProps = $props();
+  let {this: e, asChild, children, ...props}: SliderLabelProps = $props();
 
   let slider = getSliderContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <label {...mergedProps}>
+  <label bind:this={e} {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

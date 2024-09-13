@@ -14,7 +14,7 @@
     setRadioGroupItemPropsContext,
   } from './context.svelte.js';
 
-  let {children, asChild, ...props}: RadioGroupItemProps = $props();
+  let {this: e, children, asChild, ...props}: RadioGroupItemProps = $props();
 
   let radioGroup = getRadioGroupContext();
 
@@ -34,7 +34,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <label {...mergedProps}>
+  <label bind:this={e} {...mergedProps}>
     {@render children?.(itemState)}
   </label>
 {/if}

@@ -12,7 +12,12 @@
     getComboboxItemPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: ComboboxItemIndicatorProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ComboboxItemIndicatorProps = $props();
 
   let combobox = getComboboxContext();
   let itemProps = getComboboxItemPropsContext();
@@ -25,7 +30,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

@@ -12,8 +12,12 @@
     getDatePickerDayTableCellPropsContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: DatePickerDayTableCellTriggerProps =
-    $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: DatePickerDayTableCellTriggerProps = $props();
 
   let datePicker = getDatePickerContext();
   let tableCellProps = getDatePickerDayTableCellPropsContext();
@@ -26,7 +30,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}
