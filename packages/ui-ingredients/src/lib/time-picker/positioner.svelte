@@ -10,7 +10,12 @@
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getTimePickerContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TimePickerPositionerProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: TimePickerPositionerProps = $props();
 
   let timePicker = getTimePickerContext();
   let presence = getPresenceContext();
@@ -27,7 +32,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

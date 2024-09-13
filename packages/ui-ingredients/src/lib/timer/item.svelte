@@ -11,7 +11,7 @@
   import {createSplitProps} from '@zag-js/utils';
   import {getTimerContext, setTimerItemPropsContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TimerItemProps = $props();
+  let {this: e, asChild, children, ...props}: TimerItemProps = $props();
 
   let timer = getTimerContext();
 
@@ -29,7 +29,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

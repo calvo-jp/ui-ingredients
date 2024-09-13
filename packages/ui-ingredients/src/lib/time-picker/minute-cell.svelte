@@ -10,8 +10,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getTimePickerContext} from './context.svelte.js';
 
-  let {value, asChild, children, ...props}: TimePickerMinuteCellProps =
-    $props();
+  let {
+    this: e,
+    value,
+    asChild,
+    children,
+    ...props
+  }: TimePickerMinuteCellProps = $props();
 
   let timePicker = getTimePickerContext();
 
@@ -23,7 +28,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

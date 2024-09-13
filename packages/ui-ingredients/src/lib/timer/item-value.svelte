@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getTimerContext, getTimerItemPropsContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TimerItemValueProps = $props();
+  let {this: e, asChild, children, ...props}: TimerItemValueProps = $props();
 
   let timer = getTimerContext();
   let itemProps = getTimerItemPropsContext();
@@ -21,7 +21,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

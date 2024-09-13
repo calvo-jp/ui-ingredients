@@ -11,7 +11,7 @@
   import {reflect} from '@zag-js/svelte';
   import {getTourContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TourOverlayProps = $props();
+  let {this: e, asChild, children, ...props}: TourOverlayProps = $props();
 
   let tour = getTourContext();
   let presenceStrategyProps = getPresenceStrategyPropsContext();
@@ -31,7 +31,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div use:presence.ref {...mergedProps}>
+    <div bind:this={e} use:presence.ref {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

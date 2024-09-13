@@ -8,7 +8,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getTourContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: TourProgressTextProps = $props();
+  let {this: e, asChild, children, ...props}: TourProgressTextProps = $props();
 
   let tour = getTourContext();
 
@@ -18,7 +18,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

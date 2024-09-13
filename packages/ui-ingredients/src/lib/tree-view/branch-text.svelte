@@ -12,7 +12,12 @@
     getTreeViewContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: TreeViewBranchTextProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: TreeViewBranchTextProps = $props();
 
   let treeView = getTreeViewContext();
 
@@ -26,7 +31,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

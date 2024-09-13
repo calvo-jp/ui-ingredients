@@ -16,7 +16,7 @@
   import * as toast from '@zag-js/toast';
   import ToastActor from './actor.svelte';
 
-  let {toaster, children, ...props}: ToasterProps = $props();
+  let {this: e, toaster, children, ...props}: ToasterProps = $props();
 
   let [snapshot, send] = useMachine(toaster.machine);
 
@@ -27,7 +27,7 @@
 </script>
 
 <Portal>
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {#each toasts as toast (toast.id)}
       <ToastActor actor={toast}>
         {#snippet children$(ctx)}

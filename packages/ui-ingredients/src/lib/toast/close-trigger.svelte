@@ -9,7 +9,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getToastContext} from './context.svelte.js';
 
-  let {asChild, children, ...props}: ToastCloseTriggerProps = $props();
+  let {this: e, asChild, children, ...props}: ToastCloseTriggerProps = $props();
 
   let context = getToastContext();
 
@@ -19,7 +19,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button type="button" {...mergedProps}>
+  <button bind:this={e} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

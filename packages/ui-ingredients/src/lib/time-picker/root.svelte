@@ -23,7 +23,7 @@
   import {setTimePickerContext} from './context.svelte.js';
   import {createTimePicker} from './create-time-picker.svelte.js';
 
-  let {asChild, children, ...props}: TimePickerProps = $props();
+  let {this: e, asChild, children, ...props}: TimePickerProps = $props();
 
   let [timePickerProps, rest] = $derived(
     createSplitProps<CreateTimePickerProps>([
@@ -70,7 +70,7 @@
 {#if asChild}
   {@render asChild(mergedProps, timePicker)}
 {:else}
-  <div {...mergedProps}>
+  <div bind:this={e} {...mergedProps}>
     {@render children?.(timePicker)}
   </div>
 {/if}
