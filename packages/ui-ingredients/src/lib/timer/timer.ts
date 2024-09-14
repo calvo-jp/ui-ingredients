@@ -1,5 +1,7 @@
 export {parse} from '@zag-js/timer';
 export {default as ActionTrigger} from './action-trigger.svelte';
+export {default as Area} from './area.svelte';
+export {default as Control} from './control.svelte';
 export {default as ItemLabel} from './item-label.svelte';
 export {default as ItemValue} from './item-value.svelte';
 export {default as Item} from './item.svelte';

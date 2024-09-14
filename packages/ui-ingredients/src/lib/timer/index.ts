@@ -1,6 +1,8 @@
 export * as Timer from './timer.js';
 
 export type {TimerActionTriggerProps} from './action-trigger.svelte';
+export type {TimerAreaProps} from './area.svelte';
+export type {TimerControlProps} from './control.svelte';
 export type {TimerItemLabelProps} from './item-label.svelte';
 export type {TimerItemValueProps} from './item-value.svelte';
 export type {TimerItemProps} from './item.svelte';
