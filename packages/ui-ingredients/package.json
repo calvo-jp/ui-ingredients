@@ -141,7 +141,7 @@
     "@sveltejs/package": "2.3.5",
     "@sveltejs/vite-plugin-svelte": "4.0.0-next.6",
     "@testing-library/jest-dom": "6.5.0",
-    "@testing-library/svelte": "5.2.0-next.3",
+    "@testing-library/svelte": "5.2.1",
     "@untitled-theme/icons-svelte": "0.10.7",
     "autoprefixer": "10.4.20",
     "globals": "15.9.0",

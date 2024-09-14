@@ -7,21 +7,13 @@ A component for displaying brief, non-intrusive notifications or messages.
 - Create a `useToaster` utility
 
 ```ts
-// lib/use-toaster.svelte.ts
+// lib/toaster.svelte.ts
 import {createToaster, type CreateToasterReturn} from 'ui-ingredients';
 
-let toaster: CreateToasterReturn;
-
-export function useToaster() {
-  if (!toaster) {
-    toaster = createToaster({
-      placement: 'bottom',
-      overlap: true,
-    });
-  }
-
-  return toaster;
-}
+export const toaster = createToaster({
+  placement: 'bottom',
+  overlap: true,
+});
 ```
 
 - Add `Toaster` and `Toast` components in your root layout
@@ -29,11 +21,10 @@ export function useToaster() {
 ```svelte
 <!-- +layout.svelte -->
 <script>
-  import {useToaster} from '$lib/use-toaster.svelte.ts';
+  import {toaster} from '$lib/toaster.svelte.ts';
   import {Toaster, Toast} from 'ui-ingredients';
 
   let {children} = $props();
-  let toaster = useToaster();
 </script>
 
 {@render children()}
@@ -52,9 +43,7 @@ export function useToaster() {
 ```svelte
 <!-- +page.svelte -->
 <script>
-  import {useToaster} from '$lib/use-toaster.svelte.ts';
-
-  let toaster = useToaster();
+  import {toaster} from '$lib/toaster.svelte.ts';
 </script>
 
 <button
