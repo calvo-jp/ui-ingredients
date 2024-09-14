@@ -4,7 +4,7 @@ A component for displaying brief, non-intrusive notifications or messages.
 
 ## Usage
 
-- Create a `useToaster` utility
+- Create a `toaster` instance
 
 ```ts
 // lib/toaster.svelte.ts
@@ -21,6 +21,7 @@ export const toaster = createToaster({
 ```svelte
 <!-- +layout.svelte -->
 <script>
+  import {XCloseIcon} from '$lib/icons';
   import {toaster} from '$lib/toaster.svelte.ts';
   import {Toaster, Toast} from 'ui-ingredients';
 
@@ -33,7 +34,9 @@ export const toaster = createToaster({
   <Toast.Root>
     <Toast.Title />
     <Toast.Description />
-    <Toast.CloseTrigger>Close</Toast.CloseTrigger>
+    <Toast.CloseTrigger>
+      <XCloseIcon />
+    </Toast.CloseTrigger>
   </Toast.Root>
 </Toaster>
 ```
