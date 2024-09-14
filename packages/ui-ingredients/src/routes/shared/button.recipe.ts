@@ -27,7 +27,7 @@ export const buttonRecipe = tv({
     },
   },
   defaultVariants: {
-    variant: 'outline',
+    variant: 'solid',
   },
 });
 

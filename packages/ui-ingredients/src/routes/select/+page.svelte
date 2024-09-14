@@ -48,7 +48,7 @@
     <div class="flex gap-2">
       <Select.Trigger class="grow text-left font-normal">
         {#snippet asChild(attrs)}
-          <Button {...attrs}>
+          <Button variant="outline" {...attrs}>
             <Select.ValueText placeholder="Please Select" class="grow" />
             <Select.Indicator class="group">
               <ChevronDownIcon

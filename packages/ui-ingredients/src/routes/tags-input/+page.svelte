@@ -48,7 +48,7 @@
       />
     </div>
 
-    <TagsInput.ClearTrigger class="bg-light/25 mt-4 w-full">
+    <TagsInput.ClearTrigger class="mt-4 w-full">
       {#snippet asChild(attrs)}
         <Button {...attrs}>Clear</Button>
       {/snippet}

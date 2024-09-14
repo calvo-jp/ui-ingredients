@@ -12,7 +12,7 @@
     </SignaturePad.Label>
 
     <SignaturePad.Control
-      class="bg-light h-[16rem] w-full rounded lg:max-w-[32rem]"
+      class="bg-light aspect-video w-full rounded lg:max-w-[32rem]"
     >
       <SignaturePad.Segment>
         {#each context.paths as path}
