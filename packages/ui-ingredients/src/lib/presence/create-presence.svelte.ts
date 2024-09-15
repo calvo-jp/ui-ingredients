@@ -1,5 +1,6 @@
 import * as presence from '@zag-js/presence';
 import {normalizeProps, useMachine} from '@zag-js/svelte';
+import type {Action} from 'svelte/action';
 import type {HTMLAttributes} from 'svelte/elements';
 
 export interface PresenceStrategyProps {
@@ -53,9 +54,9 @@ export function createPresence(props: CreatePresenceProps) {
     return false;
   });
 
-  function ref(node: HTMLElement) {
+  const ref: Action = (node: HTMLElement) => {
     api.setNode(node);
-  }
+  };
 
   return {
     ref,

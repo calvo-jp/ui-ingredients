@@ -1,7 +1,13 @@
 import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
-import type {HtmlProps} from '$lib/types.js';
 import {ariaAttr, dataAttr, getDocument, getWindow} from '@zag-js/dom-query';
 import {reflect} from '@zag-js/svelte';
+import type {
+  HTMLAttributes,
+  HTMLInputAttributes,
+  HTMLLabelAttributes,
+  HTMLSelectAttributes,
+  HTMLTextareaAttributes,
+} from 'svelte/elements';
 import {uid} from 'uid';
 import {parts} from './anatomy.js';
 
@@ -92,7 +98,7 @@ export function createField(props: CreateFieldProps) {
     return () => observer.disconnect();
   });
 
-  function getRootProps(): HtmlProps<'div'> {
+  function getRootProps(): HTMLAttributes<HTMLElement> {
     return {
       ...parts.root.attrs,
       id: ids.root,
@@ -104,7 +110,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getLabelProps(): HtmlProps<'label'> {
+  function getLabelProps(): HTMLLabelAttributes {
     return {
       ...parts.label.attrs,
       id: ids.label,
@@ -116,7 +122,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getErrorTextProps(): HtmlProps<'div'> {
+  function getErrorTextProps(): HTMLAttributes<HTMLElement> {
     return {
       ...parts.errorText.attrs,
       id: ids.errorText,
@@ -129,8 +135,9 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getHelperTextProps(): HtmlProps<'div'> {
+  function getHelperTextProps(): HTMLAttributes<HTMLElement> {
     return {
+      ...parts.helperText.attrs,
       id: ids.helperText,
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
@@ -139,7 +146,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getInputProps(): HtmlProps<'input'> {
+  function getInputProps(): HTMLInputAttributes {
     return {
       ...parts.input.attrs,
       id: ids.control,
@@ -155,7 +162,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getSelectProps(): HtmlProps<'select'> {
+  function getSelectProps(): HTMLSelectAttributes {
     return {
       ...parts.select.attrs,
       id: ids.control,
@@ -171,7 +178,7 @@ export function createField(props: CreateFieldProps) {
     };
   }
 
-  function getTextareaProps(): HtmlProps<'textarea'> {
+  function getTextareaProps(): HTMLTextareaAttributes {
     return {
       ...parts.textarea.attrs,
       id: ids.control,

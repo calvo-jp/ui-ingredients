@@ -9,7 +9,7 @@ export type Assign<
   Source extends GenericObject,
 > = Source & Omit<Target, keyof Source>;
 
-export type IntrinsicElement = keyof {
+export type SvelteHTMLElement = keyof {
   [K in keyof SvelteHTMLElements as string extends K
     ? never
     : number extends K
@@ -17,34 +17,37 @@ export type IntrinsicElement = keyof {
       : K]: string;
 };
 
-export type HtmlProps<T extends IntrinsicElement> = SvelteHTMLElements[T];
+export type HtmlProps<TElement extends SvelteHTMLElement> =
+  SvelteHTMLElements[TElement];
 
-type AsChildWithRef<Ref extends Action, Context = never> = [Context] extends [
-  never,
-]
-  ? Snippet<[ref: Ref, attrs: GenericObject]>
-  : Snippet<[ref: Ref, attrs: GenericObject, context: Context]>;
+type AsChildWithAction<TAction extends Action, TContext = never> = [
+  TContext,
+] extends [never]
+  ? Snippet<[action: TAction, attrs: GenericObject]>
+  : Snippet<[action: TAction, attrs: GenericObject, context: TContext]>;
 
-type AsChildWithoutRef<Context = never> = [Context] extends [never]
+type AsChildWithoutRef<TContext = never> = [TContext] extends [never]
   ? Snippet<[attrs: GenericObject]>
-  : Snippet<[attrs: GenericObject, context: Context]>;
+  : Snippet<[attrs: GenericObject, context: TContext]>;
 
-export type AsChild<Ref extends Action, Context = never> = [Ref] extends [never]
+export type AsChild<TAction extends Action, Context = never> = [
+  TAction,
+] extends [never]
   ? AsChildWithoutRef<Context>
-  : AsChildWithRef<Ref, Context>;
+  : AsChildWithAction<TAction, Context>;
 
-type Children<T = never> = [T] extends [never]
+type Children<TContext = never> = [TContext] extends [never]
   ? Snippet
-  : Snippet<[context: T]>;
+  : Snippet<[context: TContext]>;
 
 type PropsWithoutChildren<T> = Omit<T, 'children'>;
 
 export type HtmlIngredientProps<
-  Element extends IntrinsicElement,
-  Context = never,
-  Ref extends Action = never,
-> = PropsWithoutChildren<HtmlProps<Element>> & {
+  TElement extends SvelteHTMLElement,
+  TContext = never,
+  TAction extends Action = never,
+> = PropsWithoutChildren<HtmlProps<TElement>> & {
   this?: any;
-  asChild?: AsChild<Ref, Context>;
-  children?: Children<Context>;
+  asChild?: AsChild<TAction, TContext>;
+  children?: Children<TContext>;
 };
