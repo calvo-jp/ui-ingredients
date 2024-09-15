@@ -23,7 +23,7 @@
   {#snippet children(context)}
     <Pagination.PrevTrigger>
       {#snippet asChild(attrs)}
-        <IconButton {...attrs}>
+        <IconButton variant="outline" {...attrs}>
           <ChevronLeftIcon />
         </IconButton>
       {/snippet}
@@ -36,7 +36,7 @@
           class="aria-page:border-accent aria-page:text-accent aria-page:bg-accent/15"
         >
           {#snippet asChild(attrs)}
-            <Button {...attrs}>
+            <Button variant="outline" {...attrs}>
               {page.value}
             </Button>
           {/snippet}
@@ -53,7 +53,7 @@
 
     <Pagination.NextTrigger>
       {#snippet asChild(attrs)}
-        <IconButton {...attrs}>
+        <IconButton variant="outline" {...attrs}>
           <ChevronRightIcon />
         </IconButton>
       {/snippet}
