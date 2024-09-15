@@ -50,8 +50,8 @@
       <Accordion.ItemContent
         class="text-muted data-open:animate-collapse-in data-closed:animate-collapse-out overflow-hidden [--height:1em]"
       >
-        {#snippet asChild(ref, attrs)}
-          <p use:ref {...attrs}>{content}</p>
+        {#snippet asChild(action, attrs)}
+          <p use:action {...attrs}>{content}</p>
         {/snippet}
       </Accordion.ItemContent>
     </Accordion.Item>
