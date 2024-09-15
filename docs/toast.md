@@ -8,7 +8,7 @@ A component for displaying brief, non-intrusive notifications or messages.
 
 ```ts
 // lib/toaster.svelte.ts
-import {createToaster, type CreateToasterReturn} from 'ui-ingredients';
+import {createToaster} from 'ui-ingredients';
 
 export const toaster = createToaster({
   placement: 'bottom',
