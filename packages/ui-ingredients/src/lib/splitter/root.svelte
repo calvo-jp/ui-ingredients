@@ -7,7 +7,7 @@
 
   export interface SplitterProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateSplitterReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateSplitterReturn>,
       CreateSplitterProps
     > {}
 </script>

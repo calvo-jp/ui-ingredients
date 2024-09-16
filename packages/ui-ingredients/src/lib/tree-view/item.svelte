@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/tree-view';
 
   export interface TreeViewItemProps
-    extends Assign<HtmlIngredientProps<'div', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

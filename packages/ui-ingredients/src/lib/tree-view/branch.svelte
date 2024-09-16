@@ -3,7 +3,10 @@
   import type {BranchProps, BranchState} from '@zag-js/tree-view';
 
   export interface TreeViewBranchProps
-    extends Assign<HtmlIngredientProps<'div', BranchState>, BranchProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, BranchState>,
+      BranchProps
+    > {}
 </script>
 
 <script lang="ts">

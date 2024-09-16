@@ -4,7 +4,7 @@
   import type {CreateToasterReturn} from './create-toaster.svelte.js';
 
   export interface ToasterProps
-    extends HtmlIngredientProps<'div', CreateToastReturn> {
+    extends HtmlIngredientProps<'div', HTMLDivElement, CreateToastReturn> {
     toaster: CreateToasterReturn;
   }
 </script>

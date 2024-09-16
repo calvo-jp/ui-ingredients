@@ -3,7 +3,7 @@
   import type {ContentProps} from '@zag-js/tabs';
 
   export interface TabsContentProps
-    extends Assign<HtmlIngredientProps<'div'>, ContentProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ContentProps> {}
 </script>
 
 <script lang="ts">

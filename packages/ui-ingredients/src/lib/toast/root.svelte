@@ -3,7 +3,7 @@
   import type {CreateToastReturn} from './create-toast.svelte.js';
 
   export interface ToastProps
-    extends HtmlIngredientProps<'div', CreateToastReturn> {}
+    extends HtmlIngredientProps<'div', HTMLDivElement, CreateToastReturn> {}
 </script>
 
 <script lang="ts">

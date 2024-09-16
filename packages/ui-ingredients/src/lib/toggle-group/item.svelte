@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/toggle-group';
 
   export interface ToggleGroupItemProps
-    extends Assign<HtmlIngredientProps<'button', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'button', HTMLButtonElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

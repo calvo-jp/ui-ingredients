@@ -7,7 +7,7 @@
 
   export interface TimerProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateTimerReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateTimerReturn>,
       CreateTimerProps
     > {}
 </script>

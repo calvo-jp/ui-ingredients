@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/tags-input';
 
   export interface TagsInputItemProps
-    extends Assign<HtmlIngredientProps<'div', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

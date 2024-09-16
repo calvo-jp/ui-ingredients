@@ -8,7 +8,7 @@
 
   export interface TimePickerProps
     extends Assign<
-        HtmlIngredientProps<'div', CreateTimePickerReturn>,
+        HtmlIngredientProps<'div', HTMLDivElement, CreateTimePickerReturn>,
         CreateTimePickerProps
       >,
       PresenceStrategyProps {}

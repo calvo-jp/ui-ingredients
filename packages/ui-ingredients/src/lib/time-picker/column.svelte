@@ -3,7 +3,7 @@
   import type {ColumnProps} from '@zag-js/time-picker';
 
   export interface TimePickerColumnProps
-    extends Assign<HtmlIngredientProps<'div'>, ColumnProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ColumnProps> {}
 </script>
 
 <script lang="ts">

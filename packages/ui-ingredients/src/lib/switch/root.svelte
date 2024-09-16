@@ -7,7 +7,7 @@
 
   export interface SwitchProps
     extends Assign<
-      HtmlIngredientProps<'label', CreateSwitchReturn>,
+      HtmlIngredientProps<'label', HTMLLabelElement, CreateSwitchReturn>,
       CreateSwitchProps
     > {}
 </script>

@@ -7,7 +7,7 @@
 
   export interface TabsProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateTabsReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateTabsReturn>,
       CreateTabsProps
     > {}
 </script>

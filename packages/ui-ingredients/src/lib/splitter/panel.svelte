@@ -3,7 +3,7 @@
   import type {PanelProps} from '@zag-js/splitter';
 
   export interface SplitterPanelProps
-    extends Assign<HtmlIngredientProps<'div'>, PanelProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, PanelProps> {}
 </script>
 
 <script lang="ts">

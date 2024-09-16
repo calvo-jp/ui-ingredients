@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface TimePickerInputProps extends HtmlIngredientProps<'input'> {}
+  export interface TimePickerInputProps
+    extends HtmlIngredientProps<'input', HTMLInputElement> {}
 </script>
 
 <script lang="ts">

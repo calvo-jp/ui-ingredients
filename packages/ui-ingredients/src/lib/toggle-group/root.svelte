@@ -7,7 +7,7 @@
 
   export interface ToggleGroupProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateToggleGroupReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateToggleGroupReturn>,
       CreateToggleGroupProps
     > {}
 </script>

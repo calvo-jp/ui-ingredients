@@ -7,7 +7,7 @@
 
   export interface TagsInputProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateTagsInputReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateTagsInputReturn>,
       CreateTagsInputProps
     > {}
 </script>

@@ -3,7 +3,7 @@
   import type {ItemProps} from '@zag-js/steps';
 
   export interface StepsContentProps
-    extends Assign<HtmlIngredientProps<'div'>, ItemProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ItemProps> {}
 </script>
 
 <script lang="ts">

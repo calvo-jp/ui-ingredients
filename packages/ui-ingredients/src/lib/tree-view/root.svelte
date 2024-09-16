@@ -7,7 +7,7 @@
 
   export interface TreeViewProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateTreeViewReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateTreeViewReturn>,
       CreateTreeViewProps
     > {}
 </script>

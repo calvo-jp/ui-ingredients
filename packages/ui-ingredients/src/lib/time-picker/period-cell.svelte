@@ -3,7 +3,10 @@
   import type {PeriodCellProps} from '@zag-js/time-picker';
 
   export interface TimePickerPeriodCellProps
-    extends Assign<HtmlIngredientProps<'div'>, PeriodCellProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement>,
+      PeriodCellProps
+    > {}
 </script>
 
 <script lang="ts">

@@ -3,7 +3,10 @@
   import type {ActionTriggerProps} from '@zag-js/timer';
 
   export interface TimerActionTriggerProps
-    extends Assign<HtmlIngredientProps<'button'>, ActionTriggerProps> {}
+    extends Assign<
+      HtmlIngredientProps<'button', HTMLButtonElement>,
+      ActionTriggerProps
+    > {}
 </script>
 
 <script lang="ts">

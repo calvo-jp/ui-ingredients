@@ -13,7 +13,7 @@
 
   export interface SplitterResizeTriggerProps
     extends Assign<
-      HtmlIngredientProps<'div', ResizeTriggerState>,
+      HtmlIngredientProps<'div', HTMLDivElement, ResizeTriggerState>,
       ResizeTriggerProps
     > {}
 </script>

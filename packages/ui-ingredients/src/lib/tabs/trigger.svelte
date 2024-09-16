@@ -3,7 +3,10 @@
   import type {TriggerProps} from '@zag-js/tabs';
 
   export interface TabsTriggerProps
-    extends Assign<HtmlIngredientProps<'button'>, TriggerProps> {}
+    extends Assign<
+      HtmlIngredientProps<'button', HTMLButtonElement>,
+      TriggerProps
+    > {}
 </script>
 
 <script lang="ts">

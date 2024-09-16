@@ -7,7 +7,7 @@
 
   export interface StepsProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateStepsReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateStepsReturn>,
       CreateStepsProps
     > {}
 </script>
