@@ -1,6 +1,6 @@
-import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
-import {getFieldContext} from '$lib/field/context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
+import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
+import {getFieldContext} from '$lib/field/field-context.svelte.js';
+import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as ratingGroup from '@zag-js/rating-group';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {uid} from 'uid';

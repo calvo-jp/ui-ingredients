@@ -1,4 +1,4 @@
-import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import * as clipboard from '@zag-js/clipboard';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {uid} from 'uid';

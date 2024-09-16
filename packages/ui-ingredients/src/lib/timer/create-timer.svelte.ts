@@ -1,4 +1,4 @@
-import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
+import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timer from '@zag-js/timer';
 import {uid} from 'uid';

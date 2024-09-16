@@ -1,5 +1,5 @@
-import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
+import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
+import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as treeView from '@zag-js/tree-view';
 import {uid} from 'uid';
