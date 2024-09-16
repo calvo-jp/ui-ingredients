@@ -38,7 +38,8 @@ export function createDatePicker(
 
   const id = uid();
 
-  const context: datePicker.Context = reflect(() => ({
+  /* FIXME: use reflect */
+  const context: datePicker.Context = $derived.by(() => ({
     ...props,
     id: props.id ?? id,
     dir: locale?.dir,

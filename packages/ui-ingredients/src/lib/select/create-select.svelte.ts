@@ -53,6 +53,7 @@ export function createSelect<T>(props: CreateSelectProps<T>) {
     collection,
   }));
 
+  /* FIXME: pass controlled context */
   const [state, send] = useMachine(select.machine(context));
 
   return reflect(() => {
