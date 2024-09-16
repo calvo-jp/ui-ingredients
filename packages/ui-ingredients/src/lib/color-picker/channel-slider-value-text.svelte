@@ -13,7 +13,12 @@
     getColorPickerContext,
   } from './context.svelte.js';
 
-  let {children, ...props}: ColorPickerChannelSliderValueTextProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ColorPickerChannelSliderValueTextProps = $props();
 
   let locale = getLocaleContext();
   let colorPicker = getColorPickerContext();
@@ -27,10 +32,17 @@
   );
 </script>
 
-<div {...mergedProps}>
-  {#if children}
-    {@render children()}
-  {:else}
-    {colorPicker.getChannelValueText(channelSliderProps.channel, locale.locale)}
-  {/if}
-</div>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {#if children}
+      {@render children()}
+    {:else}
+      {colorPicker.getChannelValueText(
+        channelSliderProps.channel,
+        locale.locale,
+      )}
+    {/if}
+  </div>
+{/if}

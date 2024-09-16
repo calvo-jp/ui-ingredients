@@ -13,7 +13,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getColorPickerContext} from './context.svelte.js';
 
-  let {channel, orientation, ...props}: ColorPickerChannelInputProps = $props();
+  let {
+    this: e,
+    channel,
+    orientation,
+    asChild,
+    ...props
+  }: ColorPickerChannelInputProps = $props();
 
   let colorPicker = getColorPickerContext();
 
@@ -28,4 +34,8 @@
   );
 </script>
 
-<input {...mergedProps} />
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <input bind:this={e} {...mergedProps} />
+{/if}

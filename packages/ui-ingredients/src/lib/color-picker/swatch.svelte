@@ -13,8 +13,14 @@
     setColorPickerSwatchPropsContext,
   } from './context.svelte.js';
 
-  let {value, respectAlpha, children, ...props}: ColorPickerSwatchProps =
-    $props();
+  let {
+    this: e,
+    value,
+    respectAlpha,
+    asChild,
+    children,
+    ...props
+  }: ColorPickerSwatchProps = $props();
 
   let colorPicker = getColorPickerContext();
   let swatchProps: SwatchProps = $derived({
@@ -29,6 +35,10 @@
   setColorPickerSwatchPropsContext(() => swatchProps);
 </script>
 
-<div {...mergedProps}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </div>
+{/if}

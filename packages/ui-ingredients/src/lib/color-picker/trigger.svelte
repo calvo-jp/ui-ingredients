@@ -9,13 +9,22 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getColorPickerContext} from './context.svelte.js';
 
-  let {children, ...props}: ColorPickerTriggerProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ColorPickerTriggerProps = $props();
 
   let colorPicker = getColorPickerContext();
 
   let mergedProps = $derived(mergeProps(props, colorPicker.getTriggerProps()));
 </script>
 
-<button type="button" {...mergedProps}>
-  {@render children?.()}
-</button>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <button bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </button>
+{/if}

@@ -9,13 +9,17 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getColorPickerContext} from './context.svelte.js';
 
-  let {children, ...props}: ColorPickerLabelProps = $props();
+  let {this: e, asChild, children, ...props}: ColorPickerLabelProps = $props();
 
   let colorPicker = getColorPickerContext();
 
   let mergedProps = $derived(mergeProps(props, colorPicker.getLabelProps()));
 </script>
 
-<label {...mergedProps}>
-  {@render children?.()}
-</label>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <label bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </label>
+{/if}

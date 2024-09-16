@@ -12,7 +12,12 @@
     getColorPickerContext,
   } from './context.svelte.js';
 
-  let {children, ...props}: ColorPickerChannelSliderThumbProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ColorPickerChannelSliderThumbProps = $props();
 
   let colorPicker = getColorPickerContext();
   let channelSliderProps = getColorPickerChannelSliderPropsContext();
@@ -25,6 +30,10 @@
   );
 </script>
 
-<div {...mergedProps}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </div>
+{/if}

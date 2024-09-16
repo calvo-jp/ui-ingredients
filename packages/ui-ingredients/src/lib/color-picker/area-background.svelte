@@ -12,7 +12,12 @@
     getColorPickerContext,
   } from './context.svelte.js';
 
-  let {asChild, children, ...props}: ColorPickerAreaBackgroundProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ColorPickerAreaBackgroundProps = $props();
 
   let colorPicker = getColorPickerContext();
   let areaProps = getColorPickerAreaPropsContext();
@@ -22,6 +27,10 @@
   );
 </script>
 
-<div {...mergedProps}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </div>
+{/if}

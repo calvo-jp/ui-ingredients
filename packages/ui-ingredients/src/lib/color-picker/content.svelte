@@ -11,7 +11,12 @@
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
   import {getColorPickerContext} from './context.svelte.js';
 
-  let {children, ...props}: ColorPickerContentProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: ColorPickerContentProps = $props();
 
   let colorPicker = getColorPickerContext();
   let presence = getPresenceContext();
@@ -25,6 +30,10 @@
   );
 </script>
 
-<div use:presence.ref {...mergedProps}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(presence.ref, mergedProps)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </div>
+{/if}

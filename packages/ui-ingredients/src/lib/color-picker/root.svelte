@@ -21,7 +21,7 @@
   import {setColorPickerContext} from './context.svelte.js';
   import {createColorPicker} from './create-color-picker.svelte.js';
 
-  let {children, ...props}: ColorPickerProps = $props();
+  let {this: e, asChild, children, ...props}: ColorPickerProps = $props();
 
   let [colorPickerProps, localProps] = $derived(
     createSplitProps<CreateColorPickerProps>([
@@ -63,6 +63,10 @@
   setPresenceContext(presence);
 </script>
 
-<div {...mergedProps}>
-  {@render children?.(colorPicker)}
-</div>
+{#if asChild}
+  {@render asChild(mergedProps, colorPicker)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {@render children?.(colorPicker)}
+  </div>
+{/if}

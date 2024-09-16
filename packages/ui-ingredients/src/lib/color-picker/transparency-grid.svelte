@@ -13,7 +13,13 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getColorPickerContext} from './context.svelte.js';
 
-  let {size, children, ...props}: ColorPickerTransparencyGridProps = $props();
+  let {
+    this: e,
+    size,
+    asChild,
+    children,
+    ...props
+  }: ColorPickerTransparencyGridProps = $props();
 
   let colorPicker = getColorPickerContext();
 
@@ -27,6 +33,10 @@
   );
 </script>
 
-<div {...mergedProps}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </div>
+{/if}

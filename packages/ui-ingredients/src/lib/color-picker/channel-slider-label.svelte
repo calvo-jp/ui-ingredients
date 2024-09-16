@@ -14,8 +14,10 @@
   } from './context.svelte.js';
 
   let {
+    this: e,
     channel,
     orientation,
+    asChild,
     children,
     ...props
   }: ColorPickerChannelSliderLabelProps = $props();
@@ -31,6 +33,10 @@
   );
 </script>
 
-<div {...mergedProps}>
-  {@render children?.()}
-</div>
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <div bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </div>
+{/if}
