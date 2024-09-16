@@ -18,5 +18,7 @@ export function mergeProps<T extends GenericObject>(...args: T[]): T {
     r[i] = s;
   }
 
+  r[i] = r[i].replace(/;{1,}/g, ';');
+
   return r as T;
 }
