@@ -1,8 +1,8 @@
 export * as Avatar from './avatar.js';
 
-export type {AvatarFallbackProps} from './fallback.svelte';
-export type {AvatarImageProps} from './image.svelte';
-export type {AvatarProps} from './root.svelte';
+export type {AvatarFallbackProps} from './avatar-fallback.svelte';
+export type {AvatarImageProps} from './avatar-image.svelte';
+export type {AvatarProps} from './avatar-root.svelte';
 
-export {anatomy as AvatarAnatomy} from '@zag-js/avatar';
-export {getAvatarContext} from './context.svelte.js';
+export {anatomy as avatarAnatomy} from '@zag-js/avatar';
+export {getAvatarContext} from './avatar-context.svelte.js';

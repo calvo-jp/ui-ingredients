@@ -1,10 +1,10 @@
 export * as Accordion from './accordion.js';
 
-export type {AccordionItemContentProps} from './item-content.svelte';
-export type {AccordionIndicatorProps} from './item-indicator.svelte';
-export type {AccordionItemTriggerProps} from './item-trigger.svelte';
-export type {AccordionItemProps} from './item.svelte';
-export type {AccordionProps} from './root.svelte';
+export type {AccordionItemContentProps} from './accordion-item-content.svelte';
+export type {AccordionIndicatorProps} from './accordion-item-indicator.svelte';
+export type {AccordionItemTriggerProps} from './accordion-item-trigger.svelte';
+export type {AccordionItemProps} from './accordion-item.svelte';
+export type {AccordionProps} from './accordion-root.svelte';
 
 export {anatomy as accordionAnatomy} from '@zag-js/accordion';
-export {getAccordionContext} from './context.svelte.js';
+export {getAccordionContext} from './avatar-context.svelte.js';
