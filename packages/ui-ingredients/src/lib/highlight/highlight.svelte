@@ -4,7 +4,7 @@
 
   export interface HighlightProps
     extends Assign<
-      Omit<HtmlIngredientProps<'div'>, 'children'>,
+      Omit<HtmlIngredientProps<'div', HTMLDivElement>, 'children'>,
       HighlightWordProps
     > {}
 </script>

@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ClipboardLabelProps extends HtmlIngredientProps<'label'> {}
+  export interface ClipboardLabelProps
+    extends HtmlIngredientProps<'label', HTMLLabelElement> {}
 </script>
 
 <script lang="ts">

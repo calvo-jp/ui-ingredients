@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface EditableInputProps extends HtmlIngredientProps<'input'> {}
+  export interface EditableInputProps
+    extends HtmlIngredientProps<'input', HTMLInputElement> {}
 </script>
 
 <script lang="ts">

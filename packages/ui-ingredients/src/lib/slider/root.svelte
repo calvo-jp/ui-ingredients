@@ -7,7 +7,7 @@
 
   export interface SliderProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateSliderReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateSliderReturn>,
       CreateSliderProps
     > {}
 </script>

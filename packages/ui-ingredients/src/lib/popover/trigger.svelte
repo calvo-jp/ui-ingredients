@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface PopoverTriggerProps extends HtmlIngredientProps<'button'> {}
+  export interface PopoverTriggerProps
+    extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">

@@ -3,7 +3,10 @@
   import type {TableCellProps, TableCellState} from '@zag-js/date-picker';
 
   export interface DatePickerMonthTableCellProps
-    extends Assign<HtmlIngredientProps<'td', TableCellState>, TableCellProps> {}
+    extends Assign<
+      HtmlIngredientProps<'td', HTMLTableCellElement, TableCellState>,
+      TableCellProps
+    > {}
 </script>
 
 <script lang="ts">

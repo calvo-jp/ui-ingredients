@@ -8,7 +8,7 @@
 
   export interface SelectProps<T>
     extends Assign<
-        HtmlIngredientProps<'div', CreateSelectReturn>,
+        HtmlIngredientProps<'div', HTMLDivElement, CreateSelectReturn>,
         CreateSelectProps<T>
       >,
       PresenceStrategyProps {}

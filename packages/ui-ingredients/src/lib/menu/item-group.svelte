@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface MenuItemGroupProps extends HtmlIngredientProps<'div'> {}
+  export interface MenuItemGroupProps
+    extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">

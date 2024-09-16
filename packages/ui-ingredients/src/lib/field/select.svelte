@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FieldSelectProps extends HtmlIngredientProps<'select'> {}
+  export interface FieldSelectProps
+    extends HtmlIngredientProps<'select', HTMLSelectElement> {}
 </script>
 
 <script lang="ts">

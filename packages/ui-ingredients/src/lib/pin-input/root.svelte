@@ -7,7 +7,7 @@
 
   export interface PinInputProps
     extends Assign<
-      HtmlIngredientProps<'div', CreatePinInputReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreatePinInputReturn>,
       CreatePinInputProps
     > {}
 </script>

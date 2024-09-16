@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface SignaturePadSegmentProps
-    extends HtmlIngredientProps<'svg'> {}
+    extends HtmlIngredientProps<'svg', SVGSVGElement> {}
 </script>
 
 <script lang="ts">

@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SegmentGroupLabelProps extends HtmlIngredientProps<'span'> {}
+  export interface SegmentGroupLabelProps
+    extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">

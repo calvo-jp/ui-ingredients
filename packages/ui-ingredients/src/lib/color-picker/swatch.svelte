@@ -3,7 +3,7 @@
   import type {SwatchProps} from '@zag-js/color-picker';
 
   export interface ColorPickerSwatchProps
-    extends Assign<HtmlIngredientProps<'div'>, SwatchProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, SwatchProps> {}
 </script>
 
 <script lang="ts">

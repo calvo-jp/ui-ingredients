@@ -7,7 +7,7 @@
 
   export interface ColorPickerProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateColorPickerReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateColorPickerReturn>,
       CreateColorPickerProps
     > {}
 </script>

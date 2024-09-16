@@ -3,7 +3,10 @@
   import type {HiddenInputProps} from '@zag-js/signature-pad';
 
   export interface SignaturePadHiddenInputProps
-    extends Assign<HtmlIngredientProps<'input'>, HiddenInputProps> {}
+    extends Assign<
+      HtmlIngredientProps<'input', HTMLInputElement>,
+      HiddenInputProps
+    > {}
 </script>
 
 <script lang="ts">

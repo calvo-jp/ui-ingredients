@@ -3,7 +3,7 @@
   import type {ViewProps} from '@zag-js/progress';
 
   export interface ProgressViewProps
-    extends Assign<HtmlIngredientProps<'div'>, ViewProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ViewProps> {}
 </script>
 
 <script lang="ts">

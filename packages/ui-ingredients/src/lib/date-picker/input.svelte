@@ -3,7 +3,10 @@
   import type {InputProps} from '@zag-js/date-picker';
 
   export interface DatePickerInputProps
-    extends Assign<HtmlIngredientProps<'input'>, InputProps> {}
+    extends Assign<
+      HtmlIngredientProps<'input', HTMLInputElement>,
+      InputProps
+    > {}
 </script>
 
 <script lang="ts">

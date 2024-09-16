@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface FileUploadItemPreviewImageProps
-    extends HtmlIngredientProps<'img'> {}
+    extends HtmlIngredientProps<'img', HTMLImageElement> {}
 </script>
 
 <script lang="ts">

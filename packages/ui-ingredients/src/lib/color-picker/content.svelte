@@ -3,7 +3,7 @@
   import type {Action} from 'svelte/action';
 
   export interface ColorPickerContentProps
-    extends HtmlIngredientProps<'div', never, Action> {}
+    extends HtmlIngredientProps<'div', HTMLDivElement, never, Action> {}
 </script>
 
 <script lang="ts">

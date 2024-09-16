@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/carousel';
 
   export interface CarouselItemProps
-    extends Assign<HtmlIngredientProps<'div', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface DatePickerTableRowProps extends HtmlIngredientProps<'tr'> {}
+  export interface DatePickerTableRowProps
+    extends HtmlIngredientProps<'tr', HTMLTableRowElement> {}
 </script>
 
 <script lang="ts">

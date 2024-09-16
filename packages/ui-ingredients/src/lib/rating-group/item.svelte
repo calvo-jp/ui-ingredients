@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/rating-group';
 
   export interface RatingGroupItemProps
-    extends Assign<HtmlIngredientProps<'div', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

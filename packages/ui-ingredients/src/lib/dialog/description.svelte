@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface DialogDescriptionProps extends HtmlIngredientProps<'p'> {}
+  export interface DialogDescriptionProps
+    extends HtmlIngredientProps<'p', HTMLParagraphElement> {}
 </script>
 
 <script lang="ts">

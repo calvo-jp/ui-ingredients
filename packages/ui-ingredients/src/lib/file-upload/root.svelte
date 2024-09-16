@@ -7,7 +7,7 @@
 
   export interface FileUploadProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateFileUploadReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateFileUploadReturn>,
       CreateFileUploadProps
     > {}
 </script>

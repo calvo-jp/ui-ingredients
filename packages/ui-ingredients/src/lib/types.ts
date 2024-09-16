@@ -20,9 +20,10 @@ export type SvelteHTMLElement = keyof {
 export type HtmlProps<TElement extends SvelteHTMLElement> =
   SvelteHTMLElements[TElement];
 
-type AsChildWithAction<TAction extends Action, TContext = never> = [
-  TContext,
-] extends [never]
+type AsChildWithAction<
+  TAction extends Action,
+  TContext extends GenericObject = never,
+> = [TContext] extends [never]
   ? Snippet<[action: TAction, attrs: GenericObject]>
   : Snippet<[action: TAction, attrs: GenericObject, context: TContext]>;
 
@@ -30,13 +31,16 @@ type AsChildWithoutRef<TContext = never> = [TContext] extends [never]
   ? Snippet<[attrs: GenericObject]>
   : Snippet<[attrs: GenericObject, context: TContext]>;
 
-export type AsChild<TAction extends Action, Context = never> = [
-  TAction,
-] extends [never]
+export type AsChild<
+  TAction extends Action,
+  Context extends GenericObject = never,
+> = [TAction] extends [never]
   ? AsChildWithoutRef<Context>
   : AsChildWithAction<TAction, Context>;
 
-type Children<TContext = never> = [TContext] extends [never]
+type Children<TContext extends GenericObject = never> = [TContext] extends [
+  never,
+]
   ? Snippet
   : Snippet<[context: TContext]>;
 
@@ -44,10 +48,15 @@ type PropsWithoutChildren<T> = Omit<T, 'children'>;
 
 export type HtmlIngredientProps<
   TElement extends SvelteHTMLElement,
-  TContext = never,
+  TThis extends
+    | HTMLElement
+    | SVGCircleElement
+    | SVGSVGElement
+    | SVGPathElement = HTMLElement,
+  TContext extends GenericObject = never,
   TAction extends Action = never,
 > = PropsWithoutChildren<HtmlProps<TElement>> & {
-  this?: any;
+  this?: TThis | null;
   asChild?: AsChild<TAction, TContext>;
   children?: Children<TContext>;
 };

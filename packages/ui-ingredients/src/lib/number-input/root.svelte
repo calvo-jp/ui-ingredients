@@ -7,7 +7,7 @@
 
   export interface NumberInputProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateNumberInputReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateNumberInputReturn>,
       CreateNumberInputProps
     > {}
 </script>

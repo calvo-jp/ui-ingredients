@@ -3,7 +3,10 @@
   import type {PresetTriggerProps} from '@zag-js/date-picker';
 
   export interface DatePickerPresetTriggerProps
-    extends Assign<HtmlIngredientProps<'button'>, PresetTriggerProps> {}
+    extends Assign<
+      HtmlIngredientProps<'button', HTMLButtonElement>,
+      PresetTriggerProps
+    > {}
 </script>
 
 <script lang="ts">

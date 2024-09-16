@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/radio-group';
 
   export interface RadioGroupItemProps
-    extends Assign<HtmlIngredientProps<'label', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'label', HTMLLabelElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

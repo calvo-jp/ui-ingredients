@@ -3,7 +3,10 @@
   import type {ItemProps} from '@zag-js/pagination';
 
   export interface PaginationItemProps
-    extends Assign<HtmlIngredientProps<'button'>, Omit<ItemProps, 'type'>> {}
+    extends Assign<
+      HtmlIngredientProps<'button', HTMLButtonElement>,
+      Omit<ItemProps, 'type'>
+    > {}
 </script>
 
 <script lang="ts">

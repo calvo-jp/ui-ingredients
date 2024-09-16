@@ -3,7 +3,7 @@
   import type {Action} from 'svelte/action';
 
   export interface ComboboxContentProps
-    extends HtmlIngredientProps<'div', never, Action> {}
+    extends HtmlIngredientProps<'div', HTMLDivElement, never, Action> {}
 </script>
 
 <script lang="ts">

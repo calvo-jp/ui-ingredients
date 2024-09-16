@@ -4,7 +4,7 @@
 
   export interface DatePickerDayTableCellProps
     extends Assign<
-      HtmlIngredientProps<'td', DayTableCellState>,
+      HtmlIngredientProps<'td', HTMLTableCellElement, DayTableCellState>,
       DayTableCellProps
     > {}
 </script>

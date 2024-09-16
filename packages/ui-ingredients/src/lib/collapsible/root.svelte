@@ -7,7 +7,7 @@
 
   export interface CollapsibleProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateCollapsibleReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateCollapsibleReturn>,
       CreateCollapsibleProps
     > {}
 </script>

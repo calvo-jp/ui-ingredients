@@ -3,7 +3,10 @@
   import type {LabelProps} from '@zag-js/date-picker';
 
   export interface DatePickerLabelProps
-    extends Assign<HtmlIngredientProps<'label'>, LabelProps> {}
+    extends Assign<
+      HtmlIngredientProps<'label', HTMLLabelElement>,
+      LabelProps
+    > {}
 </script>
 
 <script lang="ts">

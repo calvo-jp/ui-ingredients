@@ -3,7 +3,7 @@
   import type {ThumbProps} from '@zag-js/slider';
 
   export interface SliderThumbProps
-    extends Assign<HtmlIngredientProps<'div'>, ThumbProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ThumbProps> {}
 </script>
 
 <script lang="ts">

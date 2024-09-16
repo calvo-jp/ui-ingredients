@@ -7,7 +7,7 @@
 
   export interface CarouselProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateCarouselReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateCarouselReturn>,
       CreateCarouselProps
     > {}
 </script>

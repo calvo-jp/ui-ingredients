@@ -3,7 +3,7 @@
   import type {ItemProps} from '@zag-js/file-upload';
 
   export interface FileUploadItemProps
-    extends Assign<HtmlIngredientProps<'div'>, ItemProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ItemProps> {}
 </script>
 
 <script lang="ts">

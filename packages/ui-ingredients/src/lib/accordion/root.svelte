@@ -8,7 +8,7 @@
 
   export interface AccordionProps
     extends Assign<
-        HtmlIngredientProps<'div', CreateAccordionReturn>,
+        HtmlIngredientProps<'div', HTMLDivElement, CreateAccordionReturn>,
         CreateAccordionProps
       >,
       PresenceStrategyProps {}

@@ -7,7 +7,7 @@
 
   export interface CheckboxProps
     extends Assign<
-      HtmlIngredientProps<'label', CreateCheckboxReturn>,
+      HtmlIngredientProps<'label', HTMLLabelElement, CreateCheckboxReturn>,
       CreateCheckboxProps
     > {}
 </script>

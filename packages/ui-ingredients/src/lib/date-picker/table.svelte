@@ -3,7 +3,10 @@
   import type {TableProps} from '@zag-js/date-picker';
 
   export interface DatePickerTableProps
-    extends Assign<HtmlIngredientProps<'table'>, Omit<TableProps, 'view'>> {}
+    extends Assign<
+      HtmlIngredientProps<'table', HTMLTableElement>,
+      Omit<TableProps, 'view'>
+    > {}
 </script>
 
 <script lang="ts">

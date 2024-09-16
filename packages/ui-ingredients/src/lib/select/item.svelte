@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/select';
 
   export interface SelectItemProps
-    extends Assign<HtmlIngredientProps<'div', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

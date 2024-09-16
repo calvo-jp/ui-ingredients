@@ -7,7 +7,7 @@
 
   export interface ClipboardProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateClipboardReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateClipboardReturn>,
       CreateClipboardProps
     > {}
 </script>

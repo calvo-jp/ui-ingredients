@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface FloatingPanelHeaderProps
-    extends HtmlIngredientProps<'div'> {}
+    extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">

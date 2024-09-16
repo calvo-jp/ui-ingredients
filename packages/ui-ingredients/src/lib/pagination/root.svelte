@@ -7,7 +7,7 @@
 
   export interface PaginationProps
     extends Assign<
-      HtmlIngredientProps<'div', CreatePaginationReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreatePaginationReturn>,
       CreatePaginationProps
     > {}
 </script>

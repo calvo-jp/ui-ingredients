@@ -7,7 +7,7 @@
 
   export interface SignaturePadProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateSignaturePadReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateSignaturePadReturn>,
       CreateSignaturePadProps
     > {}
 </script>

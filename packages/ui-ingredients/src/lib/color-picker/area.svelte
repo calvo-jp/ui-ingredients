@@ -3,7 +3,7 @@
   import type {AreaProps} from '@zag-js/color-picker';
 
   export interface ColorPickerAreaProps
-    extends Assign<HtmlIngredientProps<'div'>, AreaProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, AreaProps> {}
 </script>
 
 <script lang="ts">

@@ -3,7 +3,7 @@
   import type {ViewProps} from '@zag-js/date-picker';
 
   export interface DatePickerViewProps
-    extends Assign<HtmlIngredientProps<'div'>, ViewProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ViewProps> {}
 </script>
 
 <script lang="ts">

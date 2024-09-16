@@ -8,7 +8,7 @@
 
   export interface DatePickerProps
     extends Assign<
-        HtmlIngredientProps<'div', CreateDatePickerReturn>,
+        HtmlIngredientProps<'div', HTMLDivElement, CreateDatePickerReturn>,
         CreateDatePickerProps
       >,
       PresenceStrategyProps {}

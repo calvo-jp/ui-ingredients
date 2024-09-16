@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface MenuTriggerProps extends HtmlIngredientProps<'button'> {}
+  export interface MenuTriggerProps
+    extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">

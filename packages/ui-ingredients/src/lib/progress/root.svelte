@@ -7,7 +7,7 @@
 
   export interface ProgressProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateProgressReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateProgressReturn>,
       CreateProgressProps
     > {}
 </script>

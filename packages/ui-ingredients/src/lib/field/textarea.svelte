@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FieldTextareaProps extends HtmlIngredientProps<'textarea'> {}
+  export interface FieldTextareaProps
+    extends HtmlIngredientProps<'textarea', HTMLTextAreaElement> {}
 </script>
 
 <script lang="ts">

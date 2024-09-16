@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface QrCodePatternProps extends HtmlIngredientProps<'path'> {}
+  export interface QrCodePatternProps
+    extends HtmlIngredientProps<'path', SVGPathElement> {}
 </script>
 
 <script lang="ts">

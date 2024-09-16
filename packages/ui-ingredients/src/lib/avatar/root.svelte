@@ -7,7 +7,7 @@
 
   export interface AvatarProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateAvatarReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateAvatarReturn>,
       CreateAvatarProps
     > {}
 </script>

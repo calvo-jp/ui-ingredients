@@ -3,7 +3,10 @@
   import type {EllipsisProps} from '@zag-js/pagination';
 
   export interface PaginationEllipsisProps
-    extends Assign<HtmlIngredientProps<'span'>, EllipsisProps> {}
+    extends Assign<
+      HtmlIngredientProps<'span', HTMLSpanElement>,
+      EllipsisProps
+    > {}
 </script>
 
 <script lang="ts">

@@ -4,7 +4,7 @@
 
   export interface MenuOptionItemProps
     extends Assign<
-      HtmlIngredientProps<'div', OptionItemState>,
+      HtmlIngredientProps<'div', HTMLDivElement, OptionItemState>,
       OptionItemProps
     > {}
 </script>

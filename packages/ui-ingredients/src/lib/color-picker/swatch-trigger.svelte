@@ -4,7 +4,7 @@
 
   export interface ColorPickerSwatchTriggerProps
     extends Assign<
-      HtmlIngredientProps<'button'>,
+      HtmlIngredientProps<'button', HTMLButtonElement>,
       Pick<SwatchTriggerProps, 'disabled'>
     > {}
 </script>

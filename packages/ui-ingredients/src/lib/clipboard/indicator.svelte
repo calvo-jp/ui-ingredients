@@ -3,7 +3,10 @@
   import type {IndicatorProps} from '@zag-js/clipboard';
 
   export interface ClipboardIndicatorProps
-    extends Assign<HtmlIngredientProps<'span'>, Partial<IndicatorProps>> {}
+    extends Assign<
+      HtmlIngredientProps<'span', HTMLSpanElement>,
+      Partial<IndicatorProps>
+    > {}
 </script>
 
 <script lang="ts">

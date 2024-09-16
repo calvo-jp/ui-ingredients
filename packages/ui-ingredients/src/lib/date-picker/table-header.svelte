@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface DatePickerTableHeaderProps
-    extends HtmlIngredientProps<'th'> {}
+    extends HtmlIngredientProps<'th', HTMLTableCellElement> {}
 </script>
 
 <script lang="ts">

@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface DatePickerYearSelectProps
-    extends HtmlIngredientProps<'select'> {}
+    extends HtmlIngredientProps<'select', HTMLSelectElement> {}
 </script>
 
 <script lang="ts">

@@ -3,7 +3,7 @@
   import type {MarkerProps} from '@zag-js/slider';
 
   export interface SliderMarkerProps
-    extends Assign<HtmlIngredientProps<'div'>, MarkerProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, MarkerProps> {}
 </script>
 
 <script lang="ts">

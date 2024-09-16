@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface PinInputHiddenInputProps
-    extends HtmlIngredientProps<'input'> {}
+    extends HtmlIngredientProps<'input', HTMLInputElement> {}
 </script>
 
 <script lang="ts">

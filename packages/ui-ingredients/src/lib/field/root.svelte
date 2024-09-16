@@ -7,7 +7,7 @@
 
   export interface FieldProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateFieldReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateFieldReturn>,
       CreateFieldProps
     > {}
 </script>

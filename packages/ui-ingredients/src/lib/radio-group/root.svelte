@@ -7,7 +7,7 @@
 
   export interface RadioGroupProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateRadioGroupReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateRadioGroupReturn>,
       CreateRadioGroupProps
     > {}
 </script>

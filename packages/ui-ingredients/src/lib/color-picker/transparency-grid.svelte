@@ -3,7 +3,10 @@
   import type {TransparencyGridProps} from '@zag-js/color-picker';
 
   export interface ColorPickerTransparencyGridProps
-    extends Assign<HtmlIngredientProps<'div'>, TransparencyGridProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement>,
+      TransparencyGridProps
+    > {}
 </script>
 
 <script lang="ts">

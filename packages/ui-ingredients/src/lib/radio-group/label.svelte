@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface RadioGroupLabelProps extends HtmlIngredientProps<'span'> {}
+  export interface RadioGroupLabelProps
+    extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">

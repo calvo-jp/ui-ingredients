@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface ProgressCircleTrackProps
-    extends HtmlIngredientProps<'circle'> {}
+    extends HtmlIngredientProps<'circle', SVGCircleElement> {}
 </script>
 
 <script lang="ts">

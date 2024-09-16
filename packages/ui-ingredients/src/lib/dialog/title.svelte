@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface DialogTitleProps extends HtmlIngredientProps<'h2'> {}
+  export interface DialogTitleProps
+    extends HtmlIngredientProps<'h2', HTMLHeadingElement> {}
 </script>
 
 <script lang="ts">

@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface SignaturePadCurrentSegmentPathProps
-    extends HtmlIngredientProps<'path'> {}
+    extends HtmlIngredientProps<'path', SVGPathElement> {}
 </script>
 
 <script lang="ts">

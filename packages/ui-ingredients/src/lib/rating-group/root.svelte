@@ -7,7 +7,7 @@
 
   export interface RatingGroupProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateRatingGroupReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateRatingGroupReturn>,
       CreateRatingGroupProps
     > {}
 </script>

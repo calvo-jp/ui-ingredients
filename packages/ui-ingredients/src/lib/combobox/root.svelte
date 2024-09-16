@@ -8,7 +8,7 @@
 
   export interface ComboboxProps<T>
     extends Assign<
-        HtmlIngredientProps<'div', CreateComboboxReturn>,
+        HtmlIngredientProps<'div', HTMLDivElement, CreateComboboxReturn>,
         CreateComboboxProps<T>
       >,
       PresenceStrategyProps {}

@@ -4,7 +4,7 @@
 
   export interface PresenceProps
     extends Assign<
-      HtmlIngredientProps<'div', never, Action>,
+      HtmlIngredientProps<'div', HTMLDivElement, never, Action>,
       CreatePresenceProps
     > {}
 </script>

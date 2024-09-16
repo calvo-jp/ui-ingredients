@@ -7,7 +7,7 @@
 
   export interface SegmentGroupProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateSegmentGroupReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateSegmentGroupReturn>,
       CreateSegmentGroupProps
     > {}
 </script>

@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface AvatarImageProps extends HtmlIngredientProps<'img'> {}
+  export interface AvatarImageProps
+    extends HtmlIngredientProps<'img', HTMLImageElement> {}
 </script>
 
 <script lang="ts">

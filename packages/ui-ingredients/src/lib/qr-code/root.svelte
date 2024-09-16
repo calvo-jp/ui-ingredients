@@ -7,7 +7,7 @@
 
   export interface QrCodeProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateQrCodeReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateQrCodeReturn>,
       CreateQrCodeProps
     > {}
 </script>

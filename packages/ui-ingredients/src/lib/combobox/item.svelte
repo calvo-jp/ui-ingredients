@@ -3,7 +3,10 @@
   import type {ItemProps, ItemState} from '@zag-js/combobox';
 
   export interface ComboboxItemProps
-    extends Assign<HtmlIngredientProps<'div', ItemState>, ItemProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
+      ItemProps
+    > {}
 </script>
 
 <script lang="ts">

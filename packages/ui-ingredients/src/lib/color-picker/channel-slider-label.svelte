@@ -3,7 +3,7 @@
   import type {ChannelProps} from '@zag-js/color-picker';
 
   export interface ColorPickerChannelSliderLabelProps
-    extends Assign<HtmlIngredientProps<'div'>, ChannelProps> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ChannelProps> {}
 </script>
 
 <script lang="ts">

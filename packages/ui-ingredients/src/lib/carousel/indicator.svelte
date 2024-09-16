@@ -3,7 +3,10 @@
   import type {IndicatorProps} from '@zag-js/carousel';
 
   export interface CarouselIndicatorProps
-    extends Assign<HtmlIngredientProps<'button'>, IndicatorProps> {}
+    extends Assign<
+      HtmlIngredientProps<'button', HTMLButtonElement>,
+      IndicatorProps
+    > {}
 </script>
 
 <script lang="ts">

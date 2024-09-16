@@ -38,7 +38,7 @@ export function createDatePicker(
 
   const id = uid();
 
-  const context: datePicker.Context = $derived({
+  const context: datePicker.Context = reflect(() => ({
     ...props,
     id: props.id ?? id,
     dir: locale?.dir,
@@ -52,7 +52,7 @@ export function createDatePicker(
     'open.controlled': props.open != null,
     locale: props.locale ?? locale?.locale,
     getRootNode: environment?.getRootNode,
-  });
+  }));
 
   const [state, send] = useMachine(datePicker.machine(context), {context});
 

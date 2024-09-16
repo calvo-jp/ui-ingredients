@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface ProgressCircleProps extends HtmlIngredientProps<'svg'> {}
+  export interface ProgressCircleProps
+    extends HtmlIngredientProps<'svg', SVGSVGElement> {}
 </script>
 
 <script lang="ts">

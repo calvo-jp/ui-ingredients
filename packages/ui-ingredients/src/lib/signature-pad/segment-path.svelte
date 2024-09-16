@@ -3,7 +3,10 @@
   import type {SegmentPathProps} from '@zag-js/signature-pad';
 
   export interface SignaturePadSegmentPathProps
-    extends Assign<HtmlIngredientProps<'path'>, SegmentPathProps> {}
+    extends Assign<
+      HtmlIngredientProps<'path', SVGPathElement>,
+      SegmentPathProps
+    > {}
 </script>
 
 <script lang="ts">

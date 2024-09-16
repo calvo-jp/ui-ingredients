@@ -3,7 +3,10 @@
   import type {ChannelInputProps} from '@zag-js/color-picker';
 
   export interface ColorPickerChannelInputProps
-    extends Assign<HtmlIngredientProps<'input'>, ChannelInputProps> {}
+    extends Assign<
+      HtmlIngredientProps<'input', HTMLInputElement>,
+      ChannelInputProps
+    > {}
 </script>
 
 <script lang="ts">

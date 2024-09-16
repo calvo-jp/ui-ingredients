@@ -7,7 +7,7 @@
 
   export interface EditableProps
     extends Assign<
-      HtmlIngredientProps<'div', CreateEditableReturn>,
+      HtmlIngredientProps<'div', HTMLDivElement, CreateEditableReturn>,
       CreateEditableProps
     > {}
 </script>

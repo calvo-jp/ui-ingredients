@@ -3,7 +3,10 @@
   import type {InputProps} from '@zag-js/pin-input';
 
   export interface PinInputInputProps
-    extends Assign<HtmlIngredientProps<'input'>, InputProps> {}
+    extends Assign<
+      HtmlIngredientProps<'input', HTMLInputElement>,
+      InputProps
+    > {}
 </script>
 
 <script lang="ts">

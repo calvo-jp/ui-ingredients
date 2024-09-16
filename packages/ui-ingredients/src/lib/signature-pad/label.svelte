@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface SignaturePadLabelProps
-    extends HtmlIngredientProps<'label'> {}
+    extends HtmlIngredientProps<'label', HTMLLabelElement> {}
 </script>
 
 <script lang="ts">
