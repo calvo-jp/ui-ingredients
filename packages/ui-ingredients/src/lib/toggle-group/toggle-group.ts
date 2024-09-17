@@ -1,2 +1,2 @@
-export {default as Item} from './item.svelte';
-export {default as Root} from './root.svelte';
+export {default as Item} from './toggle-group-item.svelte';
+export {default as Root} from './toggle-group-root.svelte';

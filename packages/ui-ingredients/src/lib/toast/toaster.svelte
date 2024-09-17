@@ -16,7 +16,7 @@
   import {Portal} from '$lib/portal/index.js';
   import {normalizeProps, useMachine} from '@zag-js/svelte';
   import * as toast from '@zag-js/toast';
-  import ToastActor from './actor.svelte';
+  import ToastActor from './toast-actor.svelte';
 
   let {this: e, toaster, children, ...props}: ToasterProps = $props();
 
