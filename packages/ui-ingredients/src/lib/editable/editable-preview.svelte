@@ -2,7 +2,7 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface EditablePreviewProps
-    extends HtmlIngredientProps<'div', HTMLDivElement> {}
+    extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
@@ -19,11 +19,11 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <span bind:this={e} {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}
       {editable.value}
     {/if}
-  </div>
+  </span>
 {/if}

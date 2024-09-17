@@ -2,13 +2,16 @@ import '@testing-library/jest-dom/vitest';
 import 'vitest-axe/extend-expect';
 import 'vitest-canvas-mock';
 
+import {faker} from '@faker-js/faker';
 import {JSDOM} from 'jsdom';
 import ResizeObserver from 'resize-observer-polyfill';
-import {expect, vi} from 'vitest';
-import {toHaveNoViolations} from 'vitest-axe/matchers';
+import {vi} from 'vitest';
 
 const {window} = new JSDOM();
 
 vi.stubGlobal('ResizeObserver', ResizeObserver);
+
 window['ResizeObserver'] = ResizeObserver;
-expect.extend({toHaveNoViolations});
+window.URL.createObjectURL = () => faker.image.avatar();
+
+Object.assign(global, {window, document: window.document});
