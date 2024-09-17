@@ -50,9 +50,9 @@ export type HtmlIngredientProps<
   TElement extends SvelteHTMLElement,
   TThis extends
     | HTMLElement
-    | SVGCircleElement
     | SVGSVGElement
-    | SVGPathElement = HTMLElement,
+    | SVGPathElement
+    | SVGCircleElement = HTMLElement,
   TContext extends GenericObject = never,
   TAction extends Action = never,
 > = PropsWithoutChildren<HtmlProps<TElement>> & {
