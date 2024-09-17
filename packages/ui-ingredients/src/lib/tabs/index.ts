@@ -1,9 +1,9 @@
 export * as Tabs from './tabs.js';
 
-export type {TabsContentProps} from './content.svelte';
-export type {TabsListProps} from './list.svelte';
-export type {TabsProps} from './root.svelte';
-export type {TabsTriggerProps} from './trigger.svelte';
+export type {TabsContentProps} from './tabs-content.svelte';
+export type {TabsListProps} from './tabs-list.svelte';
+export type {TabsProps} from './tabs-root.svelte';
+export type {TabsTriggerProps} from './tabs-trigger.svelte';
 
 export {anatomy as tabsAnatomy} from '@zag-js/tabs';
-export {getTabsContext} from './context.svelte.js';
+export {getTabsContext} from './tabs-context.svelte.js';
