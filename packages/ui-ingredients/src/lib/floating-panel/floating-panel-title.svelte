@@ -1,19 +1,24 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface HoverCardArrowTipProps
+  export interface FloatingPanelTitleProps
     extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getHoverCardContext} from './context.svelte.js';
+  import {getFloatingPanelContext} from './floating-panel-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: HoverCardArrowTipProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: FloatingPanelTitleProps = $props();
 
-  let hoverCard = getHoverCardContext();
+  let floatingPanel = getFloatingPanelContext();
 
-  let mergedProps = $derived(mergeProps(props, hoverCard.getArrowTipProps()));
+  let mergedProps = $derived(mergeProps(props, floatingPanel.getTitleProps()));
 </script>
 
 {#if asChild}

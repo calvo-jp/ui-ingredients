@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getHoverCardContext} from './context.svelte.js';
+  import {getHoverCardContext} from './hover-card-context.svelte.js';
 
   let {this: e, asChild, children, ...props}: HoverCardTriggerProps = $props();
 

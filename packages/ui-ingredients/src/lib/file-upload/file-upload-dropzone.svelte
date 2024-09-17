@@ -1,24 +1,24 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FloatingPanelHeaderProps
+  export interface FileUploadDropzoneProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getFloatingPanelContext} from './context.svelte.js';
+  import {getFileUploadContext} from './file-upload-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: FloatingPanelHeaderProps = $props();
+  }: FileUploadDropzoneProps = $props();
 
-  let floatingPanel = getFloatingPanelContext();
+  let fileUpload = getFileUploadContext();
 
-  let mergedProps = $derived(mergeProps(props, floatingPanel.getHeaderProps()));
+  let mergedProps = $derived(mergeProps(props, fileUpload.getDropzoneProps()));
 </script>
 
 {#if asChild}

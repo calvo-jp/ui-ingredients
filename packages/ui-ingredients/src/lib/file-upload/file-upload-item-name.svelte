@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FileUploadItemSizeTextProps
+  export interface FileUploadItemNameProps
     extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
@@ -10,20 +10,20 @@
   import {
     getFileUploadContext,
     getFileUploadItemPropsContext,
-  } from './context.svelte.js';
+  } from './file-upload-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: FileUploadItemSizeTextProps = $props();
+  }: FileUploadItemNameProps = $props();
 
   let fileUpload = getFileUploadContext();
   let itemProps = getFileUploadItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, fileUpload.getItemSizeTextProps(itemProps)),
+    mergeProps(props, fileUpload.getItemNameProps(itemProps)),
   );
 </script>
 
@@ -34,7 +34,7 @@
     {#if children}
       {@render children()}
     {:else}
-      {fileUpload.getFileSize(itemProps.file)}
+      {itemProps.file.name}
     {/if}
   </span>
 {/if}

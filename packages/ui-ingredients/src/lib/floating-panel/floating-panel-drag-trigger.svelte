@@ -1,25 +1,25 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FloatingPanelRestoreTriggerProps
+  export interface FloatingPanelDragTriggerProps
     extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getFloatingPanelContext} from './context.svelte.js';
+  import {getFloatingPanelContext} from './floating-panel-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: FloatingPanelRestoreTriggerProps = $props();
+  }: FloatingPanelDragTriggerProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
 
   let mergedProps = $derived(
-    mergeProps(props, floatingPanel.getRestoreTriggerProps()),
+    mergeProps(props, floatingPanel.getDragTriggerProps()),
   );
 </script>
 

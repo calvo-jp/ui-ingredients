@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getFileUploadContext} from './context.svelte.js';
+  import {getFileUploadContext} from './file-upload-context.svelte.js';
 
   let {this: e, asChild, ...props}: FileUploadHiddenInputProps = $props();
 

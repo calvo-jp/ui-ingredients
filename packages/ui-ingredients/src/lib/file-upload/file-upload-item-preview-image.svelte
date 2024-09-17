@@ -10,7 +10,7 @@
   import {
     getFileUploadContext,
     getFileUploadItemPropsContext,
-  } from './context.svelte.js';
+  } from './file-upload-context.svelte.js';
 
   let {this: e, asChild, ...props}: FileUploadItemPreviewImageProps = $props();
 

@@ -18,8 +18,8 @@
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {setHoverCardContext} from './context.svelte.js';
   import {createHoverCard} from './create-hover-card.svelte.js';
+  import {setHoverCardContext} from './hover-card-context.svelte.js';
 
   let {children, ...props}: HoverCardProps = $props();
 

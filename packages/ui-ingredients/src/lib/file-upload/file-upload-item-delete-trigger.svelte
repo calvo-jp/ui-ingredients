@@ -1,8 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FileUploadItemNameProps
-    extends HtmlIngredientProps<'span', HTMLSpanElement> {}
+  export interface FileUploadItemDeleteTriggerProps
+    extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
@@ -10,31 +10,27 @@
   import {
     getFileUploadContext,
     getFileUploadItemPropsContext,
-  } from './context.svelte.js';
+  } from './file-upload-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: FileUploadItemNameProps = $props();
+  }: FileUploadItemDeleteTriggerProps = $props();
 
   let fileUpload = getFileUploadContext();
   let itemProps = getFileUploadItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, fileUpload.getItemNameProps(itemProps)),
+    mergeProps(props, fileUpload.getItemDeleteTriggerProps(itemProps)),
   );
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span bind:this={e} {...mergedProps}>
-    {#if children}
-      {@render children()}
-    {:else}
-      {itemProps.file.name}
-    {/if}
-  </span>
+  <button bind:this={e} type="button" {...mergedProps}>
+    {@render children?.()}
+  </button>
 {/if}

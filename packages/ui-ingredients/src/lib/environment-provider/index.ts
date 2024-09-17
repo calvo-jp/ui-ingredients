@@ -5,4 +5,4 @@ export {
 export {
   default as EnvironmentProvider,
   type EnvironmentProviderProps,
-} from './environment-provider-root.svelte';
+} from './environment-provider.svelte';

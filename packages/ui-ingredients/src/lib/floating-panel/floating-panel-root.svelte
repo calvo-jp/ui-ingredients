@@ -18,8 +18,8 @@
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {setFloatingPanelContext} from './context.svelte.js';
   import {createFloatingPanel} from './create-floating-panel.svelte.js';
+  import {setFloatingPanelContext} from './floating-panel-context.svelte.js';
 
   let {children, ...props}: FloatingPanelProps = $props();
 

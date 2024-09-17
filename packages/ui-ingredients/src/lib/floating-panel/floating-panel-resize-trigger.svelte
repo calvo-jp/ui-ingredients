@@ -12,7 +12,7 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {getFloatingPanelContext} from './context.svelte.js';
+  import {getFloatingPanelContext} from './floating-panel-context.svelte.js';
 
   let {
     this: e,

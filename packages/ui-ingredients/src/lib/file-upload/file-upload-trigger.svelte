@@ -1,26 +1,19 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FloatingPanelMaximizeTriggerProps
+  export interface FileUploadTriggerProps
     extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getFloatingPanelContext} from './context.svelte.js';
+  import {getFileUploadContext} from './file-upload-context.svelte.js';
 
-  let {
-    this: e,
-    asChild,
-    children,
-    ...props
-  }: FloatingPanelMaximizeTriggerProps = $props();
+  let {this: e, asChild, children, ...props}: FileUploadTriggerProps = $props();
 
-  let floatingPanel = getFloatingPanelContext();
+  let fileUpload = getFileUploadContext();
 
-  let mergedProps = $derived(
-    mergeProps(props, floatingPanel.getMaximizeTriggerProps()),
-  );
+  let mergedProps = $derived(mergeProps(props, fileUpload.getTriggerProps()));
 </script>
 
 {#if asChild}

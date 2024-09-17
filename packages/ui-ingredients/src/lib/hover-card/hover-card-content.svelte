@@ -2,31 +2,22 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
   import type {Action} from 'svelte/action';
 
-  export interface FloatingPanelContentProps
+  export interface HoverCardContentProps
     extends HtmlIngredientProps<'div', HTMLDivElement, never, Action> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {getPresenceContext} from '$lib/presence/context.svelte.js';
-  import {getFloatingPanelContext} from './context.svelte.js';
+  import {getHoverCardContext} from './hover-card-context.svelte.js';
 
-  let {
-    this: e,
-    asChild,
-    children,
-    ...props
-  }: FloatingPanelContentProps = $props();
+  let {this: e, asChild, children, ...props}: HoverCardContentProps = $props();
 
-  let floatingPanel = getFloatingPanelContext();
+  let hoverCard = getHoverCardContext();
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      floatingPanel.getContentProps(),
-      presence.getPresenceProps(),
-    ),
+    mergeProps(props, hoverCard.getContentProps(), presence.getPresenceProps()),
   );
 </script>
 

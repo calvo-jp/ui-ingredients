@@ -1,24 +1,30 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FileUploadItemGroupProps
+  export interface FileUploadItemPreviewProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getFileUploadContext} from './context.svelte.js';
+  import {
+    getFileUploadContext,
+    getFileUploadItemPropsContext,
+  } from './file-upload-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: FileUploadItemGroupProps = $props();
+  }: FileUploadItemPreviewProps = $props();
 
   let fileUpload = getFileUploadContext();
+  let itemProps = getFileUploadItemPropsContext();
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getItemGroupProps()));
+  let mergedProps = $derived(
+    mergeProps(props, fileUpload.getItemPreviewProps(itemProps)),
+  );
 </script>
 
 {#if asChild}

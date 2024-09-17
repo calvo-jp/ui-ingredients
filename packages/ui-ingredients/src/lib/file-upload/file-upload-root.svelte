@@ -16,8 +16,8 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {setFileUploadContext} from './context.svelte.js';
   import {createFileUpload} from './create-file-upload.svelte.js';
+  import {setFileUploadContext} from './file-upload-context.svelte.js';
 
   let {this: e, asChild, children, ...props}: FileUploadProps = $props();
 

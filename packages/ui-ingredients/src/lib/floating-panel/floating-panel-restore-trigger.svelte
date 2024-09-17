@@ -1,19 +1,26 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface FileUploadTriggerProps
+  export interface FloatingPanelRestoreTriggerProps
     extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getFileUploadContext} from './context.svelte.js';
+  import {getFloatingPanelContext} from './floating-panel-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: FileUploadTriggerProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: FloatingPanelRestoreTriggerProps = $props();
 
-  let fileUpload = getFileUploadContext();
+  let floatingPanel = getFloatingPanelContext();
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getTriggerProps()));
+  let mergedProps = $derived(
+    mergeProps(props, floatingPanel.getRestoreTriggerProps()),
+  );
 </script>
 
 {#if asChild}
