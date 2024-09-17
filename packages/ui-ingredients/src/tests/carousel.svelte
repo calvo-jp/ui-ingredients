@@ -21,7 +21,7 @@
 
   <Carousel.IndicatorGroup>
     {#each images as _, index}
-      <Carousel.Indicator {index} />
+      <Carousel.Indicator {index}>{index}</Carousel.Indicator>
     {/each}
   </Carousel.IndicatorGroup>
 
