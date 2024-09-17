@@ -12,7 +12,7 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {parts} from './anatomy.js';
+  import {parts} from './segment-group-anatomy.js';
   import {
     getSegmentGroupContext,
     setSegmentGroupItemPropsContext,

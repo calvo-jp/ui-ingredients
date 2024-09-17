@@ -1,30 +1,29 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface PinInputClearTriggerProps
+  export interface TagsInputItemDeleteTriggerProps
     extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './pin-input-anatomy.js';
-  import {getPinInputContext} from './pin-input-context.svelte.js';
+  import {
+    getTagsInputContext,
+    getTagsInputItemPropsContext,
+  } from './tags-input-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: PinInputClearTriggerProps = $props();
+  }: TagsInputItemDeleteTriggerProps = $props();
 
-  let pinInput = getPinInputContext();
+  let tagsInput = getTagsInputContext();
+  let itemProps = getTagsInputItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      parts.clearTrigger.attrs,
-      pinInput.getClearTriggerProps(),
-    ),
+    mergeProps(props, tagsInput.getItemDeleteTriggerProps(itemProps)),
   );
 </script>
 

@@ -9,7 +9,7 @@ import type {
   HTMLTextareaAttributes,
 } from 'svelte/elements';
 import {uid} from 'uid';
-import {parts} from './anatomy.js';
+import {parts} from './field-anatomy.js';
 
 interface ElementIds {
   root?: string;

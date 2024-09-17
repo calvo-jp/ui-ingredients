@@ -1,33 +1,30 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SegmentGroupItemControlProps
+  export interface TimePickerPositionerProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './segment-group-anatomy.js';
-  import {
-    getSegmentGroupContext,
-    getSegmentGroupItemPropsContext,
-  } from './segment-group-context.svelte.js';
+  import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
+  import {getTimePickerContext} from './time-picker-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: SegmentGroupItemControlProps = $props();
+  }: TimePickerPositionerProps = $props();
 
-  let segmentGroup = getSegmentGroupContext();
-  let itemProps = getSegmentGroupItemPropsContext();
+  let timePicker = getTimePickerContext();
+  let presence = getPresenceContext();
 
   let mergedProps = $derived(
     mergeProps(
       props,
-      segmentGroup.getItemControlProps(itemProps),
-      parts.itemControl.attrs,
+      timePicker.getPositionerProps(),
+      presence.getPresenceProps(),
     ),
   );
 </script>

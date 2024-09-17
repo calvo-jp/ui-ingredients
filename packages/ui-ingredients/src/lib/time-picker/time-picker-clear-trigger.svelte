@@ -1,30 +1,25 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface PinInputClearTriggerProps
+  export interface TimePickerClearTriggerProps
     extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './pin-input-anatomy.js';
-  import {getPinInputContext} from './pin-input-context.svelte.js';
+  import {getTimePickerContext} from './time-picker-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: PinInputClearTriggerProps = $props();
+  }: TimePickerClearTriggerProps = $props();
 
-  let pinInput = getPinInputContext();
+  let timePicker = getTimePickerContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      parts.clearTrigger.attrs,
-      pinInput.getClearTriggerProps(),
-    ),
+    mergeProps(props, timePicker.getClearTriggerProps()),
   );
 </script>
 

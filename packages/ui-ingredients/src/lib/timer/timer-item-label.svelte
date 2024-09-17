@@ -1,26 +1,24 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SegmentGroupIndicatorProps
+  export interface TimerItemLabelProps
     extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './segment-group-anatomy.js';
-  import {getSegmentGroupContext} from './segment-group-context.svelte.js';
+  import {
+    getTimerContext,
+    getTimerItemPropsContext,
+  } from './timer-context.svelte.js';
 
-  let {
-    this: e,
-    asChild,
-    children,
-    ...props
-  }: SegmentGroupIndicatorProps = $props();
+  let {this: e, asChild, children, ...props}: TimerItemLabelProps = $props();
 
-  let segmentGroup = getSegmentGroupContext();
+  let timer = getTimerContext();
+  let itemProps = getTimerItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, segmentGroup.getIndicatorProps(), parts.indicator.attrs),
+    mergeProps(props, timer.getItemLabelProps(itemProps)),
   );
 </script>
 

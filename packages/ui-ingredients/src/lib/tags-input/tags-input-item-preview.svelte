@@ -1,34 +1,29 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface SegmentGroupItemControlProps
+  export interface TagsInputItemPreviewProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './segment-group-anatomy.js';
   import {
-    getSegmentGroupContext,
-    getSegmentGroupItemPropsContext,
-  } from './segment-group-context.svelte.js';
+    getTagsInputContext,
+    getTagsInputItemPropsContext,
+  } from './tags-input-context.svelte.js';
 
   let {
     this: e,
     asChild,
     children,
     ...props
-  }: SegmentGroupItemControlProps = $props();
+  }: TagsInputItemPreviewProps = $props();
 
-  let segmentGroup = getSegmentGroupContext();
-  let itemProps = getSegmentGroupItemPropsContext();
+  let tagsInput = getTagsInputContext();
+  let itemProps = getTagsInputItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      segmentGroup.getItemControlProps(itemProps),
-      parts.itemControl.attrs,
-    ),
+    mergeProps(props, tagsInput.getItemPreviewProps(itemProps)),
   );
 </script>
 

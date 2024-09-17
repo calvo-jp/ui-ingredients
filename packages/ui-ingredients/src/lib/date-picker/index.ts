@@ -29,5 +29,5 @@ export type {DatePickerYearSelectProps} from './date-picker-year-select.svelte';
 export type {DatePickerYearTableCellTriggerProps} from './date-picker-year-table-cell-trigger.svelte';
 export type {DatePickerYearTableCellProps} from './date-picker-year-table-cell.svelte';
 
-export {anatomy as datePickerAnatomy} from './anatomy.js';
+export {anatomy as datePickerAnatomy} from './date-picker-anatomy.js';
 export {getDatePickerContext} from './date-picker-context.svelte.js';
