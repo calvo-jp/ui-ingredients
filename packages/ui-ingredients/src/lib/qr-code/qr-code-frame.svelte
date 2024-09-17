@@ -1,0 +1,25 @@
+<script lang="ts" module>
+  import type {HtmlIngredientProps} from '$lib/types.js';
+
+  export interface QrCodeFrameProps
+    extends HtmlIngredientProps<'svg', SVGSVGElement> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '$lib/merge-props.js';
+  import {getQrCodeContext} from './qr-code-context.svelte.js';
+
+  let {this: e, asChild, children, ...props}: QrCodeFrameProps = $props();
+
+  let qrCode = getQrCodeContext();
+
+  let mergedProps = $derived(mergeProps(props, qrCode.getFrameProps()));
+</script>
+
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <svg bind:this={e} {...mergedProps}>
+    {@render children?.()}
+  </svg>
+{/if}

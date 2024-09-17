@@ -1,6 +1,6 @@
-export {default as ArrowTip} from './arrow-tip.svelte';
-export {default as Arrow} from './arrow.svelte';
-export {default as Content} from './content.svelte';
-export {default as Positioner} from './positioner.svelte';
-export {default as Root} from './root.svelte';
-export {default as Trigger} from './trigger.svelte';
+export {default as ArrowTip} from './tooltip-arrow-tip.svelte';
+export {default as Arrow} from './tooltip-arrow.svelte';
+export {default as Content} from './tooltip-content.svelte';
+export {default as Positioner} from './tooltip-positioner.svelte';
+export {default as Root} from './tooltip-root.svelte';
+export {default as Trigger} from './tooltip-trigger.svelte';

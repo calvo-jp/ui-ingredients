@@ -1,5 +1,8 @@
-export {getEnvironmentContext, type Environment} from './context.svelte.js';
+export {
+  getEnvironmentContext,
+  type Environment,
+} from './enviroment-provider-context.svelte.js';
 export {
   default as EnvironmentProvider,
   type EnvironmentProviderProps,
-} from './root.svelte';
+} from './environment-provider.svelte';

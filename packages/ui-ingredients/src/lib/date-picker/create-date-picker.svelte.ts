@@ -1,10 +1,10 @@
-import {getEnvironmentContext} from '$lib/environment-provider/context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/context.svelte.js';
+import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
+import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import type {GenericObject} from '$lib/types.js';
 import * as datePicker from '@zag-js/date-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {uid} from 'uid';
-import {parts} from './anatomy.js';
+import {parts} from './date-picker-anatomy.js';
 
 type Omitted =
   | 'id'

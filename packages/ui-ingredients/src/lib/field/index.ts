@@ -1,12 +1,12 @@
 export * as Field from './field.js';
 
-export type {FieldErrorTextProps} from './error-text.svelte';
-export type {FieldHelperTextProps} from './helper-text.svelte';
-export type {FieldInputProps} from './input.svelte';
-export type {FieldLabelProps} from './label.svelte';
-export type {FieldProps} from './root.svelte';
-export type {FieldSelectProps} from './select.svelte';
-export type {FieldTextareaProps} from './textarea.svelte';
+export type {FieldErrorTextProps} from './field-error-text.svelte';
+export type {FieldHelperTextProps} from './field-helper-text.svelte';
+export type {FieldInputProps} from './field-input.svelte';
+export type {FieldLabelProps} from './field-label.svelte';
+export type {FieldProps} from './field-root.svelte';
+export type {FieldSelectProps} from './field-select.svelte';
+export type {FieldTextareaProps} from './field-textarea.svelte';
 
-export {anatomy as fieldAnatomy} from './anatomy.js';
-export {getFieldContext} from './context.svelte.js';
+export {anatomy as fieldAnatomy} from './field-anatomy.js';
+export {getFieldContext} from './field-context.svelte.js';

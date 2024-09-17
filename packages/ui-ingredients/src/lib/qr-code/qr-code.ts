@@ -1,4 +1,4 @@
-export {default as Frame} from './frame.svelte';
-export {default as Overlay} from './overlay.svelte';
-export {default as Pattern} from './pattern.svelte';
-export {default as Root} from './root.svelte';
+export {default as Frame} from './qr-code-frame.svelte';
+export {default as Overlay} from './qr-code-overlay.svelte';
+export {default as Pattern} from './qr-code-pattern.svelte';
+export {default as Root} from './qr-code-root.svelte';

@@ -1,10 +1,10 @@
 export * as Checkbox from './checkbox.js';
 
-export type {CheckboxControlProps} from './control.svelte';
-export type {CheckboxHiddenInputProps} from './hidden-input.svelte';
-export type {CheckboxIndicatorProps} from './indicator.svelte';
-export type {CheckboxLabelProps} from './label.svelte';
-export type {CheckboxProps} from './root.svelte';
+export type {CheckboxControlProps} from './checkbox-control.svelte';
+export type {CheckboxHiddenInputProps} from './checkbox-hidden-input.svelte';
+export type {CheckboxIndicatorProps} from './checkbox-indicator.svelte';
+export type {CheckboxLabelProps} from './checkbox-label.svelte';
+export type {CheckboxProps} from './checkbox-root.svelte';
 
 export {anatomy as checkboxAnatomy} from '@zag-js/checkbox';
-export {getCheckboxContext} from './context.svelte.js';
+export {getCheckboxContext} from './checkbox-context.svelte.js';

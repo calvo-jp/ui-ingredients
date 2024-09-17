@@ -1,13 +1,13 @@
 export * as Dialog from './dialog.js';
 
-export type {DialogBackdropProps} from './backdrop.svelte';
-export type {DialogCloseTriggerProps} from './close-trigger.svelte';
-export type {DialogContentProps} from './content.svelte';
-export type {DialogDescriptionProps} from './description.svelte';
-export type {DialogPositionerProps} from './positioner.svelte';
-export type {DialogProps} from './root.svelte';
-export type {DialogTitleProps} from './title.svelte';
-export type {DialogTriggerProps} from './trigger.svelte';
+export type {DialogBackdropProps} from './dialog-backdrop.svelte';
+export type {DialogCloseTriggerProps} from './dialog-close-trigger.svelte';
+export type {DialogContentProps} from './dialog-content.svelte';
+export type {DialogDescriptionProps} from './dialog-description.svelte';
+export type {DialogPositionerProps} from './dialog-positioner.svelte';
+export type {DialogProps} from './dialog-root.svelte';
+export type {DialogTitleProps} from './dialog-title.svelte';
+export type {DialogTriggerProps} from './dialog-trigger.svelte';
 
 export {anatomy as dialogAnatomy} from '@zag-js/dialog';
-export {getDialogContext} from './context.svelte.js';
+export {getDialogContext} from './dialog-context.svelte.js';
