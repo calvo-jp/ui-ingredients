@@ -15,7 +15,7 @@
   import {
     getRadioGroupContext,
     setRadioGroupItemPropsContext,
-  } from './context.svelte.js';
+  } from './radio-group-context.svelte.js';
 
   let {this: e, children, asChild, ...props}: RadioGroupItemProps = $props();
 

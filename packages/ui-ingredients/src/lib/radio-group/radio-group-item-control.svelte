@@ -10,7 +10,7 @@
   import {
     getRadioGroupContext,
     getRadioGroupItemPropsContext,
-  } from './context.svelte.js';
+  } from './radio-group-context.svelte.js';
 
   let {
     this: e,

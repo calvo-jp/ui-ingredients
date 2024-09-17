@@ -16,7 +16,7 @@
   import {
     getSegmentGroupContext,
     setSegmentGroupItemPropsContext,
-  } from './context.svelte.js';
+  } from './segment-group-context.svelte.js';
 
   let {this: e, children, asChild, ...props}: SegmentGroupItemProps = $props();
 

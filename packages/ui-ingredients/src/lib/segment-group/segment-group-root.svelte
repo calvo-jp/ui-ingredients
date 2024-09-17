@@ -17,8 +17,8 @@
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {parts} from './anatomy.js';
-  import {setSegmentGroupContext} from './context.svelte.js';
   import {createSegmentGroup} from './create-segment-group.svelte.js';
+  import {setSegmentGroupContext} from './segment-group-context.svelte.js';
 
   let {this: e, asChild, children, ...props}: SegmentGroupProps = $props();
 

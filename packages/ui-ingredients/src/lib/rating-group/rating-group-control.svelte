@@ -1,19 +1,24 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface QrCodeOverlayProps
+  export interface RatingGroupControlProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getQrCodeContext} from './context.svelte.js';
+  import {getRatingGroupContext} from './rating-group-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: QrCodeOverlayProps = $props();
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: RatingGroupControlProps = $props();
 
-  let qrCode = getQrCodeContext();
+  let ratingGroup = getRatingGroupContext();
 
-  let mergedProps = $derived(mergeProps(props, qrCode.getOverlayProps()));
+  let mergedProps = $derived(mergeProps(props, ratingGroup.getControlProps()));
 </script>
 
 {#if asChild}

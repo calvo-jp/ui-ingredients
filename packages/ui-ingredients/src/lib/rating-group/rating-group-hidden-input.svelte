@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getRatingGroupContext} from './context.svelte.js';
+  import {getRatingGroupContext} from './rating-group-context.svelte.js';
 
   let {this: e, asChild, ...props}: RatingGroupHiddenInputProps = $props();
 

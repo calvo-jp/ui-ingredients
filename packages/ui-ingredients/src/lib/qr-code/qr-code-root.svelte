@@ -16,8 +16,8 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {setQrCodeContext} from './context.svelte.js';
   import {createQRCode} from './create-qr-code.svelte.js';
+  import {setQrCodeContext} from './qr-code-context.svelte.js';
 
   let {this: e, asChild, children, ...props}: QrCodeProps = $props();
 

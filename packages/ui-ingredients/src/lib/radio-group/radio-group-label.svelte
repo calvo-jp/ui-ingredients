@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getRadioGroupContext} from './context.svelte.js';
+  import {getRadioGroupContext} from './radio-group-context.svelte.js';
 
   let {this: e, asChild, children, ...props}: RadioGroupLabelProps = $props();
 
