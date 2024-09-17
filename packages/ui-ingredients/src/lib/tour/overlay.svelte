@@ -7,8 +7,8 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getPresenceStrategyPropsContext} from '$lib/presence/context.svelte.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
+  import {getPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {getTourContext} from './context.svelte.js';
 

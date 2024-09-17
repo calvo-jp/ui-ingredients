@@ -8,7 +8,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getPresenceContext} from '$lib/presence/context.svelte.js';
+  import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {getTooltipContext} from './context.svelte.js';
 
   let {this: e, asChild, children, ...props}: TooltipContentProps = $props();

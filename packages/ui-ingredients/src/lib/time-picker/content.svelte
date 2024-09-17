@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getPresenceContext} from '$lib/presence/context.svelte.js';
+  import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import type {Action} from 'svelte/action';
   import {getTimePickerContext} from './context.svelte.js';
 

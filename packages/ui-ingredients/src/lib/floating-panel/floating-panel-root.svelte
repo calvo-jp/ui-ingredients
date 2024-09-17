@@ -14,8 +14,8 @@
 </script>
 
 <script lang="ts">
-  import {setPresenceContext} from '$lib/presence/context.svelte.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
+  import {setPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {createFloatingPanel} from './create-floating-panel.svelte.js';

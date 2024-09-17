@@ -16,7 +16,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {setPresenceStrategyPropsContext} from '$lib/presence/context.svelte.js';
+  import {setPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setAccordionContext} from './avatar-context.svelte.js';
