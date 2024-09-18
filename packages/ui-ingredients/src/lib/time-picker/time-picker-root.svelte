@@ -25,7 +25,7 @@
 
   let {this: e, asChild, children, ...props}: TimePickerProps = $props();
 
-  let [timePickerProps, rest] = $derived(
+  let [createTimePickerProps, rest] = $derived(
     createSplitProps<CreateTimePickerProps>([
       'id',
       'ids',
@@ -53,7 +53,7 @@
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
-  let timePicker = createTimePicker(reflect(() => timePickerProps));
+  let timePicker = createTimePicker(reflect(() => createTimePickerProps));
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

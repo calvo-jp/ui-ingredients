@@ -21,13 +21,13 @@
 
   let {this: e, asChild, children, ...props}: QrCodeProps = $props();
 
-  let [qrCodeProps, localProps] = $derived(
+  let [createQrCodeProps, localProps] = $derived(
     createSplitProps<CreateQrCodeProps>(['id', 'ids', 'value', 'encoding'])(
       props,
     ),
   );
 
-  let qrCode = createQRCode(reflect(() => qrCodeProps));
+  let qrCode = createQRCode(reflect(() => createQrCodeProps));
 
   let mergedProps = $derived(mergeProps(localProps, qrCode.getRootProps()));
 

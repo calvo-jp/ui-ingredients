@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: FieldProps = $props();
 
-  let [fieldProps, localProps] = $derived(
+  let [createFieldProps, localProps] = $derived(
     createSplitProps<CreateFieldProps>([
       'id',
       'ids',
@@ -32,7 +32,7 @@
     ])(props),
   );
 
-  let field = createField(reflect(() => fieldProps));
+  let field = createField(reflect(() => createFieldProps));
 
   let mergedProps = $derived(mergeProps(localProps, field.getRootProps()));
 

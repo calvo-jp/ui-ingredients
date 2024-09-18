@@ -24,13 +24,13 @@
 
   let {children, ...props}: TourProps = $props();
 
-  let [presenceStrategyProps, tourProps] = $derived(
+  let [presenceStrategyProps, createTourProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
   );
 
-  let tour = createTour(reflect(() => tourProps));
+  let tour = createTour(reflect(() => createTourProps));
 
   let presence = createPresence(
     reflect(() => ({

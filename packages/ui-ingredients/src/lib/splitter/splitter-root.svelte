@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: SplitterProps = $props();
 
-  let [splitterProps, localProps] = $derived(
+  let [createSplitterProps, localProps] = $derived(
     createSplitProps<CreateSplitterProps>([
       'id',
       'ids',
@@ -32,7 +32,7 @@
     ])(props),
   );
 
-  let splitter = createSplitter(reflect(() => splitterProps));
+  let splitter = createSplitter(reflect(() => createSplitterProps));
 
   let mergedProps = $derived(mergeProps(localProps, splitter.getRootProps()));
 

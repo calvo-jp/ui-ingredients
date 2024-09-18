@@ -15,7 +15,7 @@
 
   let {this: e, asChild, ...props}: HighlightProps = $props();
 
-  let [highlightProps, localProps] = $derived(
+  let [highlightWordProps, localProps] = $derived(
     createSplitProps<HighlightWordProps>([
       'text',
       'query',
@@ -24,7 +24,7 @@
     ])(props),
   );
 
-  let chunks = $derived(highlightWord(highlightProps));
+  let chunks = $derived(highlightWord(highlightWordProps));
 </script>
 
 {#if asChild}

@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: SwitchProps = $props();
 
-  let [switchProps, localProps] = $derived(
+  let [createSwitchProps, localProps] = $derived(
     createSplitProps<CreateSwitchProps>([
       'id',
       'ids',
@@ -38,7 +38,7 @@
     ])(props),
   );
 
-  let switch_ = createSwitch(reflect(() => switchProps));
+  let switch_ = createSwitch(reflect(() => createSwitchProps));
 
   let mergedProps = $derived(mergeProps(localProps, switch_.getRootProps()));
 

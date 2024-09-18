@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: RatingGroupProps = $props();
 
-  let [ratingGroupProps, localProps] = $derived(
+  let [createRatingGroupProps, localProps] = $derived(
     createSplitProps<CreateRatingGroupProps>([
       'id',
       'ids',
@@ -40,7 +40,7 @@
     ])(props),
   );
 
-  let ratingGroup = createRatingGroup(reflect(() => ratingGroupProps));
+  let ratingGroup = createRatingGroup(reflect(() => createRatingGroupProps));
 
   let mergedProps = $derived(
     mergeProps(localProps, ratingGroup.getRootProps()),

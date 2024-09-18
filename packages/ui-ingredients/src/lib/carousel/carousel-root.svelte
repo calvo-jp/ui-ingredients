@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: CarouselProps = $props();
 
-  let [carouselProps, localProps] = $derived(
+  let [createCarouselProps, localProps] = $derived(
     createSplitProps<CreateCarouselProps>([
       'id',
       'ids',
@@ -35,7 +35,7 @@
     ])(props),
   );
 
-  let carousel = createCarousel(reflect(() => carouselProps));
+  let carousel = createCarousel(reflect(() => createCarouselProps));
 
   let mergedProps = $derived(mergeProps(localProps, carousel.getRootProps()));
 

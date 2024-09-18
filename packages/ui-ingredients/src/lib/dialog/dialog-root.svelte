@@ -26,13 +26,13 @@
 
   let {children, ...props}: DialogProps = $props();
 
-  let [presenceStrategyProps, dialogProps] = $derived(
+  let [presenceStrategyProps, createDialogProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
   );
 
-  let dialog = createDialog(reflect(() => dialogProps));
+  let dialog = createDialog(reflect(() => createDialogProps));
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

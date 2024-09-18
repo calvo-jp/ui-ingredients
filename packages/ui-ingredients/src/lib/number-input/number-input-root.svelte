@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: NumberInputProps = $props();
 
-  let [numberInputProps, localProps] = $derived(
+  let [createNumberInputProps, localProps] = $derived(
     createSplitProps<CreateNumberInputProps>([
       'id',
       'ids',
@@ -51,7 +51,7 @@
     ])(props),
   );
 
-  let numberInput = createNumberInput(reflect(() => numberInputProps));
+  let numberInput = createNumberInput(reflect(() => createNumberInputProps));
 
   let mergedProps = $derived(
     mergeProps(localProps, numberInput.getRootProps()),

@@ -30,7 +30,7 @@
     ),
   );
 
-  let [accordionProps, localProps] = $derived(
+  let [createAccordionProps, localProps] = $derived(
     createSplitProps<CreateAccordionProps>([
       'id',
       'ids',
@@ -44,7 +44,7 @@
     ])(rest),
   );
 
-  let accordion = createAccordion(reflect(() => accordionProps));
+  let accordion = createAccordion(reflect(() => createAccordionProps));
 
   let mergedProps = $derived(mergeProps(localProps, accordion.getRootProps()));
 

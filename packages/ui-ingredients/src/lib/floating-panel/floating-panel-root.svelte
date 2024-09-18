@@ -23,13 +23,15 @@
 
   let {children, ...props}: FloatingPanelProps = $props();
 
-  let [presenceStrategyProps, floatingPanelProps] = $derived(
+  let [presenceStrategyProps, createFloatingPanelProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
   );
 
-  let floatingPanel = createFloatingPanel(reflect(() => floatingPanelProps));
+  let floatingPanel = createFloatingPanel(
+    reflect(() => createFloatingPanelProps),
+  );
 
   let presence = createPresence(
     reflect(() => ({

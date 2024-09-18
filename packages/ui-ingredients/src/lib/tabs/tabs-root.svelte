@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: TabsProps = $props();
 
-  let [tabsProps, localProps] = $derived(
+  let [createTabsProps, localProps] = $derived(
     createSplitProps<CreateTabsProps>([
       'id',
       'ids',
@@ -36,7 +36,7 @@
     ])(props),
   );
 
-  let tabs = createTabs(reflect(() => tabsProps));
+  let tabs = createTabs(reflect(() => createTabsProps));
 
   let mergedProps = $derived(mergeProps(localProps, tabs.getRootProps()));
 

@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: SliderProps = $props();
 
-  let [sliderProps, localProps] = $derived(
+  let [createSliderProps, localProps] = $derived(
     createSplitProps<CreateSliderProps>([
       'id',
       'ids',
@@ -48,7 +48,7 @@
     ])(props),
   );
 
-  let slider = createSlider(reflect(() => sliderProps));
+  let slider = createSlider(reflect(() => createSliderProps));
 
   let mergedProps = $derived(mergeProps(localProps, slider.getRootProps()));
 

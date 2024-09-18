@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: ProgressProps = $props();
 
-  let [progressProps, localProps] = $derived(
+  let [createProgressProps, localProps] = $derived(
     createSplitProps<CreateProgressProps>([
       'id',
       'ids',
@@ -33,7 +33,7 @@
     ])(props),
   );
 
-  let progress = createProgress(reflect(() => progressProps));
+  let progress = createProgress(reflect(() => createProgressProps));
 
   let mergedProps = $derived(mergeProps(localProps, progress.getRootProps()));
 

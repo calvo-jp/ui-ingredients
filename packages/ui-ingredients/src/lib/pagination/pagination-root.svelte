@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: PaginationProps = $props();
 
-  let [paginationProps, localProps] = $derived(
+  let [createPaginationProps, localProps] = $derived(
     createSplitProps<CreatePaginationProps>([
       'id',
       'ids',
@@ -36,7 +36,7 @@
     ])(props),
   );
 
-  let pagination = createPagination(reflect(() => paginationProps));
+  let pagination = createPagination(reflect(() => createPaginationProps));
 
   let mergedProps = $derived(mergeProps(localProps, pagination.getRootProps()));
 

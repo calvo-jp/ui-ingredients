@@ -23,13 +23,13 @@
 
   let {children, ...props}: TooltipProps = $props();
 
-  let [presenceStrategyProps, tooltipProps] = $derived(
+  let [presenceStrategyProps, createTooltipProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
   );
 
-  let tooltip = createTooltip(reflect(() => tooltipProps));
+  let tooltip = createTooltip(reflect(() => createTooltipProps));
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

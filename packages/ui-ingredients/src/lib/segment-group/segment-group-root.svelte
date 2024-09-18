@@ -22,7 +22,7 @@
 
   let {this: e, asChild, children, ...props}: SegmentGroupProps = $props();
 
-  let [segmentGroupProps, localProps] = $derived(
+  let [createSegmentGroupProps, localProps] = $derived(
     createSplitProps<CreateSegmentGroupProps>([
       'id',
       'ids',
@@ -36,7 +36,7 @@
     ])(props),
   );
 
-  let segmentGroup = createSegmentGroup(reflect(() => segmentGroupProps));
+  let segmentGroup = createSegmentGroup(reflect(() => createSegmentGroupProps));
 
   let mergedProps = $derived(
     mergeProps(localProps, segmentGroup.getRootProps(), parts.root.attrs),

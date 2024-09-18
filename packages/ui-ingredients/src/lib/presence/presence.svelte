@@ -18,7 +18,7 @@
 
   let {asChild, children, ...props}: PresenceProps = $props();
 
-  let [presenceProps, localProps] = $derived(
+  let [createPresenceProps, localProps] = $derived(
     createSplitProps<CreatePresenceProps>([
       'present',
       'lazyMount',
@@ -26,7 +26,7 @@
     ])(props),
   );
 
-  let presence = createPresence(reflect(() => presenceProps));
+  let presence = createPresence(reflect(() => createPresenceProps));
 
   let mergedProps = $derived(
     mergeProps(localProps, presence.getPresenceProps()),

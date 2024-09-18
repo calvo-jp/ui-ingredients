@@ -31,7 +31,7 @@
     ),
   );
 
-  let [comboboxProps, localProps] = $derived(
+  let [createComboboxProps, localProps] = $derived(
     createSplitProps<CreateComboboxProps<T>>([
       'id',
       'ids',
@@ -77,7 +77,7 @@
     ])(rest),
   );
 
-  let combobox = createCombobox(reflect(() => comboboxProps));
+  let combobox = createCombobox(reflect(() => createComboboxProps));
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

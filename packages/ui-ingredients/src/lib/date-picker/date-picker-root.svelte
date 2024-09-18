@@ -29,7 +29,7 @@
     createSplitProps<PresenceStrategyProps>([])(props),
   );
 
-  let [datePickerProps, localProps] = $derived(
+  let [createDatePickerProps, localProps] = $derived(
     createSplitProps<CreateDatePickerProps>([
       'id',
       'ids',
@@ -62,7 +62,7 @@
     ])(rest),
   );
 
-  let datePicker = createDatePicker(reflect(() => datePickerProps));
+  let datePicker = createDatePicker(reflect(() => createDatePickerProps));
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

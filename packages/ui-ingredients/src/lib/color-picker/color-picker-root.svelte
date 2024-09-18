@@ -23,7 +23,7 @@
 
   let {this: e, asChild, children, ...props}: ColorPickerProps = $props();
 
-  let [colorPickerProps, localProps] = $derived(
+  let [createColorPickerProps, localProps] = $derived(
     createSplitProps<CreateColorPickerProps>([
       'id',
       'ids',
@@ -48,7 +48,7 @@
     ])(props),
   );
 
-  let colorPicker = createColorPicker(reflect(() => colorPickerProps));
+  let colorPicker = createColorPicker(reflect(() => createColorPickerProps));
   let presence = createPresence({
     get present() {
       return colorPicker.open;

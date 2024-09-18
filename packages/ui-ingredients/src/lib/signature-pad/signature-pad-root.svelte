@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: SignaturePadProps = $props();
 
-  let [signaturePadProps, localProps] = $derived(
+  let [createSignaturePadProps, localProps] = $derived(
     createSplitProps<CreateSignaturePadProps>([
       'id',
       'ids',
@@ -36,7 +36,7 @@
     ])(props),
   );
 
-  let signaturePad = createSignaturePad(reflect(() => signaturePadProps));
+  let signaturePad = createSignaturePad(reflect(() => createSignaturePadProps));
 
   let mergedProps = $derived(
     mergeProps(localProps, signaturePad.getRootProps()),

@@ -21,7 +21,7 @@
 
   let {this: e, asChild, children, ...props}: FileUploadProps = $props();
 
-  let [fileUploadProps, localProps] = $derived(
+  let [createFileUploadProps, localProps] = $derived(
     createSplitProps<CreateFileUploadProps>([
       'id',
       'ids',
@@ -45,7 +45,7 @@
     ])(props),
   );
 
-  let fileUpload = createFileUpload(reflect(() => fileUploadProps));
+  let fileUpload = createFileUpload(reflect(() => createFileUploadProps));
 
   let mergedProps = $derived(mergeProps(localProps, fileUpload.getRootProps()));
 

@@ -23,7 +23,7 @@
 
   let {children, ...props}: PopoverProps = $props();
 
-  let [popoverProps, presenceStrategyProps] = $derived(
+  let [createPopoverProps, presenceStrategyProps] = $derived(
     createSplitProps<CreatePopoverProps>([
       'autoFocus',
       'closeOnEscape',
@@ -45,7 +45,7 @@
     ])(props),
   );
 
-  let popover = createPopover(reflect(() => popoverProps));
+  let popover = createPopover(reflect(() => createPopoverProps));
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

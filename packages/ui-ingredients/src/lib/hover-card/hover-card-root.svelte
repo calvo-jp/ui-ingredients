@@ -23,7 +23,7 @@
 
   let {children, ...props}: HoverCardProps = $props();
 
-  let [hoverCardProps, presenceStrategyProps] = $derived(
+  let [createHoverCardProps, presenceStrategyProps] = $derived(
     createSplitProps<CreateHoverCardProps>([
       'id',
       'ids',
@@ -36,7 +36,7 @@
     ])(props),
   );
 
-  let hoverCard = createHoverCard(reflect(() => hoverCardProps));
+  let hoverCard = createHoverCard(reflect(() => createHoverCardProps));
 
   let presence = createPresence(
     reflect(() => ({
