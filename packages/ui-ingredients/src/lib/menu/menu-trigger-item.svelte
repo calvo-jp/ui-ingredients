@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {getMenuContext} from './menu-context.svelte.js';
+  import {getMenuTriggerItemContext} from './menu-context.svelte.js';
 
   let {
     this: e,
@@ -16,9 +16,9 @@
     ...props
   }: MenuTriggerItemIndicatorProps = $props();
 
-  let menu = getMenuContext();
+  let menuTriggerItemProps = getMenuTriggerItemContext();
 
-  let mergedProps = $derived(mergeProps(props, menu.getTriggerItemProps(menu)));
+  let mergedProps = $derived(mergeProps(props, menuTriggerItemProps));
 </script>
 
 {#if asChild}

@@ -10,7 +10,9 @@ export interface CreateMenuProps
   defaultOpen?: boolean;
 }
 
-export interface CreateMenuReturn extends menu.Api {}
+export interface CreateMenuReturn extends menu.Api {
+  machine: menu.Service;
+}
 
 export function createMenu(props: CreateMenuProps): CreateMenuReturn {
   const locale = getLocaleContext();
@@ -27,7 +29,10 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
     'open.controlled': props.open != null,
   }));
 
-  const [state, send] = useMachine(menu.machine(context), {context});
+  const [state, send, machine] = useMachine(menu.machine(context), {context});
 
-  return reflect(() => menu.connect(state, send, normalizeProps));
+  return reflect(() => ({
+    ...menu.connect(state, send, normalizeProps),
+    machine,
+  }));
 }
