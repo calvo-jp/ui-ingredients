@@ -13,8 +13,6 @@
 
   let combobox = getComboboxContext();
 
-  $inspect(combobox.getInputProps());
-
   let mergedProps = $derived(
     mergeProps({...props, 'aria-expanded': false}, combobox.getInputProps()),
   );
