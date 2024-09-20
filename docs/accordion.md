@@ -55,3 +55,57 @@ A toggle component for expanding and collapsing sections of content.
   {/each}
 </Accordion.Root>
 ```
+
+## Props
+
+### Root
+
+- `ids`
+
+  The ids of the elements
+
+- `value`
+
+  The `value` of the accordion items that are currently being expanded.
+
+- `disabled`
+
+  Whether the accordion items are disabled
+
+- `multiple`
+
+  Whether multple accordion items can be expanded at the same time.
+
+- `orientation`
+
+  The orientation of the accordion items.
+
+- `collapsible`
+
+  Whether an accordion item can be closed after it has been expanded.
+
+- `onFocusChange`
+
+  The callback fired when the focused accordion item changes.
+
+- `onValueChange`
+
+  The callback fired when the state of expanded/collapsed accordion items changes.
+
+- `lazyMount`
+
+  Should the item be mounted only when expanded?
+
+- `keepMounted`
+
+  Should the item stays in the DOM when it is not expanded?
+
+### Item
+
+- `value`
+
+  The value of the accordion item.
+
+- `disabled`
+
+  Whether the accordion item is disabled.

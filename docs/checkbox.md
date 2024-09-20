@@ -51,3 +51,47 @@ An interactive component for selecting one or multiple options in a list.
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## Props
+
+### Root
+
+- `ids`
+
+  The ids of the elements
+
+- `form`
+
+  The id of the form that the checkbox belongs to.
+
+- `name`
+
+  The name of the input field in a checkbox.
+
+- `value`
+
+  The value of checkbox input. Useful for form submission.
+
+- `checked`
+
+  The checked state of the checkbox
+
+- `invalid`
+
+  Whether the checkbox is invalid
+
+- `disabled`
+
+  Whether the checkbox is disabled
+
+- `readOnly`
+
+  Whether the checkbox is read-only
+
+- `required`
+
+  Whether the checkbox is required
+
+- `onCheckedChange`
+
+  The callback invoked when the checked state changes.
