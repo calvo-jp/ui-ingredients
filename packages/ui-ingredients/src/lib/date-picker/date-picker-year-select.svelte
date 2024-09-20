@@ -21,21 +21,6 @@
   let mergedProps = $derived(
     mergeProps(props, datePicker.getYearSelectProps()),
   );
-
-  function getYears() {
-    const currentYear = new Date().getFullYear();
-
-    const start = currentYear - 1000;
-    const until = currentYear + 1000;
-
-    const years = [];
-
-    for (let i = start; i <= until; i++) {
-      years.unshift(i);
-    }
-
-    return years;
-  }
 </script>
 
 {#if asChild}
@@ -45,8 +30,8 @@
     {#if children}
       {@render children()}
     {:else}
-      {#each getYears() as year}
-        <option value={year}>{year}</option>
+      {#each datePicker.getYears() as item}
+        <option value={item.value}>{item.label}</option>
       {/each}
     {/if}
   </select>

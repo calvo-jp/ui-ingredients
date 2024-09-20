@@ -2,7 +2,9 @@
   import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface DatePickerMonthSelectProps
-    extends HtmlIngredientProps<'select', HTMLSelectElement> {}
+    extends HtmlIngredientProps<'select', HTMLSelectElement> {
+    format?: 'short' | 'long';
+  }
 </script>
 
 <script lang="ts">
@@ -11,6 +13,7 @@
 
   let {
     this: e,
+    format = 'short',
     asChild,
     children,
     ...props
@@ -21,21 +24,6 @@
   let mergedProps = $derived(
     mergeProps(props, datePicker.getMonthSelectProps()),
   );
-
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
 </script>
 
 {#if asChild}
@@ -45,8 +33,8 @@
     {#if children}
       {@render children()}
     {:else}
-      {#each months as month, index}
-        <option value={index}>{month}</option>
+      {#each datePicker.getMonths({format}) as item}
+        <option value={item.value}>{item.label}</option>
       {/each}
     {/if}
   </select>
