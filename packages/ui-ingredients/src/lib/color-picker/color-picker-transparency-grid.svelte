@@ -24,12 +24,7 @@
   let colorPicker = getColorPickerContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      colorPicker.getTransparencyGridProps({
-        size,
-      }),
-    ),
+    mergeProps(props, colorPicker.getTransparencyGridProps({size})),
   );
 </script>
 

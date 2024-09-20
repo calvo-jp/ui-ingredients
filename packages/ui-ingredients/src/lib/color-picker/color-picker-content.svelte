@@ -30,10 +30,12 @@
   );
 </script>
 
-{#if asChild}
-  {@render asChild(presence.ref, mergedProps)}
-{:else}
-  <div bind:this={e} {...mergedProps}>
-    {@render children?.()}
-  </div>
+{#if presence.mounted}
+  {#if asChild}
+    {@render asChild(presence.ref, mergedProps)}
+  {:else}
+    <div bind:this={e} use:presence.ref {...mergedProps}>
+      {@render children?.()}
+    </div>
+  {/if}
 {/if}

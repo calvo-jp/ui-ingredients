@@ -178,6 +178,10 @@ export const links: Link[] = [
     label: 'Highlight',
     path: '/highlight',
   },
+  {
+    label: 'Color Picker',
+    path: '/color-picker',
+  },
 ]
   .filter((o) => !o.hidden)
   .toSorted((i, j) => i.label.localeCompare(j.label));

@@ -4,6 +4,7 @@
   import {inputRecipe, type InputRecipeProps} from './input.recipe.js';
 
   let {
+    size,
     class: className,
     variant,
     ...props
@@ -12,6 +13,7 @@
 
 <input
   class={inputRecipe({
+    size,
     variant,
     className,
   })}

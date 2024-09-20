@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateColorPickerProps,
@@ -7,9 +8,10 @@
 
   export interface ColorPickerProps
     extends Assign<
-      HtmlIngredientProps<'div', HTMLDivElement, CreateColorPickerReturn>,
-      CreateColorPickerProps
-    > {}
+        HtmlIngredientProps<'div', HTMLDivElement, CreateColorPickerReturn>,
+        CreateColorPickerProps
+      >,
+      PresenceStrategyProps {}
 </script>
 
 <script lang="ts">
@@ -22,6 +24,12 @@
   import {createColorPicker} from './create-color-picker.svelte.js';
 
   let {this: e, asChild, children, ...props}: ColorPickerProps = $props();
+
+  let [presenceProps, etc] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
+  );
 
   let [createColorPickerProps, localProps] = $derived(
     createSplitProps<CreateColorPickerProps>([
@@ -45,15 +53,17 @@
       'onFormatChange',
       'onInteractOutside',
       'onPointerDownOutside',
-    ])(props),
+    ])(etc),
   );
 
   let colorPicker = createColorPicker(reflect(() => createColorPickerProps));
-  let presence = createPresence({
-    get present() {
-      return colorPicker.open;
-    },
-  });
+
+  let presence = createPresence(
+    reflect(() => ({
+      present: colorPicker.open,
+      ...presenceProps,
+    })),
+  );
 
   let mergedProps = $derived(
     mergeProps(localProps, colorPicker.getRootProps()),

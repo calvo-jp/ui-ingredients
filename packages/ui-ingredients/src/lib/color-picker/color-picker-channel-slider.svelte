@@ -1,24 +1,21 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
-  import type {ChannelSliderProps} from '@zag-js/color-picker';
+  import type {ChannelProps} from '@zag-js/color-picker';
 
   export interface ColorPickerChannelSliderProps
-    extends Assign<
-      HtmlIngredientProps<'div', HTMLDivElement>,
-      ChannelSliderProps
-    > {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ChannelProps> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
     getColorPickerContext,
-    setColorPickerChannelSliderPropsContext,
+    getColorPickerFormatPropsContext,
+    setColorPickerChannelPropsContext,
   } from './color-picker-context.svelte.js';
 
   let {
     this: e,
-    format,
     channel,
     orientation,
     asChild,
@@ -27,17 +24,22 @@
   }: ColorPickerChannelSliderProps = $props();
 
   let colorPicker = getColorPickerContext();
-  let channelSliderProps: ChannelSliderProps = $derived({
-    format,
+  let formatProps = getColorPickerFormatPropsContext();
+  let channelProps = $derived({
     channel,
     orientation,
+  });
+
+  let channelSliderProps = $derived({
+    ...formatProps,
+    ...channelProps,
   });
 
   let mergedProps = $derived(
     mergeProps(props, colorPicker.getChannelSliderProps(channelSliderProps)),
   );
 
-  setColorPickerChannelSliderPropsContext(() => channelSliderProps);
+  setColorPickerChannelPropsContext(() => channelProps);
 </script>
 
 {#if asChild}

@@ -1,20 +1,24 @@
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
+import type {GenericObject} from '$lib/types.js';
 import * as colorPicker from '@zag-js/color-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {uid} from 'uid';
+import {parts} from './color-picker-anatomy.js';
+
+type Omitted = 'id' | 'dir' | 'value' | 'getRootNode' | 'open.controlled';
 
 export interface CreateColorPickerProps
-  extends Omit<
-    colorPicker.Context,
-    'id' | 'dir' | 'value' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<colorPicker.Context, Omitted> {
   id?: string | null;
   value?: string;
   defaultOpen?: boolean;
 }
 
-export interface CreateColorPickerReturn extends colorPicker.Api {}
+export interface CreateColorPickerReturn extends colorPicker.Api {
+  getViewProps(props: {format: colorPicker.ColorFormat}): GenericObject;
+  getFormats(): {label: string; value: colorPicker.ColorFormat}[];
+}
 
 export function createColorPicker(
   props: CreateColorPickerProps,
@@ -24,7 +28,7 @@ export function createColorPicker(
 
   const id = uid();
 
-  const context: colorPicker.Context = reflect(() => ({
+  const context: colorPicker.Context = $derived.by(() => ({
     ...props,
     id: props.id ?? id,
     dir: locale?.dir,
@@ -36,5 +40,34 @@ export function createColorPicker(
 
   const [state, send] = useMachine(colorPicker.machine(context), {context});
 
-  return reflect(() => colorPicker.connect(state, send, normalizeProps));
+  return reflect(() => {
+    const o = colorPicker.connect(state, send, normalizeProps);
+
+    return {
+      ...o,
+      getViewProps(props) {
+        return {
+          hidden: props.format !== o.format,
+          'data-format': o.format,
+          ...parts.view.attrs,
+        };
+      },
+      getFormats() {
+        return [
+          {
+            label: 'RGBA',
+            value: 'rgba',
+          },
+          {
+            label: 'HSLA',
+            value: 'hsla',
+          },
+          {
+            label: 'HSBA',
+            value: 'hsba',
+          },
+        ];
+      },
+    };
+  });
 }

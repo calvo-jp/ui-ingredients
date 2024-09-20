@@ -1,15 +1,13 @@
 import {tv, type VariantProps} from 'tailwind-variants';
 
 export const inputRecipe = tv({
-  base: [
-    'block',
-    'h-12',
-    'w-full',
-    'px-4',
-    'rounded',
-    'placeholder:text-neutral-600',
-  ],
+  base: ['block', 'w-full', 'rounded', 'placeholder:text-neutral-600'],
   variants: {
+    size: {
+      xs: 'px-2.5 h-10',
+      sm: 'px-3 h-11',
+      md: 'px-4 h-12',
+    },
     variant: {
       outline: [
         'border',
@@ -22,6 +20,7 @@ export const inputRecipe = tv({
     },
   },
   defaultVariants: {
+    size: 'md',
     variant: 'outline',
   },
 });

@@ -21,8 +21,6 @@
   let mergedProps = $derived(
     mergeProps(props, colorPicker.getFormatSelectProps()),
   );
-
-  let formats = ['rgba', 'hsla', 'hsba'];
 </script>
 
 {#if asChild}
@@ -32,8 +30,10 @@
     {#if children}
       {@render children()}
     {:else}
-      {#each formats as format}
-        <option value={format}>{format}</option>
+      {#each colorPicker.getFormats() as format}
+        <option value={format.value}>
+          {format.label}
+        </option>
       {/each}
     {/if}
   </select>

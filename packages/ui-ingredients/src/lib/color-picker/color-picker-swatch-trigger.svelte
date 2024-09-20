@@ -5,19 +5,17 @@
   export interface ColorPickerSwatchTriggerProps
     extends Assign<
       HtmlIngredientProps<'button', HTMLButtonElement>,
-      Pick<SwatchTriggerProps, 'disabled'>
+      SwatchTriggerProps
     > {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {
-    getColorPickerContext,
-    getColorPickerSwatchPropsContext,
-  } from './color-picker-context.svelte.js';
+  import {getColorPickerContext} from './color-picker-context.svelte.js';
 
   let {
     this: e,
+    value,
     disabled,
     asChild,
     children,
@@ -25,13 +23,12 @@
   }: ColorPickerSwatchTriggerProps = $props();
 
   let colorPicker = getColorPickerContext();
-  let swatchProps = getColorPickerSwatchPropsContext();
 
   let mergedProps = $derived(
     mergeProps(
       props,
       colorPicker.getSwatchTriggerProps({
-        value: swatchProps.value,
+        value,
         disabled,
       }),
     ),

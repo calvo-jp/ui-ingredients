@@ -9,7 +9,7 @@
   import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    getColorPickerChannelSliderPropsContext,
+    getColorPickerChannelPropsContext,
     getColorPickerContext,
   } from './color-picker-context.svelte.js';
 
@@ -22,13 +22,10 @@
 
   let locale = getLocaleContext();
   let colorPicker = getColorPickerContext();
-  let channelSliderProps = getColorPickerChannelSliderPropsContext();
+  let channelProps = getColorPickerChannelPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      props,
-      colorPicker.getChannelSliderValueTextProps(channelSliderProps),
-    ),
+    mergeProps(props, colorPicker.getChannelSliderValueTextProps(channelProps)),
   );
 </script>
 
@@ -39,10 +36,7 @@
     {#if children}
       {@render children()}
     {:else}
-      {colorPicker.getChannelValueText(
-        channelSliderProps.channel,
-        locale.locale,
-      )}
+      {colorPicker.getChannelValueText(channelProps.channel, locale.locale)}
     {/if}
   </div>
 {/if}

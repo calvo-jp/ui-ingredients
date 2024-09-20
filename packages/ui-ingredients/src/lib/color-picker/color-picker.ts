@@ -23,4 +23,6 @@ export {default as SwatchTrigger} from './color-picker-swatch-trigger.svelte';
 export {default as Swatch} from './color-picker-swatch.svelte';
 export {default as TransparencyGrid} from './color-picker-transparency-grid.svelte';
 export {default as Trigger} from './color-picker-trigger.svelte';
+export {default as ValueSwatchProps} from './color-picker-value-swatch.svelte';
 export {default as ValueText} from './color-picker-value-text.svelte';
+export {default as ViewTextProps} from './color-picker-view.svelte';
