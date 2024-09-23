@@ -4,8 +4,6 @@
   import {Label} from '../shared/index.js';
 
   let value = $state(1);
-
-  $inspect(value);
 </script>
 
 <RatingGroup.Root

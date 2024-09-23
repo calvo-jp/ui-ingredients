@@ -10,8 +10,6 @@
   ];
 
   let value = $state('1');
-
-  $inspect(value);
 </script>
 
 <RadioGroup.Root

@@ -4,8 +4,6 @@
   import {Input, Label} from '../shared/index.js';
 
   let value = $state('0');
-
-  $inspect(value);
 </script>
 
 <NumberInput.Root

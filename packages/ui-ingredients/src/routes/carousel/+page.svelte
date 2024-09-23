@@ -12,8 +12,6 @@
   ];
 
   let index = $state(0);
-
-  $inspect({index});
 </script>
 
 <Carousel.Root

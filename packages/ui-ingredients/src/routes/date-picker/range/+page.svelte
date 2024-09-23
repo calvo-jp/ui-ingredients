@@ -10,8 +10,6 @@
   import {IconButton, Input, Label} from '../../shared/index.js';
 
   let value: string[] = $state([]);
-
-  $inspect(value);
 </script>
 
 <DatePicker.Root

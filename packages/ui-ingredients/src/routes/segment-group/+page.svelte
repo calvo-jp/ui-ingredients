@@ -2,16 +2,16 @@
   import {SegmentGroup} from '$lib/index.js';
 
   let items = [
-    {value: 'React'},
-    {value: 'Solid'},
-    {value: 'Svelte'},
-    {value: 'Vue'},
-    {value: 'Angular'},
+    {value: 'Item 1'},
+    {value: 'Item 2'},
+    {value: 'Item 3'},
+    {value: 'Item 4'},
+    {value: 'Item 5'},
   ];
 </script>
 
 <SegmentGroup.Root
-  value="React"
+  value={items[0].value}
   orientation="horizontal"
   class="relative flex w-fit"
 >

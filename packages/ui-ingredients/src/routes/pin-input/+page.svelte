@@ -3,8 +3,6 @@
   import {Input, Label} from '../shared/index.js';
 
   let value: string[] = $state([]);
-
-  $inspect(value);
 </script>
 
 <PinInput.Root

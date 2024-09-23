@@ -2,8 +2,6 @@
   import {Switch} from '$lib/index.js';
 
   let checked = $state(false);
-
-  $inspect(checked);
 </script>
 
 <Switch.Root

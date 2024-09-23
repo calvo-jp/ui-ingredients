@@ -3,12 +3,11 @@
   import {Button} from '../../shared/index.js';
 
   let items = [
-    /**/
-    'React',
-    'Svelte',
-    'Solid',
-    'Vue',
-    'Angular',
+    {value: '1', label: 'Item 1'},
+    {value: '2', label: 'Item 2'},
+    {value: '3', label: 'Item 3'},
+    {value: '4', label: 'Item 4'},
+    {value: '5', label: 'Item 5', disabled: true},
   ];
 </script>
 
@@ -26,10 +25,10 @@
       {#each items as item}
         <Menu.Item
           class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 flex w-32 cursor-default items-center rounded px-2.5 py-1"
-          value={item}
-          disabled={item === 'Angular'}
+          value={item.value}
+          disabled={item.disabled}
         >
-          {item}
+          {item.label}
         </Menu.Item>
       {/each}
     </Menu.Content>

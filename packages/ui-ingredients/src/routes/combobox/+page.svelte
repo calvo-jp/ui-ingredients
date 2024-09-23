@@ -8,27 +8,11 @@
   import {IconButton, Input, Label} from '../shared/index.js';
 
   let items = [
-    {
-      label: 'React',
-      value: 'react',
-    },
-    {
-      label: 'Solid',
-      value: 'solid',
-    },
-    {
-      label: 'Svelte',
-      value: 'svelte',
-    },
-    {
-      label: 'Vue',
-      value: 'vue',
-    },
-    {
-      label: 'Angular',
-      value: 'angular',
-      disabled: true,
-    },
+    {label: 'Option 1', value: '1'},
+    {label: 'Option 2', value: '2'},
+    {label: 'Option 3', value: '3'},
+    {label: 'Option 4', value: '4'},
+    {label: 'Option 5', value: '5', disabled: true},
   ];
 
   let value: string[] = $state([]);
@@ -40,11 +24,6 @@
       item.label.toLowerCase().includes(inputValue.toLowerCase()),
     ),
   );
-
-  $inspect({
-    value,
-    inputValue,
-  });
 </script>
 
 <Combobox.Root
@@ -67,7 +46,7 @@
 >
   <Combobox.Label class="text-muted mb-1 inline-block font-medium">
     {#snippet asChild(attrs)}
-      <Label {...attrs}>Select Frameworks</Label>
+      <Label {...attrs}>Label</Label>
     {/snippet}
   </Combobox.Label>
 

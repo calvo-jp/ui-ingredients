@@ -7,8 +7,6 @@
   import {Button, IconButton} from '../shared/index.js';
 
   let page = $state(1);
-
-  $inspect(page);
 </script>
 
 <Pagination.Root

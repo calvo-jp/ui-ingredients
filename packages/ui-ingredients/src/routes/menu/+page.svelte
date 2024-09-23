@@ -4,16 +4,14 @@
   import {Button} from '../shared/index.js';
 
   let items = [
-    {value: 'React'},
-    {value: 'Svelte'},
-    {value: 'Solid'},
-    {value: 'Vue'},
-    {value: 'Angular', disabled: true},
+    {value: 'Item 1'},
+    {value: 'Item 2'},
+    {value: 'Item 3'},
+    {value: 'Item 4'},
+    {value: 'Item 5', disabled: true},
   ];
 
   let selected: string[] = $state([]);
-
-  $inspect(selected);
 </script>
 
 <div class="flex gap-2">

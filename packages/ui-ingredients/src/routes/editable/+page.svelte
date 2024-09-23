@@ -13,7 +13,7 @@
 >
   <Editable.Label>
     {#snippet asChild(attrs)}
-      <Label {...attrs}>Framework</Label>
+      <Label {...attrs}>Label</Label>
     {/snippet}
   </Editable.Label>
 

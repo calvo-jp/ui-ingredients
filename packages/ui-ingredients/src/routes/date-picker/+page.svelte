@@ -9,8 +9,6 @@
 
   let value: string[] = $state([]);
 
-  $inspect(value);
-
   setTimeout(() => {
     value = ['2022-01-01'];
   }, 1000);

@@ -8,20 +8,14 @@
   import {Button, IconButton, Label} from '../shared/index.js';
 
   let items = $state([
-    {value: '1', label: 'React'},
-    {value: '2', label: 'Solid'},
-    {value: '3', label: 'Svelte'},
-    {value: '4', label: 'Angular', disabled: true},
+    {value: '1', label: 'Option 1'},
+    {value: '2', label: 'Option 2'},
+    {value: '3', label: 'Option 3'},
+    {value: '4', label: 'Option 4', disabled: true},
+    {value: '5', label: 'Option 5'},
   ]);
 
   let value: string[] = $state([]);
-
-  $inspect(value);
-
-  setTimeout(() => {
-    value = ['1'];
-    items = [...items, {value: '5', label: 'Vue'}];
-  }, 1000);
 </script>
 
 <Select.Root
@@ -30,19 +24,18 @@
   onValueChange={(detail) => {
     value = detail.value;
   }}
-  itemToString={(item) => item.label}
-  itemToValue={(item) => item.value}
   isItemDisabled={(item) => item.disabled ?? false}
   positioning={{
     sameWidth: true,
   }}
   lazyMount
   keepMounted={false}
+  deselectable
 >
   <Select.Control class="w-full lg:max-w-[24rem]">
     <Select.Label>
       {#snippet asChild(attrs)}
-        <Label {...attrs}>Framework</Label>
+        <Label {...attrs}>Label</Label>
       {/snippet}
     </Select.Label>
     <div class="flex gap-2">

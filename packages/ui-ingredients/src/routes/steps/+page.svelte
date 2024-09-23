@@ -11,8 +11,6 @@
   ];
 
   let step = $state(1);
-
-  $inspect(step);
 </script>
 
 <Steps.Root

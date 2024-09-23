@@ -3,9 +3,7 @@
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {Button, Label} from '../shared/index.js';
 
-  let value = $state(['Svelte']);
-
-  $inspect(value);
+  let value = $state(['Hello']);
 </script>
 
 <TagsInput.Root
@@ -18,7 +16,7 @@
   {#snippet children(context)}
     <TagsInput.Label>
       {#snippet asChild(attrs)}
-        <Label {...attrs}>Frameworks</Label>
+        <Label {...attrs}>Label</Label>
       {/snippet}
     </TagsInput.Label>
 
@@ -44,7 +42,7 @@
       <TagsInput.Input
         class="placeholder:text-muted w-32 shrink-0 bg-transparent outline-none"
         autofocus
-        placeholder="Framework"
+        placeholder="Placeholder"
       />
     </div>
 
