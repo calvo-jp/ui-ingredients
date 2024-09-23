@@ -7,7 +7,13 @@
   } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
-  let items = [
+  interface Option {
+    label: string;
+    value: string;
+    disabled?: boolean;
+  }
+
+  let items: Option[] = [
     {label: 'Option 1', value: '1'},
     {label: 'Option 2', value: '2'},
     {label: 'Option 3', value: '3'},
@@ -19,7 +25,7 @@
 
   let inputValue = $state('');
 
-  let matches = $derived(
+  let matches: Option[] = $derived(
     items.filter((item) =>
       item.label.toLowerCase().includes(inputValue.toLowerCase()),
     ),
@@ -36,15 +42,12 @@
   onInputValueChange={(detail) => {
     inputValue = detail.inputValue;
   }}
-  isItemDisabled={(item) => item.disabled ?? false}
-  itemToString={(item) => item.label}
-  itemToValue={(item) => item.value}
   positioning={{
     sameWidth: true,
   }}
   lazyMount
 >
-  <Combobox.Label class="text-muted mb-1 inline-block font-medium">
+  <Combobox.Label>
     {#snippet asChild(attrs)}
       <Label {...attrs}>Label</Label>
     {/snippet}

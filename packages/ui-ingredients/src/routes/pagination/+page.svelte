@@ -10,9 +10,9 @@
 </script>
 
 <Pagination.Root
-  count={50}
+  count={100}
   pageSize={10}
-  class="flex items-center gap-2"
+  class="flex w-full flex-wrap items-center gap-2"
   {page}
   onPageChange={(detail) => {
     page = detail.page;
