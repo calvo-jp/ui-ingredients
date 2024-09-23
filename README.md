@@ -46,6 +46,7 @@ npm install ui-ingredients
 - [Checkbox](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/checkbox.md)
 - [Clipboard](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/clipboard.md)
 - [Collapsible](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/collapsible.md)
+- [ColorPicker](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/color-picker.md)
 - [Combobox](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/combobox.md)
 - [DatePicker](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/date-picker.md)
 - [Dialog](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/dialog.md)
