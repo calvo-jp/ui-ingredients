@@ -43,6 +43,7 @@
       'loopFocus',
       'composite',
       'positioning',
+      'deselectable',
       'closeOnSelect',
       'highlightedValue',
       'itemToValue',
