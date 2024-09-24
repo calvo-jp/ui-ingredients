@@ -4,14 +4,7 @@
   import {IconButton, Input, Label} from '../shared/index.js';
 </script>
 
-<TimePicker.Root
-  allowSeconds
-  class="w-full lg:max-w-[24rem]"
-  positioning={{
-    sameWidth: true,
-  }}
-  open
->
+<TimePicker.Root allowSeconds class="w-full lg:max-w-[24rem]">
   {#snippet children(context)}
     <TimePicker.Label>
       {#snippet asChild(attrs)}
@@ -43,32 +36,61 @@
 
     <TimePicker.Positioner>
       <TimePicker.Content
-        class="bg-light relative aspect-square rounded border p-4"
+        class="bg-light relative flex h-[20rem] gap-2 rounded border p-4"
       >
-        <TimePicker.Column unit="hour">
+        <TimePicker.Column
+          unit="hour"
+          class="overflow-y-invisible snap-y snap-mandatory"
+        >
           {#each context.getHours() as item}
-            <TimePicker.HourCell value={item.value}>
+            <TimePicker.HourCell
+              value={item.value}
+              class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
+            >
               {item.label}
             </TimePicker.HourCell>
           {/each}
         </TimePicker.Column>
-        <TimePicker.Column unit="minute">
+
+        <TimePicker.Column
+          unit="minute"
+          class="overflow-y-invisible snap-y snap-mandatory"
+        >
           {#each context.getMinutes() as item}
-            <TimePicker.MinuteCell value={item.value}>
+            <TimePicker.MinuteCell
+              value={item.value}
+              class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
+            >
               {item.label}
             </TimePicker.MinuteCell>
           {/each}
         </TimePicker.Column>
-        <TimePicker.Column unit="second">
+        <TimePicker.Column
+          unit="second"
+          class="overflow-y-invisible snap-y snap-mandatory"
+        >
           {#each context.getSeconds() as item}
-            <TimePicker.SecondCell value={item.value}>
+            <TimePicker.SecondCell
+              value={item.value}
+              class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
+            >
               {item.label}
             </TimePicker.SecondCell>
           {/each}
         </TimePicker.Column>
         <TimePicker.Column unit="period">
-          <TimePicker.PeriodCell value="am">AM</TimePicker.PeriodCell>
-          <TimePicker.PeriodCell value="pm">PM</TimePicker.PeriodCell>
+          <TimePicker.PeriodCell
+            value="am"
+            class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
+          >
+            AM
+          </TimePicker.PeriodCell>
+          <TimePicker.PeriodCell
+            value="pm"
+            class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
+          >
+            PM
+          </TimePicker.PeriodCell>
         </TimePicker.Column>
       </TimePicker.Content>
     </TimePicker.Positioner>

@@ -182,6 +182,10 @@ export const links: Link[] = [
     label: 'Color Picker',
     path: '/color-picker',
   },
+  {
+    label: 'Time Picker',
+    path: '/time-picker',
+  },
 ]
   .filter((o) => !o.hidden)
   .toSorted((i, j) => i.label.localeCompare(j.label));

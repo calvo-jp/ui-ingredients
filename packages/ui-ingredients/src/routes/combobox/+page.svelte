@@ -22,10 +22,9 @@
   ];
 
   let value: string[] = $state([]);
-
   let inputValue = $state('');
 
-  let matches: Option[] = $derived(
+  let matches = $derived(
     items.filter((item) =>
       item.label.toLowerCase().includes(inputValue.toLowerCase()),
     ),
@@ -46,6 +45,7 @@
     sameWidth: true,
   }}
   lazyMount
+  placeholder="Please Select"
 >
   <Combobox.Label>
     {#snippet asChild(attrs)}
