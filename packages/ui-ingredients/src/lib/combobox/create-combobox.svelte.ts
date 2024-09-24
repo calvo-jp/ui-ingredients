@@ -55,8 +55,7 @@ export function createCombobox<T>(
     collection,
   }));
 
-  /* FIXME: pass controlled context */
-  const [state, send] = useMachine(combobox.machine(context));
+  const [state, send] = useMachine(combobox.machine(context), {context});
 
   return reflect(() => {
     const o = combobox.connect(state, send, normalizeProps);
