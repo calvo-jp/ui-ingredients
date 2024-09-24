@@ -1,5 +1,6 @@
 export * as FileUpload from './file-upload.js';
 
+export type {FileUploadClearTriggerProps} from './file-upload-clear-trigger.svelte';
 export type {FileUploadDropzoneProps} from './file-upload-dropzone.svelte';
 export type {FileUploadHiddenInputProps} from './file-upload-hidden-input.svelte';
 export type {FileUploadItemDeleteTriggerProps} from './file-upload-item-delete-trigger.svelte';

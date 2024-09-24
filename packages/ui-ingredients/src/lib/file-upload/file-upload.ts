@@ -1,3 +1,4 @@
+export {default as ClearTrigger} from './file-upload-clear-trigger.svelte';
 export {default as Dropzone} from './file-upload-dropzone.svelte';
 export {default as HiddenInput} from './file-upload-hidden-input.svelte';
 export {default as ItemDeleteTrigger} from './file-upload-item-delete-trigger.svelte';

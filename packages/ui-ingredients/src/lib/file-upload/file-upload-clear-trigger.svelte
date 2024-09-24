@@ -1,0 +1,32 @@
+<script lang="ts" module>
+  import type {HtmlIngredientProps} from '$lib/types.js';
+
+  export interface FileUploadClearTriggerProps
+    extends HtmlIngredientProps<'button', HTMLButtonElement> {}
+</script>
+
+<script lang="ts">
+  import {mergeProps} from '$lib/merge-props.js';
+  import {getFileUploadContext} from './file-upload-context.svelte.js';
+
+  let {
+    this: e,
+    asChild,
+    children,
+    ...props
+  }: FileUploadClearTriggerProps = $props();
+
+  let fileUpload = getFileUploadContext();
+
+  let mergedProps = $derived(
+    mergeProps(props, fileUpload.getClearTriggerProps()),
+  );
+</script>
+
+{#if asChild}
+  {@render asChild(mergedProps)}
+{:else}
+  <button bind:this={e} type="button" {...mergedProps}>
+    {@render children?.()}
+  </button>
+{/if}
