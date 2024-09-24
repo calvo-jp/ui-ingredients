@@ -1,6 +1,7 @@
 import {withTV} from 'tailwind-variants/transformer';
 import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme.js';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default withTV({
@@ -62,6 +63,7 @@ export default withTV({
         selected: 'selected',
         complete: 'complete',
         highlighted: 'highlighted',
+        focus: 'focus',
         today: 'today',
         'in-range': 'in-range',
         'range-start': 'range-start',
@@ -135,5 +137,22 @@ export default withTV({
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({addUtilities}) => {
+      addUtilities({
+        '.overflow-y-invisible': {
+          overflowY: 'auto',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+        '.overflow-x-invisible': {
+          overflowX: 'auto',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      });
+    }),
+  ],
 });
