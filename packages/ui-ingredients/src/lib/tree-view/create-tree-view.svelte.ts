@@ -11,7 +11,9 @@ export interface CreateTreeViewProps
 
 export interface CreateTreeViewReturn extends treeView.Api {}
 
-export function createTreeView(props: CreateTreeViewProps) {
+export function createTreeView(
+  props: CreateTreeViewProps,
+): CreateTreeViewReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 

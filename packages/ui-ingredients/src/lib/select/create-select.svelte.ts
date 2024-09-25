@@ -17,7 +17,9 @@ export interface CreateSelectProps<T>
 
 export interface CreateSelectReturn extends select.Api {}
 
-export function createSelect<T>(props: CreateSelectProps<T>) {
+export function createSelect<T>(
+  props: CreateSelectProps<T>,
+): CreateSelectReturn {
   const [collectionProps, selectProps] = $derived(
     createSplitProps<select.CollectionOptions<T>>([
       'items',

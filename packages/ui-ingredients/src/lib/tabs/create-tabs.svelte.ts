@@ -11,7 +11,7 @@ export interface CreateTabsProps
 
 export interface CreateTabsReturn extends tabs.Api {}
 
-export function createTabs(props: CreateTabsProps) {
+export function createTabs(props: CreateTabsProps): CreateTabsReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 

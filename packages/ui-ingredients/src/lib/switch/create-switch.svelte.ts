@@ -12,7 +12,7 @@ export interface CreateSwitchProps
 
 export interface CreateSwitchReturn extends switch_.Api {}
 
-export function createSwitch(props: CreateSwitchProps) {
+export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
   const field = getFieldContext();
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();

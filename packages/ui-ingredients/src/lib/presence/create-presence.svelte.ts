@@ -14,10 +14,15 @@ export interface CreatePresenceProps extends PresenceStrategyProps {
   present: boolean;
 }
 
-export interface CreatePresenceReturn
-  extends ReturnType<typeof createPresence> {}
+export interface CreatePresenceReturn {
+  ref: Action;
+  getPresenceProps: () => HTMLAttributes<HTMLElement>;
+  mounted: boolean;
+}
 
-export function createPresence(props: CreatePresenceProps) {
+export function createPresence(
+  props: CreatePresenceProps,
+): CreatePresenceReturn {
   const present = $derived(props.present);
   const lazyMount = $derived(props.lazyMount ?? false);
   const keepMounted = $derived(props.keepMounted ?? true);

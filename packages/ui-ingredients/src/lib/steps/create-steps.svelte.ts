@@ -11,7 +11,7 @@ export interface CreateStepsProps
 
 export interface CreateStepsReturn extends steps.Api {}
 
-export function createSteps(props: CreateStepsProps) {
+export function createSteps(props: CreateStepsProps): CreateStepsReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 

@@ -4,7 +4,7 @@ import * as toast from '@zag-js/toast';
 export interface CreateToastProps extends toast.Service {}
 export interface CreateToastReturn extends toast.Api {}
 
-export function createToast(props: CreateToastProps) {
+export function createToast(props: CreateToastProps): CreateToastReturn {
   const [state, send] = useActor(props);
 
   return reflect(() => toast.connect(state, send, normalizeProps));

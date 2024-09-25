@@ -15,7 +15,7 @@ export interface CreateTooltipProps
 
 export interface CreateTooltipReturn extends tooltip.Api {}
 
-export function createTooltip(props: CreateTooltipProps) {
+export function createTooltip(props: CreateTooltipProps): CreateTooltipReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 

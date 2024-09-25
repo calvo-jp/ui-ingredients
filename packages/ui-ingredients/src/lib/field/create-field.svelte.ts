@@ -28,9 +28,23 @@ export interface CreateFieldProps {
   readOnly?: boolean;
 }
 
-export interface CreateFieldReturn extends ReturnType<typeof createField> {}
+export interface CreateFieldReturn {
+  ids: ElementIds;
+  disabled: boolean;
+  required: boolean;
+  readOnly: boolean;
+  invalid: boolean;
+  'aria-describedby': string;
+  getRootProps: () => HTMLAttributes<HTMLElement>;
+  getLabelProps: () => HTMLLabelAttributes;
+  getErrorTextProps: () => HTMLAttributes<HTMLElement>;
+  getHelperTextProps: () => HTMLAttributes<HTMLElement>;
+  getInputProps: () => HTMLInputAttributes;
+  getSelectProps: () => HTMLSelectAttributes;
+  getTextareaProps: () => HTMLTextareaAttributes;
+}
 
-export function createField(props: CreateFieldProps) {
+export function createField(props: CreateFieldProps): CreateFieldReturn {
   const environment = getEnvironmentContext();
 
   const id_ = uid();

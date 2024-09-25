@@ -12,7 +12,9 @@ export interface CreateTagsInputProps
 
 export interface CreateTagsInputReturn extends tagsInput.Api {}
 
-export function createTagsInput(props: CreateTagsInputProps) {
+export function createTagsInput(
+  props: CreateTagsInputProps,
+): CreateTagsInputReturn {
   const field = getFieldContext();
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();

@@ -16,15 +16,17 @@ export interface CreateToasterProps {
   pauseOnPageIdle?: toast.GroupMachineContext['pauseOnPageIdle'];
 }
 
+type ToasterMachine = Machine<
+  toast.GroupMachineContext<any>,
+  {value: 'stack' | 'overlap'},
+  StateMachine.AnyEventObject
+>;
+
 export interface CreateToasterReturn extends toast.GroupApi {
-  machine: Machine<
-    toast.GroupMachineContext<any>,
-    {value: 'stack' | 'overlap'},
-    StateMachine.AnyEventObject
-  >;
+  machine: ToasterMachine;
 }
 
-export function createToaster(props?: CreateToasterProps) {
+export function createToaster(props?: CreateToasterProps): CreateToasterReturn {
   const id_ = uid();
   const id = $derived(props?.id ?? id_);
 
