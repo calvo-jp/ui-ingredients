@@ -1,4 +1,4 @@
-<script module lang="ts">
+<script lang="ts" context="module">
   import {type Snippet} from 'svelte';
 
   export interface PortalProps {
