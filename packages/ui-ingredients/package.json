@@ -94,6 +94,7 @@
     "@zag-js/collapsible": "0.71.0",
     "@zag-js/color-picker": "0.71.0",
     "@zag-js/combobox": "0.71.0",
+    "@zag-js/core": "0.71.0",
     "@zag-js/date-picker": "0.71.0",
     "@zag-js/dialog": "0.71.0",
     "@zag-js/dom-query": "0.71.0",
