@@ -1,4 +1,4 @@
-<script lang="ts" module>
+<script lang="ts" context="module">
   import type {HtmlIngredientProps} from '$lib/types.js';
   import type {CreateToastReturn} from './create-toast.svelte.js';
   import type {CreateToasterReturn} from './create-toaster.svelte.js';

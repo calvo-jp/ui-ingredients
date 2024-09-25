@@ -1,4 +1,4 @@
-<script lang="ts" module>
+<script lang="ts" context="module">
   import type {HtmlIngredientProps} from '$lib/types.js';
   import type {Action} from 'svelte/action';
 

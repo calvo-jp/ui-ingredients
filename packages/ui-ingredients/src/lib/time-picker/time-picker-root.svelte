@@ -1,4 +1,4 @@
-<script lang="ts" module>
+<script lang="ts" context="module">
   import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
