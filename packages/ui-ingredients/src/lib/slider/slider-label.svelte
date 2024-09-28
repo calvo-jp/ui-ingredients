@@ -18,7 +18,7 @@
 
   let slider = getSliderContext();
 
-  let mergedProps = $derived(mergeProps(props, slider.getLabelProps()));
+  let mergedProps = $derived(mergeProps(slider.getLabelProps(), props));
 </script>
 
 {#if asChild}

@@ -44,7 +44,7 @@
   let signaturePad = createSignaturePad(reflect(() => createSignaturePadProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, signaturePad.getRootProps()),
+    mergeProps(signaturePad.getRootProps(), localProps),
   );
 
   setSignaturePadContext(signaturePad);

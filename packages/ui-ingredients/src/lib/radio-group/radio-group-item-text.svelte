@@ -23,7 +23,7 @@
   let itemProps = getRadioGroupItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, radioGroup.getItemTextProps(itemProps)),
+    mergeProps(radioGroup.getItemTextProps(itemProps), props),
   );
 </script>
 

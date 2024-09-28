@@ -33,7 +33,7 @@
   let itemState = $derived(radioGroup.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, radioGroup.getItemProps(itemProps)),
+    mergeProps(radioGroup.getItemProps(itemProps), localProps),
   );
 
   setRadioGroupItemPropsContext(() => itemProps);

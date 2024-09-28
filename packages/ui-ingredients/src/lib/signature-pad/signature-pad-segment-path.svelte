@@ -24,7 +24,7 @@
   let signaturePad = getSignaturePadContext();
 
   let mergedProps = $derived(
-    mergeProps(props, signaturePad.getSegmentPathProps({path})),
+    mergeProps(signaturePad.getSegmentPathProps({path}), props),
   );
 </script>
 

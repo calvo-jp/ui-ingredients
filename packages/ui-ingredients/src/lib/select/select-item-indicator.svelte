@@ -23,7 +23,7 @@
   let itemProps = getSelectItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, select.getItemIndicatorProps(itemProps)),
+    mergeProps(select.getItemIndicatorProps(itemProps), props),
   );
 </script>
 

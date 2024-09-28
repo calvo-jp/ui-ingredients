@@ -25,7 +25,7 @@
 
   let itemState = $derived(ratingGroup.getItemState({index}));
   let mergedProps = $derived(
-    mergeProps(props, ratingGroup.getItemProps({index})),
+    mergeProps(ratingGroup.getItemProps({index}), props),
   );
 </script>
 

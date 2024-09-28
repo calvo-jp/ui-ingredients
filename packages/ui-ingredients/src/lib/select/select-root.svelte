@@ -76,7 +76,7 @@
     })),
   );
 
-  let mergedProps = $derived(mergeProps(localProps, select.getRootProps()));
+  let mergedProps = $derived(mergeProps(select.getRootProps(), localProps));
 
   setSelectContext(select);
   setPresenceContext(presence);

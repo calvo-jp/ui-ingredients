@@ -39,7 +39,7 @@
 
   let splitter = createSplitter(reflect(() => createSplitterProps));
 
-  let mergedProps = $derived(mergeProps(localProps, splitter.getRootProps()));
+  let mergedProps = $derived(mergeProps(splitter.getRootProps(), localProps));
 
   setSplitterContext(splitter);
 </script>

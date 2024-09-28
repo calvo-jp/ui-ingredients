@@ -25,8 +25,8 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       select.getItemGroupLabelProps({htmlFor: itemGroupProps.id}),
+      props,
     ),
   );
 </script>

@@ -55,7 +55,7 @@
 
   let slider = createSlider(reflect(() => createSliderProps));
 
-  let mergedProps = $derived(mergeProps(localProps, slider.getRootProps()));
+  let mergedProps = $derived(mergeProps(slider.getRootProps(), localProps));
 
   setSliderContext(slider);
 </script>

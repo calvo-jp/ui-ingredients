@@ -19,7 +19,7 @@
 
   let select = getSelectContext();
 
-  let mergedProps = $derived(mergeProps(props, select.getValueTextProps()));
+  let mergedProps = $derived(mergeProps(select.getValueTextProps(), props));
 </script>
 
 {#if asChild}

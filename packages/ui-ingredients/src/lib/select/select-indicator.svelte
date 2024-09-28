@@ -18,7 +18,7 @@
 
   let select = getSelectContext();
 
-  let mergedProps = $derived(mergeProps(props, select.getIndicatorProps()));
+  let mergedProps = $derived(mergeProps(select.getIndicatorProps(), props));
 </script>
 
 {#if asChild}

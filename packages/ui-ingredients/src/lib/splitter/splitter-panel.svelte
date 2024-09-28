@@ -25,7 +25,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, splitter.getPanelProps(panelProps)),
+    mergeProps(splitter.getPanelProps(panelProps), localProps),
   );
 </script>
 

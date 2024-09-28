@@ -44,7 +44,7 @@
   let segmentGroup = createSegmentGroup(reflect(() => createSegmentGroupProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, segmentGroup.getRootProps(), parts.root.attrs),
+    mergeProps(segmentGroup.getRootProps(), parts.root.attrs, localProps),
   );
 
   setSegmentGroupContext(segmentGroup);

@@ -18,7 +18,7 @@
 
   let select = getSelectContext();
 
-  let mergedProps = $derived(mergeProps(props, select.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(select.getTriggerProps(), props));
 </script>
 
 {#if asChild}

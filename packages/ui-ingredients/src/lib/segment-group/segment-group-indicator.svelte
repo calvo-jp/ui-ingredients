@@ -20,7 +20,7 @@
   let segmentGroup = getSegmentGroupContext();
 
   let mergedProps = $derived(
-    mergeProps(props, segmentGroup.getIndicatorProps(), parts.indicator.attrs),
+    mergeProps(segmentGroup.getIndicatorProps(), parts.indicator.attrs, props),
   );
 </script>
 

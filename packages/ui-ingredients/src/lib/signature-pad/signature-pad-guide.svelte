@@ -18,7 +18,7 @@
 
   let signaturePad = getSignaturePadContext();
 
-  let mergedProps = $derived(mergeProps(props, signaturePad.getGuideProps()));
+  let mergedProps = $derived(mergeProps(signaturePad.getGuideProps(), props));
 </script>
 
 {#if asChild}

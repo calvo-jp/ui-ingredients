@@ -42,7 +42,7 @@
 
   let radioGroup = createRadioGroup(reflect(() => createRadioGroupProps));
 
-  let mergedProps = $derived(mergeProps(localProps, radioGroup.getRootProps()));
+  let mergedProps = $derived(mergeProps(radioGroup.getRootProps(), localProps));
 
   setRadioGroupContext(radioGroup);
 </script>

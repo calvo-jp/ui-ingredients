@@ -34,9 +34,9 @@
   let itemState = $derived(segmentGroup.getItemState(itemProps));
   let mergedProps = $derived(
     mergeProps(
-      localProps,
       segmentGroup.getItemProps(itemProps),
       parts.item.attrs,
+      localProps,
     ),
   );
 

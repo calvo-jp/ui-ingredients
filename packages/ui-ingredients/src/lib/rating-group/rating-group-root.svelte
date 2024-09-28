@@ -48,7 +48,7 @@
   let ratingGroup = createRatingGroup(reflect(() => createRatingGroupProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, ratingGroup.getRootProps()),
+    mergeProps(ratingGroup.getRootProps(), localProps),
   );
 
   setRatingGroupContext(ratingGroup);

@@ -32,7 +32,7 @@
 
   let itemState = $derived(select.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(localProps, select.getItemProps(itemProps)),
+    mergeProps(select.getItemProps(itemProps), localProps),
   );
 
   setSelectItemPropsContext(() => itemProps);

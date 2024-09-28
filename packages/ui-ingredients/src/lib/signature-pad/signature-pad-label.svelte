@@ -18,7 +18,7 @@
 
   let signaturePad = getSignaturePadContext();
 
-  let mergedProps = $derived(mergeProps(props, signaturePad.getLabelProps()));
+  let mergedProps = $derived(mergeProps(signaturePad.getLabelProps(), props));
 </script>
 
 {#if asChild}

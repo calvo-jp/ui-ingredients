@@ -30,7 +30,7 @@
   });
 
   let mergedProps = $derived(
-    mergeProps(props, select.getItemGroupProps(itemGroupProps)),
+    mergeProps(select.getItemGroupProps(itemGroupProps), props),
   );
 
   setSelectItemGroupPropsContext(() => itemGroupProps);

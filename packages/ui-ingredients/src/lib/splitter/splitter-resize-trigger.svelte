@@ -39,7 +39,7 @@
   let itemState = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, splitter.getResizeTriggerProps(resizeTriggerProps)),
+    mergeProps(splitter.getResizeTriggerProps(resizeTriggerProps), localProps),
   );
 </script>
 

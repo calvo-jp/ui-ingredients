@@ -18,7 +18,7 @@
 
   let radioGroup = getRadioGroupContext();
 
-  let mergedProps = $derived(mergeProps(props, radioGroup.getLabelProps()));
+  let mergedProps = $derived(mergeProps(radioGroup.getLabelProps(), props));
 </script>
 
 {#if asChild}

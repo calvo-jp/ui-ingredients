@@ -22,10 +22,10 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       slider.getMarkerProps({
         value,
       }),
+      props,
     ),
   );
 </script>

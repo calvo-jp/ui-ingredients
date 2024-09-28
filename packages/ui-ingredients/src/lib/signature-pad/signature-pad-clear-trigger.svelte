@@ -19,7 +19,7 @@
   let signaturePad = getSignaturePadContext();
 
   let mergedProps = $derived(
-    mergeProps(props, signaturePad.getClearTriggerProps()),
+    mergeProps(signaturePad.getClearTriggerProps(), props),
   );
 </script>
 

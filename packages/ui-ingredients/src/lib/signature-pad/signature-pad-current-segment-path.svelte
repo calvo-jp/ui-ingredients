@@ -20,10 +20,10 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       signaturePad.getSegmentPathProps({
         path: signaturePad.currentPath ?? '',
       }),
+      props,
     ),
   );
 </script>

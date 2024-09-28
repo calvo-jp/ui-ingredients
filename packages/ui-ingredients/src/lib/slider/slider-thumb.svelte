@@ -28,7 +28,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, slider.getThumbProps(thumbProps)),
+    mergeProps(slider.getThumbProps(thumbProps), localProps),
   );
 
   setSliderThumbPropsContext(() => thumbProps);
