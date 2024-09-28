@@ -2,7 +2,7 @@
 
 import type {GenericObject} from './types.js';
 
-export function isPojo<T extends GenericObject>(value: unknown): value is T {
+export function isObject<T extends GenericObject>(value: unknown): value is T {
   if (value === null) {
     return false;
   }
