@@ -18,7 +18,7 @@
 
   let timePicker = getTimePickerContext();
 
-  let mergedProps = $derived(mergeProps(props, timePicker.getSpacerProps()));
+  let mergedProps = $derived(mergeProps(timePicker.getSpacerProps(), props));
 </script>
 
 {#if asChild}

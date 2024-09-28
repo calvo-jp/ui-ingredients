@@ -23,7 +23,7 @@
   let itemProps = getTimerItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, timer.getItemLabelProps(itemProps)),
+    mergeProps(timer.getItemLabelProps(itemProps), props),
   );
 </script>
 

@@ -4,7 +4,7 @@ import * as toast from '@zag-js/toast';
 import {uid} from 'uid';
 
 export interface CreateToasterProps {
-  id?: string | null;
+  id?: string;
   max?: toast.GroupMachineContext['max'];
   gap?: toast.GroupMachineContext['gap'];
   hotkey?: toast.GroupMachineContext['hotkey'];

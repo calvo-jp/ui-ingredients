@@ -7,7 +7,7 @@ import {uid} from 'uid';
 
 export interface CreateRatingGroupProps
   extends Omit<ratingGroup.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateRatingGroupReturn extends ratingGroup.Api {}

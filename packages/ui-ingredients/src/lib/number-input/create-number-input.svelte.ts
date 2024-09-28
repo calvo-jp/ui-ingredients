@@ -7,7 +7,7 @@ import {uid} from 'uid';
 
 export interface CreateNumberInputProps
   extends Omit<numberInput.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateNumberInputReturn extends numberInput.Api {}

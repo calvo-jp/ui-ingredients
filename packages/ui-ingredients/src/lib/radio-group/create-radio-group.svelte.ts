@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateRadioGroupProps
   extends Omit<radioGroup.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateRadioGroupReturn extends radioGroup.Api {}

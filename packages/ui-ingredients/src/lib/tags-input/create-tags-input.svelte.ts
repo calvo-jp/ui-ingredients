@@ -7,7 +7,7 @@ import {uid} from 'uid';
 
 export interface CreateTagsInputProps
   extends Omit<tagsInput.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateTagsInputReturn extends tagsInput.Api {}

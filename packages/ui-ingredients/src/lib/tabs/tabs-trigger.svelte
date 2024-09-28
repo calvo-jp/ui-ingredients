@@ -28,7 +28,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, tabs.getTriggerProps(triggerProps)),
+    mergeProps(tabs.getTriggerProps(triggerProps), localProps),
   );
 </script>
 

@@ -6,14 +6,14 @@
 
   interface Props {
     actor: toast$.Service;
-    children$: Snippet<[toast: CreateToastReturn]>;
+    children: Snippet<[toast: CreateToastReturn]>;
   }
 
-  let {actor, children$}: Props = $props();
+  let {actor, children}: Props = $props();
 
   let toast = createToast(actor);
 
   setToastContext(toast);
 </script>
 
-{@render children$(toast)}
+{@render children(toast)}

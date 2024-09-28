@@ -7,7 +7,7 @@ import {uid} from 'uid';
 
 export interface CreateSwitchProps
   extends Omit<switch_.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateSwitchReturn extends switch_.Api {}

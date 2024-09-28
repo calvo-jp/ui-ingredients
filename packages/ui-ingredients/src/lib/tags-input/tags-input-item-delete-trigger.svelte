@@ -23,7 +23,7 @@
   let itemProps = getTagsInputItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, tagsInput.getItemDeleteTriggerProps(itemProps)),
+    mergeProps(tagsInput.getItemDeleteTriggerProps(itemProps), props),
   );
 </script>
 

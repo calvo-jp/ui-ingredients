@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateSegmentGroupProps
   extends Omit<segmentGroup.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateSegmentGroupReturn extends segmentGroup.Api {}

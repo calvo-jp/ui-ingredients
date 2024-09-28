@@ -24,7 +24,7 @@
   let itemProps = getStepsItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, steps.getIndicatorProps(itemProps)),
+    mergeProps(steps.getIndicatorProps(itemProps), props),
   );
 </script>
 

@@ -28,7 +28,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, timer.getItemProps(itemProps)),
+    mergeProps(timer.getItemProps(itemProps), localProps),
   );
 
   setTimerItemPropsContext(() => itemProps);

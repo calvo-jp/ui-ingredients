@@ -18,7 +18,7 @@
 
   let steps = getStepsContext();
 
-  let mergedProps = $derived(mergeProps(props, steps.getNextTriggerProps()));
+  let mergedProps = $derived(mergeProps(steps.getNextTriggerProps(), props));
 </script>
 
 {#if asChild}

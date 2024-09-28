@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateAvatarProps
   extends Omit<avatar.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateAvatarReturn extends avatar.Api {}

@@ -5,7 +5,7 @@ import {uid} from 'uid';
 
 export interface CreateClipboardProps
   extends Omit<clipboard.Context, 'id' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateClipboardReturn extends clipboard.Api {}

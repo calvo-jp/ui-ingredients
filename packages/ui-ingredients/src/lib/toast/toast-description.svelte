@@ -18,7 +18,7 @@
 
   let context = getToastContext();
 
-  let mergedProps = $derived(mergeProps(props, context.getDescriptionProps()));
+  let mergedProps = $derived(mergeProps(context.getDescriptionProps(), props));
 </script>
 
 {#if asChild}

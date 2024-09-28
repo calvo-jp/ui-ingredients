@@ -7,7 +7,7 @@ import {uid} from 'uid';
 
 export interface CreateCheckboxProps
   extends Omit<checkbox.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateCheckboxReturn extends checkbox.Api {}

@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateFloatingPanelProps
   extends Omit<floatingPanel.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateFloatingPanelReturn extends floatingPanel.Api<any> {}

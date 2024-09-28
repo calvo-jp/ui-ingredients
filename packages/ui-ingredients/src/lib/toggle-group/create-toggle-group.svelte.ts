@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateToggleGroupProps
   extends Omit<toggleGroup.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateToggleGroupReturn extends toggleGroup.Api {}

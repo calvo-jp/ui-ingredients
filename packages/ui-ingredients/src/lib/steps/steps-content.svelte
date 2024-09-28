@@ -20,7 +20,7 @@
 
   let steps = getStepsContext();
 
-  let mergedProps = $derived(mergeProps(props, steps.getContentProps({index})));
+  let mergedProps = $derived(mergeProps(steps.getContentProps({index}), props));
 </script>
 
 {#if asChild}

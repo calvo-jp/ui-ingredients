@@ -66,7 +66,7 @@
     })),
   );
 
-  let mergedProps = $derived(mergeProps(localProps, timePicker.getRootProps()));
+  let mergedProps = $derived(mergeProps(timePicker.getRootProps(), localProps));
 
   setTimePickerContext(timePicker);
   setPresenceContext(presence);

@@ -20,7 +20,7 @@ interface ElementIds {
 }
 
 export interface CreateFieldProps {
-  id?: string | null;
+  id?: string;
   ids?: ElementIds;
   invalid?: boolean;
   required?: boolean;

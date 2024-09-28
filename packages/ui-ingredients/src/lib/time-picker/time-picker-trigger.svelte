@@ -18,7 +18,7 @@
 
   let timePicker = getTimePickerContext();
 
-  let mergedProps = $derived(mergeProps(props, timePicker.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(timePicker.getTriggerProps(), props));
 </script>
 
 {#if asChild}

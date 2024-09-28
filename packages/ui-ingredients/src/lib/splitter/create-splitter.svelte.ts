@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateSplitterProps
   extends Omit<splitter.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateSplitterReturn extends splitter.Api {}

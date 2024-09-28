@@ -21,7 +21,7 @@
   let timePicker = getTimePickerContext();
 
   let mergedProps = $derived(
-    mergeProps(props, timePicker.getColumnProps({unit})),
+    mergeProps(timePicker.getColumnProps({unit}), props),
   );
 </script>
 

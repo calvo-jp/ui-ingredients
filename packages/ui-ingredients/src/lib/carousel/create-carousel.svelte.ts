@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateCarouselProps
   extends Omit<carousel.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateCarouselReturn extends carousel.Api {}

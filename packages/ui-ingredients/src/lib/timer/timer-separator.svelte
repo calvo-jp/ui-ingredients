@@ -18,7 +18,7 @@
 
   let timer = getTimerContext();
 
-  let mergedProps = $derived(mergeProps(props, timer.getSeparatorProps()));
+  let mergedProps = $derived(mergeProps(timer.getSeparatorProps(), props));
 </script>
 
 {#if asChild}

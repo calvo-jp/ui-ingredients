@@ -9,7 +9,7 @@ import {uid} from 'uid';
 
 export interface CreatePinInputProps
   extends Omit<pinInput.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreatePinInputReturn extends pinInput.Api {

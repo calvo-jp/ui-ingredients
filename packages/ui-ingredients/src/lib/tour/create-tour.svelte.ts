@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateTourProps
   extends Omit<tour.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateTourReturn extends tour.Api<any> {}

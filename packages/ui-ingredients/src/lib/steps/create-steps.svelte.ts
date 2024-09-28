@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateStepsProps
   extends Omit<steps.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateStepsReturn extends steps.Api {}

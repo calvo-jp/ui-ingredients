@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateTabsProps
   extends Omit<tabs.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateTabsReturn extends tabs.Api {}

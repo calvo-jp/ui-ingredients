@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreatePaginationProps
   extends Omit<pagination.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreatePaginationReturn extends pagination.Api {}

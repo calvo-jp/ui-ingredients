@@ -22,9 +22,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       tooltip.getPositionerProps(),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>

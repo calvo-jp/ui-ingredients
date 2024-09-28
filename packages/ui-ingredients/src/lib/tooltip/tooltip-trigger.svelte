@@ -18,7 +18,7 @@
 
   let tooltip = getTooltipContext();
 
-  let mergedProps = $derived(mergeProps(props, tooltip.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(tooltip.getTriggerProps(), props));
 </script>
 
 {#if asChild}

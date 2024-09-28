@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateSignaturePadProps
   extends Omit<signaturePad.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateSignaturePadReturn extends signaturePad.Api {}

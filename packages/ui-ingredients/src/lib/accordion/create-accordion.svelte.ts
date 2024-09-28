@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateAccordionProps
   extends Omit<accordion.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateAccordionReturn extends accordion.Api {}

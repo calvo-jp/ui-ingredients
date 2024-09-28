@@ -25,10 +25,10 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       timePicker.getPeriodCellProps({
         value,
       }),
+      props,
     ),
   );
 </script>

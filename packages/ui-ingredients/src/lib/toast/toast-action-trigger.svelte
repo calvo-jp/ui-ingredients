@@ -19,7 +19,7 @@
   let context = getToastContext();
 
   let mergedProps = $derived(
-    mergeProps(props, context.getActionTriggerProps()),
+    mergeProps(context.getActionTriggerProps(), props),
   );
 </script>
 

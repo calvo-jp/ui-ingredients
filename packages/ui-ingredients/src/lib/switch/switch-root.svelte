@@ -45,7 +45,7 @@
 
   let switch_ = createSwitch(reflect(() => createSwitchProps));
 
-  let mergedProps = $derived(mergeProps(localProps, switch_.getRootProps()));
+  let mergedProps = $derived(mergeProps(switch_.getRootProps(), localProps));
 
   setSwitchContext(switch_);
 </script>

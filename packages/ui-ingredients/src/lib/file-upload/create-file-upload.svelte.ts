@@ -7,7 +7,7 @@ import {uid} from 'uid';
 
 export interface CreateFileUploadProps
   extends Omit<fileUpload.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateFileUploadReturn extends fileUpload.Api<any> {}

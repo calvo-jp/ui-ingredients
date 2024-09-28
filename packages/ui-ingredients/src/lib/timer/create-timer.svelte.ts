@@ -5,7 +5,7 @@ import {uid} from 'uid';
 
 export interface CreateTimerProps
   extends Omit<timer.Context, 'id' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateTimerReturn extends timer.Api {}

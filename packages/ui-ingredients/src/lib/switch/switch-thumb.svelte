@@ -18,7 +18,7 @@
 
   let switch_ = getSwitchContext();
 
-  let mergedProps = $derived(mergeProps(props, switch_.getThumbProps()));
+  let mergedProps = $derived(mergeProps(switch_.getThumbProps(), props));
 </script>
 
 {#if asChild}

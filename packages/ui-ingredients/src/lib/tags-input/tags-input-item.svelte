@@ -33,7 +33,7 @@
   let itemState = $derived(tagsInput.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, tagsInput.getItemProps(itemProps)),
+    mergeProps(tagsInput.getItemProps(itemProps), localProps),
   );
 
   setTagsInputItemPropsContext(() => itemProps);

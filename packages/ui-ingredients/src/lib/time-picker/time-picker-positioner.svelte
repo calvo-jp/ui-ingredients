@@ -22,9 +22,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       timePicker.getPositionerProps(),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>

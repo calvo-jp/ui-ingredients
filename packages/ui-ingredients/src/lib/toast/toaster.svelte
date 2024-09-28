@@ -21,7 +21,7 @@
   let {
     ref = $bindable(null),
     toaster,
-    children,
+    children: children_,
     ...props
   }: ToasterProps = $props();
 
@@ -45,8 +45,8 @@
   <div bind:this={ref} {...mergedProps}>
     {#each toasts as toast (toast.id)}
       <ToastActor actor={toast}>
-        {#snippet children$(ctx)}
-          {@render children?.(ctx)}
+        {#snippet children(ctx)}
+          {@render children_?.(ctx)}
         {/snippet}
       </ToastActor>
     {/each}

@@ -23,7 +23,7 @@
   let itemProps = getStepsItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, steps.getSeparatorProps(itemProps)),
+    mergeProps(steps.getSeparatorProps(itemProps), props),
   );
 </script>
 

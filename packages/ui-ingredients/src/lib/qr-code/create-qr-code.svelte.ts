@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateQrCodeProps
   extends Omit<qrCode.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateQrCodeReturn extends qrCode.Api {}

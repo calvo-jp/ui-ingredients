@@ -6,7 +6,7 @@ import {uid} from 'uid';
 
 export interface CreateProgressProps
   extends Omit<progress.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string | null;
+  id?: string;
 }
 
 export interface CreateProgressReturn extends progress.Api<any> {}

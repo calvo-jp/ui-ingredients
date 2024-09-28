@@ -33,7 +33,7 @@
   let itemState = $derived(steps.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, steps.getItemProps(itemProps)),
+    mergeProps(steps.getItemProps(itemProps), localProps),
   );
 
   setStepsItemPropsContext(() => itemProps);

@@ -20,10 +20,10 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       steps.getContentProps({
         index: steps.count,
       }),
+      props,
     ),
   );
 </script>

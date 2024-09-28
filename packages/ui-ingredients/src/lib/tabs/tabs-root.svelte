@@ -43,7 +43,7 @@
 
   let tabs = createTabs(reflect(() => createTabsProps));
 
-  let mergedProps = $derived(mergeProps(localProps, tabs.getRootProps()));
+  let mergedProps = $derived(mergeProps(tabs.getRootProps(), localProps));
 
   setTabsContext(tabs);
 </script>

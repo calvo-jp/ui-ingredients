@@ -60,7 +60,7 @@
 
   let tagsInput = createTagsInput(reflect(() => createTagsInputProps));
 
-  let mergedProps = $derived(mergeProps(localProps, tagsInput.getRootProps()));
+  let mergedProps = $derived(mergeProps(tagsInput.getRootProps(), localProps));
 
   setTagsInputContext(tagsInput);
 </script>

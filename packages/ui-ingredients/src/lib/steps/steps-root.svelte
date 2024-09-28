@@ -41,7 +41,7 @@
 
   let steps = createSteps(reflect(() => createStepsProps));
 
-  let mergedProps = $derived(mergeProps(localProps, steps.getRootProps()));
+  let mergedProps = $derived(mergeProps(steps.getRootProps(), localProps));
 
   setStepsContext(steps);
 </script>

@@ -43,7 +43,7 @@
   let toggleGroup = createToggleGroup(reflect(() => createToggleGroupProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, toggleGroup.getRootProps()),
+    mergeProps(toggleGroup.getRootProps(), localProps),
   );
 
   setToggleGroupContext(toggleGroup);

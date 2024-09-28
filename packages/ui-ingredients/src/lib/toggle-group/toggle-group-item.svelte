@@ -30,7 +30,7 @@
   let itemState = $derived(toggleGroup.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, toggleGroup.getItemProps(itemProps)),
+    mergeProps(toggleGroup.getItemProps(itemProps), localProps),
   );
 </script>
 

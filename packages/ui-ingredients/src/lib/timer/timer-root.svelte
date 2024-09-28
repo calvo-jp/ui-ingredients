@@ -41,7 +41,7 @@
 
   let timer = createTimer(reflect(() => createTimerProps));
 
-  let mergedProps = $derived(mergeProps(localProps, timer.getRootProps()));
+  let mergedProps = $derived(mergeProps(timer.getRootProps(), localProps));
 
   setTimerContext(timer);
 </script>

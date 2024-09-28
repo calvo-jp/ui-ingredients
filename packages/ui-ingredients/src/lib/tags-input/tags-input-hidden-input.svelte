@@ -18,7 +18,7 @@
   let tagsInput = getTagsInputContext();
 
   let mergedProps = $derived(
-    mergeProps(props, tagsInput.getHiddenInputProps()),
+    mergeProps(tagsInput.getHiddenInputProps(), props),
   );
 </script>
 

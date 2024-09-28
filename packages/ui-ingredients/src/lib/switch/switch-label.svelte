@@ -18,7 +18,7 @@
 
   let switch_ = getSwitchContext();
 
-  let mergedProps = $derived(mergeProps(props, switch_.getLabelProps()));
+  let mergedProps = $derived(mergeProps(switch_.getLabelProps(), props));
 </script>
 
 {#if asChild}
