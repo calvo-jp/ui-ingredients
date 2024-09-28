@@ -18,7 +18,7 @@
 
   let tour = getTourContext();
 
-  let mergedProps = $derived(mergeProps(props, tour.getArrowTipProps()));
+  let mergedProps = $derived(mergeProps(tour.getArrowTipProps(), props));
 </script>
 
 {#if asChild}

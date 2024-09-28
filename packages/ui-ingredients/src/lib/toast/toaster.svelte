@@ -38,7 +38,9 @@
   let placement = $derived(snapshot.context.placement);
   let api = $derived(toast.group.connect(snapshot, send, normalizeProps));
   let toasts = $derived(api.getToastsByPlacement(placement));
-  let mergedProps = $derived(mergeProps(props, api.getGroupProps({placement})));
+  let mergedProps = $derived(
+    mergeProps(api.getGroupProps({placement}) as any, props),
+  );
 </script>
 
 <Portal>

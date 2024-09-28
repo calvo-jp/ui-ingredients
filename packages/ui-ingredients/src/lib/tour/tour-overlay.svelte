@@ -29,7 +29,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(props, tour.getOverlayProps(), presence.getPresenceProps()),
+    mergeProps(tour.getOverlayProps(), presence.getPresenceProps(), props),
   );
 </script>
 

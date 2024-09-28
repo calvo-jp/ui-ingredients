@@ -18,7 +18,7 @@
 
   let treeView = getTreeViewContext();
 
-  let mergedProps = $derived(mergeProps(props, treeView.getLabelProps()));
+  let mergedProps = $derived(mergeProps(treeView.getLabelProps(), props));
 </script>
 
 {#if asChild}

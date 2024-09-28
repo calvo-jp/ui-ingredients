@@ -24,7 +24,7 @@
   let branchProps = getTreeViewBranchPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, treeView.getBranchContentProps(branchProps)),
+    mergeProps(treeView.getBranchContentProps(branchProps), props),
   );
 </script>
 

@@ -33,7 +33,7 @@
   let branchState = $derived(treeView.getBranchState(branchProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, treeView.getBranchProps(branchProps)),
+    mergeProps(treeView.getBranchProps(branchProps), localProps),
   );
 
   setTreeViewBranchPropsContext(() => branchProps);

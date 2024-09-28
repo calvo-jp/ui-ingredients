@@ -44,7 +44,7 @@
 
   let treeView = createTreeView(reflect(() => createTreeViewProps));
 
-  let mergedProps = $derived(mergeProps(localProps, treeView.getRootProps()));
+  let mergedProps = $derived(mergeProps(treeView.getRootProps(), localProps));
 
   setTreeViewContext(treeView);
 </script>

@@ -33,7 +33,7 @@
   let itemState = $derived(treeView.getItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, treeView.getItemProps(itemProps)),
+    mergeProps(treeView.getItemProps(itemProps), localProps),
   );
 
   setTreeViewItemPropsContext(() => itemProps);

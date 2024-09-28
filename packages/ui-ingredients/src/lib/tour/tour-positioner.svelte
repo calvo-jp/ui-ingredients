@@ -21,7 +21,7 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, tour.getPositionerProps(), presence.getPresenceProps()),
+    mergeProps(tour.getPositionerProps(), presence.getPresenceProps(), props),
   );
 </script>
 

@@ -24,7 +24,7 @@
   let itemProps = getTreeViewItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, treeView.getItemTextProps(itemProps)),
+    mergeProps(treeView.getItemTextProps(itemProps), props),
   );
 </script>
 
