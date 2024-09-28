@@ -110,4 +110,8 @@ describe("'createContext' util is working as expected", () => {
     expect(() => getContext()).not.toThrow();
     expect(getContext()).toBeUndefined();
   });
+
+  test('throws an error if context key is empty', () => {
+    expect(() => createContext('')).toThrow();
+  });
 });

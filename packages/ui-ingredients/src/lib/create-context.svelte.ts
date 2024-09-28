@@ -31,6 +31,13 @@ export function createContext<T extends GenericObject>(
   const k = args[0];
   const s = args[1] ?? true;
 
+  if (k.trim().length < 1) {
+    const e = new Error();
+    e.name = 'ContextError';
+    e.message = 'Context key cannot be empty';
+    throw e;
+  }
+
   function has() {
     return hasContext(k);
   }
@@ -40,7 +47,13 @@ export function createContext<T extends GenericObject>(
   }
 
   function get() {
-    if (s && !has()) throw err(k);
+    if (s && !has()) {
+      const e = new Error();
+      e.name = 'ContextError';
+      e.message = "No context found for '%s'".replace('%s', k);
+      throw e;
+    }
+
     return getContext<T>(k);
   }
 
@@ -51,11 +64,4 @@ function isFn<Return, Arg = never>(
   v: unknown,
 ): v is (...args: Arg[]) => Return {
   return typeof v === 'function';
-}
-
-function err(k: string) {
-  const e = new Error();
-  e.name = 'ContextError';
-  e.message = "No context found for '%s'".replace('%s', k);
-  throw e;
 }
