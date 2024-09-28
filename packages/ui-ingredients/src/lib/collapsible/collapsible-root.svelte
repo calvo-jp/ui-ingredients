@@ -1,4 +1,8 @@
 <script lang="ts" module>
+  import {
+    createPresence,
+    type PresenceStrategyProps,
+  } from '$lib/presence/create-presence.svelte.js';
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {
     CreateCollapsibleProps,
@@ -7,13 +11,15 @@
 
   export interface CollapsibleProps
     extends Assign<
-      HtmlIngredientProps<'div', HTMLDivElement, CreateCollapsibleReturn>,
-      CreateCollapsibleProps
-    > {}
+        HtmlIngredientProps<'div', HTMLDivElement, CreateCollapsibleReturn>,
+        CreateCollapsibleProps
+      >,
+      PresenceStrategyProps {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {setPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {setCollapsibleContext} from './collapsible-context.svelte.js';
@@ -26,6 +32,12 @@
     ...props
   }: CollapsibleProps = $props();
 
+  let [presenceStrategyProps, rest] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
+  );
+
   let [createCollapsibleProps, localProps] = $derived(
     createSplitProps<CreateCollapsibleProps>([
       'id',
@@ -35,16 +47,23 @@
       'disabled',
       'onOpenChange',
       'onExitComplete',
-    ])(props),
+    ])(rest),
   );
 
   let collapsible = createCollapsible(reflect(() => createCollapsibleProps));
+  let presence = createPresence(
+    reflect(() => ({
+      present: collapsible.open,
+      ...presenceStrategyProps,
+    })),
+  );
 
   let mergedProps = $derived(
     mergeProps(collapsible.getRootProps(), localProps),
   );
 
   setCollapsibleContext(collapsible);
+  setPresenceContext(presence);
 </script>
 
 {#if asChild}

@@ -17,7 +17,6 @@
   }: CollapsibleTriggerProps = $props();
 
   let collapsible = getCollapsibleContext();
-
   let mergedProps = $derived(mergeProps(collapsible.getTriggerProps(), props));
 </script>
 
