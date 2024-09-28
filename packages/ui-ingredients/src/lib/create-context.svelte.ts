@@ -1,5 +1,6 @@
 import {reflect} from '@zag-js/svelte';
 import {getContext, hasContext, setContext} from 'svelte';
+import type {GenericObject} from './types.js';
 
 type HasContext = () => boolean;
 type SetContext<T> = (context: T | (() => T)) => void;
@@ -13,30 +14,43 @@ type CreateContextReturn<T, Strict extends boolean> = [
   hasContext: HasContext,
 ];
 
-export function createContext<T>(key: string): CreateContextReturn<T, true>;
-export function createContext<T>(
+export function createContext<T extends GenericObject>(
+  key: string,
+): CreateContextReturn<T, true>;
+export function createContext<T extends GenericObject>(
   key: string,
   strict: true,
 ): CreateContextReturn<T, true>;
-export function createContext<T>(
+export function createContext<T extends GenericObject>(
   key: string,
   strict: false,
 ): CreateContextReturn<T, false>;
-export function createContext(key: string, strict = true) {
+export function createContext<T extends GenericObject>(
+  ...args: [string, boolean?]
+): CreateContextReturn<T, boolean> {
+  const k = args[0];
+  const s = args[1] ?? true;
+
   function has() {
-    return hasContext(key);
+    return hasContext(k);
   }
 
-  function set(context: any) {
-    setContext(key, typeof context === 'function' ? reflect(context) : context);
+  function set(v: T | (() => T)) {
+    setContext(k, isFn<T>(v) ? reflect(v) : v);
   }
 
   function get() {
-    if (strict && !has()) throw err(key);
-    return getContext(key);
+    if (s && !has()) throw err(k);
+    return getContext<T>(k);
   }
 
   return [get, set, has];
+}
+
+function isFn<Return, Arg = never>(
+  v: unknown,
+): v is (...args: Arg[]) => Return {
+  return typeof v === 'function';
 }
 
 function err(k: string) {
