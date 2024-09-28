@@ -24,7 +24,7 @@
   let datePicker = getDatePickerContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getLabelProps({index})),
+    mergeProps(datePicker.getLabelProps({index}), props),
   );
 </script>
 

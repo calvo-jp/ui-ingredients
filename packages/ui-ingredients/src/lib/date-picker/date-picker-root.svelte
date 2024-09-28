@@ -75,7 +75,7 @@
     })),
   );
 
-  let mergedProps = $derived(mergeProps(localProps, datePicker.getRootProps()));
+  let mergedProps = $derived(mergeProps(datePicker.getRootProps(), localProps));
 
   setDatePickerContext(datePicker);
   setPresenceContext(presence);

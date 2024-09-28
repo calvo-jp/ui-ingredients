@@ -23,7 +23,7 @@
   let itemProps = getAccordionItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, accordion.getItemIndicatorProps(itemProps)),
+    mergeProps(accordion.getItemIndicatorProps(itemProps), props),
   );
 </script>
 

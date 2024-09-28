@@ -22,7 +22,7 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, combobox.getContentProps(), presence.getPresenceProps()),
+    mergeProps(combobox.getContentProps(), presence.getPresenceProps(), props),
   );
 </script>
 

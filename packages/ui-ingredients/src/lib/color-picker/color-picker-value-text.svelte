@@ -19,7 +19,7 @@
   let colorPicker = getColorPickerContext();
 
   let mergedProps = $derived(
-    mergeProps(props, colorPicker.getValueTextProps()),
+    mergeProps(colorPicker.getValueTextProps(), props),
   );
 </script>
 

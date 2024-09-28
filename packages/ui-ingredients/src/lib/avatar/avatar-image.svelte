@@ -13,7 +13,7 @@
 
   let avatar = getAvatarContext();
 
-  let mergedProps = $derived(mergeProps(props, avatar.getImageProps()));
+  let mergedProps = $derived(mergeProps(avatar.getImageProps(), props));
 </script>
 
 {#if asChild}

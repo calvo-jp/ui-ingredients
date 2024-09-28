@@ -28,7 +28,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, carousel.getIndicatorProps(indicatorProps)),
+    mergeProps(carousel.getIndicatorProps(indicatorProps), localProps),
   );
 </script>
 

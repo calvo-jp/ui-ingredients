@@ -35,7 +35,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, datePicker.getYearTableCellProps(tableCellProps)),
+    mergeProps(datePicker.getYearTableCellProps(tableCellProps), localProps),
   );
 
   setDatePickerTableCellPropsContext(() => tableCellProps);

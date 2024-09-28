@@ -23,7 +23,7 @@
   let areaProps = getColorPickerAreaPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, colorPicker.getAreaThumbProps(areaProps)),
+    mergeProps(colorPicker.getAreaThumbProps(areaProps), props),
   );
 </script>
 

@@ -18,7 +18,7 @@
 
   let dialog = getDialogContext();
 
-  let mergedProps = $derived(mergeProps(props, dialog.getTitleProps()));
+  let mergedProps = $derived(mergeProps(dialog.getTitleProps(), props));
 </script>
 
 {#if asChild}

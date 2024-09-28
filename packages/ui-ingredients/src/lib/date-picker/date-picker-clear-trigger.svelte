@@ -19,7 +19,7 @@
   let datePicker = getDatePickerContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getClearTriggerProps()),
+    mergeProps(datePicker.getClearTriggerProps(), props),
   );
 </script>
 

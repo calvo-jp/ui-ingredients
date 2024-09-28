@@ -24,10 +24,10 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       combobox.getItemGroupLabelProps({
         htmlFor: itemGroupProps.id,
       }),
+      props,
     ),
   );
 </script>

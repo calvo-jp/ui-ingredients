@@ -18,7 +18,7 @@
 
   let colorPicker = getColorPickerContext();
 
-  let mergedProps = $derived(mergeProps(props, colorPicker.getLabelProps()));
+  let mergedProps = $derived(mergeProps(colorPicker.getLabelProps(), props));
 </script>
 
 {#if asChild}

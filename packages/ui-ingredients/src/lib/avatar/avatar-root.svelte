@@ -32,7 +32,7 @@
 
   let avatar = createAvatar(reflect(() => createAvatarProps));
 
-  let mergedProps = $derived(mergeProps(localProps, avatar.getRootProps()));
+  let mergedProps = $derived(mergeProps(avatar.getRootProps(), localProps));
 
   setAvatarContext(avatar);
 </script>

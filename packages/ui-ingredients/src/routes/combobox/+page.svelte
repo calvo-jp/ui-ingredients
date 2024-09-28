@@ -29,6 +29,9 @@
       item.label.toLowerCase().includes(inputValue.toLowerCase()),
     ),
   );
+
+  $inspect({value});
+  $inspect({inputValue});
 </script>
 
 <Combobox.Root

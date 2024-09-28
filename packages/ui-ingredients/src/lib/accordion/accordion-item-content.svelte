@@ -37,9 +37,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       accordion.getItemContentProps(itemProps),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>

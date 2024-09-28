@@ -19,7 +19,7 @@
   let combobox = getComboboxContext();
 
   let mergedProps = $derived(
-    mergeProps(props, combobox.getClearTriggerProps()),
+    mergeProps(combobox.getClearTriggerProps(), props),
   );
 </script>
 

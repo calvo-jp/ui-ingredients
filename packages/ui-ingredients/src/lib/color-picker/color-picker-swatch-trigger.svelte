@@ -26,11 +26,11 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       colorPicker.getSwatchTriggerProps({
         value,
         disabled,
       }),
+      props,
     ),
   );
 </script>

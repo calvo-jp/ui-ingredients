@@ -22,7 +22,7 @@
   let datePicker = getDatePickerContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getMonthSelectProps()),
+    mergeProps(datePicker.getMonthSelectProps(), props),
   );
 </script>
 

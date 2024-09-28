@@ -24,7 +24,7 @@
   let clipboard = getClipboardContext();
 
   let mergedProps = $derived(
-    mergeProps(props, clipboard.getIndicatorProps({copied})),
+    mergeProps(clipboard.getIndicatorProps({copied}), props),
   );
 </script>
 

@@ -59,7 +59,7 @@
 
   let editable = createEditable(reflect(() => createEditableProps));
 
-  let mergedProps = $derived(mergeProps(localProps, editable.getRootProps()));
+  let mergedProps = $derived(mergeProps(editable.getRootProps(), localProps));
 
   setEditableContext(editable);
 </script>

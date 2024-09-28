@@ -32,7 +32,7 @@
 
   let itemState = $derived(combobox.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(localProps, combobox.getItemProps(itemProps)),
+    mergeProps(combobox.getItemProps(itemProps), localProps),
   );
 
   setComboboxItemPropsContext(() => itemProps);

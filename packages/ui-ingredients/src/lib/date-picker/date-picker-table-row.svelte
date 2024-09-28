@@ -23,7 +23,7 @@
   let tableProps = getDatePickerTablePropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getTableRowProps(tableProps)),
+    mergeProps(datePicker.getTableRowProps(tableProps), props),
   );
 </script>
 

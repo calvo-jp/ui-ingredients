@@ -30,7 +30,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(props, dialog.getBackdropProps(), presence.getPresenceProps()),
+    mergeProps(dialog.getBackdropProps(), presence.getPresenceProps(), props),
   );
 </script>
 

@@ -26,7 +26,7 @@
   let channelProps = getColorPickerChannelPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, colorPicker.getChannelSliderLabelProps(channelProps)),
+    mergeProps(colorPicker.getChannelSliderLabelProps(channelProps), props),
   );
 </script>
 

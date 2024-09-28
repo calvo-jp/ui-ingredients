@@ -22,9 +22,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       datePicker.getPositionerProps(),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>

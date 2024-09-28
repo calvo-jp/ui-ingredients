@@ -32,7 +32,7 @@
 
   let itemState = $derived(accordion.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(localProps, accordion.getItemProps(itemProps)),
+    mergeProps(accordion.getItemProps(itemProps), localProps),
   );
 
   setAccordionItemPropsContext(() => itemProps);

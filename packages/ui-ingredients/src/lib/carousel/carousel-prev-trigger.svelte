@@ -18,7 +18,7 @@
 
   let carousel = getCarouselContext();
 
-  let mergedProps = $derived(mergeProps(props, carousel.getPrevTriggerProps()));
+  let mergedProps = $derived(mergeProps(carousel.getPrevTriggerProps(), props));
 </script>
 
 {#if asChild}

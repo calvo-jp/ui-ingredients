@@ -29,7 +29,7 @@
   });
 
   let mergedProps = $derived(
-    mergeProps(props, colorPicker.getAreaProps(areaProps)),
+    mergeProps(colorPicker.getAreaProps(areaProps), props),
   );
 
   setColorPickerAreaPropsContext(() => areaProps);

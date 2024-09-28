@@ -18,7 +18,7 @@
 
   let datePicker = getDatePickerContext();
 
-  let mergedProps = $derived(mergeProps(props, datePicker.getControlProps()));
+  let mergedProps = $derived(mergeProps(datePicker.getControlProps(), props));
 </script>
 
 {#if asChild}

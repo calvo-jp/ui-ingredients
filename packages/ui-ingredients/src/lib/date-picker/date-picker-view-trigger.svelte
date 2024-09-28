@@ -23,7 +23,7 @@
   let viewProps = getDatePickerViewPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getViewTriggerProps(viewProps)),
+    mergeProps(datePicker.getViewTriggerProps(viewProps), props),
   );
 </script>
 

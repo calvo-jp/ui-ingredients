@@ -23,7 +23,7 @@
   let itemProps = getComboboxItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, combobox.getItemTextProps(itemProps)),
+    mergeProps(combobox.getItemTextProps(itemProps), props),
   );
 </script>
 

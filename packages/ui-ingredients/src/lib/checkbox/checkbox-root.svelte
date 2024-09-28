@@ -45,7 +45,7 @@
 
   let checkbox = createCheckbox(reflect(() => createCheckboxProps));
 
-  let mergedProps = $derived(mergeProps(localProps, checkbox.getRootProps()));
+  let mergedProps = $derived(mergeProps(checkbox.getRootProps(), localProps));
 
   setCheckboxContext(checkbox);
 </script>

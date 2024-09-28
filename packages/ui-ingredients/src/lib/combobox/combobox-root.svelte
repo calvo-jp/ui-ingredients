@@ -90,7 +90,7 @@
     })),
   );
 
-  let mergedProps = $derived(mergeProps(localProps, combobox.getRootProps()));
+  let mergedProps = $derived(mergeProps(combobox.getRootProps(), localProps));
 
   setComboboxContext(combobox);
   setPresenceContext(presence);

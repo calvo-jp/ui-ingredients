@@ -25,11 +25,11 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       colorPicker.getChannelInputProps({
         channel,
         orientation,
       }),
+      props,
     ),
   );
 </script>

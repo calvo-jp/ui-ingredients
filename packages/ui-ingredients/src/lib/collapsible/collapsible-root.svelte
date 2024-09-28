@@ -41,7 +41,7 @@
   let collapsible = createCollapsible(reflect(() => createCollapsibleProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, collapsible.getRootProps()),
+    mergeProps(collapsible.getRootProps(), localProps),
   );
 
   setCollapsibleContext(collapsible);

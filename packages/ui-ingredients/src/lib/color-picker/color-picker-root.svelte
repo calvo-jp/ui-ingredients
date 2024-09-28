@@ -71,7 +71,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, colorPicker.getRootProps()),
+    mergeProps(colorPicker.getRootProps(), localProps),
   );
 
   setColorPickerContext(colorPicker);

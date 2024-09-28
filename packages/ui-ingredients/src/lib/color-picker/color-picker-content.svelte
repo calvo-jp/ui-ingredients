@@ -23,9 +23,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       colorPicker.getContentProps(),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>

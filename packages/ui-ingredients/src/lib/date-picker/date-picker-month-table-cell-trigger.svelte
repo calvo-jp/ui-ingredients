@@ -23,7 +23,7 @@
   let tableCellProps = getDatePickerTableCellPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getMonthTableCellTriggerProps(tableCellProps)),
+    mergeProps(datePicker.getMonthTableCellTriggerProps(tableCellProps), props),
   );
 </script>
 

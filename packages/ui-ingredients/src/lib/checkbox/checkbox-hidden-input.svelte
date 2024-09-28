@@ -17,7 +17,7 @@
 
   let checkbox = getCheckboxContext();
 
-  let mergedProps = $derived(mergeProps(props, checkbox.getHiddenInputProps()));
+  let mergedProps = $derived(mergeProps(checkbox.getHiddenInputProps(), props));
 </script>
 
 {#if asChild}

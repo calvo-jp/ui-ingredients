@@ -29,7 +29,7 @@
 
   let itemState = $derived(carousel.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(localProps, carousel.getItemProps(itemProps)),
+    mergeProps(carousel.getItemProps(itemProps), localProps),
   );
 </script>
 

@@ -30,7 +30,7 @@
   });
 
   let mergedProps = $derived(
-    mergeProps(props, combobox.getItemGroupProps(comboboxItemGroupProps)),
+    mergeProps(combobox.getItemGroupProps(comboboxItemGroupProps), props),
   );
 
   setComboboxItemGroupPropsContext(() => comboboxItemGroupProps);

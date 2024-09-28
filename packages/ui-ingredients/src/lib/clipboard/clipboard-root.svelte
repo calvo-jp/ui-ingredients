@@ -38,7 +38,7 @@
 
   let clipboard = createClipboard(reflect(() => createClipboardProps));
 
-  let mergedProps = $derived(mergeProps(localProps, clipboard.getRootProps()));
+  let mergedProps = $derived(mergeProps(clipboard.getRootProps(), localProps));
 
   setClipboardContext(clipboard);
 </script>

@@ -51,7 +51,7 @@
 
   let accordion = createAccordion(reflect(() => createAccordionProps));
 
-  let mergedProps = $derived(mergeProps(localProps, accordion.getRootProps()));
+  let mergedProps = $derived(mergeProps(accordion.getRootProps(), localProps));
 
   setAccordionContext(accordion);
   setPresenceStrategyPropsContext(() => presenceStrategyProps);

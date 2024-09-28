@@ -35,7 +35,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, datePicker.getMonthTableCellProps(tableCellProps)),
+    mergeProps(datePicker.getMonthTableCellProps(tableCellProps), localProps),
   );
 
   setDatePickerTableCellPropsContext(() => tableCellProps);

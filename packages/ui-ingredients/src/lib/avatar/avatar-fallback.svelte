@@ -18,7 +18,7 @@
 
   let avatar = getAvatarContext();
 
-  let mergedProps = $derived(mergeProps(props, avatar.getFallbackProps()));
+  let mergedProps = $derived(mergeProps(avatar.getFallbackProps(), props));
 </script>
 
 {#if asChild}

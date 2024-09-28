@@ -31,7 +31,7 @@
   let tableProps: TableProps = $derived({...viewProps, id, columns});
 
   let mergedProps = $derived(
-    mergeProps(props, datePicker.getTableProps(tableProps)),
+    mergeProps(datePicker.getTableProps(tableProps), props),
   );
 
   setDatePickerTablePropsContext(() => tableProps);

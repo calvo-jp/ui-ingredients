@@ -18,7 +18,7 @@
 
   let editable = getEditableContext();
 
-  let mergedProps = $derived(mergeProps(props, editable.getEditTriggerProps()));
+  let mergedProps = $derived(mergeProps(editable.getEditTriggerProps(), props));
 </script>
 
 {#if asChild}

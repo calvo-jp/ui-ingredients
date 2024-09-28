@@ -22,9 +22,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       colorPicker.getPositionerProps(),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>

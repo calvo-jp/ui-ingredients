@@ -28,7 +28,7 @@
   });
 
   let mergedProps = $derived(
-    mergeProps(props, colorPicker.getSwatchProps(swatchProps)),
+    mergeProps(colorPicker.getSwatchProps(swatchProps), props),
   );
 </script>
 

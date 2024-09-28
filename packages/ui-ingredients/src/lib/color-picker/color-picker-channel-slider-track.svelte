@@ -30,8 +30,8 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       colorPicker.getChannelSliderTrackProps(channelSliderProps),
+      props,
     ),
   );
 </script>
