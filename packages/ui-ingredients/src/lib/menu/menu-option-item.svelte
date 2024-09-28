@@ -38,10 +38,10 @@
     ])(props),
   );
 
-  let itemState = $derived(menu.getOptionItemState(itemProps));
+  let itemState = $derived(menu!.getOptionItemState(itemProps));
 
   let mergedProps = $derived(
-    mergeProps(menu.getOptionItemProps(itemProps), localProps),
+    mergeProps(menu!.getOptionItemProps(itemProps), localProps),
   );
 
   setMenuOptionItemPropsContext(() => itemProps);

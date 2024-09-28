@@ -32,9 +32,9 @@
     ])(props),
   );
 
-  let itemState = $derived(menu.getItemState(itemProps));
+  let itemState = $derived(menu!.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(menu.getItemProps(itemProps), localProps),
+    mergeProps(menu!.getItemProps(itemProps), localProps),
   );
 </script>
 
