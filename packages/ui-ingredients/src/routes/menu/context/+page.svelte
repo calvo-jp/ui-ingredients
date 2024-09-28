@@ -12,9 +12,11 @@
 </script>
 
 <Menu.Root>
-  <Menu.ContextTrigger class="border-dashed">
+  <Menu.ContextTrigger>
     {#snippet asChild(attrs)}
-      <Button {...attrs}>Right click</Button>
+      <Button class="border-dashed" variant="outline" {...attrs}>
+        Right click
+      </Button>
     {/snippet}
   </Menu.ContextTrigger>
 
