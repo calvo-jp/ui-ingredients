@@ -1,6 +1,6 @@
 import {createContext} from '$lib/create-context.svelte.js';
 import type {ItemGroupProps, OptionItemProps} from '@zag-js/menu';
-import type {HTMLAttributes} from 'svelte/elements';
+import type {HTMLButtonAttributes} from 'svelte/elements';
 import type {CreateMenuReturn} from './create-menu.svelte.js';
 
 export const [getMenuContext, setMenuContext] = createContext<CreateMenuReturn>(
@@ -15,4 +15,4 @@ export const [getMenuOptionItemPropsContext, setMenuOptionItemPropsContext] =
   createContext<OptionItemProps>('MenuOptionItem');
 
 export const [getMenuTriggerItemContext, setMenuTriggerItemContext] =
-  createContext<HTMLAttributes<HTMLElement>>('MenuTriggerItem');
+  createContext<HTMLButtonAttributes>('MenuTriggerItem');

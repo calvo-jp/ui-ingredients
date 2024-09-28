@@ -34,7 +34,7 @@
 
   let itemState = $derived(menu.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(localProps, menu.getItemProps(itemProps)),
+    mergeProps(menu.getItemProps(itemProps), localProps),
   );
 </script>
 

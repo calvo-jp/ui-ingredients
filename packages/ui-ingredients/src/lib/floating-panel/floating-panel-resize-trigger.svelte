@@ -29,8 +29,8 @@
 
   let mergedProps = $derived(
     mergeProps(
-      localProps,
       floatingPanel.getResizeTriggerProps(resizeTriggerProps),
+      localProps,
     ),
   );
 </script>

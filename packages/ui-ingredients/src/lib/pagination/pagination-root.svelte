@@ -43,7 +43,7 @@
 
   let pagination = createPagination(reflect(() => createPaginationProps));
 
-  let mergedProps = $derived(mergeProps(localProps, pagination.getRootProps()));
+  let mergedProps = $derived(mergeProps(pagination.getRootProps(), localProps));
 
   setPaginationContext(pagination);
 </script>

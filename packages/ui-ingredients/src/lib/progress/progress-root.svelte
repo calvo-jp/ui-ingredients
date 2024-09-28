@@ -40,7 +40,7 @@
 
   let progress = createProgress(reflect(() => createProgressProps));
 
-  let mergedProps = $derived(mergeProps(localProps, progress.getRootProps()));
+  let mergedProps = $derived(mergeProps(progress.getRootProps(), localProps));
 
   setProgressContext(progress);
 </script>

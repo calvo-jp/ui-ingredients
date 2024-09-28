@@ -19,7 +19,7 @@
   let floatingPanel = getFloatingPanelContext();
 
   let mergedProps = $derived(
-    mergeProps(props, floatingPanel.getMinimizeTriggerProps()),
+    mergeProps(floatingPanel.getMinimizeTriggerProps(), props),
   );
 </script>
 

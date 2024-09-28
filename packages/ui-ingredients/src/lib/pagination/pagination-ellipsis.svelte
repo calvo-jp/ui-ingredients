@@ -24,7 +24,7 @@
   let pagination = getPaginationContext();
 
   let mergedProps = $derived(
-    mergeProps(props, pagination.getEllipsisProps({index})),
+    mergeProps(pagination.getEllipsisProps({index}), props),
   );
 </script>
 

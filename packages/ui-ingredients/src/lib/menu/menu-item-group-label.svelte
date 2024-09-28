@@ -25,10 +25,10 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       menu.getItemGroupLabelProps({
         htmlFor: itemGroupProps.id,
       }),
+      props,
     ),
   );
 </script>

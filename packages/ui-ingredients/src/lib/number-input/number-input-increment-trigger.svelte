@@ -19,7 +19,7 @@
   let numberInput = getNumberInputContext();
 
   let mergedProps = $derived(
-    mergeProps(props, numberInput.getIncrementTriggerProps()),
+    mergeProps(numberInput.getIncrementTriggerProps(), props),
   );
 </script>
 

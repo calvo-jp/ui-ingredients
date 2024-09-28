@@ -19,7 +19,7 @@
   let pagination = getPaginationContext();
 
   let mergedProps = $derived(
-    mergeProps(props, pagination.getNextTriggerProps()),
+    mergeProps(pagination.getNextTriggerProps(), props),
   );
 </script>
 

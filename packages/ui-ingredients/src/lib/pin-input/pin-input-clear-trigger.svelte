@@ -21,9 +21,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
-      parts.clearTrigger.attrs,
+      parts.clearTrigger.attrs as any,
       pinInput.getClearTriggerProps(),
+      props,
     ),
   );
 </script>

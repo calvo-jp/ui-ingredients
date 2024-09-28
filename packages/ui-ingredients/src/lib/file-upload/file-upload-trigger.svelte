@@ -18,7 +18,7 @@
 
   let fileUpload = getFileUploadContext();
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(fileUpload.getTriggerProps(), props));
 </script>
 
 {#if asChild}

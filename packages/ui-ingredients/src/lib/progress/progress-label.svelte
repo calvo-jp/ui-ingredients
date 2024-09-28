@@ -18,7 +18,7 @@
 
   let progress = getProgressContext();
 
-  let mergedProps = $derived(mergeProps(props, progress.getLabelProps()));
+  let mergedProps = $derived(mergeProps(progress.getLabelProps(), props));
 </script>
 
 {#if asChild}

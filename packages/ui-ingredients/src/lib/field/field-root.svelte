@@ -39,7 +39,7 @@
 
   let field = createField(reflect(() => createFieldProps));
 
-  let mergedProps = $derived(mergeProps(localProps, field.getRootProps()));
+  let mergedProps = $derived(mergeProps(field.getRootProps(), localProps));
 
   setFieldContext(field);
 </script>

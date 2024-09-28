@@ -18,7 +18,7 @@
 
   let popover = getPopoverContext();
 
-  let mergedProps = $derived(mergeProps(props, popover.getArrowTipProps()));
+  let mergedProps = $derived(mergeProps(popover.getArrowTipProps(), props));
 </script>
 
 {#if asChild}

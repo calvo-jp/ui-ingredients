@@ -23,7 +23,7 @@
   let itemProps = getFileUploadItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, fileUpload.getItemDeleteTriggerProps(itemProps)),
+    mergeProps(fileUpload.getItemDeleteTriggerProps(itemProps), props),
   );
 </script>
 

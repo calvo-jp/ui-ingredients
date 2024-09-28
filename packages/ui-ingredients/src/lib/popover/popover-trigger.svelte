@@ -18,7 +18,7 @@
 
   let popover = getPopoverContext();
 
-  let mergedProps = $derived(mergeProps(props, popover.getTriggerProps()));
+  let mergedProps = $derived(mergeProps(popover.getTriggerProps(), props));
 </script>
 
 {#if asChild}

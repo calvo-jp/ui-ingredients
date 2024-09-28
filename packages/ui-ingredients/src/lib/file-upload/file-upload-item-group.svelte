@@ -18,7 +18,7 @@
 
   let fileUpload = getFileUploadContext();
 
-  let mergedProps = $derived(mergeProps(props, fileUpload.getItemGroupProps()));
+  let mergedProps = $derived(mergeProps(fileUpload.getItemGroupProps(), props));
 </script>
 
 {#if asChild}

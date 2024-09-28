@@ -18,7 +18,7 @@
 
   let menu = getMenuContext();
 
-  let mergedProps = $derived(mergeProps(props, menu.getArrowTipProps()));
+  let mergedProps = $derived(mergeProps(menu.getArrowTipProps(), props));
 </script>
 
 {#if asChild}

@@ -4,6 +4,7 @@ import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svel
 import type {HtmlProps} from '$lib/types.js';
 import * as pinInput from '@zag-js/pin-input';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import type {HTMLButtonAttributes} from 'svelte/elements';
 import {uid} from 'uid';
 
 export interface CreatePinInputProps
@@ -12,7 +13,7 @@ export interface CreatePinInputProps
 }
 
 export interface CreatePinInputReturn extends pinInput.Api {
-  getClearTriggerProps(): HtmlProps<'button'>;
+  getClearTriggerProps(): HTMLButtonAttributes;
 }
 
 export function createPinInputContext(

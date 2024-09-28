@@ -22,7 +22,7 @@
   let presence = getPresenceContext();
 
   let mergedProps = $derived(
-    mergeProps(props, popover.getContentProps(), presence.getPresenceProps()),
+    mergeProps(popover.getContentProps(), presence.getPresenceProps(), props),
   );
 </script>
 

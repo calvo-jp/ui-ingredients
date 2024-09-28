@@ -23,9 +23,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       floatingPanel.getContentProps(),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>

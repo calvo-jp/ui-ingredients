@@ -16,7 +16,7 @@ export interface CreatePresenceProps extends PresenceStrategyProps {
 
 export interface CreatePresenceReturn {
   ref: Action;
-  getPresenceProps: () => HTMLAttributes<HTMLElement>;
+  getPresenceProps(): HTMLAttributes<HTMLElement>;
   mounted: boolean;
 }
 

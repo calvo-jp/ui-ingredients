@@ -59,7 +59,7 @@
   let numberInput = createNumberInput(reflect(() => createNumberInputProps));
 
   let mergedProps = $derived(
-    mergeProps(localProps, numberInput.getRootProps()),
+    mergeProps(numberInput.getRootProps(), localProps),
   );
 
   setNumberInputContext(numberInput);

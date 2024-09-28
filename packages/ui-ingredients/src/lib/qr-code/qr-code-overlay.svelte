@@ -18,7 +18,7 @@
 
   let qrCode = getQrCodeContext();
 
-  let mergedProps = $derived(mergeProps(props, qrCode.getOverlayProps()));
+  let mergedProps = $derived(mergeProps(qrCode.getOverlayProps(), props));
 </script>
 
 {#if asChild}

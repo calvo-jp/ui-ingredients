@@ -28,7 +28,7 @@
   );
 
   let mergedProps = $derived(
-    mergeProps(localProps, fileUpload.getItemProps(itemProps)),
+    mergeProps(fileUpload.getItemProps(itemProps), localProps),
   );
 
   setFileUploadItemPropsContext(() => itemProps);

@@ -18,7 +18,7 @@
 
   let qrCode = getQrCodeContext();
 
-  let mergedProps = $derived(mergeProps(props, qrCode.getFrameProps()));
+  let mergedProps = $derived(mergeProps(qrCode.getFrameProps(), props));
 </script>
 
 {#if asChild}

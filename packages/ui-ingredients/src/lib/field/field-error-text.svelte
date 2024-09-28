@@ -18,7 +18,7 @@
 
   let field = getFieldContext();
 
-  let mergedProps = $derived(mergeProps(props, field.getErrorTextProps()));
+  let mergedProps = $derived(mergeProps(field.getErrorTextProps(), props));
 </script>
 
 {#if asChild}

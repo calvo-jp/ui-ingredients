@@ -20,7 +20,7 @@
 
   let progress = getProgressContext();
 
-  let mergedProps = $derived(mergeProps(props, progress.getViewProps({state})));
+  let mergedProps = $derived(mergeProps(progress.getViewProps({state}), props));
 </script>
 
 {#if asChild}

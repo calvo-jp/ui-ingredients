@@ -24,7 +24,7 @@
   let itemProps = getFileUploadItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(props, fileUpload.getItemPreviewImageProps({url, ...itemProps})),
+    mergeProps(fileUpload.getItemPreviewImageProps({url, ...itemProps}), props),
   );
 
   $effect(() => {

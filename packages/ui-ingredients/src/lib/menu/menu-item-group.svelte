@@ -30,7 +30,7 @@
   });
 
   let mergedProps = $derived(
-    mergeProps(props, menu.getItemGroupProps(itemGroupProps)),
+    mergeProps(menu.getItemGroupProps(itemGroupProps), props),
   );
 
   setMenuItemGroupPropsContext(() => itemGroupProps);

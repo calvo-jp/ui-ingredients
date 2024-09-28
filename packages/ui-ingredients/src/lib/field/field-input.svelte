@@ -13,7 +13,7 @@
 
   let field = getFieldContext();
 
-  let mergedProps = $derived(mergeProps(props, field.getInputProps()));
+  let mergedProps = $derived(mergeProps(field.getInputProps(), props));
 </script>
 
 {#if asChild}

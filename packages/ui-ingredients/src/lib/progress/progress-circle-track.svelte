@@ -18,7 +18,7 @@
 
   let progress = getProgressContext();
 
-  let mergedProps = $derived(mergeProps(props, progress.getCircleTrackProps()));
+  let mergedProps = $derived(mergeProps(progress.getCircleTrackProps(), props));
 </script>
 
 {#if asChild}

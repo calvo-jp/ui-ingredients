@@ -23,7 +23,7 @@
   let pinInput = getPinInputContext();
 
   let mergedProps = $derived(
-    mergeProps(props, pinInput.getInputProps({index})),
+    mergeProps(pinInput.getInputProps({index}), props),
   );
 </script>
 

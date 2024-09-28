@@ -52,7 +52,7 @@
 
   let fileUpload = createFileUpload(reflect(() => createFileUploadProps));
 
-  let mergedProps = $derived(mergeProps(localProps, fileUpload.getRootProps()));
+  let mergedProps = $derived(mergeProps(fileUpload.getRootProps(), localProps));
 
   setFileUploadContext(fileUpload);
 </script>

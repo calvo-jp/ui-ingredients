@@ -18,7 +18,7 @@
 
   let hoverCard = getHoverCardContext();
 
-  let mergedProps = $derived(mergeProps(props, hoverCard.getArrowProps()));
+  let mergedProps = $derived(mergeProps(hoverCard.getArrowProps(), props));
 </script>
 
 {#if asChild}

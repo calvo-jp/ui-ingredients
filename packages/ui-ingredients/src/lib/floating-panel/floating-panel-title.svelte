@@ -18,7 +18,7 @@
 
   let floatingPanel = getFloatingPanelContext();
 
-  let mergedProps = $derived(mergeProps(props, floatingPanel.getTitleProps()));
+  let mergedProps = $derived(mergeProps(floatingPanel.getTitleProps(), props));
 </script>
 
 {#if asChild}

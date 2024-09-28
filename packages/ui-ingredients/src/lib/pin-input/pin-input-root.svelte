@@ -54,7 +54,7 @@
 
   let pinInput = createPinInputContext(reflect(() => createPinInputProps));
 
-  let mergedProps = $derived(mergeProps(localProps, pinInput.getRootProps()));
+  let mergedProps = $derived(mergeProps(pinInput.getRootProps(), localProps));
 
   setPinInputContext(pinInput);
 </script>

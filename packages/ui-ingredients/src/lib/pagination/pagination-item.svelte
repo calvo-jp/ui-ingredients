@@ -25,11 +25,11 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       pagination.getItemProps({
         type: 'page',
         value,
       }),
+      props,
     ),
   );
 </script>

@@ -34,7 +34,7 @@
 
   let qrCode = createQRCode(reflect(() => createQrCodeProps));
 
-  let mergedProps = $derived(mergeProps(localProps, qrCode.getRootProps()));
+  let mergedProps = $derived(mergeProps(qrCode.getRootProps(), localProps));
 
   setQrCodeContext(qrCode);
 </script>

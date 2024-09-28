@@ -22,9 +22,9 @@
 
   let mergedProps = $derived(
     mergeProps(
-      props,
       floatingPanel.getPositionerProps(),
       presence.getPresenceProps(),
+      props,
     ),
   );
 </script>
