@@ -21,7 +21,9 @@
         <TreeView.BranchText>Item 2</TreeView.BranchText>
       </TreeView.BranchControl>
 
-      <TreeView.BranchContent class="pl-6">
+      <TreeView.BranchContent
+        class="data-open:animate-fade-in data-closed:animate-fade-out pl-6"
+      >
         <TreeView.Item value="2.1" depth={3}>
           <TreeView.ItemText>Item 2.1</TreeView.ItemText>
         </TreeView.Item>
@@ -41,7 +43,9 @@
         <TreeView.BranchText>Item 3</TreeView.BranchText>
       </TreeView.BranchControl>
 
-      <TreeView.BranchContent class="pl-6">
+      <TreeView.BranchContent
+        class="data-open:animate-fade-in data-closed:animate-fade-out pl-6"
+      >
         <TreeView.Item value="3.1" depth={3} class="pl-6">
           <TreeView.ItemText>Item 3.1</TreeView.ItemText>
         </TreeView.Item>
@@ -55,7 +59,9 @@
             </TreeView.BranchIndicator>
             <TreeView.BranchText>Item 3.2.1</TreeView.BranchText>
           </TreeView.BranchControl>
-          <TreeView.BranchContent class="pl-6">
+          <TreeView.BranchContent
+            class="data-open:animate-fade-in data-closed:animate-fade-out pl-6"
+          >
             <TreeView.Item value="3.1" depth={3} class="pl-6">
               <TreeView.ItemText>Item 3.2.2</TreeView.ItemText>
             </TreeView.Item>
