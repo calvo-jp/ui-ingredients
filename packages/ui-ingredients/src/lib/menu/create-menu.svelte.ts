@@ -6,8 +6,8 @@ import {uid} from 'uid';
 
 export interface CreateMenuProps
   extends Omit<menu.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateMenuReturn extends menu.Api {
@@ -21,12 +21,11 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
   const id = uid();
 
   const context: menu.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
+    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send, machine] = useMachine(menu.machine(context), {context});

@@ -9,8 +9,8 @@ export interface CreateHoverCardProps
     hoverCard.Context,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateHoverCardReturn extends hoverCard.Api {}
@@ -24,12 +24,11 @@ export function createHoverCard(
   const id = uid();
 
   const context: hoverCard.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
+    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(hoverCard.machine(context), {context});

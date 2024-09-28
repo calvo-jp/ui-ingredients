@@ -9,8 +9,8 @@ export interface CreateTimePickerProps
     timePicker.Context,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateTimePickerReturn extends timePicker.Api {}
@@ -24,13 +24,12 @@ export function createTimePicker(
   const id = uid();
 
   const context: timePicker.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
-    locale: props.locale ?? locale?.locale,
+    locale: locale?.locale,
+    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.defaultOpen != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(timePicker.machine(context), {context});

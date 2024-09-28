@@ -10,8 +10,8 @@ export interface CreateEditableProps
     editable.Context,
     'id' | 'dir' | 'getRootNode' | 'edit.controlled'
   > {
-  id?: string | null;
-  defaultEdit?: boolean;
+  id?: string;
+  editControlled?: boolean;
 }
 
 export interface CreateEditableReturn extends editable.Api {}
@@ -26,20 +26,19 @@ export function createEditable(
   const id = uid();
 
   const context: editable.Context = reflect(() => ({
+    id,
     ids: {
       label: field?.ids.label,
       input: field?.ids.control,
     },
+    dir: locale?.dir,
     invalid: field?.invalid,
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
     ...props,
-    id: props.id ?? id,
-    dir: locale?.dir,
-    edit: props.defaultEdit ?? props.edit,
     getRootNode: environment?.getRootNode,
-    'edit.controlled': props.edit != null,
+    'edit.controlled': props.editControlled,
   }));
 
   const [state, send] = useMachine(editable.machine(context), {context});

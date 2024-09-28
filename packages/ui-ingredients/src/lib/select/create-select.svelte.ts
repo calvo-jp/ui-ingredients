@@ -11,8 +11,8 @@ type Omitted = 'id' | 'dir' | 'getRootNode' | 'collection' | 'open.controlled';
 export interface CreateSelectProps<T>
   extends select.CollectionOptions<T>,
     Omit<select.Context, Omitted> {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateSelectReturn extends select.Api {}
@@ -38,20 +38,19 @@ export function createSelect<T>(
   const id = uid();
 
   const context: select.Context = reflect(() => ({
+    id,
     ids: {
       label: field?.ids.label,
       hiddenSelect: field?.ids.control,
     },
+    dir: locale?.dir,
     invalid: field?.invalid,
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
     ...selectProps,
-    id: props.id ?? id,
-    dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
-    'open.controlled': props.open != null,
     getRootNode: environment?.getRootNode,
+    'open.controlled': props.openControlled,
     collection,
   }));
 

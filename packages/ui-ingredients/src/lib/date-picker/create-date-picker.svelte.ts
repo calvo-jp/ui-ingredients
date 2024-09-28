@@ -18,12 +18,12 @@ type Omitted =
 
 export interface CreateDatePickerProps
   extends Omit<datePicker.Context, Omitted> {
-  id?: string | null;
+  id?: string;
   min?: string | Date;
   max?: string | Date;
   value?: string[] | Date[];
   focusedValue?: string | Date;
-  defaultOpen?: boolean;
+  openControlled?: boolean;
 }
 
 export interface CreateDatePickerReturn extends datePicker.Api {
@@ -40,19 +40,18 @@ export function createDatePicker(
 
   /* FIXME: use reflect */
   const context: datePicker.Context = $derived.by(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
+    locale: locale?.locale,
+    ...props,
     min: props.min ? datePicker.parse(props.min) : undefined,
     max: props.max ? datePicker.parse(props.max) : undefined,
     value: props.value ? datePicker.parse(props.value) : undefined,
     focusedValue: props.focusedValue
       ? datePicker.parse(props.focusedValue)
       : undefined,
-    open: props.defaultOpen ?? props.open,
-    'open.controlled': props.open != null,
-    locale: props.locale ?? locale?.locale,
     getRootNode: environment?.getRootNode,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(datePicker.machine(context), {context});

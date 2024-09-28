@@ -10,9 +10,9 @@ type Omitted = 'id' | 'dir' | 'value' | 'getRootNode' | 'open.controlled';
 
 export interface CreateColorPickerProps
   extends Omit<colorPicker.Context, Omitted> {
-  id?: string | null;
+  id?: string;
   value?: string;
-  defaultOpen?: boolean;
+  openControlled?: boolean;
 }
 
 export interface CreateColorPickerReturn extends colorPicker.Api {
@@ -29,13 +29,12 @@ export function createColorPicker(
   const id = uid();
 
   const context: colorPicker.Context = $derived.by(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
+    ...props,
     value: props.value ? colorPicker.parse(props.value) : undefined,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(colorPicker.machine(context), {context});

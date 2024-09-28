@@ -58,6 +58,7 @@
   lazyMount
   keepMounted
   open={store.sidebar.isOpen}
+  openControlled
   onOpenChange={(detail) => {
     store.sidebar.isOpen = detail.open;
   }}

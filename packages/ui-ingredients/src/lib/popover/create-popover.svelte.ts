@@ -9,8 +9,8 @@ export interface CreatePopoverProps
     popover.Context,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreatePopoverReturn extends popover.Api {}
@@ -22,12 +22,11 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
   const id = uid();
 
   const context: popover.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
+    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(popover.machine(context), {context});

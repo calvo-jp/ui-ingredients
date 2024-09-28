@@ -9,8 +9,8 @@ export interface CreateTooltipProps
     tooltip.Context,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateTooltipReturn extends tooltip.Api {}
@@ -22,12 +22,11 @@ export function createTooltip(props: CreateTooltipProps): CreateTooltipReturn {
   const id = uid();
 
   const context: tooltip.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
+    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(tooltip.machine(context), {context});

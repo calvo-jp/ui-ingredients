@@ -9,8 +9,8 @@ export interface CreateDialogProps
     dialog.Context,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateDialogReturn extends dialog.Api {}
@@ -22,12 +22,11 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
   const id = uid();
 
   const context: dialog.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
+    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(dialog.machine(context), {context});

@@ -11,8 +11,8 @@ type Omitted = 'id' | 'dir' | 'collection' | 'getRootNode' | 'open.controlled';
 export interface CreateComboboxProps<T>
   extends combobox.CollectionOptions<T>,
     Omit<combobox.Context, Omitted> {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateComboboxReturn extends combobox.Api {}
@@ -38,24 +38,23 @@ export function createCombobox<T>(
   const id = uid();
 
   const context: combobox.Context = reflect(() => ({
+    id,
     ids: {
       label: field?.ids.label,
       input: field?.ids.control,
     },
+    dir: locale?.dir,
     invalid: field?.invalid,
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
     ...comboboxProps,
-    id: props.id ?? id,
-    dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
-    'open.controlled': props.open != null,
     getRootNode: environment?.getRootNode,
+    'open.controlled': props.openControlled,
     collection,
   }));
 
-  const [state, send] = useMachine(combobox.machine(context));
+  const [state, send] = useMachine(combobox.machine(context), {context});
 
   return reflect(() => {
     const o = combobox.connect(state, send, normalizeProps);

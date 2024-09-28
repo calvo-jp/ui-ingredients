@@ -43,7 +43,7 @@
       'name',
       'form',
       'open',
-      'defaultOpen',
+      'openControlled',
       'items',
       'value',
       'invalid',

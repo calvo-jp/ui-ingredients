@@ -9,8 +9,8 @@ export interface CreateCollapsibleProps
     collapsible.Context,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
-  id?: string | null;
-  defaultOpen?: boolean;
+  id?: string;
+  openControlled?: boolean;
 }
 
 export interface CreateCollapsibleReturn extends collapsible.Api {}
@@ -24,12 +24,11 @@ export function createCollapsible(
   const id = uid();
 
   const context: collapsible.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
-    open: props.defaultOpen ?? props.open,
+    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.open != null,
+    'open.controlled': props.openControlled,
   }));
 
   const [state, send] = useMachine(collapsible.machine(context), {context});
