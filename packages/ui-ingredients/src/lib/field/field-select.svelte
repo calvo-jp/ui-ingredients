@@ -18,7 +18,7 @@
 
   let field = getFieldContext();
 
-  let mergedProps = $derived(mergeProps(field.getSelectProps(), props));
+  let mergedProps = $derived(mergeProps(field?.getSelectProps() ?? {}, props));
 </script>
 
 {#if asChild}
