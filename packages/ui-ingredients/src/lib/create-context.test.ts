@@ -47,7 +47,7 @@ interface TContext {
   z: number;
 }
 
-describe('createContext', () => {
+describe("'createContext' util is working as expected", () => {
   test("can set context using the 'setContext' return", async () => {
     const k = faker.string.uuid();
 
