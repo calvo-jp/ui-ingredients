@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   function randomString(length = 16) {
     const result: string[] = [];
 

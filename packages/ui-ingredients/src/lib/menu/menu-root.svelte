@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Snippet} from 'svelte';
   import {

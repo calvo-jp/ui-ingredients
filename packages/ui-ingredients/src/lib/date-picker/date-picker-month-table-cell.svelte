@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {TableCellProps, TableCellState} from '@zag-js/date-picker';
 
