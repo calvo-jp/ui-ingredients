@@ -14,13 +14,13 @@ describe('Combobox', () => {
   it.each(getAnatomySelector(comboboxAnatomy))(
     'should render %s',
     (selector) => {
-      render(Combobox, {items});
+      render(Combobox as any, {props: {items}});
       expect(document.querySelector(selector)).toBeInTheDocument();
     },
   );
 
   it('should have no a11y violations', async () => {
-    const {container} = render(Combobox, {items});
+    const {container} = render(Combobox as any, {props: {items}});
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

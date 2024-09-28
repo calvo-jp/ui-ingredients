@@ -10,12 +10,12 @@ const name = faker.person.fullName();
 
 describe('Avatar', () => {
   it.each(getAnatomySelector(avatarAnatomy))('should render %s', (selector) => {
-    render(Avatar, {src, name});
+    render(Avatar as any, {props: {src, name}});
     expect(document.querySelector(selector)).toBeInTheDocument();
   });
 
   it('should have no a11y violations', async () => {
-    const {container} = render(Avatar, {src, name});
+    const {container} = render(Avatar as any, {props: {src, name}});
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

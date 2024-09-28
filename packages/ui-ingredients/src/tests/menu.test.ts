@@ -12,12 +12,12 @@ const items = [
 
 describe('Menu', () => {
   it.each(getAnatomySelector(menuAnatomy))('should render %s', (selector) => {
-    render(Menu, {items});
+    render(Menu as any, {props: {items}});
     expect(document.querySelector(selector)).toBeInTheDocument();
   });
 
   it.skip('should have no a11y violations', async () => {
-    const {container} = render(Menu);
+    const {container} = render(Menu as any, {props: {items}});
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

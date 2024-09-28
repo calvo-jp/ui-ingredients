@@ -8,13 +8,13 @@ describe('Collapsible', () => {
   it.each(getAnatomySelector(collapsibleAnatomy))(
     'should render %s',
     (selector) => {
-      render(Collapsible);
+      render(Collapsible as any);
       expect(document.querySelector(selector)).toBeInTheDocument();
     },
   );
 
   it('should have no a11y violations', async () => {
-    const {container} = render(Collapsible);
+    const {container} = render(Collapsible as any);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

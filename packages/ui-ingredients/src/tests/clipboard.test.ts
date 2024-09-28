@@ -8,13 +8,13 @@ describe('Clipboard', () => {
   it.each(getAnatomySelector(clipboardAnatomy))(
     'should render %s',
     (selector) => {
-      render(Clipboard);
+      render(Clipboard as any);
       expect(document.querySelector(selector)).toBeInTheDocument();
     },
   );
 
   it('should have no a11y violations', async () => {
-    const {container} = render(Clipboard);
+    const {container} = render(Clipboard as any);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

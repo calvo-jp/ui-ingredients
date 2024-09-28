@@ -8,13 +8,13 @@ describe('HoverCard', () => {
   it.each(getAnatomySelector(hoverCardAnatomy))(
     'should render %s',
     (selector) => {
-      render(HoverCard);
+      render(HoverCard as any);
       expect(document.querySelector(selector)).toBeInTheDocument();
     },
   );
 
   it('should have no a11y violations', async () => {
-    const {container} = render(HoverCard);
+    const {container} = render(HoverCard as any);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
