@@ -36,7 +36,10 @@
     {#if children}
       {@render children()}
     {:else}
-      {colorPicker.getChannelValueText(channelProps.channel, locale.locale)}
+      {colorPicker.getChannelValueText(
+        channelProps.channel,
+        locale?.locale ?? 'en-US',
+      )}
     {/if}
   </div>
 {/if}
