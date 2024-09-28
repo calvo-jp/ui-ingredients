@@ -20,7 +20,12 @@
 
   import {reflect} from '@zag-js/svelte';
 
-  let {this: e, asChild, children, ...props}: CheckboxProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: CheckboxProps = $props();
 
   let [createCheckboxProps, localProps] = $derived(
     createSplitProps<CreateCheckboxProps>([
@@ -48,7 +53,7 @@
 {#if asChild}
   {@render asChild(mergedProps, checkbox)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.(checkbox)}
   </label>
 {/if}

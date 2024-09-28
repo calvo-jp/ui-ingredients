@@ -17,7 +17,12 @@
     setSelectItemPropsContext,
   } from './select-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: SelectItemProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: SelectItemProps = $props();
 
   let select = getSelectContext();
 
@@ -36,7 +41,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

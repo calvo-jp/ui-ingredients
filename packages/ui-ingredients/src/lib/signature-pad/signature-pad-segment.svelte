@@ -10,7 +10,7 @@
   import {getSignaturePadContext} from './signature-pad-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     asChild,
     children,
     ...props
@@ -24,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <svg bind:this={e} {...mergedProps}>
+  <svg bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </svg>
 {/if}

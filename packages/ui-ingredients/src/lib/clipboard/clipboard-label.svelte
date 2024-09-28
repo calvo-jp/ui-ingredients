@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getClipboardContext} from './clipboard-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ClipboardLabelProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ClipboardLabelProps = $props();
 
   let clipboard = getClipboardContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

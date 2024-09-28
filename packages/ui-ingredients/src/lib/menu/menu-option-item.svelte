@@ -17,7 +17,12 @@
     setMenuOptionItemPropsContext,
   } from './menu-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: MenuOptionItemProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: MenuOptionItemProps = $props();
 
   let menu = getMenuContext();
 
@@ -45,7 +50,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

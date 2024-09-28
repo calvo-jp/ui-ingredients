@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getToastContext} from './toast-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ToastDescriptionProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ToastDescriptionProps = $props();
 
   let context = getToastContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <p bind:this={e} {...mergedProps}>
+  <p bind:this={ref} {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

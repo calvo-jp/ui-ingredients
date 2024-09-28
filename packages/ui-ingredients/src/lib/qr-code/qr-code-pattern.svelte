@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getQrCodeContext} from './qr-code-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: QrCodePatternProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: QrCodePatternProps = $props();
 
   let qrCode = getQrCodeContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <path bind:this={e} {...mergedProps}>
+  <path bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </path>
 {/if}

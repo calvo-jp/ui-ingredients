@@ -17,7 +17,12 @@
     setTreeViewItemPropsContext,
   } from './tree-view-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TreeViewItemProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TreeViewItemProps = $props();
 
   let treeView = getTreeViewContext();
 
@@ -37,7 +42,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

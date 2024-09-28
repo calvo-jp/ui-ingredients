@@ -12,7 +12,7 @@
   import {getColorPickerContext} from './color-picker-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     asChild,
     children,
     ...props
@@ -34,7 +34,7 @@
   {#if asChild}
     {@render asChild(presence.ref, mergedProps)}
   {:else}
-    <div bind:this={e} use:presence.ref {...mergedProps}>
+    <div bind:this={ref} use:presence.ref {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

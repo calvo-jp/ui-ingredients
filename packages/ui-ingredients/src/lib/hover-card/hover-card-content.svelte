@@ -11,7 +11,12 @@
   import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {getHoverCardContext} from './hover-card-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: HoverCardContentProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: HoverCardContentProps = $props();
 
   let hoverCard = getHoverCardContext();
   let presence = getPresenceContext();
@@ -25,7 +30,7 @@
   {#if asChild}
     {@render asChild(presence.ref, mergedProps)}
   {:else}
-    <div bind:this={e} use:presence.ref {...mergedProps}>
+    <div bind:this={ref} use:presence.ref {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

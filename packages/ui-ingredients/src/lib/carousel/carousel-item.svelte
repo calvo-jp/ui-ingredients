@@ -14,7 +14,12 @@
   import {createSplitProps} from '@zag-js/utils';
   import {getCarouselContext} from './carousel-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: CarouselItemProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: CarouselItemProps = $props();
 
   let carousel = getCarouselContext();
 
@@ -31,7 +36,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

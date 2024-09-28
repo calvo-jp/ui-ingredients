@@ -19,7 +19,12 @@
   import {createSlider} from './create-slider.svelte.js';
   import {setSliderContext} from './slider-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: SliderProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: SliderProps = $props();
 
   let [createSliderProps, localProps] = $derived(
     createSplitProps<CreateSliderProps>([
@@ -58,7 +63,7 @@
 {#if asChild}
   {@render asChild(mergedProps, slider)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(slider)}
   </div>
 {/if}

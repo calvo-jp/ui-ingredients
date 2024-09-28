@@ -19,7 +19,12 @@
   import {createSignaturePad} from './create-signature-pad.svelte.js';
   import {setSignaturePadContext} from './signature-pad-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: SignaturePadProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: SignaturePadProps = $props();
 
   let [createSignaturePadProps, localProps] = $derived(
     createSplitProps<CreateSignaturePadProps>([
@@ -48,7 +53,7 @@
 {#if asChild}
   {@render asChild(mergedProps, signaturePad)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(signaturePad)}
   </div>
 {/if}

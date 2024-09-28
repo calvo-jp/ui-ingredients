@@ -14,7 +14,7 @@
   import {getSignaturePadContext} from './signature-pad-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     value,
     asChild,
     ...props
@@ -30,5 +30,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input bind:this={e} {...mergedProps} />
+  <input bind:this={ref} {...mergedProps} />
 {/if}

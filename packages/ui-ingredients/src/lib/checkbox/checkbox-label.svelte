@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getCheckboxContext} from './checkbox-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: CheckboxLabelProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: CheckboxLabelProps = $props();
 
   let checkbox = getCheckboxContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span bind:this={e} {...mergedProps}>
+  <span bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

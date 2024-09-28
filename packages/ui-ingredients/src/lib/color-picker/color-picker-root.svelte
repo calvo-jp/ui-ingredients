@@ -23,7 +23,12 @@
   import {setColorPickerContext} from './color-picker-context.svelte.js';
   import {createColorPicker} from './create-color-picker.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ColorPickerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ColorPickerProps = $props();
 
   let [presenceProps, etc] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
@@ -76,7 +81,7 @@
 {#if asChild}
   {@render asChild(mergedProps, colorPicker)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(colorPicker)}
   </div>
 {/if}

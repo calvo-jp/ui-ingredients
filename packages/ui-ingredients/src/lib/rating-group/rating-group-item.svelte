@@ -14,7 +14,7 @@
   import {getRatingGroupContext} from './rating-group-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     index,
     asChild,
     children,
@@ -32,7 +32,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

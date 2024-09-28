@@ -14,7 +14,7 @@
   import {getTimerContext} from './timer-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     action,
     asChild,
     children,
@@ -31,7 +31,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button bind:this={e} type="button" {...mergedProps}>
+  <button bind:this={ref} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

@@ -19,7 +19,12 @@
   import {setClipboardContext} from './clipboard-context.svelte.js';
   import {createClipboard} from './create-clipboard.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ClipboardProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ClipboardProps = $props();
 
   let [createClipboardProps, localProps] = $derived(
     createSplitProps<CreateClipboardProps>([
@@ -41,7 +46,7 @@
 {#if asChild}
   {@render asChild(mergedProps, clipboard)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(clipboard)}
   </div>
 {/if}

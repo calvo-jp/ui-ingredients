@@ -10,7 +10,12 @@
   import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {getTooltipContext} from './tooltip-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TooltipPositionerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TooltipPositionerProps = $props();
 
   let tooltip = getTooltipContext();
   let presence = getPresenceContext();
@@ -28,7 +33,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div bind:this={e} {...mergedProps}>
+    <div bind:this={ref} {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

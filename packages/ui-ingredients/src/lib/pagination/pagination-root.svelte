@@ -19,7 +19,12 @@
   import {createPagination} from './create-pagination.svelte.js';
   import {setPaginationContext} from './pagination-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: PaginationProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: PaginationProps = $props();
 
   let [createPaginationProps, localProps] = $derived(
     createSplitProps<CreatePaginationProps>([
@@ -46,7 +51,7 @@
 {#if asChild}
   {@render asChild(mergedProps, pagination)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(pagination)}
   </div>
 {/if}

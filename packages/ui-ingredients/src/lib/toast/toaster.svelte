@@ -18,7 +18,12 @@
   import * as toast from '@zag-js/toast';
   import ToastActor from './toast-actor.svelte';
 
-  let {this: e, toaster, children, ...props}: ToasterProps = $props();
+  let {
+    ref = $bindable(null),
+    toaster,
+    children,
+    ...props
+  }: ToasterProps = $props();
 
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
@@ -37,7 +42,7 @@
 </script>
 
 <Portal>
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {#each toasts as toast (toast.id)}
       <ToastActor actor={toast}>
         {#snippet children$(ctx)}

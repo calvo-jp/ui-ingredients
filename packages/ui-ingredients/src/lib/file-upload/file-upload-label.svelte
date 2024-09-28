@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFileUploadContext} from './file-upload-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: FileUploadLabelProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: FileUploadLabelProps = $props();
 
   let fileUpload = getFileUploadContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

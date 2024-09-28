@@ -12,7 +12,12 @@
     getStepsItemPropsContext,
   } from './steps-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: StepsIndicatorProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: StepsIndicatorProps = $props();
 
   let steps = getStepsContext();
 
@@ -26,7 +31,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span bind:this={e} {...mergedProps}>
+  <span bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

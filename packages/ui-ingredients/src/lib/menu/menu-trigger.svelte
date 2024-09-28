@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getMenuContext} from './menu-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: MenuTriggerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: MenuTriggerProps = $props();
 
   let menu = getMenuContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button bind:this={e} type="button" {...mergedProps}>
+  <button bind:this={ref} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

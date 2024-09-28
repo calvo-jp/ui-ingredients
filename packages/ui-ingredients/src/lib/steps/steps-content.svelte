@@ -11,7 +11,7 @@
   import {getStepsContext} from './steps-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     index,
     asChild,
     children,
@@ -26,7 +26,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

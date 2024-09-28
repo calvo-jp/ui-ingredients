@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getSliderContext} from './slider-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: SliderTrackProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: SliderTrackProps = $props();
 
   let slider = getSliderContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

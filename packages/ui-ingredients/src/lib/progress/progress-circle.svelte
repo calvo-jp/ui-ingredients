@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getProgressContext} from './progress-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ProgressCircleProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ProgressCircleProps = $props();
 
   let progress = getProgressContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <svg bind:this={e} {...mergedProps}>
+  <svg bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </svg>
 {/if}

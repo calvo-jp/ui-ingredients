@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getCarouselContext} from './carousel-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: CarouselViewportProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: CarouselViewportProps = $props();
 
   let carousel = getCarouselContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

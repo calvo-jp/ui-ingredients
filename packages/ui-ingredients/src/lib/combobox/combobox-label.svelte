@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getComboboxContext} from './combobox-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ComboboxLabelProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ComboboxLabelProps = $props();
 
   let combobox = getComboboxContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

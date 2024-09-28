@@ -10,7 +10,12 @@
   import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {getDialogContext} from './dialog-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: DialogPositionerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: DialogPositionerProps = $props();
 
   let dialog = getDialogContext();
   let presence = getPresenceContext();
@@ -24,7 +29,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div bind:this={e} {...mergedProps}>
+    <div bind:this={ref} {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

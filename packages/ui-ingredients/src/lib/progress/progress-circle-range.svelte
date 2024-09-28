@@ -10,7 +10,7 @@
   import {getProgressContext} from './progress-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     asChild,
     children,
     ...props
@@ -24,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <circle bind:this={e} {...mergedProps}>
+  <circle bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </circle>
 {/if}

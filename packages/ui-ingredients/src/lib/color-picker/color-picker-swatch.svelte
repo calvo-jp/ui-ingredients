@@ -14,7 +14,7 @@
   } from './color-picker-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     value,
     respectAlpha,
     asChild,
@@ -38,7 +38,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

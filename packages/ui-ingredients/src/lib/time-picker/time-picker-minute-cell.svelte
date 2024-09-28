@@ -11,7 +11,7 @@
   import {getTimePickerContext} from './time-picker-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     value,
     asChild,
     children,
@@ -28,7 +28,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

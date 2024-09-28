@@ -12,7 +12,11 @@
     getSegmentGroupItemPropsContext,
   } from './segment-group-context.svelte.js';
 
-  let {this: e, asChild, ...props}: SegmentGroupItemHiddenInputProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    ...props
+  }: SegmentGroupItemHiddenInputProps = $props();
 
   let segmentGroup = getSegmentGroupContext();
   let itemProps = getSegmentGroupItemPropsContext();
@@ -25,5 +29,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input bind:this={e} {...mergedProps} />
+  <input bind:this={ref} {...mergedProps} />
 {/if}

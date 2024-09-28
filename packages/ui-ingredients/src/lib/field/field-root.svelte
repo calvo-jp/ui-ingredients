@@ -19,7 +19,12 @@
   import {createField} from './create-field.svelte.js';
   import {setFieldContext} from './field-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: FieldProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: FieldProps = $props();
 
   let [createFieldProps, localProps] = $derived(
     createSplitProps<CreateFieldProps>([
@@ -42,7 +47,7 @@
 {#if asChild}
   {@render asChild(mergedProps, field)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(field)}
   </div>
 {/if}

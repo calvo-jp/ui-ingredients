@@ -10,7 +10,12 @@
   import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {getTourContext} from './tour-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TourPositionerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TourPositionerProps = $props();
 
   let tour = getTourContext();
   let presence = getPresenceContext();
@@ -24,7 +29,7 @@
   {#if asChild}
     {@render asChild(mergedProps)}
   {:else}
-    <div bind:this={e} {...mergedProps}>
+    <div bind:this={ref} {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

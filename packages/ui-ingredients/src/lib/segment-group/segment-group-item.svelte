@@ -18,7 +18,12 @@
     setSegmentGroupItemPropsContext,
   } from './segment-group-context.svelte.js';
 
-  let {this: e, children, asChild, ...props}: SegmentGroupItemProps = $props();
+  let {
+    ref = $bindable(null),
+    children,
+    asChild,
+    ...props
+  }: SegmentGroupItemProps = $props();
 
   let segmentGroup = getSegmentGroupContext();
 
@@ -41,7 +46,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </label>
 {/if}

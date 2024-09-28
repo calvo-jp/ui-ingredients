@@ -19,7 +19,12 @@
   import {createSwitch} from './create-switch.svelte.js';
   import {setSwitchContext} from './switch-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: SwitchProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: SwitchProps = $props();
 
   let [createSwitchProps, localProps] = $derived(
     createSplitProps<CreateSwitchProps>([
@@ -48,7 +53,7 @@
 {#if asChild}
   {@render asChild(mergedProps, switch_)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.(switch_)}
   </label>
 {/if}

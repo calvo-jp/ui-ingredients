@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getNumberInputContext} from './number-input-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: NumberInputLabelProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: NumberInputLabelProps = $props();
 
   let numberInput = getNumberInputContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

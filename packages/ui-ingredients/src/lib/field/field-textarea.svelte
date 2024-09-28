@@ -9,7 +9,7 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFieldContext} from './field-context.svelte.js';
 
-  let {this: e, asChild, ...props}: FieldTextareaProps = $props();
+  let {ref = $bindable(null), asChild, ...props}: FieldTextareaProps = $props();
 
   let field = getFieldContext();
 
@@ -19,5 +19,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <textarea bind:this={e} {...mergedProps}></textarea>
+  <textarea bind:this={ref} {...mergedProps}></textarea>
 {/if}

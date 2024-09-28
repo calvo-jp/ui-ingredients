@@ -10,7 +10,7 @@
   import {getPopoverContext} from './popover-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     asChild,
     children,
     ...props
@@ -24,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <p bind:this={e} {...mergedProps}>
+  <p bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </p>
 {/if}

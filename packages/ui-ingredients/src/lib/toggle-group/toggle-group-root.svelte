@@ -19,7 +19,12 @@
   import {createToggleGroup} from './create-toggle-group.svelte.js';
   import {setToggleGroupContext} from './toggle-group-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ToggleGroupProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ToggleGroupProps = $props();
 
   let [createToggleGroupProps, localProps] = $derived(
     createSplitProps<CreateToggleGroupProps>([
@@ -47,7 +52,7 @@
 {#if asChild}
   {@render asChild(mergedProps, toggleGroup)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(toggleGroup)}
   </div>
 {/if}

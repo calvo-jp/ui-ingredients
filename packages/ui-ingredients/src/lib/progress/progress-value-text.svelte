@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getProgressContext} from './progress-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: ProgressValueTextProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: ProgressValueTextProps = $props();
 
   let progress = getProgressContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span bind:this={e} {...mergedProps}>
+  <span bind:this={ref} {...mergedProps}>
     {#if children}
       {@render children()}
     {:else}

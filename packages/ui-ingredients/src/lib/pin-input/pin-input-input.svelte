@@ -13,7 +13,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getPinInputContext} from './pin-input-context.svelte.js';
 
-  let {this: e, index, asChild, ...props}: PinInputInputProps = $props();
+  let {
+    ref = $bindable(null),
+    index,
+    asChild,
+    ...props
+  }: PinInputInputProps = $props();
 
   let pinInput = getPinInputContext();
 
@@ -25,5 +30,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input bind:this={e} {...mergedProps} />
+  <input bind:this={ref} {...mergedProps} />
 {/if}

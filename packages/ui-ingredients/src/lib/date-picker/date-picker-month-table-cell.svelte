@@ -18,7 +18,7 @@
   } from './date-picker-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     asChild,
     children,
     ...props
@@ -44,7 +44,7 @@
 {#if asChild}
   {@render asChild(mergedProps, tableCellState)}
 {:else}
-  <td bind:this={e} {...mergedProps}>
+  <td bind:this={ref} {...mergedProps}>
     {@render children?.(tableCellState)}
   </td>
 {/if}

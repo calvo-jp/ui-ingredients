@@ -11,7 +11,12 @@
   import {createSplitProps} from '@zag-js/utils';
   import {getSplitterContext} from './splitter-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: SplitterPanelProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: SplitterPanelProps = $props();
 
   let splitter = getSplitterContext();
 
@@ -27,7 +32,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

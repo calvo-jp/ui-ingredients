@@ -9,7 +9,11 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getTimePickerContext} from './time-picker-context.svelte.js';
 
-  let {this: e, asChild, ...props}: TimePickerInputProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    ...props
+  }: TimePickerInputProps = $props();
 
   let timePicker = getTimePickerContext();
 
@@ -19,5 +23,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input bind:this={e} {...mergedProps} />
+  <input bind:this={ref} {...mergedProps} />
 {/if}

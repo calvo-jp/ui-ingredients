@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getHoverCardContext} from './hover-card-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: HoverCardTriggerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: HoverCardTriggerProps = $props();
 
   let hoverCard = getHoverCardContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <a bind:this={e} {...mergedProps}>
+  <a bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </a>
 {/if}

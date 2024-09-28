@@ -17,7 +17,12 @@
     setAccordionItemPropsContext,
   } from './avatar-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: AccordionItemProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: AccordionItemProps = $props();
 
   let accordion = getAccordionContext();
 
@@ -36,7 +41,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

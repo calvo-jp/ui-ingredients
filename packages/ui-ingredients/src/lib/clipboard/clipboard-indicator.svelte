@@ -14,7 +14,7 @@
   import {getClipboardContext} from './clipboard-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     copied = false,
     asChild,
     children,
@@ -31,7 +31,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <span bind:this={e} {...mergedProps}>
+  <span bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

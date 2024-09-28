@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFieldContext} from './field-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: FieldErrorTextProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: FieldErrorTextProps = $props();
 
   let field = getFieldContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

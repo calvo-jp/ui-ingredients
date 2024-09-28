@@ -14,7 +14,7 @@
   import {getDatePickerContext} from './date-picker-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     index,
     asChild,
     children,
@@ -31,7 +31,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <label bind:this={e} {...mergedProps}>
+  <label bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </label>
 {/if}

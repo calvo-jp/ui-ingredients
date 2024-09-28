@@ -9,7 +9,12 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFloatingPanelContext} from './floating-panel-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: FloatingPanelBodyProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: FloatingPanelBodyProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
 
@@ -19,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

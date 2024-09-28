@@ -12,7 +12,12 @@
     getTimerItemPropsContext,
   } from './timer-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TimerItemValueProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TimerItemValueProps = $props();
 
   let timer = getTimerContext();
   let itemProps = getTimerItemPropsContext();
@@ -25,7 +30,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {#if children}
       {@render children?.()}
     {:else}

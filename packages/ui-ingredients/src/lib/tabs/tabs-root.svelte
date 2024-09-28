@@ -19,7 +19,12 @@
   import {createTabs} from './create-tabs.svelte.js';
   import {setTabsContext} from './tabs-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TabsProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TabsProps = $props();
 
   let [createTabsProps, localProps] = $derived(
     createSplitProps<CreateTabsProps>([
@@ -46,7 +51,7 @@
 {#if asChild}
   {@render asChild(mergedProps, tabs)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(tabs)}
   </div>
 {/if}

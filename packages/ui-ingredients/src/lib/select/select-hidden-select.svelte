@@ -10,7 +10,7 @@
   import {getSelectContext} from './select-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     asChild,
     children,
     ...props
@@ -24,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <select bind:this={e} {...mergedProps}>
+  <select bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </select>
 {/if}

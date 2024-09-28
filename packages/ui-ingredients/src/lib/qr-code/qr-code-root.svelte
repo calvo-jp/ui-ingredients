@@ -19,7 +19,12 @@
   import {createQRCode} from './create-qr-code.svelte.js';
   import {setQrCodeContext} from './qr-code-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: QrCodeProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: QrCodeProps = $props();
 
   let [createQrCodeProps, localProps] = $derived(
     createSplitProps<CreateQrCodeProps>(['id', 'ids', 'value', 'encoding'])(
@@ -37,7 +42,7 @@
 {#if asChild}
   {@render asChild(mergedProps, qrCode)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(qrCode)}
   </div>
 {/if}

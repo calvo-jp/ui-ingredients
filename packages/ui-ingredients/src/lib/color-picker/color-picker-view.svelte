@@ -16,7 +16,7 @@
   } from './color-picker-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     format,
     asChild,
     children,

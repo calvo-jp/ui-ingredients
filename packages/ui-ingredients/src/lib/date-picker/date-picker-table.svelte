@@ -20,7 +20,7 @@
   let {
     id,
     columns,
-    this: e,
+    ref = $bindable(null),
     asChild,
     children,
     ...props
@@ -40,7 +40,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <table bind:this={e} {...mergedProps}>
+  <table bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </table>
 {/if}

@@ -19,7 +19,12 @@
   import {createSplitter} from './create-splitter.svelte.js';
   import {setSplitterContext} from './splitter-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: SplitterProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: SplitterProps = $props();
 
   let [createSplitterProps, localProps] = $derived(
     createSplitProps<CreateSplitterProps>([
@@ -42,7 +47,7 @@
 {#if asChild}
   {@render asChild(mergedProps, splitter)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(splitter)}
   </div>
 {/if}

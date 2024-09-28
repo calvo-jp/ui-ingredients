@@ -13,7 +13,7 @@
   import {getColorPickerContext} from './color-picker-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     respectAlpha,
     asChild,
     children,

@@ -48,7 +48,7 @@ type PropsWithoutChildren<T> = Omit<T, 'children'>;
 
 export type HtmlIngredientProps<
   TElement extends SvelteHTMLElement,
-  TThis extends
+  TRef extends
     | HTMLElement
     | SVGSVGElement
     | SVGPathElement
@@ -56,7 +56,7 @@ export type HtmlIngredientProps<
   TContext extends GenericObject = never,
   TAction extends Action = never,
 > = PropsWithoutChildren<HtmlProps<TElement>> & {
-  this?: TThis | null;
+  ref?: TRef | null;
   asChild?: AsChild<TAction, TContext>;
   children?: Children<TContext>;
 };

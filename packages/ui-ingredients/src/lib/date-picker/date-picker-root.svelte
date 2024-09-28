@@ -23,7 +23,12 @@
   import {createDatePicker} from './create-date-picker.svelte.js';
   import {setDatePickerContext} from './date-picker-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: DatePickerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: DatePickerProps = $props();
 
   let [presenceStrategyProps, rest] = $derived(
     createSplitProps<PresenceStrategyProps>([])(props),
@@ -79,7 +84,7 @@
 {#if asChild}
   {@render asChild(mergedProps, datePicker)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(datePicker)}
   </div>
 {/if}

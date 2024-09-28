@@ -13,7 +13,12 @@
   import {reflect} from '@zag-js/svelte';
   import {getDialogContext} from './dialog-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: DialogBackdropProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: DialogBackdropProps = $props();
 
   let dialog = getDialogContext();
   let presenceStrategyProps = getPresenceStrategyPropsContext();
@@ -33,7 +38,7 @@
   {#if asChild}
     {@render asChild(presence.ref, mergedProps)}
   {:else}
-    <div bind:this={e} use:presence.ref {...mergedProps}>
+    <div bind:this={ref} use:presence.ref {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

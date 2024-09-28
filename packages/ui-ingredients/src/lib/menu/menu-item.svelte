@@ -14,7 +14,12 @@
   import {createSplitProps} from '@zag-js/utils';
   import {getMenuContext} from './menu-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: MenuItemProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: MenuItemProps = $props();
 
   let menu = getMenuContext();
 
@@ -36,7 +41,7 @@
 {#if asChild}
   {@render asChild(mergedProps, itemState)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(itemState)}
   </div>
 {/if}

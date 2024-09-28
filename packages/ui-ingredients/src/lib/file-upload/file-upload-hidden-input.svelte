@@ -9,7 +9,11 @@
   import {mergeProps} from '$lib/merge-props.js';
   import {getFileUploadContext} from './file-upload-context.svelte.js';
 
-  let {this: e, asChild, ...props}: FileUploadHiddenInputProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    ...props
+  }: FileUploadHiddenInputProps = $props();
 
   let fileUpload = getFileUploadContext();
 
@@ -21,5 +25,5 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <input bind:this={e} {...mergedProps} />
+  <input bind:this={ref} {...mergedProps} />
 {/if}

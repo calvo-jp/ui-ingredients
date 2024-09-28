@@ -11,7 +11,7 @@
   import {getProgressContext} from './progress-context.svelte.js';
 
   let {
-    this: e,
+    ref = $bindable(null),
     state,
     asChild,
     children,
@@ -26,7 +26,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}

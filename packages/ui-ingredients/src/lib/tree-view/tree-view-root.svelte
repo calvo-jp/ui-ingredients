@@ -19,7 +19,12 @@
   import {createTreeView} from './create-tree-view.svelte.js';
   import {setTreeViewContext} from './tree-view-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TreeViewProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TreeViewProps = $props();
 
   let [createTreeViewProps, localProps] = $derived(
     createSplitProps<CreateTreeViewProps>([
@@ -47,7 +52,7 @@
 {#if asChild}
   {@render asChild(mergedProps, treeView)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(treeView)}
   </div>
 {/if}

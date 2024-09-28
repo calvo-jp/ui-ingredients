@@ -19,7 +19,12 @@
   import {createTimer} from './create-timer.svelte.js';
   import {setTimerContext} from './timer-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TimerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TimerProps = $props();
 
   let [createTimerProps, localProps] = $derived(
     createSplitProps<CreateTimerProps>([
@@ -44,7 +49,7 @@
 {#if asChild}
   {@render asChild(mergedProps, timer)}
 {:else}
-  <div bind:this={e} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(timer)}
   </div>
 {/if}

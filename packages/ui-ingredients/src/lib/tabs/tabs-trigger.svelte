@@ -14,7 +14,12 @@
   import {createSplitProps} from '@zag-js/utils';
   import {getTabsContext} from './tabs-context.svelte.js';
 
-  let {this: e, asChild, children, ...props}: TabsTriggerProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: TabsTriggerProps = $props();
 
   let tabs = getTabsContext();
 
@@ -30,7 +35,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button bind:this={e} type="button" {...mergedProps}>
+  <button bind:this={ref} type="button" {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}
