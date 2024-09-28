@@ -35,9 +35,9 @@
 
 {#if presence.mounted}
   {#if asChild}
-    {@render asChild(presence.ref, mergedProps)}
+    {@render asChild(presence.setReference, mergedProps)}
   {:else}
-    <div use:presence.ref {...mergedProps}>
+    <div use:presence.setReference {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

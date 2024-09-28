@@ -15,7 +15,7 @@ export interface CreatePresenceProps extends PresenceStrategyProps {
 }
 
 export interface CreatePresenceReturn {
-  ref: Action;
+  setReference: Action;
   getPresenceProps(): HTMLAttributes<HTMLElement>;
   mounted: boolean;
 }
@@ -59,12 +59,12 @@ export function createPresence(
     return false;
   });
 
-  const ref: Action = (node: HTMLElement) => {
+  const setReference: Action = (node: HTMLElement) => {
     api.setNode(node);
   };
 
   return {
-    ref,
+    setReference,
     getPresenceProps,
     get mounted() {
       return !unmounted;
