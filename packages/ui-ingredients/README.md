@@ -2,8 +2,6 @@
 
 Headless component library for [Svelte](https://svelte.dev/) powered by [zag](https://zagjs.com/)
 
-> ⚠️ This project is currently in the early stages of development. You're welcome to use it and we encourage contributions. Please use with caution as it is still evolving!
-
 ## Installation
 
 ```bash
