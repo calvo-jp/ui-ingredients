@@ -66,7 +66,7 @@
   <Portal data-id="side-nav">
     <Dialog.Positioner>
       <Dialog.Content
-        class="data-open:animate-slide-in-left data-closed:animate-slide-out-left fixed bottom-0 left-0 top-16 w-64 border-r bg-neutral-900"
+        class="data-open:animate-slide-in-left data-closed:animate-slide-out-left z-modal bg fixed bottom-0 left-0 top-16 w-64 border-r"
       >
         <nav class="h-full overflow-y-auto p-6">
           <ul class="space-y-0.5">
