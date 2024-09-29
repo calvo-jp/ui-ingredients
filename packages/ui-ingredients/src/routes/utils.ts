@@ -163,12 +163,10 @@ export const links: Link[] = [
   {
     label: 'Time Picker',
     path: '/time-picker',
-    hidden: true,
   },
   {
     label: 'Color Picker',
     path: '/color-picker',
-    hidden: true,
   },
   {
     label: 'Presence',
@@ -186,6 +184,8 @@ export const links: Link[] = [
     label: 'Time Picker',
     path: '/time-picker',
   },
-]
-  .filter((o) => !o.hidden)
-  .toSorted((i, j) => i.label.localeCompare(j.label));
+  {
+    label: 'Tour',
+    path: '/tour',
+  },
+].toSorted((i, j) => i.label.localeCompare(j.label));

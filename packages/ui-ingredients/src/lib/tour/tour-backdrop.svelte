@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface TourOverlayProps
+  export interface TourBackdropProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
@@ -17,19 +17,19 @@
     asChild,
     children,
     ...props
-  }: TourOverlayProps = $props();
+  }: TourBackdropProps = $props();
 
   let tour = getTourContext();
   let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,
-      present: tour.currentStep != null,
+      present: tour.step?.backdrop ?? false,
     })),
   );
 
   let mergedProps = $derived(
-    mergeProps(tour.getOverlayProps(), presence.getPresenceProps(), props),
+    mergeProps(tour.getBackdropProps(), presence.getPresenceProps(), props),
   );
 </script>
 
