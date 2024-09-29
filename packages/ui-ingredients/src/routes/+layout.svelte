@@ -1,4 +1,6 @@
 <script lang="ts">
+  /* counter: 0 */
+
   import '../app.css';
 
   import {
