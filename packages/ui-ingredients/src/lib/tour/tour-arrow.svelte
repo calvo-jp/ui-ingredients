@@ -21,10 +21,12 @@
   let mergedProps = $derived(mergeProps(tour.getArrowProps(), props));
 </script>
 
-{#if asChild}
-  {@render asChild(mergedProps)}
-{:else}
-  <span bind:this={ref} {...mergedProps}>
-    {@render children?.()}
-  </span>
+{#if tour.step?.arrow}
+  {#if asChild}
+    {@render asChild(mergedProps)}
+  {:else}
+    <span bind:this={ref} {...mergedProps}>
+      {@render children?.()}
+    </span>
+  {/if}
 {/if}

@@ -25,6 +25,10 @@
   {@render asChild(mergedProps)}
 {:else}
   <h2 bind:this={ref} {...mergedProps}>
-    {@render children?.()}
+    {#if children}
+      {@render children()}
+    {:else}
+      {tour.step?.title}
+    {/if}
   </h2>
 {/if}

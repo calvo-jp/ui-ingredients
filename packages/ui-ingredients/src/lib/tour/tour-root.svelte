@@ -35,7 +35,7 @@
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,
-      present: tour.currentStep != null,
+      present: tour.open,
     })),
   );
 

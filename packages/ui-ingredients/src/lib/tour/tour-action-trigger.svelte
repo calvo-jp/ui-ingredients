@@ -1,16 +1,14 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {StepActionTriggerProps} from '@zag-js/tour';
 
   export interface TourActionTriggerProps
-    extends Assign<
-      HtmlIngredientProps<'button', HTMLButtonElement>,
-      StepActionTriggerProps
-    > {}
+    extends StepActionTriggerProps,
+      HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import type {StepActionTriggerProps} from '@zag-js/tour';
   import {getTourContext} from './tour-context.svelte.js';
 
   let {
@@ -32,6 +30,10 @@
   {@render asChild(mergedProps)}
 {:else}
   <button bind:this={ref} type="button" {...mergedProps}>
-    {@render children?.()}
+    {#if children}
+      {@render children?.()}
+    {:else}
+      {action.label}
+    {/if}
   </button>
 {/if}

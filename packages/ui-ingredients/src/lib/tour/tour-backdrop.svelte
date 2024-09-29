@@ -24,7 +24,7 @@
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,
-      present: tour.step?.backdrop ?? false,
+      present: tour.step?.backdrop ? tour.open : false,
     })),
   );
 
