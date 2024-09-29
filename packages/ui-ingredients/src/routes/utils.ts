@@ -169,6 +169,10 @@ export const links: Link[] = [
     path: '/color-picker',
   },
   {
+    label: 'Color Picker',
+    path: '/color-picker',
+  },
+  {
     label: 'Presence',
     path: '/presence',
   },
@@ -184,4 +188,6 @@ export const links: Link[] = [
     label: 'Tour',
     path: '/tour',
   },
-].toSorted((i, j) => i.label.localeCompare(j.label));
+]
+  .filter((o, i, arr) => arr.findIndex((t) => t.label === o.label) === i)
+  .toSorted((i, j) => i.label.localeCompare(j.label));
