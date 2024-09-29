@@ -177,10 +177,6 @@ export const links: Link[] = [
     path: '/highlight',
   },
   {
-    label: 'Color Picker',
-    path: '/color-picker',
-  },
-  {
     label: 'Time Picker',
     path: '/time-picker',
   },
