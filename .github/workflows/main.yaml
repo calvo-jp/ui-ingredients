@@ -1,4 +1,4 @@
-name: main
+name: Run Tests for UI Ingredients
 
 on:
   pull_request:
@@ -10,7 +10,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     concurrency:
       group: ${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
@@ -21,7 +20,9 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
-      - run: npm install -g pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9.7.0
       - run: pnpm install
       - working-directory: packages/ui-ingredients
         run: pnpm test
