@@ -3,80 +3,46 @@
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {Button} from '../shared/index.js';
 
-  const steps: TourStepDetails[] = [
-    {
+  const length = 5;
+  const steps = Array.from({length}).map((_, idx) => {
+    const n = idx + 1;
+
+    const actions: TourStepDetails['actions'] = [];
+
+    if (n > 1) {
+      actions.push({
+        label: 'Prev',
+        action: 'prev',
+      });
+    }
+
+    if (n < 5) {
+      actions.push({
+        label: 'Next',
+        action: 'next',
+      });
+    }
+
+    if (n === length) {
+      actions.push({
+        label: 'Done',
+        action: 'dismiss',
+      });
+    }
+
+    const o: TourStepDetails = {
       type: 'tooltip',
       arrow: true,
-      title: 'Step 1 Title',
-      description: 'Step 1 Description',
+      title: `Step ${n} Title`,
+      description: `Step ${n} Description`,
+      actions,
       target() {
-        return document.getElementById('step-1-target');
+        return document.getElementById(`step-${n}-target`);
       },
-      actions: [
-        {
-          label: 'Next',
-          action: 'next',
-        },
-      ],
-    },
-    {
-      type: 'tooltip',
-      arrow: true,
-      title: 'Step 2 Title',
-      description: 'Step 2 Description',
-      target() {
-        return document.getElementById('step-2-target');
-      },
-      actions: [
-        {
-          label: 'Prev',
-          action: 'prev',
-        },
-        {
-          label: 'Next',
-          action: 'next',
-        },
-      ],
-    },
-    {
-      type: 'tooltip',
-      arrow: true,
-      title: 'Step 3 Title',
-      description: 'Step 3 Description',
-      target() {
-        return document.getElementById('step-3-target');
-      },
-      actions: [
-        {
-          label: 'Prev',
-          action: 'prev',
-        },
-        {
-          label: 'Next',
-          action: 'next',
-        },
-      ],
-    },
-    {
-      type: 'tooltip',
-      arrow: true,
-      title: 'Step 4 Title',
-      description: 'Step 4 Description',
-      target() {
-        return document.getElementById('step-4-target');
-      },
-      actions: [
-        {
-          label: 'Prev',
-          action: 'prev',
-        },
-        {
-          label: 'Done',
-          action: 'dismiss',
-        },
-      ],
-    },
-  ];
+    };
+
+    return o;
+  });
 </script>
 
 <Tour.Root {steps} closeOnEscape={false} closeOnInteractOutside={false}>
@@ -125,7 +91,7 @@
 </Tour.Root>
 
 <div class="text-muted mt-10 grid gap-4 lg:grid-cols-2">
-  {#each Array.from({length: 4}) as _, idx}
+  {#each Array.from({length}) as _, idx}
     {@const n = idx + 1}
 
     <div
