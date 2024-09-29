@@ -24,5 +24,4 @@ jobs:
         with:
           version: 9.7.0
       - run: pnpm install
-      - working-directory: packages/ui-ingredients
-        run: pnpm test
+      - run: pnpm ui-ingredients test
