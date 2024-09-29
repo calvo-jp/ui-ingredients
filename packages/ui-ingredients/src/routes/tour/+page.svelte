@@ -45,7 +45,7 @@
   });
 </script>
 
-<Tour.Root {steps} closeOnEscape={false} closeOnInteractOutside={false}>
+<Tour.Root {steps}>
   {#snippet children(tour)}
     {@const actions = tour.step?.actions ?? []}
 
@@ -90,13 +90,13 @@
   {/snippet}
 </Tour.Root>
 
-<div class="text-muted mt-10 grid gap-4 lg:grid-cols-2">
+<div class="mt-10 grid gap-4 lg:grid-cols-2">
   {#each Array.from({length}) as _, idx}
     {@const n = idx + 1}
 
     <div
       id="step-{n}-target"
-      class="data-[tour-highlighted]:border-accent rounded border p-5"
+      class="text-muted data-[tour-highlighted]:border-accent rounded border p-5 data-[tour-highlighted]:text-neutral-200"
     >
       Target {n}
     </div>
