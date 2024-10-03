@@ -1,8 +1,8 @@
-import {stepsAnatomy} from '$lib/index.js';
-import {render} from '@testing-library/svelte';
-import {axe} from 'vitest-axe';
+import { stepsAnatomy } from '$lib/index.js';
+import { render } from '@testing-library/svelte';
+import { axe } from 'vitest-axe';
 import Steps from './steps.svelte';
-import {getAnatomySelector} from './utils.js';
+import { getAnatomySelector } from './utils.js';
 
 const items = [
   {title: 'Step 1', content: 'Step 1 Content'},
@@ -12,8 +12,7 @@ const items = [
 
 describe('Steps', () => {
   it.each(getAnatomySelector(stepsAnatomy))('should render %s', (selector) => {
-    const {debug} = render(Steps, {props: {items}});
-    debug();
+    render(Steps, {props: {items}});
     expect(document.querySelector(selector)).toBeInTheDocument();
   });
 
