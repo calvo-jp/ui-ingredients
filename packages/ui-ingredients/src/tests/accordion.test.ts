@@ -14,13 +14,13 @@ describe('Accordion', () => {
   it.each(getAnatomySelector(accordionAnatomy))(
     'should render %s',
     (selector) => {
-      render(Accordion as any, {props: {items}});
+      render(Accordion, {props: {items}});
       expect(document.querySelector(selector)).toBeInTheDocument();
     },
   );
 
   it('should have no a11y violations', async () => {
-    const {container} = render(Accordion as any, {props: {items}});
+    const {container} = render(Accordion, {props: {items}});
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

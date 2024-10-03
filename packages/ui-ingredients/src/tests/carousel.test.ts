@@ -11,13 +11,13 @@ describe('Carousel', () => {
   it.each(getAnatomySelector(carouselAnatomy))(
     'should render %s',
     (selector) => {
-      render(Carousel as any, {props: {images}});
+      render(Carousel, {props: {images}});
       expect(document.querySelector(selector)).toBeInTheDocument();
     },
   );
 
   it('should have no a11y violations', async () => {
-    const {container} = render(Carousel as any, {props: {images}});
+    const {container} = render(Carousel, {props: {images}});
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
