@@ -10,3 +10,6 @@ export const [getTreeViewItemPropsContext, setTreeViewItemPropsContext] =
 
 export const [getTreeViewBranchPropsContext, setTreeViewBranchPropsContext] =
   createContext<BranchProps>('TreeViewBranch');
+
+export const [getTreeViewTreePropsContext, setTreeViewTreePropsContext] =
+  createContext<{depth: number}>('TreeViewTree');

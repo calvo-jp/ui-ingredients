@@ -16,7 +16,7 @@ describe('Menu', () => {
     expect(document.querySelector(selector)).toBeInTheDocument();
   });
 
-  it.skip('should have no a11y violations', async () => {
+  it('should have no a11y violations', async () => {
     const {container} = render(Menu, {props: {items}});
     const results = await axe(container);
     expect(results).toHaveNoViolations();

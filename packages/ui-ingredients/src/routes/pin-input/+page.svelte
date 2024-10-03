@@ -21,7 +21,7 @@
 
   <PinInput.HiddenInput />
 
-  <div class="grid grid-cols-6 gap-2">
+  <PinInput.Control class="grid grid-cols-6 gap-2">
     {#each Array.from({length: 6}) as _, i}
       <PinInput.Input
         index={i}
@@ -32,5 +32,5 @@
         {/snippet}
       </PinInput.Input>
     {/each}
-  </div>
+  </PinInput.Control>
 </PinInput.Root>

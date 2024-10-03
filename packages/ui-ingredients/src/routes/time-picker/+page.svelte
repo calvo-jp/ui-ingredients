@@ -51,7 +51,7 @@
             </TimePicker.HourCell>
           {/each}
         </TimePicker.Column>
-
+        <TimePicker.Spacer />
         <TimePicker.Column
           unit="minute"
           class="overflow-y-invisible snap-y snap-mandatory"
@@ -65,6 +65,7 @@
             </TimePicker.MinuteCell>
           {/each}
         </TimePicker.Column>
+        <TimePicker.Spacer />
         <TimePicker.Column
           unit="second"
           class="overflow-y-invisible snap-y snap-mandatory"
@@ -78,6 +79,7 @@
             </TimePicker.SecondCell>
           {/each}
         </TimePicker.Column>
+        <TimePicker.Spacer />
         <TimePicker.Column unit="period">
           <TimePicker.PeriodCell
             value="am"

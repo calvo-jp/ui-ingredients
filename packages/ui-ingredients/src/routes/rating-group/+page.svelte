@@ -19,7 +19,7 @@
       {/snippet}
     </RatingGroup.Label>
 
-    <div class="flex">
+    <RatingGroup.Control class="flex">
       {#each context.items as index}
         <RatingGroup.Item {index}>
           {#snippet children(state)}
@@ -43,6 +43,6 @@
           {/snippet}
         </RatingGroup.Item>
       {/each}
-    </div>
+    </RatingGroup.Control>
   {/snippet}
 </RatingGroup.Root>

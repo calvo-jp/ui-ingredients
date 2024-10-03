@@ -18,7 +18,10 @@
 
   let editable = getEditableContext();
 
-  let mergedProps = $derived(mergeProps(editable.getPreviewProps(), props));
+  let mergedProps = $derived({
+    ...mergeProps(editable.getPreviewProps(), props),
+    'aria-label': props['aria-label'] ?? undefined,
+  });
 </script>
 
 {#if asChild}

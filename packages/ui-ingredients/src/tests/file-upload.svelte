@@ -6,10 +6,9 @@
   {#snippet children(context)}
     <FileUpload.Label>Label</FileUpload.Label>
 
-    <FileUpload.Dropzone>
-      <FileUpload.HiddenInput />
-      <FileUpload.Trigger>Trigger</FileUpload.Trigger>
-    </FileUpload.Dropzone>
+    <FileUpload.Trigger>Trigger</FileUpload.Trigger>
+    <FileUpload.Dropzone />
+    <FileUpload.HiddenInput />
 
     <FileUpload.ItemGroup>
       {#each context.acceptedFiles as file}

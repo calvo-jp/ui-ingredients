@@ -18,7 +18,9 @@
 
   let select = getSelectContext();
 
-  let mergedProps = $derived(mergeProps(select.getTriggerProps(), props));
+  let mergedProps = $derived(
+    mergeProps({'aria-expanded': false}, select.getTriggerProps(), props),
+  );
 </script>
 
 {#if asChild}

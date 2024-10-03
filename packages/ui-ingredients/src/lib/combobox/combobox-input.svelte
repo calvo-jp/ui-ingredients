@@ -13,7 +13,9 @@
 
   let combobox = getComboboxContext();
 
-  let mergedProps = $derived(mergeProps(combobox.getInputProps(), props));
+  let mergedProps = $derived(
+    mergeProps({'aria-expanded': false}, combobox.getInputProps(), props),
+  );
 </script>
 
 {#if asChild}
