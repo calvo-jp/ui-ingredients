@@ -17,6 +17,7 @@ export * from './highlight/index.js';
 export * from './hover-card/index.js';
 export * from './locale-provider/index.js';
 export * from './menu/index.js';
+export * from './merge-props.js';
 export * from './number-input/index.js';
 export * from './pagination/index.js';
 export * from './pin-input/index.js';

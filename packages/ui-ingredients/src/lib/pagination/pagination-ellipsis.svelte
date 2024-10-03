@@ -32,6 +32,10 @@
   {@render asChild(mergedProps)}
 {:else}
   <span bind:this={ref} {...mergedProps}>
-    {@render children?.()}
+    {#if children}
+      {@render children?.()}
+    {:else}
+      ...
+    {/if}
   </span>
 {/if}

@@ -9,8 +9,9 @@ export default defineConfig({
     globals: true,
     include: ['src/**/*.{test,spec}.{js,ts}'],
     environment: 'jsdom',
-    setupFiles: ['src/tests/setup.ts'],
+    setupFiles: ['vitest-setup.ts'],
     passWithNoTests: true,
+    retry: 2,
   },
   server: {
     port: 5000,

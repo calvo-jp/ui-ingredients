@@ -25,7 +25,11 @@
 
   let itemState = $derived(ratingGroup.getItemState({index}));
   let mergedProps = $derived(
-    mergeProps(ratingGroup.getItemProps({index}), props),
+    mergeProps(
+      {'aria-checked': itemState.checked},
+      ratingGroup.getItemProps({index}),
+      props,
+    ),
   );
 </script>
 

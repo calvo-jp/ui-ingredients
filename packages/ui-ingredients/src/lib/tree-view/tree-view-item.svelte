@@ -5,15 +5,17 @@
   export interface TreeViewItemProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
-      ItemProps
+      Omit<ItemProps, 'depth'>
     > {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {
     getTreeViewContext,
+    getTreeViewTreePropsContext,
     setTreeViewItemPropsContext,
   } from './tree-view-context.svelte.js';
 
@@ -25,10 +27,16 @@
   }: TreeViewItemProps = $props();
 
   let treeView = getTreeViewContext();
+  let treeViewProps = getTreeViewTreePropsContext();
 
-  let [itemProps, localProps] = $derived(
-    createSplitProps<ItemProps>(['depth', 'value', 'disabled'])(props),
+  let [itemPartialProps, localProps] = $derived(
+    createSplitProps<Omit<ItemProps, 'depth'>>(['value', 'disabled'])(props),
   );
+
+  let itemProps: ItemProps = reflect(() => ({
+    ...itemPartialProps,
+    ...treeViewProps,
+  }));
 
   let itemState = $derived(treeView.getItemState(itemProps));
 

@@ -30,7 +30,7 @@
 {#if asChild}
   {@render asChild(localProps)}
 {:else}
-  <div bind:this={ref} {...localProps}>
+  <div bind:this={ref} data-scope="highlight" data-part="root" {...localProps}>
     {#each chunks as chunk}
       {#if chunk.match}
         <mark>{chunk.text}</mark>

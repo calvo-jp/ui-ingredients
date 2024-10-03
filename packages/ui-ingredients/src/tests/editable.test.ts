@@ -13,7 +13,7 @@ describe('Editable', () => {
     },
   );
 
-  it.skip('should have no a11y violations', async () => {
+  it('should have no a11y violations', async () => {
     const {container} = render(Editable);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
