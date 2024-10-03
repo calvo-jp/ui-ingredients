@@ -207,6 +207,9 @@ importers:
       '@testing-library/svelte':
         specifier: 5.2.3
         version: 5.2.3(svelte@5.0.0-next.260)(vite@5.4.8(@types/node@22.5.5))(vitest@2.1.1(@types/node@22.5.5)(jsdom@25.0.1))
+      '@testing-library/user-event':
+        specifier: 14.5.2
+        version: 14.5.2(@testing-library/dom@10.4.0)
       '@types/jsdom':
         specifier: 21.1.7
         version: 21.1.7
@@ -768,6 +771,12 @@ packages:
         optional: true
       vitest:
         optional: true
+
+  '@testing-library/user-event@14.5.2':
+    resolution: {integrity: sha512-YAh82Wh4TIrxYLmfGcixwD18oIjyC1pFQC2Y01F2lzV2HTMiYrI0nze0FD0ocB//CKS/7jIUgae+adPqxK5yCQ==}
+    engines: {node: '>=12', npm: '>=6'}
+    peerDependencies:
+      '@testing-library/dom': '>=7.21.4'
 
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
@@ -3915,6 +3924,10 @@ snapshots:
     optionalDependencies:
       vite: 5.4.8(@types/node@22.5.5)
       vitest: 2.1.1(@types/node@22.5.5)(jsdom@25.0.1)
+
+  '@testing-library/user-event@14.5.2(@testing-library/dom@10.4.0)':
+    dependencies:
+      '@testing-library/dom': 10.4.0
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
