@@ -15,11 +15,15 @@ npm install ui-ingredients
 ```svelte
 <script>
   import {Dialog, Portal} from 'ui-ingredients';
-  import {XCloseIcon} from '$lib/icons';
+  import {XCloseIcon, Button} from '$lib';
 </script>
 
-<Dialog.Root>
-  <Dialog.Trigger>Open</Dialog.Trigger>
+<Dialog.Root lazyMount keepMounted>
+  <Dialog.Trigger>
+    {#snippet asChild(attrs)}
+      <Button {...attrs}>Open</Button>
+    {/snippet}
+  </Dialog.Trigger>
 
   <Portal>
     <Dialog.Backdrop />
