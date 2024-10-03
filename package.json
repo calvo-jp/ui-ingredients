@@ -5,7 +5,9 @@
   "packageManager": "pnpm@9.7.0",
   "scripts": {
     "ui-ingredients": "pnpm --filter ui-ingredients",
+    "ui-ingredients-tailwindcss-plugin": "pnpm --filter ui-ingredients-tailwindcss-plugin",
     "website": "pnpm --filter website",
+    "test": "pnpm ui-ingredients test && pnpm ui-ingredients-tailwindcss-plugin test",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
