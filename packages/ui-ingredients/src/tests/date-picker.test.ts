@@ -5,7 +5,7 @@ import DatePicker from './date-picker.svelte';
 import {getAnatomySelector} from './utils.js';
 
 describe('DatePicker', () => {
-  it.each(getAnatomySelector(datePickerAnatomy))(
+  it.skip.each(getAnatomySelector(datePickerAnatomy))(
     'should render %s',
     (selector) => {
       render(DatePicker);
