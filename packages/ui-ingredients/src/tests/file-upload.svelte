@@ -34,5 +34,6 @@
         </FileUpload.Item>
       {/each}
     </FileUpload.ItemGroup>
+    <FileUpload.ClearTrigger>Clear</FileUpload.ClearTrigger>
   {/snippet}
 </FileUpload.Root>
