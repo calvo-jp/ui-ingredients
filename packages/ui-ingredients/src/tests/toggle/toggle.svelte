@@ -2,4 +2,4 @@
   import {Toggle} from '$lib/index.js';
 </script>
 
-<Toggle.Root></Toggle.Root>
+<Toggle.Root>Toggle</Toggle.Root>
