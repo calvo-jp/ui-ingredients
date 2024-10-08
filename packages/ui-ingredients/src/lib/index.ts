@@ -41,6 +41,7 @@ export * from './time-picker/index.js';
 export * from './timer/index.js';
 export * from './toast/index.js';
 export * from './toggle-group/index.js';
+export * from './toggle/index.js';
 export * from './tooltip/index.js';
 export * from './tour/index.js';
 export * from './tree-view/index.js';

@@ -81,6 +81,7 @@ npm install ui-ingredients
 - [TimePicker](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/time-picker.md)
 - [Timer](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/timer.md)
 - [Toast](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/toast.md)
+- [Toggle](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/toggle.md)
 - [ToggleGroup](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/toggle-group.md)
 - [Tooltip](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tooltip.md)
 - [TreeView](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/tree-view.md)

@@ -188,6 +188,10 @@ export const links: Link[] = [
     label: 'Tour',
     path: '/tour',
   },
+  {
+    label: 'Toggle',
+    path: '/toggle',
+  },
 ]
   .filter((o, i, arr) => arr.findIndex((t) => t.label === o.label) === i)
   .toSorted((i, j) => i.label.localeCompare(j.label));
