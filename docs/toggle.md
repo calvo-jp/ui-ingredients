@@ -7,22 +7,21 @@ A component for switching between two states, such as on/off.
 ```svelte
 <script>
   import {Toggle} from 'ui-ingredients';
-  import {Bell02Icon, BellOff02Icon} from '$lib/icons';
+  import {BellIcon, BellOffIcon} from '$lib/icons';
 
   let pressed = $state(false);
 </script>
 
 <Toggle.Root
   {pressed}
-  onPressedChange={function () {
-    pressed = !pressed;
+  onPressedChange={function (detail) {
+    pressed = detail.pressed;
   }}
-  pressedControlled
 >
   {#if pressed}
-    <BellOff02Icon />
+    <BellOffIcon />
   {:else}
-    <Bell02Icon />
+    <BellIcon />
   {/if}
 </Toggle.Root>
 ```

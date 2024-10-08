@@ -8,10 +8,9 @@
 
 <Toggle.Root
   {pressed}
-  onPressedChange={() => {
-    pressed = !pressed;
+  onPressedChange={(detail) => {
+    pressed = detail.pressed;
   }}
-  pressedControlled
 >
   {#snippet asChild(attrs, api)}
     <IconButton class="aria-pressed:bg-light/25" {...attrs}>

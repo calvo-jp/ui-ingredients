@@ -3,11 +3,14 @@ import {reflect} from '@zag-js/svelte';
 import type {HTMLButtonAttributes} from 'svelte/elements';
 import {parts} from './anatomy.js';
 
+interface PressedChangeDetails {
+  pressed: boolean;
+}
+
 export interface CreateToggleProps {
   disabled?: boolean;
   pressed?: boolean;
-  pressedControlled?: boolean;
-  onPressedChange?: (pressed: boolean) => void;
+  onPressedChange?: (detail: PressedChangeDetails) => void;
 }
 
 export interface CreateToggleReturn {
@@ -20,11 +23,8 @@ export function createToggle(props: CreateToggleProps) {
   let pressed = $state(props.pressed ?? false);
 
   function setPressed(value: boolean) {
-    props.onPressedChange?.(value);
-
-    if (!props.pressedControlled) {
-      pressed = value;
-    }
+    props.onPressedChange?.({pressed: value});
+    pressed = value;
   }
 
   function getRootProps(): HTMLButtonAttributes {
@@ -41,12 +41,6 @@ export function createToggle(props: CreateToggleProps) {
       ...parts.root.attrs,
     };
   }
-
-  $effect(() => {
-    if (props.pressedControlled) {
-      pressed = props.pressed ?? false;
-    }
-  });
 
   return reflect(() => ({
     pressed,

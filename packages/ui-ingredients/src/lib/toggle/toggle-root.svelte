@@ -31,7 +31,6 @@
       'disabled',
       'pressed',
       'onPressedChange',
-      'pressedControlled',
     ])(props),
   );
 
