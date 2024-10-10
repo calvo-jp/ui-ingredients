@@ -1,4 +1,5 @@
 export * from './accordion/index.js';
+export * from './alert-dialog/index.js';
 export * from './avatar/index.js';
 export * from './carousel/index.js';
 export * from './checkbox/index.js';
