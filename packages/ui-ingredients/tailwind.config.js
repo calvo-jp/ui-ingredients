@@ -126,6 +126,22 @@ export default withTV({
             transform: 'translateX(-100%)',
           },
         },
+        'slide-in-right': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+          },
+        },
+        'slide-out-right': {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(100%)',
+          },
+        },
       },
       animation: {
         'collapse-in': 'collapse-in 200ms ease-in-out',
@@ -134,6 +150,8 @@ export default withTV({
         'fade-out': 'fade-out 200ms ease-in-out',
         'slide-in-left': 'slide-in-left 200ms ease-in-out',
         'slide-out-left': 'slide-out-left 200ms ease-in-out',
+        'slide-in-right': 'slide-in-right 200ms ease-in-out',
+        'slide-out-right': 'slide-out-right 200ms ease-in-out',
       },
     },
   },

@@ -6,10 +6,10 @@ export const [getTreeViewContext, setTreeViewContext] =
   createContext<CreateTreeViewReturn>('TreeView');
 
 export const [getTreeViewItemPropsContext, setTreeViewItemPropsContext] =
-  createContext<ItemProps>('TreeViewItem');
+  createContext<ItemProps>('TreeViewItem [PROPS]');
 
 export const [getTreeViewBranchPropsContext, setTreeViewBranchPropsContext] =
-  createContext<BranchProps>('TreeViewBranch');
+  createContext<BranchProps>('TreeViewBranch [PROPS]');
 
 export const [getTreeViewTreePropsContext, setTreeViewTreePropsContext] =
-  createContext<{depth: number}>('TreeViewTree');
+  createContext<{depth: number}>('TreeViewTree [PROPS]');

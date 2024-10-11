@@ -6,9 +6,9 @@ export const [getComboboxContext, setComboboxContext] =
   createContext<CreateComboboxReturn>('Combobox');
 
 export const [getComboboxItemPropsContext, setComboboxItemPropsContext] =
-  createContext<ItemProps>('ComboboxItem');
+  createContext<ItemProps>('ComboboxItem [PROPS]');
 
 export const [
   getComboboxItemGroupPropsContext,
   setComboboxItemGroupPropsContext,
-] = createContext<ItemGroupProps>('ComboboxItemGroup');
+] = createContext<ItemGroupProps>('ComboboxItemGroup [PROPS]');

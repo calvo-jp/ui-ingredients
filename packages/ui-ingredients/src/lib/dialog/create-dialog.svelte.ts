@@ -7,7 +7,7 @@ import {uid} from 'uid';
 export interface CreateDialogProps
   extends Omit<
     dialog.Context,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+    'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
   openControlled?: boolean;
@@ -24,6 +24,7 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
   const context: dialog.Context = reflect(() => ({
     id,
     dir: locale?.dir,
+    role: 'dialog',
     ...props,
     getRootNode: environment?.getRootNode,
     'open.controlled': props.openControlled,

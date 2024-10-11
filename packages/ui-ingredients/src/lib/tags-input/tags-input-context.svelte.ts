@@ -6,4 +6,4 @@ export const [getTagsInputContext, setTagsInputContext] =
   createContext<CreateTagsInputReturn>('TagsInput');
 
 export const [getTagsInputItemPropsContext, setTagsInputItemPropsContext] =
-  createContext<ItemProps>('TagsInputItem');
+  createContext<ItemProps>('TagsInputItem [PROPS]');

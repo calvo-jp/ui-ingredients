@@ -10,7 +10,7 @@
     {/snippet}
   </Tooltip.Trigger>
 
-  <Portal data-id="tooltip">
+  <Portal>
     <Tooltip.Positioner>
       <Tooltip.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded px-3.5 py-2.5 shadow-md"

@@ -192,6 +192,22 @@ export const links: Link[] = [
     label: 'Toggle',
     path: '/toggle',
   },
+  {
+    label: 'Alert Dialog',
+    path: '/alert-dialog',
+  },
+  {
+    label: 'Breadcrumbs',
+    path: '/breadcrumbs',
+  },
+  {
+    label: 'Drawer',
+    path: '/drawer',
+  },
+  {
+    label: 'Alert',
+    path: '/alert',
+  },
 ]
   .filter((o, i, arr) => arr.findIndex((t) => t.label === o.label) === i)
   .toSorted((i, j) => i.label.localeCompare(j.label));

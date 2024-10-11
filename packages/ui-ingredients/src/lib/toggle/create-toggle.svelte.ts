@@ -16,7 +16,7 @@ export interface CreateToggleProps {
 export interface CreateToggleReturn {
   pressed: boolean;
   setPressed: (pressed: boolean) => void;
-  getRootProps: () => HTMLButtonAttributes;
+  getRootProps(): HTMLButtonAttributes;
 }
 
 export function createToggle(props: CreateToggleProps) {
@@ -41,6 +41,10 @@ export function createToggle(props: CreateToggleProps) {
       ...parts.root.attrs,
     };
   }
+
+  $effect(() => {
+    pressed = props.pressed ?? false;
+  });
 
   return reflect(() => ({
     pressed,

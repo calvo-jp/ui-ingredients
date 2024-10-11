@@ -60,7 +60,7 @@
     </div>
   </Select.Control>
 
-  <Portal data-id="select">
+  <Portal>
     <Select.Positioner>
       <Select.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"

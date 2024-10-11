@@ -6,4 +6,4 @@ export const [getAccordionContext, setAccordionContext] =
   createContext<CreateAccordionReturn>('Accordion');
 
 export const [getAccordionItemPropsContext, setAccordionItemPropsContext] =
-  createContext<ItemProps>('AccordionItem');
+  createContext<ItemProps>('AccordionItem  [PROPS]');

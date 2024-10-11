@@ -1,6 +1,6 @@
 <script lang="ts">
   import {page} from '$app/stores';
-  import {Dialog, Portal} from '$lib/index.js';
+  import {Drawer, Portal} from '$lib/index.js';
   import {twMerge} from 'tailwind-merge';
   import {store} from './shared/index.js';
   import {links} from './utils.js';
@@ -54,7 +54,7 @@
   </nav>
 </div>
 
-<Dialog.Root
+<Drawer.Root
   lazyMount
   keepMounted
   open={store.sidebar.isOpen}
@@ -63,39 +63,41 @@
     store.sidebar.isOpen = detail.open;
   }}
 >
-  <Portal data-id="side-nav">
-    <Dialog.Positioner>
-      <Dialog.Content
+  <Portal>
+    <Drawer.Positioner>
+      <Drawer.Content
         class="data-open:animate-slide-in-left data-closed:animate-slide-out-left z-modal bg fixed bottom-0 left-0 top-16 w-64 border-r"
       >
-        <nav class="h-full overflow-y-auto p-6">
-          <ul class="space-y-0.5">
-            {#each links as link}
-              <li class="block w-full">
-                <a
-                  href={link.path}
-                  class={twMerge(
-                    'group',
-                    'flex',
-                    'items-center',
-                    'text-sm',
-                    'font-semibold',
-                    'text-neutral-400',
-                    'transition-colors',
-                    'duration-200',
-                    'aria-page:text-accent',
-                  )}
-                  aria-current={link.path === currentLink?.path
-                    ? 'page'
-                    : undefined}
-                >
-                  {link.label}
-                </a>
-              </li>
-            {/each}
-          </ul>
-        </nav>
-      </Dialog.Content>
-    </Dialog.Positioner>
+        <Drawer.Body class="h-full overflow-y-auto p-6">
+          <nav>
+            <ul class="space-y-0.5">
+              {#each links as link}
+                <li class="block w-full">
+                  <a
+                    href={link.path}
+                    class={twMerge(
+                      'group',
+                      'flex',
+                      'items-center',
+                      'text-sm',
+                      'font-semibold',
+                      'text-neutral-400',
+                      'transition-colors',
+                      'duration-200',
+                      'aria-page:text-accent',
+                    )}
+                    aria-current={link.path === currentLink?.path
+                      ? 'page'
+                      : undefined}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              {/each}
+            </ul>
+          </nav>
+        </Drawer.Body>
+      </Drawer.Content>
+    </Drawer.Positioner>
   </Portal>
-</Dialog.Root>
+</Drawer.Root>

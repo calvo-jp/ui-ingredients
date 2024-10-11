@@ -1,5 +1,8 @@
 export * from './accordion/index.js';
+export * from './alert-dialog/index.js';
+export * from './alert/index.js';
 export * from './avatar/index.js';
+export * from './breadcrumbs/index.js';
 export * from './carousel/index.js';
 export * from './checkbox/index.js';
 export * from './clipboard/index.js';
@@ -8,6 +11,7 @@ export * from './color-picker/index.js';
 export * from './combobox/index.js';
 export * from './date-picker/index.js';
 export * from './dialog/index.js';
+export * from './drawer/index.js';
 export * from './editable/index.js';
 export * from './environment-provider/index.js';
 export * from './field/index.js';

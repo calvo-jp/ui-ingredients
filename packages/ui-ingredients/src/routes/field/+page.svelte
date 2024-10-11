@@ -11,12 +11,16 @@
     e.preventDefault();
     error = 'This is an error text';
   }}
+  novalidate
 >
-  <Field.Root invalid={!!error}>
+  <Field.Root invalid={!!error} required>
     <div class="mb-1 flex">
       <Field.Label class="!mb-0 grow">
         {#snippet asChild(attrs)}
-          <Label {...attrs}>Label</Label>
+          <Label {...attrs}>
+            Label
+            <Field.RequiredIndicator class="text-danger" />
+          </Label>
         {/snippet}
       </Field.Label>
       <Field.ErrorText class="text-danger flex items-center gap-1 text-sm">
