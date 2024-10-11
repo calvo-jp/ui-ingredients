@@ -2,11 +2,15 @@
   import {SegmentGroup} from '$lib/index.js';
 
   let items = [
-    {value: 'Item 1'},
-    {value: 'Item 2'},
-    {value: 'Item 3'},
-    {value: 'Item 4'},
-    {value: 'Item 5'},
+    {
+      value: 'Item 1',
+    },
+    {
+      value: 'Item 2',
+    },
+    {
+      value: 'Item 3',
+    },
   ];
 </script>
 

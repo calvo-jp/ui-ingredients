@@ -15,7 +15,7 @@
     {/snippet}
   </HoverCard.Trigger>
 
-  <Portal data-id="hover-card">
+  <Portal>
     <HoverCard.Positioner>
       <HoverCard.Content
         class="bg-light data-open:animate-fade-in data-closed:animate-fade-out w-[90vw] rounded border p-4 lg:max-w-[24rem]"

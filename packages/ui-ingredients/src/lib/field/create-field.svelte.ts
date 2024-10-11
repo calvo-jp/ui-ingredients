@@ -35,13 +35,14 @@ export interface CreateFieldReturn {
   readOnly: boolean;
   invalid: boolean;
   'aria-describedby': string;
-  getRootProps: () => HTMLAttributes<HTMLElement>;
-  getLabelProps: () => HTMLLabelAttributes;
-  getErrorTextProps: () => HTMLAttributes<HTMLElement>;
-  getHelperTextProps: () => HTMLAttributes<HTMLElement>;
-  getInputProps: () => HTMLInputAttributes;
-  getSelectProps: () => HTMLSelectAttributes;
-  getTextareaProps: () => HTMLTextareaAttributes;
+  getRootProps(): HTMLAttributes<HTMLElement>;
+  getLabelProps(): HTMLLabelAttributes;
+  getErrorTextProps(): HTMLAttributes<HTMLElement>;
+  getHelperTextProps(): HTMLAttributes<HTMLElement>;
+  getInputProps(): HTMLInputAttributes;
+  getSelectProps(): HTMLSelectAttributes;
+  getTextareaProps(): HTMLTextareaAttributes;
+  getRequiredIndicatorProps(): HTMLAttributes<HTMLElement>;
 }
 
 export function createField(props: CreateFieldProps): CreateFieldReturn {
@@ -207,6 +208,17 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     };
   }
 
+  function getRequiredIndicatorProps(): HTMLAttributes<HTMLElement> {
+    return {
+      ...parts.requiredIndicator.attrs,
+      hidden: !required,
+      'aria-hidden': true,
+      'data-invalid': dataAttr(invalid),
+      'data-disabled': dataAttr(disabled),
+      'data-readonly': dataAttr(readOnly),
+    };
+  }
+
   return reflect(() => ({
     ids,
     disabled,
@@ -221,5 +233,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     getInputProps,
     getSelectProps,
     getTextareaProps,
+    getRequiredIndicatorProps,
   }));
 }

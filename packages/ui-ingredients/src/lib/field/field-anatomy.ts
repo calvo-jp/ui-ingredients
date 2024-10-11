@@ -8,6 +8,7 @@ export const anatomy = createAnatomy('field').parts(
   'textarea',
   'errorText',
   'helperText',
+  'requiredIndicator',
 );
 
 export const parts = anatomy.build();

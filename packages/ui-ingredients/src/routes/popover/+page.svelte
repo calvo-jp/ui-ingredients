@@ -15,7 +15,7 @@
     {/snippet}
   </Popover.Trigger>
 
-  <Portal data-id="popover">
+  <Portal>
     <Popover.Positioner>
       <Popover.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light w-[80vw] rounded border p-4 lg:w-[20rem]"

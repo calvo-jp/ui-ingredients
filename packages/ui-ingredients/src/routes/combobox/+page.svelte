@@ -80,7 +80,7 @@
     </Combobox.ClearTrigger>
   </Combobox.Control>
 
-  <Portal data-id="combobox">
+  <Portal>
     <Combobox.Positioner>
       <Combobox.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"

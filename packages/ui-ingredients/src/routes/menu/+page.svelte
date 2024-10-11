@@ -34,7 +34,7 @@
       {/snippet}
     </Menu.Trigger>
 
-    <Portal data-id="menu">
+    <Portal>
       <Menu.Positioner>
         <Menu.Content
           class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
@@ -67,7 +67,7 @@
       {/snippet}
     </Menu.Trigger>
 
-    <Portal data-id="menu">
+    <Portal>
       <Menu.Positioner>
         <Menu.Content
           class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"

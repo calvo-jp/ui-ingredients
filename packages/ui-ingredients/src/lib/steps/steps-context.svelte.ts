@@ -6,4 +6,4 @@ export const [getStepsContext, setStepsContext] =
   createContext<CreateStepsReturn>('Steps');
 
 export const [getStepsItemPropsContext, setStepsItemPropsContext] =
-  createContext<ItemProps>('StepsItem');
+  createContext<ItemProps>('StepsItem [PROPS]');

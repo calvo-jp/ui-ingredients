@@ -43,7 +43,10 @@ npm install ui-ingredients
 ## Documentation
 
 - [Accordion](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/accordion.md)
+- [Alert](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/alert.md)
+- [AlertDialog](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/alert-dialog.md)
 - [Avatar](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/avatar.md)
+- [Breadcrumbs](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/breadcrumbs.md)
 - [Carousel](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/carousel.md)
 - [Checkbox](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/checkbox.md)
 - [Clipboard](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/clipboard.md)
@@ -52,6 +55,7 @@ npm install ui-ingredients
 - [Combobox](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/combobox.md)
 - [DatePicker](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/date-picker.md)
 - [Dialog](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/dialog.md)
+- [Drawer](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/drawer.md)
 - [Editable](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/editable.md)
 - [Field](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/field.md)
 - [FileUpload](https://github.com/calvo-jp/ui-ingredients/blob/main/docs/file-upload.md)

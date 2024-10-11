@@ -42,6 +42,8 @@
     {/each}
   </Tabs.List>
   {#each items as { value, content }}
-    <Tabs.Content class="mt-4 max-w-[32rem]" {value}>{content}</Tabs.Content>
+    <Tabs.Content class="mt-4 max-w-[32rem] text-sm lg:text-base" {value}
+      >{content}</Tabs.Content
+    >
   {/each}
 </Tabs.Root>

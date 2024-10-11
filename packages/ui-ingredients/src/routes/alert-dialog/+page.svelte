@@ -19,19 +19,19 @@
     {/snippet}
   </AlertDialog.Trigger>
 
-  <AlertDialog.Backdrop
-    class={twMerge(
-      'z-overlay',
-      'fixed',
-      'inset-0',
-      'bg-black/50',
-      'backdrop-blur-sm',
-      'data-open:animate-fade-in',
-      'data-closed:animate-fade-out',
-    )}
-  />
+  <Portal>
+    <AlertDialog.Backdrop
+      class={twMerge(
+        'z-overlay',
+        'fixed',
+        'inset-0',
+        'bg-black/50',
+        'backdrop-blur-sm',
+        'data-open:animate-fade-in',
+        'data-closed:animate-fade-out',
+      )}
+    />
 
-  <Portal data-id="dialog">
     <AlertDialog.Positioner>
       <AlertDialog.Content
         class={twMerge(
@@ -40,13 +40,15 @@
           'fixed',
           'left-1/2',
           'top-16',
-          'w-[90vw]',
+          'w-[96vw]',
           '-translate-x-1/2',
           'rounded',
           'border',
-          'p-8 lg:w-[26rem]',
+          'p-5',
           'data-open:animate-fade-in',
           'data-closed:animate-fade-out',
+          'lg:p-8',
+          'lg:w-[26rem]',
         )}
       >
         <AlertDialog.Title class="text-xl font-semibold"

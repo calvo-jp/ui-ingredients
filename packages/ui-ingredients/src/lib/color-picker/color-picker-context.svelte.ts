@@ -11,19 +11,19 @@ export const [getColorPickerContext, setColorPickerContext] =
   createContext<CreateColorPickerReturn>('ColorPicker');
 
 export const [getColorPickerAreaPropsContext, setColorPickerAreaPropsContext] =
-  createContext<AreaProps>('ColorPickerArea');
+  createContext<AreaProps>('ColorPickerArea [PROPS]');
 
 export const [
   getColorPickerSwatchPropsContext,
   setColorPickerSwatchPropsContext,
-] = createContext<SwatchProps>('ColorPickerSwatch');
+] = createContext<SwatchProps>('ColorPickerSwatch [PROPS]');
 
 export const [
   getColorPickerFormatPropsContext,
   setColorPickerFormatPropsContext,
-] = createContext<{format: ColorFormat}>('ColorPicker__format', false);
+] = createContext<{format: ColorFormat}>('ColorPickerFormat [PROPS]', false);
 
 export const [
   getColorPickerChannelPropsContext,
   setColorPickerChannelPropsContext,
-] = createContext<ChannelProps>('ColorPickerChannel');
+] = createContext<ChannelProps>('ColorPickerChannel [PROPS]');

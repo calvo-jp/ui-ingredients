@@ -46,7 +46,7 @@
       </DatePicker.Trigger>
     </DatePicker.Control>
 
-    <Portal data-id="date-picker">
+    <Portal>
       <DatePicker.Positioner>
         <DatePicker.Content
           class="bg-light data-open:animate-fade-in data-closed:animate-fade-out overflow-hidden rounded"

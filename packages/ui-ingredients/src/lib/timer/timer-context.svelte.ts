@@ -6,4 +6,4 @@ export const [getTimerContext, setTimerContext] =
   createContext<CreateTimerReturn>('Timer');
 
 export const [getTimerItemPropsContext, setTimerItemPropsContext] =
-  createContext<ItemProps>('TimerItem');
+  createContext<ItemProps>('TimerItem [PROPS]');
