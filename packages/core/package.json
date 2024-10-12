@@ -216,8 +216,8 @@
       "import": "./dist/merge-props.js"
     },
     "./create-context": {
-      "types": "./dist/create-context.d.ts",
-      "import": "./dist/create-context.js"
+      "types": "./dist/create-context.svelte.d.ts",
+      "import": "./dist/create-context.svelte.js"
     },
     "./create-unique-id": {
       "types": "./dist/create-unique-id.d.ts",
