@@ -9,263 +9,263 @@ importers:
   .:
     dependencies:
       '@eslint/js':
-        specifier: 9.12.0
+        specifier: ^9.12.0
         version: 9.12.0
       '@types/eslint':
-        specifier: 9.6.1
+        specifier: ^9.6.1
         version: 9.6.1
       autoprefixer:
-        specifier: 10.4.20
+        specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
       eslint:
-        specifier: 9.12.0
+        specifier: ^9.12.0
         version: 9.12.0(jiti@1.21.6)
       eslint-plugin-svelte:
-        specifier: 2.44.1
+        specifier: ^2.44.1
         version: 2.44.1(eslint@9.12.0(jiti@1.21.6))(svelte@5.0.0-next.260)
       globals:
-        specifier: 15.11.0
+        specifier: ^15.11.0
         version: 15.11.0
       prettier:
-        specifier: 3.3.3
+        specifier: ^3.3.3
         version: 3.3.3
       prettier-plugin-svelte:
-        specifier: 3.2.7
+        specifier: ^3.2.7
         version: 3.2.7(prettier@3.3.3)(svelte@5.0.0-next.260)
       prettier-plugin-tailwindcss:
-        specifier: 0.6.8
+        specifier: ^0.6.8
         version: 0.6.8(prettier-plugin-svelte@3.2.7(prettier@3.3.3)(svelte@5.0.0-next.260))(prettier@3.3.3)
       typescript:
-        specifier: 5.6.3
+        specifier: ^5.6.3
         version: 5.6.3
       typescript-eslint:
-        specifier: 8.8.1
+        specifier: ^8.8.1
         version: 8.8.1(eslint@9.12.0(jiti@1.21.6))(typescript@5.6.3)
 
   packages/core:
     dependencies:
       '@zag-js/accordion':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/anatomy':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/avatar':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/carousel':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/checkbox':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/clipboard':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/collapsible':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/color-picker':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/combobox':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/core':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/date-picker':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2(@internationalized/date@3.5.5)
       '@zag-js/dialog':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/dom-query':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/editable':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/file-upload':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/floating-panel':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/highlight-word':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/hover-card':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/i18n-utils':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/menu':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/number-input':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/pagination':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/pin-input':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/popover':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/presence':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/progress':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/qr-code':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/radio-group':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/rating-group':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/select':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/signature-pad':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/slider':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/splitter':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/steps':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/svelte':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2(svelte@5.0.0-next.260)
       '@zag-js/switch':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/tabs':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/tags-input':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/time-picker':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2(@internationalized/date@3.5.5)
       '@zag-js/timer':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/toast':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/toggle-group':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/tooltip':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/tour':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/tree-view':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       '@zag-js/utils':
-        specifier: 0.74.2
+        specifier: ^0.74.2
         version: 0.74.2
       uid:
-        specifier: 2.0.2
+        specifier: ^2.0.2
         version: 2.0.2
     devDependencies:
       '@faker-js/faker':
-        specifier: 9.0.3
+        specifier: ^9.0.3
         version: 9.0.3
       '@sveltejs/adapter-vercel':
-        specifier: 5.4.5
+        specifier: ^5.4.5
         version: 5.4.5(@sveltejs/kit@2.6.4(@sveltejs/vite-plugin-svelte@4.0.0-next.6(svelte@5.0.0-next.260)(vite@5.4.8(@types/node@22.5.5)))(svelte@5.0.0-next.260)(vite@5.4.8(@types/node@22.5.5)))
       '@sveltejs/kit':
-        specifier: 2.6.4
+        specifier: ^2.6.4
         version: 2.6.4(@sveltejs/vite-plugin-svelte@4.0.0-next.6(svelte@5.0.0-next.260)(vite@5.4.8(@types/node@22.5.5)))(svelte@5.0.0-next.260)(vite@5.4.8(@types/node@22.5.5))
       '@sveltejs/package':
-        specifier: 2.3.5
+        specifier: ^2.3.5
         version: 2.3.5(svelte@5.0.0-next.260)(typescript@5.6.3)
       '@sveltejs/vite-plugin-svelte':
-        specifier: 4.0.0-next.6
+        specifier: ^4.0.0-next.6
         version: 4.0.0-next.6(svelte@5.0.0-next.260)(vite@5.4.8(@types/node@22.5.5))
       '@testing-library/jest-dom':
-        specifier: 6.5.0
+        specifier: ^6.5.0
         version: 6.5.0
       '@testing-library/svelte':
-        specifier: 5.2.3
+        specifier: ^5.2.3
         version: 5.2.3(svelte@5.0.0-next.260)(vite@5.4.8(@types/node@22.5.5))(vitest@2.1.2(@types/node@22.5.5)(jsdom@25.0.1))
       '@testing-library/user-event':
-        specifier: 14.5.2
+        specifier: ^14.5.2
         version: 14.5.2(@testing-library/dom@10.4.0)
       '@types/jsdom':
-        specifier: 21.1.7
+        specifier: ^21.1.7
         version: 21.1.7
       '@untitled-theme/icons-svelte':
-        specifier: 0.10.10
+        specifier: ^0.10.10
         version: 0.10.10(svelte@5.0.0-next.260)
       autoprefixer:
-        specifier: 10.4.20
+        specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
       globals:
-        specifier: 15.11.0
+        specifier: ^15.11.0
         version: 15.11.0
       jsdom:
-        specifier: 25.0.1
+        specifier: ^25.0.1
         version: 25.0.1
       postcss:
-        specifier: 8.4.47
+        specifier: ^8.4.47
         version: 8.4.47
       publint:
-        specifier: 0.2.11
+        specifier: ^0.2.11
         version: 0.2.11
       release-it:
-        specifier: 17.8.2
+        specifier: ^17.8.2
         version: 17.8.2(typescript@5.6.3)
       resize-observer-polyfill:
-        specifier: 1.5.1
+        specifier: ^1.5.1
         version: 1.5.1
       svelte:
-        specifier: 5.0.0-next.260
+        specifier: ^5.0.0-next.260
         version: 5.0.0-next.260
       svelte-check:
-        specifier: 4.0.4
+        specifier: ^4.0.4
         version: 4.0.4(svelte@5.0.0-next.260)(typescript@5.6.3)
       tailwind-merge:
-        specifier: 2.5.3
+        specifier: ^2.5.3
         version: 2.5.3
       tailwind-variants:
-        specifier: 0.2.1
+        specifier: ^0.2.1
         version: 0.2.1(tailwindcss@3.4.13)
       tailwindcss:
-        specifier: 3.4.13
+        specifier: ^3.4.13
         version: 3.4.13
       typescript:
-        specifier: 5.6.3
+        specifier: ^5.6.3
         version: 5.6.3
       vite:
-        specifier: 5.4.8
+        specifier: ^5.4.8
         version: 5.4.8(@types/node@22.5.5)
       vitest:
-        specifier: 2.1.2
+        specifier: ^2.1.2
         version: 2.1.2(@types/node@22.5.5)(jsdom@25.0.1)
       vitest-axe:
-        specifier: 1.0.0-pre.3
+        specifier: ^1.0.0-pre.3
         version: 1.0.0-pre.3(vitest@2.1.2(@types/node@22.5.5)(jsdom@25.0.1))
       vitest-canvas-mock:
-        specifier: 0.3.3
+        specifier: ^0.3.3
         version: 0.3.3(vitest@2.1.2(@types/node@22.5.5)(jsdom@25.0.1))
 
 packages:
@@ -3825,7 +3825,7 @@ snapshots:
 
   '@types/eslint@9.6.1':
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       '@types/json-schema': 7.0.15
 
   '@types/estree@1.0.5': {}
