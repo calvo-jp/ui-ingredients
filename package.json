@@ -4,9 +4,9 @@
   "private": true,
   "packageManager": "pnpm@9.7.0",
   "scripts": {
-    "ui-ingredients": "pnpm --filter ui-ingredients",
-    "ui-ingredients-tailwindcss-plugin": "pnpm --filter ui-ingredients-tailwindcss-plugin",
+    "core": "pnpm --filter ui-ingredients",
     "website": "pnpm --filter website",
+    "tailwind": "pnpm --filter ui-ingredients-tailwindcss-plugin",
     "test": "pnpm ui-ingredients test && pnpm ui-ingredients-tailwindcss-plugin test",
     "lint": "eslint .",
     "format": "prettier --write ."
