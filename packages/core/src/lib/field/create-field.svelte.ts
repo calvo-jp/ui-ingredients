@@ -1,3 +1,4 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {ariaAttr, dataAttr, getDocument, getWindow} from '@zag-js/dom-query';
 import {reflect} from '@zag-js/svelte';
@@ -8,7 +9,6 @@ import type {
   HTMLSelectAttributes,
   HTMLTextareaAttributes,
 } from 'svelte/elements';
-import {uid} from 'uid';
 import {parts} from './field-anatomy.js';
 
 interface ElementIds {
@@ -48,7 +48,7 @@ export interface CreateFieldReturn {
 export function createField(props: CreateFieldProps): CreateFieldReturn {
   const environment = getEnvironmentContext();
 
-  const id_ = uid();
+  const id_ = createUniqueId();
 
   const {
     /**/

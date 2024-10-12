@@ -1,9 +1,9 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '$lib/field/field-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as checkbox from '@zag-js/checkbox';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
 
 export interface CreateCheckboxProps
   extends Omit<checkbox.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -19,9 +19,11 @@ export function createCheckbox(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: checkbox.Context = reflect(() => ({
+    id,
+    dir: locale?.dir,
     ids: {
       label: field?.ids.label,
       hiddenInput: field?.ids.control,
@@ -30,10 +32,8 @@ export function createCheckbox(
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
-    ...props,
-    id: props.id ?? id,
-    dir: locale?.dir,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(checkbox.machine(context), {context});

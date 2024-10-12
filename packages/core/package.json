@@ -214,6 +214,14 @@
     "./merge-props": {
       "types": "./dist/merge-props.d.ts",
       "import": "./dist/merge-props.js"
+    },
+    "./create-context": {
+      "types": "./dist/create-context.d.ts",
+      "import": "./dist/create-context.js"
+    },
+    "./create-unique-id": {
+      "types": "./dist/create-unique-id.d.ts",
+      "import": "./dist/create-unique-id.js"
     }
   },
   "files": [

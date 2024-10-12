@@ -1,9 +1,9 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '$lib/field/field-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as switch_ from '@zag-js/switch';
-import {uid} from 'uid';
 
 export interface CreateSwitchProps
   extends Omit<switch_.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -17,9 +17,11 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: switch_.Context = reflect(() => ({
+    id,
+    dir: locale?.dir,
     ids: {
       label: field?.ids.label,
       hiddenInput: field?.ids.control,
@@ -28,10 +30,8 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
     readOnly: field?.readOnly,
     invalid: field?.invalid,
     required: field?.required,
-    ...props,
-    id: props.id ?? id,
-    dir: locale?.dir,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(switch_.machine(context), {context});

@@ -1,8 +1,8 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timePicker from '@zag-js/time-picker';
-import {uid} from 'uid';
 
 export interface CreateTimePickerProps
   extends Omit<
@@ -21,15 +21,15 @@ export function createTimePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: timePicker.Context = reflect(() => ({
     id,
     dir: locale?.dir,
     locale: locale?.locale,
-    ...props,
     getRootNode: environment?.getRootNode,
     'open.controlled': props.openControlled,
+    ...props,
   }));
 
   const [state, send] = useMachine(timePicker.machine(context), {context});

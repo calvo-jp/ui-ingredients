@@ -1,10 +1,10 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import {mergeProps} from '$lib/merge-props.js';
 import * as dialog from '@zag-js/dialog';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLAttributes} from 'svelte/elements';
-import {uid} from 'uid';
 import {parts} from './drawer-anatomy.js';
 
 export interface CreateDrawerProps
@@ -26,15 +26,15 @@ export function createDrawer(props: CreateDrawerProps): CreateDrawerReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: dialog.Context = reflect(() => ({
     id,
     dir: locale?.dir,
     role: 'dialog',
-    ...props,
     getRootNode: environment?.getRootNode,
     'open.controlled': props.openControlled,
+    ...props,
   }));
 
   const [state, send] = useMachine(dialog.machine(context), {context});

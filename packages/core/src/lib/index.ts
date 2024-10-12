@@ -21,7 +21,6 @@ export * from './highlight/index.js';
 export * from './hover-card/index.js';
 export * from './locale-provider/index.js';
 export * from './menu/index.js';
-export * from './merge-props.js';
 export * from './number-input/index.js';
 export * from './pagination/index.js';
 export * from './pin-input/index.js';
@@ -49,3 +48,7 @@ export * from './toggle/index.js';
 export * from './tooltip/index.js';
 export * from './tour/index.js';
 export * from './tree-view/index.js';
+
+export * from './create-context.svelte.js';
+export * from './create-unique-id.js';
+export * from './merge-props.js';

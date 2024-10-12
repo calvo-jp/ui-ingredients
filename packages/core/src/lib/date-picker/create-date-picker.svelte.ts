@@ -1,9 +1,10 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import type {GenericObject} from '$lib/types.js';
 import * as datePicker from '@zag-js/date-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
+import type {HTMLAttributes} from 'svelte/elements';
 import {parts} from './date-picker-anatomy.js';
 
 type Omitted =
@@ -27,7 +28,7 @@ export interface CreateDatePickerProps
 }
 
 export interface CreateDatePickerReturn extends datePicker.Api {
-  getViewProps(props: datePicker.ViewProps): GenericObject;
+  getViewProps(props: datePicker.ViewProps): HTMLAttributes<HTMLElement>;
 }
 
 export function createDatePicker(
@@ -36,7 +37,7 @@ export function createDatePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   /* FIXME: use reflect */
   const context: datePicker.Context = $derived.by(() => ({

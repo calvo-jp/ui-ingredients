@@ -1,9 +1,9 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '$lib/field/field-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tagsInput from '@zag-js/tags-input';
-import {uid} from 'uid';
 
 export interface CreateTagsInputProps
   extends Omit<tagsInput.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -19,9 +19,11 @@ export function createTagsInput(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: tagsInput.Context = reflect(() => ({
+    id,
+    dir: locale?.dir,
     ids: {
       label: field?.ids.label,
       hiddenInput: field?.ids.control,
@@ -30,10 +32,8 @@ export function createTagsInput(
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
-    ...props,
-    id: props.id ?? id,
-    dir: locale?.dir,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(tagsInput.machine(context), {context});

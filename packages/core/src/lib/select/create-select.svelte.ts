@@ -1,10 +1,10 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '$lib/field/field-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as select from '@zag-js/select';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {createSplitProps} from '@zag-js/utils';
-import {uid} from 'uid';
 
 type Omitted = 'id' | 'dir' | 'getRootNode' | 'collection' | 'open.controlled';
 
@@ -35,7 +35,7 @@ export function createSelect<T>(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: select.Context = reflect(() => ({
     id,
