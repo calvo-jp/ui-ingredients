@@ -35,4 +35,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
       - run: pnpm install
-      - run: pnpm ui-ingredients test
+      - run: pnpm core test
