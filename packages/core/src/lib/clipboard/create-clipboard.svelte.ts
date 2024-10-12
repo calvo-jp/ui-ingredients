@@ -1,7 +1,7 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import * as clipboard from '@zag-js/clipboard';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
 
 export interface CreateClipboardProps
   extends Omit<clipboard.Context, 'id' | 'getRootNode'> {
@@ -15,12 +15,12 @@ export function createClipboard(
 ): CreateClipboardReturn {
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: clipboard.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(clipboard.machine(context), {context});

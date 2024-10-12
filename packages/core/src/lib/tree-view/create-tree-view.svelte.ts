@@ -1,8 +1,8 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as treeView from '@zag-js/tree-view';
-import {uid} from 'uid';
 
 export interface CreateTreeViewProps
   extends Omit<treeView.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -17,13 +17,13 @@ export function createTreeView(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: treeView.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(treeView.machine(context), {context});

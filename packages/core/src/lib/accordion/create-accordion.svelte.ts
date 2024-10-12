@@ -1,8 +1,8 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as accordion from '@zag-js/accordion';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
 
 export interface CreateAccordionProps
   extends Omit<accordion.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -17,13 +17,13 @@ export function createAccordion(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: accordion.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(accordion.machine(context), {context});

@@ -1,8 +1,8 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as steps from '@zag-js/steps';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
 
 export interface CreateStepsProps
   extends Omit<steps.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -15,13 +15,13 @@ export function createSteps(props: CreateStepsProps): CreateStepsReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: steps.Context = reflect(() => ({
-    ...props,
-    id: props.id ?? id,
+    id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(steps.machine(context), {context});

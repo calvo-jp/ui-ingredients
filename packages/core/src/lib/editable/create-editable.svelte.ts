@@ -1,9 +1,9 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '$lib/field/field-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as editable from '@zag-js/editable';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
 
 export interface CreateEditableProps
   extends Omit<
@@ -23,7 +23,7 @@ export function createEditable(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: editable.Context = reflect(() => ({
     id,
@@ -36,9 +36,9 @@ export function createEditable(
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
-    ...props,
     getRootNode: environment?.getRootNode,
     'edit.controlled': props.editControlled,
+    ...props,
   }));
 
   const [state, send] = useMachine(editable.machine(context), {context});

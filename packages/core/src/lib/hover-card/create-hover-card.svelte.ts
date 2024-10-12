@@ -1,8 +1,8 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as hoverCard from '@zag-js/hover-card';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
 
 export interface CreateHoverCardProps
   extends Omit<
@@ -21,14 +21,14 @@ export function createHoverCard(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: hoverCard.Context = reflect(() => ({
     id,
     dir: locale?.dir,
-    ...props,
     getRootNode: environment?.getRootNode,
     'open.controlled': props.openControlled,
+    ...props,
   }));
 
   const [state, send] = useMachine(hoverCard.machine(context), {context});

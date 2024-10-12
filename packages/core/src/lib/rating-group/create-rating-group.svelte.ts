@@ -1,9 +1,9 @@
+import {createUniqueId} from '$lib/create-unique-id.js';
 import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '$lib/field/field-context.svelte.js';
 import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as ratingGroup from '@zag-js/rating-group';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {uid} from 'uid';
 
 export interface CreateRatingGroupProps
   extends Omit<ratingGroup.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -19,9 +19,11 @@ export function createRatingGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = uid();
+  const id = createUniqueId();
 
   const context: ratingGroup.Context = reflect(() => ({
+    id,
+    dir: locale?.dir,
     ids: {
       label: field?.ids.label,
       hiddenInput: field?.ids.control,
@@ -29,10 +31,8 @@ export function createRatingGroup(
     required: field?.required,
     disabled: field?.disabled,
     readOnly: field?.readOnly,
-    ...props,
-    id: props.id ?? id,
-    dir: locale?.dir,
     getRootNode: environment?.getRootNode,
+    ...props,
   }));
 
   const [state, send] = useMachine(ratingGroup.machine(context), {context});

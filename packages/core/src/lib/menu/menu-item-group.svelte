@@ -6,8 +6,8 @@
 </script>
 
 <script lang="ts">
+  import {createUniqueId} from '$lib/create-unique-id.js';
   import {mergeProps} from '$lib/merge-props.js';
-  import {uid} from 'uid';
   import {
     getMenuContext,
     setMenuItemGroupPropsContext,
@@ -23,7 +23,7 @@
 
   let menu = getMenuContext();
 
-  let id_ = uid();
+  let id_ = createUniqueId();
 
   let itemGroupProps = $derived({
     id: id ?? id_,
