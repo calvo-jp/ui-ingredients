@@ -228,7 +228,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/calvo-jp/ui-ingredients.git",
-    "directory": "packages/ui-ingredients"
+    "directory": "packages/core"
   },
   "bugs": {
     "url": "https://github.com/calvo-jp/ui-ingredients/issues",
