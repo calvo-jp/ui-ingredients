@@ -94,25 +94,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     return l.join(' ');
   });
 
-  $effect(() => {
-    const rootNode = environment?.getRootNode() ?? document;
-
-    const doc = getDocument(rootNode);
-    const win = getWindow(rootNode);
-
-    function handler() {
-      hasErrorText = invalid && doc.getElementById(ids.errorText) !== null;
-      hasHelperText = doc.getElementById(ids.helperText) !== null;
-    }
-
-    handler();
-
-    const observer = new win.MutationObserver(handler);
-    observer.observe(rootNode, {childList: true, subtree: true});
-
-    return () => observer.disconnect();
-  });
-
   function getRootProps(): HTMLAttributes<HTMLElement> {
     return {
       ...parts.root.attrs,
@@ -133,6 +114,17 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
+      'data-readonly': dataAttr(readOnly),
+    };
+  }
+
+  function getRequiredIndicatorProps(): HTMLAttributes<HTMLElement> {
+    return {
+      ...parts.requiredIndicator.attrs,
+      hidden: !required,
+      'aria-hidden': true,
+      'data-invalid': dataAttr(invalid),
+      'data-disabled': dataAttr(disabled),
       'data-readonly': dataAttr(readOnly),
     };
   }
@@ -161,15 +153,16 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     };
   }
 
-  function getInputProps(): HTMLInputAttributes {
+  function getControlProps() {
     return {
-      ...parts.input.attrs,
       id: ids.control,
       disabled,
       required,
-      readonly: readOnly,
-      'aria-invalid': ariaAttr(invalid),
       'aria-describedby': ariaDescribedby,
+      'aria-invalid': ariaAttr(invalid),
+      'aria-disabled': ariaAttr(disabled),
+      'aria-required': ariaAttr(required),
+      'aria-readonly': ariaAttr(readOnly),
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
@@ -177,47 +170,47 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     };
   }
 
-  function getSelectProps(): HTMLSelectAttributes {
+  function getInputProps(): HTMLInputAttributes {
     return {
-      ...parts.select.attrs,
-      id: ids.control,
-      disabled,
-      required,
-      'aria-invalid': ariaAttr(invalid),
-      'aria-readonly': ariaAttr(readOnly),
-      'aria-describedby': ariaDescribedby,
-      'data-invalid': dataAttr(invalid),
-      'data-disabled': dataAttr(disabled),
-      'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readOnly),
+      readonly: readOnly,
+      ...getControlProps(),
+      ...parts.input.attrs,
     };
   }
 
   function getTextareaProps(): HTMLTextareaAttributes {
     return {
-      ...parts.textarea.attrs,
-      id: ids.control,
-      disabled,
-      required,
       readonly: readOnly,
-      'aria-describedby': ariaDescribedby,
-      'data-invalid': dataAttr(invalid),
-      'data-disabled': dataAttr(disabled),
-      'data-required': dataAttr(required),
-      'data-readonly': dataAttr(readOnly),
+      ...getControlProps(),
+      ...parts.textarea.attrs,
     };
   }
 
-  function getRequiredIndicatorProps(): HTMLAttributes<HTMLElement> {
+  function getSelectProps(): HTMLSelectAttributes {
     return {
-      ...parts.requiredIndicator.attrs,
-      hidden: !required,
-      'aria-hidden': true,
-      'data-invalid': dataAttr(invalid),
-      'data-disabled': dataAttr(disabled),
-      'data-readonly': dataAttr(readOnly),
+      ...getControlProps(),
+      ...parts.select.attrs,
     };
   }
+
+  $effect(() => {
+    const rootNode = environment?.getRootNode() ?? document;
+
+    const doc = getDocument(rootNode);
+    const win = getWindow(rootNode);
+
+    function handler() {
+      hasErrorText = invalid && doc.getElementById(ids.errorText) !== null;
+      hasHelperText = doc.getElementById(ids.helperText) !== null;
+    }
+
+    handler();
+
+    const observer = new win.MutationObserver(handler);
+    observer.observe(rootNode, {childList: true, subtree: true});
+
+    return () => observer.disconnect();
+  });
 
   return reflect(() => ({
     ids,
