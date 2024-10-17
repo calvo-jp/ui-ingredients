@@ -77,8 +77,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     };
   });
 
-  let focused = $state(false);
-
   let hasErrorText = $state(false);
   let hasHelperText = $state(false);
 
@@ -105,7 +103,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
       'data-readonly': dataAttr(readOnly),
-      'data-focus': dataAttr(focused),
     };
   }
 
@@ -118,7 +115,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
       'data-readonly': dataAttr(readOnly),
-      'data-focus': dataAttr(focused),
     };
   }
 
@@ -130,7 +126,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-readonly': dataAttr(readOnly),
-      'data-focus': dataAttr(focused),
     };
   }
 
@@ -144,7 +139,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
       'data-readonly': dataAttr(readOnly),
-      'data-focus': dataAttr(focused),
     };
   }
 
@@ -156,23 +150,12 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
       'data-readonly': dataAttr(readOnly),
-      'data-focus': dataAttr(focused),
     };
-  }
-
-  function onfocus() {
-    focused = true;
-  }
-
-  function onblur() {
-    focused = false;
   }
 
   function getControlProps() {
     return {
       id: ids.control,
-      onfocus,
-      onblur,
       disabled,
       required,
       'aria-describedby': ariaDescribedby,
@@ -184,7 +167,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
       'data-readonly': dataAttr(readOnly),
-      'data-focus': dataAttr(focused),
     };
   }
 
@@ -236,7 +218,6 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     required,
     readOnly,
     invalid,
-    focused,
     'aria-describedby': ariaDescribedby,
     getRootProps,
     getLabelProps,
