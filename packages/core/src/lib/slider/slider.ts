@@ -1,4 +1,5 @@
 export {default as Control} from './slider-control.svelte';
+export {default as DraggingIndicator} from './slider-dragging-indicator.svelte';
 export {default as HiddenInput} from './slider-hidden-input.svelte';
 export {default as Label} from './slider-label.svelte';
 export {default as MarkerGroup} from './slider-marker-group.svelte';

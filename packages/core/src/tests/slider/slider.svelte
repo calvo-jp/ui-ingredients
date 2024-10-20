@@ -12,6 +12,7 @@
     </Slider.Track>
     <Slider.Thumb index={0}>
       <Slider.HiddenInput />
+      <Slider.DraggingIndicator />
     </Slider.Thumb>
   </Slider.Control>
 

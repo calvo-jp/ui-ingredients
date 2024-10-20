@@ -1,6 +1,7 @@
 export * as Slider from './slider.js';
 
 export type {SliderControlProps} from './slider-control.svelte';
+export type {SliderDraggingIndicatorProps} from './slider-dragging-indicator.svelte';
 export type {SliderHiddenInputProps} from './slider-hidden-input.svelte';
 export type {SliderLabelProps} from './slider-label.svelte';
 export type {SliderMarkerGroupProps} from './slider-marker-group.svelte';
