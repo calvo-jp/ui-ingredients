@@ -55,7 +55,11 @@ export function createDatePicker(
     'open.controlled': props.openControlled,
   }));
 
-  const [state, send] = useMachine(datePicker.machine(context), {context});
+  const [state, send, service] = useMachine(datePicker.machine(context));
+
+  $effect(() => {
+    service.setContext(context);
+  });
 
   return reflect(() => {
     const o = datePicker.connect(state, send, normalizeProps);

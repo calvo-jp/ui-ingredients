@@ -30,8 +30,11 @@
     ),
   );
 
-  $inspect({value});
-  $inspect({inputValue});
+  $effect(() => {
+    setTimeout(() => {
+      value = ['1'];
+    }, 1000);
+  });
 </script>
 
 <Combobox.Root
