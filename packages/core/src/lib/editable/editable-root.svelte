@@ -54,6 +54,7 @@
       'onFocusOutside',
       'onInteractOutside',
       'onPointerDownOutside',
+      'autoResize',
     ])(props),
   );
 
