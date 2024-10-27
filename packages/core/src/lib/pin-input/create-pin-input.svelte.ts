@@ -6,6 +6,7 @@ import type {HtmlProps} from '$lib/types.js';
 import * as pinInput from '@zag-js/pin-input';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLButtonAttributes} from 'svelte/elements';
+import {parts} from './pin-input-anatomy.js';
 
 export interface CreatePinInputProps
   extends Omit<pinInput.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -52,6 +53,7 @@ export function createPinInputContext(
           onclick() {
             o.clearValue();
           },
+          ...parts.clearTrigger.attrs,
         };
       },
       getHiddenInputProps() {

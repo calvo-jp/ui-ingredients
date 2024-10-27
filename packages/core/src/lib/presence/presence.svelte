@@ -14,6 +14,7 @@
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import type {Action} from 'svelte/action';
+  import type {HTMLAttributes} from 'svelte/elements';
   import {createPresence} from './create-presence.svelte.js';
 
   let {asChild, children, ...props}: PresenceProps = $props();
@@ -29,7 +30,10 @@
   let presence = createPresence(reflect(() => createPresenceProps));
 
   let mergedProps = $derived(
-    mergeProps(presence.getPresenceProps() as any, localProps),
+    mergeProps<HTMLAttributes<HTMLDivElement>>(
+      presence.getPresenceProps(),
+      localProps,
+    ),
   );
 </script>
 

@@ -39,7 +39,6 @@ export function createDatePicker(
 
   const id = createUniqueId();
 
-  /* FIXME: use reflect */
   const context: datePicker.Context = $derived.by(() => ({
     id,
     dir: locale?.dir,

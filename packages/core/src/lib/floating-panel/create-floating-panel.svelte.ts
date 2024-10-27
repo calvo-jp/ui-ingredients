@@ -9,7 +9,7 @@ export interface CreateFloatingPanelProps
   id?: string;
 }
 
-export interface CreateFloatingPanelReturn extends floatingPanel.Api<any> {}
+export interface CreateFloatingPanelReturn extends floatingPanel.Api {}
 
 export function createFloatingPanel(
   props: CreateFloatingPanelProps,

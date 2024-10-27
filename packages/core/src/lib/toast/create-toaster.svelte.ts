@@ -16,9 +16,10 @@ export interface CreateToasterProps {
   pauseOnPageIdle?: toast.GroupMachineContext['pauseOnPageIdle'];
 }
 
+type ToasterMachineState = {value: 'stack' | 'overlap'};
 type ToasterMachine = Machine<
-  toast.GroupMachineContext<any>,
-  {value: 'stack' | 'overlap'},
+  toast.GroupMachineContext,
+  ToasterMachineState,
   StateMachine.AnyEventObject
 >;
 

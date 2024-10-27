@@ -16,6 +16,7 @@
   import {Portal} from '$lib/portal/index.js';
   import {normalizeProps, useMachine} from '@zag-js/svelte';
   import * as toast from '@zag-js/toast';
+  import type {HTMLAttributes} from 'svelte/elements';
   import ToastActor from './toast-actor.svelte';
 
   let {
@@ -39,7 +40,10 @@
   let api = $derived(toast.group.connect(snapshot, send, normalizeProps));
   let toasts = $derived(api.getToastsByPlacement(placement));
   let mergedProps = $derived(
-    mergeProps(api.getGroupProps({placement}) as any, props),
+    mergeProps<HTMLAttributes<HTMLDivElement>>(
+      api.getGroupProps({placement}),
+      props,
+    ),
   );
 </script>
 

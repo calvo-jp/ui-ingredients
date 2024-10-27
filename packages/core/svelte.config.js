@@ -7,7 +7,7 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      '@testing-library/svelte': '@testing-library/svelte/svelte5',
+      '@testing-library/svelte/svelte5': '@testing-library/svelte',
     },
   },
   compilerOptions: {

@@ -15,7 +15,7 @@
   import {
     getAccordionContext,
     setAccordionItemPropsContext,
-  } from './avatar-context.svelte.js';
+  } from './accordion-context.svelte.js';
 
   let {
     ref = $bindable(null),

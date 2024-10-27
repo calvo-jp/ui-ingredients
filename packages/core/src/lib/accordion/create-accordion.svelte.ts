@@ -19,12 +19,14 @@ export function createAccordion(
 
   const id = createUniqueId();
 
-  const context: accordion.Context = reflect(() => ({
-    id,
-    dir: locale?.dir,
-    getRootNode: environment?.getRootNode,
-    ...props,
-  }));
+  const context: accordion.Context = reflect(() => {
+    return {
+      id,
+      dir: locale?.dir,
+      getRootNode: environment?.getRootNode,
+      ...props,
+    };
+  });
 
   const [state, send] = useMachine(accordion.machine(context), {context});
 

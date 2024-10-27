@@ -56,7 +56,6 @@ export function createCombobox<T>(
 
   const [state, send, service] = useMachine(combobox.machine(context));
 
-  /* FIXME: pass controlled context instead? */
   $effect(() => {
     service.setContext(context);
   });

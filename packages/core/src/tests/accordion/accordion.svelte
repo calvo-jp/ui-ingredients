@@ -9,13 +9,12 @@
 
   interface Props {
     items: Item[];
-    multiple?: boolean;
   }
 
-  let {items, multiple}: Props = $props();
+  let {items}: Props = $props();
 </script>
 
-<Accordion.Root {multiple}>
+<Accordion.Root>
   {#each items as item}
     <Accordion.Item value={item.value}>
       <Accordion.ItemTrigger>

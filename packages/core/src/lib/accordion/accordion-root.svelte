@@ -19,7 +19,7 @@
   import {setPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
-  import {setAccordionContext} from './avatar-context.svelte.js';
+  import {setAccordionContext} from './accordion-context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
 
   let {

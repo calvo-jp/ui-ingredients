@@ -7,7 +7,6 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './pin-input-anatomy.js';
   import {getPinInputContext} from './pin-input-context.svelte.js';
 
   let {
@@ -20,11 +19,7 @@
   let pinInput = getPinInputContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      parts.clearTrigger.attrs as any,
-      pinInput.getClearTriggerProps(),
-      props,
-    ),
+    mergeProps(pinInput.getClearTriggerProps(), props),
   );
 </script>
 
