@@ -344,8 +344,7 @@
     "@zag-js/tooltip": "^0.76.0",
     "@zag-js/tour": "^0.76.0",
     "@zag-js/tree-view": "^0.76.0",
-    "@zag-js/utils": "^0.76.0",
-    "uid": "^2.0.2"
+    "@zag-js/utils": "^0.76.0"
   },
   "peerDependencies": {
     "svelte": ">=5.0.0"
