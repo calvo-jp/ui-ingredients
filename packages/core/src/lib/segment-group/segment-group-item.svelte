@@ -12,7 +12,6 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createSplitProps} from '@zag-js/utils';
-  import {parts} from './segment-group-anatomy.js';
   import {
     getSegmentGroupContext,
     setSegmentGroupItemPropsContext,
@@ -33,11 +32,7 @@
 
   let itemState = $derived(segmentGroup.getItemState(itemProps));
   let mergedProps = $derived(
-    mergeProps(
-      segmentGroup.getItemProps(itemProps),
-      parts.item.attrs,
-      localProps,
-    ),
+    mergeProps(segmentGroup.getItemProps(itemProps), localProps),
   );
 
   setSegmentGroupItemPropsContext(() => itemProps);

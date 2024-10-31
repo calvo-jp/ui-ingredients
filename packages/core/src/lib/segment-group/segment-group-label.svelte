@@ -7,7 +7,6 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './segment-group-anatomy.js';
   import {getSegmentGroupContext} from './segment-group-context.svelte.js';
 
   let {
@@ -19,9 +18,7 @@
 
   let segmentGroup = getSegmentGroupContext();
 
-  let mergedProps = $derived(
-    mergeProps(segmentGroup.getLabelProps(), parts.label.attrs, props),
-  );
+  let mergedProps = $derived(mergeProps(segmentGroup.getLabelProps(), props));
 </script>
 
 {#if asChild}

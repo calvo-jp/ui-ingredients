@@ -7,7 +7,6 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './segment-group-anatomy.js';
   import {
     getSegmentGroupContext,
     getSegmentGroupItemPropsContext,
@@ -24,11 +23,7 @@
   let itemProps = getSegmentGroupItemPropsContext();
 
   let mergedProps = $derived(
-    mergeProps(
-      segmentGroup.getItemTextProps(itemProps),
-      parts.itemText.attrs,
-      props,
-    ),
+    mergeProps(segmentGroup.getItemTextProps(itemProps), props),
   );
 </script>
 

@@ -7,7 +7,6 @@
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {parts} from './segment-group-anatomy.js';
   import {getSegmentGroupContext} from './segment-group-context.svelte.js';
 
   let {
@@ -20,7 +19,7 @@
   let segmentGroup = getSegmentGroupContext();
 
   let mergedProps = $derived(
-    mergeProps(segmentGroup.getIndicatorProps(), parts.indicator.attrs, props),
+    mergeProps(segmentGroup.getIndicatorProps(), props),
   );
 </script>
 

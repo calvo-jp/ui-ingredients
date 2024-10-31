@@ -17,7 +17,6 @@
   import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {createSegmentGroup} from './create-segment-group.svelte.js';
-  import {parts} from './segment-group-anatomy.js';
   import {setSegmentGroupContext} from './segment-group-context.svelte.js';
 
   let {
@@ -44,7 +43,7 @@
   let segmentGroup = createSegmentGroup(reflect(() => createSegmentGroupProps));
 
   let mergedProps = $derived(
-    mergeProps(segmentGroup.getRootProps(), parts.root.attrs, localProps),
+    mergeProps(segmentGroup.getRootProps(), localProps),
   );
 
   setSegmentGroupContext(segmentGroup);
