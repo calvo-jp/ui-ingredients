@@ -2,7 +2,7 @@
   "name": "root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.12.2",
+  "packageManager": "pnpm@9.12.3",
   "scripts": {
     "core": "pnpm --filter ui-ingredients",
     "test": "pnpm ui-ingredients test && pnpm ui-ingredients-tailwindcss-plugin test",
@@ -10,16 +10,16 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@eslint/js": "^9.13.0",
     "@types/eslint": "^9.6.1",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.13.0",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-svelte": "^2.46.0",
     "globals": "^15.11.0",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.7",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.11.0"
+    "typescript-eslint": "^8.12.2"
   }
 }

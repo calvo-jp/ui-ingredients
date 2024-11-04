@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
-  import type {ChannelProps} from '@zag-js/color-picker';
+  import type {HtmlIngredientProps} from '$lib/types.js';
 
   export interface ColorPickerChannelSliderLabelProps
-    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ChannelProps> {}
+    extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
@@ -15,8 +14,6 @@
 
   let {
     ref = $bindable(null),
-    channel,
-    orientation,
     asChild,
     children,
     ...props
