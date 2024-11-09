@@ -1,3 +1,4 @@
+export {collection} from '@zag-js/tree-view';
 export {default as BranchContent} from './tree-view-branch-content.svelte';
 export {default as BranchControl} from './tree-view-branch-control.svelte';
 export {default as BranchIndicator} from './tree-view-branch-indicator.svelte';

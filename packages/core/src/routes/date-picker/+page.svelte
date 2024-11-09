@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {DatePicker, Portal} from '$lib/index.js';
+  import {DatePicker, Portal, type DateValue} from '$lib/index.js';
   import {
     CalendarIcon,
     ChevronLeftIcon,
@@ -7,10 +7,10 @@
   } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
-  let value: string[] = $state([]);
+  let value: DateValue[] = $state([]);
 
   setTimeout(() => {
-    value = ['2022-01-01'];
+    value = DatePicker.parse(['2022-01-01']);
   }, 1000);
 </script>
 
@@ -19,7 +19,7 @@
   fixedWeeks
   {value}
   onValueChange={(detail) => {
-    value = detail.valueAsString;
+    value = detail.value;
   }}
   positioning={{
     sameWidth: true,

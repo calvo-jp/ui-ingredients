@@ -1,3 +1,4 @@
+export {collection} from '@zag-js/combobox';
 export {default as ClearTrigger} from './combobox-clear-trigger.svelte';
 export {default as Content} from './combobox-content.svelte';
 export {default as Control} from './combobox-control.svelte';

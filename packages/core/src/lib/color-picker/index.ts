@@ -28,5 +28,6 @@ export type {ColorPickerValueSwatchProps} from './color-picker-value-swatch.svel
 export type {ColorPickerValueTextProps} from './color-picker-value-text.svelte';
 export type {ColorPickerViewTextProps} from './color-picker-view.svelte';
 
+export type {Color} from '@zag-js/color-picker';
 export {anatomy as colorPickerAnatomy} from './color-picker-anatomy.js';
 export {getColorPickerContext} from './color-picker-context.svelte.js';

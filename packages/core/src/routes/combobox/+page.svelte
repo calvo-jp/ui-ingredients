@@ -7,25 +7,21 @@
   } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
-  interface Option {
-    label: string;
-    value: string;
-    disabled?: boolean;
-  }
-
-  let items: Option[] = [
-    {label: 'Option 1', value: '1'},
-    {label: 'Option 2', value: '2'},
-    {label: 'Option 3', value: '3'},
-    {label: 'Option 4', value: '4'},
-    {label: 'Option 5', value: '5', disabled: true},
-  ];
+  let collection = Combobox.collection({
+    items: [
+      {label: 'Option 1', value: '1'},
+      {label: 'Option 2', value: '2'},
+      {label: 'Option 3', value: '3'},
+      {label: 'Option 4', value: '4'},
+      {label: 'Option 5', value: '5', disabled: true},
+    ],
+  });
 
   let value: string[] = $state([]);
   let inputValue = $state('');
 
   let matches = $derived(
-    items.filter((item) =>
+    collection.items.filter((item) =>
       item.label.toLowerCase().includes(inputValue.toLowerCase()),
     ),
   );
@@ -38,7 +34,7 @@
 </script>
 
 <Combobox.Root
-  {items}
+  {collection}
   {value}
   onValueChange={(detail) => {
     value = detail.value;

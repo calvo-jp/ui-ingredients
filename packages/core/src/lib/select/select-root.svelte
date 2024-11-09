@@ -6,15 +6,15 @@
     CreateSelectReturn,
   } from './create-select.svelte.js';
 
-  export interface SelectProps<T>
+  export interface SelectProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateSelectReturn>,
-        CreateSelectProps<T>
+        CreateSelectProps
       >,
       PresenceStrategyProps {}
 </script>
 
-<script lang="ts" generics="T">
+<script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {setPresenceContext} from '$lib/presence/presence-context.svelte.js';
@@ -28,10 +28,10 @@
     asChild,
     children,
     ...props
-  }: SelectProps<T> = $props();
+  }: SelectProps = $props();
 
   let [createSelectProps, rest] = $derived(
-    createSplitProps<CreateSelectProps<T>>([
+    createSplitProps<CreateSelectProps>([
       'id',
       'ids',
       'form',
@@ -39,7 +39,6 @@
       'open',
       'openControlled',
       'value',
-      'items',
       'invalid',
       'multiple',
       'disabled',
@@ -51,9 +50,6 @@
       'deselectable',
       'closeOnSelect',
       'highlightedValue',
-      'itemToValue',
-      'itemToString',
-      'isItemDisabled',
       'onOpenChange',
       'onValueChange',
       'onFocusOutside',
@@ -61,6 +57,7 @@
       'onInteractOutside',
       'onPointerDownOutside',
       'scrollToIndexFn',
+      'collection',
     ])(props),
   );
 
