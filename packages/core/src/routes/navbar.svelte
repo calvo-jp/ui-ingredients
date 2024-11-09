@@ -5,7 +5,6 @@
 
 <header class="sticky top-0 flex h-16 items-center border-b px-6 lg:px-12">
   <button
-    type="button"
     onclick={() => {
       store.sidebar.isOpen = !store.sidebar.isOpen;
     }}

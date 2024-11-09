@@ -50,7 +50,6 @@ export const toaster = createToaster({
 </script>
 
 <button
-  type="button"
   onclick={function () {
     toaster.create({
       title: 'Title',
