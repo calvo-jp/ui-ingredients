@@ -20,7 +20,6 @@
   }: TreeViewBranchControlProps = $props();
 
   let treeView = getTreeViewContext();
-
   let branchProps = getTreeViewBranchPropsContext();
 
   let mergedProps = $derived(

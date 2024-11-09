@@ -7,30 +7,28 @@
   } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
-  let collection = Combobox.collection({
-    items: [
-      {label: 'Option 1', value: '1'},
-      {label: 'Option 2', value: '2'},
-      {label: 'Option 3', value: '3'},
-      {label: 'Option 4', value: '4'},
-      {label: 'Option 5', value: '5', disabled: true},
-    ],
-  });
+  let items = [
+    {label: 'Option 1', value: '1'},
+    {label: 'Option 2', value: '2'},
+    {label: 'Option 3', value: '3'},
+    {label: 'Option 4', value: '4'},
+    {label: 'Option 5', value: '5', disabled: true},
+  ];
 
   let value: string[] = $state([]);
   let inputValue = $state('');
 
   let matches = $derived(
-    collection.items.filter((item) =>
+    items.filter((item) =>
       item.label.toLowerCase().includes(inputValue.toLowerCase()),
     ),
   );
 
-  $effect(() => {
-    setTimeout(() => {
-      value = ['1'];
-    }, 1000);
-  });
+  let collection = $derived(
+    Combobox.collection({
+      items: matches,
+    }),
+  );
 </script>
 
 <Combobox.Root
@@ -84,7 +82,7 @@
       <Combobox.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
       >
-        {#each matches as item (item.value)}
+        {#each collection.items as item}
           <Combobox.Item
             {item}
             class="data-disabled:cursor-not-allowed data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"

@@ -40,7 +40,7 @@ A component for organizing related form elements into a cohesive unit.
     Label
     <Field.RequiredIndicator />
   </Field.Label>
-  <Field.Textarea />
+  <Field.Textarea autoResize />
   <Field.HelperText>This is a helper text</Field.HelperText>
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>

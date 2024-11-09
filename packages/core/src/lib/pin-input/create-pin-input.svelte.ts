@@ -50,6 +50,7 @@ export function createPinInputContext(
       ...o,
       getClearTriggerProps(): HtmlProps<'button'> {
         return {
+          type: 'button',
           onclick() {
             o.clearValue();
           },

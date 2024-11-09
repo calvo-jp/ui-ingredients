@@ -125,6 +125,8 @@
                               'data-range-end:bg-accent',
                               'data-in-range:bg-accent/75',
                               'data-in-range:text-white',
+                              'data-disabled:opacity-50',
+                              'data-disabled:cursor-not-allowed',
                               'data-disabled:hover:bg-transparent',
                               'data-disabled:data-range-start:bg-transparent',
                               'data-disabled:data-range-start:text-inherit',

@@ -1,10 +1,26 @@
 <script lang="ts">
-  import {TimePicker} from '$lib/index.js';
+  import {TimePicker, type Time} from '$lib/index.js';
   import {ClockIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
+
+  let value: Time | null = $state(
+    TimePicker.parse({
+      hour: 16,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    }),
+  );
 </script>
 
-<TimePicker.Root allowSeconds class="w-full lg:max-w-[24rem]">
+<TimePicker.Root
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+  allowSeconds
+  class="w-full lg:max-w-[24rem]"
+>
   {#snippet children(context)}
     <TimePicker.Label>
       {#snippet asChild(attrs)}

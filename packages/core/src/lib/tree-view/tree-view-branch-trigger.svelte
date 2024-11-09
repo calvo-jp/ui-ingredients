@@ -20,9 +20,7 @@
   }: TreeViewBranchTriggerProps = $props();
 
   let treeView = getTreeViewContext();
-
   let branchProps = getTreeViewBranchPropsContext();
-
   let mergedProps = $derived(
     mergeProps(treeView.getBranchTriggerProps(branchProps), props),
   );

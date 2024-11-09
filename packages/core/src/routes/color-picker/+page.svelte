@@ -15,9 +15,16 @@
     'hsl(280, 81%, 59%)',
     'hsl(350, 81%, 59%)',
   ];
+
+  let value = $state(ColorPicker.parse('#9863BF'));
 </script>
 
-<ColorPicker.Root>
+<ColorPicker.Root
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+>
   {#snippet children(context)}
     <ColorPicker.Label>
       {#snippet asChild(attrs)}

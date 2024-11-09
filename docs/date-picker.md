@@ -11,14 +11,14 @@ A component for selecting a date from a calendar interface.
   import {DatePicker} from 'ui-ingredients';
   import {CalendarIcon, ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 
-  /** @type {string[]} */
-  let value = $state([]);
+  /** @type {import('ui-ingredients').DateValue[]} */
+  let value = $state([DatePicker.parse('1990-01-01')]);
 </script>
 
 <DatePicker.Root
   {value}
   onValueChange={function (detail) {
-    value = detail.valueAsString;
+    value = detail.value;
   }}
 >
   {#snippet children(context)}

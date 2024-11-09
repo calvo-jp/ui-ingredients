@@ -9,13 +9,15 @@ A component for choosing an option from a dropdown list.
   import {Select} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
-  let items = [
-    {value: '1', label: 'Item 1'},
-    {value: '2', label: 'Item 2'},
-    {value: '3', label: 'Item 3'},
-    {value: '4', label: 'Item 4'},
-    {value: '5', label: 'Item 5', disabled: true},
-  ];
+  let collection = Select.collection({
+    items: [
+      {value: '1', label: 'Option 1'},
+      {value: '2', label: 'Option 2'},
+      {value: '3', label: 'Option 3'},
+      {value: '4', label: 'Option 4', disabled: true},
+      {value: '5', label: 'Option 5'},
+    ],
+  });
 
   /** @type {string[]} */
   let value = $state([]);

@@ -8,10 +8,6 @@
   import {IconButton, Input, Label} from '../shared/index.js';
 
   let value: DateValue[] = $state([]);
-
-  setTimeout(() => {
-    value = DatePicker.parse(['2022-01-01']);
-  }, 1000);
 </script>
 
 <DatePicker.Root

@@ -8,9 +8,25 @@ A component for selecting a time from a dropdown or input interface.
 <script>
   import {TimePicker} from 'ui-ingredients';
   import {ClockIcon, XCloseIcon} from '$lib/icons';
+
+  /** @type {import('ui-ingredients').Time | null} */
+  let value: Time | null = $state(
+    TimePicker.parse({
+      hour: 16,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    }),
+  );
 </script>
 
-<TimePicker.Root allowSeconds>
+<TimePicker.Root
+  {value}
+  onValueChange={function (detail) {
+    value = detail.value;
+  }}
+  allowSeconds
+>
   {#snippet children(context)}
     <TimePicker.Label>Label</TimePicker.Label>
 

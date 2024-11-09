@@ -8,9 +8,17 @@ A component for selecting and customizing colors.
 <script>
   import {ColorPicker} from 'ui-ingredients';
   import {DropperIcon} from '$lib/icons';
+
+  /** @type {import('ui-ingredients').Color} */
+  let value = $state(ColorPicker.parse('red'));
 </script>
 
-<ColorPicker.Root>
+<ColorPicker.Root
+  {value}
+  onValueChange={function (detail) {
+    value = detail.value;
+  }}
+>
   {#snippet children(context)}
     <ColorPicker.Label>Label</ColorPicker.Label>
     <ColorPicker.Control>
