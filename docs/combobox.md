@@ -59,7 +59,7 @@ A component that combines a text input with a dropdown list for selecting or ent
 
   <Combobox.Positioner>
     <Combobox.Content>
-      {#each matches as item (item.value)}
+      {#each collection.items as item}
         <Combobox.Item {item}>
           <Combobox.ItemText>{item.label}</Combobox.ItemText>
           <Combobox.ItemIndicator>

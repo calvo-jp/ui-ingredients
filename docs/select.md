@@ -48,7 +48,7 @@ A component for choosing an option from a dropdown list.
 
   <Select.Positioner>
     <Select.Content>
-      {#each items as item}
+      {#each collection.items as item}
         <Select.Item {item}>
           <Select.ItemText />
           <Select.ItemIndicator>
