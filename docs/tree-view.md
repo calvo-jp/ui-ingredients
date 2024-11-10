@@ -1,4 +1,4 @@
-# TreeBranch
+# TreeView
 
 A component for displaying hierarchical data in a tree structure, allowing users to expand and collapse branches.
 
@@ -21,10 +21,14 @@ A component for displaying hierarchical data in a tree structure, allowing users
   }
 
   let collection = TreeView.collection<Node>({
-    nodeToValue: (node) => node.value,
-    nodeToString: (node) => node.label,
+    nodeToValue(node) {
+      return node.value;
+    },
+    nodeToString(node) {
+      return node.label;
+    },
     rootNode: {
-      value: 'ROOT',
+      value: '',
       label: '',
       children: [
         {
