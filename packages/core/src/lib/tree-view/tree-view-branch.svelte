@@ -1,9 +1,12 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
-  import type {NodeProps} from '@zag-js/tree-view';
+  import type {NodeProps, NodeState} from '@zag-js/tree-view';
 
   export interface TreeViewBranchProps
-    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, NodeProps> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, NodeState>,
+      NodeProps
+    > {}
 </script>
 
 <script lang="ts">
@@ -27,6 +30,7 @@
     createSplitProps<NodeProps>(['node', 'indexPath'])(props),
   );
 
+  let nodeState = $derived(treeView.getNodeState(nodeProps));
   let mergedProps = $derived(
     mergeProps(treeView.getBranchProps(nodeProps), localProps),
   );
@@ -35,9 +39,9 @@
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps)}
+  {@render asChild(mergedProps, nodeState)}
 {:else}
   <div bind:this={ref} {...mergedProps}>
-    {@render children?.()}
+    {@render children?.(nodeState)}
   </div>
 {/if}
