@@ -270,6 +270,12 @@ importers:
 
   website:
     dependencies:
+      '@fontsource/fira-code':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/inter':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@untitled-theme/icons-svelte':
         specifier: ^0.12.0
         version: 0.12.0(svelte@5.1.13)
@@ -530,6 +536,12 @@ packages:
 
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
+
+  '@fontsource/fira-code@5.1.0':
+    resolution: {integrity: sha512-ti2XDP0qthaTDu44QawNP3PjEZIZ/cNl5VUZzvF9oYS/WY4LgmbF43IMTgTUZL33hknwFWBfmLmZCheOQmzJDg==}
+
+  '@fontsource/inter@5.1.0':
+    resolution: {integrity: sha512-zKZR3kf1G0noIes1frLfOHP5EXVVm0M7sV/l9f/AaYf+M/DId35FO4LkigWjqWYjTJZGgplhdv4cB+ssvCqr5A==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3637,6 +3649,10 @@ snapshots:
       '@floating-ui/utils': 0.2.8
 
   '@floating-ui/utils@0.2.8': {}
+
+  '@fontsource/fira-code@5.1.0': {}
+
+  '@fontsource/inter@5.1.0': {}
 
   '@humanfs/core@0.19.1': {}
 
