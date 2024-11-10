@@ -273,12 +273,12 @@ importers:
       '@untitled-theme/icons-svelte':
         specifier: ^0.12.0
         version: 0.12.0(svelte@5.1.13)
+      '@zag-js/docs':
+        specifier: ^0.77.0
+        version: 0.77.0
       tailwind-merge:
         specifier: ^2.5.4
         version: 2.5.4
-      tailwind-variants:
-        specifier: ^0.2.1
-        version: 0.2.1(tailwindcss@3.4.14)
       ui-ingredients:
         specifier: ^0.13.0
         version: 0.13.0(@internationalized/date@3.5.5)(svelte@5.1.13)
@@ -1029,6 +1029,9 @@ packages:
 
   '@zag-js/dismissable@0.77.0':
     resolution: {integrity: sha512-OqDWYVrX+gaVxy8IjgXYdn5XtMGpj6qtaH50SEhqwc6J9/mK/XM1/UemZeBO8k8PTVTk1CNmSn5eylIZdMHZUA==}
+
+  '@zag-js/docs@0.77.0':
+    resolution: {integrity: sha512-+ZXX0YU2Ah7EGpv4zRGU9ILZNUkwYLNfjH7UoVBK4GcV7/AC4Ms3Y4r88/zjHcGb+fFJsL3WT5YgWcCdm/b58g==}
 
   '@zag-js/dom-event@0.77.0':
     resolution: {integrity: sha512-lrvJuBPDDVy/X5LGpG8pjDCS5bGrAJE/bQXAWhQwhqo9lUa1399eYZ7VqGCBN6K5UhdPB1KeFPm59Asl4/FIjQ==}
@@ -4277,6 +4280,8 @@ snapshots:
       '@zag-js/dom-query': 0.77.0
       '@zag-js/interact-outside': 0.77.0
       '@zag-js/utils': 0.77.0
+
+  '@zag-js/docs@0.77.0': {}
 
   '@zag-js/dom-event@0.77.0':
     dependencies:
