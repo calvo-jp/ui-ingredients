@@ -5,13 +5,15 @@
   "packageManager": "pnpm@9.12.3",
   "scripts": {
     "core": "pnpm --filter ui-ingredients",
-    "site": "pnpm --filter website",
+    "website": "pnpm --filter website",
+    "scripts": "pnpm --filter scripts",
     "test": "pnpm ui-ingredients test && pnpm ui-ingredients-tailwindcss-plugin test",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
   "dependencies": {
     "@types/eslint": "^9.6.1",
+    "@types/node": "^22.9.0",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
