@@ -40,6 +40,7 @@
       'id',
       'ids',
       'typeahead',
+      'collection',
       'focusedValue',
       'expandedValue',
       'expandOnClick',

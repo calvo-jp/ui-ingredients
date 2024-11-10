@@ -1,7 +1,8 @@
 <script lang="ts">
   import {Field} from '$lib/index.js';
   import {tick} from 'svelte';
-  import {Button, Input, Label, Textarea} from '../shared/index.js';
+  import {Button, Input, Label} from '../shared/index.js';
+  import {textareaRecipe} from '../shared/textarea.recipe.js';
 
   let data = $state({
     title: '',
@@ -97,17 +98,18 @@
       </Field.ErrorText>
     </div>
 
-    <Field.Textarea>
-      {#snippet asChild(attrs)}
-        <Textarea
-          rows={4}
+    <Field.Textarea autoResize>
+      {#snippet asChild(action, attrs)}
+        <textarea
+          use:action
           value={data.description}
           oninput={(e) => {
             data.description = e.currentTarget.value;
             touched.description = true;
           }}
+          class={textareaRecipe()}
           {...attrs}
-        />
+        ></textarea>
       {/snippet}
     </Field.Textarea>
     <Field.HelperText class="text-muted mt-1.5 text-sm">

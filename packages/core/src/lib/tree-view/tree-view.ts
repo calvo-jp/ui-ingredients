@@ -1,5 +1,7 @@
+export {collection} from '@zag-js/tree-view';
 export {default as BranchContent} from './tree-view-branch-content.svelte';
 export {default as BranchControl} from './tree-view-branch-control.svelte';
+export {default as BranchIndentGuide} from './tree-view-branch-indent-guide.svelte';
 export {default as BranchIndicator} from './tree-view-branch-indicator.svelte';
 export {default as BranchText} from './tree-view-branch-text.svelte';
 export {default as BranchTrigger} from './tree-view-branch-trigger.svelte';

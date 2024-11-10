@@ -24,7 +24,7 @@
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button bind:this={ref} type="button" {...mergedProps}>
+  <button bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </button>
 {/if}

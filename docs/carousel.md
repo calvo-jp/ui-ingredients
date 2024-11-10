@@ -5,7 +5,7 @@ A rotating component for cycling through images or content slides.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Carousel} from 'ui-ingredients';
   import {ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 
@@ -51,51 +51,3 @@ A rotating component for cycling through images or content slides.
   </div>
 </Carousel.Root>
 ```
-
-## Props
-
-### Root
-
-- `ids`
-
-  The ids of the elements
-
-- `loop`
-
-  Whether the carousel should loop around.
-
-- `align`
-
-  The alignment of the slides in the carousel.
-
-- `index`
-
-  The current slide index.
-
-- `spacing`
-
-  The amount of space between slides.
-
-- `orientation`
-
-  The orientation of the carousel.
-
-- `slidesPerView`
-
-  The number of slides to show at a time.
-
-- `onIndexChange`
-
-  Function called when the slide changes.
-
-### Item
-
-- `index`
-
-  The index of the item.
-
-### Indicator
-
-- `index`
-
-  The index of the indicator.

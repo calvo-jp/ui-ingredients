@@ -5,7 +5,7 @@ A component for counting down or tracking elapsed time.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Timer} from 'ui-ingredients';
 </script>
 

@@ -5,7 +5,7 @@ A component for generating and displaying QR codes for quick scanning and access
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {QrCode} from 'ui-ingredients';
 </script>
 

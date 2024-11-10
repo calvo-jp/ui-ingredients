@@ -5,7 +5,7 @@ A component that slides in from the edge of the screen to display additional con
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Drawer} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

@@ -1,3 +1,4 @@
+export {collection} from '@zag-js/select';
 export {default as ClearTrigger} from './select-clear-trigger.svelte';
 export {default as Content} from './select-content.svelte';
 export {default as Control} from './select-control.svelte';

@@ -7,13 +7,7 @@
   } from '@untitled-theme/icons-svelte';
   import {IconButton, Input, Label} from '../shared/index.js';
 
-  interface Option {
-    label: string;
-    value: string;
-    disabled?: boolean;
-  }
-
-  let items: Option[] = [
+  let items = [
     {label: 'Option 1', value: '1'},
     {label: 'Option 2', value: '2'},
     {label: 'Option 3', value: '3'},
@@ -30,15 +24,15 @@
     ),
   );
 
-  $effect(() => {
-    setTimeout(() => {
-      value = ['1'];
-    }, 1000);
-  });
+  let collection = $derived(
+    Combobox.collection({
+      items: matches,
+    }),
+  );
 </script>
 
 <Combobox.Root
-  {items}
+  {collection}
   {value}
   onValueChange={(detail) => {
     value = detail.value;
@@ -88,7 +82,7 @@
       <Combobox.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
       >
-        {#each matches as item (item.value)}
+        {#each collection.items as item}
           <Combobox.Item
             {item}
             class="data-disabled:cursor-not-allowed data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"

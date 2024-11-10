@@ -7,7 +7,6 @@
 </script>
 
 <button
-  type="button"
   onclick={() => {
     toaster.create({
       title: 'Title',

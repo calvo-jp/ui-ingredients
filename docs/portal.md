@@ -5,7 +5,7 @@ A component for rendering content in a different part of the DOM hierarchy, ofte
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Portal} from 'ui-ingredients';
 </script>
 

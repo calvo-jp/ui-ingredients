@@ -6,12 +6,11 @@ import * as colorPicker from '@zag-js/color-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {parts} from './color-picker-anatomy.js';
 
-type Omitted = 'id' | 'dir' | 'value' | 'getRootNode' | 'open.controlled';
+type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
 
 export interface CreateColorPickerProps
   extends Omit<colorPicker.Context, Omitted> {
   id?: string;
-  value?: string;
   openControlled?: boolean;
 }
 
@@ -32,7 +31,6 @@ export function createColorPicker(
     id,
     dir: locale?.dir,
     ...props,
-    value: props.value ? colorPicker.parse(props.value) : undefined,
     getRootNode: environment?.getRootNode,
     'open.controlled': props.openControlled,
   }));

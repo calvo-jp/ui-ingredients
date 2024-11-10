@@ -2,6 +2,7 @@ export * as TreeView from './tree-view.js';
 
 export type {TreeViewBranchContentProps} from './tree-view-branch-content.svelte';
 export type {TreeViewBranchControlProps} from './tree-view-branch-control.svelte';
+export type {TreeViewBranchIndentGuideProps} from './tree-view-branch-indent-guide.svelte';
 export type {TreeViewBranchIndicatorProps} from './tree-view-branch-indicator.svelte';
 export type {TreeViewBranchTextProps} from './tree-view-branch-text.svelte';
 export type {TreeViewBranchTriggerProps} from './tree-view-branch-trigger.svelte';
@@ -15,3 +16,4 @@ export type {TreeViewTreeProps} from './tree-view-tree.svelte';
 
 export {anatomy as treeViewAnatomy} from '@zag-js/tree-view';
 export {getTreeViewContext} from './tree-view-context.svelte.js';
+export type {NodeProps} from './types.js';

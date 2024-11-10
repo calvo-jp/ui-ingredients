@@ -5,7 +5,7 @@ A component for displaying modal windows or pop-up messages.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Dialog, Portal} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

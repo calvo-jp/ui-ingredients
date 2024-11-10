@@ -16,15 +16,15 @@ type CreateContextReturn<T, Strict extends boolean> = [
 
 export function createContext<T extends GenericObject>(
   key: string,
-): CreateContextReturn<T, true>;
-export function createContext<T extends GenericObject>(
-  key: string,
   strict: true,
 ): CreateContextReturn<T, true>;
 export function createContext<T extends GenericObject>(
   key: string,
   strict: false,
 ): CreateContextReturn<T, false>;
+export function createContext<T extends GenericObject>(
+  key: string,
+): CreateContextReturn<T, true>;
 export function createContext<T extends GenericObject>(
   ...args: [string, boolean?]
 ): CreateContextReturn<T, boolean> {

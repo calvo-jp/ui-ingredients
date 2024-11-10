@@ -7,7 +7,7 @@ A component for displaying the completion status of a task or process.
 ### Linear Progress
 
 ```svelte
-<script>
+<script lang="ts">
   import {Progress} from 'ui-ingredients';
 </script>
 
@@ -24,7 +24,7 @@ A component for displaying the completion status of a task or process.
 ### Circular Progress
 
 ```svelte
-<script>
+<script lang="ts">
   import {Progress} from 'ui-ingredients';
 </script>
 

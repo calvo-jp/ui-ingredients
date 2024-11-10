@@ -5,12 +5,11 @@ A component for guiding users through a series of steps or features in an applic
 ## Usage
 
 ```svelte
-<script>
-  import {Tour} from 'ui-ingredients';
+<script lang="ts">
+  import {Tour, type TourStepDetails} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 
-  /** @type {import('ui-ingredients').TourStepDetails[]} */
-  const steps = [
+  const steps: TourStepDetails[] = [
     {
       type: 'tooltip',
       arrow: true,

@@ -5,7 +5,7 @@ A component for displaying important messages or notifications.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Alert} from 'ui-ingredients';
   import {AlertCircleIcon} from '$lib/icons';
 </script>

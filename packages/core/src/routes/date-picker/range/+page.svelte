@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {DatePicker, Portal} from '$lib/index.js';
+  import {DatePicker, Portal, type DateValue} from '$lib/index.js';
   import {
     CalendarIcon,
     ChevronLeftIcon,
@@ -9,7 +9,7 @@
   import {twMerge} from 'tailwind-merge';
   import {IconButton, Input, Label} from '../../shared/index.js';
 
-  let value: string[] = $state([]);
+  let value: DateValue[] = $state([]);
 </script>
 
 <DatePicker.Root
@@ -20,7 +20,7 @@
   }}
   {value}
   onValueChange={(detail) => {
-    value = detail.valueAsString;
+    value = detail.value;
   }}
   selectionMode="range"
 >
@@ -125,6 +125,8 @@
                               'data-range-end:bg-accent',
                               'data-in-range:bg-accent/75',
                               'data-in-range:text-white',
+                              'data-disabled:opacity-50',
+                              'data-disabled:cursor-not-allowed',
                               'data-disabled:hover:bg-transparent',
                               'data-disabled:data-range-start:bg-transparent',
                               'data-disabled:data-range-start:text-inherit',

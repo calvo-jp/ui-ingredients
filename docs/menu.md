@@ -7,7 +7,7 @@ A component for navigating through a list of options or actions.
 ### Basic Menu
 
 ```svelte
-<script>
+<script lang="ts">
   import {Menu} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
@@ -43,7 +43,7 @@ A component for navigating through a list of options or actions.
 ### Radio/Checkbox Menu
 
 ```svelte
-<script>
+<script lang="ts">
   import {Menu} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
@@ -56,10 +56,7 @@ A component for navigating through a list of options or actions.
     'Item 5',
   ];
 
-  /** @type {string[]} */
-  let selected = $state([]);
-
-  $inspect(selected);
+  let selected: string[] = $state([]);
 </script>
 
 <Menu.Root>
@@ -100,7 +97,7 @@ A component for navigating through a list of options or actions.
 ### Nested Menu
 
 ```svelte
-<script>
+<script lang="ts">
   import {Menu} from 'ui-ingredients';
   import {ChevronRightIcon} from '$lib/icons';
 </script>
@@ -141,7 +138,7 @@ A component for navigating through a list of options or actions.
 ### Context Menu
 
 ```svelte
-<script>
+<script lang="ts">
   import {Menu} from 'ui-ingredients';
 
   let items = [

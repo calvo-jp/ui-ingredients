@@ -5,7 +5,7 @@ A component for grouping and toggling between different sections or options, oft
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {SegmentGroup} from 'ui-ingredients';
 
   let items = [

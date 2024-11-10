@@ -5,12 +5,19 @@ A component for selecting and customizing colors.
 ## Usage
 
 ```svelte
-<script>
-  import {ColorPicker} from 'ui-ingredients';
+<script lang="ts">
+  import {ColorPicker, type Color} from 'ui-ingredients';
   import {DropperIcon} from '$lib/icons';
+
+  let value: Color = $state(ColorPicker.parse('red'));
 </script>
 
-<ColorPicker.Root>
+<ColorPicker.Root
+  {value}
+  onValueChange={function (detail) {
+    value = detail.value;
+  }}
+>
   {#snippet children(context)}
     <ColorPicker.Label>Label</ColorPicker.Label>
     <ColorPicker.Control>

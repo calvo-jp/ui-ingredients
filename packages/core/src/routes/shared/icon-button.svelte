@@ -15,7 +15,6 @@
 </script>
 
 <button
-  type="button"
   class={iconButtonRecipe({
     variant,
     className,

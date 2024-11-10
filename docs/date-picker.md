@@ -7,18 +7,17 @@ A component for selecting a date from a calendar interface.
 ### Single
 
 ```svelte
-<script>
-  import {DatePicker} from 'ui-ingredients';
+<script lang="ts">
+  import {DatePicker, type DateValue} from 'ui-ingredients';
   import {CalendarIcon, ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: DateValue[] = $state([DatePicker.parse('1990-01-01')]);
 </script>
 
 <DatePicker.Root
   {value}
   onValueChange={function (detail) {
-    value = detail.valueAsString;
+    value = detail.value;
   }}
 >
   {#snippet children(context)}
@@ -142,8 +141,8 @@ A component for selecting a date from a calendar interface.
 ### Range
 
 ```svelte
-<script>
-  import {DatePicker} from 'ui-ingredients';
+<script lang="ts">
+  import {DatePicker, type DateValue} from 'ui-ingredients';
   import {
     CalendarIcon,
     ChevronLeftIcon,
@@ -151,8 +150,7 @@ A component for selecting a date from a calendar interface.
     XCloseIcon,
   } from '$lib/icons';
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: DateValue[] = $state([]);
 </script>
 
 <DatePicker.Root

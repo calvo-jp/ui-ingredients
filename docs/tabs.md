@@ -5,7 +5,7 @@ A component for organizing and switching between multiple sections of content wi
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Tabs} from 'ui-ingredients';
 
   let items = [

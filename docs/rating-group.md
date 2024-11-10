@@ -5,7 +5,7 @@ A component for selecting a rating value, typically represented by stars or othe
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {RatingGroup} from 'ui-ingredients';
   import {StarIcon} from '$lib/icons';
 
@@ -36,7 +36,7 @@ A component for selecting a rating value, typically represented by stars or othe
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {RatingGroup, Field} from 'ui-ingredients';
   import {StarIcon} from '$lib/icons';
 </script>

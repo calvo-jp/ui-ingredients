@@ -5,7 +5,7 @@ A component for copying text or content to the user's clipboard.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Clipboard} from 'ui-ingredients';
   import {CheckIcon, Copy01Icon} from '$lib/icons';
 </script>
@@ -27,15 +27,3 @@ A component for copying text or content to the user's clipboard.
   </Clipboard.Control>
 </Clipboard.Root>
 ```
-
-## Props
-
-### Root
-
-- `ids`
-
-- `value`
-
-- `timeout`
-
-- `onStatusChange`

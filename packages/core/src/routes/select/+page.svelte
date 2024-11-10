@@ -7,19 +7,21 @@
   } from '@untitled-theme/icons-svelte';
   import {Button, IconButton, Label} from '../shared/index.js';
 
-  let items = [
-    {value: '1', label: 'Option 1'},
-    {value: '2', label: 'Option 2'},
-    {value: '3', label: 'Option 3'},
-    {value: '4', label: 'Option 4', disabled: true},
-    {value: '5', label: 'Option 5'},
-  ];
+  let collection = Select.collection({
+    items: [
+      {value: '1', label: 'Option 1'},
+      {value: '2', label: 'Option 2'},
+      {value: '3', label: 'Option 3'},
+      {value: '4', label: 'Option 4', disabled: true},
+      {value: '5', label: 'Option 5'},
+    ],
+  });
 
   let value: string[] = $state([]);
 </script>
 
 <Select.Root
-  {items}
+  {collection}
   {value}
   onValueChange={(detail) => {
     value = detail.value;
@@ -65,7 +67,7 @@
       <Select.Content
         class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
       >
-        {#each items as item}
+        {#each collection.items as item}
           <Select.Item
             {item}
             class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1"

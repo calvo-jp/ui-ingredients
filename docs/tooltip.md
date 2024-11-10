@@ -5,7 +5,7 @@ A component for displaying brief, contextual information when hovering over or f
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Portal, Tooltip} from 'ui-ingredients';
 </script>
 

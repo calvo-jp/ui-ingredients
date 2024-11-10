@@ -5,12 +5,27 @@ A component for selecting a time from a dropdown or input interface.
 ## Usage
 
 ```svelte
-<script>
-  import {TimePicker} from 'ui-ingredients';
+<script lang="ts">
+  import {TimePicker, type Time} from 'ui-ingredients';
   import {ClockIcon, XCloseIcon} from '$lib/icons';
+
+  let value: Time | null = $state(
+    TimePicker.parse({
+      hour: 16,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    }),
+  );
 </script>
 
-<TimePicker.Root allowSeconds>
+<TimePicker.Root
+  {value}
+  onValueChange={function (detail) {
+    value = detail.value;
+  }}
+  allowSeconds
+>
   {#snippet children(context)}
     <TimePicker.Label>Label</TimePicker.Label>
 

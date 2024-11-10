@@ -8,8 +8,8 @@
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {
-    getTreeViewBranchPropsContext,
     getTreeViewContext,
+    getTreeViewNodePropsContext,
   } from './tree-view-context.svelte.js';
 
   let {
@@ -20,11 +20,9 @@
   }: TreeViewBranchControlProps = $props();
 
   let treeView = getTreeViewContext();
-
-  let branchProps = getTreeViewBranchPropsContext();
-
+  let nodeProps = getTreeViewNodePropsContext();
   let mergedProps = $derived(
-    mergeProps(treeView.getBranchControlProps(branchProps), props),
+    mergeProps(treeView.getBranchControlProps(nodeProps), props),
   );
 </script>
 

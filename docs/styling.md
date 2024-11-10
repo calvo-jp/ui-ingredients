@@ -11,7 +11,7 @@ The `data-part` attribute can be used to select and style a component part.
 Here's an example of how you might use the `Dialog` component in your code
 
 ```svelte
-<script>
+<script lang="ts">
   import {Dialog} from 'ui-ingredients';
 </script>
 

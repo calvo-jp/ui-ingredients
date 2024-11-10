@@ -13,7 +13,6 @@
 </script>
 
 <button
-  type="button"
   class={buttonRecipe({
     variant,
     fullWidth,

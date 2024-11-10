@@ -5,7 +5,7 @@ A component for switching between two states, such as on/off.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Toggle} from 'ui-ingredients';
   import {BellIcon, BellOffIcon} from '$lib/icons';
 

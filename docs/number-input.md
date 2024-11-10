@@ -5,7 +5,7 @@ A component for entering numeric values.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {NumberInput} from 'ui-ingredients';
   import {ChevronDownIcon, ChevronUpIcon} from '$lib/icons';
 
@@ -36,7 +36,7 @@ A component for entering numeric values.
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {NumberInput, Field} from 'ui-ingredients';
   import {ChevronDownIcon, ChevronUpIcon} from '$lib/icons';
 </script>

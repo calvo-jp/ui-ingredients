@@ -12,8 +12,8 @@
   import {getPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
   import {
-    getTreeViewBranchPropsContext,
     getTreeViewContext,
+    getTreeViewNodePropsContext,
   } from './tree-view-context.svelte.js';
 
   let {
@@ -24,21 +24,20 @@
   }: TreeViewBranchContentProps = $props();
 
   let treeView = getTreeViewContext();
-
-  let branchProps = getTreeViewBranchPropsContext();
-  let branchState = $derived(treeView.getBranchState(branchProps));
+  let nodeProps = getTreeViewNodePropsContext();
+  let nodeState = $derived(treeView.getNodeState(nodeProps));
 
   let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence(
     reflect(() => ({
-      present: branchState.expanded,
       ...presenceStrategyProps,
+      present: nodeState.expanded,
     })),
   );
 
   let mergedProps = $derived(
     mergeProps(
-      treeView.getBranchContentProps(branchProps),
+      treeView.getBranchContentProps(nodeProps),
       presence.getPresenceProps(),
       props,
     ),
@@ -49,7 +48,7 @@
   {#if asChild}
     {@render asChild(presence.setReference, mergedProps)}
   {:else}
-    <div bind:this={ref} {...mergedProps}>
+    <div bind:this={ref} use:presence.setReference {...mergedProps}>
       {@render children?.()}
     </div>
   {/if}

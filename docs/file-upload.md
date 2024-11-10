@@ -5,7 +5,7 @@ A component for selecting and uploading files from the user's device.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {FileUpload} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>
@@ -40,7 +40,7 @@ A component for selecting and uploading files from the user's device.
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {FileUpload, Field} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

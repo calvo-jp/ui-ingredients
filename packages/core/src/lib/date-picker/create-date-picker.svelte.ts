@@ -7,23 +7,11 @@ import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLAttributes} from 'svelte/elements';
 import {parts} from './date-picker-anatomy.js';
 
-type Omitted =
-  | 'id'
-  | 'dir'
-  | 'min'
-  | 'max'
-  | 'value'
-  | 'focusedValue'
-  | 'getRootNode'
-  | 'open.controlled';
+type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
 
 export interface CreateDatePickerProps
   extends Omit<datePicker.Context, Omitted> {
   id?: string;
-  min?: string | Date;
-  max?: string | Date;
-  value?: string[] | Date[];
-  focusedValue?: string | Date;
   openControlled?: boolean;
 }
 
@@ -44,12 +32,6 @@ export function createDatePicker(
     dir: locale?.dir,
     locale: locale?.locale,
     ...props,
-    min: props.min ? datePicker.parse(props.min) : undefined,
-    max: props.max ? datePicker.parse(props.max) : undefined,
-    value: props.value ? datePicker.parse(props.value) : undefined,
-    focusedValue: props.focusedValue
-      ? datePicker.parse(props.focusedValue)
-      : undefined,
     getRootNode: environment?.getRootNode,
     'open.controlled': props.openControlled,
   }));

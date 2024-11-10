@@ -6,15 +6,15 @@
     CreateComboboxReturn,
   } from './create-combobox.svelte.js';
 
-  export interface ComboboxProps<T>
+  export interface ComboboxProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateComboboxReturn>,
-        CreateComboboxProps<T>
+        CreateComboboxProps
       >,
       PresenceStrategyProps {}
 </script>
 
-<script lang="ts" generics="T">
+<script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {setPresenceContext} from '$lib/presence/presence-context.svelte.js';
@@ -28,7 +28,7 @@
     asChild,
     children,
     ...props
-  }: ComboboxProps<T> = $props();
+  }: ComboboxProps = $props();
 
   let [presenceStrategyProps, rest] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
@@ -37,14 +37,14 @@
   );
 
   let [createComboboxProps, localProps] = $derived(
-    createSplitProps<CreateComboboxProps<T>>([
+    createSplitProps<CreateComboboxProps>([
       'id',
       'ids',
       'name',
       'form',
       'open',
       'openControlled',
-      'items',
+      'collection',
       'value',
       'invalid',
       'disabled',
@@ -67,9 +67,6 @@
       'allowCustomValue',
       'highlightedValue',
       'selectionBehavior',
-      'itemToString',
-      'itemToValue',
-      'isItemDisabled',
       'onOpenChange',
       'onValueChange',
       'onFocusOutside',
@@ -77,7 +74,6 @@
       'onInteractOutside',
       'onInputValueChange',
       'onPointerDownOutside',
-      'getSelectionValue',
       'scrollToIndexFn',
     ])(rest),
   );

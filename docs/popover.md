@@ -5,7 +5,7 @@ A component that displays additional content or information in a small overlay w
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Popover} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

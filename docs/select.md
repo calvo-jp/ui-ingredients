@@ -5,36 +5,28 @@ A component for choosing an option from a dropdown list.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Select} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
-  let items = [
-    {value: '1', label: 'Item 1'},
-    {value: '2', label: 'Item 2'},
-    {value: '3', label: 'Item 3'},
-    {value: '4', label: 'Item 4'},
-    {value: '5', label: 'Item 5', disabled: true},
-  ];
+  let collection = Select.collection({
+    items: [
+      {value: '1', label: 'Option 1'},
+      {value: '2', label: 'Option 2'},
+      {value: '3', label: 'Option 3'},
+      {value: '4', label: 'Option 4'},
+      {value: '5', label: 'Option 5'},
+    ],
+  });
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: string[] = $state([]);
 </script>
 
 <Select.Root
-  {items}
+  {collection}
   {value}
   onValueChange={function (detail) {
     value = detail.value;
-  }}
-  itemToString={function (item) {
-    return item.label;
-  }}
-  itemToValue={function (item) {
-    return item.value;
-  }}
-  isItemDisabled={function (item) {
-    return item.disabled ?? false;
   }}
 >
   <Select.Control>
@@ -46,7 +38,7 @@ A component for choosing an option from a dropdown list.
 
   <Select.Positioner>
     <Select.Content>
-      {#each items as item}
+      {#each collection.items as item}
         <Select.Item {item}>
           <Select.ItemText />
           <Select.ItemIndicator>
@@ -62,30 +54,29 @@ A component for choosing an option from a dropdown list.
 ### Using the `Field` component
 
 ```svelte
-<script>
-  import {Select, Field} from 'ui-ingredients';
+<script lang="ts">
+  import {Select} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
-  let items = [
-    {value: '1', label: 'Item 1'},
-    {value: '2', label: 'Item 2'},
-    {value: '3', label: 'Item 3'},
-    {value: '4', label: 'Item 4'},
-    {value: '5', label: 'Item 5', disabled: true},
-  ];
+  let collection = Select.collection({
+    items: [
+      {value: '1', label: 'Option 1'},
+      {value: '2', label: 'Option 2'},
+      {value: '3', label: 'Option 3'},
+      {value: '4', label: 'Option 4'},
+      {value: '5', label: 'Option 5'},
+    ],
+  });
+
+  let value: string[] = $state([]);
 </script>
 
 <Field.Root>
   <Select.Root
-    {items}
-    itemToString={function (item) {
-      return item.label;
-    }}
-    itemToValue={function (item) {
-      return item.value;
-    }}
-    isItemDisabled={function (item) {
-      return item.disabled ?? false;
+    {collection}
+    {value}
+    onValueChange={function (detail) {
+      value = detail.value;
     }}
   >
     <Select.Control>
