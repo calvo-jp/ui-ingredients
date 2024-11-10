@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface TreeViewBranchIndicatorProps
+  export interface TreeViewBranchIndentGuideProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
@@ -17,12 +17,12 @@
     asChild,
     children,
     ...props
-  }: TreeViewBranchIndicatorProps = $props();
+  }: TreeViewBranchIndentGuideProps = $props();
 
   let treeView = getTreeViewContext();
   let nodeProps = getTreeViewNodePropsContext();
   let mergedProps = $derived(
-    mergeProps(treeView.getBranchIndicatorProps(nodeProps), props),
+    mergeProps(treeView.getBranchIndentGuideProps(nodeProps), props),
   );
 </script>
 

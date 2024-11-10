@@ -5,7 +5,7 @@ A component for navigating through multiple pages of content.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Pagination} from 'ui-ingredients';
   import {ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 

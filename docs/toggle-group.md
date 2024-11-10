@@ -5,12 +5,11 @@ A component for grouping multiple toggle switches, allowing users to switch betw
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {ToggleGroup} from 'ui-ingredients';
   import {Bold01Icon, Italic01Icon, Underline01Icon} from '$lib/icons';
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: string[] = $state([]);
 </script>
 
 <ToggleGroup.Root

@@ -5,7 +5,7 @@ A component that combines a text input with a dropdown list for selecting or ent
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Combobox} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon, XCloseIcon} from '$lib/icons';
 
@@ -17,8 +17,7 @@ A component that combines a text input with a dropdown list for selecting or ent
     {label: 'Option 5', value: '5', disabled: true},
   ];
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: string[] = $state([]);
   let inputValue = $state('');
 
   let matches = $derived(
@@ -75,34 +74,35 @@ A component that combines a text input with a dropdown list for selecting or ent
 ### Using the `Field` component
 
 ```svelte
-<script>
-  import {Combobox, Field} from 'ui-ingredients';
-  import {CheckIcon, ChevronDownIcon, XCloseIcon} from '$lib/icons';
+<script lang="ts">
+  import {Combobox, Portal} from '$lib/index.js';
+  import {
+    CheckIcon,
+    ChevronDownIcon,
+    XCloseIcon,
+  } from '@untitled-theme/icons-svelte';
+  import {IconButton, Input, Label} from '../shared/index.js';
 
   let items = [
-    {
-      label: 'Item 1',
-      value: '1',
-    },
-    {
-      label: 'Item 2',
-      value: '2',
-    },
-    {
-      label: 'Item 3',
-      value: 'value',
-      disabled: true,
-    },
+    {label: 'Option 1', value: '1'},
+    {label: 'Option 2', value: '2'},
+    {label: 'Option 3', value: '3'},
+    {label: 'Option 4', value: '4'},
+    {label: 'Option 5', value: '5', disabled: true},
   ];
 
-  /** @type {string[]} */
-  let value = $state([]);
-
+  let value: string[] = $state([]);
   let inputValue = $state('');
 
   let matches = $derived(
     items.filter(function (item) {
       return item.label.toLowerCase().includes(inputValue.toLowerCase());
+    }),
+  );
+
+  let collection = $derived(
+    Combobox.collection({
+      items: matches,
     }),
   );
 </script>
@@ -117,15 +117,6 @@ A component that combines a text input with a dropdown list for selecting or ent
     }}
     onInputValueChange={function (detail) {
       inputValue = detail.inputValue;
-    }}
-    isItemDisabled={function (item) {
-      return item.disabled ?? false;
-    }}
-    itemToString={function (item) {
-      return item.label;
-    }}
-    itemToValue={function (item) {
-      return item.value;
     }}
   >
     <Combobox.Label>Label</Combobox.Label>

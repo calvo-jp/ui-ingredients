@@ -5,7 +5,7 @@ A component for toggling between two states, such as on/off or enabled/disabled.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Switch} from 'ui-ingredients';
 
   let checked = $state(false);
@@ -28,7 +28,7 @@ A component for toggling between two states, such as on/off or enabled/disabled.
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {Switch, Field} from 'ui-ingredients';
 </script>
 

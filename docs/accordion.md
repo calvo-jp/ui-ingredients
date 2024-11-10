@@ -5,7 +5,7 @@ A toggle component for expanding and collapsing sections of content.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Accordion} from 'ui-ingredients';
   import {ChevronDownIcon} from '$lib/icons';
 
@@ -27,8 +27,7 @@ A toggle component for expanding and collapsing sections of content.
     },
   ];
 
-  /** @type {string} */
-  let value = $state([]);
+  let value: string[] = $state([]);
 </script>
 
 <Accordion.Root

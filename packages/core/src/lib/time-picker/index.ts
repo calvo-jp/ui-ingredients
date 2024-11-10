@@ -15,6 +15,5 @@ export type {TimePickerSecondCellProps} from './time-picker-second-cell.svelte';
 export type {TimePickerSpacerProps} from './time-picker-spacer.svelte';
 export type {TimePickerTriggerProps} from './time-picker-trigger.svelte';
 
-export {anatomy as timePickerAnatomy} from '@zag-js/time-picker';
-export type {Time} from '@zag-js/time-picker';
+export {anatomy as timePickerAnatomy, type Time} from '@zag-js/time-picker';
 export {getTimePickerContext} from './time-picker-context.svelte.js';

@@ -5,7 +5,7 @@ A component for emphasizing text or content to draw attention.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Highlight} from 'ui-ingredients';
 
   let text =

@@ -5,7 +5,7 @@ A component for displaying a sequence of steps or stages in a process, often use
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Steps} from 'ui-ingredients';
   import {CheckIcon} from '$lib/icons';
 

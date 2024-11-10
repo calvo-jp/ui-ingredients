@@ -5,12 +5,11 @@ A component for adding and managing a list of tags or keywords, often with autoc
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {TagsInput} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: string[] = $state([]);
 </script>
 
 <TagsInput.Root
@@ -45,7 +44,7 @@ A component for adding and managing a list of tags or keywords, often with autoc
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {TagsInput, Field} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

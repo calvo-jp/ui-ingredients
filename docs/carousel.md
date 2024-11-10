@@ -5,7 +5,7 @@ A rotating component for cycling through images or content slides.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Carousel} from 'ui-ingredients';
   import {ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 

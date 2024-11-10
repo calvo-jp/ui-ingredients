@@ -5,7 +5,7 @@ A component for choosing an option from a dropdown list.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Select} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
@@ -19,8 +19,7 @@ A component for choosing an option from a dropdown list.
     ],
   });
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: string[] = $state([]);
 </script>
 
 <Select.Root
@@ -64,7 +63,7 @@ A component for choosing an option from a dropdown list.
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {Select, Field} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 

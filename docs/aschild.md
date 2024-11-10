@@ -5,7 +5,7 @@ The `asChild` prop lets you render a custom component to ensure consistent styli
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Button} from '$lib/ui';
   import {Dialog} from 'ui-ingredients';
 </script>
@@ -24,7 +24,7 @@ In this example, the `asChild` prop allows the `Button` to be used as the trigge
 In some components, you also need to delegate the `action` apart from `attrs` for the component to work properly. See below:
 
 ```svelte
-<script>
+<script lang="ts">
   import {Accordion} from 'ui-ingredients';
   import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
 

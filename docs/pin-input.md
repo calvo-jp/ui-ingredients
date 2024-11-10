@@ -5,12 +5,11 @@ A component for entering and displaying a sequence of numeric or alphanumeric ch
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {PinInput} from 'ui-ingredients';
   import {Input, Label} from '../shared/index.js';
 
-  /** @type {string[]} */
-  let value = $state([]);
+  let value: string[] = $state([]);
 </script>
 
 <PinInput.Root
@@ -31,7 +30,7 @@ A component for entering and displaying a sequence of numeric or alphanumeric ch
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {PinInput} from 'ui-ingredients';
   import {Input, Label} from '../shared/index.js';
 </script>

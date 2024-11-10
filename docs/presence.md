@@ -5,7 +5,7 @@ A component that controls content rendering and unmounting based on state.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Presence} from 'ui-ingredients';
 
   let present = $state(false);

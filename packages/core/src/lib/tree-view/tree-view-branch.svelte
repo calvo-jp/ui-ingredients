@@ -1,22 +1,17 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
-  import type {BranchProps} from '@zag-js/tree-view';
+  import type {NodeProps} from '@zag-js/tree-view';
 
   export interface TreeViewBranchProps
-    extends Assign<
-      HtmlIngredientProps<'div', HTMLDivElement>,
-      Omit<BranchProps, 'depth'>
-    > {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, NodeProps> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '$lib/merge-props.js';
-  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '@zag-js/utils';
   import {
     getTreeViewContext,
-    getTreeViewTreePropsContext,
-    setTreeViewBranchPropsContext,
+    setTreeViewNodePropsContext,
   } from './tree-view-context.svelte.js';
 
   let {
@@ -27,22 +22,16 @@
   }: TreeViewBranchProps = $props();
 
   let treeView = getTreeViewContext();
-  let treeViewProps = getTreeViewTreePropsContext();
 
-  let [branchPartialProps, localProps] = $derived(
-    createSplitProps<Omit<BranchProps, 'depth'>>(['value', 'disabled'])(props),
+  let [nodeProps, localProps] = $derived(
+    createSplitProps<NodeProps>(['node', 'indexPath'])(props),
   );
-
-  let branchProps = reflect(() => ({
-    ...branchPartialProps,
-    ...treeViewProps,
-  }));
 
   let mergedProps = $derived(
-    mergeProps(treeView.getBranchProps(branchProps), localProps),
+    mergeProps(treeView.getBranchProps(nodeProps), localProps),
   );
 
-  setTreeViewBranchPropsContext(() => branchProps);
+  setTreeViewNodePropsContext(() => nodeProps);
 </script>
 
 {#if asChild}

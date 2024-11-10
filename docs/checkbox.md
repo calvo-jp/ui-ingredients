@@ -5,7 +5,7 @@ An interactive component for selecting one or multiple options in a list.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Checkbox} from 'ui-ingredients';
   import {CheckIcon} from '$lib/icons';
 
@@ -31,7 +31,7 @@ An interactive component for selecting one or multiple options in a list.
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {Checkbox, Field} from 'ui-ingredients';
   import {CheckIcon} from '$lib/icons';
 </script>

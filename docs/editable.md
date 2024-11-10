@@ -5,7 +5,7 @@ A component that allows users to modify its content.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Editable} from 'ui-ingredients';
 
   let value = $state('Hello world!');
@@ -33,7 +33,7 @@ A component that allows users to modify its content.
 ### Using the `Field` component
 
 ```svelte
-<script>
+<script lang="ts">
   import {Editable, Field} from 'ui-ingredients';
 </script>
 

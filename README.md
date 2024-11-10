@@ -13,7 +13,7 @@ npm install ui-ingredients
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Dialog, Portal} from 'ui-ingredients';
   import {XCloseIcon, Button} from '$lib';
 </script>

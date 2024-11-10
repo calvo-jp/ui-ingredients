@@ -5,7 +5,7 @@ A component that expands or collapses to show or hide content.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Collapsible} from 'ui-ingredients';
 </script>
 

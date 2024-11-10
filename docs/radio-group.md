@@ -5,7 +5,7 @@ A component for selecting one option from a set of mutually exclusive choices.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {RadioGroup} from 'ui-ingredients';
   import {CheckIcon} from '$lib/icons';
 

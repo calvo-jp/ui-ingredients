@@ -5,7 +5,7 @@ A component for displaying the navigation path or hierarchy of a user's location
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Breadcrumbs} from 'ui-ingredients';
   import {ChevronRightIcon} from '$lib/icons';
 </script>

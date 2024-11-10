@@ -5,7 +5,7 @@ A visual component for displaying a user’s profile image or initials.
 ## Usage
 
 ```svelte
-<script>
+<script lang="ts">
   import {Avatar} from 'ui-ingredients';
 </script>
 
