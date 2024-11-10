@@ -1,5 +1,5 @@
 <script lang="ts"></script>
 
 <svelte:head>
-  <title>UI Ingredients</title>
+  <title>The aschild prop | UI Ingredients</title>
 </svelte:head>
