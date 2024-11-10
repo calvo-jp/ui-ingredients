@@ -27,15 +27,3 @@ A component for copying text or content to the user's clipboard.
   </Clipboard.Control>
 </Clipboard.Root>
 ```
-
-## Props
-
-### Root
-
-- `ids`
-
-- `value`
-
-- `timeout`
-
-- `onStatusChange`

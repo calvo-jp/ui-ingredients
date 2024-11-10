@@ -14,15 +14,3 @@ A visual component for displaying a user’s profile image or initials.
   <Avatar.Fallback>JD</Avatar.Fallback>
 </Avatar.Root>
 ```
-
-## Props
-
-### Root
-
-- `ids`
-
-  The ids of the elements
-
-- `onStatusChange`
-
-  Function called when the image loading status changes.
