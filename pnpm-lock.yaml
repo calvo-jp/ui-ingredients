@@ -268,6 +268,55 @@ importers:
         specifier: ^0.3.3
         version: 0.3.3(vitest@2.1.4(@types/node@22.5.5)(jsdom@25.0.1))
 
+  website:
+    dependencies:
+      '@untitled-theme/icons-svelte':
+        specifier: ^0.12.0
+        version: 0.12.0(svelte@5.1.13)
+      tailwind-merge:
+        specifier: ^2.5.4
+        version: 2.5.4
+      tailwind-variants:
+        specifier: ^0.2.1
+        version: 0.2.1(tailwindcss@3.4.14)
+      ui-ingredients:
+        specifier: ^0.13.0
+        version: 0.13.0(@internationalized/date@3.5.5)(svelte@5.1.13)
+    devDependencies:
+      '@sveltejs/adapter-auto':
+        specifier: ^3.3.1
+        version: 3.3.1(@sveltejs/kit@2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))
+      '@sveltejs/kit':
+        specifier: ^2.8.0
+        version: 2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5))
+      '@sveltejs/vite-plugin-svelte':
+        specifier: ^4.0.0
+        version: 4.0.0(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5))
+      '@tailwindcss/aspect-ratio':
+        specifier: ^0.4.2
+        version: 0.4.2(tailwindcss@3.4.14)
+      '@tailwindcss/typography':
+        specifier: ^0.5.15
+        version: 0.5.15(tailwindcss@3.4.14)
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.4.47)
+      svelte:
+        specifier: ^5.1.13
+        version: 5.1.13
+      svelte-check:
+        specifier: ^4.0.6
+        version: 4.0.6(svelte@5.1.13)(typescript@5.6.3)
+      tailwindcss:
+        specifier: ^3.4.14
+        version: 3.4.14
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
+      vite:
+        specifier: ^5.4.10
+        version: 5.4.10(@types/node@22.5.5)
+
 packages:
 
   '@adobe/css-tools@4.4.0':
@@ -716,6 +765,11 @@ packages:
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
     engines: {node: '>=18'}
 
+  '@sveltejs/adapter-auto@3.3.1':
+    resolution: {integrity: sha512-5Sc7WAxYdL6q9j/+D0jJKjGREGlfIevDyHSQ2eNETHcB1TKlQWHcAo8AS8H1QdjNvSXpvOwNjykDUHPEAyGgdQ==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
+
   '@sveltejs/adapter-vercel@5.4.7':
     resolution: {integrity: sha512-yOKz0fO6G35UbTgEm8VWVeZqnOmMjhxANJt0hlsCo9OKcbLq2cTuh6AvVmcvhg8BzLEspiF4gv8ENtuJgHWvgA==}
     peerDependencies:
@@ -754,6 +808,16 @@ packages:
 
   '@swc/helpers@0.5.12':
     resolution: {integrity: sha512-KMZNXiGibsW9kvZAO1Pam2JPTDBm+KSHMMHWdsyI/1DbIZjT2A6Gy3hblVXUMEDvUAKq+e0vL0X0o54owWji7g==}
+
+  '@tailwindcss/aspect-ratio@0.4.2':
+    resolution: {integrity: sha512-8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+
+  '@tailwindcss/typography@0.5.15':
+    resolution: {integrity: sha512-AqhlCXl+8grUz8uqExv5OTtgpjuVIwFTSXTrh8y9/pw6q2ek7fJ+Y8ZEVw7EB2DCcuCOtEjf9w3+J3rzts01uA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders || >=4.0.0-alpha.20'
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -2196,6 +2260,9 @@ packages:
   lodash.capitalize@4.2.1:
     resolution: {integrity: sha512-kZzYOKspf8XVX5AvmQF94gQW0lejFVgb80G85bU4ZWzoJ6C03PQg3coYAUpSTpQWelrZELd3XWgHzw4Ck5kaIw==}
 
+  lodash.castarray@4.4.0:
+    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
+
   lodash.escaperegexp@4.1.2:
     resolution: {integrity: sha512-TM9YBvyC84ZxE3rgfefxUWiQKLilstD6k7PTGt6wfbtXF8ixIJLOL3VYyV/z+ZiPLsVxAsKAFVwWlWeb2Y8Yyw==}
 
@@ -2621,6 +2688,10 @@ packages:
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.4.29
+
+  postcss-selector-parser@6.0.10:
+    resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}
+    engines: {node: '>=4'}
 
   postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
@@ -3163,6 +3234,11 @@ packages:
     resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  ui-ingredients@0.13.0:
+    resolution: {integrity: sha512-kOnHDIIVuupBoBgfOiXqH4om/FYnDACOhJkkpTAZhBrEVvqXWeAU0KqnL4PZrPTB0D9FN5hvbLlKwTh/CgifSw==}
+    peerDependencies:
+      svelte: '>=5.0.0'
 
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
@@ -3774,6 +3850,11 @@ snapshots:
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
+  '@sveltejs/adapter-auto@3.3.1(@sveltejs/kit@2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))':
+    dependencies:
+      '@sveltejs/kit': 2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5))
+      import-meta-resolve: 4.1.0
+
   '@sveltejs/adapter-vercel@5.4.7(@sveltejs/kit@2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))':
     dependencies:
       '@sveltejs/kit': 2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5)))(svelte@5.1.13)(vite@5.4.10(@types/node@22.5.5))
@@ -3837,6 +3918,18 @@ snapshots:
   '@swc/helpers@0.5.12':
     dependencies:
       tslib: 2.6.3
+
+  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.14)':
+    dependencies:
+      tailwindcss: 3.4.14
+
+  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.14)':
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      postcss-selector-parser: 6.0.10
+      tailwindcss: 3.4.14
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -5632,6 +5725,8 @@ snapshots:
 
   lodash.capitalize@4.2.1: {}
 
+  lodash.castarray@4.4.0: {}
+
   lodash.escaperegexp@4.1.2: {}
 
   lodash.isplainobject@4.0.6: {}
@@ -6014,6 +6109,11 @@ snapshots:
   postcss-scss@4.0.9(postcss@8.4.47):
     dependencies:
       postcss: 8.4.47
+
+  postcss-selector-parser@6.0.10:
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
 
   postcss-selector-parser@6.1.2:
     dependencies:
@@ -6446,7 +6546,7 @@ snapshots:
       micromatch: 4.0.7
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.1.0
+      picocolors: 1.1.1
       postcss: 8.4.47
       postcss-import: 15.1.0(postcss@8.4.47)
       postcss-js: 4.0.1(postcss@8.4.47)
@@ -6548,6 +6648,59 @@ snapshots:
       - supports-color
 
   typescript@5.6.3: {}
+
+  ui-ingredients@0.13.0(@internationalized/date@3.5.5)(svelte@5.1.13):
+    dependencies:
+      '@zag-js/accordion': 0.77.0
+      '@zag-js/anatomy': 0.77.0
+      '@zag-js/auto-resize': 0.77.0
+      '@zag-js/avatar': 0.77.0
+      '@zag-js/carousel': 0.77.0
+      '@zag-js/checkbox': 0.77.0
+      '@zag-js/clipboard': 0.77.0
+      '@zag-js/collapsible': 0.77.0
+      '@zag-js/color-picker': 0.77.0
+      '@zag-js/combobox': 0.77.0
+      '@zag-js/core': 0.77.0
+      '@zag-js/date-picker': 0.77.0(@internationalized/date@3.5.5)
+      '@zag-js/dialog': 0.77.0
+      '@zag-js/dom-query': 0.77.0
+      '@zag-js/editable': 0.77.0
+      '@zag-js/file-upload': 0.77.0
+      '@zag-js/floating-panel': 0.77.0
+      '@zag-js/highlight-word': 0.77.0
+      '@zag-js/hover-card': 0.77.0
+      '@zag-js/i18n-utils': 0.77.0
+      '@zag-js/menu': 0.77.0
+      '@zag-js/number-input': 0.77.0
+      '@zag-js/pagination': 0.77.0
+      '@zag-js/pin-input': 0.77.0
+      '@zag-js/popover': 0.77.0
+      '@zag-js/presence': 0.77.0
+      '@zag-js/progress': 0.77.0
+      '@zag-js/qr-code': 0.77.0
+      '@zag-js/radio-group': 0.77.0
+      '@zag-js/rating-group': 0.77.0
+      '@zag-js/select': 0.77.0
+      '@zag-js/signature-pad': 0.77.0
+      '@zag-js/slider': 0.77.0
+      '@zag-js/splitter': 0.77.0
+      '@zag-js/steps': 0.77.0
+      '@zag-js/svelte': 0.77.0(svelte@5.1.13)
+      '@zag-js/switch': 0.77.0
+      '@zag-js/tabs': 0.77.0
+      '@zag-js/tags-input': 0.77.0
+      '@zag-js/time-picker': 0.77.0(@internationalized/date@3.5.5)
+      '@zag-js/timer': 0.77.0
+      '@zag-js/toast': 0.77.0
+      '@zag-js/toggle-group': 0.77.0
+      '@zag-js/tooltip': 0.77.0
+      '@zag-js/tour': 0.77.0
+      '@zag-js/tree-view': 0.77.0
+      '@zag-js/utils': 0.77.0
+      svelte: 5.1.13
+    transitivePeerDependencies:
+      - '@internationalized/date'
 
   undici-types@6.19.8: {}
 
