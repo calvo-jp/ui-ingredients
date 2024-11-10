@@ -98,7 +98,10 @@ A component for displaying hierarchical data in a tree structure, allowing users
   <TreeView.Label class="mb-2 block text-neutral-600">Explorer</TreeView.Label>
   <TreeView.Tree>
     {#each collection.rootNode.children ?? [] as node, index}
-      {@render TreeNode({node, indexPath: [index]})}
+      {@render TreeNode({
+        node,
+        indexPath: [index],
+      })}
     {/each}
   </TreeView.Tree>
 </TreeView.Root>
@@ -109,7 +112,7 @@ A component for displaying hierarchical data in a tree structure, allowing users
       <TreeView.BranchControl>
         <TreeView.BranchText>
           <FolderIcon />
-          <span>{props.node.label}</span>
+          {props.node.label}
         </TreeView.BranchText>
         <TreeView.BranchIndicator>
           <ChevronRightIcon />
@@ -130,7 +133,7 @@ A component for displaying hierarchical data in a tree structure, allowing users
       </TreeView.ItemIndicator>
       <TreeView.ItemText>
         <File01Icon />
-        <span>{props.node.label}</span>
+        {props.node.label}
       </TreeView.ItemText>
     </TreeView.Item>
   {/if}

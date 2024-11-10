@@ -14,12 +14,11 @@ A component that combines a text input with a dropdown list for selecting or ent
     {label: 'Option 2', value: '2'},
     {label: 'Option 3', value: '3'},
     {label: 'Option 4', value: '4'},
-    {label: 'Option 5', value: '5', disabled: true},
+    {label: 'Option 5', value: '5'},
   ];
 
   let value: string[] = $state([]);
   let inputValue = $state('');
-
   let matches = $derived(
     items.filter(function (item) {
       return item.label.toLowerCase().includes(inputValue.toLowerCase());
@@ -88,7 +87,7 @@ A component that combines a text input with a dropdown list for selecting or ent
     {label: 'Option 2', value: '2'},
     {label: 'Option 3', value: '3'},
     {label: 'Option 4', value: '4'},
-    {label: 'Option 5', value: '5', disabled: true},
+    {label: 'Option 5', value: '5'},
   ];
 
   let value: string[] = $state([]);
