@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "generate:anatomy-icons": "tsx generate-anatomy-icons.ts"
+    "generate:anatomy-icons": "tsx src/generate-anatomy-icons.ts"
   },
   "dependencies": {
     "@tsconfig/node22": "^22.0.0",
