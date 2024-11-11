@@ -5,8 +5,15 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import remarkToc from 'remark-toc';
 import {unified} from 'unified';
+import {createLruCache} from './create-lru-cache';
+
+const cache = createLruCache<string, string>(64);
 
 export async function parseMarkdown(doc: string) {
+  const cached = cache.get(doc);
+
+  if (cached) return cached;
+
   const parser = unified()
     .use(remarkParse)
     .use(remarkFrontmatter)
@@ -15,7 +22,10 @@ export async function parseMarkdown(doc: string) {
     .use(remarkRehype)
     .use(rehypeStringify);
 
-  const vfile = await parser.process(doc);
+  const file = await parser.process(doc);
+  const html = file.toString();
 
-  return vfile.toString();
+  cache.set(doc, html);
+
+  return html;
 }

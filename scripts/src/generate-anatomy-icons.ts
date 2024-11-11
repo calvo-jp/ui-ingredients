@@ -1,6 +1,7 @@
 import {allComponents, getComponent} from '@zag-js/anatomy-icons';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import prettier from 'prettier';
 import {renderToString} from 'react-dom/server';
 
 type Component = keyof typeof allComponents;
@@ -16,13 +17,21 @@ export async function generateAnatomyIcons() {
     );
   });
 
+  const workspaceRoot = path.resolve(path.dirname('../../'));
+  const prettierConfig = await prettier.resolveConfig(workspaceRoot);
+
   const content = `export const ANATOMY_ICONS = ${JSON.stringify(anatomy)};`;
+  const formattedContent = await prettier.format(content, {
+    parser: 'typescript',
+    ...prettierConfig,
+  });
+
   const destination = path.resolve(
-    path.dirname('.'),
-    '../website/src/lib/anatomy-icons.ts',
+    workspaceRoot,
+    'website/src/lib/anatomy-icons.ts',
   );
 
-  await fs.writeFile(destination, content, {encoding: 'utf-8'});
+  await fs.writeFile(destination, formattedContent, {encoding: 'utf-8'});
 }
 
 generateAnatomyIcons();
