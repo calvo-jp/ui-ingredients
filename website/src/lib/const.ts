@@ -13,6 +13,7 @@ interface Details {
   apiJson?: {[prop: string]: ApiDetails};
   docsPath: string;
   anatomyIcon?: string;
+  beta?: boolean;
 }
 
 export const UTILITIES = [
@@ -92,6 +93,7 @@ export const COMPONENTS = [
     docsPath: 'src/lib/docs/carousel.md',
     apiJson: apiJson.carousel.api,
     anatomyIcon: ANATOMY_ICONS.carousel,
+    beta: true,
   },
   {
     slug: 'checkbox',
@@ -351,6 +353,7 @@ export const COMPONENTS = [
     docsPath: 'src/lib/docs/time-picker.md',
     apiJson: apiJson['time-picker'].api,
     anatomyIcon: ANATOMY_ICONS['time-picker'],
+    beta: true,
   },
   {
     slug: 'timer',
@@ -390,11 +393,21 @@ export const COMPONENTS = [
     anatomyIcon: ANATOMY_ICONS.tooltip,
   },
   {
+    slug: 'tour',
+    name: 'Tour',
+    example: '',
+    docsPath: 'src/lib/docs/tour.md',
+    apiJson: apiJson.tooltip.api,
+    anatomyIcon: ANATOMY_ICONS.tour,
+    beta: true,
+  },
+  {
     slug: 'tree-view',
     name: 'TreeView',
     example: '',
     docsPath: 'src/lib/docs/tree-view.md',
     apiJson: apiJson['tree-view'].api,
     anatomyIcon: ANATOMY_ICONS['tree-view'],
+    beta: true,
   },
 ] satisfies Details[];

@@ -306,9 +306,6 @@ importers:
       '@fontsource/inter':
         specifier: ^5.1.0
         version: 5.1.0
-      '@untitled-theme/icons-svelte':
-        specifier: ^0.12.0
-        version: 0.12.0(svelte@5.1.13)
       '@zag-js/docs':
         specifier: ^0.77.0
         version: 0.77.1
