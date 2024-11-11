@@ -281,7 +281,7 @@ export const COMPONENTS = [
     example: '',
     docsPath: 'src/lib/docs/segment-group.md',
     apiJson: apiJson['radio-group'].api,
-    anatomyIcon: ANATOMY_ICONS['segmented-control'],
+    anatomyIcon: ANATOMY_ICONS['segment-group'],
   },
   {
     slug: 'select',

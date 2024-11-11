@@ -1,4 +1,8 @@
-import {allComponents, getComponent} from '@zag-js/anatomy-icons';
+import {
+  allComponents,
+  createGradient,
+  getComponent,
+} from '@zag-js/anatomy-icons';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import prettier from 'prettier';
@@ -10,17 +14,25 @@ export async function generateAnatomyIcons() {
   const components = Object.keys(allComponents) as unknown as Component[];
 
   const anatomy: Record<string, string> = {};
+  const bg = createGradient('red').value;
+  const container = `<div style="background:${bg};width:100%;height:auto;">{content}</div>`;
 
   components.forEach((component) => {
-    anatomy[component] = renderToString(
-      getComponent(component)({accentColor: 'red'}),
-    );
+    if (component === 'fieldset') return;
+
+    const svg = renderToString(getComponent(component)({accentColor: 'red'}));
+
+    const k = component === 'segmented-control' ? 'segment-group' : component;
+    const v = container.replace('{content}', svg);
+
+    anatomy[k] = v;
   });
 
   const workspaceRoot = path.resolve(path.dirname('../../'));
   const prettierConfig = await prettier.resolveConfig(workspaceRoot);
 
   const content = `export const ANATOMY_ICONS = ${JSON.stringify(anatomy)};`;
+
   const formattedContent = await prettier.format(content, {
     parser: 'typescript',
     ...prettierConfig,
