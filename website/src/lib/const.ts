@@ -12,11 +12,14 @@ interface Details {
   example: string;
   apiJson?: {[prop: string]: ApiDetails};
   docsPath: string;
+  /**
+   * @format html
+   */
   anatomyIcon?: string;
-  beta?: boolean;
+  preview?: boolean;
 }
 
-export const UTILITIES = [
+export const UTILITIES: Details[] = [
   {
     slug: 'environment-provider',
     name: 'EnvironmentProvider',
@@ -48,9 +51,9 @@ export const UTILITIES = [
     docsPath: 'src/lib/docs/presence.md',
     apiJson: apiJson.presence.api,
   },
-] satisfies Details[];
+];
 
-export const COMPONENTS = [
+export const COMPONENTS: Details[] = [
   {
     slug: 'accordion',
     name: 'Accordion',
@@ -93,7 +96,7 @@ export const COMPONENTS = [
     docsPath: 'src/lib/docs/carousel.md',
     apiJson: apiJson.carousel.api,
     anatomyIcon: ANATOMY_ICONS.carousel,
-    beta: true,
+    preview: true,
   },
   {
     slug: 'checkbox',
@@ -353,7 +356,7 @@ export const COMPONENTS = [
     docsPath: 'src/lib/docs/time-picker.md',
     apiJson: apiJson['time-picker'].api,
     anatomyIcon: ANATOMY_ICONS['time-picker'],
-    beta: true,
+    preview: true,
   },
   {
     slug: 'timer',
@@ -399,7 +402,7 @@ export const COMPONENTS = [
     docsPath: 'src/lib/docs/tour.md',
     apiJson: apiJson.tooltip.api,
     anatomyIcon: ANATOMY_ICONS.tour,
-    beta: true,
+    preview: true,
   },
   {
     slug: 'tree-view',
@@ -408,6 +411,6 @@ export const COMPONENTS = [
     docsPath: 'src/lib/docs/tree-view.md',
     apiJson: apiJson['tree-view'].api,
     anatomyIcon: ANATOMY_ICONS['tree-view'],
-    beta: true,
+    preview: true,
   },
-] satisfies Details[];
+];
