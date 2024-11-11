@@ -6,11 +6,11 @@ interface ApiDetails {
   description: string;
 }
 
-interface Details {
+interface UtilityOrComponentDetails {
   slug: string;
   name: string;
   example: string;
-  apiJson?: {[prop: string]: ApiDetails};
+  apiJson?: Record<string, ApiDetails>;
   docsPath: string;
   /**
    * @format html
@@ -19,7 +19,7 @@ interface Details {
   preview?: boolean;
 }
 
-export const UTILITIES: Details[] = [
+export const UTILITIES: UtilityOrComponentDetails[] = [
   {
     slug: 'environment-provider',
     name: 'EnvironmentProvider',
@@ -53,7 +53,7 @@ export const UTILITIES: Details[] = [
   },
 ];
 
-export const COMPONENTS: Details[] = [
+export const COMPONENTS: UtilityOrComponentDetails[] = [
   {
     slug: 'accordion',
     name: 'Accordion',
