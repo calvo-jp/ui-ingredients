@@ -22,7 +22,7 @@ interface UtilityOrComponentDetails {
 export const UTILITIES: UtilityOrComponentDetails[] = [
   {
     slug: 'environment-provider',
-    name: 'EnvironmentProvider',
+    name: 'Environment Provider',
     example: '',
     docsPath: 'src/lib/docs/environment-provider.md',
   },
@@ -34,7 +34,7 @@ export const UTILITIES: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'locale-provider',
-    name: 'LocaleProvider',
+    name: 'Locale Provider',
     example: '',
     docsPath: 'src/lib/docs/locale-provider.md',
   },
@@ -70,7 +70,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'alert-dialog',
-    name: 'AlertDialog',
+    name: 'Alert Dialog',
     example: '',
     docsPath: 'src/lib/docs/alert-dialog.md',
     apiJson: apiJson.dialog.api,
@@ -123,7 +123,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'color-picker',
-    name: 'ColorPicker',
+    name: 'Color Picker',
     example: '',
     docsPath: 'src/lib/docs/color-picker.md',
     apiJson: apiJson['color-picker'].api,
@@ -139,7 +139,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'date-picker',
-    name: 'DatePicker',
+    name: 'Date Picker',
     example: '',
     docsPath: 'src/lib/docs/date-picker.md',
     apiJson: apiJson['date-picker'].api,
@@ -177,7 +177,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'file-upload',
-    name: 'FileUpload',
+    name: 'File Upload',
     example: '',
     docsPath: 'src/lib/docs/file-upload.md',
     apiJson: apiJson['file-upload'].api,
@@ -185,14 +185,14 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'floating-panel',
-    name: 'FloatingPanel',
+    name: 'Floating Panel',
     example: '',
     docsPath: 'src/lib/docs/floating-panel.md',
     apiJson: apiJson['floating-panel'].api,
   },
   {
     slug: 'hover-card',
-    name: 'HoverCard',
+    name: 'Hover Card',
     example: '',
     docsPath: 'src/lib/docs/hover-card.md',
     apiJson: apiJson['hover-card'].api,
@@ -208,7 +208,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'number-input',
-    name: 'NumberInput',
+    name: 'Number Input',
     example: '',
     docsPath: 'src/lib/docs/number-input.md',
     apiJson: apiJson['number-input'].api,
@@ -224,7 +224,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'pin-input',
-    name: 'PinInput',
+    name: 'Pin Input',
     example: '',
     docsPath: 'src/lib/docs/pin-input.md',
     apiJson: apiJson['pin-input'].api,
@@ -256,7 +256,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'qr-code',
-    name: 'QrCode',
+    name: 'QR Code',
     example: '',
     docsPath: 'src/lib/docs/qr-code.md',
     apiJson: apiJson['qr-code'].api,
@@ -264,7 +264,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'radio-group',
-    name: 'RadioGroup',
+    name: 'Radio Group',
     example: '',
     docsPath: 'src/lib/docs/radio-group.md',
     apiJson: apiJson['radio-group'].api,
@@ -272,7 +272,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'rating-group',
-    name: 'RatingGroup',
+    name: 'Rating Group',
     example: '',
     docsPath: 'src/lib/docs/rating-group.md',
     apiJson: apiJson['rating-group'].api,
@@ -280,7 +280,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'segment-group',
-    name: 'SegmentGroup',
+    name: 'Segment Group',
     example: '',
     docsPath: 'src/lib/docs/segment-group.md',
     apiJson: apiJson['radio-group'].api,
@@ -295,7 +295,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'signature-pad',
-    name: 'SignaturePad',
+    name: 'Signature Pad',
     example: '',
     docsPath: 'src/lib/docs/signature-pad.md',
     apiJson: apiJson['signature-pad'].api,
@@ -343,7 +343,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'tags-input',
-    name: 'TagsInput',
+    name: 'Tags Input',
     example: '',
     docsPath: 'src/lib/docs/tags-input.md',
     apiJson: apiJson['tags-input'].api,
@@ -351,7 +351,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'time-picker',
-    name: 'TimePicker',
+    name: 'Time Picker',
     example: '',
     docsPath: 'src/lib/docs/time-picker.md',
     apiJson: apiJson['time-picker'].api,
@@ -381,7 +381,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'toggle-group',
-    name: 'ToggleGroup',
+    name: 'Toggle Group',
     example: '',
     docsPath: 'src/lib/docs/toggle-group.md',
     apiJson: apiJson['toggle-group'].api,
@@ -406,7 +406,7 @@ export const COMPONENTS: UtilityOrComponentDetails[] = [
   },
   {
     slug: 'tree-view',
-    name: 'TreeView',
+    name: 'Tree View',
     example: '',
     docsPath: 'src/lib/docs/tree-view.md',
     apiJson: apiJson['tree-view'].api,

@@ -1,3 +1,3 @@
 <script lang="ts"></script>
 
-<section></section>
+<section class="w-[18rem] shrink-0"></section>
