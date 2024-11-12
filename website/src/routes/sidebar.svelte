@@ -44,15 +44,17 @@
   ]);
 </script>
 
+<div class="w-[18rem] shrink-0"></div>
+
 <nav
-  class="h-full w-[18rem] shrink-0 overflow-y-auto border-r border-r-neutral-800 px-12 py-8"
+  class="fixed left-0 top-16 z-sticky h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto border-r border-neutral-800 bg-neutral-900 px-12 py-8"
 >
   <ul class="space-y-4">
     {#each links as link}
       <li>
         <Collapsible.Root open>
           <Collapsible.Trigger
-            class="group flex w-full gap-2 px-2 py-1.5 text-left text-sm font-semibold"
+            class="group flex w-full gap-2 py-1 text-left text-sm font-semibold"
           >
             <span class="grow">{link.name}</span>
             <ChevronRightIcon
@@ -70,7 +72,7 @@
                   <li>
                     <a
                       href={child.href}
-                      class="block rounded px-2.5 py-1.5 text-sm font-semibold text-neutral-400 transition-colors duration-150 hover:text-inherit data-current:text-indigo-400"
+                      class="block rounded py-1 text-sm font-semibold text-neutral-400 transition-colors duration-150 hover:text-inherit data-current:text-indigo-400"
                       data-current={dataAttr($page.url.pathname === child.href)}
                     >
                       {child.name}

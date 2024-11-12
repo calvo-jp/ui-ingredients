@@ -11,12 +11,14 @@
 <Navbar />
 
 <main
-  class="mx-auto flex h-[calc(theme(height.dvh)-theme(spacing.16))] max-w-screen-2xl items-start justify-center"
+  class="flex h-[calc(theme(height.dvh)-theme(spacing.16))] items-start justify-center"
 >
   <Sidebar />
 
-  <section class="shrink-0 grow">
-    {@render children()}
+  <section class="shrink-0 grow p-24">
+    <div class="mx-auto max-w-screen-md">
+      {@render children()}
+    </div>
   </section>
 
   <Toc />

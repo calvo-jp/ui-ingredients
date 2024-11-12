@@ -14,18 +14,27 @@ export async function generateAnatomyIcons() {
   const components = Object.keys(allComponents) as unknown as Component[];
 
   const anatomy: Record<string, string> = {};
-  const bg = createGradient('red').value;
-  const container = `<div style="background:${bg};width:100%;height:auto;">{content}</div>`;
+  const bg = createGradient('#818cf8').value;
+  const container = `<div style="background:${bg};">{content}</div>`;
   const workspaceRoot = path.resolve(path.dirname('../../'));
   const prettierConfig = await prettier.resolveConfig(workspaceRoot);
 
   components.forEach((component) => {
     if (component === 'fieldset') return;
+    if (component === 'time-picker') return;
 
     const k = component === 'segmented-control' ? 'segment-group' : component;
     const v = container.replace(
       '{content}',
-      renderToString(getComponent(component)({accentColor: 'red'})),
+      renderToString(
+        getComponent(component)({
+          accentColor: '#818cf8',
+          style: {
+            width: '100%',
+            height: 'auto',
+          },
+        }),
+      ),
     );
 
     anatomy[k] = v;
