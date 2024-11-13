@@ -8,7 +8,7 @@ export type {ToastGhostBeforeProps} from './toast-ghost-before.svelte';
 export type {ToastProps} from './toast-root.svelte';
 export type {ToastTitleProps} from './toast-title.svelte';
 
-export {anatomy as toastAnatomy} from '@zag-js/toast';
+export {anatomy as toastAnatomy} from './toast-anatomy.js';
 export {getToastContext} from './toast-context.svelte.js';
 
 export {

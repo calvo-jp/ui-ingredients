@@ -8,5 +8,5 @@ export type {RadioGroupItemProps} from './radio-group-item.svelte';
 export type {RadioGroupLabelProps} from './radio-group-label.svelte';
 export type {RadioGroupProps} from './radio-group-root.svelte';
 
-export {anatomy as radioGroupAnatomy} from '@zag-js/radio-group';
+export {anatomy as radioGroupAnatomy} from './radio-group-anatomy.js';
 export {getRadioGroupContext} from './radio-group-context.svelte.js';

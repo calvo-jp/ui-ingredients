@@ -1,7 +1,7 @@
 import {ariaAttr, dataAttr} from '@zag-js/dom-query';
 import {reflect} from '@zag-js/svelte';
 import type {HTMLButtonAttributes} from 'svelte/elements';
-import {parts} from './anatomy.js';
+import {parts} from './toggle-anatomy.js';
 
 interface PressedChangeDetails {
   pressed: boolean;

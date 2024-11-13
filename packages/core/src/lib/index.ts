@@ -52,3 +52,5 @@ export * from './tree-view/index.js';
 export * from './create-context.svelte.js';
 export * from './create-unique-id.js';
 export * from './merge-props.js';
+
+export * from '@zag-js/anatomy';

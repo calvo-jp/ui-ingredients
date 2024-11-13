@@ -14,6 +14,6 @@ export type {TreeViewLabelProps} from './tree-view-label.svelte';
 export type {TreeViewProps} from './tree-view-root.svelte';
 export type {TreeViewTreeProps} from './tree-view-tree.svelte';
 
-export {anatomy as treeViewAnatomy} from '@zag-js/tree-view';
+export {anatomy as treeViewAnatomy} from './tree-view-anatomy.js';
 export {getTreeViewContext} from './tree-view-context.svelte.js';
 export type {NodeProps} from './types.js';

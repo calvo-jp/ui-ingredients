@@ -2,7 +2,7 @@
   "name": "ui-ingredients",
   "type": "module",
   "license": "MIT",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "packageManager": "pnpm@9.12.3",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -210,6 +210,10 @@
     "./tree-view": {
       "types": "./dist/tree-view/index.d.ts",
       "svelte": "./dist/tree-view/index.js"
+    },
+    "./anatomy": {
+      "types": "./dist/anatomy.d.ts",
+      "import": "./dist/anatomy.js"
     }
   },
   "files": [

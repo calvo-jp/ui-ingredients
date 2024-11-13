@@ -9,5 +9,5 @@ export type {TimerItemProps} from './timer-item.svelte';
 export type {TimerProps} from './timer-root.svelte';
 export type {TimerSeparatorProps} from './timer-separator.svelte';
 
-export {anatomy as timerAnatomy} from '@zag-js/timer';
+export {anatomy as timerAnatomy} from './timer-anatomy.js';
 export {getTimerContext} from './timer-context.svelte.js';
