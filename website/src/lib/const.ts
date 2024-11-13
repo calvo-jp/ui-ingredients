@@ -10,12 +10,21 @@ import {getAnatomyIcon} from './anatomy-icons';
 
 interface Details {
   slug: string;
+  /**
+   * formal name eg. `Date Picker`
+   */
   name: string;
-  apiDoc?: ApiDoc;
+  /**
+   * path to markdown using "src" as root path
+   */
+  markdownPath: string;
+  /**
+   * @format html
+   */
+  anatomyIcon?: string;
+  apiDoc?: Record<string, ApiDoc>;
   dataAttrDoc?: DataAttrEntry;
   accessibilityDoc?: AccessibilityDoc;
-  markdownPath: string;
-  anatomyIcon?: string;
   isPreview?: boolean;
 }
 
@@ -24,7 +33,7 @@ export const COMPONENTS: Details[] = [
     slug: 'accordion',
     name: 'Accordion',
     get apiDoc() {
-      return getApiDoc('accordion');
+      return {Root: getApiDoc('accordion')};
     },
     get dataAttrDoc() {
       return getDataAttrDoc('accordion');
@@ -45,20 +54,31 @@ export const COMPONENTS: Details[] = [
   {
     slug: 'alert-dialog',
     name: 'Alert Dialog',
+    get apiDoc() {
+      return {Root: getApiDoc('dialog')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('dialog');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('dialog');
+    },
     markdownPath: 'src/lib/docs/alert-dialog.md',
-    apiDoc: getApiDoc('dialog'),
-    dataAttrDoc: getDataAttrDoc('dialog'),
-    accessibilityDoc: getAccessibilityDoc('dialog'),
   },
   {
     slug: 'avatar',
     name: 'Avatar',
-    markdownPath: 'src/lib/docs/avatar.md',
-    apiDoc: getApiDoc('avatar'),
-    dataAttrDoc: getDataAttrDoc('avatar'),
+    get apiDoc() {
+      return {Root: getApiDoc('avatar')};
+    },
+
+    get dataAttrDoc() {
+      return getDataAttrDoc('avatar');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('avatar');
     },
+    markdownPath: 'src/lib/docs/avatar.md',
   },
   {
     slug: 'breadcrumbs',
@@ -69,21 +89,30 @@ export const COMPONENTS: Details[] = [
     slug: 'carousel',
     name: 'Carousel',
     markdownPath: 'src/lib/docs/carousel.md',
-    apiDoc: getApiDoc('carousel'),
-    dataAttrDoc: getDataAttrDoc('carousel'),
+    get apiDoc() {
+      return {Root: getApiDoc('carousel')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('carousel');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('carousel');
     },
-
     isPreview: true,
   },
   {
     slug: 'checkbox',
     name: 'Checkbox',
     markdownPath: 'src/lib/docs/checkbox.md',
-    apiDoc: getApiDoc('checkbox'),
-    dataAttrDoc: getDataAttrDoc('checkbox'),
-    accessibilityDoc: getAccessibilityDoc('checkbox'),
+    get apiDoc() {
+      return {Root: getApiDoc('checkbox')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('checkbox');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('checkbox');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('checkbox');
     },
@@ -92,8 +121,12 @@ export const COMPONENTS: Details[] = [
     slug: 'clipboard',
     name: 'Clipboard',
     markdownPath: 'src/lib/docs/clipboard.md',
-    apiDoc: getApiDoc('clipboard'),
-    dataAttrDoc: getDataAttrDoc('clipboard'),
+    get apiDoc() {
+      return {Root: getApiDoc('clipboard')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('clipboard');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('clipboard');
     },
@@ -102,17 +135,29 @@ export const COMPONENTS: Details[] = [
     slug: 'collapsible',
     name: 'Collapsible',
     markdownPath: 'src/lib/docs/collapsible.md',
-    apiDoc: getApiDoc('collapsible'),
-    dataAttrDoc: getDataAttrDoc('collapsible'),
-    accessibilityDoc: getAccessibilityDoc('collapsible'),
+    get apiDoc() {
+      return {Root: getApiDoc('collapsible')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('collapsible');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('collapsible');
+    },
   },
   {
     slug: 'color-picker',
     name: 'Color Picker',
     markdownPath: 'src/lib/docs/color-picker.md',
-    apiDoc: getApiDoc('color-picker'),
-    dataAttrDoc: getDataAttrDoc('color-picker'),
-    accessibilityDoc: getAccessibilityDoc('color-picker'),
+    get apiDoc() {
+      return {Root: getApiDoc('color-picker')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('color-picker');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('color-picker');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('color-picker');
     },
@@ -121,9 +166,15 @@ export const COMPONENTS: Details[] = [
     slug: 'combobox',
     name: 'Combobox',
     markdownPath: 'src/lib/docs/combobox.md',
-    apiDoc: getApiDoc('combobox'),
-    dataAttrDoc: getDataAttrDoc('combobox'),
-    accessibilityDoc: getAccessibilityDoc('combobox'),
+    get apiDoc() {
+      return {Root: getApiDoc('combobox')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('combobox');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('combobox');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('combobox');
     },
@@ -132,9 +183,15 @@ export const COMPONENTS: Details[] = [
     slug: 'date-picker',
     name: 'Date Picker',
     markdownPath: 'src/lib/docs/date-picker.md',
-    apiDoc: getApiDoc('date-picker'),
-    dataAttrDoc: getDataAttrDoc('date-picker'),
-    accessibilityDoc: getAccessibilityDoc('date-picker'),
+    get apiDoc() {
+      return {Root: getApiDoc('date-picker')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('date-picker');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('date-picker');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('date-picker');
     },
@@ -143,9 +200,15 @@ export const COMPONENTS: Details[] = [
     slug: 'dialog',
     name: 'Dialog',
     markdownPath: 'src/lib/docs/dialog.md',
-    apiDoc: getApiDoc('dialog'),
-    dataAttrDoc: getDataAttrDoc('dialog'),
-    accessibilityDoc: getAccessibilityDoc('dialog'),
+    get apiDoc() {
+      return {Root: getApiDoc('dialog')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('dialog');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('dialog');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('dialog');
     },
@@ -154,17 +217,29 @@ export const COMPONENTS: Details[] = [
     slug: 'drawer',
     name: 'Drawer',
     markdownPath: 'src/lib/docs/drawer.md',
-    apiDoc: getApiDoc('dialog'),
-    dataAttrDoc: getDataAttrDoc('dialog'),
-    accessibilityDoc: getAccessibilityDoc('dialog'),
+    get apiDoc() {
+      return {Root: getApiDoc('dialog')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('dialog');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('dialog');
+    },
   },
   {
     slug: 'editable',
     name: 'Editable',
     markdownPath: 'src/lib/docs/editable.md',
-    apiDoc: getApiDoc('editable'),
-    dataAttrDoc: getDataAttrDoc('editable'),
-    accessibilityDoc: getAccessibilityDoc('editable'),
+    get apiDoc() {
+      return {Root: getApiDoc('editable')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('editable');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('editable');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('editable');
     },
@@ -181,8 +256,12 @@ export const COMPONENTS: Details[] = [
     slug: 'file-upload',
     name: 'File Upload',
     markdownPath: 'src/lib/docs/file-upload.md',
-    apiDoc: getApiDoc('file-upload'),
-    dataAttrDoc: getDataAttrDoc('file-upload'),
+    get apiDoc() {
+      return {Root: getApiDoc('file-upload')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('file-upload');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('file-upload');
     },
@@ -191,15 +270,23 @@ export const COMPONENTS: Details[] = [
     slug: 'floating-panel',
     name: 'Floating Panel',
     markdownPath: 'src/lib/docs/floating-panel.md',
-    apiDoc: getApiDoc('floating-panel'),
-    dataAttrDoc: getDataAttrDoc('floating-panel'),
+    get apiDoc() {
+      return {Root: getApiDoc('floating-panel')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('floating-panel');
+    },
   },
   {
     slug: 'hover-card',
     name: 'Hover Card',
     markdownPath: 'src/lib/docs/hover-card.md',
-    apiDoc: getApiDoc('hover-card'),
-    dataAttrDoc: getDataAttrDoc('hover-card'),
+    get apiDoc() {
+      return {Root: getApiDoc('hover-card')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('hover-card');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('hover-card');
     },
@@ -208,9 +295,15 @@ export const COMPONENTS: Details[] = [
     slug: 'menu',
     name: 'Menu',
     markdownPath: 'src/lib/docs/menu.md',
-    apiDoc: getApiDoc('menu'),
-    dataAttrDoc: getDataAttrDoc('menu'),
-    accessibilityDoc: getAccessibilityDoc('menu'),
+    get apiDoc() {
+      return {Root: getApiDoc('menu')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('menu');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('menu');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('menu');
     },
@@ -218,233 +311,323 @@ export const COMPONENTS: Details[] = [
   {
     slug: 'number-input',
     name: 'Number Input',
-    apiDoc: getApiDoc('number-input'),
-    dataAttrDoc: getDataAttrDoc('number-input'),
-    accessibilityDoc: getAccessibilityDoc('number-input'),
+    get apiDoc() {
+      return {Root: getApiDoc('number-input')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('number-input');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('number-input');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('number-input');
     },
-
     markdownPath: 'src/lib/docs/number-input.md',
   },
   {
     slug: 'pagination',
     name: 'Pagination',
-    apiDoc: getApiDoc('pagination'),
-    dataAttrDoc: getDataAttrDoc('pagination'),
+    get apiDoc() {
+      return {Root: getApiDoc('pagination')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('pagination');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('pagination');
     },
-
     markdownPath: 'src/lib/docs/pagination.md',
   },
   {
     slug: 'pin-input',
     name: 'Pin Input',
-    apiDoc: getApiDoc('pin-input'),
-    dataAttrDoc: getDataAttrDoc('pin-input'),
-    accessibilityDoc: getAccessibilityDoc('pin-input'),
+    get apiDoc() {
+      return {Root: getApiDoc('pin-input')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('pin-input');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('pin-input');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('pin-input');
     },
-
     markdownPath: 'src/lib/docs/pin-input.md',
   },
   {
     slug: 'popover',
     name: 'Popover',
-    apiDoc: getApiDoc('popover'),
-    dataAttrDoc: getDataAttrDoc('popover'),
-    accessibilityDoc: getAccessibilityDoc('popover'),
+    get apiDoc() {
+      return {Root: getApiDoc('popover')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('popover');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('popover');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('popover');
     },
-
     markdownPath: 'src/lib/docs/popover.md',
   },
   {
     slug: 'progress-linear',
     name: 'Progress - Linear',
-    apiDoc: getApiDoc('progress'),
-    dataAttrDoc: getDataAttrDoc('progress'),
+    get apiDoc() {
+      return {Root: getApiDoc('progress')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('progress');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('linear-progress');
     },
-
     markdownPath: 'src/lib/docs/progress-linear.md',
   },
   {
     slug: 'progress-circular',
     name: 'Progress - Circular',
-    apiDoc: getApiDoc('progress'),
-    dataAttrDoc: getDataAttrDoc('progress'),
+    get apiDoc() {
+      return {Root: getApiDoc('progress')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('progress');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('circular-progress');
     },
-
     markdownPath: 'src/lib/docs/progress-circular.md',
   },
   {
     slug: 'qr-code',
     name: 'QR Code',
-    apiDoc: getApiDoc('qr-code'),
-    dataAttrDoc: getDataAttrDoc('qr-code'),
+    get apiDoc() {
+      return {Root: getApiDoc('qr-code')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('qr-code');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('qr-code');
     },
-
     markdownPath: 'src/lib/docs/qr-code.md',
   },
   {
     slug: 'radio-group',
     name: 'Radio Group',
-    apiDoc: getApiDoc('radio-group'),
-    dataAttrDoc: getDataAttrDoc('radio-group'),
-    accessibilityDoc: getAccessibilityDoc('radio-group'),
+    get apiDoc() {
+      return {Root: getApiDoc('radio-group')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('radio-group');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('radio-group');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('radio-group');
     },
-
     markdownPath: 'src/lib/docs/radio-group.md',
   },
   {
     slug: 'rating-group',
     name: 'Rating Group',
-    apiDoc: getApiDoc('rating-group'),
-    dataAttrDoc: getDataAttrDoc('rating-group'),
-    accessibilityDoc: getAccessibilityDoc('rating-group'),
+    get apiDoc() {
+      return {Root: getApiDoc('rating-group')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('rating-group');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('rating-group');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('rating-group');
     },
-
     markdownPath: 'src/lib/docs/rating-group.md',
   },
   {
     slug: 'segment-group',
     name: 'Segment Group',
-    apiDoc: getApiDoc('radio-group'),
-    dataAttrDoc: getDataAttrDoc('radio-group'),
-    accessibilityDoc: getAccessibilityDoc('radio-group'),
+    get apiDoc() {
+      return {Root: getApiDoc('radio-group')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('radio-group');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('radio-group');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('segment-group');
     },
-
     markdownPath: 'src/lib/docs/segment-group.md',
   },
   {
     slug: 'select',
     name: 'Select',
-    apiDoc: getApiDoc('select'),
-    dataAttrDoc: getDataAttrDoc('select'),
-    accessibilityDoc: getAccessibilityDoc('select'),
+    get apiDoc() {
+      return {Root: getApiDoc('select')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('select');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('select');
+    },
     markdownPath: 'src/lib/docs/select.md',
   },
   {
     slug: 'signature-pad',
     name: 'Signature Pad',
-    apiDoc: getApiDoc('signature-pad'),
-    dataAttrDoc: getDataAttrDoc('signature-pad'),
+    get apiDoc() {
+      return {Root: getApiDoc('signature-pad')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('signature-pad');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('signature-pad');
     },
-
     markdownPath: 'src/lib/docs/signature-pad.md',
   },
   {
     slug: 'slider',
     name: 'Slider',
-    apiDoc: getApiDoc('slider'),
-    dataAttrDoc: getDataAttrDoc('slider'),
-    accessibilityDoc: getAccessibilityDoc('slider'),
+    get apiDoc() {
+      return {Root: getApiDoc('slider')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('slider');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('slider');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('slider');
     },
-
     markdownPath: 'src/lib/docs/slider.md',
   },
   {
     slug: 'splitter',
     name: 'Splitter',
-    apiDoc: getApiDoc('splitter'),
-    dataAttrDoc: getDataAttrDoc('splitter'),
+    get apiDoc() {
+      return {Root: getApiDoc('splitter')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('splitter');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('splitter');
     },
-
     markdownPath: 'src/lib/docs/splitter.md',
   },
   {
     slug: 'steps',
     name: 'Steps',
-    apiDoc: getApiDoc('steps'),
-    dataAttrDoc: getDataAttrDoc('steps'),
+    get apiDoc() {
+      return {Root: getApiDoc('steps')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('steps');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('steps');
     },
-
     markdownPath: 'src/lib/docs/steps.md',
   },
   {
     slug: 'switch',
     name: 'Switch',
-    apiDoc: getApiDoc('switch'),
-    dataAttrDoc: getDataAttrDoc('switch'),
-    accessibilityDoc: getAccessibilityDoc('switch'),
+    get apiDoc() {
+      return {Root: getApiDoc('switch')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('switch');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('switch');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('switch');
     },
-
     markdownPath: 'src/lib/docs/switch.md',
   },
   {
     slug: 'tabs',
     name: 'Tabs',
-    apiDoc: getApiDoc('tabs'),
-    dataAttrDoc: getDataAttrDoc('tabs'),
-    accessibilityDoc: getAccessibilityDoc('tabs'),
+    get apiDoc() {
+      return {Root: getApiDoc('tabs')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('tabs');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('tabs');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('tabs');
     },
-
     markdownPath: 'src/lib/docs/tabs.md',
   },
   {
     slug: 'tags-input',
     name: 'Tags Input',
-    apiDoc: getApiDoc('tags-input'),
-    dataAttrDoc: getDataAttrDoc('tags-input'),
-    accessibilityDoc: getAccessibilityDoc('tags-input'),
+    get apiDoc() {
+      return {Root: getApiDoc('tags-input')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('tags-input');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('tags-input');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('tags-input');
     },
-
     markdownPath: 'src/lib/docs/tags-input.md',
   },
   {
     slug: 'time-picker',
     name: 'Time Picker',
-    apiDoc: getApiDoc('time-picker'),
-    dataAttrDoc: getDataAttrDoc('time-picker'),
-    accessibilityDoc: getAccessibilityDoc('time-picker'),
+    get apiDoc() {
+      return {Root: getApiDoc('time-picker')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('time-picker');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('time-picker');
+    },
     markdownPath: 'src/lib/docs/time-picker.md',
     isPreview: true,
   },
   {
     slug: 'timer',
     name: 'Timer',
-    apiDoc: getApiDoc('timer'),
-    dataAttrDoc: getDataAttrDoc('timer'),
+    get apiDoc() {
+      return {Root: getApiDoc('timer')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('timer');
+    },
     markdownPath: 'src/lib/docs/timer.md',
   },
   {
     slug: 'toast',
     name: 'Toast',
-    apiDoc: getApiDoc('toast'),
-    dataAttrDoc: getDataAttrDoc('toast'),
+    get apiDoc() {
+      return {Root: getApiDoc('toast')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('toast');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('toast');
     },
-
     markdownPath: 'src/lib/docs/toast.md',
   },
   {
@@ -455,9 +638,15 @@ export const COMPONENTS: Details[] = [
   {
     slug: 'toggle-group',
     name: 'Toggle Group',
-    apiDoc: getApiDoc('toggle-group'),
-    dataAttrDoc: getDataAttrDoc('toggle-group'),
-    accessibilityDoc: getAccessibilityDoc('toggle-group'),
+    get apiDoc() {
+      return {Root: getApiDoc('toggle-group')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('toggle-group');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('toggle-group');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('toggle-group');
     },
@@ -467,38 +656,53 @@ export const COMPONENTS: Details[] = [
   {
     slug: 'tooltip',
     name: 'Tooltip',
-    apiDoc: getApiDoc('tooltip'),
-    dataAttrDoc: getDataAttrDoc('tooltip'),
-    accessibilityDoc: getAccessibilityDoc('tooltip'),
+    get apiDoc() {
+      return {Root: getApiDoc('tooltip')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('tooltip');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('tooltip');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('tooltip');
     },
-
     markdownPath: 'src/lib/docs/tooltip.md',
   },
   {
     slug: 'tour',
     name: 'Tour',
-    apiDoc: getApiDoc('tour'),
-    dataAttrDoc: getDataAttrDoc('tour'),
-    accessibilityDoc: getAccessibilityDoc('tour'),
+    get apiDoc() {
+      return {Root: getApiDoc('tour')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('tour');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('tour');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('tour');
     },
-
     markdownPath: 'src/lib/docs/tour.md',
     isPreview: true,
   },
   {
     slug: 'tree-view',
     name: 'Tree View',
-    apiDoc: getApiDoc('tree-view'),
-    dataAttrDoc: getDataAttrDoc('tree-view'),
-    accessibilityDoc: getAccessibilityDoc('tree-view'),
+    get apiDoc() {
+      return {Root: getApiDoc('tree-view')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('tree-view');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('tree-view');
+    },
     get anatomyIcon() {
       return getAnatomyIcon('tree-view');
     },
-
     markdownPath: 'src/lib/docs/tree-view.md',
     isPreview: true,
   },
@@ -528,9 +732,12 @@ export const UTILITIES: Details[] = [
   {
     slug: 'presence',
     name: 'Presence',
-    apiDoc: getApiDoc('presence'),
-    dataAttrDoc: getDataAttrDoc('accordion'),
-    accessibilityDoc: getAccessibilityDoc('accordion'),
+    get apiDoc() {
+      return {Root: getApiDoc('presence')};
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('presence');
+    },
     markdownPath: 'src/lib/docs/presence.md',
   },
 ];

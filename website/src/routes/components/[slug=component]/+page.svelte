@@ -3,8 +3,6 @@
   import Prose from '$lib/ui/prose.svelte';
 
   let {data} = $props();
-
-  let context = $derived(Object.entries(data.apiDoc?.context ?? {}));
 </script>
 
 <svelte:head>
@@ -23,40 +21,63 @@
 
   {@html data.html}
 
-  {#if context.length > 0}
+  {#if data.apiDoc}
     <h2>API Reference</h2>
 
-    <Table.Root>
-      <Table.Header>
-        <Table.Row>
-          <Table.Heading>Property</Table.Heading>
-          <Table.Heading>Type</Table.Heading>
-          <Table.Heading>Description</Table.Heading>
-        </Table.Row>
-      </Table.Header>
-      <Table.Body>
-        {#each context as [k, o]}
-          <Table.Row>
-            <Table.Cell>
-              <span
-                class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
-              >
-                {k}
-              </span>
-            </Table.Cell>
-            <Table.Cell>
-              <span
-                class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
-              >
-                {o.type}
-              </span>
-            </Table.Cell>
-            <Table.Cell>
-              {o.description}
-            </Table.Cell>
-          </Table.Row>
-        {/each}
-      </Table.Body>
-    </Table.Root>
+    {#each Object.entries(data.apiDoc) as [part, obj]}
+      <div>
+        <h3>{part}</h3>
+
+        <Table.Root>
+          <Table.Header>
+            <Table.Row>
+              <Table.Heading>Property</Table.Heading>
+              <Table.Heading>Type</Table.Heading>
+              <Table.Heading>Default Value</Table.Heading>
+              <Table.Heading>Description</Table.Heading>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {#each Object.entries(obj.context) as [k, v]}
+              <Table.Row>
+                <Table.Cell>{@render badge(k)}</Table.Cell>
+                <Table.Cell>{@render badge(v.type)}</Table.Cell>
+                <Table.Cell>{@render badge(v.defaultValue)}</Table.Cell>
+                <Table.Cell>{v.description}</Table.Cell>
+              </Table.Row>
+            {/each}
+          </Table.Body>
+        </Table.Root>
+      </div>
+    {/each}
+  {/if}
+
+  {#if data.dataAttrDoc}
+    <h2>Data Attributes</h2>
+
+    {#each Object.entries(data.dataAttrDoc) as [part, obj]}
+      <div>
+        <h3>{part}</h3>
+
+        <Table.Root>
+          <Table.Body>
+            {#each Object.entries(obj) as [k, v]}
+              <Table.Row>
+                <Table.Cell>{@render badge(k)}</Table.Cell>
+                <Table.Cell>{@render badge(v)}</Table.Cell>
+              </Table.Row>
+            {/each}
+          </Table.Body>
+        </Table.Root>
+      </div>
+    {/each}
   {/if}
 </Prose>
+
+{#snippet badge(label?: string)}
+  {#if label}
+    <span class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono">
+      {label}
+    </span>
+  {/if}
+{/snippet}
