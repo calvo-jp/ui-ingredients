@@ -37,6 +37,14 @@
   }
 
   [data-scope='table'][data-part='root'] :global(tbody tr:first-of-type) {
+    @apply border-t-0;
+  }
+
+  [data-scope='table'][data-part='root'] :global(tfoot tr:last-of-type) {
+    @apply border-b;
+  }
+
+  [data-scope='table'][data-part='root'] :global(tfoot tr:first-of-type) {
     @apply border-t;
   }
 </style>
