@@ -97,7 +97,7 @@
           <Table.Body>
             {#each data.accessibilityDoc.keyboard as item}
               <Table.Row>
-                <Table.Cell>
+                <Table.Cell class="whitespace-nowrap">
                   {@render inlineCodeBlock(item.keys.join(' + '))}
                 </Table.Cell>
                 <Table.Cell>{item.description}</Table.Cell>

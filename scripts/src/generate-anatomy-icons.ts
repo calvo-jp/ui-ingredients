@@ -43,6 +43,8 @@ export async function generateAnatomyIcons() {
 
   const content = await prettier.format(
     `
+    // ⚠️ Generated file
+
     export type AnatomyIconKey = ${Object.keys(anatomy)
       .map((v) => `'${v}'`)
       .join(' | ')};

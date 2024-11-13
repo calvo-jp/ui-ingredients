@@ -1,3 +1,5 @@
+// ⚠️ Generated file
+
 export type AnatomyIconKey =
   | 'tour'
   | 'field'
