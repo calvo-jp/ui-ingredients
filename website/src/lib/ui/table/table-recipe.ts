@@ -8,7 +8,7 @@ export const tableRecipe = tv({
     footer: null,
     row: null,
     heading:
-      'text-sm px-4 py-3 bg-neutral-800/25 text-left border border-neutral-800 font-medium',
+      'text-sm px-4 whitespace-nowrap py-3 bg-neutral-800/25 text-left border border-neutral-800 font-medium',
     cell: 'text-sm px-4 text-neutral-300 py-3 text-left border border-neutral-800',
   },
 });

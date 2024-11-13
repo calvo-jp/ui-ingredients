@@ -1,3 +1,3 @@
-export {tableAnatomy} from './anatomy';
-export {tableRecipe} from './recipe';
 export * as Table from './table';
+export {tableAnatomy} from './table-anatomy';
+export {tableRecipe} from './table-recipe';

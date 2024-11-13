@@ -33,7 +33,9 @@ export const COMPONENTS: Details[] = [
     slug: 'accordion',
     name: 'Accordion',
     get apiDoc() {
-      return {Root: getApiDoc('accordion')};
+      return {
+        Root: getApiDoc('accordion'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('accordion');

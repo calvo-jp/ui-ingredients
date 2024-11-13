@@ -64,13 +64,31 @@
             {#each Object.entries(obj) as [k, v]}
               <Table.Row>
                 <Table.Cell>{@render badge(k)}</Table.Cell>
-                <Table.Cell>{@render badge(v)}</Table.Cell>
+                <Table.Cell>{v}</Table.Cell>
               </Table.Row>
             {/each}
           </Table.Body>
         </Table.Root>
       </div>
     {/each}
+  {/if}
+
+  {#if data.accessibilityDoc}
+    <h2>Accessibility</h2>
+
+    <div>
+      <h3>Keyboard</h3>
+      <Table.Root>
+        <Table.Body>
+          {#each data.accessibilityDoc.keyboard as item}
+            <Table.Row>
+              <Table.Cell>{@render badge(item.keys.join(' + '))}</Table.Cell>
+              <Table.Cell>{item.description}</Table.Cell>
+            </Table.Row>
+          {/each}
+        </Table.Body>
+      </Table.Root>
+    </div>
   {/if}
 </Prose>
 

@@ -1,7 +1,7 @@
-export {default as Body} from './body.svelte';
-export {default as Cell} from './cell.svelte';
-export {default as Footer} from './footer.svelte';
-export {default as Header} from './header.svelte';
-export {default as Heading} from './heading.svelte';
-export {default as Root} from './root.svelte';
-export {default as Row} from './row.svelte';
+export {default as Body} from './table-body.svelte';
+export {default as Cell} from './table-cell.svelte';
+export {default as Footer} from './table-footer.svelte';
+export {default as Header} from './table-header.svelte';
+export {default as Heading} from './table-heading.svelte';
+export {default as Root} from './table-root.svelte';
+export {default as Row} from './table-row.svelte';

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {getTableStylesContext} from './context.svelte';
+  import {getTableStylesContext} from './table-context.svelte';
 
   let {children, ...props}: SvelteHTMLElements['td'] = $props();
 
