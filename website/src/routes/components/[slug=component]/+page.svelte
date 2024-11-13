@@ -4,64 +4,59 @@
 
   let {data} = $props();
 
-  let api = $derived(Object.entries(data.apiJson ?? {}));
+  let context = $derived(Object.entries(data.apiDoc?.context ?? {}));
 </script>
 
 <svelte:head>
-  <title>{data.name} | UI Ingredients</title>
+  <title>{data.name.formal} | UI Ingredients</title>
 </svelte:head>
 
-<h1 class="text-4xl font-bold">{data.name}</h1>
-<p class="mb-12 mt-4 text-lg leading-normal text-neutral-300">
-  {data.description}
-</p>
-
-<!-- TODO: Demo -->
-
-{#if data.anatomyIcon}
-  <h2 class="text-2xl font-bold">Anatomy</h2>
-  <div class="mb-12 mt-5 overflow-hidden rounded-lg">
-    {@html data.anatomyIcon}
-  </div>
-{/if}
-
 <Prose>
+  <h1 class="mb-0">{data.name.pascal}</h1>
+  <p class="m-0 mt-2.5">{data.description}</p>
+
+  {#if data.anatomyIcon}
+    <h2>Anatomy</h2>
+
+    {@html data.anatomyIcon}
+  {/if}
+
   {@html data.html}
-</Prose>
 
-{#if api.length > 0}
-  <h2 class="mt-12 text-2xl font-bold">API Reference</h2>
+  {#if context.length > 0}
+    <h2>API Reference</h2>
 
-  <Table.Root class="mt-5">
-    <Table.Header>
-      <Table.Row>
-        <Table.Heading>Property</Table.Heading>
-        <Table.Heading>Type</Table.Heading>
-        <Table.Heading>Description</Table.Heading>
-      </Table.Row>
-    </Table.Header>
-    <Table.Body>
-      {#each api as [k, o]}
+    <Table.Root>
+      <Table.Header>
         <Table.Row>
-          <Table.Cell>
-            <span
-              class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
-            >
-              {k}
-            </span>
-          </Table.Cell>
-          <Table.Cell>
-            <span
-              class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
-            >
-              {o.type}
-            </span>
-          </Table.Cell>
-          <Table.Cell>
-            {o.description}
-          </Table.Cell>
+          <Table.Heading>Property</Table.Heading>
+          <Table.Heading>Type</Table.Heading>
+          <Table.Heading>Description</Table.Heading>
         </Table.Row>
-      {/each}
-    </Table.Body>
-  </Table.Root>
-{/if}
+      </Table.Header>
+      <Table.Body>
+        {#each context as [k, o]}
+          <Table.Row>
+            <Table.Cell>
+              <span
+                class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
+              >
+                {k}
+              </span>
+            </Table.Cell>
+            <Table.Cell>
+              <span
+                class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
+              >
+                {o.type}
+              </span>
+            </Table.Cell>
+            <Table.Cell>
+              {o.description}
+            </Table.Cell>
+          </Table.Row>
+        {/each}
+      </Table.Body>
+    </Table.Root>
+  {/if}
+</Prose>

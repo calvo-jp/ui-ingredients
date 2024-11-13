@@ -1,415 +1,536 @@
-import {apiJson} from '@zag-js/docs';
-import {ANATOMY_ICONS} from './anatomy-icons';
+import {
+  getAccessibilityDoc,
+  getApiDoc,
+  getDataAttrDoc,
+  type AccessibilityDoc,
+  type ApiDoc,
+  type DataAttrEntry,
+} from '@zag-js/docs';
+import {getAnatomyIcon} from './anatomy-icons';
 
-interface ApiDetails {
-  type: string;
-  description: string;
-}
-
-interface UtilityOrComponentDetails {
+interface Details {
   slug: string;
   name: string;
-  example: string;
-  apiJson?: Record<string, ApiDetails>;
-  docsPath: string;
-  /**
-   * @format html
-   */
+  apiDoc?: ApiDoc;
+  dataAttrDoc?: DataAttrEntry;
+  accessibilityDoc?: AccessibilityDoc;
+  markdownPath: string;
   anatomyIcon?: string;
-  preview?: boolean;
+  isPreview?: boolean;
 }
 
-export const UTILITIES: UtilityOrComponentDetails[] = [
-  {
-    slug: 'environment-provider',
-    name: 'Environment Provider',
-    example: '',
-    docsPath: 'src/lib/docs/environment-provider.md',
-  },
-  {
-    slug: 'highlight',
-    name: 'Highlight',
-    example: '',
-    docsPath: 'src/lib/docs/highlight.md',
-  },
-  {
-    slug: 'locale-provider',
-    name: 'Locale Provider',
-    example: '',
-    docsPath: 'src/lib/docs/locale-provider.md',
-  },
-  {
-    slug: 'portal',
-    name: 'Portal',
-    example: '',
-    docsPath: 'src/lib/docs/portal.md',
-  },
-  {
-    slug: 'presence',
-    name: 'Presence',
-    example: '',
-    docsPath: 'src/lib/docs/presence.md',
-    apiJson: apiJson.presence.api,
-  },
-];
-
-export const COMPONENTS: UtilityOrComponentDetails[] = [
+export const COMPONENTS: Details[] = [
   {
     slug: 'accordion',
     name: 'Accordion',
-    example: '',
-    docsPath: 'src/lib/docs/accordion.md',
-    apiJson: apiJson.accordion.api,
-    anatomyIcon: ANATOMY_ICONS.accordion,
+    get apiDoc() {
+      return getApiDoc('accordion');
+    },
+    get dataAttrDoc() {
+      return getDataAttrDoc('accordion');
+    },
+    get accessibilityDoc() {
+      return getAccessibilityDoc('accordion');
+    },
+    get anatomyIcon() {
+      return getAnatomyIcon('accordion');
+    },
+    markdownPath: 'src/lib/docs/accordion.md',
   },
   {
     slug: 'alert',
     name: 'Alert',
-    example: '',
-    docsPath: 'src/lib/docs/alert.md',
+    markdownPath: 'src/lib/docs/alert.md',
   },
   {
     slug: 'alert-dialog',
     name: 'Alert Dialog',
-    example: '',
-    docsPath: 'src/lib/docs/alert-dialog.md',
-    apiJson: apiJson.dialog.api,
+    markdownPath: 'src/lib/docs/alert-dialog.md',
+    apiDoc: getApiDoc('dialog'),
+    dataAttrDoc: getDataAttrDoc('dialog'),
+    accessibilityDoc: getAccessibilityDoc('dialog'),
   },
   {
     slug: 'avatar',
     name: 'Avatar',
-    example: '',
-    docsPath: 'src/lib/docs/avatar.md',
-    apiJson: apiJson.avatar.api,
-    anatomyIcon: ANATOMY_ICONS.avatar,
+    markdownPath: 'src/lib/docs/avatar.md',
+    apiDoc: getApiDoc('avatar'),
+    dataAttrDoc: getDataAttrDoc('avatar'),
+    get anatomyIcon() {
+      return getAnatomyIcon('avatar');
+    },
   },
   {
     slug: 'breadcrumbs',
     name: 'Breadcrumbs',
-    example: '',
-    docsPath: 'src/lib/docs/breadcrumbs.md',
+    markdownPath: 'src/lib/docs/breadcrumbs.md',
   },
   {
     slug: 'carousel',
     name: 'Carousel',
-    example: '',
-    docsPath: 'src/lib/docs/carousel.md',
-    apiJson: apiJson.carousel.api,
-    anatomyIcon: ANATOMY_ICONS.carousel,
-    preview: true,
+    markdownPath: 'src/lib/docs/carousel.md',
+    apiDoc: getApiDoc('carousel'),
+    dataAttrDoc: getDataAttrDoc('carousel'),
+    get anatomyIcon() {
+      return getAnatomyIcon('carousel');
+    },
+
+    isPreview: true,
   },
   {
     slug: 'checkbox',
     name: 'Checkbox',
-    example: '',
-    docsPath: 'src/lib/docs/checkbox.md',
-    apiJson: apiJson.checkbox.api,
-    anatomyIcon: ANATOMY_ICONS.checkbox,
+    markdownPath: 'src/lib/docs/checkbox.md',
+    apiDoc: getApiDoc('checkbox'),
+    dataAttrDoc: getDataAttrDoc('checkbox'),
+    accessibilityDoc: getAccessibilityDoc('checkbox'),
+    get anatomyIcon() {
+      return getAnatomyIcon('checkbox');
+    },
   },
   {
     slug: 'clipboard',
     name: 'Clipboard',
-    example: '',
-    docsPath: 'src/lib/docs/clipboard.md',
-    apiJson: apiJson.clipboard.api,
-    anatomyIcon: ANATOMY_ICONS.clipboard,
+    markdownPath: 'src/lib/docs/clipboard.md',
+    apiDoc: getApiDoc('clipboard'),
+    dataAttrDoc: getDataAttrDoc('clipboard'),
+    get anatomyIcon() {
+      return getAnatomyIcon('clipboard');
+    },
   },
   {
     slug: 'collapsible',
     name: 'Collapsible',
-    example: '',
-    docsPath: 'src/lib/docs/collapsible.md',
-    apiJson: apiJson.collapsible.api,
+    markdownPath: 'src/lib/docs/collapsible.md',
+    apiDoc: getApiDoc('collapsible'),
+    dataAttrDoc: getDataAttrDoc('collapsible'),
+    accessibilityDoc: getAccessibilityDoc('collapsible'),
   },
   {
     slug: 'color-picker',
     name: 'Color Picker',
-    example: '',
-    docsPath: 'src/lib/docs/color-picker.md',
-    apiJson: apiJson['color-picker'].api,
-    anatomyIcon: ANATOMY_ICONS['color-picker'],
+    markdownPath: 'src/lib/docs/color-picker.md',
+    apiDoc: getApiDoc('color-picker'),
+    dataAttrDoc: getDataAttrDoc('color-picker'),
+    accessibilityDoc: getAccessibilityDoc('color-picker'),
+    get anatomyIcon() {
+      return getAnatomyIcon('color-picker');
+    },
   },
   {
     slug: 'combobox',
     name: 'Combobox',
-    example: '',
-    docsPath: 'src/lib/docs/combobox.md',
-    apiJson: apiJson.combobox.api,
-    anatomyIcon: ANATOMY_ICONS.combobox,
+    markdownPath: 'src/lib/docs/combobox.md',
+    apiDoc: getApiDoc('combobox'),
+    dataAttrDoc: getDataAttrDoc('combobox'),
+    accessibilityDoc: getAccessibilityDoc('combobox'),
+    get anatomyIcon() {
+      return getAnatomyIcon('combobox');
+    },
   },
   {
     slug: 'date-picker',
     name: 'Date Picker',
-    example: '',
-    docsPath: 'src/lib/docs/date-picker.md',
-    apiJson: apiJson['date-picker'].api,
-    anatomyIcon: ANATOMY_ICONS['date-picker'],
+    markdownPath: 'src/lib/docs/date-picker.md',
+    apiDoc: getApiDoc('date-picker'),
+    dataAttrDoc: getDataAttrDoc('date-picker'),
+    accessibilityDoc: getAccessibilityDoc('date-picker'),
+    get anatomyIcon() {
+      return getAnatomyIcon('date-picker');
+    },
   },
   {
     slug: 'dialog',
     name: 'Dialog',
-    example: '',
-    docsPath: 'src/lib/docs/dialog.md',
-    apiJson: apiJson.dialog.api,
-    anatomyIcon: ANATOMY_ICONS.dialog,
+    markdownPath: 'src/lib/docs/dialog.md',
+    apiDoc: getApiDoc('dialog'),
+    dataAttrDoc: getDataAttrDoc('dialog'),
+    accessibilityDoc: getAccessibilityDoc('dialog'),
+    get anatomyIcon() {
+      return getAnatomyIcon('dialog');
+    },
   },
   {
     slug: 'drawer',
     name: 'Drawer',
-    example: '',
-    docsPath: 'src/lib/docs/drawer.md',
-    apiJson: apiJson.dialog.api,
+    markdownPath: 'src/lib/docs/drawer.md',
+    apiDoc: getApiDoc('dialog'),
+    dataAttrDoc: getDataAttrDoc('dialog'),
+    accessibilityDoc: getAccessibilityDoc('dialog'),
   },
   {
     slug: 'editable',
     name: 'Editable',
-    example: '',
-    docsPath: 'src/lib/docs/editable.md',
-    apiJson: apiJson.editable.api,
-    anatomyIcon: ANATOMY_ICONS.editable,
+    markdownPath: 'src/lib/docs/editable.md',
+    apiDoc: getApiDoc('editable'),
+    dataAttrDoc: getDataAttrDoc('editable'),
+    accessibilityDoc: getAccessibilityDoc('editable'),
+    get anatomyIcon() {
+      return getAnatomyIcon('editable');
+    },
   },
   {
     slug: 'field',
     name: 'Field',
-    example: '',
-    docsPath: 'src/lib/docs/field.md',
-    anatomyIcon: ANATOMY_ICONS.field,
+    markdownPath: 'src/lib/docs/field.md',
+    get anatomyIcon() {
+      return getAnatomyIcon('field');
+    },
   },
   {
     slug: 'file-upload',
     name: 'File Upload',
-    example: '',
-    docsPath: 'src/lib/docs/file-upload.md',
-    apiJson: apiJson['file-upload'].api,
-    anatomyIcon: ANATOMY_ICONS['file-upload'],
+    markdownPath: 'src/lib/docs/file-upload.md',
+    apiDoc: getApiDoc('file-upload'),
+    dataAttrDoc: getDataAttrDoc('file-upload'),
+    get anatomyIcon() {
+      return getAnatomyIcon('file-upload');
+    },
   },
   {
     slug: 'floating-panel',
     name: 'Floating Panel',
-    example: '',
-    docsPath: 'src/lib/docs/floating-panel.md',
-    apiJson: apiJson['floating-panel'].api,
+    markdownPath: 'src/lib/docs/floating-panel.md',
+    apiDoc: getApiDoc('floating-panel'),
+    dataAttrDoc: getDataAttrDoc('floating-panel'),
   },
   {
     slug: 'hover-card',
     name: 'Hover Card',
-    example: '',
-    docsPath: 'src/lib/docs/hover-card.md',
-    apiJson: apiJson['hover-card'].api,
-    anatomyIcon: ANATOMY_ICONS['hover-card'],
+    markdownPath: 'src/lib/docs/hover-card.md',
+    apiDoc: getApiDoc('hover-card'),
+    dataAttrDoc: getDataAttrDoc('hover-card'),
+    get anatomyIcon() {
+      return getAnatomyIcon('hover-card');
+    },
   },
   {
     slug: 'menu',
     name: 'Menu',
-    example: '',
-    docsPath: 'src/lib/docs/menu.md',
-    apiJson: apiJson.menu.api,
-    anatomyIcon: ANATOMY_ICONS.menu,
+    markdownPath: 'src/lib/docs/menu.md',
+    apiDoc: getApiDoc('menu'),
+    dataAttrDoc: getDataAttrDoc('menu'),
+    accessibilityDoc: getAccessibilityDoc('menu'),
+    get anatomyIcon() {
+      return getAnatomyIcon('menu');
+    },
   },
   {
     slug: 'number-input',
     name: 'Number Input',
-    example: '',
-    docsPath: 'src/lib/docs/number-input.md',
-    apiJson: apiJson['number-input'].api,
-    anatomyIcon: ANATOMY_ICONS['number-input'],
+    apiDoc: getApiDoc('number-input'),
+    dataAttrDoc: getDataAttrDoc('number-input'),
+    accessibilityDoc: getAccessibilityDoc('number-input'),
+    get anatomyIcon() {
+      return getAnatomyIcon('number-input');
+    },
+
+    markdownPath: 'src/lib/docs/number-input.md',
   },
   {
     slug: 'pagination',
     name: 'Pagination',
-    example: '',
-    docsPath: 'src/lib/docs/pagination.md',
-    apiJson: apiJson.pagination.api,
-    anatomyIcon: ANATOMY_ICONS.pagination,
+    apiDoc: getApiDoc('pagination'),
+    dataAttrDoc: getDataAttrDoc('pagination'),
+    get anatomyIcon() {
+      return getAnatomyIcon('pagination');
+    },
+
+    markdownPath: 'src/lib/docs/pagination.md',
   },
   {
     slug: 'pin-input',
     name: 'Pin Input',
-    example: '',
-    docsPath: 'src/lib/docs/pin-input.md',
-    apiJson: apiJson['pin-input'].api,
-    anatomyIcon: ANATOMY_ICONS['pin-input'],
+    apiDoc: getApiDoc('pin-input'),
+    dataAttrDoc: getDataAttrDoc('pin-input'),
+    accessibilityDoc: getAccessibilityDoc('pin-input'),
+    get anatomyIcon() {
+      return getAnatomyIcon('pin-input');
+    },
+
+    markdownPath: 'src/lib/docs/pin-input.md',
   },
   {
     slug: 'popover',
     name: 'Popover',
-    example: '',
-    docsPath: 'src/lib/docs/popover.md',
-    apiJson: apiJson.popover.api,
-    anatomyIcon: ANATOMY_ICONS.popover,
+    apiDoc: getApiDoc('popover'),
+    dataAttrDoc: getDataAttrDoc('popover'),
+    accessibilityDoc: getAccessibilityDoc('popover'),
+    get anatomyIcon() {
+      return getAnatomyIcon('popover');
+    },
+
+    markdownPath: 'src/lib/docs/popover.md',
   },
   {
     slug: 'progress-linear',
     name: 'Progress - Linear',
-    example: '',
-    docsPath: 'src/lib/docs/progress-linear.md',
-    apiJson: apiJson.progress.api,
-    anatomyIcon: ANATOMY_ICONS['linear-progress'],
+    apiDoc: getApiDoc('progress'),
+    dataAttrDoc: getDataAttrDoc('progress'),
+    get anatomyIcon() {
+      return getAnatomyIcon('linear-progress');
+    },
+
+    markdownPath: 'src/lib/docs/progress-linear.md',
   },
   {
     slug: 'progress-circular',
     name: 'Progress - Circular',
-    example: '',
-    docsPath: 'src/lib/docs/progress-circular.md',
-    apiJson: apiJson.progress.api,
-    anatomyIcon: ANATOMY_ICONS['circular-progress'],
+    apiDoc: getApiDoc('progress'),
+    dataAttrDoc: getDataAttrDoc('progress'),
+    get anatomyIcon() {
+      return getAnatomyIcon('circular-progress');
+    },
+
+    markdownPath: 'src/lib/docs/progress-circular.md',
   },
   {
     slug: 'qr-code',
     name: 'QR Code',
-    example: '',
-    docsPath: 'src/lib/docs/qr-code.md',
-    apiJson: apiJson['qr-code'].api,
-    anatomyIcon: ANATOMY_ICONS['qr-code'],
+    apiDoc: getApiDoc('qr-code'),
+    dataAttrDoc: getDataAttrDoc('qr-code'),
+    get anatomyIcon() {
+      return getAnatomyIcon('qr-code');
+    },
+
+    markdownPath: 'src/lib/docs/qr-code.md',
   },
   {
     slug: 'radio-group',
     name: 'Radio Group',
-    example: '',
-    docsPath: 'src/lib/docs/radio-group.md',
-    apiJson: apiJson['radio-group'].api,
-    anatomyIcon: ANATOMY_ICONS['radio-group'],
+    apiDoc: getApiDoc('radio-group'),
+    dataAttrDoc: getDataAttrDoc('radio-group'),
+    accessibilityDoc: getAccessibilityDoc('radio-group'),
+    get anatomyIcon() {
+      return getAnatomyIcon('radio-group');
+    },
+
+    markdownPath: 'src/lib/docs/radio-group.md',
   },
   {
     slug: 'rating-group',
     name: 'Rating Group',
-    example: '',
-    docsPath: 'src/lib/docs/rating-group.md',
-    apiJson: apiJson['rating-group'].api,
-    anatomyIcon: ANATOMY_ICONS['rating-group'],
+    apiDoc: getApiDoc('rating-group'),
+    dataAttrDoc: getDataAttrDoc('rating-group'),
+    accessibilityDoc: getAccessibilityDoc('rating-group'),
+    get anatomyIcon() {
+      return getAnatomyIcon('rating-group');
+    },
+
+    markdownPath: 'src/lib/docs/rating-group.md',
   },
   {
     slug: 'segment-group',
     name: 'Segment Group',
-    example: '',
-    docsPath: 'src/lib/docs/segment-group.md',
-    apiJson: apiJson['radio-group'].api,
-    anatomyIcon: ANATOMY_ICONS['segment-group'],
+    apiDoc: getApiDoc('radio-group'),
+    dataAttrDoc: getDataAttrDoc('radio-group'),
+    accessibilityDoc: getAccessibilityDoc('radio-group'),
+    get anatomyIcon() {
+      return getAnatomyIcon('segment-group');
+    },
+
+    markdownPath: 'src/lib/docs/segment-group.md',
   },
   {
     slug: 'select',
     name: 'Select',
-    example: '',
-    docsPath: 'src/lib/docs/select.md',
-    apiJson: apiJson.select.api,
+    apiDoc: getApiDoc('select'),
+    dataAttrDoc: getDataAttrDoc('select'),
+    accessibilityDoc: getAccessibilityDoc('select'),
+    markdownPath: 'src/lib/docs/select.md',
   },
   {
     slug: 'signature-pad',
     name: 'Signature Pad',
-    example: '',
-    docsPath: 'src/lib/docs/signature-pad.md',
-    apiJson: apiJson['signature-pad'].api,
-    anatomyIcon: ANATOMY_ICONS['signature-pad'],
+    apiDoc: getApiDoc('signature-pad'),
+    dataAttrDoc: getDataAttrDoc('signature-pad'),
+    get anatomyIcon() {
+      return getAnatomyIcon('signature-pad');
+    },
+
+    markdownPath: 'src/lib/docs/signature-pad.md',
   },
   {
     slug: 'slider',
     name: 'Slider',
-    example: '',
-    docsPath: 'src/lib/docs/slider.md',
-    apiJson: apiJson.slider.api,
-    anatomyIcon: ANATOMY_ICONS.slider,
+    apiDoc: getApiDoc('slider'),
+    dataAttrDoc: getDataAttrDoc('slider'),
+    accessibilityDoc: getAccessibilityDoc('slider'),
+    get anatomyIcon() {
+      return getAnatomyIcon('slider');
+    },
+
+    markdownPath: 'src/lib/docs/slider.md',
   },
   {
     slug: 'splitter',
     name: 'Splitter',
-    example: '',
-    docsPath: 'src/lib/docs/splitter.md',
-    apiJson: apiJson.splitter.api,
-    anatomyIcon: ANATOMY_ICONS.splitter,
+    apiDoc: getApiDoc('splitter'),
+    dataAttrDoc: getDataAttrDoc('splitter'),
+    get anatomyIcon() {
+      return getAnatomyIcon('splitter');
+    },
+
+    markdownPath: 'src/lib/docs/splitter.md',
   },
   {
     slug: 'steps',
     name: 'Steps',
-    example: '',
-    docsPath: 'src/lib/docs/steps.md',
-    apiJson: apiJson.steps.api,
-    anatomyIcon: ANATOMY_ICONS.steps,
+    apiDoc: getApiDoc('steps'),
+    dataAttrDoc: getDataAttrDoc('steps'),
+    get anatomyIcon() {
+      return getAnatomyIcon('steps');
+    },
+
+    markdownPath: 'src/lib/docs/steps.md',
   },
   {
     slug: 'switch',
     name: 'Switch',
-    example: '',
-    docsPath: 'src/lib/docs/switch.md',
-    apiJson: apiJson.switch.api,
-    anatomyIcon: ANATOMY_ICONS.switch,
+    apiDoc: getApiDoc('switch'),
+    dataAttrDoc: getDataAttrDoc('switch'),
+    accessibilityDoc: getAccessibilityDoc('switch'),
+    get anatomyIcon() {
+      return getAnatomyIcon('switch');
+    },
+
+    markdownPath: 'src/lib/docs/switch.md',
   },
   {
     slug: 'tabs',
     name: 'Tabs',
-    example: '',
-    docsPath: 'src/lib/docs/tabs.md',
-    apiJson: apiJson.tabs.api,
-    anatomyIcon: ANATOMY_ICONS.tabs,
+    apiDoc: getApiDoc('tabs'),
+    dataAttrDoc: getDataAttrDoc('tabs'),
+    accessibilityDoc: getAccessibilityDoc('tabs'),
+    get anatomyIcon() {
+      return getAnatomyIcon('tabs');
+    },
+
+    markdownPath: 'src/lib/docs/tabs.md',
   },
   {
     slug: 'tags-input',
     name: 'Tags Input',
-    example: '',
-    docsPath: 'src/lib/docs/tags-input.md',
-    apiJson: apiJson['tags-input'].api,
-    anatomyIcon: ANATOMY_ICONS['tags-input'],
+    apiDoc: getApiDoc('tags-input'),
+    dataAttrDoc: getDataAttrDoc('tags-input'),
+    accessibilityDoc: getAccessibilityDoc('tags-input'),
+    get anatomyIcon() {
+      return getAnatomyIcon('tags-input');
+    },
+
+    markdownPath: 'src/lib/docs/tags-input.md',
   },
   {
     slug: 'time-picker',
     name: 'Time Picker',
-    example: '',
-    docsPath: 'src/lib/docs/time-picker.md',
-    apiJson: apiJson['time-picker'].api,
-    preview: true,
+    apiDoc: getApiDoc('time-picker'),
+    dataAttrDoc: getDataAttrDoc('time-picker'),
+    accessibilityDoc: getAccessibilityDoc('time-picker'),
+    markdownPath: 'src/lib/docs/time-picker.md',
+    isPreview: true,
   },
   {
     slug: 'timer',
     name: 'Timer',
-    example: '',
-    docsPath: 'src/lib/docs/timer.md',
-    apiJson: apiJson.timer.api,
+    apiDoc: getApiDoc('timer'),
+    dataAttrDoc: getDataAttrDoc('timer'),
+    markdownPath: 'src/lib/docs/timer.md',
   },
   {
     slug: 'toast',
     name: 'Toast',
-    example: '',
-    docsPath: 'src/lib/docs/toast.md',
-    apiJson: apiJson.toast.api,
-    anatomyIcon: ANATOMY_ICONS.toast,
+    apiDoc: getApiDoc('toast'),
+    dataAttrDoc: getDataAttrDoc('toast'),
+    get anatomyIcon() {
+      return getAnatomyIcon('toast');
+    },
+
+    markdownPath: 'src/lib/docs/toast.md',
   },
   {
     slug: 'toggle',
     name: 'Toggle',
-    example: '',
-    docsPath: 'src/lib/docs/toggle.md',
+    markdownPath: 'src/lib/docs/toggle.md',
   },
   {
     slug: 'toggle-group',
     name: 'Toggle Group',
-    example: '',
-    docsPath: 'src/lib/docs/toggle-group.md',
-    apiJson: apiJson['toggle-group'].api,
-    anatomyIcon: ANATOMY_ICONS['toggle-group'],
+    apiDoc: getApiDoc('toggle-group'),
+    dataAttrDoc: getDataAttrDoc('toggle-group'),
+    accessibilityDoc: getAccessibilityDoc('toggle-group'),
+    get anatomyIcon() {
+      return getAnatomyIcon('toggle-group');
+    },
+
+    markdownPath: 'src/lib/docs/toggle-group.md',
   },
   {
     slug: 'tooltip',
     name: 'Tooltip',
-    example: '',
-    docsPath: 'src/lib/docs/tooltip.md',
-    apiJson: apiJson.tooltip.api,
-    anatomyIcon: ANATOMY_ICONS.tooltip,
+    apiDoc: getApiDoc('tooltip'),
+    dataAttrDoc: getDataAttrDoc('tooltip'),
+    accessibilityDoc: getAccessibilityDoc('tooltip'),
+    get anatomyIcon() {
+      return getAnatomyIcon('tooltip');
+    },
+
+    markdownPath: 'src/lib/docs/tooltip.md',
   },
   {
     slug: 'tour',
     name: 'Tour',
-    example: '',
-    docsPath: 'src/lib/docs/tour.md',
-    apiJson: apiJson.tooltip.api,
-    anatomyIcon: ANATOMY_ICONS.tour,
-    preview: true,
+    apiDoc: getApiDoc('tour'),
+    dataAttrDoc: getDataAttrDoc('tour'),
+    accessibilityDoc: getAccessibilityDoc('tour'),
+    get anatomyIcon() {
+      return getAnatomyIcon('tour');
+    },
+
+    markdownPath: 'src/lib/docs/tour.md',
+    isPreview: true,
   },
   {
     slug: 'tree-view',
     name: 'Tree View',
-    example: '',
-    docsPath: 'src/lib/docs/tree-view.md',
-    apiJson: apiJson['tree-view'].api,
-    anatomyIcon: ANATOMY_ICONS['tree-view'],
-    preview: true,
+    apiDoc: getApiDoc('tree-view'),
+    dataAttrDoc: getDataAttrDoc('tree-view'),
+    accessibilityDoc: getAccessibilityDoc('tree-view'),
+    get anatomyIcon() {
+      return getAnatomyIcon('tree-view');
+    },
+
+    markdownPath: 'src/lib/docs/tree-view.md',
+    isPreview: true,
+  },
+];
+
+export const UTILITIES: Details[] = [
+  {
+    slug: 'environment-provider',
+    name: 'Environment Provider',
+    markdownPath: 'src/lib/docs/environment-provider.md',
+  },
+  {
+    slug: 'highlight',
+    name: 'Highlight',
+    markdownPath: 'src/lib/docs/highlight.md',
+  },
+  {
+    slug: 'locale-provider',
+    name: 'Locale Provider',
+    markdownPath: 'src/lib/docs/locale-provider.md',
+  },
+  {
+    slug: 'portal',
+    name: 'Portal',
+    markdownPath: 'src/lib/docs/portal.md',
+  },
+  {
+    slug: 'presence',
+    name: 'Presence',
+    apiDoc: getApiDoc('presence'),
+    dataAttrDoc: getDataAttrDoc('accordion'),
+    accessibilityDoc: getAccessibilityDoc('accordion'),
+    markdownPath: 'src/lib/docs/presence.md',
   },
 ];

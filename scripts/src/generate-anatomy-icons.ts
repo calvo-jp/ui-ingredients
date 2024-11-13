@@ -15,7 +15,7 @@ export async function generateAnatomyIcons() {
 
   const anatomy: Record<string, string> = {};
   const bg = createGradient('#818cf8').value;
-  const container = `<div style="background:${bg};">{content}</div>`;
+  const container = `<div style="background:${bg};border-radius:0.25em;overflow:hidden;">{content}</div>`;
   const workspaceRoot = path.resolve(path.dirname('../../'));
   const prettierConfig = await prettier.resolveConfig(workspaceRoot);
 
@@ -33,6 +33,7 @@ export async function generateAnatomyIcons() {
             width: '100%',
             height: 'auto',
           },
+          className: `anatomy ${component}-anatomy`,
         }),
       ),
     );
@@ -41,7 +42,20 @@ export async function generateAnatomyIcons() {
   });
 
   const content = await prettier.format(
-    `export const ANATOMY_ICONS = ${JSON.stringify(anatomy)};`,
+    `
+    export type AnatomyIconKey = ${Object.keys(anatomy)
+      .map((v) => `'${v}'`)
+      .join(' | ')};
+    
+    
+    export function getAnatomyIcon(key: AnatomyIconKey) {
+      const icon = icons[key];
+      if (!icon) throw new Error(\`No icon for \${key}\`);
+      return icon;
+    }
+
+    const icons = ${JSON.stringify(anatomy)};
+    `,
     {
       parser: 'typescript',
       singleQuote: true,

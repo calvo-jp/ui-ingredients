@@ -8,17 +8,14 @@ import {z} from 'zod';
 import type {PageServerLoad} from './$types';
 
 export const load: PageServerLoad = async ({params}) => {
-  const component = COMPONENTS.find((c) => c.slug === params.slug);
+  const details = COMPONENTS.find((c) => c.slug === params.slug);
 
-  if (!component) return error(404);
+  if (!details) return error(404);
 
-  const {slug, apiJson, anatomyIcon, docsPath, preview} = component;
-
-  const markdownPath = path.resolve(process.cwd(), docsPath);
+  const markdownPath = path.resolve(process.cwd(), details.markdownPath);
   const markdownContent = await fs.readFile(markdownPath, {encoding: 'utf-8'});
 
   const {html, meta} = await parseMarkdown(markdownContent);
-
   const {name, description} = z
     .object({
       name: z.string(),
@@ -27,12 +24,17 @@ export const load: PageServerLoad = async ({params}) => {
     .parse(meta);
 
   return {
-    slug,
     html,
-    name,
-    apiJson,
+    name: {
+      formal: details.name,
+      pascal: name,
+    },
+    slug: details.slug,
+    apiDoc: details.apiDoc,
+    dataAttrDoc: details.dataAttrDoc,
+    accessibilityDoc: details.accessibilityDoc,
+    anatomyIcon: details.anatomyIcon,
+    isPreview: details.isPreview,
     description,
-    anatomyIcon,
-    preview,
   };
 };
