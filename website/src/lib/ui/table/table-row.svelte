@@ -1,12 +1,9 @@
 <script lang="ts">
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {getTableStylesContext} from './table-context.svelte';
 
   let {children, ...props}: SvelteHTMLElements['tr'] = $props();
-
-  let recipe = getTableStylesContext();
 </script>
 
-<tr {...props} class={recipe.row(props)}>
+<tr data-scope="table" data-part="row" {...props}>
   {@render children?.()}
 </tr>

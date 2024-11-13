@@ -15,6 +15,9 @@
     'prose-neutral',
     'prose-invert',
     'min-w-full',
+    'prose-code:after:[content:""]',
+    'prose-code:before:[content:""]',
+    '[&_div_>_table]:m-0',
     '[&_.shiki]:dark:!bg-[var(--shiki-dark-bg)]',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
   )}

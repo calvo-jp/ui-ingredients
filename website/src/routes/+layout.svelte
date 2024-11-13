@@ -2,6 +2,7 @@
   import '../app.css';
 
   import Navbar from './navbar.svelte';
+  import PageControl from './page-control.svelte';
   import Sidebar from './sidebar.svelte';
   import Toc from './toc.svelte';
 
@@ -15,10 +16,14 @@
 >
   <Sidebar />
 
-  <section class="shrink-0 grow p-20">
-    <div class="mx-auto max-w-screen-md">
+  <section
+    class="flex min-h-full shrink-0 grow flex-col items-start px-20 pt-20"
+  >
+    <div class="mx-auto w-full max-w-screen-md grow">
       {@render children()}
     </div>
+
+    <PageControl />
   </section>
 
   <Toc />

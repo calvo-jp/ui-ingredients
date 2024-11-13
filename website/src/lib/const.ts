@@ -8,6 +8,10 @@ import {
 } from '@zag-js/docs';
 import {getAnatomyIcon} from './anatomy-icons';
 
+interface ApiDocEntry {
+  [part: string]: ApiDoc;
+}
+
 interface Details {
   slug: string;
   /**
@@ -22,13 +26,13 @@ interface Details {
    * @format html
    */
   anatomyIcon?: string;
-  apiDoc?: Record<string, ApiDoc>;
+  apiDoc?: ApiDocEntry;
   dataAttrDoc?: DataAttrEntry;
   accessibilityDoc?: AccessibilityDoc;
   isPreview?: boolean;
 }
 
-export const COMPONENTS: Details[] = [
+export const COMPONENTS = [
   {
     slug: 'accordion',
     name: 'Accordion',
@@ -57,7 +61,9 @@ export const COMPONENTS: Details[] = [
     slug: 'alert-dialog',
     name: 'Alert Dialog',
     get apiDoc() {
-      return {Root: getApiDoc('dialog')};
+      return {
+        Root: getApiDoc('dialog'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('dialog');
@@ -71,7 +77,9 @@ export const COMPONENTS: Details[] = [
     slug: 'avatar',
     name: 'Avatar',
     get apiDoc() {
-      return {Root: getApiDoc('avatar')};
+      return {
+        Root: getApiDoc('avatar'),
+      };
     },
 
     get dataAttrDoc() {
@@ -92,7 +100,9 @@ export const COMPONENTS: Details[] = [
     name: 'Carousel',
     markdownPath: 'src/lib/docs/carousel.md',
     get apiDoc() {
-      return {Root: getApiDoc('carousel')};
+      return {
+        Root: getApiDoc('carousel'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('carousel');
@@ -107,7 +117,9 @@ export const COMPONENTS: Details[] = [
     name: 'Checkbox',
     markdownPath: 'src/lib/docs/checkbox.md',
     get apiDoc() {
-      return {Root: getApiDoc('checkbox')};
+      return {
+        Root: getApiDoc('checkbox'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('checkbox');
@@ -124,7 +136,9 @@ export const COMPONENTS: Details[] = [
     name: 'Clipboard',
     markdownPath: 'src/lib/docs/clipboard.md',
     get apiDoc() {
-      return {Root: getApiDoc('clipboard')};
+      return {
+        Root: getApiDoc('clipboard'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('clipboard');
@@ -138,7 +152,9 @@ export const COMPONENTS: Details[] = [
     name: 'Collapsible',
     markdownPath: 'src/lib/docs/collapsible.md',
     get apiDoc() {
-      return {Root: getApiDoc('collapsible')};
+      return {
+        Root: getApiDoc('collapsible'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('collapsible');
@@ -152,7 +168,9 @@ export const COMPONENTS: Details[] = [
     name: 'Color Picker',
     markdownPath: 'src/lib/docs/color-picker.md',
     get apiDoc() {
-      return {Root: getApiDoc('color-picker')};
+      return {
+        Root: getApiDoc('color-picker'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('color-picker');
@@ -169,7 +187,9 @@ export const COMPONENTS: Details[] = [
     name: 'Combobox',
     markdownPath: 'src/lib/docs/combobox.md',
     get apiDoc() {
-      return {Root: getApiDoc('combobox')};
+      return {
+        Root: getApiDoc('combobox'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('combobox');
@@ -186,7 +206,9 @@ export const COMPONENTS: Details[] = [
     name: 'Date Picker',
     markdownPath: 'src/lib/docs/date-picker.md',
     get apiDoc() {
-      return {Root: getApiDoc('date-picker')};
+      return {
+        Root: getApiDoc('date-picker'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('date-picker');
@@ -203,7 +225,9 @@ export const COMPONENTS: Details[] = [
     name: 'Dialog',
     markdownPath: 'src/lib/docs/dialog.md',
     get apiDoc() {
-      return {Root: getApiDoc('dialog')};
+      return {
+        Root: getApiDoc('dialog'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('dialog');
@@ -220,7 +244,9 @@ export const COMPONENTS: Details[] = [
     name: 'Drawer',
     markdownPath: 'src/lib/docs/drawer.md',
     get apiDoc() {
-      return {Root: getApiDoc('dialog')};
+      return {
+        Root: getApiDoc('dialog'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('dialog');
@@ -234,7 +260,9 @@ export const COMPONENTS: Details[] = [
     name: 'Editable',
     markdownPath: 'src/lib/docs/editable.md',
     get apiDoc() {
-      return {Root: getApiDoc('editable')};
+      return {
+        Root: getApiDoc('editable'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('editable');
@@ -259,7 +287,9 @@ export const COMPONENTS: Details[] = [
     name: 'File Upload',
     markdownPath: 'src/lib/docs/file-upload.md',
     get apiDoc() {
-      return {Root: getApiDoc('file-upload')};
+      return {
+        Root: getApiDoc('file-upload'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('file-upload');
@@ -273,7 +303,9 @@ export const COMPONENTS: Details[] = [
     name: 'Floating Panel',
     markdownPath: 'src/lib/docs/floating-panel.md',
     get apiDoc() {
-      return {Root: getApiDoc('floating-panel')};
+      return {
+        Root: getApiDoc('floating-panel'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('floating-panel');
@@ -284,7 +316,9 @@ export const COMPONENTS: Details[] = [
     name: 'Hover Card',
     markdownPath: 'src/lib/docs/hover-card.md',
     get apiDoc() {
-      return {Root: getApiDoc('hover-card')};
+      return {
+        Root: getApiDoc('hover-card'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('hover-card');
@@ -298,7 +332,9 @@ export const COMPONENTS: Details[] = [
     name: 'Menu',
     markdownPath: 'src/lib/docs/menu.md',
     get apiDoc() {
-      return {Root: getApiDoc('menu')};
+      return {
+        Root: getApiDoc('menu'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('menu');
@@ -314,7 +350,9 @@ export const COMPONENTS: Details[] = [
     slug: 'number-input',
     name: 'Number Input',
     get apiDoc() {
-      return {Root: getApiDoc('number-input')};
+      return {
+        Root: getApiDoc('number-input'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('number-input');
@@ -331,7 +369,9 @@ export const COMPONENTS: Details[] = [
     slug: 'pagination',
     name: 'Pagination',
     get apiDoc() {
-      return {Root: getApiDoc('pagination')};
+      return {
+        Root: getApiDoc('pagination'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('pagination');
@@ -345,7 +385,9 @@ export const COMPONENTS: Details[] = [
     slug: 'pin-input',
     name: 'Pin Input',
     get apiDoc() {
-      return {Root: getApiDoc('pin-input')};
+      return {
+        Root: getApiDoc('pin-input'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('pin-input');
@@ -362,7 +404,9 @@ export const COMPONENTS: Details[] = [
     slug: 'popover',
     name: 'Popover',
     get apiDoc() {
-      return {Root: getApiDoc('popover')};
+      return {
+        Root: getApiDoc('popover'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('popover');
@@ -379,7 +423,9 @@ export const COMPONENTS: Details[] = [
     slug: 'progress-linear',
     name: 'Progress - Linear',
     get apiDoc() {
-      return {Root: getApiDoc('progress')};
+      return {
+        Root: getApiDoc('progress'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('progress');
@@ -393,7 +439,9 @@ export const COMPONENTS: Details[] = [
     slug: 'progress-circular',
     name: 'Progress - Circular',
     get apiDoc() {
-      return {Root: getApiDoc('progress')};
+      return {
+        Root: getApiDoc('progress'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('progress');
@@ -407,7 +455,9 @@ export const COMPONENTS: Details[] = [
     slug: 'qr-code',
     name: 'QR Code',
     get apiDoc() {
-      return {Root: getApiDoc('qr-code')};
+      return {
+        Root: getApiDoc('qr-code'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('qr-code');
@@ -421,7 +471,9 @@ export const COMPONENTS: Details[] = [
     slug: 'radio-group',
     name: 'Radio Group',
     get apiDoc() {
-      return {Root: getApiDoc('radio-group')};
+      return {
+        Root: getApiDoc('radio-group'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('radio-group');
@@ -438,7 +490,9 @@ export const COMPONENTS: Details[] = [
     slug: 'rating-group',
     name: 'Rating Group',
     get apiDoc() {
-      return {Root: getApiDoc('rating-group')};
+      return {
+        Root: getApiDoc('rating-group'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('rating-group');
@@ -455,7 +509,9 @@ export const COMPONENTS: Details[] = [
     slug: 'segment-group',
     name: 'Segment Group',
     get apiDoc() {
-      return {Root: getApiDoc('radio-group')};
+      return {
+        Root: getApiDoc('radio-group'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('radio-group');
@@ -472,7 +528,9 @@ export const COMPONENTS: Details[] = [
     slug: 'select',
     name: 'Select',
     get apiDoc() {
-      return {Root: getApiDoc('select')};
+      return {
+        Root: getApiDoc('select'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('select');
@@ -486,7 +544,9 @@ export const COMPONENTS: Details[] = [
     slug: 'signature-pad',
     name: 'Signature Pad',
     get apiDoc() {
-      return {Root: getApiDoc('signature-pad')};
+      return {
+        Root: getApiDoc('signature-pad'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('signature-pad');
@@ -500,7 +560,9 @@ export const COMPONENTS: Details[] = [
     slug: 'slider',
     name: 'Slider',
     get apiDoc() {
-      return {Root: getApiDoc('slider')};
+      return {
+        Root: getApiDoc('slider'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('slider');
@@ -517,7 +579,9 @@ export const COMPONENTS: Details[] = [
     slug: 'splitter',
     name: 'Splitter',
     get apiDoc() {
-      return {Root: getApiDoc('splitter')};
+      return {
+        Root: getApiDoc('splitter'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('splitter');
@@ -531,7 +595,9 @@ export const COMPONENTS: Details[] = [
     slug: 'steps',
     name: 'Steps',
     get apiDoc() {
-      return {Root: getApiDoc('steps')};
+      return {
+        Root: getApiDoc('steps'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('steps');
@@ -545,7 +611,9 @@ export const COMPONENTS: Details[] = [
     slug: 'switch',
     name: 'Switch',
     get apiDoc() {
-      return {Root: getApiDoc('switch')};
+      return {
+        Root: getApiDoc('switch'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('switch');
@@ -562,7 +630,9 @@ export const COMPONENTS: Details[] = [
     slug: 'tabs',
     name: 'Tabs',
     get apiDoc() {
-      return {Root: getApiDoc('tabs')};
+      return {
+        Root: getApiDoc('tabs'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('tabs');
@@ -579,7 +649,9 @@ export const COMPONENTS: Details[] = [
     slug: 'tags-input',
     name: 'Tags Input',
     get apiDoc() {
-      return {Root: getApiDoc('tags-input')};
+      return {
+        Root: getApiDoc('tags-input'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('tags-input');
@@ -596,7 +668,9 @@ export const COMPONENTS: Details[] = [
     slug: 'time-picker',
     name: 'Time Picker',
     get apiDoc() {
-      return {Root: getApiDoc('time-picker')};
+      return {
+        Root: getApiDoc('time-picker'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('time-picker');
@@ -611,7 +685,9 @@ export const COMPONENTS: Details[] = [
     slug: 'timer',
     name: 'Timer',
     get apiDoc() {
-      return {Root: getApiDoc('timer')};
+      return {
+        Root: getApiDoc('timer'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('timer');
@@ -622,7 +698,9 @@ export const COMPONENTS: Details[] = [
     slug: 'toast',
     name: 'Toast',
     get apiDoc() {
-      return {Root: getApiDoc('toast')};
+      return {
+        Root: getApiDoc('toast'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('toast');
@@ -641,7 +719,9 @@ export const COMPONENTS: Details[] = [
     slug: 'toggle-group',
     name: 'Toggle Group',
     get apiDoc() {
-      return {Root: getApiDoc('toggle-group')};
+      return {
+        Root: getApiDoc('toggle-group'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('toggle-group');
@@ -659,7 +739,9 @@ export const COMPONENTS: Details[] = [
     slug: 'tooltip',
     name: 'Tooltip',
     get apiDoc() {
-      return {Root: getApiDoc('tooltip')};
+      return {
+        Root: getApiDoc('tooltip'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('tooltip');
@@ -676,7 +758,9 @@ export const COMPONENTS: Details[] = [
     slug: 'tour',
     name: 'Tour',
     get apiDoc() {
-      return {Root: getApiDoc('tour')};
+      return {
+        Root: getApiDoc('tour'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('tour');
@@ -694,7 +778,9 @@ export const COMPONENTS: Details[] = [
     slug: 'tree-view',
     name: 'Tree View',
     get apiDoc() {
-      return {Root: getApiDoc('tree-view')};
+      return {
+        Root: getApiDoc('tree-view'),
+      };
     },
     get dataAttrDoc() {
       return getDataAttrDoc('tree-view');
@@ -708,9 +794,9 @@ export const COMPONENTS: Details[] = [
     markdownPath: 'src/lib/docs/tree-view.md',
     isPreview: true,
   },
-];
+] satisfies Details[];
 
-export const UTILITIES: Details[] = [
+export const UTILITIES = [
   {
     slug: 'environment-provider',
     name: 'Environment Provider',
@@ -734,12 +820,44 @@ export const UTILITIES: Details[] = [
   {
     slug: 'presence',
     name: 'Presence',
-    get apiDoc() {
-      return {Root: getApiDoc('presence')};
-    },
-    get dataAttrDoc() {
-      return getDataAttrDoc('presence');
-    },
     markdownPath: 'src/lib/docs/presence.md',
+  },
+] satisfies Details[];
+
+export const APP_LINKS = [
+  {
+    name: 'Overview',
+    links: [
+      {
+        name: 'Introduction',
+        href: '/',
+      },
+      {
+        name: 'Getting Started',
+        href: '/getting-started',
+      },
+      {
+        name: 'Styling',
+        href: '/styling',
+      },
+      {
+        name: 'asChild',
+        href: '/aschild',
+      },
+    ],
+  },
+  {
+    name: 'Components',
+    links: COMPONENTS.map((item) => ({
+      name: item.name,
+      href: `/components/${item.slug}`,
+    })),
+  },
+  {
+    name: 'Utilities',
+    links: UTILITIES.map((item) => ({
+      name: item.name,
+      href: `/utilities/${item.slug}`,
+    })),
   },
 ];

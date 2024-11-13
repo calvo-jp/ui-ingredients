@@ -1,12 +1,9 @@
 <script lang="ts">
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {getTableStylesContext} from './table-context.svelte';
 
   let {children, ...props}: SvelteHTMLElements['tfoot'] = $props();
-
-  let recipe = getTableStylesContext();
 </script>
 
-<tfoot {...props} class={recipe.footer(props)}>
+<tfoot data-scope="table" data-part="footer" {...props}>
   {@render children?.()}
 </tfoot>

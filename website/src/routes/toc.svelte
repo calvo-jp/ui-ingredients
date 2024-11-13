@@ -19,7 +19,7 @@
     {#each items as item}
       <SegmentGroup.Item
         value={item.value}
-        class="relative text-neutral-400 transition-colors duration-200 data-checked:text-inherit"
+        class="relative cursor-pointer text-neutral-400 transition-colors duration-200 hover:text-neutral-300 data-checked:text-neutral-200"
       >
         <SegmentGroup.ItemText class="px-5">{item.label}</SegmentGroup.ItemText>
         <SegmentGroup.ItemControl />
