@@ -28,7 +28,7 @@ export function createSegmentGroup(
     ...props,
   }));
 
-  const [state, send] = useMachine(segmentGroup.machine(context));
+  const [state, send] = useMachine(segmentGroup.machine(context), {context});
 
   return reflect(() => {
     const o = segmentGroup.connect(state, send, normalizeProps);
