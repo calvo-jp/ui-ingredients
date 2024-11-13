@@ -19,7 +19,7 @@
   <section
     class="flex min-h-full shrink-0 grow flex-col items-start px-20 pt-20"
   >
-    <div class="mx-auto w-full max-w-screen-md grow">
+    <div id="content" class="mx-auto w-full max-w-screen-md grow">
       {@render children()}
     </div>
 

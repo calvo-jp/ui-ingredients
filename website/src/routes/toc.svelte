@@ -1,11 +1,47 @@
 <script lang="ts">
+  import {page} from '$app/stores';
+  import {tick} from 'svelte';
   import {SegmentGroup} from 'ui-ingredients';
 
-  let items = [
-    {value: '1', label: 'Page 1'},
-    {value: '2', label: 'Page 2'},
-    {value: '3', label: 'Page 3'},
-  ];
+  interface Item {
+    value: string;
+    label: string;
+    target: HTMLHeadingElement;
+  }
+
+  let items: Item[] = $state([]);
+  let value: string | undefined = $state();
+
+  async function getItems() {
+    await tick();
+
+    const main = document.getElementById('content');
+
+    if (!main) return;
+
+    const headings = main.querySelectorAll<HTMLHeadingElement>('h1,h2');
+    const newItems: Item[] = [];
+
+    headings.forEach((target, index) => {
+      const label = target.innerText;
+      const value = index.toString();
+
+      newItems.push({
+        target,
+        value,
+        label,
+      });
+    });
+
+    items = newItems;
+    value = items.length > 0 ? newItems[0].value : undefined;
+  }
+
+  $effect.pre(() => {
+    $page.url.pathname;
+
+    getItems();
+  });
 </script>
 
 <div class="w-[18rem] shrink-0"></div>
@@ -15,7 +51,14 @@
 >
   <h2 class="mb-2 px-5 font-semibold">On this page</h2>
 
-  <SegmentGroup.Root value="1" orientation="vertical" class="relative w-fit">
+  <SegmentGroup.Root
+    {value}
+    onValueChange={(detail) => {
+      value = detail.value;
+    }}
+    orientation="vertical"
+    class="relative w-fit"
+  >
     {#each items as item}
       <SegmentGroup.Item
         value={item.value}

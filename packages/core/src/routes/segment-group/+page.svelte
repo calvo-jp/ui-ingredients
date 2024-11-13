@@ -12,17 +12,28 @@
       value: 'Item 3',
     },
   ];
+
+  let value: string | undefined = $state();
+
+  $effect(() => {
+    value = items[0].value;
+  });
+
+  $inspect(value);
 </script>
 
 <SegmentGroup.Root
-  value={items[0].value}
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
   orientation="horizontal"
   class="relative flex w-fit"
 >
   {#each items as item}
     <SegmentGroup.Item
       value={item.value}
-      class="data-checked:text-white relative z-10 px-2.5 py-1 font-medium transition-colors duration-200"
+      class="relative z-10 px-2.5 py-1 font-medium transition-colors duration-200 data-checked:text-white"
     >
       <SegmentGroup.ItemText>{item.value}</SegmentGroup.ItemText>
       <SegmentGroup.ItemControl />
