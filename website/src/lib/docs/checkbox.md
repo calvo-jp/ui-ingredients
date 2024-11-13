@@ -3,6 +3,8 @@ name: Checkbox
 description: An interactive component for selecting one or multiple options in a list.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Checkbox} from 'ui-ingredients';

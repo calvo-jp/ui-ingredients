@@ -3,6 +3,8 @@ name: Toast
 description: A component for displaying brief, non-intrusive notifications or messages.
 ---
 
+## Usage
+
 - Create a `toaster` instance
 
 ```ts

@@ -3,6 +3,8 @@ name: ColorPicker
 description: A component for selecting and customizing colors.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {ColorPicker, type Color} from 'ui-ingredients';

@@ -3,6 +3,8 @@ name: Toggle
 description: A component for switching between two states, such as on/off.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Toggle} from 'ui-ingredients';

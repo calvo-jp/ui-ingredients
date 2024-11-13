@@ -3,6 +3,8 @@ name: Select
 description: A component for choosing an option from a dropdown list.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Select} from 'ui-ingredients';

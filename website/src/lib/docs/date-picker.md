@@ -3,7 +3,9 @@ name: DatePicker
 description: A component for selecting a date from a calendar interface.
 ---
 
-### Single
+## Usage
+
+### Single Date Picker
 
 ```svelte
 <script lang="ts">
@@ -137,7 +139,7 @@ description: A component for selecting a date from a calendar interface.
 </DatePicker.Root>
 ```
 
-### Range
+### Range Date Picker
 
 ```svelte
 <script lang="ts">

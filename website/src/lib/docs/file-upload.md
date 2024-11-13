@@ -3,6 +3,8 @@ name: FileUpload
 description: A component for selecting and uploading files from the user's device.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {FileUpload} from 'ui-ingredients';

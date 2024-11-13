@@ -3,6 +3,8 @@ name: Tabs
 description: A component for organizing and switching between multiple sections of content within a single view.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Tabs} from 'ui-ingredients';

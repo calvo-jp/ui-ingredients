@@ -3,6 +3,8 @@ name: Clipboard
 description: A component for copying text or content to the user's clipboard.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Clipboard} from 'ui-ingredients';

@@ -3,6 +3,8 @@ name: Alert
 description: A component for displaying important messages or notifications.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Alert} from 'ui-ingredients';

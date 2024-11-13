@@ -3,6 +3,8 @@ name: SignaturePad
 description: A component for capturing and displaying handwritten signatures.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {SignaturePad} from 'ui-ingredients';

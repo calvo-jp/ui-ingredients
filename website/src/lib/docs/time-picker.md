@@ -3,6 +3,8 @@ name: TimePicker
 description: A component for selecting a time from a dropdown or input interface.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {TimePicker, type Time} from 'ui-ingredients';

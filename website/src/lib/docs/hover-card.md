@@ -3,6 +3,8 @@ name: HoverCard
 description: A component that displays additional information when hovering over an element.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {HoverCard, Portal} from 'ui-ingredients';

@@ -3,6 +3,8 @@ name: Drawer
 description: A component that slides in from the edge of the screen to display additional content or navigation options.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Drawer} from 'ui-ingredients';

@@ -3,6 +3,8 @@ name: NumberInput
 description: A component for entering numeric values
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {NumberInput} from 'ui-ingredients';

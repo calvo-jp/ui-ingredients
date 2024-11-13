@@ -3,6 +3,8 @@ name: Switch
 description: A component for toggling between two states, such as on/off or enabled/disabled.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Switch} from 'ui-ingredients';

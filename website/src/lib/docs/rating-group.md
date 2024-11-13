@@ -3,6 +3,8 @@ name: RatingGroup
 description: A component for selecting a rating value, typically represented by stars or other symbols.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {RatingGroup} from 'ui-ingredients';

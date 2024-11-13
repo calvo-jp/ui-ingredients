@@ -3,6 +3,8 @@ name: Editable
 description: A component that allows users to modify its content.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Editable} from 'ui-ingredients';

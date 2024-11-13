@@ -3,6 +3,8 @@ name: Tour
 description: A component for guiding users through a series of steps or features in an application or website.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Tour, type TourStepDetails} from 'ui-ingredients';

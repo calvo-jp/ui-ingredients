@@ -3,6 +3,8 @@ name: Splitter
 description: A component for resizing and adjusting the size of adjacent panes or sections.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Splitter} from 'ui-ingredients';

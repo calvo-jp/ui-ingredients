@@ -3,6 +3,8 @@ name: RadioGroup
 description: A component for selecting one option from a set of mutually exclusive choices.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {RadioGroup} from 'ui-ingredients';

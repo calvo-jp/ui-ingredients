@@ -3,6 +3,8 @@ name: Popover
 description: A component that displays additional content or information in a small overlay when triggered.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Popover} from 'ui-ingredients';

@@ -3,6 +3,8 @@ name: Avatar
 description: A visual component for displaying a user’s profile image or initials.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Avatar} from 'ui-ingredients';

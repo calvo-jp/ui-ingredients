@@ -3,6 +3,8 @@ name: Tooltip
 description: A component for displaying brief, contextual information when hovering over or focusing on an element.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Portal, Tooltip} from 'ui-ingredients';

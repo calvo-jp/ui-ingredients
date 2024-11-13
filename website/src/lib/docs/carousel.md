@@ -3,6 +3,8 @@ name: Carousel
 description: A rotating component for cycling through images or content slides.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Carousel} from 'ui-ingredients';

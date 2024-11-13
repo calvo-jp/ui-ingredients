@@ -3,6 +3,8 @@ name: PinInput
 description: A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {PinInput} from 'ui-ingredients';

@@ -3,6 +3,8 @@ name: Menu
 description: A component for navigating through a list of options or actions.
 ---
 
+## Usage
+
 ### Basic Menu
 
 ```svelte

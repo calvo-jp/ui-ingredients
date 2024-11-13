@@ -3,6 +3,8 @@ name: Slider
 description: A component for adjusting values or selecting ranges through a draggable handle.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Slider} from 'ui-ingredients';

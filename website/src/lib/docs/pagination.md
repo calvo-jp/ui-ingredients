@@ -3,6 +3,8 @@ name: Pagination
 description: A component for navigating through multiple pages of content.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Pagination} from 'ui-ingredients';
