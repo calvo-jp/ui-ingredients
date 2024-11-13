@@ -4,6 +4,7 @@ import {error} from '@sveltejs/kit';
 import fs from 'fs/promises';
 import path from 'path';
 import process from 'process';
+import {z} from 'zod';
 import type {PageServerLoad} from './$types';
 
 export const load: PageServerLoad = async ({params}) => {
@@ -13,12 +14,23 @@ export const load: PageServerLoad = async ({params}) => {
 
   const location = path.resolve(process.cwd(), component.docsPath);
   const content = await fs.readFile(location, {encoding: 'utf-8'});
-  const html = await parseMarkdown(content);
+  const {html, data} = await parseMarkdown(content);
+
+  console.log(data);
+
+  const {name, description} = z
+    .object({
+      name: z.string(),
+      description: z.string(),
+    })
+    .parse(data);
 
   return {
-    html,
     slug: component.slug,
+    html,
+    name,
     icon: component.anatomyIcon,
+    description,
     apiJson: component.apiJson,
   };
 };

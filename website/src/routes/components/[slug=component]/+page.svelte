@@ -1,34 +1,51 @@
 <script lang="ts">
+  import {Table} from '$lib/ui/index.js';
+  import Prose from '$lib/ui/prose.svelte';
+
   let {data} = $props();
 
   let api = $derived(Object.entries(data.apiJson ?? {}));
-  let html = $derived(data.html);
-  let icon = $derived(data.icon);
 </script>
 
-{#if icon}
-  <div class="mb-12 overflow-hidden rounded-lg">
-    {@html icon}
+<svelte:head>
+  <title>{data.name} | UI Ingredients</title>
+</svelte:head>
+
+<h1 class="text-4xl font-bold">{data.name}</h1>
+<p class="mb-12 mt-1 text-lg text-neutral-300">{data.description}</p>
+
+<!-- TODO: Demo -->
+
+{#if data.icon}
+  <h2 class="text-2xl font-bold">Anatomy</h2>
+  <div class="mb-12 mt-5 overflow-hidden rounded-lg">
+    {@html data.icon}
   </div>
 {/if}
 
-<div class="prose prose-neutral prose-invert min-w-full">
-  {@html html}
-</div>
+<Prose>
+  {@html data.html}
+</Prose>
 
 {#if api.length > 0}
-  <div class="mt-12">
-    {#each api as [k, o]}
-      <div>
-        <span>
-          {k}
-        </span>
-        <span>{o.type}</span>
-      </div>
+  <h2 class="mt-12 text-2xl font-bold">API Reference</h2>
 
-      <div>
-        {o.description}
-      </div>
-    {/each}
-  </div>
+  <Table.Root class="mt-5">
+    <Table.Header>
+      <Table.Row>
+        <Table.Heading>Property</Table.Heading>
+        <Table.Heading>Type</Table.Heading>
+        <Table.Heading>Description</Table.Heading>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      {#each api as [k, o]}
+        <Table.Row>
+          <Table.Cell>{k}</Table.Cell>
+          <Table.Cell>{o.type}</Table.Cell>
+          <Table.Cell>{o.description}</Table.Cell>
+        </Table.Row>
+      {/each}
+    </Table.Body>
+  </Table.Root>
 {/if}

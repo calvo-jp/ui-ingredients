@@ -1,5 +1,5 @@
 ---
-title: AlertDialog
+name: AlertDialog
 description: A component for displaying a modal dialog that requires user attention or confirmation.
 ---
 

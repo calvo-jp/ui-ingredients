@@ -1,5 +1,5 @@
 ---
-title: Alert
+name: Alert
 description: A component for displaying important messages or notifications.
 ---
 

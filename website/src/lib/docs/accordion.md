@@ -3,6 +3,8 @@ name: Accordion
 description: A toggle component for expanding and collapsing sections of content.
 ---
 
+## Usage
+
 ```svelte
 <script lang="ts">
   import {Accordion} from 'ui-ingredients';
