@@ -10,12 +10,12 @@ import {unified, type Plugin} from 'unified';
 import {matter} from 'vfile-matter';
 import {createLruCache} from './create-lru-cache';
 
-interface CacheValue {
-  data: unknown;
+interface ParsedMarkdown {
   html: string;
+  meta: unknown;
 }
 
-const cache = createLruCache<string, CacheValue>(64);
+const cache = createLruCache<string, ParsedMarkdown>(64);
 
 const frontmatterParser: Plugin = () => {
   return function (node, file) {
@@ -26,9 +26,11 @@ const frontmatterParser: Plugin = () => {
 };
 
 export async function parseMarkdown(doc: string) {
-  const cached = cache.get(doc);
+  if (!dev) {
+    const cached = cache.get(doc);
 
-  if (cached && !dev) return cached;
+    if (cached) return cached;
+  }
 
   const parser = unified()
     .use(remarkParse)
@@ -46,16 +48,15 @@ export async function parseMarkdown(doc: string) {
     .use(rehypeStringify);
 
   const file = await parser.process(doc);
-  const data = file.data.matter;
+  const meta = file.data.matter;
   const html = file.toString();
 
-  cache.set(doc, {
+  const parsed: ParsedMarkdown = {
     html,
-    data,
-  });
-
-  return {
-    data,
-    html,
+    meta,
   };
+
+  if (!dev) cache.set(doc, parsed);
+
+  return parsed;
 }

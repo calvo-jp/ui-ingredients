@@ -15,7 +15,7 @@
 >
   <Sidebar />
 
-  <section class="shrink-0 grow p-24">
+  <section class="shrink-0 grow p-20">
     <div class="mx-auto max-w-screen-md">
       {@render children()}
     </div>

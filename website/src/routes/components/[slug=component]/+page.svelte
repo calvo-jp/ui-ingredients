@@ -12,14 +12,16 @@
 </svelte:head>
 
 <h1 class="text-4xl font-bold">{data.name}</h1>
-<p class="mb-12 mt-1 text-lg text-neutral-300">{data.description}</p>
+<p class="mb-12 mt-4 text-lg leading-normal text-neutral-300">
+  {data.description}
+</p>
 
 <!-- TODO: Demo -->
 
-{#if data.icon}
+{#if data.anatomyIcon}
   <h2 class="text-2xl font-bold">Anatomy</h2>
   <div class="mb-12 mt-5 overflow-hidden rounded-lg">
-    {@html data.icon}
+    {@html data.anatomyIcon}
   </div>
 {/if}
 
@@ -41,9 +43,23 @@
     <Table.Body>
       {#each api as [k, o]}
         <Table.Row>
-          <Table.Cell>{k}</Table.Cell>
-          <Table.Cell>{o.type}</Table.Cell>
-          <Table.Cell>{o.description}</Table.Cell>
+          <Table.Cell>
+            <span
+              class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
+            >
+              {k}
+            </span>
+          </Table.Cell>
+          <Table.Cell>
+            <span
+              class="inline-block rounded-sm bg-neutral-800/50 px-1 font-mono"
+            >
+              {o.type}
+            </span>
+          </Table.Cell>
+          <Table.Cell>
+            {o.description}
+          </Table.Cell>
         </Table.Row>
       {/each}
     </Table.Body>

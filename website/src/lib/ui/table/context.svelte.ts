@@ -1,4 +1,5 @@
 import {createContext} from 'ui-ingredients';
+import type {tableRecipe} from './recipe';
 
 export const [getTableStylesContext, setTableStylesContext] =
-  createContext('TableRecipe');
+  createContext<ReturnType<typeof tableRecipe>>('TableRecipe');

@@ -12,25 +12,27 @@ export const load: PageServerLoad = async ({params}) => {
 
   if (!component) return error(404);
 
-  const location = path.resolve(process.cwd(), component.docsPath);
-  const content = await fs.readFile(location, {encoding: 'utf-8'});
-  const {html, data} = await parseMarkdown(content);
+  const {slug, apiJson, anatomyIcon, docsPath, preview} = component;
 
-  console.log(data);
+  const markdownPath = path.resolve(process.cwd(), docsPath);
+  const markdownContent = await fs.readFile(markdownPath, {encoding: 'utf-8'});
+
+  const {html, meta} = await parseMarkdown(markdownContent);
 
   const {name, description} = z
     .object({
       name: z.string(),
       description: z.string(),
     })
-    .parse(data);
+    .parse(meta);
 
   return {
-    slug: component.slug,
+    slug,
     html,
     name,
-    icon: component.anatomyIcon,
+    apiJson,
     description,
-    apiJson: component.apiJson,
+    anatomyIcon,
+    preview,
   };
 };
