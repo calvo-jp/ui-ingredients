@@ -17,5 +17,5 @@ export type {SelectProps} from './select-root.svelte';
 export type {SelectTriggerProps} from './select-trigger.svelte';
 export type {SelectValueTextProps} from './select-value-text.svelte';
 
-export {anatomy as selectAnatomy} from '@zag-js/select';
+export {anatomy as selectAnatomy} from './select-anatomy.js';
 export {getSelectContext} from './select-context.svelte.js';

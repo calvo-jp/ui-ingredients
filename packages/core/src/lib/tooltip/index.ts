@@ -7,5 +7,5 @@ export type {TooltipPositionerProps} from './tooltip-positioner.svelte';
 export type {TooltipProps} from './tooltip-root.svelte';
 export type {TooltipTriggerProps} from './tooltip-trigger.svelte';
 
-export {anatomy as tooltipAnatomy} from '@zag-js/tooltip';
+export {anatomy as tooltipAnatomy} from './tooltip-anatomy.js';
 export {getTooltipContext} from './tooltip-context.svelte.js';

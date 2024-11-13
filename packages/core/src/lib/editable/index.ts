@@ -10,5 +10,5 @@ export type {EditablePreviewProps} from './editable-preview.svelte';
 export type {EditableProps} from './editable-root.svelte';
 export type {EditableSubmitTriggerProps} from './editable-submit-trigger.svelte';
 
-export {anatomy as editableAnatomy} from '@zag-js/editable';
+export {anatomy as editableAnatomy} from './editable-anatomy.js';
 export {getEditableContext} from './editable-context.svelte.js';

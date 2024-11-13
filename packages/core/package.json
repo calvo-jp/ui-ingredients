@@ -210,6 +210,10 @@
     "./tree-view": {
       "types": "./dist/tree-view/index.d.ts",
       "svelte": "./dist/tree-view/index.js"
+    },
+    "./anatomy": {
+      "types": "./dist/anatomy.d.ts",
+      "import": "./dist/anatomy.js"
     }
   },
   "files": [

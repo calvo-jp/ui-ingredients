@@ -9,5 +9,5 @@ export type {NumberInputProps} from './number-input-root.svelte';
 export type {NumberInputScrubberProps} from './number-input-scrubber.svelte';
 export type {NumberInputValueTextProps} from './number-input-value-text.svelte';
 
-export {anatomy as numberInputAnatomy} from '@zag-js/number-input';
+export {anatomy as numberInputAnatomy} from './number-input-anatomy.js';
 export {getNumberInputContext} from './number-input-context.svelte.js';

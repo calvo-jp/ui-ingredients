@@ -14,5 +14,5 @@ export type {FloatingPanelProps} from './floating-panel-root.svelte';
 export type {FloatingPanelTitleProps} from './floating-panel-title.svelte';
 export type {FloatingPanelTriggerProps} from './floating-panel-trigger.svelte';
 
-export {anatomy as floatingPanelAnatomy} from '@zag-js/floating-panel';
+export {anatomy as floatingPanelAnatomy} from './floating-panel-anatomy.js';
 export {getFloatingPanelContext} from './floating-panel-context.svelte.js';

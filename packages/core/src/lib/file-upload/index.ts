@@ -14,5 +14,5 @@ export type {FileUploadLabelProps} from './file-upload-label.svelte';
 export type {FileUploadProps} from './file-upload-root.svelte';
 export type {FileUploadTriggerProps} from './file-upload-trigger.svelte';
 
-export {anatomy as fileUploadAnatomy} from '@zag-js/file-upload';
+export {anatomy as fileUploadAnatomy} from './file-upload-anatomy.js';
 export {getFileUploadContext} from './file-upload-context.svelte.js';

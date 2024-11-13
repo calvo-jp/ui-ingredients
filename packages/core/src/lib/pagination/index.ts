@@ -6,5 +6,5 @@ export type {PaginationNextTriggerProps} from './pagination-next-trigger.svelte'
 export type {PaginationPrevTriggerProps} from './pagination-prev-trigger.svelte';
 export type {PaginationProps} from './pagination-root.svelte';
 
-export {anatomy as paginationAnatomy} from '@zag-js/pagination';
+export {anatomy as paginationAnatomy} from './pagination-anatomy.js';
 export {getPaginationContext} from './pagination-context.svelte.js';

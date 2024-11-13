@@ -12,5 +12,5 @@ export type {PopoverProps} from './popover-root.svelte';
 export type {PopoverTitleProps} from './popover-title.svelte';
 export type {PopoverTriggerProps} from './popover-trigger.svelte';
 
-export {anatomy as popoverAnatomy} from '@zag-js/popover';
+export {anatomy as popoverAnatomy} from './popover-anatomy.js';
 export {getPopoverContext} from './popover-context.svelte.js';
