@@ -10,7 +10,7 @@
 </script>
 
 <label
-  class={twMerge('text-muted !mb-1 block font-medium', className)}
+  class={twMerge('!mb-1 block text-sm font-semibold', className)}
   {...props}
 >
   {@render children?.()}

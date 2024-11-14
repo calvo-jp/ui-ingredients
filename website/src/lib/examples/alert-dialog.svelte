@@ -2,17 +2,9 @@
   import {Button} from '$lib/ui';
   import {twMerge} from 'tailwind-merge';
   import {AlertDialog, Portal} from 'ui-ingredients';
-
-  let open = $state(false);
 </script>
 
-<AlertDialog.Root
-  {open}
-  onOpenChange={(detail) => {
-    open = detail.open;
-  }}
-  lazyMount
->
+<AlertDialog.Root lazyMount>
   <AlertDialog.Trigger>
     {#snippet asChild(attrs)}
       <Button class="mx-auto w-auto" {...attrs}>Open alert dialog</Button>

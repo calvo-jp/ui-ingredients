@@ -11,6 +11,7 @@
 <DatePicker.Root
   class="mx-auto max-w-[20rem]"
   fixedWeeks
+  lazyMount
   positioning={{
     sameWidth: true,
   }}
@@ -71,7 +72,7 @@
                     {#each api.weekDays as weekDay}
                       <DatePicker.TableHeader>
                         <div
-                          class="aspect-square flex w-full items-center justify-center text-sm"
+                          class="flex aspect-square w-full items-center justify-center text-sm"
                         >
                           {weekDay.narrow}
                         </div>
@@ -86,7 +87,7 @@
                       {#each week as day}
                         <DatePicker.DayTableCell value={day}>
                           <DatePicker.DayTableCellTrigger
-                            class="aspect-square flex w-full items-center justify-center rounded transition-colors duration-200 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:bg-indigo-500 data-selected:font-semibold data-selected:text-white hover:bg-neutral-800/50 data-disabled:hover:bg-transparent"
+                            class="flex aspect-square w-full items-center justify-center rounded transition-colors duration-200 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:bg-indigo-500 data-selected:font-semibold data-selected:text-white data-today:text-indigo-500 data-today:data-selected:text-white hover:bg-neutral-800/50 data-disabled:hover:bg-transparent"
                           >
                             {day.day}
                           </DatePicker.DayTableCellTrigger>

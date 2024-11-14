@@ -2,18 +2,11 @@
   import {IconButton} from '$lib/ui';
   import {Bell02Icon, BellOff02Icon} from '@untitled-theme/icons-svelte';
   import {Toggle} from 'ui-ingredients';
-
-  let pressed = $state(false);
 </script>
 
-<Toggle.Root
-  {pressed}
-  onPressedChange={(detail) => {
-    pressed = detail.pressed;
-  }}
->
+<Toggle.Root>
   {#snippet asChild(attrs, api)}
-    <IconButton class="aria-pressed:bg-light/25" {...attrs}>
+    <IconButton class="mx-auto" {...attrs}>
       {#if api.pressed}
         <BellOff02Icon />
       {:else}

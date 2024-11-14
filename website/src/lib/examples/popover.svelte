@@ -4,10 +4,10 @@
 </script>
 
 <Popover.Root
+  lazyMount
   positioning={{
     placement: 'bottom',
   }}
-  lazyMount
 >
   <Popover.Trigger class="mx-auto w-auto">
     {#snippet asChild(attrs)}

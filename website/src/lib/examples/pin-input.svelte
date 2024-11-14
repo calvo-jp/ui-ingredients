@@ -3,7 +3,7 @@
   import {PinInput} from 'ui-ingredients';
 </script>
 
-<PinInput.Root placeholder="" class="mx-auto max-w-[20rem]">
+<PinInput.Root placeholder="0" class="mx-auto w-fit">
   <PinInput.Label>
     {#snippet asChild(attrs)}
       <Label {...attrs}>Label</Label>
@@ -12,12 +12,9 @@
 
   <PinInput.HiddenInput />
 
-  <PinInput.Control class="grid grid-cols-6 gap-2">
-    {#each Array.from({length: 6}) as _, i}
-      <PinInput.Input
-        index={i}
-        class="aspect-square h-auto w-full text-center text-lg font-bold"
-      >
+  <PinInput.Control class="flex gap-2">
+    {#each Array.from({length: 4}) as _, i}
+      <PinInput.Input index={i} class="size-12">
         {#snippet asChild(attrs)}
           <Input {...attrs} />
         {/snippet}

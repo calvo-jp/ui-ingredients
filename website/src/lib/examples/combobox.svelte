@@ -15,7 +15,6 @@
     {label: 'Option 5', value: '5', disabled: true},
   ];
 
-  let value: string[] = $state([]);
   let inputValue = $state('');
 
   let matches = $derived(
@@ -33,10 +32,6 @@
 
 <Combobox.Root
   {collection}
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
   {inputValue}
   onInputValueChange={(detail) => {
     inputValue = detail.inputValue;

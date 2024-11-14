@@ -17,7 +17,7 @@
   ];
 </script>
 
-<ColorPicker.Root class="mx-auto max-w-[20rem]">
+<ColorPicker.Root lazyMount class="mx-auto max-w-[20rem]">
   {#snippet children(context)}
     <ColorPicker.Label>
       {#snippet asChild(attrs)}

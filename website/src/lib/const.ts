@@ -29,6 +29,7 @@ interface Details {
   apiDoc?: ApiDocEntry;
   dataAttrDoc?: DataAttrEntry;
   accessibilityDoc?: AccessibilityDoc;
+  isHidden?: boolean;
   isPreview?: boolean;
 }
 
@@ -301,6 +302,7 @@ export const COMPONENTS = [
   {
     slug: 'floating-panel',
     name: 'Floating Panel',
+    isHidden: true,
     markdownPath: 'src/lib/docs/floating-panel.md',
     get apiDoc() {
       return {
@@ -679,6 +681,7 @@ export const COMPONENTS = [
       return getAccessibilityDoc('time-picker');
     },
     markdownPath: 'src/lib/docs/time-picker.md',
+    isHidden: true,
     isPreview: true,
   },
   {
@@ -794,7 +797,7 @@ export const COMPONENTS = [
     markdownPath: 'src/lib/docs/tree-view.md',
     isPreview: true,
   },
-] satisfies Details[];
+].filter((item) => !item.isHidden) satisfies Details[];
 
 export const UTILITIES = [
   {

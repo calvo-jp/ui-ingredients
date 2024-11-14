@@ -1,6 +1,3 @@
-<script lang="ts" module>
-</script>
-
 <script lang="ts">
   import {IconButton, Input, Label} from '$lib/ui';
   import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';

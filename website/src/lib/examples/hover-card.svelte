@@ -4,7 +4,6 @@
 
 <HoverCard.Root
   lazyMount
-  keepMounted={false}
   positioning={{
     placement: 'bottom-start',
   }}

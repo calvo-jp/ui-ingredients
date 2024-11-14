@@ -1,7 +1,7 @@
 import {tv, type VariantProps} from 'tailwind-variants';
 
 export const inputRecipe = tv({
-  base: 'block w-full rounded placeholder:text-neutral-600',
+  base: 'block w-full rounded placeholder:text-neutral-400',
   variants: {
     size: {
       xs: 'px-2.5 h-10',

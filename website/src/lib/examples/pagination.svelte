@@ -23,10 +23,7 @@
 
     {#each context.pages as page, index}
       {#if page.type === 'page'}
-        <Pagination.Item
-          value={page.value}
-          class="aria-page:border-indigo-500 aria-page:bg-indigo-500/15 aria-page:text-indigo-200"
-        >
+        <Pagination.Item value={page.value}>
           {#snippet asChild(attrs)}
             <Button variant="outline" {...attrs}>
               {page.value}

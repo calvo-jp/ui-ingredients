@@ -1,17 +1,9 @@
 <script lang="ts">
   import {Button} from '$lib/ui';
   import {Collapsible} from 'ui-ingredients';
-
-  let open = $state(false);
 </script>
 
-<Collapsible.Root
-  {open}
-  onOpenChange={(detail) => {
-    open = detail.open;
-  }}
-  class="w-full max-w-[32rem]"
->
+<Collapsible.Root class="w-full max-w-[32rem]">
   <Collapsible.Trigger>
     {#snippet asChild(attrs)}
       <Button {...attrs}>Toggle collapsible</Button>

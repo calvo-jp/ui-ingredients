@@ -17,7 +17,8 @@ export const iconButtonRecipe = tv({
   ],
   variants: {
     variant: {
-      outline: 'border border-neutral-700',
+      outline:
+        'border border-neutral-700 aria-pressed:bg-neutral-700/25 aria-page:border-indigo-500 aria-page:bg-indigo-500/15 aria-page:text-indigo-200',
       solid: 'bg-neutral-300',
     },
   },

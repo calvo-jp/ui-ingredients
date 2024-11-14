@@ -6,7 +6,6 @@
 
   let {data} = $props();
 
-  let loading = $state(false);
   let component: Snippet | null = $state(null);
 
   $effect.pre(() => {
@@ -26,7 +25,7 @@
 <Metadata title={data.name.formal} description={data.description} />
 
 <Prose>
-  <h1 class="mb-0">{data.name.pascal}</h1>
+  <h1 class="mb-0">{data.name.formal}</h1>
   <p class="m-0 mt-2.5">{data.description}</p>
 
   {#if component}
