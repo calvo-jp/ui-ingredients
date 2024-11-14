@@ -21,29 +21,22 @@
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English",
     },
   ];
-
-  let value = $state(items[0].value);
 </script>
 
-<Tabs.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<Tabs.Root value={items[0].value} class="mx-auto max-w-[32rem]">
   <Tabs.List>
     {#each items as { value, label }}
       <Tabs.Trigger
         {value}
-        class="data-selected:bg-light/25 h-10 border border-l-0 px-3 transition-colors duration-200 first:rounded-l first:border-l last:rounded-r"
+        class="h-10 border border-l-0 border-neutral-700 px-3 transition-colors duration-200 first:rounded-l first:border-l last:rounded-r data-selected:bg-neutral-800/50"
       >
         {label}
       </Tabs.Trigger>
     {/each}
   </Tabs.List>
   {#each items as { value, content }}
-    <Tabs.Content class="mt-4 max-w-[32rem] text-sm lg:text-base" {value}
-      >{content}</Tabs.Content
-    >
+    <Tabs.Content class="!mt-4 text-sm text-neutral-400 lg:text-base" {value}>
+      {content}
+    </Tabs.Content>
   {/each}
 </Tabs.Root>

@@ -1,30 +1,14 @@
 <script lang="ts">
   import {IconButton, Input, Label} from '$lib/ui';
   import {ClockIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
-  import {TimePicker, type Time} from 'ui-ingredients';
-
-  let value: Time | null = $state(
-    TimePicker.parse({
-      hour: 16,
-      minute: 0,
-      second: 0,
-      millisecond: 0,
-    }),
-  );
+  import {TimePicker} from 'ui-ingredients';
 </script>
 
-<TimePicker.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
-  allowSeconds
-  class="w-full lg:max-w-[24rem]"
->
+<TimePicker.Root allowSeconds class="mx-auto max-w-[20rem]">
   {#snippet children(context)}
     <TimePicker.Label>
       {#snippet asChild(attrs)}
-        <Label {...attrs}>Choose Time</Label>
+        <Label {...attrs}>Label</Label>
       {/snippet}
     </TimePicker.Label>
 
@@ -52,16 +36,16 @@
 
     <TimePicker.Positioner>
       <TimePicker.Content
-        class="bg-light relative flex h-[20rem] gap-2 rounded border p-4"
+        class="relative flex h-[20rem] rounded border border-neutral-800 bg-neutral-900 py-4"
       >
         <TimePicker.Column
           unit="hour"
-          class="overflow-y-invisible snap-y snap-mandatory"
+          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
         >
           {#each context.getHours() as item}
             <TimePicker.HourCell
               value={item.value}
-              class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+              class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 data-selected:text-indigo-500 data-focus:text-neutral-100"
             >
               {item.label}
             </TimePicker.HourCell>
@@ -70,12 +54,12 @@
         <TimePicker.Spacer />
         <TimePicker.Column
           unit="minute"
-          class="overflow-y-invisible snap-y snap-mandatory"
+          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
         >
           {#each context.getMinutes() as item}
             <TimePicker.MinuteCell
               value={item.value}
-              class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+              class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 data-selected:text-indigo-500 data-focus:text-neutral-100"
             >
               {item.label}
             </TimePicker.MinuteCell>
@@ -84,28 +68,31 @@
         <TimePicker.Spacer />
         <TimePicker.Column
           unit="second"
-          class="overflow-y-invisible snap-y snap-mandatory"
+          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
         >
           {#each context.getSeconds() as item}
             <TimePicker.SecondCell
               value={item.value}
-              class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+              class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 data-selected:text-indigo-500 data-focus:text-neutral-100"
             >
               {item.label}
             </TimePicker.SecondCell>
           {/each}
         </TimePicker.Column>
         <TimePicker.Spacer />
-        <TimePicker.Column unit="period">
+        <TimePicker.Column
+          unit="period"
+          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
+        >
           <TimePicker.PeriodCell
             value="am"
-            class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+            class="data-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 data-selected:text-indigo-500"
           >
             AM
           </TimePicker.PeriodCell>
           <TimePicker.PeriodCell
             value="pm"
-            class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+            class="data-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 data-selected:text-indigo-500"
           >
             PM
           </TimePicker.PeriodCell>
