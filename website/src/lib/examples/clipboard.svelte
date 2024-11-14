@@ -1,22 +1,4 @@
 <script lang="ts" module>
-  function randomString(length = 16) {
-    const result: string[] = [];
-
-    const chars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-      'abcdefghijklmnopqrstuvwxyz' +
-      '0123456789';
-
-    const charsCount = chars.length;
-
-    for (let i = 0; i < length; i += 1) {
-      const random = chars.charAt(Math.floor(Math.random() * charsCount));
-
-      result.push(random);
-    }
-
-    return result.join('');
-  }
 </script>
 
 <script lang="ts">
@@ -25,15 +7,15 @@
   import {Clipboard} from 'ui-ingredients';
 </script>
 
-<Clipboard.Root value={randomString()}>
+<Clipboard.Root value="UI Ingredients" class="mx-auto max-w-[20rem]">
   <Clipboard.Label>
     {#snippet asChild(attrs)}
-      <Label {...attrs}>Token</Label>
+      <Label {...attrs}>Label</Label>
     {/snippet}
   </Clipboard.Label>
 
-  <Clipboard.Control class="flex w-full gap-2 lg:max-w-[24rem]">
-    <Clipboard.Input>
+  <Clipboard.Control class="flex gap-2">
+    <Clipboard.Input class="grow">
       {#snippet asChild(attrs)}
         <Input {...attrs} />
       {/snippet}
@@ -43,10 +25,10 @@
       {#snippet asChild(attrs)}
         <IconButton {...attrs}>
           <Clipboard.Indicator copied>
-            <CheckIcon class="text-success" />
+            <CheckIcon class="size-5 text-green-500" />
           </Clipboard.Indicator>
           <Clipboard.Indicator>
-            <Copy01Icon />
+            <Copy01Icon class="size-5" />
           </Clipboard.Indicator>
         </IconButton>
       {/snippet}

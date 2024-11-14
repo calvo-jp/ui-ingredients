@@ -2,25 +2,16 @@
   import {Input, Label} from '$lib/ui';
   import {ChevronDownIcon, ChevronUpIcon} from '@untitled-theme/icons-svelte';
   import {NumberInput} from 'ui-ingredients';
-
-  let value = $state('0');
 </script>
 
-<NumberInput.Root
-  min={0}
-  max={100}
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<NumberInput.Root value="0" class="mx-auto max-w-[20rem]">
   <NumberInput.Label>
     {#snippet asChild(attrs)}
-      <Label {...attrs}>Enter Amount</Label>
+      <Label {...attrs}>Label</Label>
     {/snippet}
   </NumberInput.Label>
 
-  <NumberInput.Control class="flex w-full lg:max-w-[24rem]">
+  <NumberInput.Control class="flex">
     <NumberInput.Input class="rounded-r-none">
       {#snippet asChild(attrs)}
         <Input {...attrs} />
@@ -29,12 +20,12 @@
 
     <div class="flex h-full shrink-0 flex-col">
       <NumberInput.IncrementTrigger
-        class="flex size-6 items-center justify-center rounded-tr border border-l-0"
+        class="flex size-6 items-center justify-center rounded-tr border border-l-0 border-neutral-700"
       >
         <ChevronUpIcon class="size-4" />
       </NumberInput.IncrementTrigger>
       <NumberInput.DecrementTrigger
-        class="flex size-6 items-center justify-center rounded-br border border-l-0 border-t-0"
+        class="flex size-6 items-center justify-center rounded-br border border-l-0 border-t-0 border-neutral-700"
       >
         <ChevronDownIcon class="size-4" />
       </NumberInput.DecrementTrigger>

@@ -2,23 +2,29 @@
   import {Breadcrumbs} from 'ui-ingredients';
 </script>
 
-<Breadcrumbs.Root>
+<Breadcrumbs.Root class="mx-auto w-fit">
   <Breadcrumbs.List class="flex gap-1">
     <Breadcrumbs.Item class="contents">
-      <Breadcrumbs.Link class="font-medium aria-page:text-indigo-400" href="#">
+      <Breadcrumbs.Link
+        class="font-medium text-neutral-400 no-underline aria-page:text-indigo-400"
+        href="#"
+      >
         Home
       </Breadcrumbs.Link>
-      <Breadcrumbs.Separator class="opacity-35">/</Breadcrumbs.Separator>
-    </Breadcrumbs.Item>
-    <Breadcrumbs.Item class="contents">
-      <Breadcrumbs.Link class="font-medium aria-page:text-indigo-400" href="#">
-        Components
-      </Breadcrumbs.Link>
-      <Breadcrumbs.Separator class="opacity-35">/</Breadcrumbs.Separator>
+      <Breadcrumbs.Separator class="text-neutral-700">/</Breadcrumbs.Separator>
     </Breadcrumbs.Item>
     <Breadcrumbs.Item class="contents">
       <Breadcrumbs.Link
-        class="font-medium aria-page:text-indigo-400"
+        class="font-medium text-neutral-400 no-underline aria-page:text-indigo-400"
+        href="#"
+      >
+        Components
+      </Breadcrumbs.Link>
+      <Breadcrumbs.Separator class="text-neutral-700">/</Breadcrumbs.Separator>
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item class="contents">
+      <Breadcrumbs.Link
+        class="font-medium text-neutral-400 no-underline aria-page:text-indigo-400"
         href="#"
         current
       >

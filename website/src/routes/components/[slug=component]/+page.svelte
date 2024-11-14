@@ -1,9 +1,22 @@
 <script lang="ts">
-  import Accordion from '$lib/examples/accordion.svelte';
+  import {page} from '$app/stores';
   import Metadata from '$lib/metadata.svelte';
   import {Prose, Table} from '$lib/ui';
+  import type {Snippet} from 'svelte';
 
   let {data} = $props();
+
+  let loading = $state(false);
+  let component: Snippet | null = $state(null);
+
+  $effect.pre(() => {
+    $page.url.pathname;
+
+    import('$lib/examples').then((mod) => {
+      const k = data.name.pascal as unknown as keyof typeof mod;
+      component = mod[k] ? (mod[k] as Snippet) : null;
+    });
+  });
 </script>
 
 <svelte:head>
@@ -16,9 +29,11 @@
   <h1 class="mb-0">{data.name.pascal}</h1>
   <p class="m-0 mt-2.5">{data.description}</p>
 
-  <div class="mt-12 rounded bg-neutral-900/25 p-12">
-    <Accordion />
-  </div>
+  {#if component}
+    <div class="mt-10 rounded bg-neutral-900/35 p-16">
+      {@render component()}
+    </div>
+  {/if}
 
   {#if data.anatomyIcon}
     <h2>Anatomy</h2>

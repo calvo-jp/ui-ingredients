@@ -19,7 +19,7 @@
     'prose-code:after:[content:""]',
     'prose-code:before:[content:""]',
 
-    '[&_[data-scope]]:m-0',
+    '[&_[data-scope]]:my-0',
 
     '[&_.shiki]:dark:!bg-[var(--shiki-dark-bg)]',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',

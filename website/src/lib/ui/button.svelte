@@ -5,6 +5,7 @@
 
   let {
     class: className,
+    size,
     variant,
     fullWidth,
     children,
@@ -14,6 +15,7 @@
 
 <button
   class={buttonRecipe({
+    size,
     variant,
     fullWidth,
     className,

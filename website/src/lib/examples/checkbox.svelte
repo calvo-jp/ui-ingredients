@@ -5,9 +5,9 @@
   let checked = $state(false);
 </script>
 
-<Field.Root>
+<Field.Root class="mx-auto w-fit">
   <Checkbox.Root
-    class="flex items-center gap-2"
+    class="flex items-center gap-3"
     {checked}
     onCheckedChange={(detail) => {
       if (detail.checked === 'indeterminate') return;
@@ -16,7 +16,7 @@
     }}
   >
     <Checkbox.Control
-      class="data-checked:border-accent data-checked:bg-accent group flex size-6 items-center justify-center rounded border transition-colors duration-200"
+      class="group flex size-6 items-center justify-center rounded border border-neutral-700 transition-colors duration-200 data-checked:border-indigo-500 data-checked:bg-indigo-500"
     >
       <Checkbox.Indicator
         class="animate-fade-out group-data-checked:animate-fade-in"

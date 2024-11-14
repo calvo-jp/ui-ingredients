@@ -4,32 +4,17 @@
     ChevronRightIcon,
   } from '@untitled-theme/icons-svelte';
   import {Carousel} from 'ui-ingredients';
-
-  let items = [
-    'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/1192671/pexels-photo-1192671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  ];
-
-  let index = $state(0);
 </script>
 
-<Carousel.Root
-  {index}
-  onIndexChange={(detail) => {
-    index = detail.index;
-  }}
-  class="w-full lg:max-w-[32rem]"
->
-  <Carousel.Viewport class="overflow-hidden rounded">
+<Carousel.Root class="mx-auto max-w-[32rem]">
+  <Carousel.Viewport class="overflow-hidden rounded border border-neutral-700">
     <Carousel.ItemGroup>
-      {#each items as src, index}
-        <Carousel.Item {index} class="h-[16rem] overflow-hidden lg:h-[20rem]">
-          <img
-            {src}
-            alt=""
-            class="max-h-[125%] min-h-full min-w-full max-w-[125%]"
-          />
+      {#each Array.from({length: 5}) as _, index}
+        <Carousel.Item
+          {index}
+          class="flex h-[14rem] items-center justify-center bg-neutral-700/25 font-mono text-4xl font-bold lg:h-[16rem]"
+        >
+          {index + 1}
         </Carousel.Item>
       {/each}
     </Carousel.ItemGroup>
@@ -39,14 +24,14 @@
     <Carousel.PrevTrigger
       class="disabled:cursor-not-allowed disabled:opacity-50"
     >
-      <ChevronLeftIcon class="size-6" />
+      <ChevronLeftIcon class="size-5" />
     </Carousel.PrevTrigger>
 
     <Carousel.IndicatorGroup class="flex items-center justify-center gap-2">
-      {#each items as _, index}
+      {#each Array.from({length: 5}) as _, index}
         <Carousel.Indicator
           {index}
-          class="data-current:bg-accent bg-light size-4 rounded-full transition-colors duration-200"
+          class="size-3 rounded-full bg-neutral-800 transition-colors duration-200 data-current:bg-indigo-500"
         />
       {/each}
     </Carousel.IndicatorGroup>
@@ -54,7 +39,7 @@
     <Carousel.NextTrigger
       class="disabled:cursor-not-allowed disabled:opacity-50"
     >
-      <ChevronRightIcon class="size-6" />
+      <ChevronRightIcon class="size-5" />
     </Carousel.NextTrigger>
   </div>
 </Carousel.Root>

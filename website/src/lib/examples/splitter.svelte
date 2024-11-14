@@ -7,11 +7,11 @@
     {id: 'a', size: 50, minSize: 25},
     {id: 'b', size: 50, minSize: 25},
   ]}
-  class="flex max-w-[32rem] gap-2"
+  class="mx-auto flex max-w-[32rem] gap-2"
 >
   <Splitter.Panel
     id="a"
-    class="flex h-[12rem] items-center justify-center rounded border text-2xl font-bold"
+    class="flex h-[12rem] items-center justify-center rounded border border-neutral-800 text-3xl font-bold"
   >
     A
   </Splitter.Panel>
@@ -21,7 +21,7 @@
   />
   <Splitter.Panel
     id="b"
-    class="flex h-[12rem] items-center justify-center rounded border text-2xl font-bold"
+    class="flex h-[12rem] items-center justify-center rounded border border-neutral-800 text-3xl font-bold"
   >
     B
   </Splitter.Panel>

@@ -1,24 +1,10 @@
 <script lang="ts">
-  import {Label} from '$lib/ui';
   import {twMerge} from 'tailwind-merge';
   import {RatingGroup} from 'ui-ingredients';
-
-  let value = $state(1);
 </script>
 
-<RatingGroup.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<RatingGroup.Root class="mx-auto w-fit">
   {#snippet children(context)}
-    <RatingGroup.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Score</Label>
-      {/snippet}
-    </RatingGroup.Label>
-
     <RatingGroup.Control class="flex">
       {#each context.items as index}
         <RatingGroup.Item {index}>
@@ -31,7 +17,7 @@
                 'size-8',
                 'transition-colors',
                 'duration-200',
-                state.highlighted ? 'text-accent' : 'text-neutral-700',
+                state.highlighted ? 'text-indigo-500' : 'text-neutral-700',
               )}
             >
               <path

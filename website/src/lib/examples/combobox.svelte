@@ -46,6 +46,7 @@
   }}
   lazyMount
   placeholder="Please Select"
+  class="mx-auto w-full max-w-[20rem]"
 >
   <Combobox.Label>
     {#snippet asChild(attrs)}
@@ -53,8 +54,8 @@
     {/snippet}
   </Combobox.Label>
 
-  <Combobox.Control class="flex w-full gap-2 lg:max-w-[24rem]">
-    <Combobox.Input>
+  <Combobox.Control class="flex gap-2">
+    <Combobox.Input class="grow">
       {#snippet asChild(attrs)}
         <Input {...attrs} />
       {/snippet}
@@ -80,16 +81,16 @@
   <Portal>
     <Combobox.Positioner>
       <Combobox.Content
-        class="bg-light rounded border p-2 data-open:animate-fade-in data-closed:animate-fade-out"
+        class="rounded border border-neutral-800 bg-neutral-900 p-2 data-open:animate-fade-in data-closed:animate-fade-out"
       >
         {#each collection.items as item}
           <Combobox.Item
             {item}
-            class="data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed"
+            class="flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:text-neutral-500 data-highlighted:bg-neutral-800/50"
           >
             <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
             <Combobox.ItemIndicator>
-              <CheckIcon class="text-success size-5" />
+              <CheckIcon class="size-5 text-green-500" />
             </Combobox.ItemIndicator>
           </Combobox.Item>
         {/each}

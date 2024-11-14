@@ -5,18 +5,12 @@
     ChevronRightIcon,
   } from '@untitled-theme/icons-svelte';
   import {Pagination} from 'ui-ingredients';
-
-  let page = $state(1);
 </script>
 
 <Pagination.Root
   count={100}
   pageSize={10}
-  class="flex w-full flex-wrap items-center gap-2"
-  {page}
-  onPageChange={(detail) => {
-    page = detail.page;
-  }}
+  class="mx-auto flex w-fit flex-wrap items-center gap-2"
 >
   {#snippet children(context)}
     <Pagination.PrevTrigger>
@@ -31,7 +25,7 @@
       {#if page.type === 'page'}
         <Pagination.Item
           value={page.value}
-          class="aria-page:border-accent aria-page:text-accent aria-page:bg-accent/15"
+          class="aria-page:border-indigo-500 aria-page:bg-indigo-500/15 aria-page:text-indigo-200"
         >
           {#snippet asChild(attrs)}
             <Button variant="outline" {...attrs}>
@@ -42,7 +36,7 @@
       {:else}
         <Pagination.Ellipsis
           {index}
-          class="flex size-12 items-center justify-center"
+          class="flex size-12 items-center justify-center text-neutral-500"
         >
           ...
         </Pagination.Ellipsis>

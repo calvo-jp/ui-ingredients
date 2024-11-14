@@ -3,20 +3,12 @@
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {twMerge} from 'tailwind-merge';
   import {Drawer, Portal} from 'ui-ingredients';
-
-  let open = $state(false);
 </script>
 
-<Drawer.Root
-  {open}
-  onOpenChange={(detail) => {
-    open = detail.open;
-  }}
-  lazyMount
->
-  <Drawer.Trigger>
+<Drawer.Root lazyMount>
+  <Drawer.Trigger class="mx-auto w-auto">
     {#snippet asChild(attrs)}
-      <Button {...attrs}>Click me</Button>
+      <Button {...attrs}>Open drawer</Button>
     {/snippet}
   </Drawer.Trigger>
 
@@ -26,7 +18,7 @@
         'z-overlay',
         'fixed',
         'inset-0',
-        'bg-black/50',
+        'bg-black/75',
         'backdrop-blur-sm',
         'data-open:animate-fade-in',
         'data-closed:animate-fade-out',
@@ -44,20 +36,20 @@
           'w-full',
           'top-0',
           'right-0',
-          'bg-light',
+          'bg-neutral-900',
+          'border-l',
+          'border-neutral-800',
           'lg:w-[24rem]',
           'data-open:animate-slide-in-right',
           'data-closed:animate-slide-out-right',
         )}
       >
-        <Drawer.Header
-          class="flex items-start border-b border-neutral-700/50 p-4"
-        >
+        <Drawer.Header class="flex items-start border-b border-neutral-800 p-4">
           <div class="grow">
             <Drawer.Title class="text-lg font-semibold leading-normal">
               Title
             </Drawer.Title>
-            <Drawer.Description class="leading-none">
+            <Drawer.Description class="leading-none text-neutral-400">
               Description
             </Drawer.Description>
           </div>
@@ -71,17 +63,10 @@
           delectus, excepturi est inventore magnam at id tempora doloremque
           perferendis odit tenetur recusandae cumque nihil!
         </Drawer.Body>
-        <Drawer.Footer class="flex gap-3 border-t border-neutral-700/50 p-4">
+        <Drawer.Footer class="flex gap-3 border-t border-neutral-800 p-4">
           <Drawer.CloseTrigger>
             {#snippet asChild(attrs)}
-              <Button
-                class="border-neutral-700/50"
-                variant="outline"
-                fullWidth
-                {...attrs}
-              >
-                Close
-              </Button>
+              <Button variant="outline" fullWidth {...attrs}>Close</Button>
             {/snippet}
           </Drawer.CloseTrigger>
         </Drawer.Footer>

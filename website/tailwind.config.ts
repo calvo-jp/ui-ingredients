@@ -1,4 +1,3 @@
-import aspectRatio from '@tailwindcss/aspect-ratio';
 import typography from '@tailwindcss/typography';
 import scrollbar from 'tailwind-scrollbar';
 import {withTV} from 'tailwind-variants/transformer';
@@ -45,6 +44,7 @@ const config: Config = withTV({
         'in-range': 'in-range',
         'range-start': 'range-start',
         'range-end': 'range-end',
+        placeholder: 'placeholder-shown',
       },
       aria: {
         page: 'current="page"',
@@ -132,7 +132,7 @@ const config: Config = withTV({
       },
     },
   },
-  plugins: [typography, aspectRatio, scrollbar],
+  plugins: [typography, scrollbar],
 });
 
 export default config;

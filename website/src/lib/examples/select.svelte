@@ -16,16 +16,10 @@
       {value: '5', label: 'Option 5'},
     ],
   });
-
-  let value: string[] = $state([]);
 </script>
 
 <Select.Root
   {collection}
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
   positioning={{
     sameWidth: true,
   }}
@@ -33,14 +27,16 @@
   keepMounted={false}
   deselectable
 >
-  <Select.Control class="w-full lg:max-w-[24rem]">
+  <Select.Control class="mx-auto max-w-[20rem]">
     <Select.Label>
       {#snippet asChild(attrs)}
         <Label {...attrs}>Label</Label>
       {/snippet}
     </Select.Label>
     <div class="flex gap-2">
-      <Select.Trigger class="grow text-left font-normal">
+      <Select.Trigger
+        class="data-placeholder:text-neutral-400 grow text-left font-normal"
+      >
         {#snippet asChild(attrs)}
           <Button variant="outline" {...attrs}>
             <Select.ValueText placeholder="Please Select" class="grow" />
@@ -65,16 +61,16 @@
   <Portal>
     <Select.Positioner>
       <Select.Content
-        class="bg-light rounded border p-2 data-open:animate-fade-in data-closed:animate-fade-out"
+        class="rounded border border-neutral-800 bg-neutral-900 p-2 data-open:animate-fade-in data-closed:animate-fade-out"
       >
         {#each collection.items as item}
           <Select.Item
             {item}
-            class="data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:opacity-75"
+            class="flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:text-neutral-500 data-highlighted:bg-neutral-800/50"
           >
             <Select.ItemText class="grow" />
             <Select.ItemIndicator>
-              <CheckIcon class="text-success size-5" />
+              <CheckIcon class="size-5 text-green-500" />
             </Select.ItemIndicator>
           </Select.Item>
         {/each}

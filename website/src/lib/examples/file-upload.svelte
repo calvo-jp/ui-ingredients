@@ -4,10 +4,10 @@
   import {FileUpload} from 'ui-ingredients';
 </script>
 
-<FileUpload.Root maxFiles={3}>
+<FileUpload.Root maxFiles={3} class="mx-auto max-w-[24rem]">
   {#snippet children(context)}
     <FileUpload.Dropzone
-      class="flex w-full flex-col items-center justify-center gap-4 rounded border-2 border-dashed px-8 py-12 lg:max-w-[26rem]"
+      class="flex flex-col items-center justify-center gap-4 rounded border-2 border-dashed border-neutral-800 px-8 py-12"
     >
       <span class="text-lg font-medium">Drag your file(s) here</span>
       <FileUpload.HiddenInput />
@@ -18,12 +18,12 @@
       </FileUpload.Trigger>
     </FileUpload.Dropzone>
 
-    <FileUpload.ItemGroup class="mt-4 flex gap-3">
+    <FileUpload.ItemGroup class="!mt-4 flex gap-3">
       {#each context.acceptedFiles as file}
         <FileUpload.Item {file} class="w-fit">
-          <div class="relative">
+          <div class="relative !m-0">
             <FileUpload.ItemPreview>
-              <FileUpload.ItemPreviewImage class="h-16 w-auto" />
+              <FileUpload.ItemPreviewImage class="h-16 w-auto rounded" />
             </FileUpload.ItemPreview>
             <FileUpload.ItemDeleteTrigger
               class="absolute -right-2 -top-2 rounded-full bg-white/15 p-0.5"
@@ -32,8 +32,10 @@
             </FileUpload.ItemDeleteTrigger>
           </div>
 
-          <FileUpload.ItemName class="mt-1 line-clamp-1 w-16 text-sm" />
-          <FileUpload.ItemSizeText class="text-muted text-xs" />
+          <FileUpload.ItemName class="!mt-2 w-32 text-sm leading-none" />
+          <FileUpload.ItemSizeText
+            class="block text-xs leading-none text-neutral-400"
+          />
         </FileUpload.Item>
       {/each}
     </FileUpload.ItemGroup>

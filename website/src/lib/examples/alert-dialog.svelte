@@ -15,7 +15,7 @@
 >
   <AlertDialog.Trigger>
     {#snippet asChild(attrs)}
-      <Button {...attrs}>Click me</Button>
+      <Button class="mx-auto w-auto" {...attrs}>Open alert dialog</Button>
     {/snippet}
   </AlertDialog.Trigger>
 
@@ -25,7 +25,7 @@
         'z-overlay',
         'fixed',
         'inset-0',
-        'bg-black/50',
+        'bg-black/75',
         'backdrop-blur-sm',
         'data-open:animate-fade-in',
         'data-closed:animate-fade-out',
@@ -36,7 +36,7 @@
       <AlertDialog.Content
         class={twMerge(
           'z-modal',
-          'bg-light',
+          'bg-neutral-900',
           'fixed',
           'left-1/2',
           'top-16',
@@ -44,6 +44,7 @@
           '-translate-x-1/2',
           'rounded',
           'border',
+          'border-neutral-800',
           'p-5',
           'data-open:animate-fade-in',
           'data-closed:animate-fade-out',
@@ -51,14 +52,18 @@
           'lg:w-[26rem]',
         )}
       >
-        <AlertDialog.Title class="text-xl font-semibold"
-          >Title</AlertDialog.Title
-        >
-        <AlertDialog.Description>Description</AlertDialog.Description>
-        <AlertDialog.CloseTrigger
-          class="border-lighter mt-3 h-12 w-full rounded border"
-        >
-          Close
+        <AlertDialog.Title class="text-xl font-semibold">
+          Title
+        </AlertDialog.Title>
+        <AlertDialog.Description class="text-neutral-400">
+          Description
+        </AlertDialog.Description>
+        <AlertDialog.CloseTrigger>
+          {#snippet asChild(attrs)}
+            <Button class="mt-3" fullWidth variant="outline" {...attrs}>
+              Close
+            </Button>
+          {/snippet}
         </AlertDialog.CloseTrigger>
       </AlertDialog.Content>
     </AlertDialog.Positioner>

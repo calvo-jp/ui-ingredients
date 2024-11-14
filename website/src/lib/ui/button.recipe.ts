@@ -2,9 +2,6 @@ import {tv, type VariantProps} from 'tailwind-variants';
 
 export const buttonRecipe = tv({
   base: [
-    'h-12',
-    'min-w-12',
-    'px-4',
     'shrink-0',
     'flex',
     'items-center',
@@ -18,8 +15,12 @@ export const buttonRecipe = tv({
     'disabled:opacity-50',
   ],
   variants: {
+    size: {
+      sm: 'h-11 min-w-11 px-3.5 text-sm',
+      md: 'h-12 min-w-12 px-4',
+    },
     variant: {
-      outline: 'border',
+      outline: 'border border-neutral-700',
       solid: 'bg-neutral-300 text-neutral-700',
     },
     fullWidth: {
@@ -27,6 +28,7 @@ export const buttonRecipe = tv({
     },
   },
   defaultVariants: {
+    size: 'md',
     variant: 'solid',
   },
 });

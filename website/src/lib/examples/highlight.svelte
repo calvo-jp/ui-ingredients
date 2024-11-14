@@ -9,7 +9,7 @@
   let query = $state('lorem');
 </script>
 
-<div class="w-full lg:max-w-[32rem]">
+<div class="mx-auto max-w-[24rem]">
   <Input
     value={query}
     oninput={(e) => {

@@ -21,10 +21,10 @@
 <Progress.Root min={0} max={100} {value} class="flex items-center gap-2">
   <Progress.Track class="h-3 grow overflow-hidden rounded-full bg-neutral-600">
     <Progress.Range
-      class="bg-accent h-full transition-all duration-200 [--translate-x:100%]"
+      class="h-full bg-indigo-500 transition-all duration-200 [--translate-x:100%]"
     />
   </Progress.Track>
   <Progress.ValueText
-    class="text-muted block w-10 shrink-0 text-right font-semibold"
+    class="block w-10 shrink-0 text-right font-semibold text-neutral-400"
   />
 </Progress.Root>

@@ -1,47 +1,26 @@
 <script lang="ts">
   import {SegmentGroup} from 'ui-ingredients';
-
-  let items = [
-    {
-      value: 'Item 1',
-    },
-    {
-      value: 'Item 2',
-    },
-    {
-      value: 'Item 3',
-    },
-  ];
-
-  let value: string | undefined = $state();
-
-  $effect(() => {
-    value = items[0].value;
-  });
-
-  $inspect(value);
 </script>
 
 <SegmentGroup.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
+  value="1"
   orientation="horizontal"
-  class="relative flex w-fit"
+  class="relative mx-auto flex w-fit"
 >
-  {#each items as item}
+  {#each Array.from({length: 3}) as _, index}
+    {@const value = (index + 1).toString()}
+
     <SegmentGroup.Item
-      value={item.value}
-      class="relative z-10 px-2.5 py-1 font-medium transition-colors duration-200 data-checked:text-white"
+      {value}
+      class="relative z-10 px-4 py-1 font-medium transition-colors duration-200 data-checked:text-white"
     >
-      <SegmentGroup.ItemText>{item.value}</SegmentGroup.ItemText>
+      <SegmentGroup.ItemText>Item {value}</SegmentGroup.ItemText>
       <SegmentGroup.ItemControl />
       <SegmentGroup.ItemHiddenInput />
     </SegmentGroup.Item>
   {/each}
 
   <SegmentGroup.Indicator
-    class="bg-light/50 bottom-0 h-full w-[var(--width)] rounded"
+    class="bottom-0 h-full w-[var(--width)] rounded bg-neutral-800/50"
   />
 </SegmentGroup.Root>

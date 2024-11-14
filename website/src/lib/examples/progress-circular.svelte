@@ -18,11 +18,16 @@
   });
 </script>
 
-<Progress.Root min={0} max={100} {value}>
+<Progress.Root min={0} max={100} {value} class="relative mx-auto w-fit">
   <Progress.Circle
-    class="[--size:theme(spacing.24)] [--thickness:theme(spacing.3)]"
+    class="[--size:theme(spacing.24)] [--thickness:theme(spacing[2.5])]"
   >
-    <Progress.CircleTrack class="stroke-neutral-600" />
-    <Progress.CircleRange class="stroke-accent transition-all duration-200" />
+    <Progress.CircleTrack class="stroke-neutral-800" />
+    <Progress.CircleRange
+      class="stroke-indigo-500 transition-all duration-150"
+    />
   </Progress.Circle>
+  <Progress.ValueText
+    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold"
+  />
 </Progress.Root>

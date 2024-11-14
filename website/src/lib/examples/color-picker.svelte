@@ -15,24 +15,17 @@
     'hsl(280, 81%, 59%)',
     'hsl(350, 81%, 59%)',
   ];
-
-  let value = $state(ColorPicker.parse('#9863BF'));
 </script>
 
-<ColorPicker.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<ColorPicker.Root class="mx-auto max-w-[20rem]">
   {#snippet children(context)}
     <ColorPicker.Label>
       {#snippet asChild(attrs)}
-        <Label {...attrs}>Color</Label>
+        <Label {...attrs}>Label</Label>
       {/snippet}
     </ColorPicker.Label>
-    <ColorPicker.Control class="flex gap-2 lg:max-w-[24rem]">
-      <ColorPicker.ChannelInput channel="hex">
+    <ColorPicker.Control class="flex gap-2">
+      <ColorPicker.ChannelInput channel="hex" class="grow">
         {#snippet asChild(attrs)}
           <Input {...attrs} />
         {/snippet}
@@ -50,7 +43,9 @@
     </ColorPicker.Control>
 
     <ColorPicker.Positioner>
-      <ColorPicker.Content class="bg max-w-[20rem] rounded border p-4">
+      <ColorPicker.Content
+        class="max-w-[20rem] rounded border border-neutral-800 bg-neutral-900 p-4"
+      >
         <ColorPicker.Area class="aspect-video w-full">
           <ColorPicker.AreaBackground class="size-full rounded" />
           <ColorPicker.AreaThumb
@@ -71,7 +66,7 @@
             <ColorPicker.ChannelSlider channel="hue" class="rounded">
               <ColorPicker.ChannelSliderTrack class="h-4 rounded" />
               <ColorPicker.ChannelSliderThumb
-                class="size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white outline outline-[0.125rem] outline-white"
+                class="!size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white outline outline-[0.125rem] outline-white"
               />
             </ColorPicker.ChannelSlider>
 
@@ -98,7 +93,7 @@
           </ColorPicker.ChannelInput>
         </div>
 
-        <ColorPicker.SwatchGroup class="mt-4 grid grid-cols-6 gap-3">
+        <ColorPicker.SwatchGroup class="!mt-4 grid grid-cols-6 gap-3">
           {#each presets as color}
             <ColorPicker.SwatchTrigger value={color}>
               <ColorPicker.Swatch

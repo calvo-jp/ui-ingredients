@@ -21,7 +21,7 @@
 </script>
 
 <form
-  class="w-full lg:max-w-[24rem]"
+  class="mx-auto max-w-[20rem]"
   onsubmit={async (e) => {
     e.preventDefault();
 
@@ -49,17 +49,17 @@
   novalidate
 >
   <Field.Root invalid={!!errors.title} required>
-    <div class="mb-1 flex">
+    <div class="!mb-1 flex">
       <Field.Label class="!mb-0 grow">
         {#snippet asChild(attrs)}
           <Label {...attrs}>
             Title
-            <Field.RequiredIndicator class="text-danger" />
+            <Field.RequiredIndicator class="text-red-400" />
           </Label>
         {/snippet}
       </Field.Label>
       <Field.ErrorText
-        class="text-danger flex items-center gap-1 text-sm data-invalid:animate-fade-in"
+        class="flex items-center gap-1 text-sm text-red-400 data-invalid:animate-fade-in"
       >
         Invalid title
       </Field.ErrorText>
@@ -76,23 +76,23 @@
         />
       {/snippet}
     </Field.Input>
-    <Field.HelperText class="text-muted mt-1.5 text-sm">
+    <Field.HelperText class="!mt-1.5 text-sm text-neutral-500">
       This is a helper text
     </Field.HelperText>
   </Field.Root>
 
-  <Field.Root class="mt-4" invalid={errors.description} required>
-    <div class="mb-1 flex">
-      <Field.Label class="!mb-0 grow">
+  <Field.Root class="!mt-4" invalid={errors.description} required>
+    <div class="!mb-1 flex">
+      <Field.Label class="mb-0 grow">
         {#snippet asChild(attrs)}
           <Label {...attrs}>
             Description
-            <Field.RequiredIndicator class="text-danger" />
+            <Field.RequiredIndicator class="text-red-400" />
           </Label>
         {/snippet}
       </Field.Label>
       <Field.ErrorText
-        class="text-danger flex items-center gap-1 text-sm data-invalid:animate-fade-in"
+        class="flex items-center gap-1 text-sm text-red-400 data-invalid:animate-fade-in"
       >
         Invalid description
       </Field.ErrorText>
@@ -112,7 +112,7 @@
         ></textarea>
       {/snippet}
     </Field.Textarea>
-    <Field.HelperText class="text-muted mt-1.5 text-sm">
+    <Field.HelperText class="!mt-1.5 text-sm text-neutral-500">
       This is a helper text
     </Field.HelperText>
   </Field.Root>
