@@ -13,13 +13,15 @@
   class={twMerge(
     'prose',
     'prose-neutral',
-    'prose-invert',
+    'dark:prose-invert',
     'min-w-full',
     'prose-code:after:[content:""]',
     'prose-code:before:[content:""]',
-    '[&_div_>_table]:m-0',
+    '[&_[data-scope="table"][data-part="container"]_[data-scope="table"][data-part="root"]]:m-0',
     '[&_.shiki]:dark:!bg-[var(--shiki-dark-bg)]',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
+    '[&_.shiki_span]:dark:!bg-[var(--shiki-dark-bg)]',
+    '[&_.shiki_span]:dark:!text-[var(--shiki-dark)]',
   )}
   {...props}
 >

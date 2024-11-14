@@ -5,6 +5,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ["'Geist'", ...defaultTheme.fontFamily.sans],

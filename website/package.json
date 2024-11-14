@@ -19,10 +19,8 @@
     "remark-gfm": "^4.0.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
-    "remark-toc": "^9.0.0",
     "tailwind-merge": "^2.5.4",
-    "tailwind-variants": "^0.2.1",
-    "ui-ingredients": "^0.13.0",
+    "ui-ingredients": "^0.15.0",
     "unified": "^11.0.5",
     "vfile-matter": "^5.0.0",
     "zod": "^3.23.8"

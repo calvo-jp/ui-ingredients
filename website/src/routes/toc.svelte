@@ -19,7 +19,7 @@
 
     if (!main) return;
 
-    const headings = main.querySelectorAll<HTMLHeadingElement>('h1,h2');
+    const headings = main.querySelectorAll<HTMLHeadingElement>('h2');
     const newItems: Item[] = [];
 
     headings.forEach((target, index) => {
@@ -42,6 +42,34 @@
 
     getItems();
   });
+
+  $effect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    items.forEach(({target, ...item}) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              value = item.value;
+            }
+          });
+        },
+        {
+          threshold: 1,
+        },
+      );
+
+      observer.observe(target);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => {
+        observer.disconnect();
+      });
+    };
+  });
 </script>
 
 <div class="w-[18rem] shrink-0"></div>
@@ -55,6 +83,14 @@
     {value}
     onValueChange={(detail) => {
       value = detail.value;
+
+      const item = items.find((item) => item.value === detail.value);
+
+      item?.target.scrollIntoView({
+        block: 'start',
+        inline: 'start',
+        behavior: 'smooth',
+      });
     }}
     orientation="vertical"
     class="relative w-fit"
@@ -62,7 +98,7 @@
     {#each items as item}
       <SegmentGroup.Item
         value={item.value}
-        class="relative cursor-pointer text-neutral-400 transition-colors duration-200 hover:text-neutral-300 data-checked:text-neutral-200"
+        class="relative block cursor-pointer py-0.5 text-neutral-400 transition-colors duration-200 hover:text-neutral-300 data-checked:text-neutral-200"
       >
         <SegmentGroup.ItemText class="px-5">{item.label}</SegmentGroup.ItemText>
         <SegmentGroup.ItemControl />

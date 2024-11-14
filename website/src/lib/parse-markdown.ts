@@ -5,7 +5,6 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import remarkToc from 'remark-toc';
 import {unified, type Plugin} from 'unified';
 import {matter} from 'vfile-matter';
 import {createLruCache} from './create-lru-cache';
@@ -37,12 +36,11 @@ export async function parseMarkdown(doc: string) {
     .use(remarkFrontmatter)
     .use(frontmatterParser)
     .use(remarkGfm)
-    .use(remarkToc)
     .use(remarkRehype)
     .use(rehypeShiki, {
       themes: {
-        light: 'vitesse-light',
-        dark: 'vitesse-dark',
+        light: 'min-light',
+        dark: 'dark-plus',
       },
     })
     .use(rehypeStringify);
