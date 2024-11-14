@@ -20,6 +20,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
     "tailwind-merge": "^2.5.4",
+    "tailwind-scrollbar": "^3.1.0",
     "ui-ingredients": "^0.15.0",
     "unified": "^11.0.5",
     "vfile-matter": "^5.0.0",

@@ -1,5 +1,6 @@
 import aspectRatio from '@tailwindcss/aspect-ratio';
 import typography from '@tailwindcss/typography';
+import scrollbar from 'tailwind-scrollbar';
 import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
@@ -130,7 +131,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [typography, aspectRatio],
+  plugins: [typography, aspectRatio, scrollbar],
 };
 
 export default config;
