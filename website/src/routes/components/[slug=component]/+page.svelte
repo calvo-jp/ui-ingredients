@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Accordion from '$lib/examples/accordion.svelte';
   import Metadata from '$lib/metadata.svelte';
   import {Prose, Table} from '$lib/ui';
 
@@ -14,6 +15,10 @@
 <Prose>
   <h1 class="mb-0">{data.name.pascal}</h1>
   <p class="m-0 mt-2.5">{data.description}</p>
+
+  <div class="mt-12 rounded bg-neutral-900/25 p-12">
+    <Accordion />
+  </div>
 
   {#if data.anatomyIcon}
     <h2>Anatomy</h2>

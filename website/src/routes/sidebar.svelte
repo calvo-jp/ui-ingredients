@@ -9,7 +9,7 @@
 <div class="w-[18rem] shrink-0"></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto border-r border-neutral-800 bg-neutral-950 px-12 py-8 scrollbar scrollbar-track-neutral-900 scrollbar-thumb-neutral-600"
+  class="fixed left-0 top-16 z-sticky h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-800 bg-neutral-950 px-12 py-8 scrollbar scrollbar-track-neutral-900 scrollbar-thumb-neutral-600"
 >
   <ul class="space-y-4">
     {#each APP_LINKS as parent}

@@ -1,10 +1,11 @@
 import aspectRatio from '@tailwindcss/aspect-ratio';
 import typography from '@tailwindcss/typography';
 import scrollbar from 'tailwind-scrollbar';
+import {withTV} from 'tailwind-variants/transformer';
 import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-const config: Config = {
+const config: Config = withTV({
   content: ['./src/**/*.{html,js,svelte,ts}'],
   darkMode: 'class',
   theme: {
@@ -120,18 +121,18 @@ const config: Config = {
         },
       },
       animation: {
-        'collapse-in': 'collapse-in 200ms ease-in-out',
-        'collapse-out': 'collapse-out 200ms ease-in-out',
-        'fade-in': 'fade-in 200ms ease-in-out',
-        'fade-out': 'fade-out 200ms ease-in-out',
-        'slide-in-left': 'slide-in-left 200ms ease-in-out',
-        'slide-out-left': 'slide-out-left 200ms ease-in-out',
-        'slide-in-right': 'slide-in-right 200ms ease-in-out',
-        'slide-out-right': 'slide-out-right 200ms ease-in-out',
+        'collapse-in': 'collapse-in 150ms ease-in-out',
+        'collapse-out': 'collapse-out 150ms ease-in-out',
+        'fade-in': 'fade-in 150ms ease-in-out',
+        'fade-out': 'fade-out 150ms ease-in-out',
+        'slide-in-left': 'slide-in-left 150ms ease-in-out',
+        'slide-out-left': 'slide-out-left 150ms ease-in-out',
+        'slide-in-right': 'slide-in-right 150ms ease-in-out',
+        'slide-out-right': 'slide-out-right 150ms ease-in-out',
       },
     },
   },
   plugins: [typography, aspectRatio, scrollbar],
-};
+});
 
 export default config;

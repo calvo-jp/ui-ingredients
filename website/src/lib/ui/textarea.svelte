@@ -1,8 +1,21 @@
 <script lang="ts">
+  import type {Assign} from '$lib/types';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {twMerge} from 'tailwind-merge';
+  import {textareaRecipe, type TextareaRecipeProps} from './textarea.recipe';
 
-  let {...props}: SvelteHTMLElements['textarea'] = $props();
+  let {
+    size,
+    class: className,
+    variant,
+    ...props
+  }: Assign<SvelteHTMLElements['textarea'], TextareaRecipeProps> = $props();
 </script>
 
-<textarea {...props} class={twMerge('', props.class)}></textarea>
+<textarea
+  class={textareaRecipe({
+    size,
+    variant,
+    className,
+  })}
+  {...props}
+></textarea>

@@ -21,6 +21,7 @@
     "remark-rehype": "^11.1.1",
     "tailwind-merge": "^2.5.4",
     "tailwind-scrollbar": "^3.1.0",
+    "tailwind-variants": "^0.2.1",
     "ui-ingredients": "^0.15.0",
     "unified": "^11.0.5",
     "vfile-matter": "^5.0.0",

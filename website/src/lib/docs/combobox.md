@@ -75,13 +75,13 @@ description: A component that combines a text input with a dropdown list for sel
 
 ```svelte
 <script lang="ts">
-  import {Combobox, Portal} from '$lib/index.js';
+  import {Combobox, Portal} from 'ui-ingredients';
   import {
     CheckIcon,
     ChevronDownIcon,
     XCloseIcon,
   } from '@untitled-theme/icons-svelte';
-  import {IconButton, Input, Label} from '../shared/index.js';
+  import {IconButton, Input, Label} from '$lib/ui';
 
   let items = [
     {label: 'Option 1', value: '1'},

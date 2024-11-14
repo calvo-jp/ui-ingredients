@@ -8,7 +8,7 @@ description: A component for entering and displaying a sequence of numeric or al
 ```svelte
 <script lang="ts">
   import {PinInput} from 'ui-ingredients';
-  import {Input, Label} from '../shared/index.js';
+  import {Input, Label} from '$lib/ui';
 
   let value: string[] = $state([]);
 </script>
@@ -33,7 +33,7 @@ description: A component for entering and displaying a sequence of numeric or al
 ```svelte
 <script lang="ts">
   import {PinInput} from 'ui-ingredients';
-  import {Input, Label} from '../shared/index.js';
+  import {Input, Label} from '$lib/ui';
 </script>
 
 <Field.Root>

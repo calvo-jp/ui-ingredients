@@ -1,21 +1,22 @@
 <script lang="ts">
   import type {Assign} from '$lib/types';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {buttonRecipe, type ButtonRecipeProps} from './button.recipe';
+  import {
+    iconButtonRecipe,
+    type IconButtonRecipeProps,
+  } from './icon-button.recipe';
 
   let {
     class: className,
     variant,
-    fullWidth,
     children,
     ...props
-  }: Assign<SvelteHTMLElements['button'], ButtonRecipeProps> = $props();
+  }: Assign<SvelteHTMLElements['button'], IconButtonRecipeProps> = $props();
 </script>
 
 <button
-  class={buttonRecipe({
+  class={iconButtonRecipe({
     variant,
-    fullWidth,
     className,
   })}
   {...props}

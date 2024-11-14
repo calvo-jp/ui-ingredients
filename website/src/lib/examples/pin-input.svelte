@@ -1,0 +1,36 @@
+<script lang="ts">
+  import {Input, Label} from '$lib/ui';
+  import {PinInput} from 'ui-ingredients';
+
+  let value: string[] = $state([]);
+</script>
+
+<PinInput.Root
+  placeholder=""
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+  class="w-full lg:max-w-[24rem]"
+>
+  <PinInput.Label>
+    {#snippet asChild(attrs)}
+      <Label {...attrs}>Enter OTP</Label>
+    {/snippet}
+  </PinInput.Label>
+
+  <PinInput.HiddenInput />
+
+  <PinInput.Control class="grid grid-cols-6 gap-2">
+    {#each Array.from({length: 6}) as _, i}
+      <PinInput.Input
+        index={i}
+        class="aspect-square h-auto w-full text-center text-xl font-bold"
+      >
+        {#snippet asChild(attrs)}
+          <Input {...attrs} />
+        {/snippet}
+      </PinInput.Input>
+    {/each}
+  </PinInput.Control>
+</PinInput.Root>

@@ -1,8 +1,21 @@
 <script lang="ts">
+  import type {Assign} from '$lib/types';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {twMerge} from 'tailwind-merge';
+  import {inputRecipe, type InputRecipeProps} from './input.recipe';
 
-  let {...props}: SvelteHTMLElements['input'] = $props();
+  let {
+    size,
+    class: className,
+    variant,
+    ...props
+  }: Assign<SvelteHTMLElements['input'], InputRecipeProps> = $props();
 </script>
 
-<input type="text" {...props} class={twMerge('', props.class)} />
+<input
+  class={inputRecipe({
+    size,
+    variant,
+    className,
+  })}
+  {...props}
+/>
