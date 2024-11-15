@@ -1,21 +1,13 @@
 <script lang="ts">
-  import {page} from '$app/stores';
+  import {COMPONENTS} from '$lib/const.js';
   import Metadata from '$lib/metadata.svelte';
   import {Prose, Table} from '$lib/ui';
-  import type {Snippet} from 'svelte';
 
   let {data} = $props();
 
-  let component: Snippet | null = $state(null);
-
-  $effect.pre(() => {
-    $page.url.pathname;
-
-    import('$lib/examples').then((mod) => {
-      const k = data.name.pascal as unknown as keyof typeof mod;
-      component = mod[k] ? (mod[k] as Snippet) : null;
-    });
-  });
+  let Component = $derived(
+    COMPONENTS.find((o) => o.slug === data.slug)?.example,
+  );
 </script>
 
 <svelte:head>
@@ -28,9 +20,9 @@
   <h1 class="mb-0">{data.name.formal}</h1>
   <p class="m-0 mt-2.5">{data.description}</p>
 
-  {#if component}
+  {#if Component}
     <div class="mt-10 rounded bg-neutral-900/35 p-16">
-      {@render component()}
+      <Component />
     </div>
   {/if}
 

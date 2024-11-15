@@ -34,10 +34,22 @@
                   <li>
                     <a
                       href={child.href}
-                      class="block rounded py-1 text-sm font-semibold text-neutral-400 transition-colors duration-150 data-current:text-indigo-400 hover:text-inherit"
+                      class="group flex items-center gap-3 rounded py-1"
                       data-current={dataAttr($page.url.pathname === child.href)}
                     >
-                      {child.name}
+                      <span
+                        class="text-sm font-semibold text-neutral-400 transition-colors duration-150 group-hover:text-inherit group-data-current:text-indigo-400"
+                      >
+                        {child.name}
+                      </span>
+
+                      {#if child.beta}
+                        <span
+                          class="rounded-full border border-neutral-800 bg-neutral-800/50 px-1.5 py-px text-xs font-semibold"
+                        >
+                          Beta
+                        </span>
+                      {/if}
                     </a>
                   </li>
                 {/each}

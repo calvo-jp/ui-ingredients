@@ -34,7 +34,6 @@ export const load: PageServerLoad = async ({params}) => {
     dataAttrDoc: details.dataAttrDoc,
     accessibilityDoc: details.accessibilityDoc,
     anatomyIcon: details.anatomyIcon,
-    isPreview: details.isPreview,
     description,
   };
 };

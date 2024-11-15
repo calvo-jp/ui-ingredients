@@ -22,7 +22,7 @@ export {default as NumberInput} from './number-input.svelte';
 export {default as Pagination} from './pagination.svelte';
 export {default as PinInput} from './pin-input.svelte';
 export {default as Popover} from './popover.svelte';
-export {default as Progress} from './progress-circular.svelte';
+export {default as ProgressCircular} from './progress-circular.svelte';
 export {default as ProgressLinear} from './progress-linear.svelte';
 export {default as QrCode} from './qr-code.svelte';
 export {default as RadioGroup} from './radio-group.svelte';

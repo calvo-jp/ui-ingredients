@@ -6,13 +6,59 @@ import {
   type ApiDoc,
   type DataAttrEntry,
 } from '@zag-js/docs';
+import type {Component} from 'svelte';
 import {getAnatomyIcon} from './anatomy-icons';
+import {
+  Accordion,
+  Alert,
+  AlertDialog,
+  Avatar,
+  Breadcrumbs,
+  Carousel,
+  Checkbox,
+  Clipboard,
+  Collapsible,
+  ColorPicker,
+  Combobox,
+  DatePicker,
+  Dialog,
+  Drawer,
+  Editable,
+  Field,
+  FileUpload,
+  HoverCard,
+  Menu,
+  NumberInput,
+  Pagination,
+  PinInput,
+  Popover,
+  ProgressCircular,
+  ProgressLinear,
+  QrCode,
+  RatingGroup,
+  SegmentGroup,
+  Select,
+  SignaturePad,
+  Slider,
+  Splitter,
+  Steps,
+  Switch,
+  Tabs,
+  TagsInput,
+  Timer,
+  Toast,
+  Toggle,
+  ToggleGroup,
+  Tooltip,
+  Tour,
+  TreeView,
+} from './examples';
 
 interface ApiDocEntry {
   [part: string]: ApiDoc;
 }
 
-interface Details {
+interface ComponentDetails {
   slug: string;
   /**
    * formal name eg. `Date Picker`
@@ -22,6 +68,7 @@ interface Details {
    * path to markdown using "src" as root path
    */
   markdownPath: string;
+  example?: Component;
   /**
    * @format html
    */
@@ -29,11 +76,10 @@ interface Details {
   apiDoc?: ApiDocEntry;
   dataAttrDoc?: DataAttrEntry;
   accessibilityDoc?: AccessibilityDoc;
-  isHidden?: boolean;
-  isPreview?: boolean;
+  beta?: boolean;
 }
 
-export const COMPONENTS = [
+export const COMPONENTS: ComponentDetails[] = [
   {
     slug: 'accordion',
     name: 'Accordion',
@@ -51,11 +97,17 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('accordion');
     },
+    get example() {
+      return Accordion;
+    },
     markdownPath: 'src/lib/docs/accordion.md',
   },
   {
     slug: 'alert',
     name: 'Alert',
+    get example() {
+      return Alert;
+    },
     markdownPath: 'src/lib/docs/alert.md',
   },
   {
@@ -72,6 +124,9 @@ export const COMPONENTS = [
     get accessibilityDoc() {
       return getAccessibilityDoc('dialog');
     },
+    get example() {
+      return AlertDialog;
+    },
     markdownPath: 'src/lib/docs/alert-dialog.md',
   },
   {
@@ -82,18 +137,23 @@ export const COMPONENTS = [
         Root: getApiDoc('avatar'),
       };
     },
-
     get dataAttrDoc() {
       return getDataAttrDoc('avatar');
     },
     get anatomyIcon() {
       return getAnatomyIcon('avatar');
     },
+    get example() {
+      return Avatar;
+    },
     markdownPath: 'src/lib/docs/avatar.md',
   },
   {
     slug: 'breadcrumbs',
     name: 'Breadcrumbs',
+    get example() {
+      return Breadcrumbs;
+    },
     markdownPath: 'src/lib/docs/breadcrumbs.md',
   },
   {
@@ -110,8 +170,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('carousel');
     },
+    get example() {
+      return Carousel;
+    },
     markdownPath: 'src/lib/docs/carousel.md',
-    isPreview: true,
+    beta: true,
   },
   {
     slug: 'checkbox',
@@ -130,6 +193,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('checkbox');
     },
+    get example() {
+      return Checkbox;
+    },
     markdownPath: 'src/lib/docs/checkbox.md',
   },
   {
@@ -146,6 +212,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('clipboard');
     },
+    get example() {
+      return Clipboard;
+    },
     markdownPath: 'src/lib/docs/clipboard.md',
   },
   {
@@ -161,6 +230,9 @@ export const COMPONENTS = [
     },
     get accessibilityDoc() {
       return getAccessibilityDoc('collapsible');
+    },
+    get example() {
+      return Collapsible;
     },
     markdownPath: 'src/lib/docs/collapsible.md',
   },
@@ -181,6 +253,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('color-picker');
     },
+    get example() {
+      return ColorPicker;
+    },
     markdownPath: 'src/lib/docs/color-picker.md',
   },
   {
@@ -199,6 +274,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('combobox');
+    },
+    get example() {
+      return Combobox;
     },
     markdownPath: 'src/lib/docs/combobox.md',
   },
@@ -219,6 +297,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('date-picker');
     },
+    get example() {
+      return DatePicker;
+    },
     markdownPath: 'src/lib/docs/date-picker.md',
   },
   {
@@ -238,6 +319,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('dialog');
     },
+    get example() {
+      return Dialog;
+    },
     markdownPath: 'src/lib/docs/dialog.md',
   },
   {
@@ -253,6 +337,9 @@ export const COMPONENTS = [
     },
     get accessibilityDoc() {
       return getAccessibilityDoc('dialog');
+    },
+    get example() {
+      return Drawer;
     },
     markdownPath: 'src/lib/docs/drawer.md',
   },
@@ -273,6 +360,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('editable');
     },
+    get example() {
+      return Editable;
+    },
     markdownPath: 'src/lib/docs/editable.md',
   },
   {
@@ -280,6 +370,9 @@ export const COMPONENTS = [
     name: 'Field',
     get anatomyIcon() {
       return getAnatomyIcon('field');
+    },
+    get example() {
+      return Field;
     },
     markdownPath: 'src/lib/docs/field.md',
   },
@@ -297,22 +390,24 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('file-upload');
     },
+    get example() {
+      return FileUpload;
+    },
     markdownPath: 'src/lib/docs/file-upload.md',
   },
-  {
-    slug: 'floating-panel',
-    name: 'Floating Panel',
-    isHidden: true,
-    get apiDoc() {
-      return {
-        Root: getApiDoc('floating-panel'),
-      };
-    },
-    get dataAttrDoc() {
-      return getDataAttrDoc('floating-panel');
-    },
-    markdownPath: 'src/lib/docs/floating-panel.md',
-  },
+  // {
+  //   slug: 'floating-panel',
+  //   name: 'Floating Panel',
+  //   get apiDoc() {
+  //     return {
+  //       Root: getApiDoc('floating-panel'),
+  //     };
+  //   },
+  //   get dataAttrDoc() {
+  //     return getDataAttrDoc('floating-panel');
+  //   },
+  //   markdownPath: 'src/lib/docs/floating-panel.md',
+  // },
   {
     slug: 'hover-card',
     name: 'Hover Card',
@@ -326,6 +421,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('hover-card');
+    },
+    get example() {
+      return HoverCard;
     },
     markdownPath: 'src/lib/docs/hover-card.md',
   },
@@ -346,6 +444,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('menu');
     },
+    get example() {
+      return Menu;
+    },
     markdownPath: 'src/lib/docs/menu.md',
   },
   {
@@ -365,6 +466,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('number-input');
     },
+    get example() {
+      return NumberInput;
+    },
     markdownPath: 'src/lib/docs/number-input.md',
   },
   {
@@ -380,6 +484,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('pagination');
+    },
+    get example() {
+      return Pagination;
     },
     markdownPath: 'src/lib/docs/pagination.md',
   },
@@ -400,6 +507,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('pin-input');
     },
+    get example() {
+      return PinInput;
+    },
     markdownPath: 'src/lib/docs/pin-input.md',
   },
   {
@@ -419,6 +529,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('popover');
     },
+    get example() {
+      return Popover;
+    },
     markdownPath: 'src/lib/docs/popover.md',
   },
   {
@@ -434,6 +547,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('linear-progress');
+    },
+    get example() {
+      return ProgressLinear;
     },
     markdownPath: 'src/lib/docs/progress-linear.md',
   },
@@ -451,6 +567,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('circular-progress');
     },
+    get example() {
+      return ProgressCircular;
+    },
     markdownPath: 'src/lib/docs/progress-circular.md',
   },
   {
@@ -466,6 +585,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('qr-code');
+    },
+    get example() {
+      return QrCode;
     },
     markdownPath: 'src/lib/docs/qr-code.md',
   },
@@ -486,6 +608,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('radio-group');
     },
+    get example() {
+      return QrCode;
+    },
     markdownPath: 'src/lib/docs/radio-group.md',
   },
   {
@@ -504,6 +629,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('rating-group');
+    },
+    get example() {
+      return RatingGroup;
     },
     markdownPath: 'src/lib/docs/rating-group.md',
   },
@@ -524,6 +652,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('segment-group');
     },
+    get example() {
+      return SegmentGroup;
+    },
     markdownPath: 'src/lib/docs/segment-group.md',
   },
   {
@@ -540,6 +671,9 @@ export const COMPONENTS = [
     get accessibilityDoc() {
       return getAccessibilityDoc('select');
     },
+    get example() {
+      return Select;
+    },
     markdownPath: 'src/lib/docs/select.md',
   },
   {
@@ -555,6 +689,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('signature-pad');
+    },
+    get example() {
+      return SignaturePad;
     },
     markdownPath: 'src/lib/docs/signature-pad.md',
   },
@@ -575,6 +712,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('slider');
     },
+    get example() {
+      return Slider;
+    },
     markdownPath: 'src/lib/docs/slider.md',
   },
   {
@@ -591,6 +731,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('splitter');
     },
+    get example() {
+      return Splitter;
+    },
     markdownPath: 'src/lib/docs/splitter.md',
   },
   {
@@ -606,6 +749,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('steps');
+    },
+    get example() {
+      return Steps;
     },
     markdownPath: 'src/lib/docs/steps.md',
   },
@@ -626,6 +772,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('switch');
     },
+    get example() {
+      return Switch;
+    },
     markdownPath: 'src/lib/docs/switch.md',
   },
   {
@@ -644,6 +793,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('tabs');
+    },
+    get example() {
+      return Tabs;
     },
     markdownPath: 'src/lib/docs/tabs.md',
   },
@@ -664,25 +816,31 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('tags-input');
     },
+    get example() {
+      return TagsInput;
+    },
     markdownPath: 'src/lib/docs/tags-input.md',
   },
-  {
-    slug: 'time-picker',
-    name: 'Time Picker',
-    get apiDoc() {
-      return {
-        Root: getApiDoc('time-picker'),
-      };
-    },
-    get dataAttrDoc() {
-      return getDataAttrDoc('time-picker');
-    },
-    get accessibilityDoc() {
-      return getAccessibilityDoc('time-picker');
-    },
-    markdownPath: 'src/lib/docs/time-picker.md',
-    isPreview: true,
-  },
+  // {
+  //   slug: 'time-picker',
+  //   name: 'Time Picker',
+  //   get apiDoc() {
+  //     return {
+  //       Root: getApiDoc('time-picker'),
+  //     };
+  //   },
+  //   get dataAttrDoc() {
+  //     return getDataAttrDoc('time-picker');
+  //   },
+  //   get accessibilityDoc() {
+  //     return getAccessibilityDoc('time-picker');
+  //   },
+  //   get anatomyIcon() {
+  //     return getAnatomyIcon('time-picker');
+  //   },
+  //   markdownPath: 'src/lib/docs/time-picker.md',
+  //   beta: true,
+  // },
   {
     slug: 'timer',
     name: 'Timer',
@@ -693,6 +851,9 @@ export const COMPONENTS = [
     },
     get dataAttrDoc() {
       return getDataAttrDoc('timer');
+    },
+    get example() {
+      return Timer;
     },
     markdownPath: 'src/lib/docs/timer.md',
   },
@@ -710,11 +871,17 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('toast');
     },
+    get example() {
+      return Toast;
+    },
     markdownPath: 'src/lib/docs/toast.md',
   },
   {
     slug: 'toggle',
     name: 'Toggle',
+    get example() {
+      return Toggle;
+    },
     markdownPath: 'src/lib/docs/toggle.md',
   },
   {
@@ -733,6 +900,9 @@ export const COMPONENTS = [
     },
     get anatomyIcon() {
       return getAnatomyIcon('toggle-group');
+    },
+    get example() {
+      return ToggleGroup;
     },
     markdownPath: 'src/lib/docs/toggle-group.md',
   },
@@ -753,6 +923,9 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('tooltip');
     },
+    get example() {
+      return Tooltip;
+    },
     markdownPath: 'src/lib/docs/tooltip.md',
   },
   {
@@ -772,8 +945,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('tour');
     },
+    get example() {
+      return Tour;
+    },
     markdownPath: 'src/lib/docs/tour.md',
-    isPreview: true,
+    beta: true,
   },
   {
     slug: 'tree-view',
@@ -792,12 +968,15 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('tree-view');
     },
+    get example() {
+      return TreeView;
+    },
     markdownPath: 'src/lib/docs/tree-view.md',
-    isPreview: true,
+    beta: true,
   },
-].filter((item) => !item.isHidden) satisfies Details[];
+];
 
-export const UTILITIES = [
+export const UTILITIES: ComponentDetails[] = [
   {
     slug: 'environment-provider',
     name: 'Environment Provider',
@@ -823,9 +1002,18 @@ export const UTILITIES = [
     name: 'Presence',
     markdownPath: 'src/lib/docs/presence.md',
   },
-] satisfies Details[];
+];
 
-export const APP_LINKS = [
+interface AppLink {
+  name: string;
+  links: {
+    name: string;
+    href: string;
+    beta?: boolean;
+  }[];
+}
+
+export const APP_LINKS: AppLink[] = [
   {
     name: 'Overview',
     links: [
@@ -852,6 +1040,7 @@ export const APP_LINKS = [
     links: COMPONENTS.map((item) => ({
       name: item.name,
       href: `/components/${item.slug}`,
+      beta: item.beta,
     })),
   },
   {

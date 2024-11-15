@@ -19,7 +19,10 @@
 
     if (!main) return;
 
-    const headings = main.querySelectorAll<HTMLHeadingElement>('h2');
+    const headings = main.querySelectorAll<HTMLHeadingElement>(
+      'h2:not([data-scope][data-part])',
+    );
+
     const newItems: Item[] = [];
 
     headings.forEach((target, index) => {
@@ -86,11 +89,12 @@
 
       const item = items.find((item) => item.value === detail.value);
 
-      item?.target.scrollIntoView({
-        block: 'start',
-        inline: 'start',
-        behavior: 'smooth',
-      });
+      if (!item) return;
+
+      const top =
+        item.target.getBoundingClientRect().top + window.scrollY + -100;
+
+      window.scrollTo({top});
     }}
     orientation="vertical"
     class="relative w-fit"
@@ -98,7 +102,7 @@
     {#each items as item}
       <SegmentGroup.Item
         value={item.value}
-        class="relative block cursor-pointer py-0.5 text-neutral-400 transition-colors duration-200 hover:text-neutral-300 data-checked:text-neutral-200"
+        class="relative block cursor-pointer py-0.5 text-neutral-400 transition-colors duration-200 data-checked:text-neutral-200 hover:text-neutral-300"
       >
         <SegmentGroup.ItemText class="px-5">{item.label}</SegmentGroup.ItemText>
         <SegmentGroup.ItemControl />
