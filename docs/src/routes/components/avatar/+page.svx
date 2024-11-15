@@ -1,0 +1,27 @@
+<script>
+  import {AvatarDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
+# Avatar
+
+A visual component for displaying a user’s profile image or initials.
+
+<AvatarDemo />
+
+## Anatomy
+
+<Anatomy id="avatar" />
+
+## Usage
+
+```svelte
+<script lang="ts">
+  import {Avatar} from 'ui-ingredients';
+</script>
+
+<Avatar.Root>
+  <Avatar.Image src="https://i.pravatar.cc/300" alt="" />
+  <Avatar.Fallback>JD</Avatar.Fallback>
+</Avatar.Root>
+```

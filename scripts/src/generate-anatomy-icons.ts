@@ -42,18 +42,12 @@ export async function generateAnatomyIcons() {
     `
     // ⚠️ Generated file
 
-    export type AnatomyIconKey = ${Object.keys(anatomy)
+    export type AnatomyIcon = ${Object.keys(anatomy)
       .map((v) => `'${v}'`)
       .join(' | ')};
-    
-    
-    export function getAnatomyIcon(key: AnatomyIconKey) {
-      const icon = icons[key];
-      if (!icon) throw new Error(\`No icon for \${key}\`);
-      return icon;
-    }
 
-    const icons = ${JSON.stringify(anatomy)};
+
+    export const ANATOMY_ICONS: Record<AnatomyIcon, string> = ${JSON.stringify(anatomy)};
     `,
     {
       parser: 'typescript',
@@ -65,7 +59,7 @@ export async function generateAnatomyIcons() {
 
   const destination = path.resolve(
     workspaceRoot,
-    'website/src/lib/anatomy-icons.ts',
+    'docs/src/lib/anatomy-icons.ts',
   );
 
   await fs.writeFile(destination, content, {encoding: 'utf-8'});
