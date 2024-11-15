@@ -99,7 +99,6 @@ export const COMPONENTS = [
   {
     slug: 'carousel',
     name: 'Carousel',
-    markdownPath: 'src/lib/docs/carousel.md',
     get apiDoc() {
       return {
         Root: getApiDoc('carousel'),
@@ -111,12 +110,12 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('carousel');
     },
+    markdownPath: 'src/lib/docs/carousel.md',
     isPreview: true,
   },
   {
     slug: 'checkbox',
     name: 'Checkbox',
-    markdownPath: 'src/lib/docs/checkbox.md',
     get apiDoc() {
       return {
         Root: getApiDoc('checkbox'),
@@ -131,11 +130,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('checkbox');
     },
+    markdownPath: 'src/lib/docs/checkbox.md',
   },
   {
     slug: 'clipboard',
     name: 'Clipboard',
-    markdownPath: 'src/lib/docs/clipboard.md',
     get apiDoc() {
       return {
         Root: getApiDoc('clipboard'),
@@ -147,11 +146,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('clipboard');
     },
+    markdownPath: 'src/lib/docs/clipboard.md',
   },
   {
     slug: 'collapsible',
     name: 'Collapsible',
-    markdownPath: 'src/lib/docs/collapsible.md',
     get apiDoc() {
       return {
         Root: getApiDoc('collapsible'),
@@ -163,11 +162,11 @@ export const COMPONENTS = [
     get accessibilityDoc() {
       return getAccessibilityDoc('collapsible');
     },
+    markdownPath: 'src/lib/docs/collapsible.md',
   },
   {
     slug: 'color-picker',
     name: 'Color Picker',
-    markdownPath: 'src/lib/docs/color-picker.md',
     get apiDoc() {
       return {
         Root: getApiDoc('color-picker'),
@@ -182,11 +181,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('color-picker');
     },
+    markdownPath: 'src/lib/docs/color-picker.md',
   },
   {
     slug: 'combobox',
     name: 'Combobox',
-    markdownPath: 'src/lib/docs/combobox.md',
     get apiDoc() {
       return {
         Root: getApiDoc('combobox'),
@@ -201,11 +200,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('combobox');
     },
+    markdownPath: 'src/lib/docs/combobox.md',
   },
   {
     slug: 'date-picker',
     name: 'Date Picker',
-    markdownPath: 'src/lib/docs/date-picker.md',
     get apiDoc() {
       return {
         Root: getApiDoc('date-picker'),
@@ -220,11 +219,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('date-picker');
     },
+    markdownPath: 'src/lib/docs/date-picker.md',
   },
   {
     slug: 'dialog',
     name: 'Dialog',
-    markdownPath: 'src/lib/docs/dialog.md',
     get apiDoc() {
       return {
         Root: getApiDoc('dialog'),
@@ -239,11 +238,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('dialog');
     },
+    markdownPath: 'src/lib/docs/dialog.md',
   },
   {
     slug: 'drawer',
     name: 'Drawer',
-    markdownPath: 'src/lib/docs/drawer.md',
     get apiDoc() {
       return {
         Root: getApiDoc('dialog'),
@@ -255,11 +254,11 @@ export const COMPONENTS = [
     get accessibilityDoc() {
       return getAccessibilityDoc('dialog');
     },
+    markdownPath: 'src/lib/docs/drawer.md',
   },
   {
     slug: 'editable',
     name: 'Editable',
-    markdownPath: 'src/lib/docs/editable.md',
     get apiDoc() {
       return {
         Root: getApiDoc('editable'),
@@ -274,19 +273,19 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('editable');
     },
+    markdownPath: 'src/lib/docs/editable.md',
   },
   {
     slug: 'field',
     name: 'Field',
-    markdownPath: 'src/lib/docs/field.md',
     get anatomyIcon() {
       return getAnatomyIcon('field');
     },
+    markdownPath: 'src/lib/docs/field.md',
   },
   {
     slug: 'file-upload',
     name: 'File Upload',
-    markdownPath: 'src/lib/docs/file-upload.md',
     get apiDoc() {
       return {
         Root: getApiDoc('file-upload'),
@@ -298,12 +297,12 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('file-upload');
     },
+    markdownPath: 'src/lib/docs/file-upload.md',
   },
   {
     slug: 'floating-panel',
     name: 'Floating Panel',
     isHidden: true,
-    markdownPath: 'src/lib/docs/floating-panel.md',
     get apiDoc() {
       return {
         Root: getApiDoc('floating-panel'),
@@ -312,11 +311,11 @@ export const COMPONENTS = [
     get dataAttrDoc() {
       return getDataAttrDoc('floating-panel');
     },
+    markdownPath: 'src/lib/docs/floating-panel.md',
   },
   {
     slug: 'hover-card',
     name: 'Hover Card',
-    markdownPath: 'src/lib/docs/hover-card.md',
     get apiDoc() {
       return {
         Root: getApiDoc('hover-card'),
@@ -328,11 +327,11 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('hover-card');
     },
+    markdownPath: 'src/lib/docs/hover-card.md',
   },
   {
     slug: 'menu',
     name: 'Menu',
-    markdownPath: 'src/lib/docs/menu.md',
     get apiDoc() {
       return {
         Root: getApiDoc('menu'),
@@ -347,6 +346,7 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('menu');
     },
+    markdownPath: 'src/lib/docs/menu.md',
   },
   {
     slug: 'number-input',
@@ -681,7 +681,6 @@ export const COMPONENTS = [
       return getAccessibilityDoc('time-picker');
     },
     markdownPath: 'src/lib/docs/time-picker.md',
-    isHidden: true,
     isPreview: true,
   },
   {
@@ -735,7 +734,6 @@ export const COMPONENTS = [
     get anatomyIcon() {
       return getAnatomyIcon('toggle-group');
     },
-
     markdownPath: 'src/lib/docs/toggle-group.md',
   },
   {
