@@ -1,6 +1,7 @@
 <script>
   import {FileUploadDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 
@@ -88,3 +89,8 @@ A component for selecting and uploading files from the user's device
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+
+## API Reference
+
+<Api id="file-upload" />

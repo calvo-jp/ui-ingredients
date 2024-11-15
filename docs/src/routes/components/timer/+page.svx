@@ -1,5 +1,6 @@
 <script>
   import {TimerDemo} from '$lib/demo';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Timer
@@ -40,3 +41,8 @@ A component for counting down or tracking elapsed time.
   </Timer.Control>
 </Timer.Root>
 ```
+
+
+## API Reference
+
+<Api id="timer" />

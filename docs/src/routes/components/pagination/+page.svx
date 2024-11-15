@@ -1,6 +1,7 @@
 <script>
   import {PaginationDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Pagination
@@ -52,3 +53,8 @@ A component for navigating through multiple pages of content.
   {/snippet}
 </Pagination.Root>
 ```
+
+
+## API Reference
+
+<Api id="pagination" />

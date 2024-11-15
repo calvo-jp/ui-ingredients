@@ -1,6 +1,7 @@
 <script>
   import {StepsDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Steps
@@ -73,3 +74,8 @@ A component for displaying a sequence of steps or stages in a process, often use
   <Steps.NextTrigger>Next</Steps.NextTrigger>
 </Steps.Root>
 ```
+
+
+## API Reference
+
+<Api id="steps" />

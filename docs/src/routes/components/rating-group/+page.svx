@@ -1,6 +1,7 @@
 <script>
   import {RatingGroupDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Rating Group
@@ -72,3 +73,8 @@ A component for selecting a rating value, typically represented by stars or othe
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+
+## API Reference
+
+<Api id="rating-group" />

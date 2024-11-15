@@ -1,5 +1,6 @@
 <script>
   import {DrawerDemo} from '$lib/demo';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Drawer
@@ -33,3 +34,8 @@ A component that slides in from the edge of the screen to display additional con
   </Drawer.Positioner>
 </Drawer.Root>
 ```
+
+
+## API Reference
+
+<Api id="drawer" />

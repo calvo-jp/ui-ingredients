@@ -1,6 +1,7 @@
 <script>
   import {TabsDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Tabs
@@ -61,3 +62,8 @@ A component for organizing and switching between multiple sections of content wi
   {/each}
 </Tabs.Root>
 ```
+
+
+## API Reference
+
+<Api id="tabs" />

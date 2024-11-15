@@ -1,6 +1,7 @@
 <script>
   import {SliderDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Slider
@@ -51,3 +52,8 @@ A component for adjusting values or selecting ranges through a draggable handle.
   </Slider.MarkerGroup>
 </Slider.Root>
 ```
+
+
+## API Reference
+
+<Api id="slider" />

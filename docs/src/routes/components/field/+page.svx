@@ -1,6 +1,7 @@
 <script>
   import {FieldDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 
@@ -57,3 +58,8 @@ A component for organizing related form elements into a cohesive unit.
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+
+## API Reference
+
+<Api id="textarea" />

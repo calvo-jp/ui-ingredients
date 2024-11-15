@@ -1,6 +1,7 @@
 <script>
   import {ToastDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Toast
@@ -71,3 +72,8 @@ export const toaster = createToaster({
   Create
 </button>
 ```
+
+
+## API Reference
+
+<Api id="toast" />

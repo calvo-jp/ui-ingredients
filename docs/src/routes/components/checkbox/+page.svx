@@ -1,6 +1,7 @@
 <script>
   import {CheckboxDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Checkbox
@@ -62,3 +63,8 @@ An interactive component for selecting one or multiple options in a list.
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+
+## API Reference
+
+<Api id="checkbox" />

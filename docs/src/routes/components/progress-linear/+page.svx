@@ -1,6 +1,7 @@
 <script>
   import {ProgressLinearDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Progress - Linear
@@ -29,3 +30,8 @@ A component for displaying the completion status of a task or process.
   <Progress.ValueText />
 </Progress.Root>
 ```
+
+
+## API Reference
+
+<Api id="progress-linear" />

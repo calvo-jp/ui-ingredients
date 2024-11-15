@@ -1,6 +1,7 @@
 <script>
   import {DatePickerDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Date Picker
@@ -300,3 +301,8 @@ A component for selecting a date from a calendar interface.
   {/snippet}
 </DatePicker.Root>
 ```
+
+
+## API Reference
+
+<Api id="date-picker" />

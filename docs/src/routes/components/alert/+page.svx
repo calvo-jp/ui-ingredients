@@ -1,5 +1,6 @@
 <script>
   import {AlertDemo} from '$lib/demo';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Alert

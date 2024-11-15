@@ -1,5 +1,6 @@
 <script>
   import {QrCodeDemo} from '$lib/demo';
+  import Api from '$lib/api.svelte';
   import Anatomy from '$lib/anatomy.svelte';
 </script>
 
@@ -26,3 +27,8 @@ A component for generating and displaying QR codes for quick scanning and access
   </QrCode.Frame>
 </QrCode.Root>
 ```
+
+
+## API Reference
+
+<Api id="qr-code" />

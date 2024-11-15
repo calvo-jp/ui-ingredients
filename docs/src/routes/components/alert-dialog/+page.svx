@@ -1,5 +1,6 @@
 <script>
   import {AlertDialogDemo} from '$lib/demo';
+  import Api from '$lib/api.svelte';
 </script>
 
 # AlertDialog
@@ -27,3 +28,8 @@ A component for displaying a modal dialog that requires user attention or confir
   </AlertDialog.Positioner>
 </AlertDialog.Root>
 ```
+
+
+## API Reference
+
+<Api id="alert-dialog" />

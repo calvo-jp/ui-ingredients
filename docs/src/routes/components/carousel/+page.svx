@@ -1,6 +1,7 @@
 <script>
   import {CarouselDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Carousel
@@ -62,3 +63,8 @@ A rotating component for cycling through images or content slides.
   </div>
 </Carousel.Root>
 ```
+
+
+## API Reference
+
+<Api id="carousel" />

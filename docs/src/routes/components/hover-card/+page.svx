@@ -1,6 +1,7 @@
 <script>
   import {HoverCardDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Hover Card
@@ -37,3 +38,8 @@ A component that displays additional information when hovering over an element
   </Portal>
 </HoverCard.Root>
 ```
+
+
+## API Reference
+
+<Api id="hover-card" />

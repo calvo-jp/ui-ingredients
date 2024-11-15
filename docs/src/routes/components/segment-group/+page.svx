@@ -1,6 +1,7 @@
 <script>
   import {SegmentGroupDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Segment Group
@@ -41,3 +42,8 @@ A component for grouping and toggling between different sections or options, oft
   <SegmentGroup.Indicator />
 </SegmentGroup.Root>
 ```
+
+
+## API Reference
+
+<Api id="segment-group" />

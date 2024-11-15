@@ -1,6 +1,7 @@
 <script>
   import {ComboboxDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Combobox
@@ -159,3 +160,8 @@ A component that combines a text input with a dropdown list for selecting or ent
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+
+## API Reference
+
+<Api id="combobox" />

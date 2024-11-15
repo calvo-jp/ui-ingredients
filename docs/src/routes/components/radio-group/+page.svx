@@ -1,6 +1,7 @@
 <script>
   import {RadioGroupDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Radio Group
@@ -57,3 +58,8 @@ A component for selecting one option from a set of mutually exclusive choices.
   {/each}
 </RadioGroup.Root>
 ```
+
+
+## API Reference
+
+<Api id="radio-group" />

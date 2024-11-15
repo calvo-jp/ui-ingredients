@@ -1,6 +1,7 @@
 <script>
   import {EditableDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Editable
@@ -66,3 +67,8 @@ A component that allows users to modify its content.
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+
+## API Reference
+
+<Api id="ediable" />

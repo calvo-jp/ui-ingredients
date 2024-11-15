@@ -1,6 +1,7 @@
 <script>
   import {SignaturePadDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
+  import Api from '$lib/api.svelte';
 </script>
 
 # Signature Pad
@@ -38,3 +39,8 @@ A component for capturing and displaying handwritten signatures.
   {/snippet}
 </SignaturePad.Root>
 ```
+
+
+## API Reference
+
+<Api id="signature-pad" />

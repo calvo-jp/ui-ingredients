@@ -1,5 +1,6 @@
 <script>
   import {PopoverDemo} from '$lib/demo';
+  import Api from '$lib/api.svelte';
   import Anatomy from '$lib/anatomy.svelte';
 </script>
 
@@ -38,3 +39,8 @@ A component that displays additional content or information in a small overlay w
   </Popover.Positioner>
 </Popover.Root>
 ```
+
+
+## API Reference
+
+<Api id="popover" />
