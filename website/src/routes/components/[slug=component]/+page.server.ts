@@ -16,19 +16,15 @@ export const load: PageServerLoad = async ({params}) => {
   const markdownContent = await fs.readFile(markdownPath, {encoding: 'utf-8'});
 
   const {html, meta} = await parseMarkdown(markdownContent);
-  const {name, description} = z
+  const {description} = z
     .object({
-      name: z.string(),
       description: z.string(),
     })
     .parse(meta);
 
   return {
     html,
-    name: {
-      formal: details.name,
-      pascal: name,
-    },
+    name: details.name,
     slug: details.slug,
     apiDoc: details.apiDoc,
     dataAttrDoc: details.dataAttrDoc,

@@ -60,18 +60,9 @@ interface ApiDocEntry {
 
 interface ComponentDetails {
   slug: string;
-  /**
-   * formal name eg. `Date Picker`
-   */
   name: string;
-  /**
-   * path to markdown using "src" as root path
-   */
   markdownPath: string;
   example?: Component;
-  /**
-   * @format html
-   */
   anatomyIcon?: string;
   apiDoc?: ApiDocEntry;
   dataAttrDoc?: DataAttrEntry;
