@@ -85,7 +85,7 @@
 <div class="w-[18rem] shrink-0"></div>
 
 <section
-  class="fixed right-0 top-16 z-sticky mt-20 w-[18rem] shrink-0 border-l border-neutral-800 bg-neutral-950 py-2"
+  class="fixed right-[var(--scrollbar-width,0)] top-16 z-sticky mt-20 w-[18rem] shrink-0 border-l border-neutral-800 bg-neutral-950 py-2"
 >
   <h2 class="mb-2 px-5 font-semibold">On this page</h2>
 
