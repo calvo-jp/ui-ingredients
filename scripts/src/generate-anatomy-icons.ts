@@ -20,9 +20,6 @@ export async function generateAnatomyIcons() {
   const prettierConfig = await prettier.resolveConfig(workspaceRoot);
 
   components.forEach((component) => {
-    if (component === 'fieldset') return;
-    if (component === 'time-picker') return;
-
     const k = component === 'segmented-control' ? 'segment-group' : component;
     const v = container.replace(
       '{content}',
