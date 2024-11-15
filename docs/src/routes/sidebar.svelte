@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import {page} from '$app/stores';
   import {dataAttr} from '$lib/data-attr';
   import {ChevronRightIcon} from '@untitled-theme/icons-svelte';

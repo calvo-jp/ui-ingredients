@@ -26,7 +26,7 @@
         <Button {...attrs}>
           <span>Basic</span>
           <Menu.Indicator
-            class="data-open:rotate-180 transition-transform duration-200"
+            class="transition-transform duration-200 data-open:rotate-180"
           >
             <ChevronDownIcon />
           </Menu.Indicator>
@@ -37,11 +37,11 @@
     <Portal>
       <Menu.Positioner>
         <Menu.Content
-          class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
+          class="bg-light rounded border p-2 data-open:animate-fade-in data-closed:animate-fade-out"
         >
           {#each items as item (item.value)}
             <Menu.Item
-              class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 flex w-32 cursor-default items-center rounded px-2.5 py-1"
+              class="data-highlighted:bg-lighter/50 flex w-32 cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:opacity-75"
               value={item.value}
               disabled={item.disabled}
             >
@@ -59,7 +59,7 @@
         <Button {...attrs}>
           <span>Checkbox</span>
           <Menu.Indicator
-            class="data-open:rotate-180 transition-transform duration-200"
+            class="transition-transform duration-200 data-open:rotate-180"
           >
             <ChevronDownIcon />
           </Menu.Indicator>
@@ -70,11 +70,11 @@
     <Portal>
       <Menu.Positioner>
         <Menu.Content
-          class="data-open:animate-fade-in data-closed:animate-fade-out bg-light rounded border p-2"
+          class="bg-light rounded border p-2 data-open:animate-fade-in data-closed:animate-fade-out"
         >
           {#each items as item (item.value)}
             <Menu.OptionItem
-              class="data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-lighter/50 group flex w-32 cursor-default items-center gap-2 rounded px-2.5 py-1"
+              class="data-highlighted:bg-lighter/50 group flex w-32 cursor-default items-center gap-2 rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:opacity-75"
               type="checkbox"
               value={item.value}
               valueText={item.value}

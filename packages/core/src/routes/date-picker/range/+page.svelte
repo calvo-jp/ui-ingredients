@@ -60,7 +60,7 @@
     <Portal>
       <DatePicker.Positioner>
         <DatePicker.Content
-          class="bg-light data-open:animate-fade-in data-closed:animate-fade-out overflow-hidden rounded"
+          class="bg-light overflow-hidden rounded data-open:animate-fade-in data-closed:animate-fade-out"
         >
           <DatePicker.View view="day">
             <DatePicker.ViewControl

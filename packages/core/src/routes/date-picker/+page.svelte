@@ -45,7 +45,7 @@
     <Portal>
       <DatePicker.Positioner>
         <DatePicker.Content
-          class="bg-light data-open:animate-fade-in data-closed:animate-fade-out overflow-hidden rounded"
+          class="bg-light overflow-hidden rounded data-open:animate-fade-in data-closed:animate-fade-out"
         >
           <DatePicker.View view="day">
             <DatePicker.ViewControl
@@ -92,7 +92,7 @@
                       {#each week as day}
                         <DatePicker.DayTableCell value={day}>
                           <DatePicker.DayTableCellTrigger
-                            class="data-disabled:opacity-50 data-selected:font-semibold data-selected:text-accent hover:bg-lighter/25 data-disabled:hover:bg-transparent data-disabled:cursor-not-allowed flex aspect-square w-full items-center justify-center rounded transition-colors duration-200"
+                            class="data-selected:text-accent hover:bg-lighter/25 flex aspect-square w-full items-center justify-center rounded transition-colors duration-200 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:font-semibold data-disabled:hover:bg-transparent"
                           >
                             {day.day}
                           </DatePicker.DayTableCellTrigger>

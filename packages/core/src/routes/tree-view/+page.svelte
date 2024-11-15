@@ -93,7 +93,7 @@
           <span>{props.node.label}</span>
         </TreeView.BranchText>
         <TreeView.BranchIndicator
-          class="data-open:rotate-90 transition-transform duration-150"
+          class="transition-transform duration-150 data-open:rotate-90"
         >
           <ChevronRightIcon class="size-4" />
         </TreeView.BranchIndicator>

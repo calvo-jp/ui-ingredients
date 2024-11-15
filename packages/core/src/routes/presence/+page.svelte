@@ -18,7 +18,7 @@
   {present}
   lazyMount
   keepMounted={false}
-  class="data-open:animate-fade-in data-closed:animate-fade-out max-w-[32rem] rounded border p-5"
+  class="max-w-[32rem] rounded border p-5 data-open:animate-fade-in data-closed:animate-fade-out"
 >
   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto eligendi
   corrupti veniam maxime rem eaque praesentium dignissimos asperiores. Beatae

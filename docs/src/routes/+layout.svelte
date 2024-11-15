@@ -1,4 +1,4 @@
-<script lang="ts" module>
+<script module>
   export * from '$lib/components';
 </script>
 

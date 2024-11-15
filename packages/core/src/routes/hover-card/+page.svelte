@@ -18,7 +18,7 @@
   <Portal>
     <HoverCard.Positioner>
       <HoverCard.Content
-        class="bg-light data-open:animate-fade-in data-closed:animate-fade-out w-[90vw] rounded border p-4 lg:max-w-[24rem]"
+        class="bg-light w-[90vw] rounded border p-4 data-open:animate-fade-in data-closed:animate-fade-out lg:max-w-[24rem]"
       >
         <HoverCard.Arrow
           class="[--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"
