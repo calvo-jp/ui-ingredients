@@ -1,6 +1,17 @@
+<script>
+  import {HoverCardDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Hover Card
 
 A component that displays additional information when hovering over an element
+
+<HoverCardDemo />
+
+## Anatomy
+
+<Anatomy id="hover-card" />
 
 ## Usage
 

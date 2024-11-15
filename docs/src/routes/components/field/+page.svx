@@ -1,6 +1,18 @@
+<script>
+  import {FieldDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
+
 # Field
 
 A component for organizing related form elements into a cohesive unit.
+
+<FieldDemo />
+
+## Anatomy
+
+<Anatomy id="field" />
 
 ## Usage
 

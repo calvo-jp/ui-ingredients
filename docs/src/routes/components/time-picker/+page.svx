@@ -1,6 +1,17 @@
+<script>
+  import {TimePickerDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Time Picker
 
 A component for selecting a time from a dropdown or input interface.
+
+<TimePickerDemo />
+
+## Anatomy
+
+<Anatomy id="time-picker" />
 
 ## Usage
 

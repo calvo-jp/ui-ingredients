@@ -1,6 +1,12 @@
+<script>
+  import {ToggleDemo} from '$lib/demo';
+</script>
+
 # Toggle
 
 A component for switching between two states, such as on/off.
+
+<ToggleDemo />
 
 ## Usage
 

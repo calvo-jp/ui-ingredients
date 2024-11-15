@@ -1,6 +1,17 @@
+<script>
+  import {SwitchDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Switch
 
 A component for toggling between two states, such as on/off or enabled/disabled.
+
+<SwitchDemo />
+
+## Anatomy
+
+<Anatomy id="switch" />
 
 ## Usage
 

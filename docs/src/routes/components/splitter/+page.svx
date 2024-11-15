@@ -1,6 +1,17 @@
+<script>
+  import {SplitterDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Splitter
 
 A component for resizing and adjusting the size of adjacent panes or sections.
+
+<SplitterDemo />
+
+## Anatomy
+
+<Anatomy id="splitter" />
 
 ## Usage
 

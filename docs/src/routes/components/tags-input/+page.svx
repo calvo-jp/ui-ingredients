@@ -1,6 +1,17 @@
+<script>
+  import {TagsInputDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Tags Input
 
 A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
+
+<TagsInputDemo />
+
+## Anatomy
+
+<Anatomy id="tags-input" />
 
 ## Usage
 

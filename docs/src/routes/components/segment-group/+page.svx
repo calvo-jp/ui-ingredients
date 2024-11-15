@@ -1,6 +1,17 @@
+<script>
+  import {SegmentGroupDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Segment Group
 
 A component for grouping and toggling between different sections or options, often used for filters or navigation.
+
+<SegmentGroupDemo />
+
+## Anatomy
+
+<Anatomy id="segment-group" />
 
 ## Usage
 

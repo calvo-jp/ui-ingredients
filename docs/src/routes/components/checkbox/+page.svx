@@ -1,6 +1,17 @@
+<script>
+  import {CheckboxDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Checkbox
 
 An interactive component for selecting one or multiple options in a list.
+
+<CheckboxDemo />
+
+## Anatomy
+
+<Anatomy id="checkbox" />
 
 ## Usage
 

@@ -1,6 +1,17 @@
+<script>
+  import {ToastDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Toast
 
 A component for displaying brief, non-intrusive notifications or messages.
+
+<ToastDemo />
+
+## Anatomy
+
+<Anatomy id="toast" />
 
 ## Usage
 

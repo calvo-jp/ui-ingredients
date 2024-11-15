@@ -1,6 +1,13 @@
+<script>
+  import {BreadcrumbsDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Breadcrumbs
 
 A component for displaying the navigation path or hierarchy of a user's location within a site.
+
+<BreadcrumbsDemo />
 
 ## Usage
 

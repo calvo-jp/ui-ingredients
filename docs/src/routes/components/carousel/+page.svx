@@ -1,6 +1,17 @@
+<script>
+  import {CarouselDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Carousel
 
 A rotating component for cycling through images or content slides.
+
+<CarouselDemo />
+
+## Anatomy
+
+<Anatomy id="carousel" />
 
 ## Usage
 

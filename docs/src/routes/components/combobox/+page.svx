@@ -1,6 +1,17 @@
+<script>
+  import {ComboboxDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Combobox
 
 A component that combines a text input with a dropdown list for selecting or entering values.
+
+<ComboboxDemo />
+
+## Anatomy
+
+<Anatomy id="combobox" />
 
 ## Usage
 

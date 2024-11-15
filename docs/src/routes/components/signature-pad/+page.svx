@@ -1,6 +1,17 @@
+<script>
+  import {SignaturePadDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Signature Pad
 
 A component for capturing and displaying handwritten signatures.
+
+<SignaturePadDemo />
+
+## Anatomy
+
+<Anatomy id="signature-pad" />
 
 ## Usage
 

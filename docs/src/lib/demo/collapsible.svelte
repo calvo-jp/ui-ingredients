@@ -5,7 +5,7 @@
 </script>
 
 <Container>
-  <Collapsible.Root class="w-full max-w-[32rem]">
+  <Collapsible.Root class="mx-auto max-w-[32rem]">
     <Collapsible.Trigger>
       {#snippet asChild(attrs)}
         <Button {...attrs}>Toggle collapsible</Button>

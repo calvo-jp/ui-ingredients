@@ -1,6 +1,17 @@
+<script>
+  import {PinInputDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Pin Input
 
 A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
+
+<PinInputDemo />
+
+## Anatomy
+
+<Anatomy id="pin-input" />
 
 ## Usage
 

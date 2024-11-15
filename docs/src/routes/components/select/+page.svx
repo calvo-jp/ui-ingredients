@@ -1,6 +1,17 @@
+<script>
+  import {SelectDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Select
 
 A component for choosing an option from a dropdown list.
+
+<SelectDemo />
+
+## Anatomy
+
+<Anatomy id="select" />
 
 ## Usage
 

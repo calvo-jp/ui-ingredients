@@ -1,6 +1,18 @@
+<script>
+  import {FileUploadDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
+
 # File Upload
 
 A component for selecting and uploading files from the user's device
+
+<FileUploadDemo />
+
+## Anatomy
+
+<Anatomy id="file-upload" />
 
 ## Usage
 

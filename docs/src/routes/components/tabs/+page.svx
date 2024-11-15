@@ -1,6 +1,17 @@
+<script>
+  import {TabsDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Tabs
 
 A component for organizing and switching between multiple sections of content within a single view.
+
+<TabsDemo />
+
+## Anatomy
+
+<Anatomy id="tabs" />
 
 ## Usage
 

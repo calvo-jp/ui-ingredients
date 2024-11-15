@@ -1,6 +1,17 @@
+<script>
+  import {ClipboardDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Clipboard
 
 A component for copying text or content to the user's clipboard.
+
+<ClipboardDemo />
+
+## Anatomy
+
+<Anatomy id="clipboard" />
 
 ## Usage
 

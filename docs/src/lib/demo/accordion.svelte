@@ -23,7 +23,7 @@
 </script>
 
 <Container>
-  <Accordion.Root multiple class="mx-auto max-w-[26rem]">
+  <Accordion.Root multiple class="mx-auto max-w-[28rem]">
     {#each items as { label, value, content }}
       <Accordion.Item
         {value}

@@ -1,6 +1,17 @@
+<script>
+  import {SliderDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Slider
 
 A component for adjusting values or selecting ranges through a draggable handle.
+
+<SliderDemo />
+
+## Anatomy
+
+<Anatomy id="slider" />
 
 ## Usage
 

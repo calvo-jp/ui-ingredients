@@ -1,6 +1,17 @@
+<script>
+  import {ProgressLinearDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Progress - Linear
 
 A component for displaying the completion status of a task or process.
+
+<ProgressLinearDemo />
+
+## Anatomy
+
+<Anatomy id="progress-linear" />
 
 ## Usage
 

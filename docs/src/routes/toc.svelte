@@ -39,7 +39,7 @@
         value,
         label,
         target,
-        indent: target.tagName === 'H3' ? 16 : 0,
+        indent: target.tagName === 'H3' ? 12 : 0,
       });
     });
 

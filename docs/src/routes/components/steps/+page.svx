@@ -1,6 +1,17 @@
+<script>
+  import {StepsDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Steps
 
 A component for displaying a sequence of steps or stages in a process, often used for navigation or progress tracking.
+
+<StepsDemo />
+
+## Anatomy
+
+<Anatomy id="steps" />
 
 ## Usage
 

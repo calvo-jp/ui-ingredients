@@ -55,6 +55,10 @@ const COMPONENT_LINKS: Link[] = [
     label: 'Date Picker',
   },
   {
+    path: '/components/dialog',
+    label: 'Dialog',
+  },
+  {
     path: '/components/drawer',
     label: 'Drawer',
   },
@@ -121,6 +125,10 @@ const COMPONENT_LINKS: Link[] = [
   {
     path: '/components/segment-group',
     label: 'Segment Group',
+  },
+  {
+    path: '/components/select',
+    label: 'Select',
   },
   {
     path: '/components/signature-pad',

@@ -1,6 +1,17 @@
+<script>
+  import {RatingGroupDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Rating Group
 
 A component for selecting a rating value, typically represented by stars or other symbols.
+
+<RatingGroupDemo />
+
+## Anatomy
+
+<Anatomy id="rating-group" />
 
 ## Usage
 

@@ -1,6 +1,17 @@
+<script>
+  import {EditableDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Editable
 
 A component that allows users to modify its content.
+
+<EditableDemo />
+
+## Anatomy
+
+<Anatomy id="editable" />
 
 ## Usage
 

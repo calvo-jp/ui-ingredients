@@ -1,6 +1,17 @@
+<script>
+  import {MenuDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Menu
 
 A component for navigating through a list of options or actions.
+
+<MenuDemo />
+
+## Anatomy
+
+<Anatomy id="menu" />
 
 ## Usage
 

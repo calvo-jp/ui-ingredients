@@ -1,6 +1,17 @@
+<script>
+  import {DialogDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Dialog
 
 A component for displaying modal windows or pop-up messages.
+
+<DialogDemo />
+
+## Anatomy
+
+<Anatomy id="dialog" />
 
 ## Usage
 

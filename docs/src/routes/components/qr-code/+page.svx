@@ -1,6 +1,17 @@
+<script>
+  import {QrCodeDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # QR Code
 
 A component for generating and displaying QR codes for quick scanning and access to information.
+
+<QrCodeDemo />
+
+## Anatomy
+
+<Anatomy id="qr-code" />
 
 ## Usage
 

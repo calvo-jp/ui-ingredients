@@ -1,8 +1,17 @@
-
+<script>
+  import {TourDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
 
 # Tour
 
 A component for guiding users through a series of steps or features in an application or website.
+
+<TourDemo />
+
+## Anatomy
+
+<Anatomy id="tour" />
 
 ## Usage
 

@@ -1,6 +1,17 @@
+<script>
+  import {CollapsibleDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Collapsible
 
 A component that expands or collapses to show or hide content.
+
+<CollapsibleDemo />
+
+## Anatomy
+
+<Anatomy id="collapsible" />
 
 ## Usage
 

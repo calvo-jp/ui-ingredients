@@ -1,6 +1,17 @@
+<script>
+  import {PaginationDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Pagination
 
 A component for navigating through multiple pages of content.
+
+<PaginationDemo />
+
+## Anatomy
+
+<Anatomy id="pagination" />
 
 ## Usage
 

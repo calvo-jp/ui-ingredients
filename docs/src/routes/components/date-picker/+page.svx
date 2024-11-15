@@ -1,6 +1,17 @@
+<script>
+  import {DatePickerDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Date Picker
 
 A component for selecting a date from a calendar interface.
+
+<DatePickerDemo />
+
+## Anatomy
+
+<Anatomy id="date-picker" />
 
 ## Usage
 

@@ -1,6 +1,17 @@
+<script>
+  import {PopoverDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Popover
 
 A component that displays additional content or information in a small overlay when triggered.
+
+<PopoverDemo />
+
+## Anatomy
+
+<Anatomy id="popover" />
 
 ## Usage
 

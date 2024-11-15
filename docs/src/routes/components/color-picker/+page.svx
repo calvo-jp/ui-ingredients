@@ -1,6 +1,17 @@
+<script>
+  import {ColorPickerDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Color Picker
 
 A component for selecting and customizing colors.
+
+<ColorPickerDemo />
+
+## Anatomy
+
+<Anatomy id="color-picker" />
 
 ## Usage
 

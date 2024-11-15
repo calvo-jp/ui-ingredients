@@ -1,6 +1,17 @@
+<script>
+  import {TooltipDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Tooltip
 
 A component for displaying brief, contextual information when hovering over or focusing on an element.
+
+<TooltipDemo />
+
+## Anatomy
+
+<Anatomy id="tooltip" />
 
 ## Usage
 

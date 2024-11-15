@@ -1,6 +1,17 @@
+<script>
+  import {NumberInputDemo} from '$lib/demo';
+  import Anatomy from '$lib/anatomy.svelte';
+</script>
+
 # Number Input
 
 A component for entering numeric values
+
+<NumberInputDemo />
+
+## Anatomy
+
+<Anatomy id="number-input" />
 
 ## Usage
 
