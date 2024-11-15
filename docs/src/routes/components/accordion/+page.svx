@@ -67,6 +67,6 @@ A toggle component for expanding and collapsing sections of content.
 </Accordion.Root>
 ```
 
-## Api Reference
+## API Reference
 
 <Api id="accordion" />
