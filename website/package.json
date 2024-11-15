@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "website",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
