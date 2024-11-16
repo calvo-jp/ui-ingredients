@@ -2,7 +2,7 @@
   import {SegmentGroupDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
-  import Accessibility from '$lib/accessibility.svelte';
+  import {Accessibility} from '$lib/accessibility';
 </script>
 
 # Segment Group

@@ -1,6 +1,6 @@
 <script lang="ts">
   import {getAccessibilityDoc, type AccessibilityDocKey} from '@zag-js/docs';
-  import {Table} from './ui';
+  import {Table} from '../ui';
 
   let {id}: {id: AccessibilityDocKey} = $props();
 
