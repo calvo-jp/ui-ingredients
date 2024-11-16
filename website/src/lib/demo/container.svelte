@@ -10,7 +10,10 @@
 </script>
 
 <div
-  class={twMerge('not-prose rounded bg-neutral-900/35 p-16', className)}
+  class={twMerge(
+    'not-prose rounded border border-neutral-800/40 bg-neutral-900/40 p-12',
+    className,
+  )}
   {...props}
 >
   {@render children?.()}

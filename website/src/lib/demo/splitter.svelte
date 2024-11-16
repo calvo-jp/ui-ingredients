@@ -9,7 +9,7 @@
       {id: 'a', size: 50, minSize: 25},
       {id: 'b', size: 50, minSize: 25},
     ]}
-    class="mx-auto flex max-w-[32rem] gap-2"
+    class="flex gap-2"
   >
     <Splitter.Panel
       id="a"

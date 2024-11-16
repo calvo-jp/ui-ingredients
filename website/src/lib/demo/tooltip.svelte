@@ -8,7 +8,7 @@
   <Tooltip.Root lazyMount>
     <Tooltip.Trigger class="mx-auto w-auto">
       {#snippet asChild(attrs)}
-        <Button {...attrs}>Hover me</Button>
+        <Button variant="outline" {...attrs}>Hover me</Button>
       {/snippet}
     </Tooltip.Trigger>
 

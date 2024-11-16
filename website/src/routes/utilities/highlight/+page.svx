@@ -1,6 +1,14 @@
+<script>
+  import HighlightDemo from '$lib/demo/highlight.svelte'
+</script>
+
 # Highlight
 
 A component for highlighting text within a string.
+
+<HighlightDemo />
+
+## Usage
 
 ```svelte
 <script lang="ts">

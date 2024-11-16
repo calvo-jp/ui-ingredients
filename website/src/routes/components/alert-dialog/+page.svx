@@ -2,6 +2,7 @@
   import {AlertDialogDemo} from '$lib/demo';
   import Api from '$lib/api.svelte';
   import Anatomy from '$lib/anatomy.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # AlertDialog
@@ -38,3 +39,7 @@ A component for displaying a modal dialog that requires user attention or confir
 ## API Reference
 
 <Api id="alert-dialog" />
+
+## Accessibility
+
+<Accessibility id="dialog" />

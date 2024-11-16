@@ -12,6 +12,7 @@
 
 <Container>
   <Button
+    variant="outline"
     onclick={() => {
       toaster.create({
         title: 'Success!',

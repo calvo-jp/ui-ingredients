@@ -13,7 +13,7 @@
   >
     <Popover.Trigger class="mx-auto w-auto">
       {#snippet asChild(attrs)}
-        <Button {...attrs}>Toggle popover</Button>
+        <Button variant="outline" {...attrs}>Toggle popover</Button>
       {/snippet}
     </Popover.Trigger>
 

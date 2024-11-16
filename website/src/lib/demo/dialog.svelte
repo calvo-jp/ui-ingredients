@@ -10,7 +10,7 @@
   <Dialog.Root lazyMount>
     <Dialog.Trigger class="mx-auto w-auto">
       {#snippet asChild(attrs)}
-        <Button {...attrs}>Open dialog</Button>
+        <Button variant="outline" {...attrs}>Open dialog</Button>
       {/snippet}
     </Dialog.Trigger>
 

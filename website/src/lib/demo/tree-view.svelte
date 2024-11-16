@@ -95,7 +95,7 @@
   {#if props.node.children}
     <TreeView.Branch node={props.node} indexPath={props.indexPath}>
       <TreeView.BranchControl class="flex items-center gap-1">
-        <TreeView.BranchText class="flex grow items-center gap-1">
+        <TreeView.BranchText class="flex grow select-none items-center gap-1">
           <FolderIcon class="size-5" />
           <span>{props.node.label}</span>
         </TreeView.BranchText>
@@ -124,7 +124,7 @@
       <TreeView.ItemIndicator>
         <CheckSquareIcon class="size-5" />
       </TreeView.ItemIndicator>
-      <TreeView.ItemText class="flex items-center gap-1">
+      <TreeView.ItemText class="flex select-none items-center gap-1">
         <File02Icon class="size-5" />
         <span>{props.node.label}</span>
       </TreeView.ItemText>

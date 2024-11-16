@@ -5,10 +5,10 @@
 </script>
 
 <Container>
-  <Collapsible.Root class="mx-auto max-w-[32rem]">
+  <Collapsible.Root>
     <Collapsible.Trigger>
       {#snippet asChild(attrs)}
-        <Button {...attrs}>Toggle collapsible</Button>
+        <Button variant="outline" {...attrs}>Toggle collapsible</Button>
       {/snippet}
     </Collapsible.Trigger>
 

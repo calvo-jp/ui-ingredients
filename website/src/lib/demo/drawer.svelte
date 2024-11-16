@@ -10,7 +10,7 @@
   <Drawer.Root lazyMount>
     <Drawer.Trigger class="mx-auto w-auto">
       {#snippet asChild(attrs)}
-        <Button {...attrs}>Open drawer</Button>
+        <Button variant="outline" {...attrs}>Open drawer</Button>
       {/snippet}
     </Drawer.Trigger>
 

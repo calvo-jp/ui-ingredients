@@ -34,7 +34,7 @@
         <Tabs.Trigger
           value={item.value}
           disabled={item.disabled}
-          class="px-2 font-semibold disabled:cursor-not-allowed disabled:text-neutral-500"
+          class="px-3 font-semibold disabled:cursor-not-allowed disabled:text-neutral-500"
         >
           {item.label}
         </Tabs.Trigger>

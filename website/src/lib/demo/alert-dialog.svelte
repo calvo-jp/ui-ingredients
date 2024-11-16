@@ -5,11 +5,13 @@
   import Container from './container.svelte';
 </script>
 
-<Container
-  ><AlertDialog.Root lazyMount>
+<Container>
+  <AlertDialog.Root lazyMount>
     <AlertDialog.Trigger>
       {#snippet asChild(attrs)}
-        <Button class="mx-auto w-auto" {...attrs}>Open alert dialog</Button>
+        <Button variant="outline" class="mx-auto w-auto" {...attrs}>
+          Open alert dialog
+        </Button>
       {/snippet}
     </AlertDialog.Trigger>
 

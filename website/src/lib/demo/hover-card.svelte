@@ -7,22 +7,24 @@
   <HoverCard.Root
     lazyMount
     positioning={{
-      placement: 'bottom-start',
+      placement: 'bottom',
     }}
   >
-    <HoverCard.Trigger class="underline-offset-2 hover:underline">
+    <HoverCard.Trigger
+      class="mx-auto block w-fit font-semibold underline-offset-2 hover:underline"
+    >
       {#snippet asChild(attrs)}
-        <button {...attrs}>Hover me</button>
+        <button {...attrs}>@ui-ingredients</button>
       {/snippet}
     </HoverCard.Trigger>
 
     <Portal>
       <HoverCard.Positioner>
         <HoverCard.Content
-          class="bg-light w-[90vw] rounded border p-4 data-open:animate-fade-in data-closed:animate-fade-out lg:max-w-[24rem]"
+          class="w-[90vw] rounded border border-neutral-800 bg-neutral-900 p-4 data-open:animate-fade-in data-closed:animate-fade-out lg:max-w-[24rem]"
         >
           <HoverCard.Arrow
-            class="[--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"
+            class="[--arrow-background:theme(colors.neutral[900])] [--arrow-size:theme(spacing.4)]"
           >
             <HoverCard.ArrowTip />
           </HoverCard.Arrow>

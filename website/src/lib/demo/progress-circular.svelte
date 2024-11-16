@@ -22,7 +22,7 @@
 <Container>
   <Progress.Root min={0} max={100} {value} class="relative mx-auto w-fit">
     <Progress.Circle
-      class="[--size:theme(spacing.24)] [--thickness:theme(spacing[2.5])]"
+      class="[--size:theme(spacing.28)] [--thickness:theme(spacing[2.5])]"
     >
       <Progress.CircleTrack class="stroke-neutral-800" />
       <Progress.CircleRange

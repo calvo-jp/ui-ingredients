@@ -6,7 +6,7 @@
 </script>
 
 <Container>
-  <SignaturePad.Root class="mx-auto max-w-[32rem]">
+  <SignaturePad.Root>
     {#snippet children(context)}
       <SignaturePad.Label class="text-muted mb-1 inline-block font-medium">
         {#snippet asChild(attrs)}
