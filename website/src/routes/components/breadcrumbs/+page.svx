@@ -1,7 +1,7 @@
 <script>
   import {BreadcrumbsDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
-  import Api from '$lib/api.svelte';
+  import {Api} from '$lib/api';
 </script>
 
 # Breadcrumbs

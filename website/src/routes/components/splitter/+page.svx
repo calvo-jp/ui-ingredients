@@ -1,6 +1,6 @@
 <script>
   import {SplitterDemo} from '$lib/demo';
-  import Api from '$lib/api.svelte';
+  import {Api} from '$lib/api';
   import Anatomy from '$lib/anatomy.svelte';
 </script>
 

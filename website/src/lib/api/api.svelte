@@ -5,9 +5,18 @@
     type ApiDoc,
     type ApiDocKey,
   } from '@zag-js/docs';
-  import {guard} from './guard';
 
   let {id}: {id: ApiDocKey} = $props();
+
+  function guard<Return, Arg>(fn: (...args: Arg[]) => Return) {
+    return (...args: Arg[]): Return | null => {
+      try {
+        return fn(...args);
+      } catch {
+        return null;
+      }
+    };
+  }
 
   let rootApi = $derived(guard(getApiDoc)(id));
   let dataAttr = $derived(guard(getDataAttrDoc)(id));
