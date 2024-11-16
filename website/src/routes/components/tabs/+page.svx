@@ -2,6 +2,7 @@
   import {TabsDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Tabs
@@ -67,3 +68,7 @@ A component for organizing and switching between multiple sections of content wi
 ## API Reference
 
 <Api id="tabs" />
+
+## Accessibility
+
+<Accessibility id="tabs" />

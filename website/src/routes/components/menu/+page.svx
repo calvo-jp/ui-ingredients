@@ -2,6 +2,7 @@
   import {MenuDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Menu
@@ -181,3 +182,7 @@ A component for navigating through a list of options or actions.
 ## API Reference
 
 <Api id="menu" />
+
+## Accessibility
+
+<Accessibility id="menu" />

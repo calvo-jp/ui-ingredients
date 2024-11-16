@@ -2,6 +2,7 @@
   import {SwitchDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Switch
@@ -62,3 +63,7 @@ A component for toggling between two states, such as on/off or enabled/disabled.
 ## API Reference
 
 <Api id="switch" />
+
+## Accessibility
+
+<Accessibility id="switch" />

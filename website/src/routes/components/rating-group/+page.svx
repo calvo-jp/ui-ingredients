@@ -2,6 +2,7 @@
   import {RatingGroupDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Rating Group
@@ -78,3 +79,7 @@ A component for selecting a rating value, typically represented by stars or othe
 ## API Reference
 
 <Api id="rating-group" />
+
+## Accessibility
+
+<Accessibility id="rating-group" />

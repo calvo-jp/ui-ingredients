@@ -6,39 +6,48 @@
     {
       value: '1',
       label: 'Tab 1',
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+      content: 'Tab 1 Content',
     },
     {
       value: '2',
       label: 'Tab 2',
-      content:
-        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old',
+      content: 'Tab 2 Content',
     },
     {
       value: '3',
       label: 'Tab 3',
-      content:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English",
+      content: 'Tab 3 Content',
+      disabled: true,
+    },
+    {
+      value: '4',
+      label: 'Tab 4',
+      content: 'Tab 4 Content',
     },
   ];
 </script>
 
 <Container>
-  <Tabs.Root value={items[0].value} class="mx-auto max-w-[32rem]">
-    <Tabs.List>
-      {#each items as { value, label }}
+  <Tabs.Root value={items[0].value} orientation="horizontal">
+    <Tabs.List class="relative border-b border-neutral-800 pb-2">
+      {#each items as item}
         <Tabs.Trigger
-          {value}
-          class="h-10 border border-l-0 border-neutral-700 px-3 transition-colors duration-200 first:rounded-l first:border-l last:rounded-r data-selected:bg-neutral-800/50"
+          value={item.value}
+          disabled={item.disabled}
+          class="px-2 font-semibold disabled:cursor-not-allowed disabled:text-neutral-500"
         >
-          {label}
+          {item.label}
         </Tabs.Trigger>
       {/each}
+
+      <Tabs.Indicator
+        class="bottom-0 -mb-px h-0.5 w-[var(--width,0)] bg-indigo-500"
+      />
     </Tabs.List>
-    {#each items as { value, content }}
-      <Tabs.Content class="mt-4 text-sm text-neutral-400 lg:text-base" {value}>
-        {content}
+
+    {#each items as item}
+      <Tabs.Content class="pt-4 text-neutral-400" value={item.value}>
+        {item.content}
       </Tabs.Content>
     {/each}
   </Tabs.Root>

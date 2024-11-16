@@ -18,7 +18,7 @@
     nodeToValue: (node) => node.value,
     nodeToString: (node) => node.label,
     rootNode: {
-      value: 'ROOT',
+      value: 'root',
       label: '',
       children: [
         {
@@ -78,8 +78,11 @@
 
 <Container>
   <TreeView.Root {collection} class="max-w-[16rem]">
-    <TreeView.Label class="mb-2 block text-neutral-600">Explorer</TreeView.Label
+    <TreeView.Label
+      class="mb-2 block font-mono text-sm font-semibold uppercase text-neutral-500"
     >
+      Explorer
+    </TreeView.Label>
     <TreeView.Tree class="space-y-1">
       {#each collection.rootNode.children ?? [] as node, index}
         {@render TreeNode({node, indexPath: [index]})}
@@ -99,11 +102,11 @@
         <TreeView.BranchIndicator
           class="transition-transform duration-150 data-open:rotate-90"
         >
-          <ChevronRightIcon class="size-4" />
+          <ChevronRightIcon class="size-4 text-neutral-500" />
         </TreeView.BranchIndicator>
       </TreeView.BranchControl>
       <TreeView.BranchContent class="flex p-1">
-        <TreeView.BranchIndentGuide class="w-3 border-l" />
+        <TreeView.BranchIndentGuide class="w-3 border-l border-neutral-800" />
 
         <div class="grow space-y-1">
           {#each props.node.children as node, index}

@@ -2,6 +2,7 @@
   import {SelectDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Select
@@ -121,3 +122,7 @@ A component for choosing an option from a dropdown list.
 ## API Reference
 
 <Api id="select" />
+
+## Accessibility
+
+<Accessibility id="select" />

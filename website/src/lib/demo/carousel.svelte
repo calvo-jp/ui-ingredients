@@ -5,6 +5,8 @@
   } from '@untitled-theme/icons-svelte';
   import {Carousel} from 'ui-ingredients';
   import Container from './container.svelte';
+
+  let items = Array.from({length: 3});
 </script>
 
 <Container>
@@ -13,7 +15,7 @@
       class="overflow-hidden rounded border border-neutral-700"
     >
       <Carousel.ItemGroup>
-        {#each Array.from({length: 5}) as _, index}
+        {#each items as _, index}
           <Carousel.Item
             {index}
             class="flex h-[14rem] items-center justify-center bg-neutral-700/25 font-mono text-4xl font-bold lg:h-[16rem]"
@@ -32,7 +34,7 @@
       </Carousel.PrevTrigger>
 
       <Carousel.IndicatorGroup class="flex items-center justify-center gap-2">
-        {#each Array.from({length: 5}) as _, index}
+        {#each items as _, index}
           <Carousel.Indicator
             {index}
             class="size-3 rounded-full bg-neutral-800 transition-colors duration-200 data-current:bg-indigo-500"

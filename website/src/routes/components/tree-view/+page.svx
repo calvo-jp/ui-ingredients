@@ -2,6 +2,7 @@
   import {TreeViewDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Tree View
@@ -148,3 +149,7 @@ A component for displaying hierarchical data in a tree structure, allowing users
 ## API Reference
 
 <Api id="tree-view" />
+
+## Accessibility
+
+<Accessibility id="tree-view" />

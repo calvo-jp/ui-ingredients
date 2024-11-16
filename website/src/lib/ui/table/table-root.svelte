@@ -1,16 +1,10 @@
 <script lang="ts">
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {twMerge} from 'tailwind-merge';
 
   let {children, ...props}: SvelteHTMLElements['table'] = $props();
 </script>
 
-<table
-  data-scope="table"
-  data-part="root"
-  {...props}
-  class={twMerge('table', props.class)}
->
+<table data-scope="table" data-part="root" {...props}>
   {@render children?.()}
 </table>
 
@@ -25,7 +19,7 @@
   }
 
   [data-scope='table'][data-part='root'] :global(th) {
-    @apply whitespace-nowrap bg-neutral-800/25 font-medium;
+    @apply whitespace-nowrap bg-neutral-800/25 font-semibold;
   }
 
   [data-scope='table'][data-part='root'] :global(tr) {

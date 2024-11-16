@@ -2,6 +2,7 @@
   import {SliderDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Slider
@@ -57,3 +58,7 @@ A component for adjusting values or selecting ranges through a draggable handle.
 ## API Reference
 
 <Api id="slider" />
+
+## Accessibility
+
+<Accessibility id="slider" />

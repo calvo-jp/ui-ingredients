@@ -2,6 +2,7 @@
   import {RadioGroupDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Radio Group
@@ -63,3 +64,7 @@ A component for selecting one option from a set of mutually exclusive choices.
 ## API Reference
 
 <Api id="radio-group" />
+
+## Accessibility
+
+<Accessibility id="radio-group" />

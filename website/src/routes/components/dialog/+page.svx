@@ -2,6 +2,7 @@
   import {DialogDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Dialog
@@ -44,3 +45,7 @@ A component for displaying modal windows or pop-up messages.
 ## API Reference
 
 <Api id="dialog" />
+
+## Accessibility
+
+<Accessibility id="dialog" />

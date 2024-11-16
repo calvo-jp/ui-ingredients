@@ -2,6 +2,7 @@
   import {CheckboxDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Checkbox
@@ -68,3 +69,7 @@ An interactive component for selecting one or multiple options in a list.
 ## API Reference
 
 <Api id="checkbox" />
+
+## Accessibility
+
+<Accessibility id="checkbox" />

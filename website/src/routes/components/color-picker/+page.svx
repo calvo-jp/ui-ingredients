@@ -2,6 +2,7 @@
   import {ColorPickerDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Color Picker
@@ -81,3 +82,7 @@ A component for selecting and customizing colors.
 ## API Reference
 
 <Api id="color-picker" />
+
+## Accessibility
+
+<Accessibility id="color-picker" />

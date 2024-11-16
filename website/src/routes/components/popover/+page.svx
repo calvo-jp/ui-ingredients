@@ -2,6 +2,7 @@
   import {PopoverDemo} from '$lib/demo';
   import Api from '$lib/api.svelte';
   import Anatomy from '$lib/anatomy.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Popover
@@ -44,3 +45,7 @@ A component that displays additional content or information in a small overlay w
 ## API Reference
 
 <Api id="popover" />
+
+## Accessibility
+
+<Accessibility id="popover" />

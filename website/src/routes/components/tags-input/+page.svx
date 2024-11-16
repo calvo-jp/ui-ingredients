@@ -2,6 +2,7 @@
   import {TagsInputDemo} from '$lib/demo';
   import Anatomy from '$lib/anatomy.svelte';
   import Api from '$lib/api.svelte';
+  import Accessibility from '$lib/accessibility.svelte';
 </script>
 
 # Tags Input
@@ -94,3 +95,7 @@ A component for adding and managing a list of tags or keywords, often with autoc
 ## API Reference
 
 <Api id="tags-input" />
+
+## Accessibility
+
+<Accessibility id="tags-input" />
