@@ -1,6 +1,6 @@
 <script>
   import {TooltipDemo} from '$lib/demo';
-  import Anatomy from '$lib/anatomy.svelte';
+  import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import Accessibility from '$lib/accessibility.svelte';
 </script>

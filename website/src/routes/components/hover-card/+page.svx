@@ -1,6 +1,6 @@
 <script>
   import {HoverCardDemo} from '$lib/demo';
-  import Anatomy from '$lib/anatomy.svelte';
+  import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
 </script>
 
