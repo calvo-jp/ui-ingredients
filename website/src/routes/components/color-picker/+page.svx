@@ -46,9 +46,17 @@ description: A component for selecting and customizing colors.
     'hsl(280, 81%, 59%)',
     'hsl(350, 81%, 59%)',
   ];
+
+  /** @type {import('ui-ingredients').Color} */
+  let value = $state(ColorPicker.parse('red'))
 </script>
 
-<ColorPicker.Root>
+<ColorPicker.Root
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+>
   {#snippet children(context)}
     <ColorPicker.Label>Label</ColorPicker.Label>
     <ColorPicker.Control>

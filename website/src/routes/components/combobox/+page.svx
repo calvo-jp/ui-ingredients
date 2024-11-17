@@ -44,6 +44,7 @@ description: A component that combines a text input with a dropdown list for sel
 
   /** @type {string[]} */
   let value = $state([]);
+
   let inputValue = $state('');
 
   let matches = $derived(
@@ -114,6 +115,7 @@ description: A component that combines a text input with a dropdown list for sel
 
   /** @type {string[]} */
   let value = $state([]);
+
   let inputValue = $state('');
 
   let matches = $derived(
