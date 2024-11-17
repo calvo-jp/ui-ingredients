@@ -5,7 +5,7 @@ import {createHighlighter} from 'shiki';
 
 const highlighter = await createHighlighter({
   themes: ['min-light', 'dark-plus'],
-  langs: ['svelte', 'javascript', 'typescript'],
+  langs: ['svelte', 'bash', 'javascript', 'typescript'],
 });
 
 /** @type {import('@sveltejs/kit').Config} */
