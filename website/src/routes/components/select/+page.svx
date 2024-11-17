@@ -50,7 +50,7 @@ description: A component for choosing an option from a dropdown list.
 <Select.Root
   {collection}
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >
@@ -100,7 +100,7 @@ description: A component for choosing an option from a dropdown list.
   <Select.Root
     {collection}
     {value}
-    onValueChange={function (detail) {
+    onValueChange={(detail) => {
       value = detail.value;
     }}
   >

@@ -39,7 +39,7 @@ description: A component for entering and displaying a sequence of numeric or al
 
 <PinInput.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

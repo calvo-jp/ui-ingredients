@@ -56,7 +56,7 @@ description: A component for organizing and switching between multiple sections 
 
 <Tabs.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

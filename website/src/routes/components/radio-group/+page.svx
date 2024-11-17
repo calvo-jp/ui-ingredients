@@ -54,7 +54,7 @@ description: A component for selecting one option from a set of mutually exclusi
 
 <RadioGroup.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

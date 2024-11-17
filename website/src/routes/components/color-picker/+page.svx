@@ -39,7 +39,7 @@ description: A component for selecting and customizing colors.
 
 <ColorPicker.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

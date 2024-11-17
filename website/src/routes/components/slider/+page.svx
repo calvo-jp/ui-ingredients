@@ -40,7 +40,7 @@ description: A component for adjusting values or selecting ranges through a drag
   min={0}
   max={100}
   {value}
-  onValueChangeEnd={function (detail) {
+  onValueChangeEnd={(detail) => {
     value = detail.value;
   }}
 >

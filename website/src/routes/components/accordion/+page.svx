@@ -58,7 +58,7 @@ description: A toggle component for expanding and collapsing sections of content
 <Accordion.Root
   {value}
   multiple
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

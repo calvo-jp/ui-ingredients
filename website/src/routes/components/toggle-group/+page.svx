@@ -39,7 +39,7 @@ description: A component for grouping multiple toggle switches, allowing users t
 
 <ToggleGroup.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
   multiple

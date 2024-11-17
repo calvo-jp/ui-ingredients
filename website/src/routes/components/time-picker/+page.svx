@@ -45,7 +45,7 @@ description: A component for selecting a time from a dropdown or input interface
 
 <TimePicker.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
   allowSeconds

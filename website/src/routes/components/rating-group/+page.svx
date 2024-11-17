@@ -39,7 +39,7 @@ description: A component for selecting a rating value, typically represented by 
 
 <RatingGroup.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

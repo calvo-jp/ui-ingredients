@@ -74,7 +74,7 @@ export const toaster = createToaster({
 </script>
 
 <button
-  onclick={function () {
+  onclick={() => {
     toaster.create({
       title: 'Title',
       description: 'Description',

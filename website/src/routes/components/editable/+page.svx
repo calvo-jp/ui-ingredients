@@ -38,7 +38,7 @@ description: A component that allows users to modify its content.
 
 <Editable.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

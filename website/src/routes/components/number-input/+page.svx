@@ -41,7 +41,7 @@ description: A component for entering numeric values
   min={0}
   max={100}
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >

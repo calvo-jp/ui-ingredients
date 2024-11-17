@@ -61,10 +61,10 @@ description: A component that combines a text input with a dropdown list for sel
   {collection}
   {value}
   {inputValue}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
-  onInputValueChange={function (detail) {
+  onInputValueChange={(detail) => {
     inputValue = detail.inputValue;
   }}
 >
@@ -136,10 +136,10 @@ description: A component that combines a text input with a dropdown list for sel
     {items}
     {value}
     {inputValue}
-    onValueChange={function (detail) {
+    onValueChange={(detail) => {
       value = detail.value;
     }}
-    onInputValueChange={function (detail) {
+    onInputValueChange={(detail) => {
       inputValue = detail.inputValue;
     }}
   >

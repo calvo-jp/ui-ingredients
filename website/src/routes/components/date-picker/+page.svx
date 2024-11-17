@@ -41,7 +41,7 @@ description: A component for selecting a date from a calendar interface.
 
 <DatePicker.Root
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.value;
   }}
 >
@@ -184,7 +184,7 @@ description: A component for selecting a date from a calendar interface.
     sameWidth: true,
   }}
   {value}
-  onValueChange={function (detail) {
+  onValueChange={(detail) => {
     value = detail.valueAsString;
   }}
   selectionMode="range"

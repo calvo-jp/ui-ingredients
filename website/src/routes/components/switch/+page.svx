@@ -38,7 +38,7 @@ description: A component for toggling between two states, such as on/off or enab
 
 <Switch.Root
   {checked}
-  onCheckedChange={function (detail) {
+  onCheckedChange={(detail) => {
     checked = detail.checked;
   }}
 >

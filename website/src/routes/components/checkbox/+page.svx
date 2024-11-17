@@ -39,7 +39,7 @@ description: An interactive component for selecting one or multiple options in a
 
 <Checkbox.Root
   {checked}
-  onCheckedChange={function (detail) {
+  onCheckedChange={(detail) => {
     checked = detail.checked;
   }}
 >

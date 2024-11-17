@@ -44,7 +44,7 @@ description: A rotating component for cycling through images or content slides.
 
 <Carousel.Root
   {index}
-  onIndexChange={function (detail) {
+  onIndexChange={(detail) => {
     index = detail.index;
   }}
 >

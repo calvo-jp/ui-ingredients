@@ -33,7 +33,7 @@ description: A component for switching between two states, suchjson as on/off.
 
 <Toggle.Root
   {pressed}
-  onPressedChange={function (detail) {
+  onPressedChange={(detail) => {
     pressed = detail.pressed;
   }}
 >

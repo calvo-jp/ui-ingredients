@@ -38,7 +38,7 @@ description: A component for navigating through multiple pages of content.
 
 <Pagination.Root
   {page}
-  onPageChange={function (detail) {
+  onPageChange={(detail) => {
     page = detail.page;
   }}
   count={50}

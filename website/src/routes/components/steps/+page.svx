@@ -53,7 +53,7 @@ description: A component for displaying a sequence of steps or stages in a proce
 
 <Steps.Root
   {step}
-  onStepChange={function (detail) {
+  onStepChange={(detail) => {
     step = detail.step;
   }}
   count={items.length}
