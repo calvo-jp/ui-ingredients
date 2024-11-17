@@ -4,16 +4,12 @@
 
   let {id}: {id: AccessibilityDocKey} = $props();
 
-  let accessibilityDoc = $derived(getAccessibilityDoc(id));
-
-  $inspect({
-    accessibilityDoc,
-  });
+  let {keyboard} = $derived(getAccessibilityDoc(id));
 </script>
 
 <h3>Keboard support</h3>
 
-{#if accessibilityDoc?.keyboard}
+{#if keyboard}
   <Table.Container class="not-prose">
     <Table.Root>
       <Table.Header>
@@ -23,7 +19,7 @@
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {#each accessibilityDoc.keyboard as item}
+        {#each keyboard as item}
           <Table.Row>
             <Table.Cell>
               <span

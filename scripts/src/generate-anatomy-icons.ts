@@ -1,68 +1,164 @@
-import {
-  allComponents,
-  createGradient,
-  getComponent,
-} from '@zag-js/anatomy-icons';
-import fs from 'node:fs/promises';
+import {allComponents, createGradient} from '@zag-js/anatomy-icons';
+import fs from 'fs/promises';
 import path from 'node:path';
 import prettier from 'prettier';
 import {renderToString} from 'react-dom/server';
+import svgson from 'svgson';
+import colors from 'tailwindcss/colors.js';
+
+const WORKSPACE_ROOT = path.resolve(path.dirname('../../'));
+
+const ICONS_OUTPUT_DIR = path.resolve(
+  WORKSPACE_ROOT,
+  'website/src/lib/icons/anatomy',
+);
+
+const PRETTIER_CONFIG_PATH = path.join(WORKSPACE_ROOT, '.prettierrc');
+
+const ACCENT_COLOR = colors.indigo[500];
+
+const SVELTE_SVG_COMPONENT_TEMPLATE = `
+  <script lang="ts">
+    /* ⚠️ This file is auto-generated */
+
+    import type {SVGAttributes} from 'svelte/elements';
+
+    let {...props}: SVGAttributes<SVGSVGElement> = $props(); 
+  </script>
+
+  %html%
+`;
 
 type Component = keyof typeof allComponents;
 
 export async function generateAnatomyIcons() {
-  const components = Object.keys(allComponents) as unknown as Component[];
+  const keys = Object.keys(allComponents) as unknown as Component[];
 
-  const anatomy: Record<string, string> = {};
-  const bg = createGradient('#818cf8').value;
-  const container = `<div style="background:${bg};border-radius:0.25em;overflow:hidden;">{content}</div>`;
-  const workspaceRoot = path.resolve(path.dirname('../../'));
-  const prettierConfig = await prettier.resolveConfig(workspaceRoot);
+  const filenames: string[] = [];
+  const promises: Promise<void>[] = [];
 
-  components.forEach((component) => {
-    const k = component === 'segmented-control' ? 'segment-group' : component;
-    const v = container.replace(
-      '{content}',
-      renderToString(
-        getComponent(component)({
-          accentColor: '#818cf8',
-          style: {
-            width: '100%',
-            height: 'auto',
-          },
-          className: `anatomy ${component}-anatomy`,
-        }),
-      ),
+  for (const key of keys) {
+    const jsx = allComponents[key]({accentColor: ACCENT_COLOR});
+    const svg = renderToString(jsx);
+
+    const filename = `${key}-anatomy.svelte`.replace(
+      'segmented-control',
+      'segment-group',
     );
 
-    anatomy[k] = v;
+    const content = await formatSvelte(await svgToSvelteComponent(svg));
+    const promise = fs.writeFile(
+      path.join(ICONS_OUTPUT_DIR, filename),
+      content,
+      'utf-8',
+    );
+
+    promises.push(promise);
+    filenames.push(filename);
+  }
+
+  promises.push(createContainerComponent());
+  promises.push(createBarrelFile(filenames));
+
+  await Promise.all(promises);
+}
+
+async function createBarrelFile(filenames: string[]) {
+  const content = filenames
+    .map((filename) => {
+      const basename = filename.split('.')[0];
+      const exportName = `${kebabToPascalCase(basename)}Icon`;
+
+      return `export {default as ${exportName}} from './${filename}';\n`;
+    })
+    .join('');
+
+  await fs.writeFile(
+    path.join(ICONS_OUTPUT_DIR, 'index.ts'),
+    await formatTs(`/* ⚠️ This file is auto-generated */\n${content}`),
+    'utf-8',
+  );
+}
+
+async function createContainerComponent() {
+  const content = `
+  <script lang="ts">
+    /* ⚠️ This file is auto-generated */
+
+    import type {SvelteHTMLElements} from 'svelte/elements';
+    
+    let {children, ...props}: SvelteHTMLElements['div'] = $props(); 
+  </script>
+
+  <div {...props}>
+    {@render children?.()}
+  </div>
+
+  <style>
+    div {
+      --bg: ${createGradient(ACCENT_COLOR).value};
+      background: var(--bg); 
+    }
+  </style>
+  `;
+
+  const destination = path.join(
+    WORKSPACE_ROOT,
+    'website/src/lib/anatomy/container.svelte',
+  );
+
+  await fs.writeFile(destination, await formatSvelte(content), 'utf-8');
+}
+
+async function svgToSvelteComponent(html: string) {
+  const node = await svgson.parse(html, {
+    transformNode(node) {
+      if (node.name === 'svg') {
+        return {
+          ...node,
+          attributes: {
+            ...node.attributes,
+            $$props: '',
+          },
+        };
+      }
+
+      return node;
+    },
   });
 
-  const content = await prettier.format(
-    `
-    // ⚠️ Generated file
-
-    export type AnatomyIcon = ${Object.keys(anatomy)
-      .map((v) => `'${v}'`)
-      .join(' | ')};
-
-
-    export const ANATOMY_ICONS: Record<AnatomyIcon, string> = ${JSON.stringify(anatomy)};
-    `,
-    {
-      parser: 'typescript',
-      singleQuote: true,
-      bracketSpacing: false,
-      ...prettierConfig,
+  const svelteSvg = svgson.stringify(node, {
+    transformAttr(key, value, esc) {
+      return key === '$$props' ? '{...props}' : `${key}="${esc(value)}"`;
     },
-  );
+  });
 
-  const destination = path.resolve(
-    workspaceRoot,
-    'docs/src/lib/anatomy-icons.ts',
-  );
+  return SVELTE_SVG_COMPONENT_TEMPLATE.replaceAll('%html%', svelteSvg);
+}
 
-  await fs.writeFile(destination, content, {encoding: 'utf-8'});
+async function formatTs(content: string) {
+  const prettierConfig = await prettier.resolveConfig(PRETTIER_CONFIG_PATH);
+
+  return await prettier.format(content, {
+    parser: 'typescript',
+    ...prettierConfig,
+  });
+}
+
+async function formatSvelte(content: string) {
+  const prettierConfig = await prettier.resolveConfig(PRETTIER_CONFIG_PATH);
+
+  return await prettier.format(content, {
+    parser: 'html',
+    ...prettierConfig,
+  });
+}
+
+function kebabToPascalCase(str: string) {
+  return str
+    .split('-')
+    .map((part) => part[0].toUpperCase() + part.slice(1))
+    .join('');
 }
 
 generateAnatomyIcons();
