@@ -7,11 +7,8 @@ import svgson from 'svgson';
 import colors from 'tailwindcss/colors.js';
 
 const WORKSPACE_ROOT = path.resolve(path.dirname('../../'));
-
-const ICONS_OUTPUT_DIR = path.resolve(
-  WORKSPACE_ROOT,
-  'website/src/lib/icons/anatomy',
-);
+const OUTPUT_DIR = path.join(WORKSPACE_ROOT, 'website/src/lib/anatomy');
+const ICONS_OUTPUT_DIR = path.resolve(OUTPUT_DIR, 'icons');
 
 const PRETTIER_CONFIG_PATH = path.join(WORKSPACE_ROOT, '.prettierrc');
 
@@ -102,10 +99,7 @@ async function createContainerComponent() {
   </style>
   `;
 
-  const destination = path.join(
-    WORKSPACE_ROOT,
-    'website/src/lib/anatomy/container.svelte',
-  );
+  const destination = path.join(OUTPUT_DIR, 'container.svelte');
 
   await fs.writeFile(destination, await formatSvelte(content), 'utf-8');
 }

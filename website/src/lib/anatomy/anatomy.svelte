@@ -1,5 +1,6 @@
 <script lang="ts">
   import {twMerge} from 'tailwind-merge';
+  import Container from './container.svelte';
   import {
     AccordionAnatomyIcon,
     AvatarAnatomyIcon,
@@ -40,8 +41,7 @@
     TooltipAnatomyIcon,
     TourAnatomyIcon,
     TreeViewAnatomyIcon,
-  } from '../icons';
-  import Container from './container.svelte';
+  } from './icons';
 
   const Anatomy = {
     accordion: AccordionAnatomyIcon,
