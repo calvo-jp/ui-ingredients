@@ -16,8 +16,10 @@
     'dark:prose-invert',
     'min-w-full',
 
-    'prose-code:after:hidden',
-    'prose-code:before:hidden',
+    'before:prose-p:content-none',
+    'after:prose-p:content-none',
+    'before:prose-code:content-none',
+    'after:prose-code:content-none',
 
     '[&_.shiki]:dark:!bg-[var(--shiki-dark-bg)]',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
