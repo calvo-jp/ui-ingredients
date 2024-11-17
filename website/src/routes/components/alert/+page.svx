@@ -1,11 +1,23 @@
+---
+title: Alert
+description: A component for displaying important messages or notifications.
+---
+
 <script>
   import {AlertDemo} from '$lib/demo';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Alert
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying important messages or notifications.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <AlertDemo/>
 

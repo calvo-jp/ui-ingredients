@@ -1,3 +1,13 @@
+<script>
+  import Metadata from '$lib/metadata.svelte';
+</script>
+
+<svelte:head>
+  <title>Getting Started | UI Ingredients</title>
+</svelte:head>
+
+<Metadata />
+
 # Getting Started
 
 Start incorporating UI Ingredients into your project today!

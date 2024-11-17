@@ -1,10 +1,22 @@
+---
+title: Highlight
+description: A component for highlighting text within a string.
+---
+
 <script>
   import HighlightDemo from '$lib/demo/highlight.svelte'
+  import Metadata from '$lib/metadata.svelte'
 </script>
 
-# Highlight
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for highlighting text within a string.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <HighlightDemo />
 

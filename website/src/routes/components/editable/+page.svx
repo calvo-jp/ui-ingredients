@@ -1,13 +1,25 @@
+---
+title: Editable
+description: A component that allows users to modify its content.
+---
+
 <script>
   import {EditableDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Editable
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component that allows users to modify its content.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <EditableDemo />
 

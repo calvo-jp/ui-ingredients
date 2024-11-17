@@ -1,13 +1,25 @@
+---
+title: Checkbox
+description: An interactive component for selecting one or multiple options in a list.
+---
+
 <script>
   import {CheckboxDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Checkbox
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-An interactive component for selecting one or multiple options in a list.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <CheckboxDemo />
 

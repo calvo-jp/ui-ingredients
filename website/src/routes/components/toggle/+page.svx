@@ -1,11 +1,23 @@
+---
+title: Toggle
+description: A component for switching between two states, suchjson as on/off.
+---
+
 <script>
   import {ToggleDemo} from '$lib/demo';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Toggle
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for switching between two states, such as on/off.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <ToggleDemo />
 

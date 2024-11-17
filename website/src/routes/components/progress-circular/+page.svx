@@ -1,12 +1,24 @@
+---
+title: Progress - Circular
+description: A component for displaying the completion status of a task or process.
+---
+
 <script>
   import {ProgressCircularDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Progress - Circular
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying the completion status of a task or process.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <ProgressCircularDemo/>
 

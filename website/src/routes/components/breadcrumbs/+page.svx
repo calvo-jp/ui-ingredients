@@ -1,12 +1,24 @@
+---
+title: Breadcrumbs
+description: A component for displaying the navigation path or hierarchy of a user's location within a site.
+---
+
 <script>
   import {BreadcrumbsDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Breadcrumbs
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying the navigation path or hierarchy of a user's location within a site.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <BreadcrumbsDemo />
 

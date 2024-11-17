@@ -1,0 +1,9 @@
+<script>
+  import Metadata from '$lib/metadata.svelte';
+</script>
+
+<svelte:head>
+  <title>UI Ingredients</title>
+</svelte:head>
+
+<Metadata />

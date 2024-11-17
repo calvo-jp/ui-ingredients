@@ -1,12 +1,24 @@
+---
+title: Carousel
+description: A rotating component for cycling through images or content slides.
+---
+
 <script>
   import {CarouselDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Carousel
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A rotating component for cycling through images or content slides.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <CarouselDemo />
 

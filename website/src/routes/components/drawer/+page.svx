@@ -1,12 +1,24 @@
+---
+title: Drawer
+description: A component that slides in from the edge of the screen to display additional content or navigation options.
+---
+
 <script>
   import {DrawerDemo} from '$lib/demo';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Drawer
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component that slides in from the edge of the screen to display additional content or navigation options.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <DrawerDemo />
 

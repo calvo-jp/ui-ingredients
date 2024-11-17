@@ -1,13 +1,25 @@
+---
+title: Toggle Group
+description: A component for grouping multiple toggle switches, allowing users to switch between different options or states.
+---
+
 <script>
   import {ToggleGroupDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Toggle Group
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for grouping multiple toggle switches, allowing users to switch between different options or states.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <ToggleGroupDemo />
 

@@ -1,6 +1,21 @@
-# Portal
+---
+title: Portal
+description: A component for rendering content in a different part of the DOM hierarchy, often used for modals or tooltips.
+---
 
-A component for rendering content in a different part of the DOM hierarchy, often used for modals or tooltips.
+<script>
+  import Metadata from '$lib/metadata.svelte'
+</script>
+
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
+
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 ## Usage
 

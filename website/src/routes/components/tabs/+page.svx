@@ -1,13 +1,25 @@
+---
+title: Tabs
+description: A component for organizing and switching between multiple sections of content within a single view.
+---
+
 <script>
   import {TabsDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Tabs
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for organizing and switching between multiple sections of content within a single view.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <TabsDemo />
 

@@ -1,13 +1,25 @@
+---
+title: Slider
+description: A component for adjusting values or selecting ranges through a draggable handle.
+---
+
 <script>
   import {SliderDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Slider
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for adjusting values or selecting ranges through a draggable handle.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <SliderDemo />
 

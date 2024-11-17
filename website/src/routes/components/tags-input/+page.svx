@@ -1,13 +1,25 @@
+---
+title: Tags Input
+description: A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
+---
+
 <script>
   import {TagsInputDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Tags Input
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <TagsInputDemo />
 

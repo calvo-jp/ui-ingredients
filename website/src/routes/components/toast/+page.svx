@@ -1,12 +1,24 @@
+---
+title: Toast
+description: A component for displaying brief, non-intrusive notifications or messages.
+---
+
 <script>
   import {ToastDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Toast
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying brief, non-intrusive notifications or messages.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <ToastDemo />
 

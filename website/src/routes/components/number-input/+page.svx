@@ -1,13 +1,25 @@
+---
+title: Number Input
+description: A component for entering numeric values
+---
+
 <script>
   import {NumberInputDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Number Input
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for entering numeric values
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <NumberInputDemo />
 

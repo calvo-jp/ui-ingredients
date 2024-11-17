@@ -1,11 +1,23 @@
+---
+title: Timer
+description: A component for counting down or tracking elapsed time.
+---
+
 <script>
   import {TimerDemo} from '$lib/demo';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Timer
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for counting down or tracking elapsed time.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <TimerDemo />
 

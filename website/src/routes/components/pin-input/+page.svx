@@ -1,13 +1,25 @@
+---
+title: Pin Input
+description: A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
+---
+
 <script>
   import {PinInputDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Pin Input
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <PinInputDemo />
 

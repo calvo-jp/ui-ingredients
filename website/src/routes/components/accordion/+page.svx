@@ -1,13 +1,25 @@
+---
+title: Accordion
+description: A toggle component for expanding and collapsing sections of content.
+---
+
 <script>
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
   import {AccordionDemo} from '$lib/demo';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Accordion
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A toggle component for expanding and collapsing sections of content.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <AccordionDemo />
 

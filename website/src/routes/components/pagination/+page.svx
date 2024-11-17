@@ -1,12 +1,24 @@
+---
+title: Pagination
+description: A component for navigating through multiple pages of content.
+---
+
 <script>
   import {PaginationDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Pagination
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for navigating through multiple pages of content.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <PaginationDemo />
 

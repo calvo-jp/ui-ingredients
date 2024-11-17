@@ -1,13 +1,25 @@
+---
+title: Dialog
+description: A component for displaying modal windows or pop-up messages.
+---
+
 <script>
   import {DialogDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Dialog
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying modal windows or pop-up messages.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <DialogDemo />
 

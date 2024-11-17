@@ -1,12 +1,24 @@
+---
+title: Qr Code
+description: A component for generating and displaying QR codes for quick scanning and access to information.
+---
+
 <script>
   import {QrCodeDemo} from '$lib/demo';
   import {Api} from '$lib/api';
   import {Anatomy} from '$lib/anatomy';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# QR Code
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for generating and displaying QR codes for quick scanning and access to information.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <QrCodeDemo />
 

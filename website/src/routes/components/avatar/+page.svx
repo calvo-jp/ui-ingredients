@@ -1,12 +1,24 @@
+---
+title: Avatar
+description: A visual component for displaying a user’s profile image or initials.
+---
+
 <script>
   import {AvatarDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Avatar
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A visual component for displaying a user’s profile image or initials.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <AvatarDemo />
 

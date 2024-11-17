@@ -1,13 +1,25 @@
+---
+title: Color Picker
+description: A component for selecting and customizing colors.
+---
+
 <script>
   import {ColorPickerDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Color Picker
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for selecting and customizing colors.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <ColorPickerDemo />
 

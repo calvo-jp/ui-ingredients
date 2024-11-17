@@ -1,13 +1,25 @@
+---
+title: Menu
+description: A component for navigating through a list of options or actions
+---
+
 <script>
   import {MenuDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Menu
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for navigating through a list of options or actions.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <MenuDemo />
 

@@ -1,13 +1,25 @@
+---
+title: Segment Group
+description: A component for grouping and toggling between different sections or options, often used for filters or navigation.
+---
+
 <script>
   import {SegmentGroupDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Segment Group
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for grouping and toggling between different sections or options, often used for filters or navigation.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <SegmentGroupDemo />
 

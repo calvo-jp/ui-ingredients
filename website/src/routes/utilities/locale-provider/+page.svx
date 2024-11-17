@@ -1,0 +1,33 @@
+---
+title: Locale Provider
+description: A component for providing locale information to the rest of the application.
+---
+
+<script>
+  import Metadata from '$lib/metadata.svelte';
+</script>
+
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
+
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
+
+## Usage
+
+```svelte
+<!-- src/+layout.svelte -->
+<script>
+  import {LocaleProvider} from 'ui-ingredients';
+
+  let {children} = $props()
+</script>
+  
+<LocaleProvider locale="en-US">
+  {@render children()}
+</LocaleProvider>
+```

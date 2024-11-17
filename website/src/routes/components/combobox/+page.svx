@@ -1,13 +1,25 @@
+---
+title: Combobox
+description: A component that combines a text input with a dropdown list for selecting or entering values.
+---
+
 <script>
   import {ComboboxDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Combobox
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component that combines a text input with a dropdown list for selecting or entering values.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <ComboboxDemo />
 

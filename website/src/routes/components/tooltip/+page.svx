@@ -1,13 +1,25 @@
+---
+title: Tooltip
+description: A component for displaying brief, contextual information when hovering over or focusing on an element.
+---
+
 <script>
   import {TooltipDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Tooltip
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying brief, contextual information when hovering over or focusing on an element.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <TooltipDemo />
 

@@ -1,12 +1,24 @@
+---
+title: Clipboard
+description: A component for copying text or content to the user's clipboard.
+---
+
 <script>
   import {ClipboardDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Clipboard
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for copying text or content to the user's clipboard.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <ClipboardDemo />
 

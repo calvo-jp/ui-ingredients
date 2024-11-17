@@ -1,12 +1,24 @@
+---
+title: Steps
+description: A component for displaying a sequence of steps or stages in a process, often used for navigation or progress tracking.
+---
+
 <script>
   import {StepsDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Steps
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying a sequence of steps or stages in a process, often used for navigation or progress tracking.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <StepsDemo />
 

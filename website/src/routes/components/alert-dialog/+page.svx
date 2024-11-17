@@ -1,15 +1,25 @@
+---
+title: Alert Dialog
+description: A component for displaying a modal dialog that requires user attention or confirmation.
+---
+
 <script>
   import {AlertDialogDemo} from '$lib/demo';
   import {Api} from '$lib/api';
   import {Anatomy} from '$lib/anatomy';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# AlertDialog
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying a modal dialog that requires user attention or confirmation.
+<Metadata title="{title}" description="{description}" />
 
-<AlertDialogDemo />
+# {title}
+
+{description}
 
 ## Anatomy
 

@@ -1,13 +1,25 @@
+---
+title: Tour
+description: A component for guiding users through a series of steps or features in an application or website.
+---
+
 <script>
   import {TourDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Tour
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for guiding users through a series of steps or features in an application or website.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <TourDemo />
 

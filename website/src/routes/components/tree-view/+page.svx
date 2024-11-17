@@ -1,13 +1,25 @@
+---
+title: Tree View
+description: A component for displaying hierarchical data in a tree structure, allowing users to expand and collapse branches.
+---
+
 <script>
   import {TreeViewDemo} from '$lib/demo';
   import {Anatomy} from '$lib/anatomy';
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
+  import Metadata from '$lib/metadata.svelte';
 </script>
 
-# Tree View
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
 
-A component for displaying hierarchical data in a tree structure, allowing users to expand and collapse branches.
+<Metadata title="{title}" description="{description}" />
+
+# {title}
+
+{description}
 
 <TreeViewDemo />
 
