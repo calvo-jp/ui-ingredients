@@ -30,18 +30,11 @@ description: A component for toggling between two states, such as on/off or enab
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Switch} from 'ui-ingredients';
-
-  let checked = $state(false);
 </script>
 
-<Switch.Root
-  {checked}
-  onCheckedChange={(detail) => {
-    checked = detail.checked;
-  }}
->
+<Switch.Root>
   <Switch.Control>
     <Switch.Thumb />
   </Switch.Control>
@@ -53,7 +46,7 @@ description: A component for toggling between two states, such as on/off or enab
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {Switch, Field} from 'ui-ingredients';
 </script>
 

@@ -29,7 +29,7 @@ description: A visual component for displaying a user’s profile image or initi
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Avatar} from 'ui-ingredients';
 </script>
 

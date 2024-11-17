@@ -23,7 +23,7 @@ description: A component for highlighting text within a string.
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Highlight} from 'ui-ingredients';
 
   let text =

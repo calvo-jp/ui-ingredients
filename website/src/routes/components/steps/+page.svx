@@ -29,11 +29,11 @@ description: A component for displaying a sequence of steps or stages in a proce
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Steps} from 'ui-ingredients';
   import {CheckIcon} from '$lib/icons';
 
-  const items = [
+  let items = [
     {
       title: 'Step 1',
       content: 'Step 1 Content',
@@ -47,17 +47,9 @@ description: A component for displaying a sequence of steps or stages in a proce
       content: 'Step 3 Content',
     },
   ];
-
-  let step = $state(1);
 </script>
 
-<Steps.Root
-  {step}
-  onStepChange={(detail) => {
-    step = detail.step;
-  }}
-  count={items.length}
->
+<Steps.Root count={items.length}>
   <Steps.List>
     {#each items as item, index}
       <Steps.Item {index}>

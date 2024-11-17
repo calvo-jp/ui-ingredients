@@ -30,18 +30,13 @@ description: A component that allows users to modify its content.
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Editable} from 'ui-ingredients';
 
   let value = $state('Hello world!');
 </script>
 
-<Editable.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<Editable.Root>
   <Editable.Label>Label</Editable.Label>
 
   <Editable.Area>
@@ -58,7 +53,7 @@ description: A component that allows users to modify its content.
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {Editable, Field} from 'ui-ingredients';
 </script>
 

@@ -24,7 +24,7 @@ description: A component for counting down or tracking elapsed time.
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Timer} from 'ui-ingredients';
 </script>
 
@@ -53,7 +53,6 @@ description: A component for counting down or tracking elapsed time.
   </Timer.Control>
 </Timer.Root>
 ```
-
 
 ## API Reference
 

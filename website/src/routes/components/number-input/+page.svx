@@ -30,21 +30,12 @@ description: A component for entering numeric values
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {NumberInput} from 'ui-ingredients';
   import {ChevronDownIcon, ChevronUpIcon} from '$lib/icons';
-
-  let value = $state('0');
 </script>
 
-<NumberInput.Root
-  min={0}
-  max={100}
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<NumberInput.Root>
   <NumberInput.Label>Label</NumberInput.Label>
   <NumberInput.Control>
     <NumberInput.Input />
@@ -61,7 +52,7 @@ description: A component for entering numeric values
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {NumberInput, Field} from 'ui-ingredients';
   import {ChevronDownIcon, ChevronUpIcon} from '$lib/icons';
 </script>

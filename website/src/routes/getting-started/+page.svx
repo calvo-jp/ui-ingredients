@@ -12,7 +12,6 @@
 
 Start incorporating UI Ingredients into your project today!
 
-
 ## Setup Guide
 
 - Install UI Ingredients using your preferred package manager.

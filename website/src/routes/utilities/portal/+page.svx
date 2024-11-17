@@ -20,7 +20,7 @@ description: A component for rendering content in a different part of the DOM hi
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Portal} from 'ui-ingredients';
 </script>
 

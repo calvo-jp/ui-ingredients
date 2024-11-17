@@ -1,4 +1,5 @@
 <script module>
+  /* 🐞 FIXME: custom components not working */
   export * from '$lib/components';
 </script>
 

@@ -20,7 +20,7 @@ description: "A component that controls content rendering and unmounting based o
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Presence} from 'ui-ingredients';
 
   let present = $state(false);

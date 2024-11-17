@@ -29,7 +29,7 @@ description: A component that displays additional information when hovering over
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {HoverCard, Portal} from 'ui-ingredients';
 </script>
 

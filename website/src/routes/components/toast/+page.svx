@@ -44,7 +44,7 @@ export const toaster = createToaster({
 
 ```svelte
 <!-- +layout.svelte -->
-<script lang="ts">
+<script>
   import {XCloseIcon} from '$lib/icons';
   import {toaster} from '$lib/toaster.svelte.ts';
   import {Toaster, Toast} from 'ui-ingredients';
@@ -69,7 +69,7 @@ export const toaster = createToaster({
 
 ```svelte
 <!-- +page.svelte -->
-<script lang="ts">
+<script>
   import {toaster} from '$lib/toaster.svelte.ts';
 </script>
 
@@ -84,7 +84,6 @@ export const toaster = createToaster({
   Create
 </button>
 ```
-
 
 ## API Reference
 

@@ -32,11 +32,12 @@ description: A component for selecting a date from a calendar interface.
 ### Single Date Picker
 
 ```svelte
-<script lang="ts">
-  import {DatePicker, type DateValue} from 'ui-ingredients';
+<script>
+  import {DatePicker} from 'ui-ingredients';
   import {CalendarIcon, ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 
-  let value: DateValue[] = $state([DatePicker.parse('1990-01-01')]);
+  /** @type {import('ui-ingredients').DateValue[]} */
+  let value = $state([DatePicker.parse('1990-01-01')]);
 </script>
 
 <DatePicker.Root
@@ -166,32 +167,20 @@ description: A component for selecting a date from a calendar interface.
 ### Range Date Picker
 
 ```svelte
-<script lang="ts">
-  import {DatePicker, type DateValue} from 'ui-ingredients';
+<script>
+  import {DatePicker} from 'ui-ingredients';
   import {
     CalendarIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
     XCloseIcon,
   } from '$lib/icons';
-
-  let value: DateValue[] = $state([]);
 </script>
 
-<DatePicker.Root
-  fixedWeeks
-  positioning={{
-    sameWidth: true,
-  }}
-  {value}
-  onValueChange={(detail) => {
-    value = detail.valueAsString;
-  }}
-  selectionMode="range"
->
+<DatePicker.Root fixedWeeks selectionMode="range">
   {#snippet children(context)}
     <DatePicker.Label>Label</DatePicker.Label>
-    <DatePicker.Control class="flex gap-2">
+    <DatePicker.Control>
       <DatePicker.Input index={0} />
       <DatePicker.Input index={1} />
       <DatePicker.ClearTrigger>

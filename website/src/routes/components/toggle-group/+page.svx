@@ -30,11 +30,12 @@ description: A component for grouping multiple toggle switches, allowing users t
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {ToggleGroup} from 'ui-ingredients';
   import {Bold01Icon, Italic01Icon, Underline01Icon} from '$lib/icons';
 
-  let value: string[] = $state([]);
+  /** @type {string[]} */
+  let value = $state([]);
 </script>
 
 <ToggleGroup.Root
@@ -55,7 +56,6 @@ description: A component for grouping multiple toggle switches, allowing users t
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
-
 
 ## API Reference
 

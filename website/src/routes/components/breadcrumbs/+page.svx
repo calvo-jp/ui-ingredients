@@ -25,7 +25,7 @@ description: A component for displaying the navigation path or hierarchy of a us
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Breadcrumbs} from 'ui-ingredients';
   import {ChevronRightIcon} from '$lib/icons';
 </script>

@@ -30,7 +30,7 @@ description: A component for choosing an option from a dropdown list.
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Select} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
@@ -43,17 +43,9 @@ description: A component for choosing an option from a dropdown list.
       {value: '5', label: 'Option 5'},
     ],
   });
-
-  let value: string[] = $state([]);
 </script>
 
-<Select.Root
-  {collection}
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<Select.Root {collection}>
   <Select.Control>
     <Select.Label>Label</Select.Label>
     <Select.Trigger>
@@ -79,7 +71,7 @@ description: A component for choosing an option from a dropdown list.
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {Select} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon} from '$lib/icons';
 
@@ -92,18 +84,10 @@ description: A component for choosing an option from a dropdown list.
       {value: '5', label: 'Option 5'},
     ],
   });
-
-  let value: string[] = $state([]);
 </script>
 
 <Field.Root>
-  <Select.Root
-    {collection}
-    {value}
-    onValueChange={(detail) => {
-      value = detail.value;
-    }}
-  >
+  <Select.Root {collection}>
     <Select.Control>
       <Select.Label>Label</Select.Label>
       <Select.Trigger>

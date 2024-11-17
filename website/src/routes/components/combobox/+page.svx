@@ -30,7 +30,7 @@ description: A component that combines a text input with a dropdown list for sel
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Combobox} from 'ui-ingredients';
   import {CheckIcon, ChevronDownIcon, XCloseIcon} from '$lib/icons';
 
@@ -42,8 +42,10 @@ description: A component that combines a text input with a dropdown list for sel
     {label: 'Option 5', value: '5'},
   ];
 
-  let value: string[] = $state([]);
+  /** @type {string[]} */
+  let value = $state([]);
   let inputValue = $state('');
+
   let matches = $derived(
     items.filter(function (item) {
       return item.label.toLowerCase().includes(inputValue.toLowerCase());
@@ -98,14 +100,9 @@ description: A component that combines a text input with a dropdown list for sel
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {Combobox, Portal} from 'ui-ingredients';
-  import {
-    CheckIcon,
-    ChevronDownIcon,
-    XCloseIcon,
-  } from '@untitled-theme/icons-svelte';
-  import {IconButton, Input, Label} from '$lib/ui';
+  import {CheckIcon, ChevronDownIcon, XCloseIcon} from '$lib/icons';
 
   let items = [
     {label: 'Option 1', value: '1'},
@@ -115,7 +112,8 @@ description: A component that combines a text input with a dropdown list for sel
     {label: 'Option 5', value: '5'},
   ];
 
-  let value: string[] = $state([]);
+  /** @type {string[]} */
+  let value = $state([]);
   let inputValue = $state('');
 
   let matches = $derived(

@@ -112,7 +112,7 @@ description: A component for displaying hierarchical data in a tree structure, a
 </script>
 
 <TreeView.Root {collection}>
-  <TreeView.Label class="mb-2 block text-neutral-600">Explorer</TreeView.Label>
+  <TreeView.Label>Explorer</TreeView.Label>
   <TreeView.Tree>
     {#each collection.rootNode.children ?? [] as node, index}
       {@render TreeNode({
@@ -156,7 +156,6 @@ description: A component for displaying hierarchical data in a tree structure, a
   {/if}
 {/snippet}
 ```
-
 
 ## API Reference
 

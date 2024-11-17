@@ -29,7 +29,7 @@ description: A component for selecting and uploading files from the user's devic
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {FileUpload} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>
@@ -64,7 +64,7 @@ description: A component for selecting and uploading files from the user's devic
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {FileUpload, Field} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

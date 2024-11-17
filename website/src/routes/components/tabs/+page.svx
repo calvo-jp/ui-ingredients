@@ -30,7 +30,7 @@ description: A component for organizing and switching between multiple sections 
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Tabs} from 'ui-ingredients';
 
   let items = [
@@ -50,16 +50,9 @@ description: A component for organizing and switching between multiple sections 
       content: 'Item 3 Content',
     },
   ];
-
-  let value = $state('1');
 </script>
 
-<Tabs.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<Tabs.Root>
   <Tabs.List>
     {#each items as { value, label }}
       <Tabs.Trigger {value}>

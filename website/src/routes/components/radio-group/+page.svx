@@ -30,7 +30,7 @@ description: A component for selecting one option from a set of mutually exclusi
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {RadioGroup} from 'ui-ingredients';
   import {CheckIcon} from '$lib/icons';
 
@@ -48,16 +48,9 @@ description: A component for selecting one option from a set of mutually exclusi
       label: 'Item 3',
     },
   ];
-
-  let value = $state('1');
 </script>
 
-<RadioGroup.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<RadioGroup.Root>
   <RadioGroup.Label>Label</RadioGroup.Label>
 
   {#each items as { value, label }}
@@ -71,7 +64,6 @@ description: A component for selecting one option from a set of mutually exclusi
   {/each}
 </RadioGroup.Root>
 ```
-
 
 ## API Reference
 

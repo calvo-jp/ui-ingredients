@@ -29,7 +29,7 @@ description: A rotating component for cycling through images or content slides.
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Carousel} from 'ui-ingredients';
   import {ChevronLeftIcon, ChevronRightIcon} from '$lib/icons';
 
@@ -38,16 +38,9 @@ description: A rotating component for cycling through images or content slides.
     'https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg',
     'https://images.pexels.com/photos/1192671/pexels-photo-1192671.jpeg',
   ];
-
-  let index = $state(0);
 </script>
 
-<Carousel.Root
-  {index}
-  onIndexChange={(detail) => {
-    index = detail.index;
-  }}
->
+<Carousel.Root>
   <Carousel.Viewport>
     <Carousel.ItemGroup>
       {#each items as src, index}
@@ -58,21 +51,18 @@ description: A rotating component for cycling through images or content slides.
     </Carousel.ItemGroup>
   </Carousel.Viewport>
 
-  <div>
-    <Carousel.PrevTrigger>
-      <ChevronLeftIcon />
-    </Carousel.PrevTrigger>
+  <Carousel.IndicatorGroup>
+    {#each items as _, index}
+      <Carousel.Indicator {index} />
+    {/each}
+  </Carousel.IndicatorGroup>
 
-    <Carousel.IndicatorGroup>
-      {#each items as _, index}
-        <Carousel.Indicator {index} />
-      {/each}
-    </Carousel.IndicatorGroup>
-
-    <Carousel.NextTrigger>
-      <ChevronRightIcon />
-    </Carousel.NextTrigger>
-  </div>
+  <Carousel.PrevTrigger>
+    <ChevronLeftIcon />
+  </Carousel.PrevTrigger>
+  <Carousel.NextTrigger>
+    <ChevronRightIcon />
+  </Carousel.NextTrigger>
 </Carousel.Root>
 ```
 

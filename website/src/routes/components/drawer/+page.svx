@@ -25,7 +25,7 @@ description: A component that slides in from the edge of the screen to display a
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Drawer} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

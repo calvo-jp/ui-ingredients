@@ -30,19 +30,12 @@ description: A component for adding and managing a list of tags or keywords, oft
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {TagsInput} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
-
-  let value: string[] = $state([]);
 </script>
 
-<TagsInput.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<TagsInput.Root>
   {#snippet children(context)}
     <TagsInput.Label>Label</TagsInput.Label>
 
@@ -69,7 +62,7 @@ description: A component for adding and managing a list of tags or keywords, oft
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {TagsInput, Field} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

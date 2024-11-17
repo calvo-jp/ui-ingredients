@@ -30,19 +30,12 @@ description: A component for selecting a rating value, typically represented by 
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {RatingGroup} from 'ui-ingredients';
   import {StarIcon} from '$lib/icons';
-
-  let value = $state(1);
 </script>
 
-<RatingGroup.Root
-  {value}
-  onValueChange={(detail) => {
-    value = detail.value;
-  }}
->
+<RatingGroup.Root>
   <RatingGroup.Label>Label</RatingGroup.Label>
   <RatingGroup.HiddenInput />
 
@@ -61,7 +54,7 @@ description: A component for selecting a rating value, typically represented by 
 ### Usage with `Field` component
 
 ```svelte
-<script lang="ts">
+<script>
   import {RatingGroup, Field} from 'ui-ingredients';
   import {StarIcon} from '$lib/icons';
 </script>

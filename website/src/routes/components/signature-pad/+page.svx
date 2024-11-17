@@ -29,7 +29,7 @@ description: A component for capturing and displaying handwritten signatures.
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {SignaturePad} from 'ui-ingredients';
 </script>
 
@@ -51,7 +51,6 @@ description: A component for capturing and displaying handwritten signatures.
   {/snippet}
 </SignaturePad.Root>
 ```
-
 
 ## API Reference
 

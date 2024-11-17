@@ -30,7 +30,7 @@ description: A component for displaying brief, contextual information when hover
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Portal, Tooltip} from 'ui-ingredients';
 </script>
 
@@ -50,7 +50,6 @@ description: A component for displaying brief, contextual information when hover
   </Portal>
 </Tooltip.Root>
 ```
-
 
 ## API Reference
 

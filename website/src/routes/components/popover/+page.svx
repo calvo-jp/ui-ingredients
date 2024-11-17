@@ -30,7 +30,7 @@ description: A component that displays additional content or information in a sm
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Popover} from 'ui-ingredients';
   import {XCloseIcon} from '$lib/icons';
 </script>

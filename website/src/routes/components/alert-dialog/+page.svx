@@ -28,7 +28,7 @@ description: A component for displaying a modal dialog that requires user attent
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {AlertDialog} from 'ui-ingredients';
 </script>
 
