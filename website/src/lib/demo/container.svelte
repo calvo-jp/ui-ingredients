@@ -11,7 +11,7 @@
 
 <div
   class={twMerge(
-    'not-prose rounded-md border border-neutral-800/40 bg-neutral-900/40 p-12',
+    'not-prose rounded-md border border-neutral-800/40 bg-neutral-900/40 p-5 md:p-10 lg:p-12',
     className,
   )}
   {...props}
