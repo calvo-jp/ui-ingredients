@@ -8,7 +8,11 @@
 >
   <div class="flex h-full items-center justify-center">
     <div class="flex items-center gap-2">
-      <button type="button" onclick={navbarStore.drawer.toggle}>
+      <button
+        type="button"
+        onclick={navbarStore.drawer.toggle}
+        class="lg:hidden"
+      >
         <Menu05Icon class="size-6" />
         <span class="sr-only">Open drawer</span>
       </button>

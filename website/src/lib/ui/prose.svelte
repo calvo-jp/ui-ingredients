@@ -25,8 +25,6 @@
     'before:prose-code:content-none',
     'after:prose-code:content-none',
 
-    '[&_.shiki]:w-[calc(100vw-theme(spacing.10))]',
-
     '[&_.shiki]:dark:!bg-[var(--shiki-dark-bg)]',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
     '[&_.shiki_span]:dark:!bg-[var(--shiki-dark-bg)]',

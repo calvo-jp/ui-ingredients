@@ -18,14 +18,12 @@
 <Navbar />
 
 <div
-  class="flex h-[calc(theme(height.dvh)-theme(spacing.16))] items-start justify-center"
+  class="h-[calc(theme(height.dvh)-theme(spacing.16))] lg:flex lg:items-start lg:justify-center"
 >
   <Sidebar />
 
-  <main
-    class="flex min-h-full grow flex-col items-start p-5 md:p-8 lg:p-16 xl:p-20"
-  >
-    <div id="content" class="mx-auto w-full max-w-screen-md grow">
+  <main class="flex min-h-full flex-col p-5 md:p-8 lg:grow lg:p-16 xl:p-20">
+    <div id="content" class="grow lg:mx-auto lg:max-w-screen-md">
       <Prose>
         {@render children()}
       </Prose>
