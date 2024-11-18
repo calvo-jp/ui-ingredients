@@ -82,10 +82,10 @@
   });
 </script>
 
-<div class="w-[18rem] shrink-0"></div>
+<div class="hidden w-[18rem] shrink-0 xl:block"></div>
 
 <section
-  class="fixed right-[var(--scrollbar-width,0)] top-16 z-sticky mt-20 w-[18rem] shrink-0 border-l border-neutral-800 bg-neutral-950 py-2"
+  class="fixed right-[var(--scrollbar-width,0)] top-16 z-sticky mt-20 hidden w-[18rem] shrink-0 border-l border-neutral-800 bg-neutral-950 py-2 xl:block"
 >
   <h2 class="mb-2 px-5 font-semibold">On this page</h2>
 
@@ -109,7 +109,7 @@
     {#each items as item}
       <SegmentGroup.Item
         value={item.value}
-        class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-400 transition-colors duration-200 data-checked:text-neutral-200 hover:text-neutral-300"
+        class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-400 transition-colors duration-150 data-checked:text-neutral-200 hover:text-neutral-300"
         style="--indent:{item.indent}px"
       >
         <SegmentGroup.ItemText class="px-5">{item.label}</SegmentGroup.ItemText>

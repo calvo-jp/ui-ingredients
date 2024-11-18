@@ -46,7 +46,7 @@
             <Select.ValueText placeholder="Please Select" class="grow" />
             <Select.Indicator class="group">
               <ChevronDownIcon
-                class="transition-transform duration-200 group-data-open:rotate-180"
+                class="transition-transform duration-150 group-data-open:rotate-180"
               />
             </Select.Indicator>
           </Button>

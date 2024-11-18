@@ -26,7 +26,7 @@
         <Button {...attrs}>
           <span>Basic</span>
           <Menu.Indicator
-            class="transition-transform duration-200 data-open:rotate-180"
+            class="transition-transform duration-150 data-open:rotate-180"
           >
             <ChevronDownIcon />
           </Menu.Indicator>
@@ -59,7 +59,7 @@
         <Button {...attrs}>
           <span>Checkbox</span>
           <Menu.Indicator
-            class="transition-transform duration-200 data-open:rotate-180"
+            class="transition-transform duration-150 data-open:rotate-180"
           >
             <ChevronDownIcon />
           </Menu.Indicator>

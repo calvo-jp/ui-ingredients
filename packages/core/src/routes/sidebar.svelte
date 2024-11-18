@@ -41,7 +41,7 @@
               'font-semibold',
               'text-neutral-400',
               'transition-colors',
-              'duration-200',
+              'duration-150',
               'aria-page:text-indigo-400',
             )}
             aria-current={link.path === currentLink?.path ? 'page' : undefined}
@@ -83,7 +83,7 @@
                       'font-semibold',
                       'text-neutral-400',
                       'transition-colors',
-                      'duration-200',
+                      'duration-150',
                       'aria-page:text-accent',
                     )}
                     aria-current={link.path === currentLink?.path

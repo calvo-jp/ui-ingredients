@@ -16,7 +16,7 @@
       <RadioGroup.Item {value} class="flex items-center gap-2">
         <RadioGroup.ItemHiddenInput />
         <RadioGroup.ItemControl
-          class="group flex size-5 items-center justify-center rounded-full border-2 border-neutral-800 p-2 transition-colors duration-200 data-checked:border-indigo-500 data-checked:bg-indigo-500"
+          class="group flex size-5 items-center justify-center rounded-full border-2 border-neutral-800 p-2 transition-colors duration-150 data-checked:border-indigo-500 data-checked:bg-indigo-500"
         >
           <CheckIcon
             class="hidden size-3.5 shrink-0 text-white group-data-checked:block"

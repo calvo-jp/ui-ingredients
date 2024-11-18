@@ -34,7 +34,7 @@
               'size-5',
               'border-2',
               'transition-all',
-              'duration-200',
+              'duration-150',
               'data-current:border-accent',
               'data-complete:border-accent',
               'data-complete:bg-accent',

@@ -29,7 +29,7 @@
       <RadioGroup.Item {value} class="flex items-center gap-2">
         <RadioGroup.ItemHiddenInput />
         <RadioGroup.ItemControl
-          class="data-checked:bg-accent data-checked:border-accent group flex size-5 items-center justify-center rounded-full border-2 p-2 transition-colors duration-200"
+          class="data-checked:bg-accent data-checked:border-accent group flex size-5 items-center justify-center rounded-full border-2 p-2 transition-colors duration-150"
         >
           <CheckIcon
             class="hidden size-3.5 shrink-0 text-white group-data-checked:block"

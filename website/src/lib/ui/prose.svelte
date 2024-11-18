@@ -12,7 +12,11 @@
 <div
   class={twMerge(
     'prose',
+    'prose-sm',
     'prose-neutral',
+    'prose-code:text-xs',
+    'lg:prose-base',
+    'lg:prose-code:text-sm',
     'dark:prose-invert',
     'min-w-full',
 
@@ -20,6 +24,8 @@
     'after:prose-p:content-none',
     'before:prose-code:content-none',
     'after:prose-code:content-none',
+
+    '[&_.shiki]:w-[calc(100vw-theme(spacing.10))]',
 
     '[&_.shiki]:dark:!bg-[var(--shiki-dark-bg)]',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',

@@ -61,7 +61,7 @@
         {#snippet asChild(attrs)}
           <IconButton {...attrs}>
             <ChevronDownIcon
-              class="transition-transform duration-200 group-data-open:rotate-180"
+              class="transition-transform duration-150 group-data-open:rotate-180"
             />
           </IconButton>
         {/snippet}

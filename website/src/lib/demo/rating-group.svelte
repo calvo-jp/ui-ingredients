@@ -18,7 +18,7 @@
                 class={twMerge(
                   'size-8',
                   'transition-colors',
-                  'duration-200',
+                  'duration-150',
                   state.highlighted ? 'text-indigo-500' : 'text-neutral-700',
                 )}
               >

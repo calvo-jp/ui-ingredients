@@ -223,7 +223,7 @@ interface ParentLink {
   links: Link[];
 }
 
-export const LINKS: ParentLink[] = [
+export const APP_LINKS: ParentLink[] = [
   {
     label: 'Overview',
     links: [

@@ -1,12 +1,12 @@
 <script lang="ts">
   import {page} from '$app/stores';
+  import {APP_LINKS} from '$lib/const';
   import {
     ChevronLeftIcon,
     ChevronRightIcon,
   } from '@untitled-theme/icons-svelte';
-  import {LINKS} from './utils';
 
-  const links = LINKS.map((parent) => parent.links).flat();
+  const links = APP_LINKS.map((parent) => parent.links).flat();
 
   const currentLinkIndex = $derived(
     links.findIndex((link) => link.path === $page.url.pathname),
@@ -23,7 +23,9 @@
   );
 </script>
 
-<div class="mx-auto flex w-full max-w-screen-md items-center pb-12 pt-16">
+<div
+  class="mx-auto mt-8 flex w-full max-w-screen-md items-center md:mt-12 lg:mt-16"
+>
   {#if prevLink}
     <a href={prevLink.path} class="flex items-center gap-2.5">
       <ChevronLeftIcon class="size-6 text-neutral-500" />

@@ -14,7 +14,7 @@
 
       <SegmentGroup.Item
         {value}
-        class="relative z-10 px-4 py-1 font-medium transition-colors duration-200 data-checked:text-white"
+        class="relative z-10 px-4 py-1 font-medium transition-colors duration-150 data-checked:text-white"
       >
         <SegmentGroup.ItemText>Item {value}</SegmentGroup.ItemText>
         <SegmentGroup.ItemControl />

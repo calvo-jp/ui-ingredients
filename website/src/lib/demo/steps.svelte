@@ -29,7 +29,7 @@
                 'border-2',
                 'border-neutral-800',
                 'transition-all',
-                'duration-200',
+                'duration-150',
                 'data-current:border-indigo-500',
                 'data-complete:border-indigo-500',
                 'data-complete:bg-indigo-500',

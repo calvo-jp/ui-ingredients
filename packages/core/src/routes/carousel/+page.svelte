@@ -46,7 +46,7 @@
       {#each items as _, index}
         <Carousel.Indicator
           {index}
-          class="data-current:bg-accent bg-light size-4 rounded-full transition-colors duration-200"
+          class="data-current:bg-accent bg-light size-4 rounded-full transition-colors duration-150"
         />
       {/each}
     </Carousel.IndicatorGroup>

@@ -1,8 +1,8 @@
+import {APP_LINKS} from '$lib/const';
 import type {RequestHandler} from '@sveltejs/kit';
-import {LINKS} from '../utils';
 
 export const GET: RequestHandler = async ({url: {origin}}) => {
-  const urls = LINKS.map((link) => link.links)
+  const urls = APP_LINKS.map((link) => link.links)
     .flat()
     .map((link) => `${origin}${link.path}`);
 

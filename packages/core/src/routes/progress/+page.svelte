@@ -31,7 +31,7 @@
       class="mt-4 [--size:theme(spacing.24)] [--thickness:theme(spacing.3)]"
     >
       <Progress.CircleTrack class="stroke-neutral-600" />
-      <Progress.CircleRange class="stroke-accent transition-all duration-200" />
+      <Progress.CircleRange class="stroke-accent transition-all duration-150" />
     </Progress.Circle>
 
     <div class="mt-5 flex items-center gap-2">
@@ -39,7 +39,7 @@
         class="h-3 grow overflow-hidden rounded-full bg-neutral-600"
       >
         <Progress.Range
-          class="bg-accent h-full transition-all duration-200 [--translate-x:100%]"
+          class="bg-accent h-full transition-all duration-150 [--translate-x:100%]"
         />
       </Progress.Track>
       <Progress.ValueText

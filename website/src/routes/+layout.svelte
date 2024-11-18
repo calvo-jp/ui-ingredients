@@ -17,13 +17,13 @@
 
 <Navbar />
 
-<main
+<div
   class="flex h-[calc(theme(height.dvh)-theme(spacing.16))] items-start justify-center"
 >
   <Sidebar />
 
-  <section
-    class="flex min-h-full shrink-0 grow flex-col items-start px-20 pt-20"
+  <main
+    class="flex min-h-full grow flex-col items-start p-5 md:p-8 lg:p-16 xl:p-20"
   >
     <div id="content" class="mx-auto w-full max-w-screen-md grow">
       <Prose>
@@ -32,7 +32,7 @@
     </div>
 
     <PageControl />
-  </section>
+  </main>
 
   <Toc />
-</main>
+</div>

@@ -1,18 +1,53 @@
 <script>
   import {page} from '$app/stores';
+  import {APP_LINKS} from '$lib/const';
   import {dataAttr} from '$lib/data-attr';
+  import {navbarStore} from '$lib/stores';
   import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
-  import {Collapsible} from 'ui-ingredients';
-  import {LINKS} from './utils';
+  import {Collapsible, Drawer, Portal} from 'ui-ingredients';
 </script>
 
-<div class="w-[18rem] shrink-0"></div>
+<div class="hidden w-[18rem] shrink-0 lg:block"></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-800 bg-neutral-950 px-12 py-8 scrollbar scrollbar-track-neutral-900 scrollbar-thumb-neutral-600"
+  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-800 bg-neutral-950 px-12 py-8 scrollbar scrollbar-track-neutral-900 scrollbar-thumb-neutral-600 lg:block"
 >
+  {@render items()}
+</nav>
+
+<Drawer.Root
+  open={navbarStore.drawer.isOpen}
+  openControlled
+  onOpenChange={(detail) => {
+    if (detail.open) {
+      navbarStore.drawer.open();
+    } else {
+      navbarStore.drawer.close();
+    }
+  }}
+>
+  <Portal>
+    <Drawer.Backdrop
+      class="fixed inset-0 z-overlay bg-black/75 backdrop-blur-sm data-open:animate-fade-in data-closed:animate-fade-out"
+    />
+
+    <Drawer.Positioner>
+      <Drawer.Content
+        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r border-neutral-800 bg-neutral-900 p-8 scrollbar scrollbar-track-neutral-900 scrollbar-thumb-neutral-600 data-open:animate-slide-in-left data-closed:animate-slide-out-left"
+      >
+        <Drawer.Body>
+          <nav>
+            {@render items()}
+          </nav>
+        </Drawer.Body>
+      </Drawer.Content>
+    </Drawer.Positioner>
+  </Portal>
+</Drawer.Root>
+
+{#snippet items()}
   <ul class="space-y-4">
-    {#each LINKS as parent}
+    {#each APP_LINKS as parent}
       <li>
         <Collapsible.Root open>
           <Collapsible.Trigger
@@ -60,4 +95,4 @@
       </li>
     {/each}
   </ul>
-</nav>
+{/snippet}

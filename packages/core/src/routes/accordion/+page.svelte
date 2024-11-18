@@ -40,7 +40,7 @@
         <span class="grow font-semibold">{label}</span>
 
         <Accordion.ItemIndicator
-          class="transition-all duration-200 data-open:rotate-180"
+          class="transition-all duration-150 data-open:rotate-180"
         >
           <ChevronDownIcon />
         </Accordion.ItemIndicator>

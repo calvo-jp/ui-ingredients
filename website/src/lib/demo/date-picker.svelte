@@ -49,7 +49,7 @@
                 class="flex items-center justify-between border-b border-neutral-800 px-4 py-3"
               >
                 <DatePicker.PrevTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                 >
                   <ChevronLeftIcon />
                 </DatePicker.PrevTrigger>
@@ -61,7 +61,7 @@
                 </DatePicker.ViewTrigger>
 
                 <DatePicker.NextTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                 >
                   <ChevronRightIcon />
                 </DatePicker.NextTrigger>
@@ -89,7 +89,7 @@
                         {#each week as day}
                           <DatePicker.DayTableCell value={day}>
                             <DatePicker.DayTableCellTrigger
-                              class="flex aspect-square w-full items-center justify-center rounded transition-colors duration-200 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:bg-indigo-500 data-selected:font-semibold data-selected:text-white data-today:text-indigo-500 data-today:data-selected:text-white hover:bg-neutral-800/50 data-disabled:hover:bg-transparent"
+                              class="flex aspect-square w-full items-center justify-center rounded transition-colors duration-150 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:bg-indigo-500 data-selected:font-semibold data-selected:text-white data-today:text-indigo-500 data-today:data-selected:text-white hover:bg-neutral-800/50 data-disabled:hover:bg-transparent"
                             >
                               {day.day}
                             </DatePicker.DayTableCellTrigger>
@@ -108,7 +108,7 @@
                 class="flex items-center justify-between border-b border-neutral-800 px-4 py-3"
               >
                 <DatePicker.PrevTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                 >
                   <ChevronLeftIcon />
                 </DatePicker.PrevTrigger>
@@ -120,7 +120,7 @@
                 </DatePicker.ViewTrigger>
 
                 <DatePicker.NextTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                 >
                   <ChevronRightIcon />
                 </DatePicker.NextTrigger>
@@ -134,7 +134,7 @@
                         {#each months as month}
                           <DatePicker.MonthTableCell value={month.value}>
                             <DatePicker.MonthTableCellTrigger
-                              class="flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                              class="flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                             >
                               {month.label}
                             </DatePicker.MonthTableCellTrigger>
@@ -153,7 +153,7 @@
                 class="flex items-center justify-between border-b border-neutral-800 px-4 py-3"
               >
                 <DatePicker.PrevTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                 >
                   <ChevronLeftIcon />
                 </DatePicker.PrevTrigger>
@@ -165,7 +165,7 @@
                 </DatePicker.ViewTrigger>
 
                 <DatePicker.NextTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                 >
                   <ChevronRightIcon />
                 </DatePicker.NextTrigger>
@@ -179,7 +179,7 @@
                         {#each years as year}
                           <DatePicker.YearTableCell value={year.value}>
                             <DatePicker.YearTableCellTrigger
-                              class="flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-200 hover:bg-neutral-800/50"
+                              class="flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
                             >
                               {year.label}
                             </DatePicker.YearTableCellTrigger>

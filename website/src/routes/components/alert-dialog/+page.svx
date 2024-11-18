@@ -21,6 +21,8 @@ description: A component for displaying a modal dialog that requires user attent
 
 {description}
 
+<AlertDialogDemo />
+
 ## Anatomy
 
 <Anatomy id="dialog" />
@@ -44,7 +46,6 @@ description: A component for displaying a modal dialog that requires user attent
   </AlertDialog.Positioner>
 </AlertDialog.Root>
 ```
-
 
 ## API Reference
 

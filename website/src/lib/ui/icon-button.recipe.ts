@@ -11,7 +11,7 @@ export const iconButtonRecipe = tv({
     'rounded',
     'font-semibold',
     'transition-colors',
-    'duration-200',
+    'duration-150',
     'disabled:cursor-not-allowed',
     'disabled:opacity-50',
   ],
