@@ -14,7 +14,7 @@
 
     <Editable.Area>
       <Editable.Input />
-      <Editable.Preview class="text-neutral-400" />
+      <Editable.Preview class="text-neutral-600 dark:text-neutral-400" />
     </Editable.Area>
 
     <Editable.Control

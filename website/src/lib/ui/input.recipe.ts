@@ -9,15 +9,8 @@ export const inputRecipe = tv({
       md: 'px-4 h-12',
     },
     variant: {
-      outline: [
-        'border',
-        'border-neutral-700',
-        'bg-transparent',
-        'data-invalid:border-red-500',
-        'data-invalid:focus:outline',
-        'data-invalid:focus:outline-1',
-        'data-invalid:focus:outline-red-500',
-      ],
+      outline:
+        'border border-neutral-200 bg-white dark:bg-transparent data-invalid:focus:outline-red-400 data-invalid:border-red-400 placeholder:text-neutral-500 data-invalid:focus:outline data-invalid:focus:outline-1 dark:data-invalid:border-red-400 dark:border-neutral-700',
     },
   },
   defaultVariants: {

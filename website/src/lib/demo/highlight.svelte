@@ -1,6 +1,5 @@
 <script lang="ts">
   import {Input} from '$lib/ui';
-  import {twMerge} from 'tailwind-merge';
   import {Highlight} from 'ui-ingredients';
   import Container from './container.svelte';
 
@@ -23,20 +22,7 @@
       {text}
       {query}
       ignoreCase
-      class={twMerge(
-        'p-4',
-        'mt-5',
-        'border',
-        'border-neutral-800',
-        'rounded',
-        'text-sm',
-        '[&_mark]:bg-indigo-500',
-        '[&_mark]:text-white',
-        '[&_mark]:rounded',
-        '[&_mark]:font-medium',
-        '[&_mark]:inline-block',
-        '[&_mark]:px-1.5',
-      )}
+      class="mt-5 rounded border border-neutral-200 p-4 text-sm dark:border-neutral-800 [&_mark]:inline-block [&_mark]:rounded [&_mark]:bg-indigo-500 [&_mark]:px-1.5 [&_mark]:font-medium [&_mark]:text-white"
     />
   </div>
 </Container>

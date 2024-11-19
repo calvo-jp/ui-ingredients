@@ -12,13 +12,13 @@
 <Container>
   <Carousel.Root class="mx-auto max-w-[32rem]">
     <Carousel.Viewport
-      class="overflow-hidden rounded border border-neutral-700"
+      class="overflow-hidden rounded border border-neutral-200 dark:border-neutral-700"
     >
       <Carousel.ItemGroup>
         {#each items as _, index}
           <Carousel.Item
             {index}
-            class="flex h-[14rem] items-center justify-center bg-neutral-700/25 font-mono text-4xl font-bold lg:h-[16rem]"
+            class="flex h-[14rem] items-center justify-center bg-white font-mono text-4xl font-bold dark:bg-neutral-700/25 lg:h-[16rem]"
           >
             {index + 1}
           </Carousel.Item>
@@ -37,7 +37,7 @@
         {#each items as _, index}
           <Carousel.Indicator
             {index}
-            class="size-3 rounded-full bg-neutral-800 transition-colors duration-150 data-current:bg-indigo-500"
+            class="size-3 rounded-full border border-neutral-200 bg-white transition-colors duration-150 data-current:border-indigo-600 data-current:bg-indigo-600 dark:border-0 dark:bg-neutral-800 dark:data-current:bg-indigo-500"
           />
         {/each}
       </Carousel.IndicatorGroup>

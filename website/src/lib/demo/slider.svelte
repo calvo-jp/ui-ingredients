@@ -19,9 +19,9 @@
 
     <Slider.Control class="relative mt-2 flex items-center">
       <Slider.Track
-        class="h-3 grow overflow-hidden rounded-full bg-neutral-800"
+        class="h-3 grow overflow-hidden rounded-full bg-neutral-300 dark:bg-neutral-800"
       >
-        <Slider.Range class="h-4 bg-indigo-500" />
+        <Slider.Range class="h-4 bg-indigo-600 dark:bg-indigo-500" />
       </Slider.Track>
       <Slider.Thumb index={0} class="size-5 rounded-full bg-white shadow-md">
         <Slider.HiddenInput />
@@ -32,7 +32,7 @@
     </Slider.Control>
 
     <Slider.MarkerGroup
-      class="mt-2 font-mono text-sm font-semibold text-neutral-400"
+      class="mt-2 text-sm font-semibold text-neutral-600 dark:text-neutral-400"
     >
       <Slider.Marker value={25}>25</Slider.Marker>
       <Slider.Marker value={50}>50</Slider.Marker>

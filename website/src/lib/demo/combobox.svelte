@@ -78,16 +78,16 @@
     <Portal>
       <Combobox.Positioner>
         <Combobox.Content
-          class="rounded border border-neutral-800 bg-neutral-900 p-2 data-open:animate-fade-in data-closed:animate-fade-out"
+          class="rounded border border-neutral-200 bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
         >
           {#each collection.items as item}
             <Combobox.Item
               {item}
-              class="flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:text-neutral-500 data-highlighted:bg-neutral-800/50"
+              class="flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:text-neutral-400 data-highlighted:bg-neutral-50 dark:data-disabled:text-neutral-500 dark:data-highlighted:bg-neutral-800/50"
             >
               <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
               <Combobox.ItemIndicator>
-                <CheckIcon class="size-5 text-green-500" />
+                <CheckIcon class="size-5 text-green-600 dark:text-green-500" />
               </Combobox.ItemIndicator>
             </Combobox.Item>
           {/each}

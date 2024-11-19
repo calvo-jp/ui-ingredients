@@ -1,7 +1,6 @@
 <script lang="ts">
   import {Button, Input, Label} from '$lib/ui';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import {Dialog, Field, Portal} from 'ui-ingredients';
   import Container from './container.svelte';
 </script>
@@ -16,46 +15,21 @@
 
     <Portal>
       <Dialog.Backdrop
-        class={twMerge(
-          'z-overlay',
-          'fixed',
-          'inset-0',
-          'bg-black/75',
-          'backdrop-blur-sm',
-          'data-open:animate-fade-in',
-          'data-closed:animate-fade-out',
-        )}
+        class="fixed inset-0 z-overlay bg-white/50 backdrop-blur data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/50"
       />
 
       <Dialog.Positioner>
         <Dialog.Content
-          class={twMerge(
-            'z-modal',
-            'bg-neutral-900',
-            'fixed',
-            'top-0',
-            'border',
-            'border-neutral-800',
-            'p-5',
-            'w-full',
-            'h-full',
-            'data-open:animate-fade-in',
-            'data-closed:animate-fade-out',
-            'lg:p-8',
-            'lg:w-[24rem]',
-            'lg:h-auto',
-            'lg:top-16',
-            'lg:left-1/2',
-            'lg:-translate-x-1/2',
-            'lg:rounded',
-          )}
+          class="fixed top-0 z-modal h-full w-full border border-neutral-200 bg-white p-5 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900 lg:left-1/2 lg:top-16 lg:h-auto lg:w-[24rem] lg:-translate-x-1/2 lg:rounded lg:p-8"
         >
           <Dialog.CloseTrigger class="absolute right-4 top-4">
             <XCloseIcon />
           </Dialog.CloseTrigger>
 
           <h2 class="text-2xl font-bold">Sign In</h2>
-          <p class="text-neutral-400">Sign in to continue using the app</p>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            Sign in to continue using the app
+          </p>
 
           <form
             onsubmit={(e) => {
@@ -71,12 +45,7 @@
               </Field.Label>
               <Field.Input>
                 {#snippet asChild(attrs)}
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    class="border-neutral-700"
-                    {...attrs}
-                  />
+                  <Input type="email" placeholder="Email" {...attrs} />
                 {/snippet}
               </Field.Input>
             </Field.Root>
@@ -88,12 +57,7 @@
               </Field.Label>
               <Field.Input>
                 {#snippet asChild(attrs)}
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    class="border-neutral-700"
-                    {...attrs}
-                  />
+                  <Input type="password" placeholder="Password" {...attrs} />
                 {/snippet}
               </Field.Input>
             </Field.Root>

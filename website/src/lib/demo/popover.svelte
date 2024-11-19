@@ -20,16 +20,16 @@
     <Portal>
       <Popover.Positioner>
         <Popover.Content
-          class="w-[80vw] rounded border border-neutral-800 bg-neutral-900 p-4 data-open:animate-fade-in data-closed:animate-fade-out lg:w-[20rem]"
+          class="w-[80vw] rounded border border-neutral-200 bg-white p-4 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900 lg:w-[20rem]"
         >
           <Popover.Arrow
-            class="[--arrow-background:theme(colors.neutral[900])] [--arrow-size:theme(spacing.4)]"
+            class="[--arrow-background:theme(colors.white)] [--arrow-size:theme(spacing.4)] dark:[--arrow-background:theme(colors.neutral[900])]"
           >
             <Popover.ArrowTip />
           </Popover.Arrow>
 
           <Popover.Title class="text-lg font-medium">Title</Popover.Title>
-          <Popover.Description class="text-neutral-400"
+          <Popover.Description class="text-neutral-600 dark:text-neutral-400"
             >Description</Popover.Description
           >
           <Popover.CloseTrigger class="mt-3">

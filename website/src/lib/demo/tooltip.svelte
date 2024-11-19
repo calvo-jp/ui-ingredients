@@ -15,10 +15,10 @@
     <Portal>
       <Tooltip.Positioner>
         <Tooltip.Content
-          class="rounded border border-neutral-800 bg-neutral-900 px-3.5 py-2.5 shadow-md data-open:animate-fade-in data-closed:animate-fade-out"
+          class="rounded border border-neutral-200 bg-white px-3.5 py-2.5 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
         >
           <Tooltip.Arrow
-            class="[--arrow-background:theme(colors.neutral[900])] [--arrow-size:theme(spacing.4)]"
+            class="[--arrow-background:theme(colors.white)] [--arrow-size:theme(spacing.4)] dark:[--arrow-background:theme(colors.neutral[900])]"
           >
             <Tooltip.ArrowTip />
           </Tooltip.Arrow>

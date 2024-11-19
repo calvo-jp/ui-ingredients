@@ -1,6 +1,5 @@
 <script lang="ts">
   import {Button} from '$lib/ui';
-  import {twMerge} from 'tailwind-merge';
   import {AlertDialog, Portal} from 'ui-ingredients';
   import Container from './container.svelte';
 </script>
@@ -17,41 +16,19 @@
 
     <Portal>
       <AlertDialog.Backdrop
-        class={twMerge(
-          'z-overlay',
-          'fixed',
-          'inset-0',
-          'bg-black/75',
-          'backdrop-blur-sm',
-          'data-open:animate-fade-in',
-          'data-closed:animate-fade-out',
-        )}
+        class="fixed inset-0 z-overlay bg-white/50 backdrop-blur data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/50"
       />
 
       <AlertDialog.Positioner>
         <AlertDialog.Content
-          class={twMerge(
-            'z-modal',
-            'bg-neutral-900',
-            'fixed',
-            'left-1/2',
-            'top-16',
-            'w-[96vw]',
-            '-translate-x-1/2',
-            'rounded',
-            'border',
-            'border-neutral-800',
-            'p-5',
-            'data-open:animate-fade-in',
-            'data-closed:animate-fade-out',
-            'lg:p-8',
-            'lg:w-[26rem]',
-          )}
+          class="fixed left-1/2 top-16 z-modal w-[96vw] -translate-x-1/2 rounded border bg-white p-5 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900 lg:w-[26rem] lg:p-8"
         >
           <AlertDialog.Title class="text-xl font-semibold">
             Title
           </AlertDialog.Title>
-          <AlertDialog.Description class="text-neutral-400">
+          <AlertDialog.Description
+            class="text-neutral-600 dark:text-neutral-400"
+          >
             Description
           </AlertDialog.Description>
           <AlertDialog.CloseTrigger>

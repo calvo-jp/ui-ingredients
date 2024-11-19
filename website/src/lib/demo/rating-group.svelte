@@ -19,7 +19,9 @@
                   'size-8',
                   'transition-colors',
                   'duration-150',
-                  state.highlighted ? 'text-indigo-500' : 'text-neutral-700',
+                  state.highlighted
+                    ? 'text-indigo-600 dark:text-indigo-500'
+                    : 'text-neutral-300 dark:text-neutral-700',
                 )}
               >
                 <path

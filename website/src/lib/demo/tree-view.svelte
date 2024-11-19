@@ -79,7 +79,7 @@
 <Container>
   <TreeView.Root {collection} class="max-w-[16rem]">
     <TreeView.Label
-      class="mb-2 block font-mono text-sm font-semibold uppercase text-neutral-500"
+      class="mb-2 block font-mono text-sm font-semibold uppercase text-neutral-400 dark:text-neutral-500"
     >
       Explorer
     </TreeView.Label>
@@ -106,7 +106,9 @@
         </TreeView.BranchIndicator>
       </TreeView.BranchControl>
       <TreeView.BranchContent class="flex p-1">
-        <TreeView.BranchIndentGuide class="w-3 border-l border-neutral-800" />
+        <TreeView.BranchIndentGuide
+          class="w-3 border-l border-neutral-200 dark:border-neutral-800"
+        />
 
         <div class="grow space-y-1">
           {#each props.node.children as node, index}

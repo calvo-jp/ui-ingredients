@@ -24,9 +24,11 @@
     <Progress.Circle
       class="[--size:theme(spacing.28)] [--thickness:theme(spacing[2.5])]"
     >
-      <Progress.CircleTrack class="stroke-neutral-800" />
+      <Progress.CircleTrack
+        class="stroke-neutral-300 dark:stroke-neutral-800"
+      />
       <Progress.CircleRange
-        class="stroke-indigo-500 transition-all duration-150"
+        class="stroke-indigo-600 transition-all duration-150 dark:stroke-indigo-500"
       />
     </Progress.Circle>
     <Progress.ValueText

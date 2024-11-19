@@ -36,11 +36,11 @@
     <Portal>
       <Menu.Positioner>
         <Menu.Content
-          class="rounded border border-neutral-800 bg-neutral-900 p-2 data-open:animate-fade-in data-closed:animate-fade-out"
+          class="rounded border border-neutral-200 bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
         >
           {#each items as item (item.value)}
             <Menu.Item
-              class="flex w-32 cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:opacity-75 data-highlighted:bg-neutral-800/50"
+              class="flex w-32 cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:text-neutral-400 data-highlighted:bg-neutral-50 dark:data-disabled:text-neutral-500 dark:data-highlighted:bg-neutral-800/50"
               value={item.value}
               disabled={item.disabled}
             >

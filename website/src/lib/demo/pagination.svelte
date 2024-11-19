@@ -35,7 +35,7 @@
         {:else}
           <Pagination.Ellipsis
             {index}
-            class="flex size-12 items-center justify-center text-neutral-500"
+            class="flex size-12 items-center justify-center text-neutral-400 dark:text-neutral-500"
           >
             ...
           </Pagination.Ellipsis>

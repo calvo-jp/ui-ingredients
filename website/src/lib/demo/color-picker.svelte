@@ -46,7 +46,7 @@
 
       <ColorPicker.Positioner>
         <ColorPicker.Content
-          class="max-w-[20rem] rounded border border-neutral-800 bg-neutral-900 p-4"
+          class="max-w-[20rem] rounded border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900"
         >
           <ColorPicker.Area class="aspect-video w-full">
             <ColorPicker.AreaBackground class="size-full rounded" />

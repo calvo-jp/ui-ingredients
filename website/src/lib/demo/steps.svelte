@@ -1,7 +1,6 @@
 <script lang="ts">
   import {Button} from '$lib/ui';
   import {CheckIcon} from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import {Steps} from 'ui-ingredients';
   import Container from './container.svelte';
 
@@ -19,21 +18,7 @@
         <Steps.Item {index} class="flex grow items-center gap-3 last:grow-0">
           <Steps.Trigger class="flex items-center gap-3">
             <Steps.Indicator
-              class={twMerge(
-                'group',
-                'flex',
-                'items-center',
-                'justify-center',
-                'rounded-full',
-                'size-5',
-                'border-2',
-                'border-neutral-800',
-                'transition-all',
-                'duration-150',
-                'data-current:border-indigo-500',
-                'data-complete:border-indigo-500',
-                'data-complete:bg-indigo-500',
-              )}
+              class="group flex size-5 items-center justify-center rounded-full border-2 border-neutral-300 transition-all duration-150 data-current:border-indigo-600 data-complete:border-indigo-600 data-complete:bg-indigo-600 dark:border-neutral-800 dark:data-current:border-indigo-500 dark:data-complete:border-indigo-500 dark:data-complete:bg-indigo-500"
             >
               <CheckIcon
                 class="hidden size-4 text-white group-data-complete:block"
@@ -43,13 +28,15 @@
           </Steps.Trigger>
 
           {#if index + 1 < items.length}
-            <Steps.Separator class="h-0.5 grow bg-neutral-800" />
+            <Steps.Separator
+              class="h-0.5 grow bg-neutral-200 dark:bg-neutral-800"
+            />
           {/if}
         </Steps.Item>
       {/each}
     </Steps.List>
 
-    <div class="mt-5 text-neutral-400">
+    <div class="mt-5 text-neutral-600 dark:text-neutral-400">
       {#each items as item, index}
         <Steps.Content {index}>
           {item.content}

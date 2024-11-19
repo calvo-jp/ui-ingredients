@@ -24,7 +24,7 @@
         {#snippet asChild(attrs)}
           <IconButton {...attrs}>
             <Clipboard.Indicator copied>
-              <CheckIcon class="size-5 text-green-500" />
+              <CheckIcon class="size-5 text-green-600 dark:text-green-500" />
             </Clipboard.Indicator>
             <Clipboard.Indicator>
               <Copy01Icon class="size-5" />

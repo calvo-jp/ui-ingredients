@@ -4,7 +4,10 @@
 </script>
 
 <Container>
-  <QrCode.Root value="UI Ingredients" class="mx-auto w-fit">
+  <QrCode.Root
+    value="UI Ingredients"
+    class="mx-auto w-fit border border-neutral-200 dark:border-0"
+  >
     <QrCode.Frame
       class="h-[var(--qrcode-height)] w-[var(--qrcode-width)] bg-white"
     >

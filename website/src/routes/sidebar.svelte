@@ -32,12 +32,12 @@
 >
   <Portal>
     <Drawer.Backdrop
-      class="fixed inset-0 z-overlay bg-black/25 backdrop-blur-sm data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/75"
+      class="fixed inset-0 z-overlay bg-white/50 backdrop-blur data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/50"
     />
 
     <Drawer.Positioner>
       <Drawer.Content
-        class="border-nuetral-200 fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r bg-white p-8 scrollbar data-open:animate-slide-in-left data-closed:animate-slide-out-left dark:border-neutral-800 dark:bg-neutral-900"
+        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto bg-white p-8 data-open:animate-slide-in-left data-closed:animate-slide-out-left dark:border-r dark:border-neutral-800 dark:bg-neutral-900"
       >
         <Drawer.Body>
           <nav>

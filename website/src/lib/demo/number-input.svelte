@@ -22,12 +22,12 @@
 
       <div class="flex h-full shrink-0 flex-col">
         <NumberInput.IncrementTrigger
-          class="flex size-6 items-center justify-center rounded-tr border border-l-0 border-neutral-700"
+          class="flex size-6 items-center justify-center rounded-tr border border-l-0 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-transparent"
         >
           <ChevronUpIcon class="size-4" />
         </NumberInput.IncrementTrigger>
         <NumberInput.DecrementTrigger
-          class="flex size-6 items-center justify-center rounded-br border border-l-0 border-t-0 border-neutral-700"
+          class="flex size-6 items-center justify-center rounded-br border border-l-0 border-t-0 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-transparent"
         >
           <ChevronDownIcon class="size-4" />
         </NumberInput.DecrementTrigger>

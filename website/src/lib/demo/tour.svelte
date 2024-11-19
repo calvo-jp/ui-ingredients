@@ -71,21 +71,23 @@
           <Button variant="outline" {...attrs}>Start</Button>
         {/snippet}
       </Tour.Trigger>
-      <Tour.Backdrop class="bg-black/75 backdrop-blur-sm" />
+      <Tour.Backdrop class="bg-white/50 backdrop-blur dark:bg-black/50" />
       <Tour.Spotlight />
       <Tour.Positioner>
         <Tour.Content
-          class="relative w-[24rem] rounded border border-neutral-800 bg-neutral-900 p-5"
+          class="border-nuetral-200 relative w-[24rem] rounded border bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900"
         >
           <Tour.Arrow
-            class="[--arrow-background:theme(colors.neutral[900])] [--arrow-size:theme(spacing.4)]"
+            class="[--arrow-background:theme(colors.white] [--arrow-size:theme(spacing.4)] dark:[--arrow-background:theme(colors.neutral[900])]"
           >
             <Tour.ArrowTip />
           </Tour.Arrow>
 
-          <Tour.ProgressText class="text-sm text-neutral-400" />
+          <Tour.ProgressText
+            class="text-sm text-neutral-600 dark:text-neutral-400"
+          />
           <Tour.Title class="mt-4 text-lg font-medium" />
-          <Tour.Description class="text-neutral-400" />
+          <Tour.Description class="text-neutral-600 dark:text-neutral-400" />
 
           <div class="mt-5 flex justify-end gap-3">
             {#each actions as action}
@@ -124,8 +126,9 @@
           'text-white',
           'data-[tour-highlighted]:outline',
           'data-[tour-highlighted]:outline-2',
-          'data-[tour-highlighted]:outline-white',
           'data-[tour-highlighted]:outline-offset-4',
+          'data-[tour-highlighted]:outline-neutral-900',
+          'dark:data-[tour-highlighted]:outline-white',
           [
             'bg-gradient-to-r from-rose-700 to-red-700',
             'bg-gradient-to-r from-amber-700 to-yellow-700',

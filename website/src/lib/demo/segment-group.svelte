@@ -14,7 +14,7 @@
 
       <SegmentGroup.Item
         {value}
-        class="relative z-10 px-4 py-1 font-medium transition-colors duration-150 data-checked:text-white"
+        class="relative z-10 px-4 py-1 font-medium transition-colors duration-150 data-checked:text-neutral-900 dark:data-checked:text-white"
       >
         <SegmentGroup.ItemText>Item {value}</SegmentGroup.ItemText>
         <SegmentGroup.ItemControl />
@@ -23,7 +23,7 @@
     {/each}
 
     <SegmentGroup.Indicator
-      class="bottom-0 h-full w-[var(--width)] rounded bg-neutral-800/50"
+      class="bottom-0 h-full w-[var(--width)] rounded bg-neutral-100 dark:bg-neutral-800/50"
     />
   </SegmentGroup.Root>
 </Container>

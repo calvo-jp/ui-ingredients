@@ -5,8 +5,68 @@
     ChevronLeftIcon,
     ChevronRightIcon,
   } from '@untitled-theme/icons-svelte';
+  import {twMerge} from 'tailwind-merge';
   import {DatePicker, Portal} from 'ui-ingredients';
   import Container from './container.svelte';
+
+  let cellStyle = twMerge(
+    'flex',
+    'items-center',
+    'justify-center',
+    'rounded',
+    'transition-colors',
+    'duration-150',
+
+    'hover:bg-neutral-50',
+    'hover:data-selected:bg-indigo-600',
+    'dark:hover:data-selected:bg-indigo-500',
+    'dark:hover:bg-neutral-800/50',
+    'hover:data-disabled:bg-transparent',
+
+    'data-disabled:cursor-not-allowed',
+    'data-disabled:opacity-50',
+
+    'data-selected:font-semibold',
+    'data-selected:text-white',
+    'data-selected:bg-indigo-600',
+    'dark:data-selected:bg-indigo-500',
+
+    'data-today:text-indigo-500',
+    'data-today:data-selected:text-white',
+    'dark:data-today:text-indigo-600',
+  );
+
+  let viewControlStyle = twMerge(
+    'flex',
+    'items-center',
+    'justify-between',
+    'border-b',
+    'border-neutral-200',
+    'px-4',
+    'py-3',
+    'dark:border-neutral-800',
+  );
+
+  let prevOrNextTriggerStyle = twMerge(
+    'flex',
+    'size-10',
+    'items-center',
+    'justify-center',
+    'rounded',
+    'transition-colors',
+    'duration-150',
+    'hover:bg-neutral-50',
+    'dark:hover:bg-neutral-800/50',
+  );
+
+  let rangeTextStyle = twMerge(
+    'rounded',
+    'px-2',
+    'py-1',
+    'font-semibold',
+    'hover:bg-neutral-50',
+    'dark:hover:bg-neutral-800/50',
+  );
 </script>
 
 <Container>
@@ -42,27 +102,17 @@
       <Portal>
         <DatePicker.Positioner>
           <DatePicker.Content
-            class="overflow-hidden rounded border border-neutral-800 bg-neutral-900 data-open:animate-fade-in data-closed:animate-fade-out"
+            class="overflow-hidden rounded border border-neutral-200 bg-white data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
           >
             <DatePicker.View view="day">
-              <DatePicker.ViewControl
-                class="flex items-center justify-between border-b border-neutral-800 px-4 py-3"
-              >
-                <DatePicker.PrevTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
-                >
+              <DatePicker.ViewControl class={viewControlStyle}>
+                <DatePicker.PrevTrigger class={prevOrNextTriggerStyle}>
                   <ChevronLeftIcon />
                 </DatePicker.PrevTrigger>
-
                 <DatePicker.ViewTrigger>
-                  <DatePicker.RangeText
-                    class="rounded px-2 py-1 font-semibold hover:bg-neutral-800/50"
-                  />
+                  <DatePicker.RangeText class={rangeTextStyle} />
                 </DatePicker.ViewTrigger>
-
-                <DatePicker.NextTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
-                >
+                <DatePicker.NextTrigger class={prevOrNextTriggerStyle}>
                   <ChevronRightIcon />
                 </DatePicker.NextTrigger>
               </DatePicker.ViewControl>
@@ -89,7 +139,7 @@
                         {#each week as day}
                           <DatePicker.DayTableCell value={day}>
                             <DatePicker.DayTableCellTrigger
-                              class="flex aspect-square w-full items-center justify-center rounded transition-colors duration-150 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:bg-indigo-500 data-selected:font-semibold data-selected:text-white data-today:text-indigo-500 data-today:data-selected:text-white hover:bg-neutral-800/50 data-disabled:hover:bg-transparent"
+                              class={twMerge(cellStyle, 'aspect-square w-full')}
                             >
                               {day.day}
                             </DatePicker.DayTableCellTrigger>
@@ -104,24 +154,14 @@
 
             <!-- MONTH -->
             <DatePicker.View view="month">
-              <DatePicker.ViewControl
-                class="flex items-center justify-between border-b border-neutral-800 px-4 py-3"
-              >
-                <DatePicker.PrevTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
-                >
+              <DatePicker.ViewControl class={viewControlStyle}>
+                <DatePicker.PrevTrigger class={prevOrNextTriggerStyle}>
                   <ChevronLeftIcon />
                 </DatePicker.PrevTrigger>
-
                 <DatePicker.ViewTrigger>
-                  <DatePicker.RangeText
-                    class="rounded px-2 py-1 font-semibold hover:bg-neutral-800/50"
-                  />
+                  <DatePicker.RangeText class={rangeTextStyle} />
                 </DatePicker.ViewTrigger>
-
-                <DatePicker.NextTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
-                >
+                <DatePicker.NextTrigger class={prevOrNextTriggerStyle}>
                   <ChevronRightIcon />
                 </DatePicker.NextTrigger>
               </DatePicker.ViewControl>
@@ -134,7 +174,7 @@
                         {#each months as month}
                           <DatePicker.MonthTableCell value={month.value}>
                             <DatePicker.MonthTableCellTrigger
-                              class="flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
+                              class={twMerge(cellStyle, 'aspect-[16/9] w-full')}
                             >
                               {month.label}
                             </DatePicker.MonthTableCellTrigger>
@@ -149,24 +189,14 @@
 
             <!-- YEAR -->
             <DatePicker.View view="year">
-              <DatePicker.ViewControl
-                class="flex items-center justify-between border-b border-neutral-800 px-4 py-3"
-              >
-                <DatePicker.PrevTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
-                >
+              <DatePicker.ViewControl class={viewControlStyle}>
+                <DatePicker.PrevTrigger class={prevOrNextTriggerStyle}>
                   <ChevronLeftIcon />
                 </DatePicker.PrevTrigger>
-
                 <DatePicker.ViewTrigger>
-                  <DatePicker.RangeText
-                    class="rounded px-2 py-1 font-semibold hover:bg-neutral-800/50"
-                  />
+                  <DatePicker.RangeText class={rangeTextStyle} />
                 </DatePicker.ViewTrigger>
-
-                <DatePicker.NextTrigger
-                  class="flex size-10 items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
-                >
+                <DatePicker.NextTrigger class={prevOrNextTriggerStyle}>
                   <ChevronRightIcon />
                 </DatePicker.NextTrigger>
               </DatePicker.ViewControl>
@@ -179,7 +209,7 @@
                         {#each years as year}
                           <DatePicker.YearTableCell value={year.value}>
                             <DatePicker.YearTableCellTrigger
-                              class="flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150 hover:bg-neutral-800/50"
+                              class={twMerge(cellStyle, 'aspect-[16/9] w-full')}
                             >
                               {year.label}
                             </DatePicker.YearTableCellTrigger>

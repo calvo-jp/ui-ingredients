@@ -1,34 +1,37 @@
 <script lang="ts">
+  import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
   import {Breadcrumbs} from 'ui-ingredients';
   import Container from './container.svelte';
 </script>
 
 <Container>
   <Breadcrumbs.Root class="mx-auto w-fit">
-    <Breadcrumbs.List class="flex gap-1">
+    <Breadcrumbs.List class="flex items-center gap-1">
       <Breadcrumbs.Item class="contents">
         <Breadcrumbs.Link
-          class="font-medium text-neutral-400 no-underline aria-page:text-indigo-400"
+          class="font-medium text-neutral-600 no-underline aria-page:text-indigo-500 dark:text-neutral-400 dark:aria-page:text-indigo-400"
           href="#"
         >
           Home
         </Breadcrumbs.Link>
-        <Breadcrumbs.Separator class="text-neutral-700">/</Breadcrumbs.Separator
-        >
+        <Breadcrumbs.Separator class="text-neutral-400 dark:text-neutral-700">
+          <ChevronRightIcon class="size-4" />
+        </Breadcrumbs.Separator>
       </Breadcrumbs.Item>
       <Breadcrumbs.Item class="contents">
         <Breadcrumbs.Link
-          class="font-medium text-neutral-400 no-underline aria-page:text-indigo-400"
+          class="font-medium text-neutral-600 no-underline aria-page:text-indigo-500 dark:text-neutral-400 dark:aria-page:text-indigo-400"
           href="#"
         >
           Components
         </Breadcrumbs.Link>
-        <Breadcrumbs.Separator class="text-neutral-700">/</Breadcrumbs.Separator
-        >
+        <Breadcrumbs.Separator class="text-neutral-400 dark:text-neutral-700">
+          <ChevronRightIcon class="size-4" />
+        </Breadcrumbs.Separator>
       </Breadcrumbs.Item>
       <Breadcrumbs.Item class="contents">
         <Breadcrumbs.Link
-          class="font-medium text-neutral-400 no-underline aria-page:text-indigo-400"
+          class="font-medium text-neutral-600 no-underline aria-page:text-indigo-500 dark:text-neutral-400 dark:aria-page:text-indigo-400"
           href="#"
           current
         >

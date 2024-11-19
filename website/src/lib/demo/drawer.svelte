@@ -1,7 +1,6 @@
 <script lang="ts">
   import {Button} from '$lib/ui';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import {Drawer, Portal} from 'ui-ingredients';
   import Container from './container.svelte';
 </script>
@@ -16,44 +15,23 @@
 
     <Portal>
       <Drawer.Backdrop
-        class={twMerge(
-          'z-overlay',
-          'fixed',
-          'inset-0',
-          'bg-black/75',
-          'backdrop-blur-sm',
-          'data-open:animate-fade-in',
-          'data-closed:animate-fade-out',
-        )}
+        class="fixed inset-0 z-overlay bg-white/50 backdrop-blur data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/50"
       />
 
       <Drawer.Positioner>
         <Drawer.Content
-          class={twMerge(
-            'z-modal',
-            'fixed',
-            'flex',
-            'flex-col',
-            'h-dvh',
-            'w-full',
-            'top-0',
-            'right-0',
-            'bg-neutral-900',
-            'border-l',
-            'border-neutral-800',
-            'lg:w-[24rem]',
-            'data-open:animate-slide-in-right',
-            'data-closed:animate-slide-out-right',
-          )}
+          class="fixed right-0 top-0 z-modal flex h-dvh w-full flex-col border-l border-neutral-200 bg-white data-open:animate-slide-in-right data-closed:animate-slide-out-right dark:border-neutral-800 dark:bg-neutral-900 lg:w-[24rem]"
         >
           <Drawer.Header
-            class="flex items-start border-b border-neutral-800 p-4"
+            class="flex items-start border-b border-neutral-200 p-4 dark:border-neutral-800"
           >
             <div class="grow">
               <Drawer.Title class="text-lg font-semibold leading-normal">
                 Title
               </Drawer.Title>
-              <Drawer.Description class="leading-none text-neutral-400">
+              <Drawer.Description
+                class="leading-none text-neutral-600 dark:text-neutral-400"
+              >
                 Description
               </Drawer.Description>
             </div>
@@ -67,7 +45,9 @@
             delectus, excepturi est inventore magnam at id tempora doloremque
             perferendis odit tenetur recusandae cumque nihil!
           </Drawer.Body>
-          <Drawer.Footer class="flex gap-3 border-t border-neutral-800 p-4">
+          <Drawer.Footer
+            class="flex gap-3 border-t border-neutral-200 p-4 dark:border-neutral-800"
+          >
             <Drawer.CloseTrigger>
               {#snippet asChild(attrs)}
                 <Button variant="outline" fullWidth {...attrs}>Close</Button>
