@@ -10,7 +10,11 @@
 
 <style>
   div {
-    --bg: linear-gradient(112deg, #776db6 0%, #4f43a3 100%);
+    --bg: linear-gradient(112deg, #9a9cd5 0%, #6668cc 100%);
     background: var(--bg);
+  }
+
+  :global(html.dark) div {
+    --bg: linear-gradient(112deg, #776db6 0%, #4f43a3 100%);
   }
 </style>

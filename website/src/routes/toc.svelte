@@ -16,7 +16,7 @@
   async function getItems() {
     await tick();
 
-    const main = document.getElementById('content');
+    const main = document.getElementById('markdown');
 
     if (!main) return;
 
@@ -82,10 +82,14 @@
   });
 </script>
 
-<div class="hidden w-[18rem] shrink-0 xl:block"></div>
+<div
+  class="hidden w-[18rem] shrink-0 xl:block"
+  aria-hidden="true"
+  data-placeholder
+></div>
 
-<section
-  class="fixed right-[var(--scrollbar-width,0)] top-16 z-sticky mt-20 hidden w-[18rem] shrink-0 border-l border-neutral-800 bg-neutral-950 py-2 xl:block"
+<aside
+  class="fixed right-[var(--scrollbar-width,0)] top-16 z-sticky mt-20 hidden w-[18rem] shrink-0 border-l border-neutral-200 bg-white py-2 dark:border-neutral-800 dark:bg-neutral-950 xl:block"
 >
   <h2 class="mb-2 px-5 font-semibold">On this page</h2>
 
@@ -109,7 +113,7 @@
     {#each items as item}
       <SegmentGroup.Item
         value={item.value}
-        class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-400 transition-colors duration-150 data-checked:text-neutral-200 hover:text-neutral-300"
+        class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-500 transition-colors duration-150 data-checked:text-neutral-800 hover:text-neutral-600 dark:text-neutral-400 dark:data-checked:text-neutral-200 dark:hover:text-neutral-300"
         style="--indent:{item.indent}px"
       >
         <SegmentGroup.ItemText class="px-5">{item.label}</SegmentGroup.ItemText>
@@ -118,6 +122,8 @@
       </SegmentGroup.Item>
     {/each}
 
-    <SegmentGroup.Indicator class="-left-px h-5 w-0.5 bg-indigo-500" />
+    <SegmentGroup.Indicator
+      class="-left-px h-5 w-0.5 bg-indigo-600 dark:bg-indigo-500"
+    />
   </SegmentGroup.Root>
-</section>
+</aside>

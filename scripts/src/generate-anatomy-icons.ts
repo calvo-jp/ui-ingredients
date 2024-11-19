@@ -93,8 +93,12 @@ async function createContainerComponent() {
 
   <style>
     div {
+      --bg: ${createGradient(colors.indigo[300]).value};
+      background: var(--bg);
+    }
+    
+    :global(html.dark) div {
       --bg: ${createGradient(ACCENT_COLOR).value};
-      background: var(--bg); 
     }
   </style>
   `;

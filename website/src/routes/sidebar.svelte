@@ -7,10 +7,14 @@
   import {Collapsible, Drawer, Portal} from 'ui-ingredients';
 </script>
 
-<div class="hidden w-[18rem] shrink-0 lg:block"></div>
+<div
+  class="hidden w-[18rem] shrink-0 lg:block"
+  aria-hidden="true"
+  data-placeholder
+></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-800 bg-neutral-950 px-12 py-8 scrollbar scrollbar-track-neutral-900 scrollbar-thumb-neutral-600 lg:block"
+  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 scrollbar scrollbar-track-neutral-50 scrollbar-thumb-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 dark:scrollbar-track-neutral-900 dark:scrollbar-thumb-neutral-600 lg:block"
 >
   {@render items()}
 </nav>
@@ -28,12 +32,12 @@
 >
   <Portal>
     <Drawer.Backdrop
-      class="fixed inset-0 z-overlay bg-black/75 backdrop-blur-sm data-open:animate-fade-in data-closed:animate-fade-out"
+      class="fixed inset-0 z-overlay bg-black/25 backdrop-blur-sm data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/75"
     />
 
     <Drawer.Positioner>
       <Drawer.Content
-        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r border-neutral-800 bg-neutral-900 p-8 scrollbar scrollbar-track-neutral-900 scrollbar-thumb-neutral-600 data-open:animate-slide-in-left data-closed:animate-slide-out-left"
+        class="border-nuetral-200 fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r bg-white p-8 scrollbar data-open:animate-slide-in-left data-closed:animate-slide-out-left dark:border-neutral-800 dark:bg-neutral-900"
       >
         <Drawer.Body>
           <nav>
@@ -55,7 +59,7 @@
           >
             <span class="grow">{parent.label}</span>
             <ChevronRightIcon
-              class="size-4 text-neutral-400 transition-transform duration-150 group-data-open:rotate-90"
+              class="size-4 text-neutral-500 transition-transform duration-150 group-data-open:rotate-90 dark:text-neutral-400"
             />
           </Collapsible.Trigger>
           <Collapsible.Content>
@@ -73,14 +77,14 @@
                       data-current={dataAttr($page.url.pathname === child.path)}
                     >
                       <span
-                        class="text-sm font-semibold text-neutral-400 transition-colors duration-150 group-hover:text-inherit group-data-current:text-indigo-400"
+                        class="text-sm font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit group-data-current:text-indigo-500 dark:text-neutral-400 dark:group-data-current:text-indigo-400"
                       >
                         {child.label}
                       </span>
 
                       {#if child.betaBadge}
                         <span
-                          class="rounded-full border border-neutral-800 bg-neutral-800/50 px-1.5 py-px text-xs font-semibold"
+                          class="rounded-full border border-neutral-200 bg-neutral-50 px-1.5 py-px text-xs font-semibold dark:border-neutral-800 dark:bg-neutral-800/50"
                         >
                           Beta
                         </span>

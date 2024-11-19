@@ -10,7 +10,7 @@
   data-part="container"
   {...props}
   class={twMerge(
-    'overflow-x-auto overflow-y-hidden rounded-md border border-neutral-800',
+    'overflow-x-auto overflow-y-hidden rounded-md border border-neutral-200 dark:border-neutral-800',
     props.class,
   )}
 >

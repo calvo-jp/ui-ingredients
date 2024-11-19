@@ -23,7 +23,7 @@
           <Table.Row>
             <Table.Cell>
               <span
-                class="whitespace-nowrap rounded border border-neutral-800 bg-neutral-800/50 px-1.5 py-0.5 font-mono text-xs leading-none"
+                class="whitespace-nowrap rounded border border-neutral-200 bg-neutral-50 px-1.5 py-0.5 font-mono text-xs leading-none dark:border-neutral-800 dark:bg-neutral-800/50"
               >
                 {item.keys.join(' + ')}
               </span>

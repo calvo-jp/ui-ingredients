@@ -15,15 +15,15 @@
 
   [data-scope='table'][data-part='root'] :global(th),
   [data-scope='table'][data-part='root'] :global(td) {
-    @apply border-x border-neutral-800 px-4 py-3 text-left text-sm first:border-l-0 last:border-r-0;
+    @apply border-x border-neutral-200 px-4 py-3 text-left text-sm first:border-l-0 last:border-r-0 dark:border-neutral-800;
   }
 
   [data-scope='table'][data-part='root'] :global(th) {
-    @apply whitespace-nowrap bg-neutral-800/25 font-semibold;
+    @apply whitespace-nowrap bg-neutral-50 font-semibold dark:bg-neutral-800/25;
   }
 
   [data-scope='table'][data-part='root'] :global(tr) {
-    @apply border-b border-neutral-800;
+    @apply border-b border-neutral-200 dark:border-neutral-800;
   }
 
   [data-scope='table'][data-part='root'] :global(tbody tr:last-of-type) {

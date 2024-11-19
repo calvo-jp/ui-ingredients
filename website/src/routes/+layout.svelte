@@ -7,6 +7,7 @@
   import '../app.css';
 
   import {Prose} from '$lib/ui';
+  import {ThemeProvider} from 'svelte-os-themes';
   import Navbar from './navbar.svelte';
   import PageControl from './page-control.svelte';
   import Sidebar from './sidebar.svelte';
@@ -15,22 +16,29 @@
   let {children} = $props();
 </script>
 
-<Navbar />
+<ThemeProvider fallback="dark">
+  <Navbar />
 
-<div
-  class="h-[calc(theme(height.dvh)-theme(spacing.16))] lg:flex lg:items-start lg:justify-center"
->
-  <Sidebar />
+  <div
+    class="h-[calc(theme(height.dvh)-theme(spacing.16))] lg:flex lg:items-start lg:justify-center"
+  >
+    <Sidebar />
 
-  <main class="flex min-h-full flex-col p-5 md:p-8 lg:grow lg:p-16 xl:p-20">
-    <div id="content" class="grow lg:mx-auto lg:max-w-screen-md">
-      <Prose>
-        {@render children()}
-      </Prose>
-    </div>
+    <main class="flex min-h-full flex-col p-5 md:p-8 lg:grow lg:p-16 xl:p-20">
+      <section
+        id="markdown"
+        class="grow lg:mx-auto lg:w-full lg:max-w-screen-md"
+      >
+        <Prose>
+          {@render children()}
+        </Prose>
+      </section>
 
-    <PageControl />
-  </main>
+      <section class="mt-8">
+        <PageControl />
+      </section>
+    </main>
 
-  <Toc />
-</div>
+    <Toc />
+  </div>
+</ThemeProvider>

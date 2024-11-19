@@ -25,9 +25,13 @@
     'before:prose-code:content-none',
     'after:prose-code:content-none',
 
-    '[&_.shiki]:dark:!bg-[var(--shiki-dark-bg)]',
+    '[&_.shiki]:dark:border',
+    '[&_.shiki]:dark:border-neutral-800/40',
+    '[&_.shiki]:!bg-neutral-50',
+    '[&_.shiki_span]:!bg-neutral-50',
+    '[&_.shiki]:dark:!bg-neutral-900/40',
+    '[&_.shiki_span]:dark:!bg-neutral-900/40',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
-    '[&_.shiki_span]:dark:!bg-[var(--shiki-dark-bg)]',
     '[&_.shiki_span]:dark:!text-[var(--shiki-dark)]',
   )}
   {...props}

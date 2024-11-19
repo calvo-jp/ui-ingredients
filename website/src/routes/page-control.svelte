@@ -23,9 +23,7 @@
   );
 </script>
 
-<div
-  class="mx-auto mt-8 flex w-full max-w-screen-md items-center md:mt-12 lg:mt-16"
->
+<div class="flex w-full items-center md:mt-12 lg:mt-16">
   {#if prevLink}
     <a href={prevLink.path} class="flex items-center gap-2.5">
       <ChevronLeftIcon class="size-6 text-neutral-500" />

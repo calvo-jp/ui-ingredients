@@ -5,7 +5,12 @@
 </script>
 
 <Container>
-  <Slider.Root class="mx-auto max-w-[20rem]" min={0} max={100} value={[0, 50]}>
+  <Slider.Root
+    class="mx-auto max-w-[20rem] pb-5"
+    min={0}
+    max={100}
+    value={[0, 50]}
+  >
     <Slider.Label>
       {#snippet asChild(attrs)}
         <Label {...attrs}>Label</Label>
