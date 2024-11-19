@@ -14,7 +14,7 @@
     <Table.Root>
       <Table.Header>
         <Table.Row>
-          <Table.Heading>Key</Table.Heading>
+          <Table.Heading class="w-1/4">Key</Table.Heading>
           <Table.Heading>Description</Table.Heading>
         </Table.Row>
       </Table.Header>

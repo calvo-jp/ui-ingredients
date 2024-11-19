@@ -17,8 +17,8 @@ export const tableRecipe = tv({
         header: '[&_tr:first-of-type]:border-b-0',
         footer: '[&_tr:first-of-type]:border-t [&_tr:last-of-type]:border-b-0',
         heading:
-          'px-4 py-3 text-left text-sm whitespace-nowrap font-semibold bg-neutral-50 dark:bg-neutral-800/25',
-        cell: 'px-4 py-3 text-left text-sm',
+          'px-4 py-2.5 text-left text-sm whitespace-nowrap font-semibold bg-neutral-50 dark:bg-neutral-800/25',
+        cell: 'align-top px-4 py-3 text-left text-sm',
         row: 'border-b border-neutral-200 dark:border-neutral-800',
       },
     },
