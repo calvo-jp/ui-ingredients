@@ -5,7 +5,7 @@
 </script>
 
 <Container>
-  <Field.Root required invalid class="mx-auto max-w-[20rem]">
+  <Field.Root required class="mx-auto max-w-[20rem]">
     <Field.Label>
       {#snippet asChild(attrs)}
         <Label {...attrs}>
