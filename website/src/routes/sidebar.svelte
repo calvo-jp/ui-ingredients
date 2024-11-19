@@ -32,12 +32,12 @@
 >
   <Portal>
     <Drawer.Backdrop
-      class="fixed inset-0 z-overlay bg-white/50 backdrop-blur data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/50"
+      class="fixed left-0 top-0 z-overlay size-full bg-white/95 data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/95"
     />
 
     <Drawer.Positioner>
       <Drawer.Content
-        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto bg-white p-8 data-open:animate-slide-in-left data-closed:animate-slide-out-left dark:border-r dark:border-neutral-800 dark:bg-neutral-900"
+        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r border-neutral-200 bg-white px-5 py-6 data-open:animate-slide-in-left data-closed:animate-slide-out-left dark:border-neutral-700 dark:bg-neutral-900"
       >
         <Drawer.Body>
           <nav>
@@ -55,9 +55,9 @@
       <li>
         <Collapsible.Root open>
           <Collapsible.Trigger
-            class="group flex w-full gap-2 py-1 text-left text-sm font-semibold"
+            class="group flex w-full gap-2 py-1 text-left font-semibold"
           >
-            <span class="grow">{parent.label}</span>
+            <span class="grow lg:text-sm">{parent.label}</span>
             <ChevronRightIcon
               class="size-4 text-neutral-500 transition-transform duration-150 group-data-open:rotate-90 dark:text-neutral-400"
             />
@@ -77,7 +77,7 @@
                       data-current={dataAttr($page.url.pathname === child.path)}
                     >
                       <span
-                        class="text-sm font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit group-data-current:text-indigo-500 dark:text-neutral-400 dark:group-data-current:text-indigo-400"
+                        class="font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit group-data-current:text-indigo-500 dark:text-neutral-400 dark:group-data-current:text-indigo-400 lg:text-sm"
                       >
                         {child.label}
                       </span>

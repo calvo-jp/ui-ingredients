@@ -22,7 +22,9 @@
         <Menu05Icon class="size-6" />
         <span class="sr-only">Open drawer</span>
       </button>
-      <a href="/">UI Ingredients</a>
+      <a href="/" class="font-mono font-bold tracking-tight lg:text-lg">
+        UI Ingredients
+      </a>
     </div>
 
     <div class="grow"></div>

@@ -12,10 +12,7 @@
 <div
   class={twMerge(
     'prose',
-    'prose-sm',
     'prose-neutral',
-    'prose-code:text-xs',
-    'lg:prose-base',
     'lg:prose-code:text-sm',
     'dark:prose-invert',
     'min-w-full',
@@ -28,9 +25,8 @@
     '[&_.shiki]:dark:border',
     '[&_.shiki]:dark:border-neutral-800/40',
     '[&_.shiki]:!bg-neutral-50',
-    '[&_.shiki_span]:!bg-neutral-50',
+    '[&_.shiki_span]:!bg-transparent',
     '[&_.shiki]:dark:!bg-neutral-900/40',
-    '[&_.shiki_span]:dark:!bg-neutral-900/40',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
     '[&_.shiki_span]:dark:!text-[var(--shiki-dark)]',
   )}
