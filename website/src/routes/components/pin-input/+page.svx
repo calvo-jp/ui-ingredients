@@ -9,6 +9,7 @@ description: A component for entering and displaying a sequence of numeric or al
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
   import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
 </script>
 
 <svelte:head>
@@ -16,10 +17,7 @@ description: A component for entering and displaying a sequence of numeric or al
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
-
-# {title}
-
-{description}
+<PageHeading title="{title}" description="{description}" />
 
 <PinInputDemo />
 

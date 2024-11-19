@@ -9,6 +9,7 @@ description: A component for displaying a modal dialog that requires user attent
   import {Anatomy} from '$lib/anatomy';
   import {Accessibility} from '$lib/accessibility';
   import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
 </script>
 
 <svelte:head>
@@ -16,10 +17,7 @@ description: A component for displaying a modal dialog that requires user attent
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
-
-# {title}
-
-{description}
+<PageHeading title="{title}" description="{description}" />
 
 <AlertDialogDemo />
 

@@ -13,10 +13,9 @@ description: A component for highlighting text within a string.
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
 
-# {title}
-
-{description}
+ 
 
 <HighlightDemo />
 

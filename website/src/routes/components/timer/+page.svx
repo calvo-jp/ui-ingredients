@@ -7,6 +7,7 @@ description: A component for counting down or tracking elapsed time.
   import {TimerDemo} from '$lib/demo';
   import {Api} from '$lib/api';
   import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
 </script>
 
 <svelte:head>
@@ -14,10 +15,7 @@ description: A component for counting down or tracking elapsed time.
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
-
-# {title}
-
-{description}
+<PageHeading title="{title}" description="{description}" />
 
 <TimerDemo />
 

@@ -34,6 +34,7 @@
     'data-today:text-indigo-500',
     'data-today:data-selected:text-white',
     'dark:data-today:text-indigo-600',
+    'dark:data-today:data-selected:text-white',
   );
 
   let viewControlStyle = twMerge(

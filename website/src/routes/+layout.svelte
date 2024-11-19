@@ -1,12 +1,15 @@
-<script module>
-  /* 🐞 FIXME: custom components not working */
-  export * from '$lib/components';
-</script>
-
 <script>
+  import '@fontsource/fira-code/400.css';
+  import '@fontsource/inter/400.css';
+  import '@fontsource/inter/500.css';
+  import '@fontsource/inter/600.css';
+  import '@fontsource/inter/700.css';
   import '../app.css';
 
+  import {page} from '$app/stores';
+  import {addCopyButtonToPreTags} from '$lib/patches';
   import {Prose} from '$lib/ui';
+  import {tick} from 'svelte';
   import {ThemeProvider} from 'svelte-os-themes';
   import Navbar from './navbar.svelte';
   import PageControl from './page-control.svelte';
@@ -14,6 +17,12 @@
   import Toc from './toc.svelte';
 
   let {children} = $props();
+
+  $effect(() => {
+    $page.url.pathname;
+
+    tick().then(addCopyButtonToPreTags);
+  });
 </script>
 
 <ThemeProvider fallback="dark">

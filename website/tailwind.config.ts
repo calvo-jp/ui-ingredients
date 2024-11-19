@@ -5,12 +5,12 @@ import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = withTV({
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,svx,ts}'],
   darkMode: 'class',
   theme: {
     fontFamily: {
-      sans: ["'Geist'", ...defaultTheme.fontFamily.sans],
-      mono: ["'Geist Mono'", ...defaultTheme.fontFamily.mono],
+      sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
+      mono: ["'Fira Code'", ...defaultTheme.fontFamily.mono],
     },
     extend: {
       zIndex: {

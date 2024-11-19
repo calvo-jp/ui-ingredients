@@ -9,6 +9,7 @@ description: A toggle component for expanding and collapsing sections of content
   import {Accessibility} from '$lib/accessibility';
   import {AccordionDemo} from '$lib/demo';
   import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
 </script>
 
 <svelte:head>
@@ -16,10 +17,7 @@ description: A toggle component for expanding and collapsing sections of content
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
-
-# {title}
-
-{description}
+<PageHeading title="{title}" description="{description}" />
 
 <AccordionDemo />
 

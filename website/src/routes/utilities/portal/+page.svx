@@ -12,10 +12,9 @@ description: A component for rendering content in a different part of the DOM hi
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
 
-# {title}
-
-{description}
+ 
 
 ## Usage
 

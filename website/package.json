@@ -9,6 +9,8 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "dependencies": {
+    "@fontsource/fira-code": "^5.1.0",
+    "@fontsource/inter": "^5.1.0",
     "@tailwindcss/typography": "^0.5.15",
     "@untitled-theme/icons-svelte": "^0.12.0",
     "@zag-js/docs": "^0.77.1",

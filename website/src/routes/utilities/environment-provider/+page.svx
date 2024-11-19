@@ -5,6 +5,7 @@ description: A component for providing environment information to the rest of th
 
 <script>
   import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
 </script>
 
 <svelte:head>
@@ -12,10 +13,9 @@ description: A component for providing environment information to the rest of th
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
 
-# {title}
-
-{description}
+ 
 
 ## Usage
 

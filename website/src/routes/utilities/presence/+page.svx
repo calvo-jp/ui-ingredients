@@ -5,6 +5,7 @@ description: "A component that controls content rendering and unmounting based o
 
 <script>
   import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
 </script>
 
 <svelte:head>
@@ -12,10 +13,9 @@ description: "A component that controls content rendering and unmounting based o
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
 
-# {title}
-
-{description}
+ 
 
 ## Usage
 

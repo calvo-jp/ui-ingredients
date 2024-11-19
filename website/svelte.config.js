@@ -15,17 +15,20 @@ const config = {
     mdsvex({
       highlight: {
         highlighter(code, lang = 'text') {
-          const html = escapeSvelte(
-            highlighter.codeToHtml(code, {
-              lang,
-              themes: {
-                light: 'min-light',
-                dark: 'dark-plus',
-              },
-            }),
-          );
+          /** @type {string} */
+          let html;
 
-          return `{@html \`${html}\` }`;
+          html = highlighter.codeToHtml(code, {
+            lang,
+            themes: {
+              light: 'min-light',
+              dark: 'dark-plus',
+            },
+          });
+
+          html = escapeSvelte(html);
+
+          return `{@html \`${html}\`}`;
         },
       },
     }),

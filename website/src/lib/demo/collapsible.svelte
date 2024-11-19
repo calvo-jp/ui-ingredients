@@ -16,7 +16,7 @@
       class="mt-5 w-full overflow-hidden data-open:animate-collapse-in data-closed:animate-collapse-out"
     >
       <div
-        class="rounded border border-neutral-200 bg-white p-4 dark:border-neutral-800"
+        class="rounded border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-transparent"
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
         odit optio, eaque laborum nesciunt dolores temporibus accusantium neque

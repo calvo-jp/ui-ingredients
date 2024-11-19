@@ -9,6 +9,7 @@ description: A component for guiding users through a series of steps or features
   import {Api} from '$lib/api';
   import {Accessibility} from '$lib/accessibility';
   import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
 </script>
 
 <svelte:head>
@@ -16,10 +17,7 @@ description: A component for guiding users through a series of steps or features
 </svelte:head>
 
 <Metadata title="{title}" description="{description}" />
-
-# {title}
-
-{description}
+<PageHeading title="{title}" description="{description}" />
 
 <TourDemo />
 
