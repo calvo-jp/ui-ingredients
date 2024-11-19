@@ -1,5 +1,4 @@
-import type {ApiEntries} from './types';
+import {collapsibleAnatomy} from 'ui-ingredients';
+import {apiEntryFromAnatomy} from './utils';
 
-const api: ApiEntries = {};
-
-export default api;
+export default apiEntryFromAnatomy(collapsibleAnatomy)({});

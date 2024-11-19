@@ -1,5 +1,5 @@
-import type {ApiEntries} from './types';
+import {apiEntry} from './utils';
 
-const api: ApiEntries = {};
-
-export default api;
+export default apiEntry<'Root'>({
+  Root: {},
+});

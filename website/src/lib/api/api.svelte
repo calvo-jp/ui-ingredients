@@ -1,10 +1,7 @@
 <script lang="ts">
-  import {
-    getApiDoc,
-    getDataAttrDoc,
-    type ApiDoc,
-    type ApiDocKey,
-  } from '@zag-js/docs';
+  import {Table} from '$lib/ui';
+  import {MinusIcon} from '@untitled-theme/icons-svelte';
+  import {twMerge} from 'tailwind-merge';
   import accordion from './accordion';
   import alert from './alert';
   import alertDialog from './alert-dialog';
@@ -97,23 +94,93 @@
     tour,
   };
 
-  let {id}: {id: ApiDocKey} = $props();
+  type ID = keyof typeof API;
 
-  function guard<Return, Arg>(fn: (...args: Arg[]) => Return) {
-    return (...args: Arg[]): Return | null => {
-      try {
-        return fn(...args);
-      } catch {
-        return null;
-      }
-    };
-  }
+  let {id}: {id: ID} = $props();
 
-  let rootApi = $derived(guard(getApiDoc)(id));
-  let dataAttr = $derived(guard(getDataAttrDoc)(id));
-
-  interface Api {
-    props?: Record<string, ApiDoc['context']>;
-    dataAttr?: Record<string, string>;
-  }
+  let item = $derived(API[id]);
 </script>
+
+{#each Object.entries(item) as [i, j]}
+  <h3>{i}</h3>
+
+  <Table.Container class="not-prose">
+    <Table.Root>
+      <Table.Header>
+        <Table.Row>
+          <Table.Heading>Prop</Table.Heading>
+          <Table.Heading>Default</Table.Heading>
+          <Table.Heading>Description</Table.Heading>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {#each Object.entries(j.context) as [k, l]}
+          <Table.Row>
+            <Table.Cell>
+              {@render code(k)}
+            </Table.Cell>
+            <Table.Cell>
+              {#if l.defaultValue}
+                {@render code(l.defaultValue)}
+              {:else}
+                <MinusIcon
+                  class="size-3 text-neutral-400 dark:text-neutral-600"
+                />
+              {/if}
+            </Table.Cell>
+            <Table.Cell>
+              {@render code(l.type)}
+
+              <span class="mt-2 block">
+                {l.description}
+              </span>
+            </Table.Cell>
+          </Table.Row>
+        {/each}
+      </Table.Body>
+    </Table.Root>
+  </Table.Container>
+
+  {#if j.dataAttr}
+    <Table.Container class="not-prose mt-8">
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.Heading>Data Attribute</Table.Heading>
+            <Table.Heading>Value</Table.Heading>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {#each Object.entries(j.dataAttr) as [k, v]}
+            <Table.Row>
+              <Table.Cell>
+                {@render code(k)}
+              </Table.Cell>
+              <Table.Cell>{@html v}</Table.Cell>
+            </Table.Row>
+          {/each}
+        </Table.Body>
+      </Table.Root>
+    </Table.Container>
+  {/if}
+{/each}
+
+{#snippet code(
+  children: string,
+  opts?: {
+    id?: string;
+    style?: string;
+    class?: string;
+  },
+)}
+  <code
+    id={opts?.id}
+    style={opts?.style}
+    class={twMerge(
+      'inline-block whitespace-pre rounded border border-neutral-200 bg-neutral-50 px-1.5 py-0.5 font-mono text-xs font-medium [tab-size:0.75rem] dark:border-neutral-800 dark:bg-neutral-800/50',
+      opts?.class,
+    )}
+  >
+    {children}
+  </code>
+{/snippet}
