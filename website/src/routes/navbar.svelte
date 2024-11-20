@@ -46,8 +46,7 @@
 
       <a
         href="https://github.com/calvo-jp/ui-ingredients"
-        target="_blank"
-        rel="noreferrer"
+        data-sveltekit-preload-data="off"
       >
         <GithubIcon class="size-6" />
         <span class="sr-only">Github</span>
