@@ -21,10 +21,6 @@ description: A component that expands or collapses to show or hide content.
 
 <CollapsibleDemo />
 
-## Anatomy
-
-<Anatomy id="collapsible" />
-
 ## Usage
 
 ```svelte
@@ -37,7 +33,6 @@ description: A component that expands or collapses to show or hide content.
   <Collapsible.Content>Content</Collapsible.Content>
 </Collapsible.Root>
 ```
-
 
 ## API Reference
 

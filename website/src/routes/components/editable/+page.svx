@@ -74,10 +74,9 @@ description: A component that allows users to modify its content.
 </Field.Root>
 ```
 
-
 ## API Reference
 
-<Api id="ediable" />
+<Api id="editable" />
 
 ## Accessibility
 

@@ -40,7 +40,6 @@ description: A component for displaying the completion status of a task or proce
 </Progress.Root>
 ```
 
-
 ## API Reference
 
-<Api id="progress-linear" />
+<Api id="progress" />

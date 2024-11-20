@@ -18,7 +18,7 @@ description: A component for displaying the completion status of a task or proce
 <Metadata title="{title}" description="{description}" />
 <PageHeading title="{title}" description="{description}" />
 
-<ProgressCircularDemo/>
+<ProgressCircularDemo />
 
 ## Anatomy
 
@@ -40,7 +40,6 @@ description: A component for displaying the completion status of a task or proce
 </Progress.Root>
 ```
 
-
 ## API Reference
 
-<Api id="progress-circular" />
+<Api id="progress" />

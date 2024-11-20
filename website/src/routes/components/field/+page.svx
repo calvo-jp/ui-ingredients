@@ -80,7 +80,6 @@ description: A component for organizing related form elements into a cohesive un
 </Field.Root>
 ```
 
-
 ## API Reference
 
-<Api id="textarea" />
+<Api id="field" />

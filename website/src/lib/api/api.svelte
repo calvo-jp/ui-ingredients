@@ -10,6 +10,7 @@
   import carousel from './carousel';
   import checkbox from './checkbox';
   import clipboard from './clipboard';
+  import collapsible from './collapsible';
   import colorPicker from './color-picker';
   import combobox from './combobox';
   import datePicker from './date-picker';
@@ -43,6 +44,8 @@
   import timePicker from './time-picker';
   import timer from './timer';
   import toast from './toast';
+  import toggle from './toggle';
+  import toggleGroup from './toggle-group';
   import tooltip from './tooltip';
   import tour from './tour';
   import treeView from './tree-view';
@@ -56,6 +59,7 @@
     carousel,
     checkbox,
     clipboard,
+    collapsible,
     'color-picker': colorPicker,
     combobox,
     'date-picker': datePicker,
@@ -66,7 +70,7 @@
     'file-upload': fileUpload,
     'floating-panel': floatingPanel,
     highlight,
-    hoverCard,
+    'hover-card': hoverCard,
     menu,
     'number-input': numberInput,
     pagination,
@@ -74,7 +78,7 @@
     'pin-input': pinInput,
     portal,
     progress,
-    qrCode,
+    'qr-code': qrCode,
     'radio-group': radioGroup,
     'rating-group': ratingGroup,
     'segment-group': segmentGroup,
@@ -89,6 +93,8 @@
     timer,
     'time-picker': timePicker,
     toast,
+    toggle,
+    'toggle-group': toggleGroup,
     tooltip,
     'tree-view': treeView,
     tour,
