@@ -17,17 +17,20 @@
   import dialog from './dialog';
   import drawer from './drawer';
   import editable from './editable';
+  import environmentProvider from './environment-provider';
   import field from './field';
   import fileUpload from './file-upload';
   import floatingPanel from './floating-panel';
   import highlight from './highlight';
   import hoverCard from './hover-card';
+  import localeProvider from './locale-provider';
   import menu from './menu';
   import numberInput from './number-input';
   import pagination from './pagination';
   import pinInput from './pin-input';
   import popover from './popover';
   import portal from './portal';
+  import presence from './presence';
   import progress from './progress';
   import qrCode from './qr-code';
   import radioGroup from './radio-group';
@@ -66,17 +69,20 @@
     dialog,
     drawer,
     editable,
+    'environment-provider': environmentProvider,
     field,
     'file-upload': fileUpload,
     'floating-panel': floatingPanel,
     highlight,
     'hover-card': hoverCard,
+    'locale-provider': localeProvider,
     menu,
     'number-input': numberInput,
     pagination,
     popover,
     'pin-input': pinInput,
     portal,
+    presence,
     progress,
     'qr-code': qrCode,
     'radio-group': radioGroup,
@@ -137,9 +143,11 @@
             <Table.Cell>
               {@render code(l.type)}
 
-              <span class="mt-2 block">
-                {l.description}
-              </span>
+              {#if l.description}
+                <span class="mt-2 block">
+                  {l.description}
+                </span>
+              {/if}
             </Table.Cell>
           </Table.Row>
         {/each}

@@ -46,6 +46,10 @@ function interface_(pairs: Record<string, string>) {
   return `{\n${props}\n}`;
 }
 
+function literal_(value: string) {
+  return `'${value}'`;
+}
+
 export const T = {
   boolean: boolean_,
   string: string_,
@@ -58,4 +62,5 @@ export const T = {
   interface: interface_,
   partial: partial_,
   record: record_,
+  literal: literal_,
 };

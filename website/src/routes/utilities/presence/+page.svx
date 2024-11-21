@@ -6,6 +6,7 @@ description: "A component that controls content rendering and unmounting based o
 <script>
   import Metadata from '$lib/metadata.svelte';
   import PageHeading from '$lib/page-heading.svelte';
+  import {Api} from '$lib/api';
 </script>
 
 <svelte:head>
@@ -36,3 +37,7 @@ description: "A component that controls content rendering and unmounting based o
   Content
 </Presence>
 ```
+
+## API Reference
+
+<Api id="presence" />

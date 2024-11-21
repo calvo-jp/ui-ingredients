@@ -4,7 +4,7 @@ import type {AnatomyInstance} from 'ui-ingredients';
 
 interface Prop {
   type: string;
-  description: string;
+  description?: string;
   defaultValue?: string;
 }
 
