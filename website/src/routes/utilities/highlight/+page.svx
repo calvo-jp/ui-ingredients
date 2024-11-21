@@ -6,6 +6,7 @@ description: A component for highlighting text within a string.
 <script>
   import HighlightDemo from '$lib/demo/highlight.svelte'
   import Metadata from '$lib/metadata.svelte'
+  import PageHeading from '$lib/page-heading.svelte'
 </script>
 
 <svelte:head>
@@ -14,8 +15,6 @@ description: A component for highlighting text within a string.
 
 <Metadata title="{title}" description="{description}" />
 <PageHeading title="{title}" description="{description}" />
-
- 
 
 <HighlightDemo />
 

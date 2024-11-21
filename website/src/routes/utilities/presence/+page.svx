@@ -15,8 +15,6 @@ description: "A component that controls content rendering and unmounting based o
 <Metadata title="{title}" description="{description}" />
 <PageHeading title="{title}" description="{description}" />
 
- 
-
 ## Usage
 
 ```svelte
