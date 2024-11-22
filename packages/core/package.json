@@ -3,7 +3,7 @@
   "type": "module",
   "license": "MIT",
   "version": "0.15.0",
-  "packageManager": "pnpm@9.14.1",
+  "packageManager": "pnpm@9.14.2",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -372,7 +372,7 @@
     "publint": "^0.2.12",
     "release-it": "^17.10.0",
     "resize-observer-polyfill": "^1.5.1",
-    "svelte": "^5.2.4",
+    "svelte": "^5.2.7",
     "svelte-check": "^4.0.9",
     "tailwind-merge": "^2.5.4",
     "tailwind-variants": "^0.3.0",
