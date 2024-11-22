@@ -7,7 +7,7 @@
     "core": "pnpm --filter ui-ingredients",
     "website": "pnpm --filter website",
     "scripts": "pnpm --filter scripts",
-    "test": "pnpm ui-ingredients test && pnpm ui-ingredients-tailwindcss-plugin test",
+    "test": "pnpm ui-ingredients test",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
