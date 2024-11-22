@@ -22,7 +22,7 @@
     "ui-ingredients": "^0.15.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "^3.3.1",
+    "@sveltejs/adapter-vercel": "^5.4.7",
     "@sveltejs/kit": "^2.8.1",
     "@sveltejs/vite-plugin-svelte": "^4.0.1",
     "autoprefixer": "^10.4.20",
