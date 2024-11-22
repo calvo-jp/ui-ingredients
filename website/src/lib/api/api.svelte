@@ -126,7 +126,7 @@
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {#each Object.entries(j.context) as [k, l]}
+        {#each Object.entries(j.context).toSorted( ([a], [b]) => a.localeCompare(b), ) as [k, l]}
           <Table.Row>
             <Table.Cell>
               {@render code(k)}
@@ -165,7 +165,7 @@
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {#each Object.entries(j.dataAttr) as [k, v]}
+          {#each Object.entries(j.dataAttr).toSorted( ([a], [b]) => a.localeCompare(b), ) as [k, v]}
             <Table.Row>
               <Table.Cell>
                 {@render code(k)}
