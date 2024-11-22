@@ -6,16 +6,14 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 
 ```bash
 npm install ui-ingredients
-# yarn add ui-ingredients
-# pnpm add ui-ingredients
 ```
 
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import {Dialog, Portal} from 'ui-ingredients';
-  import {XCloseIcon, Button} from '$lib';
+  import {XCloseIcon, Button} from '$lib/icons';
 </script>
 
 <Dialog.Root lazyMount keepMounted>
@@ -40,11 +38,11 @@ npm install ui-ingredients
 </Dialog.Root>
 ```
 
-## Documentation
-
-Browse the [documentation](https://ui-ingredients.vercel.app/) to learn more about the available components and their props.
-
-## Credits
+## Inspiration
 
 - [zag](https://zagjs.com/) - The fantastic library that powers UI ingredients
 - [ark](https://ark-ui.com/) - The outstanding headless component library that greatly inspired this one
+
+## Documentation
+
+Browse our beta [documentaion](https://ui-ingredients-next.vercel.app/)
