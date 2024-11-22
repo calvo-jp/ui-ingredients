@@ -307,8 +307,8 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
       ui-ingredients:
-        specifier: ^0.15.0
-        version: 0.15.0(@internationalized/date@3.5.5)(svelte@5.2.7)
+        specifier: ^0.15.1
+        version: 0.15.1(@internationalized/date@3.5.5)(svelte@5.2.7)
 
   website:
     dependencies:
@@ -343,8 +343,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(tailwindcss@3.4.15)
       ui-ingredients:
-        specifier: ^0.15.0
-        version: 0.15.0(@internationalized/date@3.5.5)(svelte@5.2.7)
+        specifier: ^0.15.1
+        version: 0.15.1(@internationalized/date@3.5.5)(svelte@5.2.7)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.4.7
@@ -3805,8 +3805,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ui-ingredients@0.15.0:
-    resolution: {integrity: sha512-uiovU1rlr1lO+5P9eeZYll6Yb1yClIjpYn+d537pNsShdEUFY/jhZl99QNKpteb0MBxVJk2+s/e49rW7EBbsuA==}
+  ui-ingredients@0.15.1:
+    resolution: {integrity: sha512-SVF2bPzNeY5LTfwLw4qhL7xrz6UdYo2J0NG6Yz4N/FkPAkt7bR4LS4xGckiPgWit0hzUGcTySS7nNCFLH2vvLA==}
     peerDependencies:
       svelte: '>=5.0.0'
 
@@ -7787,7 +7787,7 @@ snapshots:
 
   typescript@5.6.3: {}
 
-  ui-ingredients@0.15.0(@internationalized/date@3.5.5)(svelte@5.2.7):
+  ui-ingredients@0.15.1(@internationalized/date@3.5.5)(svelte@5.2.7):
     dependencies:
       '@zag-js/accordion': 0.77.1
       '@zag-js/anatomy': 0.77.1
