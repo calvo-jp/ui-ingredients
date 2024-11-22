@@ -17,8 +17,6 @@ description: A component for displaying important messages or notifications.
 <Metadata title="{title}" description="{description}" />
 <PageHeading title="{title}" description="{description}" />
 
- 
-
 <AlertDemo/>
 
 ## Usage
@@ -37,3 +35,7 @@ description: A component for displaying important messages or notifications.
   <Alert.Description>Description</Alert.Description>
 </Alert.Root>
 ```
+
+## API Reference
+
+<Api id="alert" />

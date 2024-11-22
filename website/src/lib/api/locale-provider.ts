@@ -7,7 +7,7 @@ export default apiEntry<'Root'>({
       locale: {
         type: T.string(),
         description: 'The locale to use for the application.',
-        defaultValue: T.literal('en-US'),
+        defaultValue: "'en-US'",
       },
     },
   },

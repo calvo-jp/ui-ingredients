@@ -21,5 +21,8 @@ export default apiEntry<'Root'>({
         description: 'Render a different element.',
       },
     },
+    dataAttr: {
+      'data-state': '"open" | "closed"',
+    },
   },
 });
