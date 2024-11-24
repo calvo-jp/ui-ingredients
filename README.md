@@ -38,7 +38,7 @@ npm install ui-ingredients
 </Dialog.Root>
 ```
 
-## Inspirations
+## Inspiration
 
 - [zag](https://zagjs.com/) - The fantastic library that powers UI ingredients
 - [ark](https://ark-ui.com/) - The outstanding headless component library that greatly inspired this one

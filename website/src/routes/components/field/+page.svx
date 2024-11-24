@@ -1,0 +1,85 @@
+---
+title: Field
+description: A component for organizing related form elements into a cohesive unit.
+---
+
+<script>
+  import {FieldDemo} from '$lib/demo';
+  import {Anatomy} from '$lib/anatomy';
+  import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
+</script>
+
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
+
+<Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
+
+<FieldDemo />
+
+## Anatomy
+
+<Anatomy id="field" />
+
+## Usage
+
+### Input
+
+```svelte
+<script>
+  import {Field} from 'ui-ingredients';
+</script>
+
+<Field.Root>
+  <Field.Label>
+    Label
+    <Field.RequiredIndicator />
+  </Field.Label>
+  <Field.Input />
+  <Field.HelperText>This is a helper text</Field.HelperText>
+  <Field.ErrorText>This is an error text</Field.ErrorText>
+</Field.Root>
+```
+
+### Select
+
+```svelte
+<script>
+  import {Field} from 'ui-ingredients';
+</script>
+
+<Field.Root>
+  <Field.Label>
+    Label
+    <Field.RequiredIndicator />
+  </Field.Label>
+  <Field.Select />
+  <Field.HelperText>This is a helper text</Field.HelperText>
+  <Field.ErrorText>This is an error text</Field.ErrorText>
+</Field.Root>
+```
+
+### Textarea
+
+```svelte
+<script>
+  import {Field} from 'ui-ingredients';
+</script>
+
+<Field.Root>
+  <Field.Label>
+    Label
+    <Field.RequiredIndicator />
+  </Field.Label>
+  <Field.Textarea autoResize />
+  <Field.HelperText>This is a helper text</Field.HelperText>
+  <Field.ErrorText>This is an error text</Field.ErrorText>
+</Field.Root>
+```
+
+## API Reference
+
+<Api id="field" />

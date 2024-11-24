@@ -18,7 +18,7 @@
   </Collapsible.Trigger>
 
   <Collapsible.Content
-    class="data-open:animate-collapse-in data-closed:animate-collapse-out mt-3 w-full overflow-hidden rounded lg:max-w-[32rem]"
+    class="mt-3 w-full overflow-hidden rounded data-open:animate-collapse-in data-closed:animate-collapse-out lg:max-w-[32rem]"
   >
     <div class="rounded border p-4">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odit

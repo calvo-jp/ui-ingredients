@@ -40,13 +40,13 @@
         <span class="grow font-semibold">{label}</span>
 
         <Accordion.ItemIndicator
-          class="data-open:rotate-180 transition-all duration-200"
+          class="transition-all duration-150 data-open:rotate-180"
         >
           <ChevronDownIcon />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
       <Accordion.ItemContent
-        class="text-muted data-open:animate-collapse-in data-closed:animate-collapse-out overflow-hidden [--height:1em]"
+        class="text-muted overflow-hidden [--height:1em] data-open:animate-collapse-in data-closed:animate-collapse-out"
       >
         {#snippet asChild(action, attrs)}
           <p use:action {...attrs}>{content}</p>

@@ -41,7 +41,7 @@
               'font-semibold',
               'text-neutral-400',
               'transition-colors',
-              'duration-200',
+              'duration-150',
               'aria-page:text-indigo-400',
             )}
             aria-current={link.path === currentLink?.path ? 'page' : undefined}
@@ -66,7 +66,7 @@
   <Portal>
     <Drawer.Positioner>
       <Drawer.Content
-        class="data-open:animate-slide-in-left data-closed:animate-slide-out-left z-modal bg fixed bottom-0 left-0 top-16 w-64 border-r"
+        class="bg fixed bottom-0 left-0 top-16 z-modal w-64 border-r data-open:animate-slide-in-left data-closed:animate-slide-out-left"
       >
         <Drawer.Body class="h-full overflow-y-auto p-6">
           <nav>
@@ -83,7 +83,7 @@
                       'font-semibold',
                       'text-neutral-400',
                       'transition-colors',
-                      'duration-200',
+                      'duration-150',
                       'aria-page:text-accent',
                     )}
                     aria-current={link.path === currentLink?.path

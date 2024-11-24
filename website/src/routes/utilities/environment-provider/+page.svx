@@ -1,0 +1,36 @@
+---
+title: Environment Provider
+description: A component for providing environment information to the rest of the application.
+---
+
+<script>
+  import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
+  import {Api} from '$lib/api';
+</script>
+
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
+
+<Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
+
+## Usage
+
+```svelte
+<!-- src/+layout.svelte -->
+<script>
+  import {EnvironmentProvider} from 'ui-ingredients';
+
+  let {children} = $props()
+</script>
+
+<EnvironmentProvider rootNode={() => document}>
+  {@render children()}
+</EnvironmentProvider>
+```
+
+## API Reference
+
+<Api id="environment-provider" />

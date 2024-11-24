@@ -1,0 +1,41 @@
+---
+title: Alert
+description: A component for displaying important messages or notifications.
+---
+
+<script>
+  import {AlertDemo} from '$lib/demo';
+  import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
+</script>
+
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
+
+<Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
+
+<AlertDemo/>
+
+## Usage
+
+```svelte
+<script>
+  import {Alert} from 'ui-ingredients';
+  import {AlertCircleIcon} from '$lib/icons';
+</script>
+
+<Alert.Root>
+  <Alert.Indicator>
+    <AlertCircleIcon />
+  </Alert.Indicator>
+  <Alert.Title>Title</Alert.Title>
+  <Alert.Description>Description</Alert.Description>
+</Alert.Root>
+```
+
+## API Reference
+
+<Api id="alert" />

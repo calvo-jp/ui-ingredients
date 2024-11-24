@@ -45,14 +45,14 @@
     <Portal>
       <DatePicker.Positioner>
         <DatePicker.Content
-          class="bg-light data-open:animate-fade-in data-closed:animate-fade-out overflow-hidden rounded"
+          class="bg-light overflow-hidden rounded data-open:animate-fade-in data-closed:animate-fade-out"
         >
           <DatePicker.View view="day">
             <DatePicker.ViewControl
               class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
             >
               <DatePicker.PrevTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
               >
                 <ChevronLeftIcon />
               </DatePicker.PrevTrigger>
@@ -64,7 +64,7 @@
               </DatePicker.ViewTrigger>
 
               <DatePicker.NextTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
               >
                 <ChevronRightIcon />
               </DatePicker.NextTrigger>
@@ -92,7 +92,7 @@
                       {#each week as day}
                         <DatePicker.DayTableCell value={day}>
                           <DatePicker.DayTableCellTrigger
-                            class="data-disabled:opacity-50 data-selected:font-semibold data-selected:text-accent hover:bg-lighter/25 data-disabled:hover:bg-transparent data-disabled:cursor-not-allowed flex aspect-square w-full items-center justify-center rounded transition-colors duration-200"
+                            class="data-selected:text-accent hover:bg-lighter/25 flex aspect-square w-full items-center justify-center rounded transition-colors duration-150 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:font-semibold data-disabled:hover:bg-transparent"
                           >
                             {day.day}
                           </DatePicker.DayTableCellTrigger>
@@ -111,7 +111,7 @@
               class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
             >
               <DatePicker.PrevTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
               >
                 <ChevronLeftIcon />
               </DatePicker.PrevTrigger>
@@ -123,7 +123,7 @@
               </DatePicker.ViewTrigger>
 
               <DatePicker.NextTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
               >
                 <ChevronRightIcon />
               </DatePicker.NextTrigger>
@@ -137,7 +137,7 @@
                       {#each months as month}
                         <DatePicker.MonthTableCell value={month.value}>
                           <DatePicker.MonthTableCellTrigger
-                            class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-200"
+                            class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150"
                           >
                             {month.label}
                           </DatePicker.MonthTableCellTrigger>
@@ -156,7 +156,7 @@
               class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
             >
               <DatePicker.PrevTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
               >
                 <ChevronLeftIcon />
               </DatePicker.PrevTrigger>
@@ -168,7 +168,7 @@
               </DatePicker.ViewTrigger>
 
               <DatePicker.NextTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-200"
+                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
               >
                 <ChevronRightIcon />
               </DatePicker.NextTrigger>
@@ -182,7 +182,7 @@
                       {#each years as year}
                         <DatePicker.YearTableCell value={year.value}>
                           <DatePicker.YearTableCellTrigger
-                            class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-200"
+                            class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150"
                           >
                             {year.label}
                           </DatePicker.YearTableCellTrigger>

@@ -1,0 +1,43 @@
+---
+title: Avatar
+description: A visual component for displaying a user’s profile image or initials.
+---
+
+<script>
+  import {AvatarDemo} from '$lib/demo';
+  import {Anatomy} from '$lib/anatomy';
+  import {Api} from '$lib/api';
+  import Metadata from '$lib/metadata.svelte';
+  import PageHeading from '$lib/page-heading.svelte';
+</script>
+
+<svelte:head>
+  <title>UI Ingredients | {title}</title>
+</svelte:head>
+
+<Metadata title="{title}" description="{description}" />
+<PageHeading title="{title}" description="{description}" />
+
+<AvatarDemo />
+
+## Anatomy
+
+<Anatomy id="avatar" />
+
+## Usage
+
+```svelte
+<script>
+  import {Avatar} from 'ui-ingredients';
+</script>
+
+<Avatar.Root>
+  <Avatar.Image src="https://i.pravatar.cc/300" alt="" />
+  <Avatar.Fallback>JD</Avatar.Fallback>
+</Avatar.Root>
+```
+
+
+## API Reference
+
+<Api id="avatar" />

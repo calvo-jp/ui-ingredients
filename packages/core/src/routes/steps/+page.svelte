@@ -34,14 +34,14 @@
               'size-5',
               'border-2',
               'transition-all',
-              'duration-200',
+              'duration-150',
               'data-current:border-accent',
               'data-complete:border-accent',
               'data-complete:bg-accent',
             )}
           >
             <CheckIcon
-              class="group-data-complete:block hidden size-4 text-white"
+              class="hidden size-4 text-white group-data-complete:block"
             />
           </Steps.Indicator>
           <span>{item.title}</span>
