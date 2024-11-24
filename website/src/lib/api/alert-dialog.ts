@@ -14,7 +14,7 @@ export default apiEntryFromAnatomy(alertDialogAnatomy)({
       ids: {
         type: '{\n\ttrigger?: string;\n\tpositioner?: string;\n\tbackdrop?: string;\n\tcontent?: string;\n\tcloseTrigger?: string;\n\ttitle?: string;\n\tdescription?: string;\n}',
         description:
-          'The ids of the elements in the dialog. Useful for composition.',
+          'The ids of the elements in the alert dialog. Useful for composition.',
       },
       openControlled: {
         type: 'boolean',
