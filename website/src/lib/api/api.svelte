@@ -133,7 +133,13 @@
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {#each Object.entries(j.context).toSorted( ([a], [b]) => a.localeCompare(b), ) as [k, l]}
+        {@const ctx = Object.entries(j.context).toSorted(([a], [b]) => {
+          if (a.toLowerCase() === 'aschild') return 1;
+          if (b.toLowerCase() === 'aschild') return -1;
+          return a.localeCompare(b);
+        })}
+
+        {#each ctx as [k, l]}
           <Table.Row>
             <Table.Cell>
               {@render code(k)}

@@ -44,19 +44,24 @@ import {
 } from './icons/index.js';
 
 export type ComponentAnatomyName =
-  | Exclude<ZagComponentAnatomyName, 'segmented-control'>
-  | 'segment-group';
+  | Exclude<
+      ZagComponentAnatomyName,
+      'segmented-control' | 'linear-progress' | 'circular-progress'
+    >
+  | 'segment-group'
+  | 'progress-linear'
+  | 'progress-circular';
 
 export const allComponents: Record<
   ComponentAnatomyName,
   Component<SVGAttributes<SVGSVGElement>>
 > = {
-  'circular-progress': CircularProgressAnatomyIcon,
   'color-picker': ColorPickerAnatomyIcon,
   'date-picker': DatePickerAnatomyIcon,
   'file-upload': FileUploadAnatomyIcon,
   'hover-card': HoverCardAnatomyIcon,
-  'linear-progress': LinearProgressAnatomyIcon,
+  'progress-circular': CircularProgressAnatomyIcon,
+  'progress-linear': LinearProgressAnatomyIcon,
   'number-input': NumberInputAnatomyIcon,
   'pin-input': PinInputAnatomyIcon,
   'qr-code': QrCodeAnatomyIcon,

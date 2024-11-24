@@ -14,7 +14,7 @@
 ></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 scrollbar scrollbar-track-neutral-50 scrollbar-thumb-neutral-200 dark:border-neutral-800 dark:bg-neutral-950 dark:scrollbar-track-neutral-900 dark:scrollbar-thumb-neutral-600 lg:block"
+  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 scrollbar scrollbar-track-neutral-50 scrollbar-thumb-neutral-400 dark:border-neutral-800 dark:bg-neutral-950 dark:scrollbar-track-neutral-900 dark:scrollbar-thumb-neutral-600 lg:block"
 >
   {@render items()}
 </nav>

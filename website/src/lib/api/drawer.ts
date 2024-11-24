@@ -20,6 +20,14 @@ export default apiEntryFromAnatomy(drawerAnatomy)({
         type: 'boolean',
         description: 'Whether the dialog is controlled by the user.',
       },
+      lazyMount: {
+        type: 'boolean',
+        description: 'Whether to enable lazy mounting.',
+      },
+      keepMounted: {
+        type: 'boolean',
+        description: 'Whether to keep the component mounted after exit.',
+      },
     },
   },
   Backdrop: {
