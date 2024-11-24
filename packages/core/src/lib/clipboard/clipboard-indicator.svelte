@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
-  import type {IndicatorProps} from '@zag-js/clipboard';
+  import type {HtmlIngredientProps} from '$lib/types.js';
+
+  interface IndicatorState {
+    copied: boolean;
+  }
 
   export interface ClipboardIndicatorProps
-    extends Assign<
-      HtmlIngredientProps<'span', HTMLSpanElement>,
-      Partial<IndicatorProps>
-    > {}
+    extends HtmlIngredientProps<'span', HTMLSpanElement, IndicatorState> {}
 </script>
 
 <script lang="ts">
@@ -15,7 +15,6 @@
 
   let {
     ref = $bindable(null),
-    copied = false,
     asChild,
     children,
     ...props
@@ -23,15 +22,19 @@
 
   let clipboard = getClipboardContext();
 
+  let state = $derived({
+    copied: clipboard.copied,
+  });
+
   let mergedProps = $derived(
-    mergeProps(clipboard.getIndicatorProps({copied}), props),
+    mergeProps(clipboard.getIndicatorProps(state), props),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps)}
+  {@render asChild(mergedProps, state)}
 {:else}
   <span bind:this={ref} {...mergedProps}>
-    {@render children?.()}
+    {@render children?.(state)}
   </span>
 {/if}

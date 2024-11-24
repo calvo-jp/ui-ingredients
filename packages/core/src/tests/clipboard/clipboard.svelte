@@ -11,8 +11,15 @@
     <Clipboard.Input />
 
     <Clipboard.Trigger>
-      <Clipboard.Indicator>Copy</Clipboard.Indicator>
-      <Clipboard.Indicator copied>Copied</Clipboard.Indicator>
+      <Clipboard.Indicator>
+        {#snippet children(ctx)}
+          {#if ctx.copied}
+            Copied
+          {:else}
+            Copy
+          {/if}
+        {/snippet}
+      </Clipboard.Indicator>
     </Clipboard.Trigger>
   </Clipboard.Control>
 </Clipboard.Root>

@@ -42,11 +42,14 @@
     <Clipboard.Trigger>
       {#snippet asChild(attrs)}
         <IconButton {...attrs}>
-          <Clipboard.Indicator copied>
-            <CheckIcon class="text-success" />
-          </Clipboard.Indicator>
           <Clipboard.Indicator>
-            <Copy01Icon />
+            {#snippet children(ctx)}
+              {#if ctx.copied}
+                <CheckIcon class="text-success" />
+              {:else}
+                <Copy01Icon />
+              {/if}
+            {/snippet}
           </Clipboard.Indicator>
         </IconButton>
       {/snippet}
