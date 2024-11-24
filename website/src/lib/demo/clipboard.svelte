@@ -20,14 +20,19 @@
         {/snippet}
       </Clipboard.Input>
 
-      <Clipboard.Trigger>
+      <Clipboard.Trigger class="group">
         {#snippet asChild(attrs)}
           <IconButton {...attrs}>
-            <Clipboard.Indicator copied>
-              <CheckIcon class="size-5 text-green-600 dark:text-green-500" />
-            </Clipboard.Indicator>
-            <Clipboard.Indicator>
-              <Copy01Icon class="size-5" />
+            <Clipboard.Indicator
+              class="size-5 group-data-copied:text-green-600 dark:group-data-copied:text-green-500"
+            >
+              {#snippet asChild(attrs, ctx)}
+                {#if ctx.copied}
+                  <CheckIcon {...attrs} />
+                {:else}
+                  <Copy01Icon {...attrs} />
+                {/if}
+              {/snippet}
             </Clipboard.Indicator>
           </IconButton>
         {/snippet}

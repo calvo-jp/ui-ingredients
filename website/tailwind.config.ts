@@ -45,6 +45,7 @@ const config: Config = withTV({
         'range-start': 'range-start',
         'range-end': 'range-end',
         placeholder: 'placeholder-shown',
+        copied: 'copied',
       },
       aria: {
         page: 'current="page"',
