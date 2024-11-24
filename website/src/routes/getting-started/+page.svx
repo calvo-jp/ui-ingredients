@@ -24,7 +24,7 @@ npm install ui-ingredients
 - Import the components you need in your project.
 
 ```svelte
-<script lang="ts">
+<script>
   import {Dialog, Portal} from 'ui-ingredients';
 </script>
 
