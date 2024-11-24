@@ -45,4 +45,4 @@ npm install ui-ingredients
 
 ## Documentation
 
-Browse our beta [documentaion](https://ui-ingredients-next.vercel.app/)
+Browse the [documentaion](https://ui-ingredients-next.vercel.app/) for more information on how to use UI Ingredients
