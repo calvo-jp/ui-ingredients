@@ -66,13 +66,22 @@ export function createDrawer(props: CreateDrawerProps): CreateDrawerReturn {
         return mergeProps(o.getTriggerProps(), parts.trigger.attrs);
       },
       getBodyProps() {
-        return {...parts.body.attrs};
+        return {
+          ...parts.body.attrs,
+          'data-state': o.open ? 'open' : 'closed',
+        };
       },
       getFooterProps() {
-        return {...parts.footer.attrs};
+        return {
+          ...parts.footer.attrs,
+          'data-state': o.open ? 'open' : 'closed',
+        };
       },
       getHeaderProps() {
-        return {...parts.header.attrs};
+        return {
+          ...parts.header.attrs,
+          'data-state': o.open ? 'open' : 'closed',
+        };
       },
     };
   });
