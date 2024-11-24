@@ -364,15 +364,15 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.15)
+      '@ui-ingredients/anatomy-icons':
+        specifier: workspace:*
+        version: link:../shared/anatomy-icons
       '@untitled-theme/icons-svelte':
         specifier: ^0.12.0
         version: 0.12.0(svelte@5.2.7)
       '@zag-js/docs':
         specifier: ^0.77.1
         version: 0.77.1
-      anatomy-icons:
-        specifier: workspace:*
-        version: link:../shared/anatomy-icons
       shiki:
         specifier: ^1.23.1
         version: 1.23.1

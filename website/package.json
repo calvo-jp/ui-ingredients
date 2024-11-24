@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "@ui-ingredients/website",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
@@ -13,9 +13,9 @@
     "@fontsource/fira-code": "^5.1.0",
     "@fontsource/inter": "^5.1.0",
     "@tailwindcss/typography": "^0.5.15",
+    "@ui-ingredients/anatomy-icons": "workspace:*",
     "@untitled-theme/icons-svelte": "^0.12.0",
     "@zag-js/docs": "^0.77.1",
-    "anatomy-icons": "workspace:*",
     "shiki": "^1.23.1",
     "svelte-os-themes": "^0.10.0",
     "tailwind-merge": "^2.5.4",
