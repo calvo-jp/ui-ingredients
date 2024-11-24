@@ -21,8 +21,8 @@
     if (!main) return;
 
     const selectors = [
+      'h1:not([data-scope][data-part])',
       'h2:not([data-scope][data-part])',
-      'h3:not([data-scope][data-part])',
     ];
 
     const headings = main.querySelectorAll<HTMLHeadingElement>(
