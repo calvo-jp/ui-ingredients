@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "pnpm --filter=anatomy-icons build",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -14,6 +15,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "@untitled-theme/icons-svelte": "^0.12.0",
     "@zag-js/docs": "^0.77.1",
+    "anatomy-icons": "workspace:*",
     "shiki": "^1.23.1",
     "svelte-os-themes": "^0.10.0",
     "tailwind-merge": "^2.5.4",

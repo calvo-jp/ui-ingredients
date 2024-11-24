@@ -1,4 +1,5 @@
 packages:
   - packages/*
-  - website
+  - shared/*
   - scripts
+  - website

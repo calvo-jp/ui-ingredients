@@ -6,6 +6,7 @@
   "scripts": {
     "core": "pnpm --filter ui-ingredients",
     "website": "pnpm --filter website",
+    "anatomy-icons": "pnpm --filter anatomy-icons",
     "scripts": "pnpm --filter scripts",
     "test": "pnpm ui-ingredients test",
     "lint": "eslint .",
