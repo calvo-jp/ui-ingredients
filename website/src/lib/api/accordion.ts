@@ -21,6 +21,14 @@ export default apiEntryFromAnatomy(accordionAnatomy)({
         description:
           'The ids of the elements in the accordion. Useful for composition.',
       },
+      lazyMount: {
+        type: 'boolean',
+        description: 'Whether to enable lazy mounting.',
+      },
+      keepMounted: {
+        type: 'boolean',
+        description: 'Whether to keep the component mounted after exit.',
+      },
     },
   },
   Item: {
