@@ -111,9 +111,16 @@
   let {id}: {id: ID} = $props();
 
   let item = $derived(API[id]);
+  let parts = $derived(
+    Object.entries(item).toSorted(([a], [b]) => {
+      if (a.toLowerCase() === 'root') return -1;
+      if (b.toLowerCase() === 'root') return 1;
+      return a.localeCompare(b);
+    }),
+  );
 </script>
 
-{#each Object.entries(item) as [i, j]}
+{#each parts as [i, j]}
   <h3>{i}</h3>
 
   <Table.Container class="not-prose">

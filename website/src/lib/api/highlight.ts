@@ -1,23 +1,22 @@
-import {T} from './t';
 import {apiEntry} from './utils';
 
 export default apiEntry<'Root'>({
   Root: {
     context: {
       query: {
-        type: T.union(T.string(), T.array(T.string())),
+        type: 'string | string[]',
         description: 'The query to highlight in the text',
       },
       text: {
-        type: T.string(),
+        type: 'string',
         description: 'The text to highlight',
       },
       ignoreCase: {
-        type: T.boolean(),
+        type: 'boolean',
         description: 'Whether to ignore case while matching',
       },
       matchAll: {
-        type: T.boolean(),
+        type: 'boolean',
         description: 'Whether to match multiple instances of the query',
       },
     },

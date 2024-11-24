@@ -1,112 +1,70 @@
-import {getDataAttrDoc} from '@zag-js/docs';
+import {omit} from '$lib/omit';
+import {getApiDoc, getDataAttrDoc} from '@zag-js/docs';
 import {accordionAnatomy} from 'ui-ingredients';
-import {T} from './t';
 import {apiEntryFromAnatomy} from './utils';
 
 const dataAttrDoc = getDataAttrDoc('accordion');
+const rootContext = getApiDoc('accordion').context;
 
 export default apiEntryFromAnatomy(accordionAnatomy)({
   Root: {
+    dataAttr: dataAttrDoc.Root,
     context: {
+      ...omit(rootContext, 'dir', 'getRootNode'),
+
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
-      collapsible: {
-        type: T.boolean(),
-        defaultValue: 'false',
-        description:
-          'Whether an item can be closed after it has been expanded.',
-      },
-      disabled: {
-        type: T.boolean(),
-        description: 'Whether the items are disabled',
-      },
-      id: {
-        type: T.string(),
-        description: 'The unique identifier of the machine.',
-      },
       ids: {
-        type: T.partial(
-          T.interface({
-            root: T.string(),
-            item: T.string(),
-            itemContent: T.string(),
-            itemTrigger: T.string(),
-          }),
-        ),
+        type: '{\n\troot?: string;\n\titem(value: string)?: string;\n\titemContent(value: string)?: string;\n\titemTrigger(value: string): string;\n}',
         description:
           'The ids of the elements in the accordion. Useful for composition.',
       },
-      multiple: {
-        type: T.boolean(),
-        defaultValue: 'false',
-        description: 'Whether multple items can be expanded at the same time.',
-      },
-      onFocusChange: {
-        type: T.function('void', 'details: FocusChangeDetails'),
-        description: 'The callback fired when the focused item changes.',
-      },
-      onValueChange: {
-        type: T.function('void', 'details: ValueChangeDetails'),
-        description:
-          'The callback fired when the state of expanded/collapsed items changes.',
-      },
-      orientation: {
-        type: T.union('"horizontal"', '"vertical"'),
-        defaultValue: '"vertical"',
-        description: 'The orientation of the items.',
-      },
-      value: {
-        type: T.array(T.string()),
-        description:
-          "The 'value' of the items that are currently being expanded.",
-      },
     },
-    dataAttr: dataAttrDoc.Root,
   },
   Item: {
+    dataAttr: dataAttrDoc.Item,
     context: {
       value: {
-        type: T.string(),
+        type: 'string',
         description: 'The value of the item.',
       },
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
       disabled: {
-        type: T.boolean(),
+        type: 'boolean',
         description: 'Whether the item is disabled.',
       },
     },
-    dataAttr: dataAttrDoc.Item,
   },
   ItemTrigger: {
+    dataAttr: dataAttrDoc.ItemTrigger,
     context: {
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
     },
-    dataAttr: dataAttrDoc.ItemTrigger,
   },
   ItemContent: {
+    dataAttr: dataAttrDoc.ItemContent,
     context: {
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
     },
-    dataAttr: dataAttrDoc.ItemContent,
   },
   ItemIndicator: {
+    dataAttr: dataAttrDoc.ItemIndicator,
     context: {
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
     },
-    dataAttr: dataAttrDoc.ItemIndicator,
   },
 });

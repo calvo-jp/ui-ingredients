@@ -38,10 +38,13 @@ description: A component for copying text or content to the user's clipboard.
     <Clipboard.Input />
     <Clipboard.Trigger>
       <Clipboard.Indicator>
-        <Copy01Icon />
-      </Clipboard.Indicator>
-      <Clipboard.Indicator copied>
-        <CheckIcon />
+        {#snippet children(ctx)}
+          {#if ctx.copied}
+            <Copy01Icon />
+          {:else}
+            <CheckIcon />
+          {/if}
+        {/snippet}
       </Clipboard.Indicator>
     </Clipboard.Trigger>
   </Clipboard.Control>

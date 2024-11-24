@@ -1,4 +1,3 @@
-import {T} from './t';
 import {apiEntry} from './utils';
 
 export default apiEntry<'Root'>({
@@ -9,7 +8,7 @@ export default apiEntry<'Root'>({
         description: 'The element to render the element into',
       },
       disabled: {
-        type: T.boolean(),
+        type: 'boolean',
         description: 'Whether the portal is disabled',
       },
     },

@@ -33,7 +33,7 @@ type AnatomyKeys<T extends {keys(): string[]; [x: string]: unknown}> =
 export function apiEntryFromAnatomy<T extends string>(
   anatomy: AnatomyInstance<T>,
 ) {
-  return (obj: ApiEntries<AnatomyKeys<typeof anatomy>>) => {
+  return (obj: ApiEntries<AnatomyKeys<typeof anatomy> | 'Root'>) => {
     return obj;
   };
 }

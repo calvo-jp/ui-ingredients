@@ -1,12 +1,11 @@
 import {alertAnatomy} from 'ui-ingredients';
-import {T} from './t';
 import {apiEntryFromAnatomy} from './utils';
 
 export default apiEntryFromAnatomy(alertAnatomy)({
   Root: {
     context: {
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
     },
@@ -18,7 +17,7 @@ export default apiEntryFromAnatomy(alertAnatomy)({
   Title: {
     context: {
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
     },
@@ -30,7 +29,7 @@ export default apiEntryFromAnatomy(alertAnatomy)({
   Description: {
     context: {
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
     },
@@ -42,7 +41,7 @@ export default apiEntryFromAnatomy(alertAnatomy)({
   Indicator: {
     context: {
       asChild: {
-        type: T.snippet(),
+        type: 'Snippet',
         description: 'Render a different element.',
       },
     },
