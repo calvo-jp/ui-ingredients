@@ -6,5 +6,10 @@ export type {TabsListProps} from './tabs-list.svelte';
 export type {TabsProps} from './tabs-root.svelte';
 export type {TabsTriggerProps} from './tabs-trigger.svelte';
 
+export {
+  createTabs,
+  type CreateTabsProps,
+  type CreateTabsReturn,
+} from './create-tabs.svelte.js';
 export {anatomy as tabsAnatomy} from './tabs-anatomy.js';
-export {getTabsContext} from './tabs-context.svelte.js';
+export {getTabsContext, setTabsContext} from './tabs-context.svelte.js';

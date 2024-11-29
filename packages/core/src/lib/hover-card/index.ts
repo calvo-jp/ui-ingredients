@@ -7,5 +7,13 @@ export type {HoverCardPositionerProps} from './hover-card-positioner.svelte';
 export type {HoverCardProps} from './hover-card-root.svelte';
 export type {HoverCardTriggerProps} from './hover-card-trigger.svelte';
 
+export {
+  createHoverCard,
+  type CreateHoverCardProps,
+  type CreateHoverCardReturn,
+} from './create-hover-card.svelte.js';
 export {anatomy as hoverCardAnatomy} from './hover-card-anatomy.js';
-export {getHoverCardContext} from './hover-card-context.svelte.js';
+export {
+  getHoverCardContext,
+  setHoverCardContext,
+} from './hover-card-context.svelte.js';

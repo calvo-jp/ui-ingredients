@@ -10,5 +10,13 @@ export type {EditablePreviewProps} from './editable-preview.svelte';
 export type {EditableProps} from './editable-root.svelte';
 export type {EditableSubmitTriggerProps} from './editable-submit-trigger.svelte';
 
+export {
+  createEditable,
+  type CreateEditableProps,
+  type CreateEditableReturn,
+} from './create-editable.svelte.js';
 export {anatomy as editableAnatomy} from './editable-anatomy.js';
-export {getEditableContext} from './editable-context.svelte.js';
+export {
+  getEditableContext,
+  setEditableContext,
+} from './editable-context.svelte.js';

@@ -17,5 +17,10 @@ export {type MenuSeparatorProps} from './menu-separator.svelte';
 export {type MenuTriggerItemIndicatorProps} from './menu-trigger-item.svelte';
 export {type MenuTriggerProps} from './menu-trigger.svelte';
 
+export {
+  createMenu,
+  type CreateMenuProps,
+  type CreateMenuReturn,
+} from './create-menu.svelte.js';
 export {anatomy as menuAnatomy} from './menu-anatomy.js';
-export {getMenuContext} from './menu-context.svelte.js';
+export {getMenuContext, setMenuContext} from './menu-context.svelte.js';

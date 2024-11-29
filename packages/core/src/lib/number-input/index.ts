@@ -9,5 +9,13 @@ export type {NumberInputProps} from './number-input-root.svelte';
 export type {NumberInputScrubberProps} from './number-input-scrubber.svelte';
 export type {NumberInputValueTextProps} from './number-input-value-text.svelte';
 
+export {
+  createNumberInput,
+  type CreateNumberInputProps,
+  type CreateNumberInputReturn,
+} from './create-number-input.svelte.js';
 export {anatomy as numberInputAnatomy} from './number-input-anatomy.js';
-export {getNumberInputContext} from './number-input-context.svelte.js';
+export {
+  getNumberInputContext,
+  setNumberInputContext,
+} from './number-input-context.svelte.js';

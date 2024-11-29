@@ -10,4 +10,12 @@ export type {AlertDialogTitleProps} from './alert-dialog-title.svelte';
 export type {AlertDialogTriggerProps} from './alert-dialog-trigger.svelte';
 
 export {anatomy as alertDialogAnatomy} from './alert-dialog-anatomy.js';
-export {getAlertDialogContext} from './alert-dialog-context.svelte.js';
+export {
+  getAlertDialogContext,
+  setAlertDialogContext,
+} from './alert-dialog-context.svelte.js';
+export {
+  createAlertDialog,
+  type CreateAlertDialogProps,
+  type CreateAlertDialogReturn,
+} from './create-alert-dialog.svelte.js';

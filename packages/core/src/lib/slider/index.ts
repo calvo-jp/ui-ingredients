@@ -12,5 +12,10 @@ export type {SliderThumbProps} from './slider-thumb.svelte';
 export type {SliderTrackProps} from './slider-track.svelte';
 export type {SliderValueTextProps} from './slider-value-text.svelte';
 
+export {
+  createSlider,
+  type CreateSliderProps,
+  type CreateSliderReturn,
+} from './create-slider.svelte.js';
 export {anatomy as sliderAnatomy} from './slider-anatomy.js';
-export {getSliderContext} from './slider-context.svelte.js';
+export {getSliderContext, setSliderContext} from './slider-context.svelte.js';

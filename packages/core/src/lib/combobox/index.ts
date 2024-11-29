@@ -16,4 +16,12 @@ export type {ComboboxProps} from './combobox-root.svelte';
 export type {ComboboxTriggerProps} from './combobox-trigger.svelte';
 
 export {anatomy as comboboxAnatomy} from './combobox-anatomy.js';
-export {getComboboxContext} from './combobox-context.svelte.js';
+export {
+  getComboboxContext,
+  setComboboxContext,
+} from './combobox-context.svelte.js';
+export {
+  createCombobox,
+  type CreateComboboxProps,
+  type CreateComboboxReturn,
+} from './create-combobox.svelte.js';

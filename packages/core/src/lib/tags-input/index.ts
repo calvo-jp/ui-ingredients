@@ -12,5 +12,13 @@ export type {TagsInputItemProps} from './tags-input-item.svelte';
 export type {TagsInputLabelProps} from './tags-input-label.svelte';
 export type {TagsInputProps} from './tags-input-root.svelte';
 
+export {
+  createTagsInput,
+  type CreateTagsInputProps,
+  type CreateTagsInputReturn,
+} from './create-tags-input.svelte.js';
 export {anatomy as tagsInputAnatomy} from './tags-input-anatomy.js';
-export {getTagsInputContext} from './tags-input-context.svelte.js';
+export {
+  getTagsInputContext,
+  setTagsInputContext,
+} from './tags-input-context.svelte.js';

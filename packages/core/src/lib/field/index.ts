@@ -9,5 +9,10 @@ export type {FieldProps} from './field-root.svelte';
 export type {FieldSelectProps} from './field-select.svelte';
 export type {FieldTextareaProps} from './field-textarea.svelte';
 
+export {
+  createField,
+  type CreateFieldProps,
+  type CreateFieldReturn,
+} from './create-field.svelte.js';
 export {anatomy as fieldAnatomy} from './field-anatomy.js';
-export {getFieldContext} from './field-context.svelte.js';
+export {getFieldContext, setFieldContext} from './field-context.svelte.js';

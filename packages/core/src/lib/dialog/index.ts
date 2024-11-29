@@ -9,5 +9,10 @@ export type {DialogProps} from './dialog-root.svelte';
 export type {DialogTitleProps} from './dialog-title.svelte';
 export type {DialogTriggerProps} from './dialog-trigger.svelte';
 
+export {
+  createDialog,
+  type CreateDialogProps,
+  type CreateDialogReturn,
+} from './create-dialog.svelte.js';
 export {anatomy as dialogAnatomy} from './dialog-anatomy.js';
-export {getDialogContext} from './dialog-context.svelte.js';
+export {getDialogContext, setDialogContext} from './dialog-context.svelte.js';

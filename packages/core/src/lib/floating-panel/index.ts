@@ -14,5 +14,13 @@ export type {FloatingPanelProps} from './floating-panel-root.svelte';
 export type {FloatingPanelTitleProps} from './floating-panel-title.svelte';
 export type {FloatingPanelTriggerProps} from './floating-panel-trigger.svelte';
 
+export {
+  createFloatingPanel,
+  type CreateFloatingPanelProps,
+  type CreateFloatingPanelReturn,
+} from './create-floating-panel.svelte.js';
 export {anatomy as floatingPanelAnatomy} from './floating-panel-anatomy.js';
-export {getFloatingPanelContext} from './floating-panel-context.svelte.js';
+export {
+  getFloatingPanelContext,
+  setFloatingPanelContext,
+} from './floating-panel-context.svelte.js';

@@ -1,5 +1,6 @@
 export {
   getEnvironmentContext,
+  setEnvironmentContext,
   type Environment,
 } from './enviroment-provider-context.svelte.js';
 export {

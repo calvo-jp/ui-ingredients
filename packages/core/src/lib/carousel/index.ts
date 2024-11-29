@@ -10,4 +10,12 @@ export type {CarouselProps} from './carousel-root.svelte';
 export type {CarouselViewportProps} from './carousel-viewport.svelte';
 
 export {anatomy as carouselAnatomy} from './carousel-anatomy.js';
-export {getCarouselContext} from './carousel-context.svelte.js';
+export {
+  getCarouselContext,
+  setCarouselContext,
+} from './carousel-context.svelte.js';
+export {
+  createCarousel,
+  type CreateCarouselProps,
+  type CreateCarouselReturn,
+} from './create-carousel.svelte.js';

@@ -16,5 +16,13 @@ export type {TimePickerSecondCellProps} from './time-picker-second-cell.svelte';
 export type {TimePickerSpacerProps} from './time-picker-spacer.svelte';
 export type {TimePickerTriggerProps} from './time-picker-trigger.svelte';
 
+export {
+  createTimePicker,
+  type CreateTimePickerProps,
+  type CreateTimePickerReturn,
+} from './create-time-picker.svelte.js';
 export {anatomy as timePickerAnatomy} from './time-picker-anatomy.js';
-export {getTimePickerContext} from './time-picker-context.svelte.js';
+export {
+  getTimePickerContext,
+  setTimePickerContext,
+} from './time-picker-context.svelte.js';

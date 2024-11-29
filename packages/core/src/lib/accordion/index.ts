@@ -7,4 +7,12 @@ export type {AccordionItemProps} from './accordion-item.svelte';
 export type {AccordionProps} from './accordion-root.svelte';
 
 export {anatomy as accordionAnatomy} from './accordion-anatomy.js';
-export {getAccordionContext} from './accordion-context.svelte.js';
+export {
+  getAccordionContext,
+  setAccordionContext,
+} from './accordion-context.svelte.js';
+export {
+  createAccordion,
+  type CreateAccordionProps,
+  type CreateAccordionReturn,
+} from './create-accordion.svelte.js';

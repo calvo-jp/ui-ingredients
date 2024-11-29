@@ -1,6 +1,7 @@
 export * from './accordion/index.js';
 export * from './alert-dialog/index.js';
 export * from './alert/index.js';
+export * from './angle-slider/index.js';
 export * from './avatar/index.js';
 export * from './breadcrumbs/index.js';
 export * from './carousel/index.js';

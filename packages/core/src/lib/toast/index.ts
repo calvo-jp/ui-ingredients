@@ -8,8 +8,13 @@ export type {ToastGhostBeforeProps} from './toast-ghost-before.svelte';
 export type {ToastProps} from './toast-root.svelte';
 export type {ToastTitleProps} from './toast-title.svelte';
 
+export {
+  createToast,
+  type CreateToastProps,
+  type CreateToastReturn,
+} from './create-toast.svelte.js';
 export {anatomy as toastAnatomy} from './toast-anatomy.js';
-export {getToastContext} from './toast-context.svelte.js';
+export {getToastContext, setToastContext} from './toast-context.svelte.js';
 
 export {
   createToaster,

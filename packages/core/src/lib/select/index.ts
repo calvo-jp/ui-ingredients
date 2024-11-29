@@ -17,5 +17,10 @@ export type {SelectProps} from './select-root.svelte';
 export type {SelectTriggerProps} from './select-trigger.svelte';
 export type {SelectValueTextProps} from './select-value-text.svelte';
 
+export {
+  createSelect,
+  type CreateSelectProps,
+  type CreateSelectReturn,
+} from './create-select.svelte.js';
 export {anatomy as selectAnatomy} from './select-anatomy.js';
-export {getSelectContext} from './select-context.svelte.js';
+export {getSelectContext, setSelectContext} from './select-context.svelte.js';

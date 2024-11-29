@@ -7,4 +7,12 @@ export type {CheckboxLabelProps} from './checkbox-label.svelte';
 export type {CheckboxProps} from './checkbox-root.svelte';
 
 export {anatomy as checkboxAnatomy} from './checkbox-anatomy.js';
-export {getCheckboxContext} from './checkbox-context.svelte.js';
+export {
+  getCheckboxContext,
+  setCheckboxContext,
+} from './checkbox-context.svelte.js';
+export {
+  createCheckbox,
+  type CreateCheckboxProps,
+  type CreateCheckboxReturn,
+} from './create-checkbox.svelte.js';

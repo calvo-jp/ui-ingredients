@@ -1,6 +1,5 @@
 export * as Tour from './tour.js';
 
-export type {TourStepDetails} from './create-tour.svelte.js';
 export type {TourActionTriggerProps} from './tour-action-trigger.svelte';
 export type {TourArrowTipProps} from './tour-arrow-tip.svelte';
 export type {TourArrowProps} from './tour-arrow.svelte';
@@ -15,5 +14,11 @@ export type {TourSpotlightProps} from './tour-spotlight.svelte';
 export type {TourTitleProps} from './tour-title.svelte';
 export type {TourTriggerProps} from './tour-trigger.svelte';
 
+export {
+  createTour,
+  type CreateTourProps,
+  type CreateTourReturn,
+  type TourStepDetails,
+} from './create-tour.svelte.js';
 export {anatomy as tourAnatomy} from './tour-anatomy.js';
-export {getTourContext} from './tour-context.svelte.js';
+export {getTourContext, setTourContext} from './tour-context.svelte.js';

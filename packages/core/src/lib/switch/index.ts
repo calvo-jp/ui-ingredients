@@ -6,5 +6,10 @@ export type {SwitchLabelProps} from './switch-label.svelte';
 export type {SwitchProps} from './switch-root.svelte';
 export type {SwitchThumbProps} from './switch-thumb.svelte';
 
+export {
+  createSwitch,
+  type CreateSwitchProps,
+  type CreateSwitchReturn,
+} from './create-switch.svelte.js';
 export {anatomy as switchAnatomy} from './switch-anatomy.js';
-export {getSwitchContext} from './switch-context.svelte.js';
+export {getSwitchContext, setSwitchContext} from './switch-context.svelte.js';

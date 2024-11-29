@@ -10,5 +10,13 @@ export type {ProgressTrackProps} from './progress-track.svelte';
 export type {ProgressValueTextProps} from './progress-value-text.svelte';
 export type {ProgressViewProps} from './progress-view.svelte';
 
+export {
+  createProgress,
+  type CreateProgressProps,
+  type CreateProgressReturn,
+} from './create-progress.svelte.js';
 export {anatomy as progressAnatomy} from './progress-anatomy.js';
-export {getProgressContext} from './progress-context.svelte.js';
+export {
+  getProgressContext,
+  setProgressContext,
+} from './progress-context.svelte.js';

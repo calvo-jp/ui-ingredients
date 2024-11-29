@@ -9,5 +9,10 @@ export type {TimerItemProps} from './timer-item.svelte';
 export type {TimerProps} from './timer-root.svelte';
 export type {TimerSeparatorProps} from './timer-separator.svelte';
 
+export {
+  createTimer,
+  type CreateTimerProps,
+  type CreateTimerReturn,
+} from './create-timer.svelte.js';
 export {anatomy as timerAnatomy} from './timer-anatomy.js';
-export {getTimerContext} from './timer-context.svelte.js';
+export {getTimerContext, setTimerContext} from './timer-context.svelte.js';

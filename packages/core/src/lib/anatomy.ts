@@ -1,6 +1,7 @@
 export {anatomy as accordionAnatomy} from './accordion/accordion-anatomy.js';
 export {anatomy as alertDialogAnatomy} from './alert-dialog/alert-dialog-anatomy.js';
 export {anatomy as alertAnatomy} from './alert/alert-anatomy.js';
+export {anatomy as angleSliderAnatomy} from './angle-slider/angle-slider-anatomy.js';
 export {anatomy as avatarAnatomy} from './avatar/avatar-anatomy.js';
 export {anatomy as breadcrumbsAnatomy} from './breadcrumbs/breadcrumbs-anatomy.js';
 export {anatomy as carouselAnatomy} from './carousel/carousel-anatomy.js';

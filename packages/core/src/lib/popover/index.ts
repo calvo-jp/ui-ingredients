@@ -12,5 +12,13 @@ export type {PopoverProps} from './popover-root.svelte';
 export type {PopoverTitleProps} from './popover-title.svelte';
 export type {PopoverTriggerProps} from './popover-trigger.svelte';
 
+export {
+  createPopover,
+  type CreatePopoverProps,
+  type CreatePopoverReturn,
+} from './create-popover.svelte.js';
 export {anatomy as popoverAnatomy} from './popover-anatomy.js';
-export {getPopoverContext} from './popover-context.svelte.js';
+export {
+  getPopoverContext,
+  setPopoverContext,
+} from './popover-context.svelte.js';
