@@ -1,6 +1,6 @@
 export {default as Control} from './angle-slider-control.svelte';
 export {default as HiddenInput} from './angle-slider-hidden-input.svelte';
-export {default as SliderLabel} from './angle-slider-label.svelte';
+export {default as Label} from './angle-slider-label.svelte';
 export {default as MarkerGroup} from './angle-slider-marker-group.svelte';
 export {default as Marker} from './angle-slider-marker.svelte';
 export {default as Root} from './angle-slider-root.svelte';
