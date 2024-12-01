@@ -14,6 +14,10 @@ const COMPONENT_LINKS: Link[] = [
     label: 'Alert',
   },
   {
+    path: '/components/angle-slider',
+    label: 'Angle Slider',
+  },
+  {
     path: '/components/alert-dialog',
     label: 'Alert Dialog',
   },

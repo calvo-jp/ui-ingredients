@@ -1,6 +1,7 @@
 export {default as AccordionDemo} from './accordion.svelte';
 export {default as AlertDialogDemo} from './alert-dialog.svelte';
 export {default as AlertDemo} from './alert.svelte';
+export {default as AngleSliderDemo} from './angle-slider.svelte';
 export {default as AvatarDemo} from './avatar.svelte';
 export {default as BreadcrumbsDemo} from './breadcrumbs.svelte';
 export {default as CarouselDemo} from './carousel.svelte';
