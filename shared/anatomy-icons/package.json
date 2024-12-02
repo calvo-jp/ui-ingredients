@@ -31,14 +31,14 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.3.1",
-    "@sveltejs/kit": "^2.8.2",
+    "@sveltejs/kit": "^2.9.0",
     "@sveltejs/package": "^2.3.7",
-    "@sveltejs/vite-plugin-svelte": "^4.0.1",
+    "@sveltejs/vite-plugin-svelte": "^5.0.1",
     "publint": "^0.2.12",
-    "svelte": "^5.2.7",
+    "svelte": "^5.3.1",
     "svelte-check": "^4.1.0",
     "typescript": "^5.7.2",
-    "vite": "^5.4.11"
+    "vite": "^6.0.1"
   },
   "peerDependencies": {
     "svelte": "^5.0.0"

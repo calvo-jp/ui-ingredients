@@ -5,6 +5,7 @@
   import accordion from './accordion';
   import alert from './alert';
   import alertDialog from './alert-dialog';
+  import angleSlider from './angle-slider';
   import avatar from './avatar';
   import breadcrumbs from './breadcrumbs';
   import carousel from './carousel';
@@ -57,6 +58,7 @@
     accordion,
     'alert-dialog': alertDialog,
     alert,
+    'angle-slider': angleSlider,
     avatar,
     breadcrumbs,
     carousel,
@@ -133,7 +135,7 @@
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {@const ctx = Object.entries(j.context).toSorted(([a], [b]) => {
+        {@const ctx = Object.entries(j?.context ?? {}).toSorted(([a], [b]) => {
           if (a.toLowerCase() === 'aschild') return 1;
           if (b.toLowerCase() === 'aschild') return -1;
           return a.localeCompare(b);
@@ -168,7 +170,7 @@
     </Table.Root>
   </Table.Container>
 
-  {#if j.dataAttr}
+  {#if j?.dataAttr}
     <Table.Container class="not-prose mt-8">
       <Table.Root>
         <Table.Header>
