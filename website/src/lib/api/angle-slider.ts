@@ -31,25 +31,8 @@ export default apiEntryFromAnatomy(angleSliderAnatomy)({
       },
     },
   },
-  Item: {
-    dataAttr: dataAttrDoc.Item,
-    context: {
-      value: {
-        type: 'string',
-        description: 'The value of the item.',
-      },
-      asChild: {
-        type: 'Snippet',
-        description: 'Render a different element.',
-      },
-      disabled: {
-        type: 'boolean',
-        description: 'Whether the item is disabled.',
-      },
-    },
-  },
-  ItemTrigger: {
-    dataAttr: dataAttrDoc.ItemTrigger,
+  Control: {
+    dataAttr: dataAttrDoc.Control,
     context: {
       asChild: {
         type: 'Snippet',
@@ -57,8 +40,8 @@ export default apiEntryFromAnatomy(angleSliderAnatomy)({
       },
     },
   },
-  ItemContent: {
-    dataAttr: dataAttrDoc.ItemContent,
+  Label: {
+    dataAttr: dataAttrDoc.Label,
     context: {
       asChild: {
         type: 'Snippet',
@@ -66,8 +49,44 @@ export default apiEntryFromAnatomy(angleSliderAnatomy)({
       },
     },
   },
-  ItemIndicator: {
-    dataAttr: dataAttrDoc.ItemIndicator,
+  Marker: {
+    dataAttr: dataAttrDoc.Marker,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  MarkerGroup: {
+    dataAttr: dataAttrDoc.MarkerGroup,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  Thumb: {
+    dataAttr: dataAttrDoc.Thumb,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  Track: {
+    dataAttr: dataAttrDoc.Track,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  ValueText: {
+    dataAttr: dataAttrDoc.ValueText,
     context: {
       asChild: {
         type: 'Snippet',
