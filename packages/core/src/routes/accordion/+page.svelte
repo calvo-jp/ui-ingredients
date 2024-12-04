@@ -4,17 +4,17 @@
 
   let items = [
     {
-      value: 'one',
+      value: '1',
       label: 'Item 1',
       content: 'Item 1 Description',
     },
     {
-      value: 'two',
+      value: '2',
       label: 'Item 2',
       content: 'Item 2 Description',
     },
     {
-      value: 'three',
+      value: '3',
       label: 'Item 3',
       content: 'Item 3 Description',
     },
