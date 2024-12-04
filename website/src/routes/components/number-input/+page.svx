@@ -47,7 +47,7 @@ description: A component for entering numeric values
 </NumberInput.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

@@ -49,7 +49,7 @@ description: A component for selecting a rating value, typically represented by 
 </RatingGroup.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

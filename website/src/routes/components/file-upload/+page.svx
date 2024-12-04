@@ -59,7 +59,7 @@ description: A component for selecting and uploading files from the user's devic
 </FileUpload.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

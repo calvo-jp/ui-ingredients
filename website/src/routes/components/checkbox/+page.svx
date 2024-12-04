@@ -44,7 +44,7 @@ description: An interactive component for selecting one or multiple options in a
 </Checkbox.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

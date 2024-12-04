@@ -42,7 +42,7 @@ description: A component for entering and displaying a sequence of numeric or al
 </PinInput.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

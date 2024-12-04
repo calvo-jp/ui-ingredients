@@ -96,7 +96,7 @@ description: A component that combines a text input with a dropdown list for sel
 </Combobox.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

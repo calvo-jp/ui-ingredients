@@ -48,7 +48,7 @@ description: A component that allows users to modify its content.
 </Editable.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

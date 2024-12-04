@@ -41,7 +41,7 @@ description: A component for toggling between two states, such as on/off or enab
 </Switch.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

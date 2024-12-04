@@ -66,7 +66,7 @@ description: A component for choosing an option from a dropdown list.
 </Select.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>

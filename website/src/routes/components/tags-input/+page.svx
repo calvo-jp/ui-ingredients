@@ -57,7 +57,7 @@ description: A component for adding and managing a list of tags or keywords, oft
 </TagsInput.Root>
 ```
 
-### Usage with `Field` component
+### Usage with Field component
 
 ```svelte
 <script>
