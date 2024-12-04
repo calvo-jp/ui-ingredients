@@ -1,4 +1,8 @@
 import {createContext} from '../create-context.svelte.js';
 
+interface PortalProviderProps {
+  container?: HTMLElement | null;
+}
+
 export const [getPortalProviderPropsContext, setPortalProviderPropsContext] =
-  createContext<{container?: HTMLElement}>('PortalProvider [PROPS]', false);
+  createContext<PortalProviderProps>('PortalProvider [PROPS]', false);

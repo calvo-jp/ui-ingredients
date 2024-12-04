@@ -4,7 +4,7 @@
 
   interface PortalActionProps {
     disabled?: boolean;
-    container?: HTMLElement;
+    container?: HTMLElement | null;
   }
 
   export interface PortalProps
@@ -30,8 +30,11 @@
 
 <div
   use:portal={{
-    ...portalProviderProps,
-    ...portalActionProps,
+    container:
+      portalActionProps.container ??
+      portalProviderProps?.container ??
+      undefined,
+    disabled: portalActionProps.disabled ?? false,
     getRootNode: environment?.getRootNode,
   }}
   {...localProps}

@@ -3,7 +3,7 @@
   import {setPortalProviderPropsContext} from './portal-context.svelte.js';
 
   export interface PortalProviderProps {
-    container?: HTMLElement;
+    container?: HTMLElement | null;
     children?: Snippet;
   }
 </script>
