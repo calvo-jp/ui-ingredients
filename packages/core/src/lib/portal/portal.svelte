@@ -1,32 +1,40 @@
 <script lang="ts" module>
-  import {type Snippet} from 'svelte';
+  import type {Assign} from '$lib/types.js';
+  import type {SvelteHTMLElements} from 'svelte/elements';
 
-  export interface PortalProps {
-    container?: HTMLElement;
+  interface PortalActionProps {
     disabled?: boolean;
-    children: Snippet;
-    [x: `data-${string}`]: string | number | boolean | null | undefined;
+    container?: HTMLElement;
   }
+
+  export interface PortalProps
+    extends Assign<SvelteHTMLElements['div'], PortalActionProps> {}
 </script>
 
 <script lang="ts">
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {portal} from '@zag-js/svelte';
+  import {createSplitProps} from '@zag-js/utils';
+  import {getPortalProviderPropsContext} from './portal-context.svelte.js';
 
-  let {container, disabled, children, ...props}: PortalProps = $props();
+  let {children, ...props}: PortalProps = $props();
 
+  let [portalActionProps, localProps] = createSplitProps<PortalActionProps>([
+    'container',
+    'disabled',
+  ])(props);
+
+  let portalProviderProps = getPortalProviderPropsContext();
   let environment = getEnvironmentContext();
 </script>
 
 <div
   use:portal={{
-    disabled,
-    container,
+    ...portalProviderProps,
+    ...portalActionProps,
     getRootNode: environment?.getRootNode,
   }}
-  data-scope="portal"
-  data-part="root"
-  {...props}
+  {...localProps}
 >
   {@render children?.()}
 </div>
