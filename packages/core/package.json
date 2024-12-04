@@ -23,6 +23,10 @@
       "types": "./dist/alert-dialog/index.d.ts",
       "svelte": "./dist/alert-dialog/index.js"
     },
+    "./angle-slider": {
+      "types": "./dist/angle-slider/index.d.ts",
+      "svelte": "./dist/angle-slider/index.js"
+    },
     "./avatar": {
       "types": "./dist/avatar/index.d.ts",
       "svelte": "./dist/avatar/index.js"
