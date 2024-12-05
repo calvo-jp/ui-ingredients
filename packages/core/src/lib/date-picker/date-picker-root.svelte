@@ -45,7 +45,6 @@
       'openControlled',
       'view',
       'value',
-      'modal',
       'format',
       'locale',
       'disabled',

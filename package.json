@@ -20,7 +20,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-svelte": "^2.46.1",
     "globals": "^15.13.0",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-svelte": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2",
