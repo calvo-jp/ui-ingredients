@@ -14,6 +14,10 @@ export default apiEntryFromAnatomy(paginationAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      index: {
+        type: 'number',
+        description: 'The index of the ellipsis.',
+      },
     },
   },
   Item: {
@@ -22,6 +26,10 @@ export default apiEntryFromAnatomy(paginationAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      index: {
+        type: 'number',
+        description: 'The index of the item.',
       },
     },
   },

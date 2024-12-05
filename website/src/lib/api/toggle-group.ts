@@ -14,6 +14,14 @@ export default apiEntryFromAnatomy(toggleGroupAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'string',
+        description: 'The value of the item.',
+      },
+      disabled: {
+        type: 'boolean',
+        description: 'Whether the item is disabled.',
+      },
     },
   },
   Root: {

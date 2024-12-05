@@ -14,6 +14,9 @@ export default apiEntryFromAnatomy(timerAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      action: {
+        type: 'TimerAction',
+      },
     },
   },
   Area: {
@@ -40,6 +43,9 @@ export default apiEntryFromAnatomy(timerAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      type: {
+        type: 'keyof Time<number>',
       },
     },
   },

@@ -50,6 +50,15 @@ export default apiEntryFromAnatomy(selectAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      item: {
+        type: 'any',
+        description: 'The item data.',
+      },
+      persistFocus: {
+        type: 'boolean',
+        description:
+          'Whether hovering outside should clear the highlighted state.',
+      },
     },
   },
   ItemGroup: {
@@ -154,6 +163,11 @@ export default apiEntryFromAnatomy(selectAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      placeholder: {
+        type: 'string',
+        description:
+          'The placeholder text to display when no value is selected.',
       },
     },
   },

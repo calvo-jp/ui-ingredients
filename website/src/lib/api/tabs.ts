@@ -14,6 +14,10 @@ export default apiEntryFromAnatomy(tabsAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'string',
+        description: 'The value of the tab.',
+      },
     },
   },
   Indicator: {
@@ -56,6 +60,14 @@ export default apiEntryFromAnatomy(tabsAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      value: {
+        type: 'string',
+        description: 'The value of the tab.',
+      },
+      disabled: {
+        type: 'boolean',
+        description: 'Whether the tab is disabled.',
       },
     },
   },

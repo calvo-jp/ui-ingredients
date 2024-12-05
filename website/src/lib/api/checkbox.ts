@@ -50,4 +50,12 @@ export default apiEntryFromAnatomy(checkboxAnatomy)({
       },
     },
   },
+  HiddenInput: {
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
 });

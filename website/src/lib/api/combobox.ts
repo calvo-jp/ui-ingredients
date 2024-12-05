@@ -50,6 +50,15 @@ export default apiEntryFromAnatomy(comboboxAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      item: {
+        type: 'any',
+        description: 'The item data.',
+      },
+      persistFocus: {
+        type: 'boolean',
+        description:
+          'Whether hovering outside should clear the highlighted state.',
+      },
     },
   },
   ItemGroup: {
@@ -150,6 +159,10 @@ export default apiEntryFromAnatomy(comboboxAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      focusable: {
+        type: 'boolean',
+        description: 'Whether the trigger is focusable.',
       },
     },
   },

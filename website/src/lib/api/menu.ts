@@ -59,6 +59,22 @@ export default apiEntryFromAnatomy(menuAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'string',
+        description: 'The value of the item.',
+      },
+      valueText: {
+        type: 'string',
+        description: 'The text value of the item.',
+      },
+      disabled: {
+        type: 'boolean',
+        description: 'Whether the item is disabled.',
+      },
+      closeOnSelect: {
+        type: 'boolean',
+        description: 'Whether the menu should close when the item is selected.',
+      },
     },
   },
   ItemGroup: {
@@ -79,8 +95,8 @@ export default apiEntryFromAnatomy(menuAnatomy)({
       },
     },
   },
-  ItemIndicator: {
-    dataAttr: dataAttrDoc.ItemIndicator,
+  Positioner: {
+    dataAttr: dataAttrDoc.Positioner,
     context: {
       asChild: {
         type: 'Snippet',
@@ -88,7 +104,40 @@ export default apiEntryFromAnatomy(menuAnatomy)({
       },
     },
   },
-  ItemText: {
+  OptionItem: {
+    dataAttr: dataAttrDoc.Item,
+    context: {
+      type: {
+        type: "'checkbox' | 'radio'",
+        description: 'The type of the item.',
+      },
+      value: {
+        type: 'string',
+        description: 'The value of the item',
+      },
+      checked: {
+        type: 'boolean',
+        description: 'Whether the item is checked.',
+      },
+      disabled: {
+        type: 'boolean',
+        description: 'Whether the item is disabled.',
+      },
+      valueText: {
+        type: 'string',
+        description: 'The text value of the item.',
+      },
+      closeOnSelect: {
+        type: 'boolean',
+        description: 'Whether the menu should close when the item is selected.',
+      },
+      onCheckedChange: {
+        type: '(checked:boolean)=>void',
+        description: 'Callback for when the item is checked.',
+      },
+    },
+  },
+  OptionItemText: {
     dataAttr: dataAttrDoc.ItemText,
     context: {
       asChild: {
@@ -97,8 +146,8 @@ export default apiEntryFromAnatomy(menuAnatomy)({
       },
     },
   },
-  Positioner: {
-    dataAttr: dataAttrDoc.Positioner,
+  OptionItemIndicator: {
+    dataAttr: dataAttrDoc.ItemIndicator,
     context: {
       asChild: {
         type: 'Snippet',

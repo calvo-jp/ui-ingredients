@@ -94,4 +94,12 @@ export default apiEntryFromAnatomy(angleSliderAnatomy)({
       },
     },
   },
+  HiddenInput: {
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
 });

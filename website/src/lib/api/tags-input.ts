@@ -41,6 +41,16 @@ export default apiEntryFromAnatomy(tagsInputAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'string',
+      },
+      index: {
+        type: 'string | number',
+      },
+      disabled: {
+        type: 'boolean',
+        description: 'Whether the item is disabled.',
+      },
     },
   },
   ItemDeleteTrigger: {
@@ -98,6 +108,14 @@ export default apiEntryFromAnatomy(tagsInputAnatomy)({
         description:
           'The ids of the elements in the tags input. Useful for composition.',
       },
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  HiddenInput: {
+    context: {
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

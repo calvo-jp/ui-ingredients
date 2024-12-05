@@ -23,6 +23,10 @@ export default apiEntryFromAnatomy(ratingGroupAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      index: {
+        type: 'number',
+        description: 'The index of the item.',
+      },
     },
   },
   Label: {
@@ -44,6 +48,14 @@ export default apiEntryFromAnatomy(ratingGroupAnatomy)({
         description:
           'The ids of the elements in the rating. Useful for composition.',
       },
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  HiddenInput: {
+    context: {
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

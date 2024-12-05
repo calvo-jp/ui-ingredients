@@ -14,6 +14,9 @@ export default apiEntryFromAnatomy(tourAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      action: {
+        type: 'StepAction',
+      },
     },
   },
   Arrow: {

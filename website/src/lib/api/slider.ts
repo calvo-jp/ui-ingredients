@@ -41,6 +41,9 @@ export default apiEntryFromAnatomy(sliderAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'number',
+      },
     },
   },
   MarkerGroup: {
@@ -97,6 +100,14 @@ export default apiEntryFromAnatomy(sliderAnatomy)({
   },
   ValueText: {
     dataAttr: dataAttrDoc.ValueText,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  HiddenInput: {
     context: {
       asChild: {
         type: 'Snippet',

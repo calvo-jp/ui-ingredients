@@ -23,6 +23,18 @@ export default apiEntryFromAnatomy(radioGroupAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'string',
+        description: 'The value of the item.',
+      },
+      disabled: {
+        type: 'boolean',
+        description: 'Whether the item is disabled.',
+      },
+      invalid: {
+        type: 'boolean',
+        description: 'Whether the item is invalid.',
+      },
     },
   },
   ItemControl: {
@@ -62,6 +74,14 @@ export default apiEntryFromAnatomy(radioGroupAnatomy)({
         description:
           'The ids of the elements in the radio. Useful for composition.',
       },
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  HiddenInput: {
+    context: {
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

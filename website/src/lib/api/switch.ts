@@ -50,4 +50,12 @@ export default apiEntryFromAnatomy(switchAnatomy)({
       },
     },
   },
+  HiddenInput: {
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
 });

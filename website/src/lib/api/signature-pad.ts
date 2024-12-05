@@ -82,4 +82,16 @@ export default apiEntryFromAnatomy(signaturePadAnatomy)({
       },
     },
   },
+  HiddenInput: {
+    dataAttr: dataAttrDoc.HiddenInput,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+      value: {
+        type: 'string',
+      },
+    },
+  },
 });

@@ -32,6 +32,10 @@ export default apiEntryFromAnatomy(fileUploadAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      file: {
+        type: 'File',
+        description: 'The file object.',
+      },
     },
   },
   ItemDeleteTrigger: {
@@ -114,6 +118,14 @@ export default apiEntryFromAnatomy(fileUploadAnatomy)({
   },
   Trigger: {
     dataAttr: dataAttrDoc.Trigger,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  HiddenInput: {
     context: {
       asChild: {
         type: 'Snippet',

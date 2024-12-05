@@ -1,12 +1,17 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import {mergeProps} from '$lib/merge-props.js';
+  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
 
   export interface ComboboxTriggerProps
-    extends HtmlIngredientProps<'button', HTMLButtonElement> {}
+    extends Assign<
+      HtmlIngredientProps<'button', HTMLButtonElement>,
+      TriggerProps
+    > {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import type {TriggerProps} from '@zag-js/combobox';
+  import {createSplitProps} from '@zag-js/utils';
   import {getComboboxContext} from './combobox-context.svelte.js';
 
   let {
@@ -16,9 +21,15 @@
     ...props
   }: ComboboxTriggerProps = $props();
 
+  let [triggerProps, localProps] = $derived(
+    createSplitProps<TriggerProps>(['focusable'])(props),
+  );
+
   let combobox = getComboboxContext();
 
-  let mergedProps = $derived(mergeProps(combobox.getTriggerProps(), props));
+  let mergedProps = $derived(
+    mergeProps(combobox.getTriggerProps(triggerProps), localProps),
+  );
 </script>
 
 {#if asChild}

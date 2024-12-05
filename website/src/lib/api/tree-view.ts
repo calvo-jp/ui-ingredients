@@ -14,6 +14,12 @@ export default apiEntryFromAnatomy(treeViewAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      node: {
+        type: 'any',
+      },
+      indexPath: {
+        type: 'number[]',
+      },
     },
   },
   BranchContent: {
@@ -76,6 +82,12 @@ export default apiEntryFromAnatomy(treeViewAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      node: {
+        type: 'any',
+      },
+      indexPath: {
+        type: 'number[]',
       },
     },
   },

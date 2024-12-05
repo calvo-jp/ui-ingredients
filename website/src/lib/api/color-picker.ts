@@ -41,6 +41,12 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      channel: {
+        type: 'ExtendedColorChannel',
+      },
+      orientation: {
+        type: 'Orientation',
+      },
     },
   },
   ChannelSlider: {
@@ -49,6 +55,12 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      channel: {
+        type: 'ColorChannel',
+      },
+      orientation: {
+        type: 'Orientation',
       },
     },
   },
@@ -187,6 +199,14 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'string | Color',
+        description: 'The color value of the swatch.',
+      },
+      respectAlpha: {
+        type: 'boolean',
+        description: 'Whether to respect the alpha channel of the color.',
+      },
     },
   },
   SwatchGroup: {
@@ -214,6 +234,14 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'string | Color',
+        description: 'The color value of the swatch.',
+      },
+      disabled: {
+        type: 'boolean',
+        description: 'Whether the swatch is disabled.',
+      },
     },
   },
   TransparencyGrid: {
@@ -223,6 +251,9 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      size: {
+        type: 'string',
+      },
     },
   },
   Trigger: {
@@ -231,6 +262,18 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+    },
+  },
+  ValueSwatch: {
+    dataAttr: dataAttrDoc.Swatch,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+      respectAlpha: {
+        type: 'boolean',
       },
     },
   },
@@ -245,6 +288,14 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
   },
   View: {
     dataAttr: dataAttrDoc.View,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  HiddenInput: {
     context: {
       asChild: {
         type: 'Snippet',

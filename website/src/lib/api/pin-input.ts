@@ -32,6 +32,10 @@ export default apiEntryFromAnatomy(pinInputAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      index: {
+        type: 'number',
+        description: 'The index of the input in the pin input.',
+      },
     },
   },
   Label: {
@@ -53,6 +57,14 @@ export default apiEntryFromAnatomy(pinInputAnatomy)({
         description:
           'The ids of the elements in the pin input. Useful for composition.',
       },
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  HiddenInput: {
+    context: {
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

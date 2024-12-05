@@ -14,6 +14,13 @@ export default apiEntryFromAnatomy(carouselAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      index: {
+        type: 'number',
+        description: 'The index of the indicator.',
+      },
+      readOnly: {
+        type: 'boolean',
+      },
     },
   },
   IndicatorGroup: {
@@ -28,6 +35,10 @@ export default apiEntryFromAnatomy(carouselAnatomy)({
   Item: {
     dataAttr: dataAttrDoc.Item,
     context: {
+      index: {
+        type: 'number',
+        description: 'The index of the item.',
+      },
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

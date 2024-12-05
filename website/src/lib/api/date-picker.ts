@@ -41,6 +41,9 @@ export default apiEntryFromAnatomy(datePickerAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      index: {
+        type: 'number',
+      },
     },
   },
   Label: {
@@ -85,6 +88,9 @@ export default apiEntryFromAnatomy(datePickerAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      value: {
+        type: 'PresetTriggerValue',
       },
     },
   },
@@ -141,6 +147,9 @@ export default apiEntryFromAnatomy(datePickerAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      columns: {
+        type: 'number',
       },
     },
   },
@@ -213,6 +222,9 @@ export default apiEntryFromAnatomy(datePickerAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      view: {
+        type: 'DateView',
       },
     },
   },

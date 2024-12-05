@@ -17,7 +17,7 @@ export default apiEntryFromAnatomy(progressAnatomy)({
     },
   },
   CircleRange: {
-    dataAttr: dataAttrDoc.CircleRa,
+    dataAttr: dataAttrDoc.CircleRange,
     context: {
       asChild: {
         type: 'Snippet',
@@ -26,7 +26,7 @@ export default apiEntryFromAnatomy(progressAnatomy)({
     },
   },
   CircleTrack: {
-    dataAttr: dataAttrDoc.CircleTr,
+    dataAttr: dataAttrDoc.CircleTrack,
     context: {
       asChild: {
         type: 'Snippet',
@@ -92,6 +92,9 @@ export default apiEntryFromAnatomy(progressAnatomy)({
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',
+      },
+      state: {
+        type: 'ProgressState',
       },
     },
   },

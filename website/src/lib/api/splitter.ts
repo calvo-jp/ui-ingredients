@@ -14,6 +14,12 @@ export default apiEntryFromAnatomy(splitterAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      id: {
+        type: 'PanelId',
+      },
+      snapSize: {
+        type: 'number',
+      },
     },
   },
   ResizeTrigger: {

@@ -14,6 +14,18 @@ export default apiEntryFromAnatomy(stepsAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      index: {
+        type: 'number',
+      },
+    },
+  },
+  CompletedContent: {
+    dataAttr: dataAttrDoc.Content,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
     },
   },
   Indicator: {
