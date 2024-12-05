@@ -56,6 +56,10 @@ export default apiEntryFromAnatomy(angleSliderAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      value: {
+        type: 'number',
+        description: 'The value of the marker.',
+      },
     },
   },
   MarkerGroup: {
