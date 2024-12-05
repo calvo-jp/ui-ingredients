@@ -16,6 +16,7 @@ const COMPONENT_LINKS: Link[] = [
   {
     path: '/components/angle-slider',
     label: 'Angle Slider',
+    betaBadge: true,
   },
   {
     path: '/components/alert-dialog',
