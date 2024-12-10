@@ -374,8 +374,8 @@ importers:
         specifier: ^0.12.0
         version: 0.12.0(svelte@5.10.0)
       '@zag-js/docs':
-        specifier: ^0.77.1
-        version: 0.77.1
+        specifier: ^0.78.2
+        version: 0.78.2
       shiki:
         specifier: ^1.24.1
         version: 1.24.1
@@ -392,8 +392,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(tailwindcss@3.4.16)
       ui-ingredients:
-        specifier: ^0.19.0
-        version: 0.19.0(@internationalized/date@3.5.5)(svelte@5.10.0)
+        specifier: ^0.20.0
+        version: 0.20.0(@internationalized/date@3.5.5)(svelte@5.10.0)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.5.1
@@ -1679,8 +1679,8 @@ packages:
   '@zag-js/dismissable@0.78.2':
     resolution: {integrity: sha512-lu1JqVMqQNpZniLBgvPj6hT/fvxDCZ1kWZKQFdT0IPk0IhAA3cOzQ7HkIJZ7cOryOrWrQey8ptFLK/SQld9Qzg==}
 
-  '@zag-js/docs@0.77.1':
-    resolution: {integrity: sha512-z27vQvijSi8friu0QWcyiuXDH6Xte7HMAnbMeGI4Il3LZrggYRFUqOoBkX2AGVRj3RFf20PRN/q0RR5Ef0BW+w==}
+  '@zag-js/docs@0.78.2':
+    resolution: {integrity: sha512-Neq7C8OJg+csYWehPOyVcb31G24SWhCIav1RNOE8EguXj48JH3/4V4oQBKdSZKuSlh7D2Jq8FKzk/WIG3H9eYQ==}
 
   '@zag-js/dom-event@0.77.1':
     resolution: {integrity: sha512-W5LYu/arBgHCGh3UYkkPclEYlDlZXbST+QPvma5pXv4pzkrFS0P189sLNEedE4hkIgkbIRwdaL6YJITbKD03cA==}
@@ -4204,6 +4204,11 @@ packages:
     peerDependencies:
       svelte: '>=5.0.0'
 
+  ui-ingredients@0.20.0:
+    resolution: {integrity: sha512-o5SJf6DK2KLdZ5hZU/FpX00pbpzERnO4QG2UsUoFNM9jY46YbIkM/xdjbHAfnT9f7Pxd4aoLbPJ53oKsdhp1cA==}
+    peerDependencies:
+      svelte: '>=5.0.0'
+
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
@@ -5878,7 +5883,7 @@ snapshots:
       '@zag-js/interact-outside': 0.78.2
       '@zag-js/utils': 0.78.2
 
-  '@zag-js/docs@0.77.1': {}
+  '@zag-js/docs@0.78.2': {}
 
   '@zag-js/dom-event@0.77.1':
     dependencies:
@@ -8885,6 +8890,60 @@ snapshots:
       '@zag-js/tour': 0.78.2
       '@zag-js/tree-view': 0.78.2
       '@zag-js/utils': 0.78.2
+      svelte: 5.10.0
+    transitivePeerDependencies:
+      - '@internationalized/date'
+
+  ui-ingredients@0.20.0(@internationalized/date@3.5.5)(svelte@5.10.0):
+    dependencies:
+      '@zag-js/accordion': 0.77.1
+      '@zag-js/anatomy': 0.77.1
+      '@zag-js/angle-slider': 0.78.2
+      '@zag-js/auto-resize': 0.77.1
+      '@zag-js/avatar': 0.77.1
+      '@zag-js/carousel': 0.77.1
+      '@zag-js/checkbox': 0.77.1
+      '@zag-js/clipboard': 0.77.1
+      '@zag-js/collapsible': 0.77.1
+      '@zag-js/color-picker': 0.77.1
+      '@zag-js/combobox': 0.77.1
+      '@zag-js/core': 0.77.1
+      '@zag-js/date-picker': 0.77.1(@internationalized/date@3.5.5)
+      '@zag-js/dialog': 0.77.1
+      '@zag-js/dom-query': 0.77.1
+      '@zag-js/editable': 0.77.1
+      '@zag-js/file-upload': 0.77.1
+      '@zag-js/floating-panel': 0.77.1
+      '@zag-js/highlight-word': 0.77.1
+      '@zag-js/hover-card': 0.77.1
+      '@zag-js/i18n-utils': 0.77.1
+      '@zag-js/menu': 0.77.1
+      '@zag-js/number-input': 0.77.1
+      '@zag-js/pagination': 0.77.1
+      '@zag-js/pin-input': 0.77.1
+      '@zag-js/popover': 0.77.1
+      '@zag-js/presence': 0.77.1
+      '@zag-js/progress': 0.77.1
+      '@zag-js/qr-code': 0.77.1
+      '@zag-js/radio-group': 0.77.1
+      '@zag-js/rating-group': 0.77.1
+      '@zag-js/select': 0.77.1
+      '@zag-js/signature-pad': 0.77.1
+      '@zag-js/slider': 0.77.1
+      '@zag-js/splitter': 0.77.1
+      '@zag-js/steps': 0.77.1
+      '@zag-js/svelte': 0.77.1(svelte@5.10.0)
+      '@zag-js/switch': 0.77.1
+      '@zag-js/tabs': 0.77.1
+      '@zag-js/tags-input': 0.77.1
+      '@zag-js/time-picker': 0.77.1(@internationalized/date@3.5.5)
+      '@zag-js/timer': 0.77.1
+      '@zag-js/toast': 0.77.1
+      '@zag-js/toggle-group': 0.77.1
+      '@zag-js/tooltip': 0.77.1
+      '@zag-js/tour': 0.77.1
+      '@zag-js/tree-view': 0.77.1
+      '@zag-js/utils': 0.77.1
       svelte: 5.10.0
     transitivePeerDependencies:
       - '@internationalized/date'
