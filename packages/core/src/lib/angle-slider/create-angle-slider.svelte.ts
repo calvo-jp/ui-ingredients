@@ -26,7 +26,9 @@ export function createAngleSlider(
     ...props,
   }));
 
+  // @ts-expect-error "Incompatible version of @zag-js/svelte"
   const [state, send] = useMachine(angleSlider.machine(context), {context});
 
+  // @ts-expect-error "Incompatible version of @zag-js/svelte"
   return reflect(() => angleSlider.connect(state, send, normalizeProps));
 }

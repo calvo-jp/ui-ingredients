@@ -2,7 +2,7 @@
   "name": "@ui-ingredients/root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "core": "pnpm --filter ui-ingredients",
     "website": "pnpm --filter @ui-ingredients/website",
@@ -24,6 +24,6 @@
     "prettier-plugin-svelte": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.17.0"
+    "typescript-eslint": "^8.18.0"
   }
 }
