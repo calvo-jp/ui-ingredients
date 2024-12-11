@@ -27,7 +27,7 @@ export default apiEntryFromAnatomy(accordionAnatomy)({
       },
       keepMounted: {
         type: 'boolean',
-        description: 'Whether to keep the component mounted after exit.',
+        description: 'Whether to keep the content mounted after exit.',
       },
     },
   },

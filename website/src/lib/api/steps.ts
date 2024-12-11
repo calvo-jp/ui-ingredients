@@ -91,6 +91,14 @@ export default apiEntryFromAnatomy(stepsAnatomy)({
         type: 'Snippet',
         description: 'Render a different element.',
       },
+      lazyMount: {
+        type: 'boolean',
+        description: 'Whether to enable lazy mounting.',
+      },
+      keepMounted: {
+        type: 'boolean',
+        description: 'Whether to keep the content mounted after exit.',
+      },
     },
   },
   Separator: {
