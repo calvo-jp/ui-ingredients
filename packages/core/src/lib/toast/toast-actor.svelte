@@ -1,12 +1,12 @@
 <script lang="ts">
-  import * as toast$ from '@zag-js/toast';
+  import type {Service} from '@zag-js/toast';
   import type {Snippet} from 'svelte';
   import {createToast, type CreateToastReturn} from './create-toast.svelte.js';
   import {setToastContext} from './toast-context.svelte.js';
 
   interface Props {
-    actor: toast$.Service;
-    children: Snippet<[toast: CreateToastReturn]>;
+    actor: Service;
+    children?: Snippet<[toast: CreateToastReturn]>;
   }
 
   let {actor, children}: Props = $props();
@@ -16,4 +16,4 @@
   setToastContext(toast);
 </script>
 
-{@render children(toast)}
+{@render children?.(toast)}
