@@ -13,6 +13,8 @@
 </script>
 
 <script lang="ts">
+  import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
+  import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {normalizeProps, portal, useMachine} from '@zag-js/svelte';
   import * as toast from '@zag-js/toast';
@@ -26,7 +28,18 @@
     ...props
   }: ToasterProps = $props();
 
-  let [state, send] = useMachine(toaster.machine);
+  let locale = getLocaleContext();
+  let environment = getEnvironmentContext();
+
+  let [state, send] = useMachine(toaster.machine, {
+    context: {
+      get dir() {
+        return locale?.dir;
+      },
+      getRootNode: environment?.getRootNode,
+    },
+  });
+
   let placement = $derived(state.context.placement);
   let api = $derived(toast.group.connect(state, send, normalizeProps));
   let toasts = $derived(api.getToastsByPlacement(placement));

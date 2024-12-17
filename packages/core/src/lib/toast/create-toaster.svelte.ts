@@ -3,7 +3,10 @@ import {normalizeProps, reflect} from '@zag-js/svelte';
 import * as toast from '@zag-js/toast';
 
 export interface CreateToasterProps
-  extends Omit<Partial<toast.GroupMachineContext>, 'id'> {
+  extends Omit<
+    Partial<toast.GroupMachineContext>,
+    'id' | 'dir' | 'getRootNode'
+  > {
   id?: string;
   placement?: toast.Placement;
 }
