@@ -27,15 +27,15 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "dependencies": {
-    "@zag-js/anatomy-icons": "^0.77.1"
+    "@zag-js/anatomy-icons": "^0.78.3"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.3.1",
-    "@sveltejs/kit": "^2.9.1",
+    "@sveltejs/kit": "^2.12.1",
     "@sveltejs/package": "^2.3.7",
-    "@sveltejs/vite-plugin-svelte": "^5.0.1",
+    "@sveltejs/vite-plugin-svelte": "^5.0.2",
     "publint": "^0.2.12",
-    "svelte": "^5.10.0",
+    "svelte": "^5.14.1",
     "svelte-check": "^4.1.1",
     "typescript": "^5.7.2",
     "vite": "^6.0.3"

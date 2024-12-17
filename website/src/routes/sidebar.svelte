@@ -1,5 +1,5 @@
 <script>
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {APP_LINKS} from '$lib/const';
   import {dataAttr} from '$lib/data-attr';
   import {navbarStore} from '$lib/stores';
@@ -74,7 +74,7 @@
                     <a
                       href={child.path}
                       class="group flex items-center gap-3 rounded py-1"
-                      data-current={dataAttr($page.url.pathname === child.path)}
+                      data-current={dataAttr(page.url.pathname === child.path)}
                     >
                       <span
                         class="font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit group-data-current:text-indigo-500 dark:text-neutral-400 dark:group-data-current:text-indigo-400 lg:text-sm"

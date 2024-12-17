@@ -6,7 +6,7 @@
   import '@fontsource/inter/700.css';
   import '../app.css';
 
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {addCopyButtonToPreTags} from '$lib/patches';
   import {Prose} from '$lib/ui';
   import {tick} from 'svelte';
@@ -19,7 +19,7 @@
   let {children} = $props();
 
   $effect(() => {
-    $page.url.pathname;
+    page.url.pathname;
 
     tick().then(addCopyButtonToPreTags);
   });

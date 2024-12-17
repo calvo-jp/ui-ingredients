@@ -1,12 +1,12 @@
 <script lang="ts">
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {Drawer, Portal} from '$lib/index.js';
   import {twMerge} from 'tailwind-merge';
   import {store} from './shared/index.js';
   import {links} from './utils.js';
 
   let currentLink = $derived(
-    links.find((item) => item.path === $page.url.pathname),
+    links.find((item) => item.path === page.url.pathname),
   );
 </script>
 

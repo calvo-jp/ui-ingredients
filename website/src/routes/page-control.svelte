@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {APP_LINKS} from '$lib/const';
   import {
     ChevronLeftIcon,
@@ -9,7 +9,7 @@
   const links = APP_LINKS.map((parent) => parent.links).flat();
 
   const currentLinkIndex = $derived(
-    links.findIndex((link) => link.path === $page.url.pathname),
+    links.findIndex((link) => link.path === page.url.pathname),
   );
 
   const prevLink = $derived(

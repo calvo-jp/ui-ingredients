@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {tick} from 'svelte';
   import {SegmentGroup} from 'ui-ingredients';
 
@@ -48,7 +48,7 @@
   }
 
   $effect.pre(() => {
-    $page.url.pathname;
+    page.url.pathname;
 
     getItems();
   });
