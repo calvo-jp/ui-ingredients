@@ -3,6 +3,7 @@
   import MoonIcon from '$lib/moon-icon.svelte';
   import {navbarStore} from '$lib/stores';
   import SunIcon from '$lib/sun-icon.svelte';
+  import {Badge} from '$lib/ui';
   import {Menu05Icon} from '@untitled-theme/icons-svelte';
   import {useTheme} from 'svelte-os-themes';
   import packageJson from 'ui-ingredients/package.json';
@@ -26,11 +27,7 @@
       <a href="/" class="font-lexend font-semibold tracking-tight lg:text-xl">
         UI Ingredients
       </a>
-      <span
-        class="rounded-full border border-neutral-200 bg-neutral-50 px-1.5 py-px text-xs font-semibold dark:border-neutral-800 dark:bg-neutral-800/50"
-      >
-        v{packageJson.version}
-      </span>
+      <Badge>v{packageJson.version}</Badge>
     </div>
 
     <div class="grow"></div>

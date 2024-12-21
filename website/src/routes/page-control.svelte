@@ -29,7 +29,7 @@
       <ChevronLeftIcon class="size-6 text-neutral-500" />
       <div class="flex flex-col">
         <span class="text-xs leading-none text-neutral-500">Previous</span>
-        <span class="font-medium">{prevLink.label}</span>
+        <span class="font-lexend font-medium">{prevLink.label}</span>
       </div>
     </a>
   {/if}
@@ -40,7 +40,7 @@
     <a href={nextLink.path} class="flex items-center gap-2">
       <div class="flex flex-col items-end">
         <span class="text-xs leading-none text-neutral-500">Next</span>
-        <span class="font-medium">{nextLink.label}</span>
+        <span class="font-lexend font-medium">{nextLink.label}</span>
       </div>
       <ChevronRightIcon class="size-6 text-neutral-500" />
     </a>

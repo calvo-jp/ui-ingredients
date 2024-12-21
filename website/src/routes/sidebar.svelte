@@ -3,6 +3,7 @@
   import {APP_LINKS} from '$lib/const';
   import {dataAttr} from '$lib/data-attr';
   import {navbarStore} from '$lib/stores';
+  import {Badge} from '$lib/ui';
   import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
   import {Collapsible, Drawer, Portal} from 'ui-ingredients';
 </script>
@@ -55,7 +56,7 @@
       <li>
         <Collapsible.Root open>
           <Collapsible.Trigger
-            class="group flex w-full gap-2 py-1 text-left font-semibold"
+            class="group flex w-full gap-2 py-1 text-left font-lexend font-semibold"
           >
             <span class="grow lg:text-sm">{parent.label}</span>
             <ChevronRightIcon
@@ -83,11 +84,7 @@
                       </span>
 
                       {#if child.betaBadge}
-                        <span
-                          class="rounded-full border border-neutral-200 bg-neutral-50 px-1.5 py-px text-xs font-semibold dark:border-neutral-800 dark:bg-neutral-800/50"
-                        >
-                          Beta
-                        </span>
+                        <Badge>Beta</Badge>
                       {/if}
                     </a>
                   </li>
