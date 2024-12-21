@@ -33,15 +33,15 @@
           <span class="grow font-semibold">{label}</span>
 
           <Accordion.ItemIndicator
-            class="group transition-all duration-150 data-open:rotate-180"
+            class="group transition-all duration-150 ui-open:rotate-180"
           >
             <ChevronDownIcon
-              class="size-5 text-neutral-400 transition-colors duration-150 group-data-open:text-neutral-500 dark:text-neutral-500 dark:group-data-open:text-neutral-400"
+              class="size-5 text-neutral-400 transition-colors duration-150 ui-group-open:text-neutral-500 dark:text-neutral-500 dark:ui-group-open:text-neutral-400"
             />
           </Accordion.ItemIndicator>
         </Accordion.ItemTrigger>
         <Accordion.ItemContent
-          class="overflow-hidden text-neutral-500 [--height:1em] data-open:animate-collapse-in data-closed:animate-collapse-out dark:text-neutral-400"
+          class="overflow-hidden text-neutral-500 [--height:1em] ui-open:animate-collapse-in ui-closed:animate-collapse-out dark:text-neutral-400"
         >
           {#snippet asChild(action, attrs)}
             <p use:action {...attrs}>{content}</p>

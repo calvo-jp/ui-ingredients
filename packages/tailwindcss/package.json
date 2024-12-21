@@ -1,0 +1,74 @@
+{
+  "name": "ui-ingredients-plugin-tailwindcss",
+  "type": "module",
+  "license": "MIT",
+  "version": "0.0.0",
+  "author": {
+    "name": "John Paul Calvo",
+    "email": "calvojp92@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvo-jp/ui-ingredients.git",
+    "directory": "packages/tailwindcss"
+  },
+  "bugs": {
+    "url": "https://github.com/calvo-jp/ui-ingredients/issues",
+    "email": "calvojp92@gmail.com"
+  },
+  "description": "TailwindCSS plugin for UI Ingredients",
+  "keywords": [
+    "tailwindcss",
+    "ui-ingredients",
+    "plugin"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "release-it": "^17.10.0",
+    "tailwindcss": "^3.4.17",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    },
+    "hooks": {
+      "before:init": [
+        "pnpm check"
+      ],
+      "after:bump": [
+        "pnpm package"
+      ]
+    }
+  }
+}

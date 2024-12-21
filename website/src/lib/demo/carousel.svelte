@@ -37,7 +37,7 @@
         {#each items as _, index}
           <Carousel.Indicator
             {index}
-            class="size-3 rounded-full border border-neutral-200 bg-white transition-colors duration-150 data-current:border-indigo-600 data-current:bg-indigo-600 dark:border-0 dark:bg-neutral-800 dark:data-current:bg-indigo-500"
+            class="size-3 rounded-full border border-neutral-200 bg-white transition-colors duration-150 ui-current:border-indigo-600 ui-current:bg-indigo-600 dark:border-0 dark:bg-neutral-800 dark:ui-current:bg-indigo-500"
           />
         {/each}
       </Carousel.IndicatorGroup>

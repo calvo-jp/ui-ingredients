@@ -18,10 +18,10 @@
         <Steps.Item {index} class="flex grow items-center gap-3 last:grow-0">
           <Steps.Trigger class="flex items-center gap-3">
             <Steps.Indicator
-              class="group flex size-5 items-center justify-center rounded-full border-2 border-neutral-300 transition-all duration-150 data-current:border-indigo-600 data-complete:border-indigo-600 data-complete:bg-indigo-600 dark:border-neutral-800 dark:data-current:border-indigo-500 dark:data-complete:border-indigo-500 dark:data-complete:bg-indigo-500"
+              class="group flex size-5 items-center justify-center rounded-full border-2 border-neutral-300 transition-all duration-150 ui-current:border-indigo-600 ui-complete:border-indigo-600 ui-complete:bg-indigo-600 dark:border-neutral-800 dark:ui-current:border-indigo-500 dark:ui-complete:border-indigo-500 dark:ui-complete:bg-indigo-500"
             >
               <CheckIcon
-                class="hidden size-4 text-white group-data-complete:block"
+                class="hidden size-4 text-white ui-group-complete:block"
               />
             </Steps.Indicator>
             <span>{item.title}</span>

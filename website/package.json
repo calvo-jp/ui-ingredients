@@ -1,11 +1,12 @@
 {
-  "name": "@ui-ingredients/website",
+  "name": "website",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build:core": "pnpm --filter=ui-ingredients build",
-    "build:anatomy-icons": "pnpm --filter=@ui-ingredients/anatomy-icons build",
-    "prebuild": "pnpm build:core && pnpm build:anatomy-icons",
+    "build:tailwind": "pnpm --filter=ui-ingredients-plugin-tailwindcss build",
+    "build:anatomy-icons": "pnpm --filter=anatomy-icons build",
+    "prebuild": "pnpm build:core && pnpm build:tailwind && pnpm build:anatomy-icons",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -15,15 +16,16 @@
     "@fontsource/fira-code": "^5.1.0",
     "@fontsource/inter": "^5.1.0",
     "@tailwindcss/typography": "^0.5.15",
-    "@ui-ingredients/anatomy-icons": "workspace:*",
     "@untitled-theme/icons-svelte": "^0.12.0",
     "@zag-js/docs": "^0.78.3",
+    "anatomy-icons": "workspace:*",
     "shiki": "^1.24.3",
     "svelte-os-themes": "^0.10.0",
     "tailwind-merge": "^2.5.5",
     "tailwind-scrollbar": "^3.1.0",
     "tailwind-variants": "^0.3.0",
-    "ui-ingredients": "workspace:*"
+    "ui-ingredients": "workspace:*",
+    "ui-ingredients-plugin-tailwindcss": "workspace:*"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.5.2",

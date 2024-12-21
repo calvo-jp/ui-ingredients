@@ -113,7 +113,7 @@
     {#each items as item}
       <SegmentGroup.Item
         value={item.value}
-        class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-500 transition-colors duration-150 data-checked:text-neutral-800 hover:text-neutral-600 dark:text-neutral-400 dark:data-checked:text-neutral-200 dark:hover:text-neutral-300"
+        class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-500 transition-colors duration-150 hover:text-neutral-600 ui-checked:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:ui-checked:text-neutral-200"
         style="--indent:{item.indent}px"
       >
         <SegmentGroup.ItemText class="px-5">{item.label}</SegmentGroup.ItemText>

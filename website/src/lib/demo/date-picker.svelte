@@ -18,23 +18,23 @@
     'duration-150',
 
     'hover:bg-neutral-50',
-    'hover:data-selected:bg-indigo-600',
-    'dark:hover:data-selected:bg-indigo-500',
+    'hover:ui-selected:bg-indigo-600',
+    'dark:hover:ui-selected:bg-indigo-500',
     'dark:hover:bg-neutral-800/50',
-    'hover:data-disabled:bg-transparent',
+    'hover:ui-disabled:bg-transparent',
 
-    'data-disabled:cursor-not-allowed',
-    'data-disabled:opacity-50',
+    'ui-disabled:cursor-not-allowed',
+    'ui-disabled:opacity-50',
 
-    'data-selected:font-semibold',
-    'data-selected:text-white',
-    'data-selected:bg-indigo-600',
-    'dark:data-selected:bg-indigo-500',
+    'ui-selected:font-semibold',
+    'ui-selected:text-white',
+    'ui-selected:bg-indigo-600',
+    'dark:ui-selected:bg-indigo-500',
 
-    'data-today:text-indigo-500',
-    'data-today:data-selected:text-white',
-    'dark:data-today:text-indigo-600',
-    'dark:data-today:data-selected:text-white',
+    'ui-today:text-indigo-500',
+    'ui-today:ui-selected:text-white',
+    'dark:ui-today:text-indigo-600',
+    'dark:ui-today:ui-selected:text-white',
   );
 
   let viewControlStyle = twMerge(
@@ -103,7 +103,7 @@
       <Portal>
         <DatePicker.Positioner>
           <DatePicker.Content
-            class="overflow-hidden rounded border border-neutral-200 bg-white data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
+            class="overflow-hidden rounded border border-neutral-200 bg-white ui-open:animate-fade-in ui-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
           >
             <DatePicker.View view="day">
               <DatePicker.ViewControl class={viewControlStyle}>

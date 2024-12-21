@@ -32,12 +32,12 @@
 >
   <Portal>
     <Drawer.Backdrop
-      class="fixed left-0 top-0 z-overlay size-full bg-white/95 data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/95"
+      class="fixed left-0 top-0 z-overlay size-full bg-white/95 ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-black/95"
     />
 
     <Drawer.Positioner>
       <Drawer.Content
-        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r border-neutral-200 bg-white px-5 py-6 data-open:animate-slide-in-left data-closed:animate-slide-out-left dark:border-neutral-700 dark:bg-neutral-900"
+        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r border-neutral-200 bg-white px-5 py-6 ui-open:animate-slide-in-left ui-closed:animate-slide-out-left dark:border-neutral-700 dark:bg-neutral-900"
       >
         <Drawer.Body>
           <nav>
@@ -59,13 +59,13 @@
           >
             <span class="grow lg:text-sm">{parent.label}</span>
             <ChevronRightIcon
-              class="size-4 text-neutral-500 transition-transform duration-150 group-data-open:rotate-90 dark:text-neutral-400"
+              class="size-4 text-neutral-500 transition-transform duration-150 ui-group-open:rotate-90 dark:text-neutral-400"
             />
           </Collapsible.Trigger>
           <Collapsible.Content>
             {#snippet asChild(action, attrs)}
               <ul
-                class="space-y-0.5 overflow-hidden data-open:animate-collapse-in data-closed:animate-collapse-out"
+                class="space-y-0.5 overflow-hidden ui-open:animate-collapse-in ui-closed:animate-collapse-out"
                 use:action
                 {...attrs}
               >
@@ -77,7 +77,7 @@
                       data-current={dataAttr(page.url.pathname === child.path)}
                     >
                       <span
-                        class="font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit group-data-current:text-indigo-500 dark:text-neutral-400 dark:group-data-current:text-indigo-400 lg:text-sm"
+                        class="font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit ui-group-current:text-indigo-500 dark:text-neutral-400 dark:ui-group-current:text-indigo-400 lg:text-sm"
                       >
                         {child.label}
                       </span>

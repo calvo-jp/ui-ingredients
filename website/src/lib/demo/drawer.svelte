@@ -15,12 +15,12 @@
 
     <Portal>
       <Drawer.Backdrop
-        class="fixed inset-0 z-overlay bg-white/50 backdrop-blur data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/50"
+        class="fixed inset-0 z-overlay bg-white/50 backdrop-blur ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-black/50"
       />
 
       <Drawer.Positioner>
         <Drawer.Content
-          class="fixed right-0 top-0 z-modal flex h-dvh w-full flex-col border-l border-neutral-200 bg-white data-open:animate-slide-in-right data-closed:animate-slide-out-right dark:border-neutral-800 dark:bg-neutral-900 lg:w-[24rem]"
+          class="fixed right-0 top-0 z-modal flex h-dvh w-full flex-col border-l border-neutral-200 bg-white ui-open:animate-slide-in-right ui-closed:animate-slide-out-right dark:border-neutral-800 dark:bg-neutral-900 lg:w-[24rem]"
         >
           <Drawer.Header
             class="flex items-start border-b border-neutral-200 p-4 dark:border-neutral-800"
