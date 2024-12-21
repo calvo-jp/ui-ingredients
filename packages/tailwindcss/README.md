@@ -28,13 +28,12 @@ export default config;
 Style your components using data-\* attributes
 
 ```svelte
-<!-- +page.ts -->
 <script>
   import {Field} from 'ui-ingredients';
 </script>
 
 <Field.Root required>
-  <Field.Input class="ui-invalid:text-red-500 ui-readonly:border-gray-100" />
+  <Field.Input class="ui-invalid:border-red-300 ui-readonly:border-gray-200" />
 </Field.Root>
 ```
 

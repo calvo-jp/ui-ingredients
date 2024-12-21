@@ -110,7 +110,7 @@ Add the plugin to your tailwind config
 import type {Config} from 'tailwindcss';
 import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 
-const config: Config ={
+const config: Config = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   plugins: [uiIngredients],
 }
@@ -121,7 +121,6 @@ export default config;
 Style your components using data-\* attributes
 
 ```svelte
-<!-- +page.ts -->
 <script>
   import {Field} from 'ui-ingredients';
 </script>
