@@ -42,7 +42,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "release": "release-it"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
@@ -63,11 +64,8 @@
       "release": false
     },
     "hooks": {
-      "before:init": [
-        "pnpm check"
-      ],
       "after:bump": [
-        "pnpm package"
+        "pnpm build"
       ]
     }
   }
