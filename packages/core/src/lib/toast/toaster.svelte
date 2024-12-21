@@ -16,9 +16,10 @@
   import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
   import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
   import {mergeProps} from '$lib/merge-props.js';
-  import {normalizeProps, portal, useMachine} from '@zag-js/svelte';
-  import * as toast from '@zag-js/toast';
+  import {getPortalProviderPropsContext} from '$lib/portal/portal-context.svelte.js';
   import type {HTMLAttributes} from 'svelte/elements';
+  import {normalizeProps, portal, useMachine} from 'zagjs-legacy-svelte';
+  import * as toast from 'zagjs-legacy-toast';
   import ToastActor from './toast-actor.svelte';
 
   let {
@@ -30,6 +31,7 @@
 
   let locale = getLocaleContext();
   let environment = getEnvironmentContext();
+  let portalProviderProps = getPortalProviderPropsContext();
 
   let [state, send] = useMachine(toaster.machine, {
     context: {
@@ -51,7 +53,14 @@
   );
 </script>
 
-<div bind:this={ref} use:portal {...mergedProps}>
+<div
+  bind:this={ref}
+  use:portal={{
+    container: portalProviderProps?.container ?? undefined,
+    getRootNode: environment?.getRootNode,
+  }}
+  {...mergedProps}
+>
   {#each toasts as toast (toast.id)}
     <ToastActor actor={toast} {children} />
   {/each}

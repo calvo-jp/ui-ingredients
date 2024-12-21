@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type {Service} from '@zag-js/toast';
   import type {Snippet} from 'svelte';
+  import type {Service} from 'zagjs-legacy-toast';
   import {createToast, type CreateToastReturn} from './create-toast.svelte.js';
   import {setToastContext} from './toast-context.svelte.js';
 
