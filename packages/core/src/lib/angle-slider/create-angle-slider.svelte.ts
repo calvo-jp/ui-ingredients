@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
+import { createUniqueId } from '$lib/create-unique-id.js';
+import { getEnvironmentContext } from '$lib/environment-provider/enviroment-provider-context.svelte.js';
+import { getLocaleContext } from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as angleSlider from '@zag-js/angle-slider';
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import { normalizeProps, reflect, useMachine } from '@zag-js/svelte';
 
 export interface CreateAngleSliderProps
   extends Omit<angleSlider.Context, 'id' | 'dir' | 'getRootNode'> {
@@ -26,9 +26,7 @@ export function createAngleSlider(
     ...props,
   }));
 
-  // @ts-expect-error "Incompatible version of @zag-js/svelte"
   const [state, send] = useMachine(angleSlider.machine(context), {context});
 
-  // @ts-expect-error "Incompatible version of @zag-js/svelte"
   return reflect(() => angleSlider.connect(state, send, normalizeProps));
 }

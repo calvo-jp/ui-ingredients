@@ -6,9 +6,9 @@
     "generate:anatomy-icons": "tsx src/generate-anatomy-icons.ts"
   },
   "dependencies": {
-    "@clack/prompts": "^0.8.2",
+    "@clack/prompts": "^0.9.0",
     "@tsconfig/node22": "^22.0.0",
-    "@types/react": "^19.0.1",
+    "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@types/yargs": "^17.0.33",
     "@zag-js/anatomy-icons": "^0.78.3",
@@ -16,10 +16,10 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "svgson": "^5.3.1",
-    "tailwindcss": "^3.4.16",
+    "tailwindcss": "^3.4.17",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "ui-ingredients": "^0.21.0",
+    "ui-ingredients": "^0.21.1",
     "yargs": "^17.7.2"
   }
 }

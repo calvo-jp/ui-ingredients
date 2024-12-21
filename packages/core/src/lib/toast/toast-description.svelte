@@ -16,9 +16,8 @@
     ...props
   }: ToastDescriptionProps = $props();
 
-  let context = getToastContext();
-
-  let mergedProps = $derived(mergeProps(context.getDescriptionProps(), props));
+  let toast = getToastContext();
+  let mergedProps = $derived(mergeProps(toast.getDescriptionProps(), props));
 </script>
 
 {#if asChild}
@@ -28,7 +27,7 @@
     {#if children}
       {@render children?.()}
     {:else}
-      {context.description}
+      {toast.description}
     {/if}
   </p>
 {/if}

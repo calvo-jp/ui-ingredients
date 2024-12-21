@@ -3,7 +3,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "prebuild": "pnpm --filter=@ui-ingredients/anatomy-icons build",
+    "build:core": "pnpm --filter=ui-ingredients build",
+    "build:anatomy-icons": "pnpm --filter=@ui-ingredients/anatomy-icons build",
+    "prebuild": "pnpm build:core && pnpm build:anatomy-icons",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -16,23 +18,23 @@
     "@ui-ingredients/anatomy-icons": "workspace:*",
     "@untitled-theme/icons-svelte": "^0.12.0",
     "@zag-js/docs": "^0.78.3",
-    "shiki": "^1.24.2",
+    "shiki": "^1.24.3",
     "svelte-os-themes": "^0.10.0",
     "tailwind-merge": "^2.5.5",
     "tailwind-scrollbar": "^3.1.0",
     "tailwind-variants": "^0.3.0",
-    "ui-ingredients": "^0.21.0"
+    "ui-ingredients": "workspace:*"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.5.2",
-    "@sveltejs/kit": "^2.12.1",
-    "@sveltejs/vite-plugin-svelte": "^5.0.2",
+    "@sveltejs/kit": "^2.13.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "autoprefixer": "^10.4.20",
     "mdsvex": "^0.12.3",
-    "svelte": "^5.14.1",
+    "svelte": "^5.15.0",
     "svelte-check": "^4.1.1",
-    "tailwindcss": "^3.4.16",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
-    "vite": "^6.0.3"
+    "vite": "^6.0.5"
   }
 }

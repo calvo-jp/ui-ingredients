@@ -1,1 +1,1 @@
-export {anatomy} from '@zag-js/toast';
+export {anatomy} from 'zagjs-legacy-toast';

@@ -16,9 +16,8 @@
     ...props
   }: ToastCloseTriggerProps = $props();
 
-  let context = getToastContext();
-
-  let mergedProps = $derived(mergeProps(context.getCloseTriggerProps(), props));
+  let toast = getToastContext();
+  let mergedProps = $derived(mergeProps(toast.getCloseTriggerProps(), props));
 </script>
 
 {#if asChild}

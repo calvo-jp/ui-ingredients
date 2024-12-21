@@ -1,5 +1,5 @@
-import {normalizeProps, reflect, useActor} from '@zag-js/svelte';
-import * as toast from '@zag-js/toast';
+import {normalizeProps, reflect, useActor} from 'zagjs-legacy-svelte';
+import * as toast from 'zagjs-legacy-toast';
 
 export interface CreateToastProps extends toast.Service {}
 export interface CreateToastReturn extends toast.Api {}
