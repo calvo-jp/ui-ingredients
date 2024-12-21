@@ -388,6 +388,9 @@ importers:
       '@fontsource/inter':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource/lexend':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.17)
@@ -1017,6 +1020,9 @@ packages:
 
   '@fontsource/inter@5.1.0':
     resolution: {integrity: sha512-zKZR3kf1G0noIes1frLfOHP5EXVVm0M7sV/l9f/AaYf+M/DId35FO4LkigWjqWYjTJZGgplhdv4cB+ssvCqr5A==}
+
+  '@fontsource/lexend@5.1.1':
+    resolution: {integrity: sha512-92A96vmx5xk1NgNphB62w5PKhW53Ruo74ki3UsUrV1q7/tbhJ73k2podhCNmldUlpUeO6rrCUWpRM20WloiNXA==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -5053,6 +5059,8 @@ snapshots:
   '@fontsource/fira-code@5.1.0': {}
 
   '@fontsource/inter@5.1.0': {}
+
+  '@fontsource/lexend@5.1.1': {}
 
   '@humanfs/core@0.19.1': {}
 

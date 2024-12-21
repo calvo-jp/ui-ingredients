@@ -218,7 +218,8 @@
     "./anatomy": {
       "types": "./dist/anatomy.d.ts",
       "import": "./dist/anatomy.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",

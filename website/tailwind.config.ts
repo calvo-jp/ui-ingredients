@@ -11,6 +11,7 @@ const config: Config = withTV({
   theme: {
     fontFamily: {
       sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
+      lexend: ["'Lexend'", ...defaultTheme.fontFamily.sans],
       mono: ["'Fira Code'", ...defaultTheme.fontFamily.mono],
     },
     extend: {

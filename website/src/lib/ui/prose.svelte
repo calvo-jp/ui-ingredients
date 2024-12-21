@@ -16,6 +16,8 @@
     'lg:prose-code:text-sm',
     'dark:prose-invert',
     'min-w-full',
+    'prose-headings:font-lexend',
+    'prose-a:underline-offset-2',
 
     'before:prose-p:content-none',
     'after:prose-p:content-none',

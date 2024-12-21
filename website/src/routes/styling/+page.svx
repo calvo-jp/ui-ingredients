@@ -4,6 +4,7 @@
 </script>
 
 <svelte:head>
+
   <title>Styling | UI Ingredients</title>
 </svelte:head>
 
@@ -88,4 +89,44 @@ You can customize the styles and animations for the `Dialog.Content` by using CS
     }
   }
 </style>
+```
+
+## Using the TailwindCSS Plugin
+
+If you are using [TailwindCSS](https://tailwindcss.com/), you can use the `ui-ingredients-plugin-tailwindcss` plugin to target Kobalte's data-\* attributes.
+
+### Installation
+
+```bash
+npm install ui-ingredients-plugin-tailwindcss
+```
+
+### Usage
+
+Add the plugin to your tailwind config
+
+```ts
+// tailwind.config.ts
+import type {Config} from 'tailwindcss';
+import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
+
+const config: Config ={
+  content: ['./src/**/*.{html,js,svelte,ts}'],
+  plugins: [uiIngredients],
+}
+
+export default config;
+```
+
+Style your components using data-\* attributes
+
+```svelte
+<!-- +page.ts -->
+<script>
+  import {Field} from 'ui-ingredients';
+</script>
+
+<Field.Root>
+  <Field.Input class="ui-invalid:border-red-400 ui-readonly:border-gray-200" />
+</Field.Root>
 ```

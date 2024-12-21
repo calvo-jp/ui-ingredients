@@ -4,6 +4,10 @@
   import '@fontsource/inter/500.css';
   import '@fontsource/inter/600.css';
   import '@fontsource/inter/700.css';
+  import '@fontsource/lexend/400.css';
+  import '@fontsource/lexend/500.css';
+  import '@fontsource/lexend/600.css';
+  import '@fontsource/lexend/700.css';
   import '../app.css';
 
   import {page} from '$app/state';

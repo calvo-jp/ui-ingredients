@@ -5,6 +5,7 @@
   import SunIcon from '$lib/sun-icon.svelte';
   import {Menu05Icon} from '@untitled-theme/icons-svelte';
   import {useTheme} from 'svelte-os-themes';
+  import packageJson from 'ui-ingredients/package.json';
 
   let theme = useTheme();
 </script>
@@ -22,9 +23,14 @@
         <Menu05Icon class="size-6" />
         <span class="sr-only">Open drawer</span>
       </button>
-      <a href="/" class="font-mono font-bold tracking-tight lg:text-lg">
+      <a href="/" class="font-lexend font-semibold tracking-tight lg:text-xl">
         UI Ingredients
       </a>
+      <span
+        class="rounded-full border border-neutral-200 bg-neutral-50 px-1.5 py-px text-xs font-semibold dark:border-neutral-800 dark:bg-neutral-800/50"
+      >
+        v{packageJson.version}
+      </span>
     </div>
 
     <div class="grow"></div>
