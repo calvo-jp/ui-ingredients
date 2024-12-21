@@ -46,8 +46,8 @@ const ENTRIES: Entry[] = [
   {key: 'closed', values: ['state="closed"']},
   {key: 'hidden', values: ['state="hidden"']},
   {key: 'visible', values: ['state="visible"']},
-  {key: 'checked', values: ['state="checked"', null]},
-  {key: 'unchecked', values: ['state="unchecked"', null]},
+  {key: 'checked', values: [null, 'state="checked"']},
+  {key: 'unchecked', values: [null, 'state="unchecked"']},
   {key: 'indeterminate', values: ['state="indeterminate"']},
   {key: 'vertical', values: ['orientation="vertical"']},
   {key: 'horizontal', values: ['orientation="horizontal"']},
@@ -84,6 +84,8 @@ const ENTRIES: Entry[] = [
   {key: 'type-wait', values: ['type="wait"']},
   {key: 'under-value', values: ['state="under-value"']},
   {key: 'over-value', values: ['state="over-value"']},
+  {key: 'scroll-lock', values: [null]},
+  {key: 'inert', values: [null]},
 ];
 
 export default plugin.withOptions<{prefix?: string}>((config = {}) => {
