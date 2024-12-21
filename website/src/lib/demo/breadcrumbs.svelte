@@ -9,7 +9,7 @@
     <Breadcrumbs.List class="flex items-center gap-1">
       <Breadcrumbs.Item class="contents">
         <Breadcrumbs.Link
-          class="font-medium text-neutral-600 no-underline aria-page:text-indigo-500 dark:text-neutral-400 dark:aria-page:text-indigo-400"
+          class="font-medium text-neutral-600 no-underline ui-current:text-indigo-500 dark:text-neutral-400 dark:ui-current:text-indigo-400"
           href="#"
         >
           Home
@@ -20,7 +20,7 @@
       </Breadcrumbs.Item>
       <Breadcrumbs.Item class="contents">
         <Breadcrumbs.Link
-          class="font-medium text-neutral-600 no-underline aria-page:text-indigo-500 dark:text-neutral-400 dark:aria-page:text-indigo-400"
+          class="font-medium text-neutral-600 no-underline ui-current:text-indigo-500 dark:text-neutral-400 dark:ui-current:text-indigo-400"
           href="#"
         >
           Components
@@ -31,7 +31,7 @@
       </Breadcrumbs.Item>
       <Breadcrumbs.Item class="contents">
         <Breadcrumbs.Link
-          class="font-medium text-neutral-600 no-underline aria-page:text-indigo-500 dark:text-neutral-400 dark:aria-page:text-indigo-400"
+          class="font-medium text-neutral-600 no-underline ui-current:text-indigo-500 dark:text-neutral-400 dark:ui-current:text-indigo-400"
           href="#"
           current
         >

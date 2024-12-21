@@ -47,7 +47,7 @@
             {#each context.getHours() as item}
               <TimePicker.HourCell
                 value={item.value}
-                class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 data-selected:text-indigo-500 data-focus:text-neutral-100"
+                class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 ui-focus:text-neutral-100 ui-selected:text-indigo-500"
               >
                 {item.label}
               </TimePicker.HourCell>
@@ -61,7 +61,7 @@
             {#each context.getMinutes() as item}
               <TimePicker.MinuteCell
                 value={item.value}
-                class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 data-selected:text-indigo-500 data-focus:text-neutral-100"
+                class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 ui-focus:text-neutral-100 ui-selected:text-indigo-500"
               >
                 {item.label}
               </TimePicker.MinuteCell>
@@ -75,7 +75,7 @@
             {#each context.getSeconds() as item}
               <TimePicker.SecondCell
                 value={item.value}
-                class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 data-selected:text-indigo-500 data-focus:text-neutral-100"
+                class="cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 ui-focus:text-neutral-100 ui-selected:text-indigo-500"
               >
                 {item.label}
               </TimePicker.SecondCell>
@@ -88,13 +88,13 @@
           >
             <TimePicker.PeriodCell
               value="am"
-              class="data-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 data-selected:text-indigo-500"
+              class="ui-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 ui-selected:text-indigo-500"
             >
               AM
             </TimePicker.PeriodCell>
             <TimePicker.PeriodCell
               value="pm"
-              class="data-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 data-selected:text-indigo-500"
+              class="ui-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 ui-selected:text-indigo-500"
             >
               PM
             </TimePicker.PeriodCell>

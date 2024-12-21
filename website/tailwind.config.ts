@@ -3,6 +3,7 @@ import scrollbar from 'tailwind-scrollbar';
 import {withTV} from 'tailwind-variants/transformer';
 import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 
 const config: Config = withTV({
   content: ['./src/**/*.{html,js,svelte,svx,ts}'],
@@ -27,31 +28,6 @@ const config: Config = withTV({
         skipLink: '1600',
         toast: '1700',
         tooltip: '1800',
-      },
-      data: {
-        open: 'state="open"',
-        closed: 'state="closed"',
-        checked: 'state="checked"',
-        unchecked: 'state="unchecked"',
-        disabled: 'disabled',
-        invalid: 'invalid',
-        current: 'current',
-        selected: 'selected',
-        complete: 'complete',
-        highlighted: 'highlighted',
-        focus: 'focus',
-        today: 'today',
-        'in-range': 'in-range',
-        'range-start': 'range-start',
-        'range-end': 'range-end',
-        placeholder: 'placeholder-shown',
-        copied: 'copied',
-        'under-value': 'state="under-value"',
-        'over-value': 'state="over-value"',
-      },
-      aria: {
-        page: 'current="page"',
-        pressed: 'pressed="true"',
       },
       spacing: {
         4.5: '1.125rem',
@@ -135,7 +111,7 @@ const config: Config = withTV({
       },
     },
   },
-  plugins: [typography, scrollbar],
+  plugins: [typography, scrollbar, uiIngredients],
 });
 
 export default config;

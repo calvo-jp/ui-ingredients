@@ -37,14 +37,14 @@
       </Select.Label>
       <div class="flex gap-2">
         <Select.Trigger
-          class="grow text-left font-normal data-placeholder:text-neutral-400"
+          class="grow text-left font-normal ui-placeholder-shown:text-neutral-400"
         >
           {#snippet asChild(attrs)}
             <Button variant="outline" {...attrs}>
               <Select.ValueText placeholder="Please Select" class="grow" />
               <Select.Indicator class="group">
                 <ChevronDownIcon
-                  class="transition-transform duration-150 group-data-open:rotate-180"
+                  class="transition-transform duration-150 ui-group-open:rotate-180"
                 />
               </Select.Indicator>
             </Button>
@@ -63,12 +63,12 @@
     <Portal>
       <Select.Positioner>
         <Select.Content
-          class="rounded border border-neutral-200 bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
+          class="rounded border border-neutral-200 bg-white p-2 ui-open:animate-fade-in ui-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900"
         >
           {#each collection.items as item}
             <Select.Item
               {item}
-              class="flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:text-neutral-400 data-highlighted:bg-neutral-50 dark:data-disabled:text-neutral-500 dark:data-highlighted:bg-neutral-800/50"
+              class="flex cursor-default items-center rounded px-2.5 py-1 ui-disabled:cursor-not-allowed ui-disabled:text-neutral-400 ui-highlighted:bg-neutral-50 dark:ui-disabled:text-neutral-500 dark:ui-highlighted:bg-neutral-800/50"
             >
               <Select.ItemText class="grow" />
               <Select.ItemIndicator>

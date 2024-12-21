@@ -3,7 +3,7 @@
     createGradient,
     getComponent,
     type ComponentAnatomyName,
-  } from '@ui-ingredients/anatomy-icons';
+  } from 'anatomy-icons';
   import {twMerge} from 'tailwind-merge';
 
   interface AnatomyProps {

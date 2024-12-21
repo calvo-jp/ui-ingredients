@@ -1,5 +1,5 @@
 {
-  "name": "@ui-ingredients/anatomy-icons",
+  "name": "anatomy-icons",
   "type": "module",
   "files": [
     "dist",

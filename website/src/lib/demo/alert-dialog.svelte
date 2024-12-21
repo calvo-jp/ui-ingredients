@@ -16,12 +16,12 @@
 
     <Portal>
       <AlertDialog.Backdrop
-        class="fixed inset-0 z-overlay bg-white/50 backdrop-blur data-open:animate-fade-in data-closed:animate-fade-out dark:bg-black/50"
+        class="fixed inset-0 z-overlay bg-white/50 backdrop-blur ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-black/50"
       />
 
       <AlertDialog.Positioner>
         <AlertDialog.Content
-          class="fixed left-1/2 top-16 z-modal w-[96vw] -translate-x-1/2 rounded border bg-white p-5 data-open:animate-fade-in data-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900 lg:w-[26rem] lg:p-8"
+          class="fixed left-1/2 top-16 z-modal w-[96vw] -translate-x-1/2 rounded border bg-white p-5 ui-open:animate-fade-in ui-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900 lg:w-[26rem] lg:p-8"
         >
           <AlertDialog.Title class="text-xl font-semibold">
             Title
