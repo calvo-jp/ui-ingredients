@@ -53,3 +53,13 @@ const config: Config ={
 
 export default config;
 ```
+
+```svelte
+<script>
+  import {Field} from 'ui-ingredients';
+</script>
+
+<Field.Root required>
+  <Field.Input class="tw-invalid:border-red-300 tw-readonly:border-gray-200" />
+</Field.Root>
+```

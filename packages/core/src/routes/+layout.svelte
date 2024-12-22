@@ -8,7 +8,6 @@
     Toaster,
   } from '$lib/index.js';
   import {twMerge} from 'tailwind-merge';
-  import Navbar from './navbar.svelte';
   import {toaster} from './shared/index.js';
   import Sidebar from './sidebar.svelte';
 
@@ -21,7 +20,6 @@
       <Sidebar />
 
       <div class="grow">
-        <Navbar />
         <main class="p-4 lg:p-12">
           {@render children()}
         </main>
