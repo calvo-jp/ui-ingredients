@@ -1,5 +1,5 @@
 {
-  "name": "scripts",
+  "name": "ui-ingredients-scripts",
   "type": "module",
   "private": true,
   "scripts": {

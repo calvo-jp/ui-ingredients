@@ -19,10 +19,7 @@ export async function generateAnatomyIcons() {
   const promises: Promise<void>[] = [];
 
   for (const key of keys) {
-    const jsx = allComponents[key]({
-      accentColor: colors.indigo[500],
-    });
-
+    const jsx = await allComponents[key]({accentColor: colors.indigo[500]});
     const svg = renderToString(jsx);
 
     const filename = `${key}-anatomy.svelte`.replace(

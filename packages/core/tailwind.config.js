@@ -1,6 +1,5 @@
 import {withTV} from 'tailwind-variants/transformer';
 import colors from 'tailwindcss/colors';
-import defaultTheme from 'tailwindcss/defaultTheme.js';
 import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
@@ -8,11 +7,6 @@ export default withTV({
   darkMode: 'class',
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    fontFamily: {
-      sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
-      mono: ["'Fira Code'", ...defaultTheme.fontFamily.mono],
-    },
-
     extend: {
       colors: {
         muted: colors.neutral[500],

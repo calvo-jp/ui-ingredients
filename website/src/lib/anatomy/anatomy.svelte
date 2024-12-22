@@ -1,10 +1,10 @@
 <script lang="ts">
+  import {twMerge} from 'tailwind-merge';
   import {
     createGradient,
     getComponent,
     type ComponentAnatomyName,
-  } from 'anatomy-icons';
-  import {twMerge} from 'tailwind-merge';
+  } from 'ui-ingredients-anatomy-icons';
 
   interface AnatomyProps {
     id: ComponentAnatomyName;

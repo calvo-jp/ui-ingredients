@@ -1,11 +1,11 @@
 import plugin from 'tailwindcss/plugin.js';
 
-interface Entry {
+interface VariantEntry {
   key: string;
   values: (string | null)[];
 }
 
-const ENTRIES: Entry[] = [
+const VARIANT_ENTRIES: VariantEntry[] = [
   {key: 'hover', values: [null]},
   {key: 'focus', values: [null]},
   {key: 'focus-visible', values: [null]},
@@ -72,15 +72,6 @@ const ENTRIES: Entry[] = [
   {key: 'view-day', values: ['view="day"']},
   {key: 'view-month', values: ['view="month"']},
   {key: 'view-year', values: ['view="year"']},
-  {key: 'type-info', values: ['type="info"']},
-  {key: 'type-error', values: ['type="error"']},
-  {key: 'type-success', values: ['type="success"']},
-  {key: 'type-warning', values: ['type="warning"']},
-  {key: 'type-loading', values: ['type="loading"']},
-  {key: 'type-tooltip', values: ['type="tooltip"']},
-  {key: 'type-dialog', values: ['type="dialog"']},
-  {key: 'type-floating', values: ['type="floating"']},
-  {key: 'type-wait', values: ['type="wait"']},
   {key: 'under-value', values: ['state="under-value"']},
   {key: 'over-value', values: ['state="over-value"']},
   {key: 'delete-intent', values: [null]},
@@ -88,16 +79,86 @@ const ENTRIES: Entry[] = [
   {key: 'unit-minute', values: ['unit="minute"']},
   {key: 'unit-second', values: ['unit="second"']},
   {key: 'unit-period', values: ['unit="period"']},
+  {key: 'channel-hue', values: ['channel="hue"']},
+  {key: 'channel-saturation', values: ['channel="saturation"']},
+  {key: 'channel-brightness', values: ['channel="brightness"']},
+  {key: 'channel-lightness', values: ['channel="lightness"']},
+  {key: 'channel-red', values: ['channel="red"']},
+  {key: 'channel-green', values: ['channel="green"']},
+  {key: 'channel-blue', values: ['channel="blue"']},
+  {key: 'channel-alpha', values: ['channel="alpha"']},
+  {key: 'channel-hex', values: ['channel="hex"']},
+  {key: 'channel-css', values: ['channel="css"']},
   {key: 'tour-highlighted', values: [null]},
   {key: 'scroll-lock', values: [null]},
   {key: 'inert', values: [null]},
 ];
 
+interface MatchVariantEntry {
+  key: string;
+  validate?(subject: string): boolean;
+  knownValues?: Record<string, string>;
+}
+
+const DEFAULT_MATCH_VARIANT_ENTRY_KNOWN_INT_VALUES = Array.from<never>({
+  length: 10,
+}).reduce<Record<string, string>>(
+  (o, _v, i) => ({...o, [i]: i.toString()}),
+  {},
+);
+
+function isInt(subject: string) {
+  return !isNaN(parseInt(subject));
+}
+
+const MATCH_VARIANT_ENTRIES: MatchVariantEntry[] = [
+  {key: 'scope'},
+  {key: 'part'},
+  {key: 'value'},
+  {key: 'valuetext'},
+  {
+    key: 'index',
+    validate: isInt,
+    knownValues: DEFAULT_MATCH_VARIANT_ENTRY_KNOWN_INT_VALUES,
+  },
+  {
+    key: 'columns',
+    validate: isInt,
+    knownValues: DEFAULT_MATCH_VARIANT_ENTRY_KNOWN_INT_VALUES,
+  },
+  {key: 'branch'},
+  {
+    key: 'depth',
+    validate: isInt,
+    knownValues: DEFAULT_MATCH_VARIANT_ENTRY_KNOWN_INT_VALUES,
+  },
+  {
+    key: 'path',
+    validate: isInt,
+    knownValues: DEFAULT_MATCH_VARIANT_ENTRY_KNOWN_INT_VALUES,
+  },
+  {
+    key: 'type',
+    knownValues: {
+      /* toast */
+      info: 'info',
+      error: 'error',
+      success: 'success',
+      loading: 'loading',
+      /* tour */
+      floating: 'floating',
+      tooltip: 'tooltip',
+      dialog: 'dialog',
+      wait: 'wait',
+    },
+  },
+];
+
 export default plugin.withOptions<{prefix?: string}>((config = {}) => {
   const prefix = config.prefix ?? 'ui';
 
-  return ({addVariant}) => {
-    ENTRIES.forEach(({key, values}) => {
+  return ({addVariant, matchVariant}) => {
+    VARIANT_ENTRIES.forEach(({key, values}) => {
       addVariant(
         `${prefix}-${key}`,
         values.map((value) =>
@@ -113,6 +174,15 @@ export default plugin.withOptions<{prefix?: string}>((config = {}) => {
       );
 
       addVariant(
+        `${prefix}-group-${key}`,
+        values.map((value) =>
+          value === null
+            ? `:merge(.group)[data-${key}] &`
+            : `:merge(.group)[data-${value}] &`,
+        ),
+      );
+
+      addVariant(
         `${prefix}-peer-${key}`,
         values.map((value) =>
           value === null
@@ -120,14 +190,35 @@ export default plugin.withOptions<{prefix?: string}>((config = {}) => {
             : `:merge(.peer)[data-${value}] ~ &`,
         ),
       );
+    });
 
-      addVariant(
+    MATCH_VARIANT_ENTRIES.forEach(({key, knownValues, ...etc}) => {
+      const validate = etc.validate ?? (() => true);
+
+      matchVariant(
+        `${prefix}-${key}`,
+        (value) => (!validate(value) ? [] : `&[data-${key}="${value}"]`),
+        {values: knownValues},
+      );
+
+      matchVariant(
+        `${prefix}-not-${key}`,
+        (value) => (!validate(value) ? [] : `&:not([data-${key}="${value}"])`),
+        {values: knownValues},
+      );
+
+      matchVariant(
         `${prefix}-group-${key}`,
-        values.map((value) =>
-          value === null
-            ? `:merge(.group)[data-${key}] &`
-            : `:merge(.group)[data-${value}] &`,
-        ),
+        (value) =>
+          !validate(value) ? [] : `:merge(.group)[data-${key}="${value}"] &`,
+        {values: knownValues},
+      );
+
+      matchVariant(
+        `${prefix}-peer-${key}`,
+        (value) =>
+          !validate(value) ? [] : `:merge(.peer)[data-${value}="${value}"] ~ &`,
+        {values: knownValues},
       );
     });
   };

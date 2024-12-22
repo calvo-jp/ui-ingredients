@@ -400,9 +400,6 @@ importers:
       '@zag-js/docs':
         specifier: ^0.78.3
         version: 0.78.3
-      anatomy-icons:
-        specifier: workspace:*
-        version: link:../shared/anatomy-icons
       shiki:
         specifier: ^1.24.3
         version: 1.24.3
@@ -421,6 +418,9 @@ importers:
       ui-ingredients:
         specifier: workspace:*
         version: link:../packages/core
+      ui-ingredients-anatomy-icons:
+        specifier: workspace:*
+        version: link:../shared/anatomy-icons
       ui-ingredients-plugin-tailwindcss:
         specifier: workspace:*
         version: link:../packages/tailwindcss
