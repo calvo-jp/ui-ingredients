@@ -38,7 +38,7 @@
           sequence: ['dark', 'light'],
         })}
       >
-        {#if theme.value === 'dark'}
+        {#if theme.current === 'dark'}
           <MoonIcon class="size-6" />
           <span class="sr-only">Go to light mode</span>
         {:else}

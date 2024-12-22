@@ -404,8 +404,8 @@ importers:
         specifier: ^1.24.3
         version: 1.24.3
       svelte-os-themes:
-        specifier: ^0.10.0
-        version: 0.10.0(svelte@5.15.0)
+        specifier: ^0.11.0
+        version: 0.11.0(svelte@5.15.0)
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5
@@ -4126,10 +4126,10 @@ packages:
       svelte:
         optional: true
 
-  svelte-os-themes@0.10.0:
-    resolution: {integrity: sha512-5z0tZsevlWlen4rgCPHWGNXJe3iRRN+BTwerF7elD94HkfaXIuuxVKdEgo0kVDc4M6K7D8A1Gn8uCRYb1fDTKQ==}
+  svelte-os-themes@0.11.0:
+    resolution: {integrity: sha512-pBCoCqo0hK3G9vmugSzUX+aK+d1sP6FCSQb529FVMKeXZ6nIpYC8FjUN5TVEcZir3W/pmwv5YqvZCGTxpxumcw==}
     peerDependencies:
-      svelte: '>=5.0.0'
+      svelte: ^5.0.0
 
   svelte2tsx@0.7.19:
     resolution: {integrity: sha512-PME/9mILn9wOihtk2dxu9tmf2+B9X6oWuqYPJRKSjqU4wq3Pc6+fOuYV7T3H+QF5afmA1oDobfXC6dzmK9NAVw==}
@@ -8811,7 +8811,7 @@ snapshots:
     optionalDependencies:
       svelte: 5.15.0
 
-  svelte-os-themes@0.10.0(svelte@5.15.0):
+  svelte-os-themes@0.11.0(svelte@5.15.0):
     dependencies:
       svelte: 5.15.0
 

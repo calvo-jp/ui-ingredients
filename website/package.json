@@ -20,7 +20,7 @@
     "@untitled-theme/icons-svelte": "^0.12.0",
     "@zag-js/docs": "^0.78.3",
     "shiki": "^1.24.3",
-    "svelte-os-themes": "^0.10.0",
+    "svelte-os-themes": "^0.11.0",
     "tailwind-merge": "^2.5.5",
     "tailwind-scrollbar": "^3.1.0",
     "tailwind-variants": "^0.3.0",
