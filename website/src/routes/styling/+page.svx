@@ -93,7 +93,7 @@ You can customize the styles and animations for the `Dialog.Content` by using CS
 
 ## Using the TailwindCSS Plugin
 
-If you are using [TailwindCSS](https://tailwindcss.com/), you can use the `ui-ingredients-plugin-tailwindcss` plugin to target Kobalte's data-\* attributes.
+If you are using [TailwindCSS](https://tailwindcss.com/), you can use the `ui-ingredients-plugin-tailwindcss` plugin to style the components using their data-\* attributes.
 
 ### Installation
 
