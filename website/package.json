@@ -5,7 +5,7 @@
     "dev": "vite dev",
     "build:core": "pnpm --filter=ui-ingredients build",
     "build:tailwind": "pnpm --filter=ui-ingredients-plugin-tailwindcss build",
-    "build:anatomy-icons": "pnpm --filter=anatomy-icons build",
+    "build:anatomy-icons": "pnpm --filter=ui-ingredients-anatomy-icons build",
     "prebuild": "pnpm build:core && pnpm build:tailwind && pnpm build:anatomy-icons",
     "build": "vite build",
     "preview": "vite preview",
