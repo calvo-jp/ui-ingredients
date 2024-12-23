@@ -12,9 +12,9 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {portal} from '@zag-js/svelte';
-  import {createSplitProps} from '@zag-js/utils';
   import {getPortalProviderPropsContext} from './portal-context.svelte.js';
 
   let {children, ...props}: PortalProps = $props();

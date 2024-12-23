@@ -15,11 +15,11 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {setPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
-  import {createSplitProps} from '@zag-js/utils';
   import {setColorPickerContext} from './color-picker-context.svelte.js';
   import {createColorPicker} from './create-color-picker.svelte.js';
 

@@ -355,7 +355,6 @@
     "@zag-js/tooltip": "^0.78.3",
     "@zag-js/tour": "^0.78.3",
     "@zag-js/tree-view": "^0.78.3",
-    "@zag-js/utils": "^0.78.3",
     "zagjs-legacy-svelte": "npm:@zag-js/svelte@0.77.1",
     "zagjs-legacy-toast": "npm:@zag-js/toast@0.77.1"
   },

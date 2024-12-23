@@ -15,8 +15,9 @@ vi.stubGlobal('ResizeObserver', ResizeObserver);
 window['ResizeObserver'] = ResizeObserver;
 window.URL.createObjectURL = () => faker.image.avatar();
 
-Object.assign(global, {window, document: window.document});
-
-afterEach(() => {
-  cleanup();
+Object.assign(global, {
+  window,
+  document: window.document,
 });
+
+afterEach(cleanup);

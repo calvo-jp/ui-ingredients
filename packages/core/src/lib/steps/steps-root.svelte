@@ -15,10 +15,10 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
   import {setPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
-  import {createSplitProps} from '@zag-js/utils';
   import {createSteps} from './create-steps.svelte.js';
   import {setStepsContext} from './steps-context.svelte.js';
 

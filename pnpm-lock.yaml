@@ -188,9 +188,6 @@ importers:
       '@zag-js/tree-view':
         specifier: ^0.78.3
         version: 0.78.3
-      '@zag-js/utils':
-        specifier: ^0.78.3
-        version: 0.78.3
       zagjs-legacy-svelte:
         specifier: npm:@zag-js/svelte@0.77.1
         version: '@zag-js/svelte@0.77.1(svelte@5.15.0)'

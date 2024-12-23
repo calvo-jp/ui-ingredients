@@ -51,6 +51,7 @@ export * from './tour/index.js';
 export * from './tree-view/index.js';
 
 export * from './create-context.svelte.js';
+export * from './create-split-props.js';
 export * from './create-unique-id.js';
 export * from './merge-props.js';
 

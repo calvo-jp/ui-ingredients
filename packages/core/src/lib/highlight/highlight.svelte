@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {highlightWord} from '@zag-js/highlight-word';
-  import {createSplitProps} from '@zag-js/utils';
 
   let {ref = $bindable(null), asChild, ...props}: HighlightProps = $props();
 

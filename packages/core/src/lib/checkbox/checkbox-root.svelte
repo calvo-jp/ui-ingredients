@@ -13,8 +13,8 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
-  import {createSplitProps} from '@zag-js/utils';
   import {setCheckboxContext} from './checkbox-context.svelte.js';
   import {createCheckbox} from './create-checkbox.svelte.js';
 

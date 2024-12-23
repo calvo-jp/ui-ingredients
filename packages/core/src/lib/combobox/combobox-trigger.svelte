@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import type {TriggerProps} from '@zag-js/combobox';
-  import {createSplitProps} from '@zag-js/utils';
   import {getComboboxContext} from './combobox-context.svelte.js';
 
   let {

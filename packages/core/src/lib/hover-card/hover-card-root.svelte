@@ -14,10 +14,10 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {setPresenceContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
-  import {createSplitProps} from '@zag-js/utils';
   import {createHoverCard} from './create-hover-card.svelte.js';
   import {setHoverCardContext} from './hover-card-context.svelte.js';
 

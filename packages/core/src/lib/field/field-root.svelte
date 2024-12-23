@@ -14,11 +14,11 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
   import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import {setPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
-  import {createSplitProps} from '@zag-js/utils';
   import {createField} from './create-field.svelte.js';
   import {setFieldContext} from './field-context.svelte.js';
 

@@ -14,13 +14,13 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {createPresence} from '$lib/presence/create-presence.svelte.js';
   import {
     setPresenceContext,
     setPresenceStrategyPropsContext,
   } from '$lib/presence/presence-context.svelte.js';
   import {reflect} from '@zag-js/svelte';
-  import {createSplitProps} from '@zag-js/utils';
   import {setAlertDialogContext} from './alert-dialog-context.svelte.js';
   import {createAlertDialog} from './create-alert-dialog.svelte.js';
 

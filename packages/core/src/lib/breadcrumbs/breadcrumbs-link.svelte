@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '$lib/merge-props.js';
-  import {createSplitProps} from '@zag-js/utils';
   import {getBreadcrumbsContext} from './breadcrumbs-context.svelte.js';
 
   let {ref, asChild, children, ...props}: BreadcrumbsLinkProps = $props();
