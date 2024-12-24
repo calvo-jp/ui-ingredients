@@ -1,10 +1,7 @@
 <script lang="ts">
+  import {createGradient} from '@zag-js/anatomy-icons';
   import {twMerge} from 'tailwind-merge';
-  import {
-    createGradient,
-    getComponent,
-    type ComponentAnatomyName,
-  } from 'ui-ingredients-anatomy-icons';
+  import {getComponent, type ComponentAnatomyName} from './utils';
 
   interface AnatomyProps {
     id: ComponentAnatomyName;
