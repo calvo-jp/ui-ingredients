@@ -3,10 +3,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build:core": "pnpm --filter=ui-ingredients build",
-    "build:tailwind": "pnpm --filter=ui-ingredients-plugin-tailwindcss build",
-    "build:anatomy-icons": "pnpm --filter=ui-ingredients-anatomy-icons build",
-    "prebuild": "pnpm build:core && pnpm build:tailwind && pnpm build:anatomy-icons",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
