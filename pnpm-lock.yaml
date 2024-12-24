@@ -349,34 +349,6 @@ importers:
         specifier: ^17.7.2
         version: 17.7.2
 
-  shared/anatomy-icons:
-    dependencies:
-      '@zag-js/anatomy-icons':
-        specifier: ^0.79.0
-        version: 0.79.0(react@19.0.0)(typescript@5.7.2)
-    devDependencies:
-      '@sveltejs/package':
-        specifier: ^2.3.7
-        version: 2.3.7(svelte@5.15.0)(typescript@5.7.2)
-      '@sveltejs/vite-plugin-svelte':
-        specifier: ^5.0.3
-        version: 5.0.3(svelte@5.15.0)(vite@6.0.5(@types/node@22.10.2)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.5.0))
-      '@tsconfig/svelte':
-        specifier: ^5.0.4
-        version: 5.0.4
-      svelte:
-        specifier: ^5.15.0
-        version: 5.15.0
-      svelte-preprocess:
-        specifier: ^6.0.3
-        version: 6.0.3(@babel/core@7.26.0)(postcss-load-config@6.0.1(jiti@1.21.6)(postcss@8.4.49)(tsx@4.19.2)(yaml@2.5.0))(postcss@8.4.49)(svelte@5.15.0)(typescript@5.7.2)
-      typescript:
-        specifier: ^5.7.2
-        version: 5.7.2
-      vite:
-        specifier: ^6.0.5
-        version: 6.0.5(@types/node@22.10.2)(jiti@1.21.6)(tsx@4.19.2)(yaml@2.5.0)
-
   website:
     dependencies:
       '@fontsource/fira-code':
@@ -394,6 +366,9 @@ importers:
       '@untitled-theme/icons-svelte':
         specifier: ^0.13.0
         version: 0.13.0(svelte@5.15.0)
+      '@zag-js/anatomy-icons':
+        specifier: ^0.79.0
+        version: 0.79.0(react@19.0.0)(typescript@5.7.2)
       '@zag-js/docs':
         specifier: ^0.79.0
         version: 0.79.0
@@ -413,14 +388,11 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(tailwindcss@3.4.17)
       ui-ingredients:
-        specifier: workspace:*
-        version: link:../packages/core
-      ui-ingredients-anatomy-icons:
-        specifier: workspace:*
-        version: link:../shared/anatomy-icons
+        specifier: ^0.23.0
+        version: 0.23.0(@internationalized/date@3.5.5)(svelte@5.15.0)
       ui-ingredients-plugin-tailwindcss:
-        specifier: workspace:*
-        version: link:../packages/tailwindcss
+        specifier: ^0.0.4
+        version: 0.0.4(tailwindcss@3.4.17)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.5.2
@@ -1434,9 +1406,6 @@ packages:
 
   '@tsconfig/node22@22.0.0':
     resolution: {integrity: sha512-twLQ77zevtxobBOD4ToAtVmuYrpeYUh3qh+TEp+08IWhpsrIflVHqQ1F1CiPxQGL7doCdBIOOCF+1Tm833faNg==}
-
-  '@tsconfig/svelte@5.0.4':
-    resolution: {integrity: sha512-BV9NplVgLmSi4mwKzD8BD/NQ8erOY/nUE/GpgWe2ckx+wIQF5RyRirn/QsSSCPeulVpc3RA/iJt6DpfTIZps0Q==}
 
   '@types/aria-query@5.0.4':
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
@@ -4184,43 +4153,6 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
 
-  svelte-preprocess@6.0.3:
-    resolution: {integrity: sha512-PLG2k05qHdhmRG7zR/dyo5qKvakhm8IJ+hD2eFRQmMLHp7X3eJnjeupUtvuRpbNiF31RjVw45W+abDwHEmP5OA==}
-    engines: {node: '>= 18.0.0'}
-    peerDependencies:
-      '@babel/core': ^7.10.2
-      coffeescript: ^2.5.1
-      less: ^3.11.3 || ^4.0.0
-      postcss: ^7 || ^8
-      postcss-load-config: '>=3'
-      pug: ^3.0.0
-      sass: ^1.26.8
-      stylus: '>=0.55'
-      sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
-      svelte: ^4.0.0 || ^5.0.0-next.100 || ^5.0.0
-      typescript: ^5.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      coffeescript:
-        optional: true
-      less:
-        optional: true
-      postcss:
-        optional: true
-      postcss-load-config:
-        optional: true
-      pug:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      typescript:
-        optional: true
-
   svelte2tsx@0.7.19:
     resolution: {integrity: sha512-PME/9mILn9wOihtk2dxu9tmf2+B9X6oWuqYPJRKSjqU4wq3Pc6+fOuYV7T3H+QF5afmA1oDobfXC6dzmK9NAVw==}
     peerDependencies:
@@ -4407,8 +4339,18 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  ui-ingredients-plugin-tailwindcss@0.0.4:
+    resolution: {integrity: sha512-NsmKisi0KAQNgovmi0lvjvUc9+stZohBTDXAVDXmFwDkxNbz5uY2LefEY4+pH9I3s5GndO8KZkL6AEPwEP71dg==}
+    peerDependencies:
+      tailwindcss: ^3.3.3
+
   ui-ingredients@0.22.1:
     resolution: {integrity: sha512-VdyASgkRaK5P1mR+m+A49uT5fuXz6d+kZZEHDtWmJz6RdswVDzPmhAHbcyBKOZ9qj2tATEX96nQcdDGXxor60g==}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  ui-ingredients@0.23.0:
+    resolution: {integrity: sha512-xZ3CRZyXGy4FAWX92ntRsGsnay+43TpPKZaxUn2bF+ewgfPKTzBobbSZL5YtdXzGNoeTzGRjv8xnAgUP2XYutQ==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -5584,8 +5526,6 @@ snapshots:
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
   '@tsconfig/node22@22.0.0': {}
-
-  '@tsconfig/svelte@5.0.4': {}
 
   '@types/aria-query@5.0.4': {}
 
@@ -8984,15 +8924,6 @@ snapshots:
     dependencies:
       svelte: 5.15.0
 
-  svelte-preprocess@6.0.3(@babel/core@7.26.0)(postcss-load-config@6.0.1(jiti@1.21.6)(postcss@8.4.49)(tsx@4.19.2)(yaml@2.5.0))(postcss@8.4.49)(svelte@5.15.0)(typescript@5.7.2):
-    dependencies:
-      svelte: 5.15.0
-    optionalDependencies:
-      '@babel/core': 7.26.0
-      postcss: 8.4.49
-      postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.49)(tsx@4.19.2)(yaml@2.5.0)
-      typescript: 5.7.2
-
   svelte2tsx@0.7.19(svelte@5.15.0)(typescript@5.7.2):
     dependencies:
       dedent-js: 1.0.1
@@ -9205,6 +9136,10 @@ snapshots:
 
   typescript@5.7.2: {}
 
+  ui-ingredients-plugin-tailwindcss@0.0.4(tailwindcss@3.4.17):
+    dependencies:
+      tailwindcss: 3.4.17
+
   ui-ingredients@0.22.1(@internationalized/date@3.5.5)(svelte@5.15.0):
     dependencies:
       '@zag-js/accordion': 0.78.3
@@ -9254,6 +9189,61 @@ snapshots:
       '@zag-js/tooltip': 0.78.3
       '@zag-js/tour': 0.78.3
       '@zag-js/tree-view': 0.78.3
+      svelte: 5.15.0
+      zagjs-legacy-svelte: '@zag-js/svelte@0.77.1(svelte@5.15.0)'
+      zagjs-legacy-toast: '@zag-js/toast@0.77.1'
+    transitivePeerDependencies:
+      - '@internationalized/date'
+
+  ui-ingredients@0.23.0(@internationalized/date@3.5.5)(svelte@5.15.0):
+    dependencies:
+      '@zag-js/accordion': 0.79.0
+      '@zag-js/anatomy': 0.79.0
+      '@zag-js/angle-slider': 0.79.0
+      '@zag-js/auto-resize': 0.79.0
+      '@zag-js/avatar': 0.79.0
+      '@zag-js/carousel': 0.79.0
+      '@zag-js/checkbox': 0.79.0
+      '@zag-js/clipboard': 0.79.0
+      '@zag-js/collapsible': 0.79.0
+      '@zag-js/color-picker': 0.79.0
+      '@zag-js/combobox': 0.79.0
+      '@zag-js/core': 0.79.0
+      '@zag-js/date-picker': 0.79.0(@internationalized/date@3.5.5)
+      '@zag-js/dialog': 0.79.0
+      '@zag-js/dom-query': 0.79.0
+      '@zag-js/editable': 0.79.0
+      '@zag-js/file-upload': 0.79.0
+      '@zag-js/floating-panel': 0.79.0
+      '@zag-js/highlight-word': 0.79.0
+      '@zag-js/hover-card': 0.79.0
+      '@zag-js/i18n-utils': 0.79.0
+      '@zag-js/menu': 0.79.0
+      '@zag-js/number-input': 0.79.0
+      '@zag-js/pagination': 0.79.0
+      '@zag-js/pin-input': 0.79.0
+      '@zag-js/popover': 0.79.0
+      '@zag-js/presence': 0.79.0
+      '@zag-js/progress': 0.79.0
+      '@zag-js/qr-code': 0.79.0
+      '@zag-js/radio-group': 0.79.0
+      '@zag-js/rating-group': 0.79.0
+      '@zag-js/select': 0.79.0
+      '@zag-js/signature-pad': 0.79.0
+      '@zag-js/slider': 0.79.0
+      '@zag-js/splitter': 0.79.0
+      '@zag-js/steps': 0.79.0
+      '@zag-js/svelte': 0.79.0(svelte@5.15.0)
+      '@zag-js/switch': 0.79.0
+      '@zag-js/tabs': 0.79.0
+      '@zag-js/tags-input': 0.79.0
+      '@zag-js/time-picker': 0.79.0(@internationalized/date@3.5.5)
+      '@zag-js/timer': 0.79.0
+      '@zag-js/toast': 0.79.0
+      '@zag-js/toggle-group': 0.79.0
+      '@zag-js/tooltip': 0.79.0
+      '@zag-js/tour': 0.79.0
+      '@zag-js/tree-view': 0.79.0
       svelte: 5.15.0
       zagjs-legacy-svelte: '@zag-js/svelte@0.77.1(svelte@5.15.0)'
       zagjs-legacy-toast: '@zag-js/toast@0.77.1'

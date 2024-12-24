@@ -7,7 +7,10 @@ import svgson from 'svgson';
 import colors from 'tailwindcss/colors.js';
 
 const WORKSPACE_ROOT = path.resolve(path.dirname('../..'));
-const OUTPUT_DIR = path.join(WORKSPACE_ROOT, 'shared/anatomy-icons/src/icons');
+const OUTPUT_DIR = path.join(
+  WORKSPACE_ROOT,
+  'website/src/lib/generated/anatomy-icons',
+);
 
 export async function generateAnatomyIcons() {
   const keys = Object.keys(allComponents) as unknown as ComponentAnatomyName[];

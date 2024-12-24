@@ -41,13 +41,15 @@ import {
   TooltipAnatomyIcon,
   TourAnatomyIcon,
   TreeViewAnatomyIcon,
-} from './icons/index.js';
+} from '../generated/anatomy-icons';
+
+type OmittedComponentAnatomyName =
+  | 'segmented-control'
+  | 'linear-progress'
+  | 'circular-progress';
 
 export type ComponentAnatomyName =
-  | Exclude<
-      ZagComponentAnatomyName,
-      'segmented-control' | 'linear-progress' | 'circular-progress'
-    >
+  | Exclude<ZagComponentAnatomyName, OmittedComponentAnatomyName>
   | 'segment-group'
   | 'progress-linear'
   | 'progress-circular';
@@ -100,5 +102,3 @@ export const allComponents: Record<
 export function getComponent(name: ComponentAnatomyName) {
   return allComponents[name];
 }
-
-export {createGradient, createPalette} from '@zag-js/anatomy-icons';
