@@ -97,7 +97,9 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test": "vitest",
-    "release": "release-it"
+    "release": "release-it",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "dependencies": {
     "@zag-js/accordion": "^0.79.0",
@@ -165,6 +167,7 @@
     "@types/jsdom": "^21.1.7",
     "@untitled-theme/icons-svelte": "^0.13.0",
     "autoprefixer": "^10.4.20",
+    "clean-package": "^2.2.0",
     "globals": "^15.14.0",
     "jsdom": "^25.0.1",
     "postcss": "^8.4.49",

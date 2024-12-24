@@ -54,5 +54,5 @@ export * from './create-context.svelte.js';
 export * from './create-split-props.js';
 export * from './create-unique-id.js';
 
-export {createAnatomy, type Anatomy} from '@zag-js/anatomy';
+export * from '@zag-js/anatomy';
 export {mergeProps, reflect} from '@zag-js/svelte';
