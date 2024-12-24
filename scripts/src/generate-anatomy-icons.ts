@@ -1,4 +1,4 @@
-import {allComponents, ComponentAnatomyName} from '@zag-js/anatomy-icons';
+import {allComponents, type ComponentAnatomyName} from '@zag-js/anatomy-icons';
 import fs from 'fs/promises';
 import path from 'node:path';
 import prettier from 'prettier';
