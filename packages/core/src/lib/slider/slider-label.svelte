@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface SliderLabelProps
     extends HtmlIngredientProps<'label', HTMLLabelElement> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getSliderContext} from './slider-context.svelte.js';
 
   let {

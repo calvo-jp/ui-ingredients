@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {SegmentPathProps} from '@zag-js/signature-pad';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface SignaturePadSegmentPathProps
     extends Assign<
@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getSignaturePadContext} from './signature-pad-context.svelte.js';
 
   let {

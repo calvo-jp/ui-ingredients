@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
   import type {
     CreateAccordionProps,
     CreateAccordionReturn,
@@ -15,10 +15,9 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
-  import {setPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
-  import {reflect} from '@zag-js/svelte';
+  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
+  import {setPresenceStrategyPropsContext} from '../presence/presence-context.svelte.js';
   import {setAccordionContext} from './accordion-context.svelte.js';
   import {createAccordion} from './create-accordion.svelte.js';
 

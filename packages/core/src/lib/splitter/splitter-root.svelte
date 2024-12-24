@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
   import type {
     CreateSplitterProps,
     CreateSplitterReturn,
@@ -13,9 +13,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
-  import {reflect} from '@zag-js/svelte';
+  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {createSplitter} from './create-splitter.svelte.js';
   import {setSplitterContext} from './splitter-context.svelte.js';
 

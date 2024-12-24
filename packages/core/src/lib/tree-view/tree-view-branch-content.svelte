@@ -1,16 +1,15 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
   import type {Action} from 'svelte/action';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface TreeViewBranchContentProps
     extends HtmlIngredientProps<'div', HTMLDivElement, never, Action> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
-  import {createPresence} from '$lib/presence/create-presence.svelte.js';
-  import {getPresenceStrategyPropsContext} from '$lib/presence/presence-context.svelte.js';
-  import {reflect} from '@zag-js/svelte';
+  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {createPresence} from '../presence/create-presence.svelte.js';
+  import {getPresenceStrategyPropsContext} from '../presence/presence-context.svelte.js';
   import {
     getTreeViewContext,
     getTreeViewNodePropsContext,

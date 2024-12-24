@@ -1,6 +1,6 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
 import {normalizeProps, reflect} from 'zagjs-legacy-svelte';
 import * as toast from 'zagjs-legacy-toast';
+import {createUniqueId} from '../create-unique-id.js';
 
 export interface CreateToasterProps
   extends Omit<

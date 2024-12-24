@@ -1,9 +1,9 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-import {getFieldContext} from '$lib/field/field-context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as ratingGroup from '@zag-js/rating-group';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {createUniqueId} from '../create-unique-id.js';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getFieldContext} from '../field/field-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateRatingGroupProps
   extends Omit<ratingGroup.Context, 'id' | 'dir' | 'getRootNode'> {

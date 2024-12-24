@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {InputProps} from '@zag-js/date-picker';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface DatePickerInputProps
     extends Assign<
@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getDatePickerContext} from './date-picker-context.svelte.js';
 
   let {

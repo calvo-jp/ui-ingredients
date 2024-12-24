@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {DayTableCellProps, DayTableCellState} from '@zag-js/date-picker';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface DatePickerDayTableCellProps
     extends Assign<
@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {
     getDatePickerContext,
     setDatePickerDayTableCellPropsContext,

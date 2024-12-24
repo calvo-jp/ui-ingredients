@@ -1,5 +1,3 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {ariaAttr, dataAttr, getDocument, getWindow} from '@zag-js/dom-query';
 import {reflect} from '@zag-js/svelte';
 import type {
@@ -9,6 +7,8 @@ import type {
   HTMLSelectAttributes,
   HTMLTextareaAttributes,
 } from 'svelte/elements';
+import {createUniqueId} from '../create-unique-id.js';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {parts} from './field-anatomy.js';
 
 interface ElementIds {

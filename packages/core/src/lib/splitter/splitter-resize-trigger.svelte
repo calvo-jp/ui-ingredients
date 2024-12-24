@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ResizeTriggerProps} from '@zag-js/splitter';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   interface ResizeTriggerState {
     min: number | undefined;
@@ -19,8 +19,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {getSplitterContext} from './splitter-context.svelte.js';
 
   let {

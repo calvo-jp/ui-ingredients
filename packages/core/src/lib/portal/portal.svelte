@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign} from '$lib/types.js';
   import type {SvelteHTMLElements} from 'svelte/elements';
+  import type {Assign} from '../types.js';
 
   interface PortalActionProps {
     disabled?: boolean;
@@ -12,9 +12,9 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {getEnvironmentContext} from '$lib/environment-provider/index.js';
   import {portal} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
+  import {getEnvironmentContext} from '../environment-provider/index.js';
   import {getPortalProviderPropsContext} from './portal-context.svelte.js';
 
   let {children, ...props}: PortalProps = $props();

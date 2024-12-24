@@ -1,4 +1,4 @@
-import {createContext} from '$lib/create-context.svelte.js';
+import {createContext} from '../create-context.svelte.js';
 import type {CreateBreadcrumbsReturn} from './create-breadcrumbs.js';
 
 export const [getBreadcrumbsContext, setBreadcrumbsContext] =

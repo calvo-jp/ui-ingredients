@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface EditablePreviewProps
     extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getEditableContext} from './editable-context.svelte.js';
 
   let {

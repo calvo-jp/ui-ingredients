@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface ProgressValueTextProps
     extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getProgressContext} from './progress-context.svelte.js';
 
   let {

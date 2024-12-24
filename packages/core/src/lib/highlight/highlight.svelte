@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {HighlightWordProps} from '@zag-js/highlight-word';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface HighlightProps
     extends Assign<
@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {highlightWord} from '@zag-js/highlight-word';
+  import {createSplitProps} from '../create-split-props.js';
 
   let {ref = $bindable(null), asChild, ...props}: HighlightProps = $props();
 

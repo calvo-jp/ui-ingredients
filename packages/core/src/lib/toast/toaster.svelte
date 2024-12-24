@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
   import type {CreateToastReturn} from './create-toast.svelte.js';
   import type {CreateToasterReturn} from './create-toaster.svelte.js';
 
@@ -13,13 +13,13 @@
 </script>
 
 <script lang="ts">
-  import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-  import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
-  import {mergeProps} from '$lib/merge-props.js';
-  import {getPortalProviderPropsContext} from '$lib/portal/portal-context.svelte.js';
+  import {mergeProps} from '@zag-js/svelte';
   import type {HTMLAttributes} from 'svelte/elements';
   import {normalizeProps, portal, useMachine} from 'zagjs-legacy-svelte';
   import * as toast from 'zagjs-legacy-toast';
+  import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+  import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+  import {getPortalProviderPropsContext} from '../portal/portal-context.svelte.js';
   import ToastActor from './toast-actor.svelte';
 
   let {

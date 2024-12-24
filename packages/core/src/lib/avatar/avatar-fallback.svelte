@@ -1,12 +1,12 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface AvatarFallbackProps
     extends HtmlIngredientProps<'span', HTMLSpanElement> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getAvatarContext} from './avatar-context.svelte.js';
 
   let {

@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ActionTriggerProps} from '@zag-js/timer';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface TimerActionTriggerProps
     extends Assign<
@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getTimerContext} from './timer-context.svelte.js';
 
   let {

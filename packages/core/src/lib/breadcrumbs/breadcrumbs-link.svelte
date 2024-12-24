@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
   import type {LinkProps} from './create-breadcrumbs.js';
 
   export interface BreadcrumbsLinkProps
@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {getBreadcrumbsContext} from './breadcrumbs-context.svelte.js';
 
   let {ref, asChild, children, ...props}: BreadcrumbsLinkProps = $props();

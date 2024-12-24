@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ItemProps, ItemState} from '@zag-js/rating-group';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface RatingGroupItemProps
     extends Assign<
@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getRatingGroupContext} from './rating-group-context.svelte.js';
 
   let {

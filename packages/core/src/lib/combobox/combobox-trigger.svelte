@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import {mergeProps} from '$lib/merge-props.js';
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface ComboboxTriggerProps
     extends Assign<
@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import type {TriggerProps} from '@zag-js/combobox';
+  import {createSplitProps} from '../create-split-props.js';
   import {getComboboxContext} from './combobox-context.svelte.js';
 
   let {

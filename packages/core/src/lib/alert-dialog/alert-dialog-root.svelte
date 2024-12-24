@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {PresenceStrategyProps} from '$lib/presence/create-presence.svelte.js';
   import type {Snippet} from 'svelte';
+  import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
   import type {
     CreateAlertDialogProps,
     CreateAlertDialogReturn,
@@ -14,13 +14,13 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {createPresence} from '$lib/presence/create-presence.svelte.js';
+  import {reflect} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
+  import {createPresence} from '../presence/create-presence.svelte.js';
   import {
     setPresenceContext,
     setPresenceStrategyPropsContext,
-  } from '$lib/presence/presence-context.svelte.js';
-  import {reflect} from '@zag-js/svelte';
+  } from '../presence/presence-context.svelte.js';
   import {setAlertDialogContext} from './alert-dialog-context.svelte.js';
   import {createAlertDialog} from './create-alert-dialog.svelte.js';
 

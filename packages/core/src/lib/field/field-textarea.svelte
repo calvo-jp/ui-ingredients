@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
   import {autoresizeTextarea} from '@zag-js/auto-resize';
   import type {Action} from 'svelte/action';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface FieldTextareaProps
     extends HtmlIngredientProps<
@@ -23,7 +23,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getFieldContext} from './field-context.svelte.js';
 
   let {

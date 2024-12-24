@@ -1,13 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {AreaProps} from '@zag-js/color-picker';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface ColorPickerAreaProps
     extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, AreaProps> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {
     getColorPickerContext,
     setColorPickerAreaPropsContext,

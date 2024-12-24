@@ -1,13 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {CellProps} from '@zag-js/time-picker';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface TimePickerHourCellProps
     extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, CellProps> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getTimePickerContext} from './time-picker-context.svelte.js';
 
   let {
