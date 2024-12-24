@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
   import type {CreatePresenceProps} from './create-presence.svelte.js';
 
   export interface PresenceProps
@@ -10,11 +10,10 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
-  import {reflect} from '@zag-js/svelte';
+  import {mergeProps, reflect} from '@zag-js/svelte';
   import type {Action} from 'svelte/action';
   import type {HTMLAttributes} from 'svelte/elements';
+  import {createSplitProps} from '../create-split-props.js';
   import {createPresence} from './create-presence.svelte.js';
 
   let {asChild, children, ...props}: PresenceProps = $props();

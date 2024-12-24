@@ -1,13 +1,13 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface ColorPickerChannelSliderValueTextProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
-  import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
   import {
     getColorPickerChannelPropsContext,
     getColorPickerContext,

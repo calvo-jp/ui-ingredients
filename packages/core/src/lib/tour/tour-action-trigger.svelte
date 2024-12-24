@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
   import type {StepActionTriggerProps} from '@zag-js/tour';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface TourActionTriggerProps
     extends StepActionTriggerProps,
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getTourContext} from './tour-context.svelte.js';
 
   let {

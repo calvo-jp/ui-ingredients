@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
   import type {CreateAlertReturn} from './create-alert.svelte.js';
 
   export interface AlertProps
@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {setAlertContext} from './alert-context.js';
   import {createAlert} from './create-alert.svelte.js';
 

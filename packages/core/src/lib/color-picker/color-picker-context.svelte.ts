@@ -1,10 +1,10 @@
-import {createContext} from '$lib/create-context.svelte.js';
 import type {
   AreaProps,
   ChannelProps,
   ColorFormat,
   SwatchProps,
 } from '@zag-js/color-picker';
+import {createContext} from '../create-context.svelte.js';
 import type {CreateColorPickerReturn} from './create-color-picker.svelte.js';
 
 export const [getColorPickerContext, setColorPickerContext] =

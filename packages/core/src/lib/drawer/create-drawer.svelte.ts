@@ -1,10 +1,9 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
-import {mergeProps} from '$lib/merge-props.js';
 import * as dialog from '@zag-js/dialog';
-import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {mergeProps, normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLAttributes} from 'svelte/elements';
+import {createUniqueId} from '../create-unique-id.js';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 import {parts} from './drawer-anatomy.js';
 
 export interface CreateDrawerProps

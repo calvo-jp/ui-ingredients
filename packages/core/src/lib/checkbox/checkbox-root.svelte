@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
   import type {
     CreateCheckboxProps,
     CreateCheckboxReturn,
@@ -13,8 +13,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {setCheckboxContext} from './checkbox-context.svelte.js';
   import {createCheckbox} from './create-checkbox.svelte.js';
 

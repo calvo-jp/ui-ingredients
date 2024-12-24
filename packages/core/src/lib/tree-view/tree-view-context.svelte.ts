@@ -1,5 +1,5 @@
-import {createContext} from '$lib/create-context.svelte.js';
 import type {NodeProps} from '@zag-js/tree-view';
+import {createContext} from '../create-context.svelte.js';
 import type {CreateTreeViewReturn} from './create-tree-view.svelte.js';
 
 export const [getTreeViewContext, setTreeViewContext] =

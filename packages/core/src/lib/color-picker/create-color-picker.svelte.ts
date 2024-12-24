@@ -1,9 +1,9 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
-import type {GenericObject} from '$lib/types.js';
 import * as colorPicker from '@zag-js/color-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {createUniqueId} from '../create-unique-id.js';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+import type {GenericObject} from '../types.js';
 import {parts} from './color-picker-anatomy.js';
 
 type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';

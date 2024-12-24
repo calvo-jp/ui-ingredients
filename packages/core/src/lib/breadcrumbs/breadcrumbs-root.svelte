@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
   import type {CreateBreadcrumbsReturn} from './create-breadcrumbs.js';
 
   export interface BreadcrumbsProps
@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {setBreadcrumbsContext} from './breadcrumbs-context.svelte.js';
   import {createBreadcrumbs} from './create-breadcrumbs.js';
 

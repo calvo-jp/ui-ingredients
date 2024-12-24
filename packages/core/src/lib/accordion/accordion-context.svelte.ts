@@ -1,5 +1,5 @@
-import {createContext} from '$lib/create-context.svelte.js';
 import type {ItemProps} from '@zag-js/accordion';
+import {createContext} from '../create-context.svelte.js';
 import type {CreateAccordionReturn} from './create-accordion.svelte.js';
 
 export const [getAccordionContext, setAccordionContext] =

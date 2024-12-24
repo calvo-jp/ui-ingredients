@@ -1,9 +1,9 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-import {getFieldContext} from '$lib/field/field-context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as numberInput from '@zag-js/number-input';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {createUniqueId} from '../create-unique-id.js';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getFieldContext} from '../field/field-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateNumberInputProps
   extends Omit<numberInput.Context, 'id' | 'dir' | 'getRootNode'> {

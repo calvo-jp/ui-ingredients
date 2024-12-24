@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {TriggerProps} from '@zag-js/tabs';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface TabsTriggerProps
     extends Assign<
@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {getTabsContext} from './tabs-context.svelte.js';
 
   let {

@@ -1,13 +1,13 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface TourPositionerProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
-  import {getPresenceContext} from '$lib/presence/presence-context.svelte.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {getPresenceContext} from '../presence/presence-context.svelte.js';
   import {getTourContext} from './tour-context.svelte.js';
 
   let {

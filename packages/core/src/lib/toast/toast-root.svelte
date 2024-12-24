@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
   import type {CreateToastReturn} from './create-toast.svelte.js';
 
   export interface ToastProps
@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {getToastContext} from './toast-context.svelte.js';
 
   let {

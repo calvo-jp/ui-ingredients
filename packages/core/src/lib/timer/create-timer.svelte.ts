@@ -1,7 +1,7 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timer from '@zag-js/timer';
+import {createUniqueId} from '../create-unique-id.js';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 
 export interface CreateTimerProps
   extends Omit<timer.Context, 'id' | 'getRootNode'> {

@@ -1,8 +1,8 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import * as qrCode from '@zag-js/qr-code';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {createUniqueId} from '../create-unique-id.js';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateQrCodeProps
   extends Omit<qrCode.Context, 'id' | 'dir' | 'getRootNode'> {

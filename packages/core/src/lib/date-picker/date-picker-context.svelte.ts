@@ -1,10 +1,10 @@
-import {createContext} from '$lib/create-context.svelte.js';
 import type {
   DayTableCellProps,
   TableCellProps,
   TableProps,
   ViewProps,
 } from '@zag-js/date-picker';
+import {createContext} from '../create-context.svelte.js';
 import type {CreateDatePickerReturn} from './create-date-picker.svelte.js';
 
 export const [getDatePickerContext, setDatePickerContext] =

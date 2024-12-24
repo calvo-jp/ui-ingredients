@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
   import type {ColorFormat} from '@zag-js/color-picker';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface ColorPickerViewTextProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {
     getColorPickerContext,
     setColorPickerFormatPropsContext,

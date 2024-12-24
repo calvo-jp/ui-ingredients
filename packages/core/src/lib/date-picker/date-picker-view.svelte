@@ -1,13 +1,13 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ViewProps} from '@zag-js/date-picker';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface DatePickerViewProps
     extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ViewProps> {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
   import {
     getDatePickerContext,
     setDatePickerViewPropsContext,

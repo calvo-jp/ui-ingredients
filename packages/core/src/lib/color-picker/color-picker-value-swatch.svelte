@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '$lib/types.js';
+  import type {HtmlIngredientProps} from '../types.js';
 
   export interface ColorPickerValueSwatchProps
     extends HtmlIngredientProps<'div', HTMLDivElement> {
@@ -8,8 +8,8 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '$lib/merge-props.js';
   import type {SwatchProps} from '@zag-js/color-picker';
+  import {mergeProps} from '@zag-js/svelte';
   import {getColorPickerContext} from './color-picker-context.svelte.js';
 
   let {

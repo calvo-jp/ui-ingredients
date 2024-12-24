@@ -1,14 +1,14 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {ItemProps} from '@zag-js/carousel';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface CarouselItemProps
     extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ItemProps> {}
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {getCarouselContext} from './carousel-context.svelte.js';
 
   let {

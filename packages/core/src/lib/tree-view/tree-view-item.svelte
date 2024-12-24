@@ -1,14 +1,14 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '$lib/types.js';
   import type {NodeProps} from '@zag-js/tree-view';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface TreeViewItemProps
     extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, NodeProps> {}
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '$lib/merge-props.js';
+  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {
     getTreeViewContext,
     setTreeViewNodePropsContext,
