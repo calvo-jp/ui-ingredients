@@ -13,7 +13,7 @@ const OUTPUT_DIR = path.join(
 );
 
 export async function generateAnatomyIcons() {
-  const keys = Object.keys(allComponents) as unknown as ComponentAnatomyName[];
+  const keys = Object.keys(allComponents) as ComponentAnatomyName[];
 
   const filenames: string[] = [];
   const promises: Promise<void>[] = [];
@@ -21,12 +21,7 @@ export async function generateAnatomyIcons() {
   for (const key of keys) {
     const jsx = await allComponents[key]({accentColor: colors.indigo[500]});
     const svg = renderToString(jsx);
-
-    const filename = `${key}-anatomy.svelte`.replace(
-      'segmented-control',
-      'segment-group',
-    );
-
+    const filename = `${key}-anatomy.svelte`;
     const content = await formatSvelte(await svgToSvelteComponent(svg));
     const promise = fs.writeFile(
       path.join(OUTPUT_DIR, filename),
@@ -45,6 +40,7 @@ export async function generateAnatomyIcons() {
 
 async function createBarrelFile(filenames: string[]) {
   const content = filenames
+    .toSorted((a, b) => a.localeCompare(b))
     .map((filename) => {
       const basename = filename.split('.')[0];
       const exportName = `${kebabToPascalCase(basename)}Icon`;
