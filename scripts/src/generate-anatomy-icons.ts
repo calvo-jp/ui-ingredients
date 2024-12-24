@@ -1,3 +1,4 @@
+import * as p from '@clack/prompts';
 import {allComponents, type ComponentAnatomyName} from '@zag-js/anatomy-icons';
 import fs from 'fs/promises';
 import path from 'node:path';
@@ -12,7 +13,11 @@ const OUTPUT_DIR = path.join(
   'website/src/lib/generated/anatomy-icons',
 );
 
+const spinner = p.spinner();
+
 export async function generateAnatomyIcons() {
+  spinner.start('Generating anatomy icons...');
+
   const keys = Object.keys(allComponents) as ComponentAnatomyName[];
 
   const filenames: string[] = [];
@@ -36,6 +41,7 @@ export async function generateAnatomyIcons() {
   promises.push(createBarrelFile(filenames));
 
   await Promise.all(promises);
+  spinner.stop('Anatomy icons generated successfully!');
 }
 
 async function createBarrelFile(filenames: string[]) {
