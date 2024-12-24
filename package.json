@@ -8,7 +8,7 @@
     "tailwind": "pnpm --filter ui-ingredients-plugin-tailwindcss",
     "scripts": "pnpm --filter ui-ingredients-scripts",
     "website": "pnpm --filter ui-ingredients-website",
-    "test": "pnpm ui-ingredients test",
+    "test": "pnpm core test",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
