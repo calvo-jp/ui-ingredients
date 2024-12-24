@@ -26,11 +26,16 @@ export default ts.config(
         parser: ts.parser,
       },
     },
+    rules: {
+      'svelte/no-at-html-tags': 'off',
+    },
   },
   {
     rules: {
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
   {

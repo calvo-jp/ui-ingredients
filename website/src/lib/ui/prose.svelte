@@ -31,6 +31,8 @@
     '[&_.shiki]:dark:!bg-neutral-900/40',
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
     '[&_.shiki_span]:dark:!text-[var(--shiki-dark)]',
+
+    className,
   )}
   {...props}
 >
