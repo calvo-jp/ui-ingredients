@@ -9,15 +9,13 @@
 </script>
 
 <Carousel.Root>
-  <Carousel.Viewport>
-    <Carousel.ItemGroup>
-      {#each images as src, index}
-        <Carousel.Item {index}>
-          <img {src} alt="" />
-        </Carousel.Item>
-      {/each}
-    </Carousel.ItemGroup>
-  </Carousel.Viewport>
+  <Carousel.ItemGroup>
+    {#each images as src, index}
+      <Carousel.Item {index}>
+        <img {src} alt="" />
+      </Carousel.Item>
+    {/each}
+  </Carousel.ItemGroup>
 
   <Carousel.IndicatorGroup>
     {#each images as _, index}
@@ -25,6 +23,8 @@
     {/each}
   </Carousel.IndicatorGroup>
 
-  <Carousel.PrevTrigger>Previous</Carousel.PrevTrigger>
-  <Carousel.NextTrigger>Next</Carousel.NextTrigger>
+  <Carousel.Control>
+    <Carousel.PrevTrigger>Previous</Carousel.PrevTrigger>
+    <Carousel.NextTrigger>Next</Carousel.NextTrigger>
+  </Carousel.Control>
 </Carousel.Root>

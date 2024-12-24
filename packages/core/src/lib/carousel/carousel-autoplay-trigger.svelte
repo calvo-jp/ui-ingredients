@@ -1,8 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '$lib/types.js';
 
-  export interface CarouselViewportProps
-    extends HtmlIngredientProps<'div', HTMLDivElement> {}
+  export interface CarouselAutoplayTriggerProps
+    extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
@@ -14,17 +14,19 @@
     asChild,
     children,
     ...props
-  }: CarouselViewportProps = $props();
+  }: CarouselAutoplayTriggerProps = $props();
 
   let carousel = getCarouselContext();
 
-  let mergedProps = $derived(mergeProps(carousel.getViewportProps(), props));
+  let mergedProps = $derived(
+    mergeProps(carousel.getAutoplayTriggerProps(), props),
+  );
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={ref} {...mergedProps}>
+  <button bind:this={ref} {...mergedProps}>
     {@render children?.()}
-  </div>
+  </button>
 {/if}

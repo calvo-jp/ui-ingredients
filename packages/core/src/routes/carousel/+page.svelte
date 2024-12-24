@@ -10,32 +10,22 @@
     'https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     'https://images.pexels.com/photos/1192671/pexels-photo-1192671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   ];
-
-  let index = $state(0);
 </script>
 
-<Carousel.Root
-  {index}
-  onIndexChange={(detail) => {
-    index = detail.index;
-  }}
-  class="w-full lg:max-w-[32rem]"
->
-  <Carousel.Viewport class="overflow-hidden rounded">
-    <Carousel.ItemGroup>
-      {#each items as src, index}
-        <Carousel.Item {index} class="h-[16rem] overflow-hidden lg:h-[20rem]">
-          <img
-            {src}
-            alt=""
-            class="max-h-[125%] min-h-full min-w-full max-w-[125%]"
-          />
-        </Carousel.Item>
-      {/each}
-    </Carousel.ItemGroup>
-  </Carousel.Viewport>
+<Carousel.Root autoplay loop class="w-full lg:max-w-[32rem]">
+  <Carousel.ItemGroup>
+    {#each items as src, index}
+      <Carousel.Item {index} class="h-[16rem] overflow-hidden lg:h-[20rem]">
+        <img
+          {src}
+          alt=""
+          class="max-h-[125%] min-h-full min-w-full max-w-[125%]"
+        />
+      </Carousel.Item>
+    {/each}
+  </Carousel.ItemGroup>
 
-  <div class="mx-auto mt-5 flex w-fit items-center gap-2">
+  <Carousel.Control class="mx-auto mt-5 flex w-fit items-center gap-2">
     <Carousel.PrevTrigger
       class="disabled:cursor-not-allowed disabled:opacity-50"
     >
@@ -56,5 +46,5 @@
     >
       <ChevronRightIcon class="size-6" />
     </Carousel.NextTrigger>
-  </div>
+  </Carousel.Control>
 </Carousel.Root>

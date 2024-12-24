@@ -28,15 +28,24 @@
 
   let [createCarouselProps, localProps] = $derived(
     createSplitProps<CreateCarouselProps>([
+      'allowMouseDrag',
+      'autoplay',
       'id',
       'ids',
+      'inViewThreshold',
       'loop',
-      'align',
-      'index',
-      'spacing',
+      'onAutoplayStatusChange',
+      'onDragStatusChange',
+      'onPageChange',
       'orientation',
-      'slidesPerView',
-      'onIndexChange',
+      'padding',
+      'page',
+      'slideCount',
+      'slidesPerMove',
+      'slidesPerPage',
+      'snapType',
+      'spacing',
+      'translations',
     ])(props),
   );
 

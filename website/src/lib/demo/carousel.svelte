@@ -10,29 +10,24 @@
 </script>
 
 <Container>
-  <Carousel.Root class="mx-auto max-w-[32rem]">
-    <Carousel.Viewport
-      class="overflow-hidden rounded border border-neutral-200 dark:border-neutral-700"
-    >
-      <Carousel.ItemGroup>
-        {#each items as _, index}
-          <Carousel.Item
-            {index}
-            class="flex h-[14rem] items-center justify-center bg-white font-mono text-4xl font-bold dark:bg-neutral-700/25 lg:h-[16rem]"
-          >
-            {index + 1}
-          </Carousel.Item>
-        {/each}
-      </Carousel.ItemGroup>
-    </Carousel.Viewport>
+  <Carousel.Root autoplay loop allowMouseDrag class="mx-auto max-w-[32rem]">
+    <Carousel.ItemGroup>
+      {#each items as _, index}
+        <Carousel.Item
+          {index}
+          class="flex h-[14rem] items-center justify-center rounded bg-white font-mono text-4xl font-bold dark:bg-neutral-700/25 lg:h-[16rem]"
+        >
+          {index + 1}
+        </Carousel.Item>
+      {/each}
+    </Carousel.ItemGroup>
 
-    <div class="mx-auto mt-5 flex w-fit items-center gap-2">
+    <Carousel.Control class="mx-auto mt-5 flex w-fit items-center gap-2">
       <Carousel.PrevTrigger
         class="disabled:cursor-not-allowed disabled:opacity-50"
       >
         <ChevronLeftIcon class="size-5" />
       </Carousel.PrevTrigger>
-
       <Carousel.IndicatorGroup class="flex items-center justify-center gap-2">
         {#each items as _, index}
           <Carousel.Indicator
@@ -41,12 +36,11 @@
           />
         {/each}
       </Carousel.IndicatorGroup>
-
       <Carousel.NextTrigger
         class="disabled:cursor-not-allowed disabled:opacity-50"
       >
         <ChevronRightIcon class="size-5" />
       </Carousel.NextTrigger>
-    </div>
+    </Carousel.Control>
   </Carousel.Root>
 </Container>

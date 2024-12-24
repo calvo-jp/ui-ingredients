@@ -1,12 +1,9 @@
 <script lang="ts" module>
   import type {Assign, HtmlIngredientProps} from '$lib/types.js';
-  import type {ItemProps, ItemState} from '@zag-js/carousel';
+  import type {ItemProps} from '@zag-js/carousel';
 
   export interface CarouselItemProps
-    extends Assign<
-      HtmlIngredientProps<'div', HTMLDivElement, ItemState>,
-      ItemProps
-    > {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, ItemProps> {}
 </script>
 
 <script lang="ts">
@@ -27,16 +24,15 @@
     createSplitProps<ItemProps>(['index'])(props),
   );
 
-  let itemState = $derived(carousel.getItemState(itemProps));
   let mergedProps = $derived(
     mergeProps(carousel.getItemProps(itemProps), localProps),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps, itemState)}
+  {@render asChild(mergedProps)}
 {:else}
   <div bind:this={ref} {...mergedProps}>
-    {@render children?.(itemState)}
+    {@render children?.()}
   </div>
 {/if}
