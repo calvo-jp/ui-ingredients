@@ -386,8 +386,8 @@ importers:
         specifier: ^0.23.0
         version: 0.23.0(@internationalized/date@3.5.5)(svelte@5.15.0)
       ui-ingredients-plugin-tailwindcss:
-        specifier: ^0.0.4
-        version: 0.0.4(tailwindcss@3.4.17)
+        specifier: ^0.0.5
+        version: 0.0.5(tailwindcss@3.4.17)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.5.2
@@ -4103,10 +4103,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ui-ingredients-plugin-tailwindcss@0.0.4:
-    resolution: {integrity: sha512-NsmKisi0KAQNgovmi0lvjvUc9+stZohBTDXAVDXmFwDkxNbz5uY2LefEY4+pH9I3s5GndO8KZkL6AEPwEP71dg==}
-    peerDependencies:
-      tailwindcss: ^3.3.3
+  ui-ingredients-plugin-tailwindcss@0.0.5:
+    resolution: {integrity: sha512-jU8UcH2yPItMzS0pe+nfLUDeoOFFGi1Z42/oCHwyC/kR4X0lyGQYCi9OUqCeOlvEIjmN8g/Q2I8vLotJvPvRhA==}
 
   ui-ingredients@0.23.0:
     resolution: {integrity: sha512-xZ3CRZyXGy4FAWX92ntRsGsnay+43TpPKZaxUn2bF+ewgfPKTzBobbSZL5YtdXzGNoeTzGRjv8xnAgUP2XYutQ==}
@@ -8345,9 +8343,11 @@ snapshots:
 
   typescript@5.7.2: {}
 
-  ui-ingredients-plugin-tailwindcss@0.0.4(tailwindcss@3.4.17):
+  ui-ingredients-plugin-tailwindcss@0.0.5(tailwindcss@3.4.17):
     dependencies:
-      tailwindcss: 3.4.17
+      tailwindcss-plugin-zag: 0.0.1(tailwindcss@3.4.17)
+    transitivePeerDependencies:
+      - tailwindcss
 
   ui-ingredients@0.23.0(@internationalized/date@3.5.5)(svelte@5.15.0):
     dependencies:
