@@ -281,6 +281,10 @@ importers:
         version: 0.3.3(vitest@2.1.8(@types/node@22.10.2)(jsdom@25.0.1))
 
   packages/tailwindcss:
+    dependencies:
+      tailwindcss-plugin-zag:
+        specifier: ^0.0.1
+        version: 0.0.1(tailwindcss@3.4.17)
     devDependencies:
       '@tsconfig/node22':
         specifier: ^22.0.0
@@ -3948,6 +3952,11 @@ packages:
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
+
+  tailwindcss-plugin-zag@0.0.1:
+    resolution: {integrity: sha512-iBruxIt7n3olOc0dG8ZphZDFAx57P2E+0uQY+18QlC1oY5W2yD/bddoAcUnWAz4q++uSSuzKR9EHRAcTSIpglg==}
+    peerDependencies:
+      tailwindcss: ^3.3.3
 
   tailwindcss@3.4.17:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
@@ -8168,6 +8177,10 @@ snapshots:
   tailwind-variants@0.3.0(tailwindcss@3.4.17):
     dependencies:
       tailwind-merge: 2.6.0
+      tailwindcss: 3.4.17
+
+  tailwindcss-plugin-zag@0.0.1(tailwindcss@3.4.17):
+    dependencies:
       tailwindcss: 3.4.17
 
   tailwindcss@3.4.17:
