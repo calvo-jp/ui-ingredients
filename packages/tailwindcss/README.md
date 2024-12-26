@@ -35,7 +35,7 @@ Style your components
 
 ```svelte
 <script>
-  import {Field} from '@ark-ui/react';
+  import {Field} from 'ui-ingredients';
 </script>
 
 <Field.Root>
@@ -51,7 +51,7 @@ import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 import {Config} from 'tailwindcss';
 
 export default {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
       keyframes: {
