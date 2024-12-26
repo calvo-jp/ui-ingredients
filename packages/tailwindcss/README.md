@@ -18,7 +18,7 @@ import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 import {Config} from 'tailwindcss';
 
 export default {
-  content: ['./app.html', './src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   plugins: [
     // using the default prefix: "ui"
     uiIngredients,
@@ -39,9 +39,7 @@ Style your components
 </script>
 
 <Field.Root>
-  <Field.Input
-    className="ui-invalid:border-red-300 ui-readonly:border-gray-200"
-  />
+  <Field.Input class="ui-invalid:border-red-300 ui-readonly:border-gray-200" />
 </Field.Root>
 ```
 
@@ -53,7 +51,7 @@ import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 import {Config} from 'tailwindcss';
 
 export default {
-  content: ['./app.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       keyframes: {
@@ -83,26 +81,26 @@ export default {
 
 <Dialog.Root>
   <Dialog.Trigger
-    className="bg-neutral-900 rounded text-white font-semibold h-11 px-4"
+    class="h-11 rounded bg-neutral-900 px-4 font-semibold text-white"
   >
     Open
   </Dialog.Trigger>
   <Portal>
     <Dialog.Backdrop
-      className="fixed inset-0 bg-black/50 ui-open:animate-fade-in ui-closed:animate-fade-out"
+      class="fixed inset-0 bg-black/50 ui-open:animate-fade-in ui-closed:animate-fade-out"
     />
     <Dialog.Positioner>
       <Dialog.Content
-        className="fixed max-w-[24rem] rounded w-full left-1/2 -translate-x-1/2 my-16 p-4 bg-white ui-open:animate-fade-in ui-closed:animate-fade-out"
+        class="fixed left-1/2 my-16 w-full max-w-[24rem] -translate-x-1/2 rounded bg-white p-4 ui-open:animate-fade-in ui-closed:animate-fade-out"
       >
-        <Dialog.Title className="text-neutral-800 text-xl font-bold">
+        <Dialog.Title class="text-xl font-bold text-neutral-800">
           Title
         </Dialog.Title>
-        <Dialog.Description className="text-neutral-600">
+        <Dialog.Description class="text-neutral-600">
           Description
         </Dialog.Description>
         <Dialog.CloseTrigger
-          className="border border-neutral-300 h-11 w-full rounded mt-4"
+          class="mt-4 h-11 w-full rounded border border-neutral-300"
         >
           Close
         </Dialog.CloseTrigger>
