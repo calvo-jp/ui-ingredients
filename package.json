@@ -4,11 +4,11 @@
   "private": true,
   "packageManager": "pnpm@9.15.1",
   "scripts": {
-    "core": "pnpm --filter ui-ingredients",
-    "tailwind": "pnpm --filter ui-ingredients-plugin-tailwindcss",
-    "scripts": "pnpm --filter ui-ingredients-scripts",
-    "website": "pnpm --filter ui-ingredients-website",
-    "test": "pnpm core test",
+    "core": "pnpm --filter=\"ui-ingredients\"",
+    "tailwind": "pnpm --filter=\"ui-ingredients-plugin-tailwindcss\"",
+    "scripts": "pnpm --filter=\"ui-ingredients-scripts\"",
+    "website": "pnpm --filter=\"ui-ingredients-website\"",
+    "test": "pnpm --filter=\"*\" test",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
