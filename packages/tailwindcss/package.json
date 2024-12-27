@@ -38,7 +38,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "tailwindcss-plugin-zag": "^0.0.1"
+    "tailwindcss-plugin-zag": "^0.0.5"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",

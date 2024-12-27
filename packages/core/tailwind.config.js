@@ -62,6 +62,9 @@ export default withTV({
         'in-range': 'in-range',
         'range-start': 'range-start',
         'range-end': 'range-end',
+        'under-value': 'state="under-value"',
+        'over-value': 'state="over-value"',
+        'at-value': 'state="at-value"',
       },
       aria: {
         page: 'current="page"',
