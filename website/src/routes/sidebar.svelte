@@ -75,6 +75,9 @@
                     <a
                       href={child.path}
                       class="group flex items-center gap-3 rounded py-1"
+                      onclick={() => {
+                        navbarStore.drawer.close();
+                      }}
                       data-current={dataAttr(page.url.pathname === child.path)}
                     >
                       <span
