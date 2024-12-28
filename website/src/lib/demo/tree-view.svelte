@@ -105,7 +105,9 @@
           <ChevronRightIcon class="size-4 text-neutral-500" />
         </TreeView.BranchIndicator>
       </TreeView.BranchControl>
-      <TreeView.BranchContent class="flex p-1 pr-0">
+      <TreeView.BranchContent
+        class="flex overflow-hidden p-1 pr-0 ui-open:animate-collapse-in ui-closed:animate-collapse-out"
+      >
         <TreeView.BranchIndentGuide
           class="w-3 border-l border-neutral-200 dark:border-neutral-800"
         />

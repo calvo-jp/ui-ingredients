@@ -377,11 +377,11 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(tailwindcss@3.4.17)
       ui-ingredients:
-        specifier: ^0.23.0
-        version: 0.23.0(@internationalized/date@3.5.5)(svelte@5.15.0)
+        specifier: ^0.24.0
+        version: 0.24.0(@internationalized/date@3.5.5)(svelte@5.15.0)
       ui-ingredients-plugin-tailwindcss:
-        specifier: ^0.0.5
-        version: 0.0.5(tailwindcss@3.4.17)
+        specifier: ^0.0.6
+        version: 0.0.6(tailwindcss@3.4.17)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.5.2
@@ -3935,11 +3935,6 @@ packages:
     peerDependencies:
       tailwindcss: '*'
 
-  tailwindcss-plugin-zag@0.0.1:
-    resolution: {integrity: sha512-iBruxIt7n3olOc0dG8ZphZDFAx57P2E+0uQY+18QlC1oY5W2yD/bddoAcUnWAz4q++uSSuzKR9EHRAcTSIpglg==}
-    peerDependencies:
-      tailwindcss: ^3.3.3
-
   tailwindcss-plugin-zag@0.0.5:
     resolution: {integrity: sha512-GCepmlltDPdTQE+88G+dC2t9unFEES061QyM6EGjDeEEA6qO6FOvJBxyEPUCy8YXptfgfdUgVnlLW8K+HwQMAg==}
     peerDependencies:
@@ -4090,11 +4085,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ui-ingredients-plugin-tailwindcss@0.0.5:
-    resolution: {integrity: sha512-jU8UcH2yPItMzS0pe+nfLUDeoOFFGi1Z42/oCHwyC/kR4X0lyGQYCi9OUqCeOlvEIjmN8g/Q2I8vLotJvPvRhA==}
+  ui-ingredients-plugin-tailwindcss@0.0.6:
+    resolution: {integrity: sha512-I+XU6fb0JY6okrM96n815rcACKoaEUsINy5391LA7qKKxJXUaFpo02x5/yv5lZ9c7wNVOU4waaayTknFJtQJVQ==}
 
-  ui-ingredients@0.23.0:
-    resolution: {integrity: sha512-xZ3CRZyXGy4FAWX92ntRsGsnay+43TpPKZaxUn2bF+ewgfPKTzBobbSZL5YtdXzGNoeTzGRjv8xnAgUP2XYutQ==}
+  ui-ingredients@0.24.0:
+    resolution: {integrity: sha512-u1fyf2mmKs6GNyKX7ydwbxiPUGMaFCR4b7gc/Jguap5vkJ/zKOQ5QQkVr/K1V+T2Pp4euAEr+Y9Gcx4nUqqyDg==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -8154,10 +8149,6 @@ snapshots:
       tailwind-merge: 2.6.0
       tailwindcss: 3.4.17
 
-  tailwindcss-plugin-zag@0.0.1(tailwindcss@3.4.17):
-    dependencies:
-      tailwindcss: 3.4.17
-
   tailwindcss-plugin-zag@0.0.5(tailwindcss@3.4.17):
     dependencies:
       tailwindcss: 3.4.17
@@ -8324,13 +8315,13 @@ snapshots:
 
   typescript@5.7.2: {}
 
-  ui-ingredients-plugin-tailwindcss@0.0.5(tailwindcss@3.4.17):
+  ui-ingredients-plugin-tailwindcss@0.0.6(tailwindcss@3.4.17):
     dependencies:
-      tailwindcss-plugin-zag: 0.0.1(tailwindcss@3.4.17)
+      tailwindcss-plugin-zag: 0.0.5(tailwindcss@3.4.17)
     transitivePeerDependencies:
       - tailwindcss
 
-  ui-ingredients@0.23.0(@internationalized/date@3.5.5)(svelte@5.15.0):
+  ui-ingredients@0.24.0(@internationalized/date@3.5.5)(svelte@5.15.0):
     dependencies:
       '@zag-js/accordion': 0.79.0
       '@zag-js/anatomy': 0.79.0

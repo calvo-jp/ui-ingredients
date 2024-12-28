@@ -21,8 +21,8 @@
     "tailwind-merge": "^2.6.0",
     "tailwind-scrollbar": "^3.1.0",
     "tailwind-variants": "^0.3.0",
-    "ui-ingredients": "^0.23.0",
-    "ui-ingredients-plugin-tailwindcss": "^0.0.5"
+    "ui-ingredients": "^0.24.0",
+    "ui-ingredients-plugin-tailwindcss": "^0.0.6"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.5.2",
