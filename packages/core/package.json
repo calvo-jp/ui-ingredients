@@ -8,8 +8,8 @@
   "types": "./dist/index.ts",
   "exports": {
     ".": {
-      "svelte": "./src/lib/index.ts",
-      "types": "./src/lib/index.ts"
+      "types": "./src/lib/index.ts",
+      "svelte": "./src/lib/index.ts"
     },
     "./package.json": "./package.json"
   },
