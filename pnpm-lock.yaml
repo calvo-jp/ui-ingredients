@@ -228,9 +228,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
-      clean-package:
-        specifier: ^2.2.0
-        version: 2.2.0
       globals:
         specifier: ^15.14.0
         version: 15.14.0
@@ -289,9 +286,6 @@ importers:
       '@tsconfig/node22':
         specifier: ^22.0.0
         version: 22.0.0
-      clean-package:
-        specifier: ^2.2.0
-        version: 2.2.0
       release-it:
         specifier: ^17.11.0
         version: 17.11.0(typescript@5.7.2)
@@ -2060,10 +2054,6 @@ packages:
     resolution: {integrity: sha512-HutrvTNsF48wnxkzERIXOe5/mlcfFcbfCmwcg6CJnizbSue78AbDt+1cgl26zwn61WFxhcPykPfZrbqjGmBb4A==}
     engines: {node: '>=8'}
 
-  clean-package@2.2.0:
-    resolution: {integrity: sha512-vLv8kRqvh4smPDpqAYFPLEijTppAd/cfCz4yBcUGoVl/JKu6ZWKhlo+G/cAmwlSa29RudfBeuyiNEzas8bTwEQ==}
-    hasBin: true
-
   cli-boxes@3.0.0:
     resolution: {integrity: sha512-/lzGpEWL/8PfI0BmBOPRwp0c/wFNX1RdUML3jK/RcSBA9T8mZDdQpqYBKtCFTOfQbwPqWEOpjqW+Fnayc0969g==}
     engines: {node: '>=10'}
@@ -2284,10 +2274,6 @@ packages:
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
-
-  dot-prop@6.0.1:
-    resolution: {integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==}
-    engines: {node: '>=10'}
 
   dot-prop@9.0.0:
     resolution: {integrity: sha512-1gxPBJpI/pcjQhKgIU91II6Wkay+dLcN3M6rf2uwP8hRur3HtQXjVrdAK3sjC0piaEuxzMwjXChcETiJl47lAQ==}
@@ -2814,10 +2800,6 @@ packages:
   is-number@7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
-
-  is-obj@2.0.0:
-    resolution: {integrity: sha512-drqDG3cbczxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==}
-    engines: {node: '>=8'}
 
   is-path-inside@4.0.0:
     resolution: {integrity: sha512-lJJV/5dYS+RcL8uQdBDW9c9uWFLLBNRyFhnAKXw5tVqLlKZ4RMGZKv+YQ/IA3OhD+RpbJa1LLFM1FQPGyIXvOA==}
@@ -6318,10 +6300,6 @@ snapshots:
 
   ci-info@4.1.0: {}
 
-  clean-package@2.2.0:
-    dependencies:
-      dot-prop: 6.0.1
-
   cli-boxes@3.0.0: {}
 
   cli-cursor@3.1.0:
@@ -6491,10 +6469,6 @@ snapshots:
     dependencies:
       no-case: 3.0.4
       tslib: 2.6.3
-
-  dot-prop@6.0.1:
-    dependencies:
-      is-obj: 2.0.0
 
   dot-prop@9.0.0:
     dependencies:
@@ -7111,8 +7085,6 @@ snapshots:
   is-npm@6.0.0: {}
 
   is-number@7.0.0: {}
-
-  is-obj@2.0.0: {}
 
   is-path-inside@4.0.0: {}
 

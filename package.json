@@ -10,7 +10,10 @@
     "website": "pnpm --filter=\"ui-ingredients-website\"",
     "test": "pnpm --filter=\"*\" test",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "release:core": "pnpm --filter=\"ui-ingredients\" release",
+    "release:tailwind": "pnpm --filter=\"ui-ingredients-plugin-tailwindcss\" release",
+    "release": "pnpm --filter=\"./packages\" --workspace-concurrency=1 release"
   },
   "dependencies": {
     "@types/eslint": "^9.6.1",
