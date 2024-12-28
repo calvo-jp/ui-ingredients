@@ -377,8 +377,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(tailwindcss@3.4.17)
       ui-ingredients:
-        specifier: ^0.24.0
-        version: 0.24.0(@internationalized/date@3.5.5)(svelte@5.15.0)
+        specifier: ^0.25.0
+        version: 0.25.0(@internationalized/date@3.5.5)(svelte@5.15.0)
       ui-ingredients-plugin-tailwindcss:
         specifier: ^0.0.6
         version: 0.0.6(tailwindcss@3.4.17)
@@ -4088,8 +4088,8 @@ packages:
   ui-ingredients-plugin-tailwindcss@0.0.6:
     resolution: {integrity: sha512-I+XU6fb0JY6okrM96n815rcACKoaEUsINy5391LA7qKKxJXUaFpo02x5/yv5lZ9c7wNVOU4waaayTknFJtQJVQ==}
 
-  ui-ingredients@0.24.0:
-    resolution: {integrity: sha512-u1fyf2mmKs6GNyKX7ydwbxiPUGMaFCR4b7gc/Jguap5vkJ/zKOQ5QQkVr/K1V+T2Pp4euAEr+Y9Gcx4nUqqyDg==}
+  ui-ingredients@0.25.0:
+    resolution: {integrity: sha512-Uja9gFHdwGyfGP6C3FnZw4pkeMdvvqVPlZa4QcLGeeOfYgAhEcFoNSSu04rJgVJoAYrxHVCxn3gUx3QgZPhgwg==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -8321,7 +8321,7 @@ snapshots:
     transitivePeerDependencies:
       - tailwindcss
 
-  ui-ingredients@0.24.0(@internationalized/date@3.5.5)(svelte@5.15.0):
+  ui-ingredients@0.25.0(@internationalized/date@3.5.5)(svelte@5.15.0):
     dependencies:
       '@zag-js/accordion': 0.79.0
       '@zag-js/anatomy': 0.79.0

@@ -41,7 +41,7 @@
           </Accordion.ItemIndicator>
         </Accordion.ItemTrigger>
         <Accordion.ItemContent
-          class="overflow-hidden text-neutral-500 [--height:1em] ui-open:animate-collapse-in ui-closed:animate-collapse-out dark:text-neutral-400"
+          class="overflow-hidden text-neutral-500 ui-open:animate-collapse-in ui-closed:animate-collapse-out dark:text-neutral-400"
         >
           {#snippet asChild(action, attrs)}
             <p use:action {...attrs}>{content}</p>
