@@ -93,12 +93,14 @@
           <span>{props.node.label}</span>
         </TreeView.BranchText>
         <TreeView.BranchIndicator
-          class="transition-transform duration-150 data-open:rotate-90"
+          class="data-open:rotate-90 transition-transform duration-150"
         >
           <ChevronRightIcon class="size-4" />
         </TreeView.BranchIndicator>
       </TreeView.BranchControl>
-      <TreeView.BranchContent class="flex p-1">
+      <TreeView.BranchContent
+        class="data-open:animate-collapse-in data-closed:animate-collapse-out flex overflow-hidden p-1"
+      >
         <TreeView.BranchIndentGuide class="w-3 border-l" />
 
         <div class="grow space-y-1">

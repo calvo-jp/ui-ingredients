@@ -10,7 +10,9 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {setCollapsibleContext} from '../collapsible/collapsible-context.svelte.js';
+  import {createCollapsible} from '../collapsible/create-collapsible.svelte.js';
   import {createSplitProps} from '../create-split-props.js';
   import {
     getTreeViewContext,
@@ -25,16 +27,28 @@
   }: TreeViewBranchProps = $props();
 
   let treeView = getTreeViewContext();
-
   let [nodeProps, localProps] = $derived(
     createSplitProps<NodeProps>(['node', 'indexPath'])(props),
   );
 
   let nodeState = $derived(treeView.getNodeState(nodeProps));
-  let mergedProps = $derived(
-    mergeProps(treeView.getBranchProps(nodeProps), localProps),
+  let branchContentProps = $derived(treeView.getBranchContentProps(nodeProps));
+  let collapbsible = createCollapsible(
+    reflect(() => ({
+      ids: {content: branchContentProps.id},
+      open: nodeState.expanded,
+    })),
   );
 
+  let mergedProps = $derived(
+    mergeProps(
+      collapbsible.getRootProps(),
+      treeView.getBranchProps(nodeProps),
+      localProps,
+    ),
+  );
+
+  setCollapsibleContext(collapbsible);
   setTreeViewNodePropsContext(() => nodeProps);
 </script>
 
