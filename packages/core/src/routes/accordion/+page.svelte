@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Accordion, mergeProps} from '$lib/index.js';
+  import {Accordion} from '$lib/index.js';
   import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
 
   let items = [
@@ -21,10 +21,6 @@
   ];
 
   let value: string[] = $state([]);
-
-  console.log(
-    mergeProps({style: {color: 'red'}}, {style: 'background-color:blue'}).style,
-  );
 </script>
 
 <Accordion.Root
@@ -50,7 +46,7 @@
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
       <Accordion.ItemContent
-        class="text-muted data-open:animate-collapse-in data-closed:animate-collapse-out overflow-hidden [--height:1em]"
+        class="text-muted data-open:animate-collapse-in data-closed:animate-collapse-out overflow-hidden"
       >
         {#snippet asChild(action, attrs)}
           <p use:action {...attrs}>{content}</p>

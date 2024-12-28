@@ -8,6 +8,7 @@
 
 <script lang="ts">
   import {mergeProps, reflect} from '@zag-js/svelte';
+  import {getCollapsibleContext} from '../collapsible/collapsible-context.svelte.js';
   import {createPresence} from '../presence/create-presence.svelte.js';
   import {getPresenceStrategyPropsContext} from '../presence/presence-context.svelte.js';
   import {
@@ -25,7 +26,7 @@
   let accordion = getAccordionContext();
   let itemProps = getAccordionItemPropsContext();
   let itemsState = $derived(accordion.getItemState(itemProps));
-
+  let collapsible = getCollapsibleContext();
   let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence(
     reflect(() => ({
@@ -36,6 +37,7 @@
 
   let mergedProps = $derived(
     mergeProps(
+      collapsible.getContentProps(),
       accordion.getItemContentProps(itemProps),
       presence.getPresenceProps(),
       props,

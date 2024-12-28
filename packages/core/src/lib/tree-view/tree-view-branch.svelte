@@ -37,6 +37,7 @@
     reflect(() => ({
       ids: {content: branchContentProps.id},
       open: nodeState.expanded,
+      disabled: nodeState.disabled,
     })),
   );
 

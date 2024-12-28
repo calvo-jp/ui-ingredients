@@ -10,7 +10,9 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {setCollapsibleContext} from '../collapsible/collapsible-context.svelte.js';
+  import {createCollapsible} from '../collapsible/create-collapsible.svelte.js';
   import {createSplitProps} from '../create-split-props.js';
   import {
     getAccordionContext,
@@ -31,10 +33,24 @@
   );
 
   let itemState = $derived(accordion.getItemState(itemProps));
-  let mergedProps = $derived(
-    mergeProps(accordion.getItemProps(itemProps), localProps),
+  let contentProps = $derived(accordion.getItemContentProps(itemProps));
+  let collapsible = createCollapsible(
+    reflect(() => ({
+      ids: {content: contentProps.id},
+      open: itemState.expanded,
+      disabled: itemState.disabled,
+    })),
   );
 
+  let mergedProps = $derived(
+    mergeProps(
+      collapsible.getRootProps(),
+      accordion.getItemProps(itemProps),
+      localProps,
+    ),
+  );
+
+  setCollapsibleContext(collapsible);
   setAccordionItemPropsContext(() => itemProps);
 </script>
 
