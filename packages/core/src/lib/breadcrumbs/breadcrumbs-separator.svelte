@@ -9,7 +9,12 @@
   import {mergeProps} from '@zag-js/svelte';
   import {getBreadcrumbsContext} from './breadcrumbs-context.svelte.js';
 
-  let {ref, asChild, children, ...props}: BreadcrumbsSeparatorProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: BreadcrumbsSeparatorProps = $props();
 
   let breadcrumbs = getBreadcrumbsContext();
 

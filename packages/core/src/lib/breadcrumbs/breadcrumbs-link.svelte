@@ -11,7 +11,12 @@
   import {createSplitProps} from '../create-split-props.js';
   import {getBreadcrumbsContext} from './breadcrumbs-context.svelte.js';
 
-  let {ref, asChild, children, ...props}: BreadcrumbsLinkProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: BreadcrumbsLinkProps = $props();
 
   let [linkProps, localProps] = $derived(
     createSplitProps<LinkProps>(['href', 'current'])(props),

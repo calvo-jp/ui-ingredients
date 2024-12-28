@@ -11,7 +11,12 @@
   import {setAlertContext} from './alert-context.js';
   import {createAlert} from './create-alert.svelte.js';
 
-  let {ref, asChild, children, ...props}: AlertProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: AlertProps = $props();
 
   let alert = createAlert();
 

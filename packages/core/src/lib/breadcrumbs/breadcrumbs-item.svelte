@@ -9,7 +9,12 @@
   import {mergeProps} from '@zag-js/svelte';
   import {createBreadcrumbs} from './create-breadcrumbs.js';
 
-  let {ref, asChild, children, ...props}: BreadcrumbsItemProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: BreadcrumbsItemProps = $props();
 
   let breadcrumbs = createBreadcrumbs();
 

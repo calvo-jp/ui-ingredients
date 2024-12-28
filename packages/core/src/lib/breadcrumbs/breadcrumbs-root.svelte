@@ -11,7 +11,12 @@
   import {setBreadcrumbsContext} from './breadcrumbs-context.svelte.js';
   import {createBreadcrumbs} from './create-breadcrumbs.js';
 
-  let {ref, asChild, children, ...props}: BreadcrumbsProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: BreadcrumbsProps = $props();
 
   let breadcrumbs = createBreadcrumbs();
 

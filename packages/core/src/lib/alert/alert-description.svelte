@@ -9,7 +9,12 @@
   import {mergeProps} from '@zag-js/svelte';
   import {getAlertContext} from './alert-context.js';
 
-  let {ref, asChild, children, ...props}: AlertDescriptionProps = $props();
+  let {
+    ref = $bindable(null),
+    asChild,
+    children,
+    ...props
+  }: AlertDescriptionProps = $props();
 
   let alert = getAlertContext();
 
