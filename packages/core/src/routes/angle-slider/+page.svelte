@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {AngleSlider} from 'ui-ingredients';
+  import {AngleSlider} from '$lib/index.js';
   import Label from '../shared/label.svelte';
 
   let degrees = [0, 45, 90, 135, 180, 225, 270, 315];

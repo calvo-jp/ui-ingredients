@@ -1,0 +1,4 @@
+upgrade: true
+reject:
+  - zagjs-legacy-svelte
+  - zagjs-legacy-toast

@@ -30,7 +30,7 @@ function splitProps<T extends GenericObject>(props: T, keys: (keyof T)[]) {
  *  e: 5
  * };
  *
- * const [i, j] = splitProps(['a', 'b'])(props);
+ * const [i, j] = createSplitProps(['a', 'b'])(props);
  *
  * console.log(i); // {a: 1, b: 2}
  * console.log(j); // {c: 3, d: 4, e: 5}
