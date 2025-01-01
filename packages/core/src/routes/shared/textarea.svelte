@@ -12,10 +12,12 @@
 </script>
 
 <textarea
-  class={textareaRecipe({
-    size,
-    variant,
+  class={[
+    textareaRecipe({
+      size,
+      variant,
+    }),
     className,
-  })}
+  ]}
   {...props}
 ></textarea>

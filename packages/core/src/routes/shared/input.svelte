@@ -12,10 +12,12 @@
 </script>
 
 <input
-  class={inputRecipe({
-    size,
-    variant,
+  class={[
+    inputRecipe({
+      size,
+      variant,
+    }),
     className,
-  })}
+  ]}
   {...props}
 />

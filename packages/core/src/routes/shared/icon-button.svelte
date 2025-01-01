@@ -14,12 +14,6 @@
   }: Assign<SvelteHTMLElements['button'], IconButtonRecipeProps> = $props();
 </script>
 
-<button
-  class={iconButtonRecipe({
-    variant,
-    className,
-  })}
-  {...props}
->
+<button class={[iconButtonRecipe({variant}), className]} {...props}>
   {@render children?.()}
 </button>

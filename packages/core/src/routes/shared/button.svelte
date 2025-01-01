@@ -13,11 +13,13 @@
 </script>
 
 <button
-  class={buttonRecipe({
-    variant,
-    fullWidth,
+  class={[
+    buttonRecipe({
+      variant,
+      fullWidth,
+    }),
     className,
-  })}
+  ]}
   {...props}
 >
   {@render children?.()}
