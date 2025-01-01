@@ -247,7 +247,7 @@ importers:
         specifier: ^1.5.1
         version: 1.5.1
       svelte:
-        specifier: ^5.15.0
+        specifier: ^5.16.0
         version: 5.16.0
       svelte-check:
         specifier: ^4.1.1
@@ -399,7 +399,7 @@ importers:
         specifier: ^0.12.3
         version: 0.12.3(svelte@5.16.0)
       svelte:
-        specifier: ^5.15.0
+        specifier: ^5.16.0
         version: 5.16.0
       svelte-check:
         specifier: ^4.1.1
