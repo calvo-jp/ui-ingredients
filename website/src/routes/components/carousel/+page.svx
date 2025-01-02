@@ -12,6 +12,7 @@ description: A rotating component for cycling through images or content slides.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -39,31 +40,30 @@ description: A rotating component for cycling through images or content slides.
 </script>
 
 <Carousel.Root>
-  <Carousel.Viewport>
-    <Carousel.ItemGroup>
-      {#each items as src, index}
-        <Carousel.Item {index}>
-          <img {src} alt="" />
-        </Carousel.Item>
-      {/each}
-    </Carousel.ItemGroup>
-  </Carousel.Viewport>
+  <Carousel.ItemGroup>
+    {#each items as src, index}
+      <Carousel.Item {index}>
+        <img {src} alt="" />
+      </Carousel.Item>
+    {/each}
+  </Carousel.ItemGroup>
 
   <Carousel.IndicatorGroup>
-    {#each items as _, index}
+    {#each items, index}
       <Carousel.Indicator {index} />
     {/each}
   </Carousel.IndicatorGroup>
 
-  <Carousel.PrevTrigger>
-    <ChevronLeftIcon />
-  </Carousel.PrevTrigger>
-  <Carousel.NextTrigger>
-    <ChevronRightIcon />
-  </Carousel.NextTrigger>
+  <Carousel.Control>
+    <Carousel.PrevTrigger>
+      <ChevronLeftIcon />
+    </Carousel.PrevTrigger>
+    <Carousel.NextTrigger>
+      <ChevronRightIcon />
+    </Carousel.NextTrigger>
+  </Carousel.Control>
 </Carousel.Root>
 ```
-
 
 ## API Reference
 
