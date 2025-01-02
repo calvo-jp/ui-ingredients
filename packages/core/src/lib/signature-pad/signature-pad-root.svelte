@@ -27,16 +27,16 @@
 
   let [createSignaturePadProps, localProps] = $derived(
     createSplitProps<CreateSignaturePadProps>([
+      'disabled',
+      'drawing',
       'id',
       'ids',
       'name',
-      'drawing',
-      'required',
-      'disabled',
-      'readOnly',
-      'translations',
       'onDraw',
       'onDrawEnd',
+      'readOnly',
+      'required',
+      'translations',
     ])(props),
   );
 
