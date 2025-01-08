@@ -49,4 +49,13 @@ export default apiEntryFromAnatomy(qrCodeAnatomy)({
       },
     },
   },
+  DownloadTrigger: {
+    dataAttr: dataAttrDoc.DownloadTrigger,
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
 });

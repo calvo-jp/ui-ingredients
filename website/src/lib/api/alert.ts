@@ -4,6 +4,12 @@ import {apiEntryFromAnatomy} from './utils';
 export default apiEntryFromAnatomy(alertAnatomy)({
   Root: {
     context: {
+      id: {
+        type: 'string',
+      },
+      ids: {
+        type: '{\n\troot?: string;\n\ttitle?: string;\n\tdescription?: string;\n\tindicator?: string;\n}',
+      },
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

@@ -12,6 +12,7 @@ description: A component for generating and displaying QR codes for quick scanni
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -35,9 +36,9 @@ description: A component for generating and displaying QR codes for quick scanni
   <QrCode.Frame>
     <QrCode.Pattern />
   </QrCode.Frame>
+  <QrCode.DownloadTrigger>Download</QrCode.DownloadTrigger>
 </QrCode.Root>
 ```
-
 
 ## API Reference
 
