@@ -17,7 +17,6 @@
   }: ComboboxControlProps = $props();
 
   let combobox = getComboboxContext();
-
   let mergedProps = $derived(mergeProps(combobox.getControlProps(), props));
 </script>
 

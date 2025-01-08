@@ -17,7 +17,6 @@
   }: ComboboxClearTriggerProps = $props();
 
   let combobox = getComboboxContext();
-
   let mergedProps = $derived(
     mergeProps(combobox.getClearTriggerProps(), props),
   );

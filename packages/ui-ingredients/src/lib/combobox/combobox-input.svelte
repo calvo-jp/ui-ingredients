@@ -12,7 +12,6 @@
   let {ref = $bindable(null), asChild, ...props}: ComboboxInputProps = $props();
 
   let combobox = getComboboxContext();
-
   let mergedProps = $derived(
     mergeProps({'aria-expanded': false}, combobox.getInputProps(), props),
   );

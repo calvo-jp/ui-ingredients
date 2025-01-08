@@ -24,12 +24,11 @@
     ...props
   }: ComboboxItemProps = $props();
 
-  let combobox = getComboboxContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['item', 'persistFocus'])(props),
   );
 
+  let combobox = getComboboxContext();
   let itemState = $derived(combobox.getItemState(itemProps));
   let mergedProps = $derived(
     mergeProps(combobox.getItemProps(itemProps), localProps),

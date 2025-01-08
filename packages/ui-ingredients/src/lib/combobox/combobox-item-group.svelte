@@ -22,13 +22,8 @@
   }: ComboboxItemGroupProps = $props();
 
   let combobox = getComboboxContext();
-
-  let id_ = createUniqueId();
-
-  let comboboxItemGroupProps = $derived({
-    id: id ?? id_,
-  });
-
+  let uid = createUniqueId();
+  let comboboxItemGroupProps = $derived({id: id ?? uid});
   let mergedProps = $derived(
     mergeProps(combobox.getItemGroupProps(comboboxItemGroupProps), props),
   );

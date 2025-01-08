@@ -21,7 +21,6 @@
 
   let combobox = getComboboxContext();
   let itemProps = getComboboxItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(combobox.getItemIndicatorProps(itemProps), props),
   );

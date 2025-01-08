@@ -26,7 +26,6 @@
   );
 
   let combobox = getComboboxContext();
-
   let mergedProps = $derived(
     mergeProps(combobox.getTriggerProps(triggerProps), localProps),
   );

@@ -20,7 +20,6 @@
 
   let combobox = getComboboxContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(combobox.getContentProps(), presence.getPresenceProps(), props),
   );
