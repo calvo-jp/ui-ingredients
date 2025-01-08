@@ -21,7 +21,6 @@
 
   let timer = getTimerContext();
   let itemProps = getTimerItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(timer.getItemLabelProps(itemProps), props),
   );

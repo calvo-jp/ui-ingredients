@@ -17,14 +17,13 @@
   }: BreadcrumbsItemProps = $props();
 
   let breadcrumbs = createBreadcrumbs();
-
-  let attrs = $derived(mergeProps(breadcrumbs.getItemProps(), props));
+  let mergedProps = $derived(mergeProps(breadcrumbs.getItemProps(), props));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <li bind:this={ref} {...attrs}>
+  <li bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </li>
 {/if}

@@ -20,7 +20,6 @@
 
   let segmentGroup = getSegmentGroupContext();
   let itemProps = getSegmentGroupItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(segmentGroup.getItemHiddenInputProps(itemProps), props),
   );

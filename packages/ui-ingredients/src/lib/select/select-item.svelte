@@ -24,12 +24,11 @@
     ...props
   }: SelectItemProps = $props();
 
-  let select = getSelectContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['item', 'persistFocus'])(props),
   );
 
+  let select = getSelectContext();
   let itemState = $derived(select.getItemState(itemProps));
   let mergedProps = $derived(
     mergeProps(select.getItemProps(itemProps), localProps),

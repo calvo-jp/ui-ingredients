@@ -31,9 +31,10 @@
       'ids',
       'max',
       'min',
-      'value',
+      'onValueChange',
       'orientation',
       'translations',
+      'value',
     ])(props),
   );
 

@@ -17,7 +17,6 @@
   }: FieldRequiredIndicatorProps = $props();
 
   let field = getFieldContext();
-
   let mergedProps = $derived(
     mergeProps(field?.getRequiredIndicatorProps() ?? {}, props),
   );

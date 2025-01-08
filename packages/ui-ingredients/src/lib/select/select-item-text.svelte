@@ -21,7 +21,6 @@
 
   let select = getSelectContext();
   let itemProps = getSelectItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(select.getItemTextProps(itemProps), props),
   );

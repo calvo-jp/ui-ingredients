@@ -17,7 +17,6 @@
   }: FloatingPanelMaximizeTriggerProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
-
   let mergedProps = $derived(
     mergeProps(floatingPanel.getMaximizeTriggerProps(), props),
   );

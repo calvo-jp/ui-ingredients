@@ -17,7 +17,6 @@
   }: DatePickerYearSelectProps = $props();
 
   let datePicker = getDatePickerContext();
-
   let mergedProps = $derived(
     mergeProps(datePicker.getYearSelectProps(), props),
   );

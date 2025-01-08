@@ -25,19 +25,18 @@
 
   let [createHoverCardProps, presenceStrategyProps] = $derived(
     createSplitProps<CreateHoverCardProps>([
+      'closeDelay',
       'id',
       'ids',
+      'onOpenChange',
       'open',
       'openControlled',
       'openDelay',
-      'closeDelay',
       'positioning',
-      'onOpenChange',
     ])(props),
   );
 
   let hoverCard = createHoverCard(reflect(() => createHoverCardProps));
-
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

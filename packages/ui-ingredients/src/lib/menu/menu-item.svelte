@@ -21,17 +21,16 @@
     ...props
   }: MenuItemProps = $props();
 
-  let menu = getMenuContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>([
+      'closeOnSelect',
+      'disabled',
       'value',
       'valueText',
-      'disabled',
-      'closeOnSelect',
     ])(props),
   );
 
+  let menu = getMenuContext();
   let itemState = $derived(menu!.getItemState(itemProps));
   let mergedProps = $derived(
     mergeProps(menu!.getItemProps(itemProps), localProps),

@@ -21,7 +21,6 @@
 
   let segmentGroup = getSegmentGroupContext();
   let itemProps = getSegmentGroupItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(segmentGroup.getItemTextProps(itemProps), props),
   );

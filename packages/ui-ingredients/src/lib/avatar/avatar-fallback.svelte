@@ -17,7 +17,6 @@
   }: AvatarFallbackProps = $props();
 
   let avatar = getAvatarContext();
-
   let mergedProps = $derived(mergeProps(avatar.getFallbackProps(), props));
 </script>
 

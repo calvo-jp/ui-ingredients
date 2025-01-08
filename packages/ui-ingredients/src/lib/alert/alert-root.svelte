@@ -19,16 +19,15 @@
   }: AlertProps = $props();
 
   let alert = createAlert();
-
-  let attrs = $derived(mergeProps(alert.getRootProps(), props));
+  let mergedProps = $derived(mergeProps(alert.getRootProps(), props));
 
   setAlertContext(alert);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, alert)}
+  {@render asChild(mergedProps, alert)}
 {:else}
-  <div bind:this={ref} {...attrs}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.(alert)}
   </div>
 {/if}

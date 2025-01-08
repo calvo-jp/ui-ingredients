@@ -27,20 +27,19 @@
 
   let [createRadioGroupProps, localProps] = $derived(
     createSplitProps<CreateRadioGroupProps>([
+      'disabled',
+      'form',
       'id',
       'ids',
-      'form',
       'name',
-      'value',
-      'disabled',
-      'readOnly',
-      'orientation',
       'onValueChange',
+      'orientation',
+      'readOnly',
+      'value',
     ])(props),
   );
 
   let radioGroup = createRadioGroup(reflect(() => createRadioGroupProps));
-
   let mergedProps = $derived(mergeProps(radioGroup.getRootProps(), localProps));
 
   setRadioGroupContext(radioGroup);

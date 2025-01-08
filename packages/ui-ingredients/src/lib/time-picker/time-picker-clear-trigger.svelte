@@ -17,7 +17,6 @@
   }: TimePickerClearTriggerProps = $props();
 
   let timePicker = getTimePickerContext();
-
   let mergedProps = $derived(
     mergeProps(timePicker.getClearTriggerProps(), props),
   );

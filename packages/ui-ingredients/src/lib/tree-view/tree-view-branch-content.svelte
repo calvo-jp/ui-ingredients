@@ -26,9 +26,7 @@
   let treeView = getTreeViewContext();
   let nodeProps = getTreeViewNodePropsContext();
   let nodeState = $derived(treeView.getNodeState(nodeProps));
-
   let collapsible = getCollapsibleContext();
-
   let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence(
     reflect(() => ({

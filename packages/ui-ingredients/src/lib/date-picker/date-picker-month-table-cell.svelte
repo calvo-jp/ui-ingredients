@@ -27,7 +27,7 @@
   let datePicker = getDatePickerContext();
 
   let [tableCellProps, localProps] = $derived(
-    createSplitProps<TableCellProps>(['value', 'disabled', 'columns'])(props),
+    createSplitProps<TableCellProps>(['columns', 'disabled', 'value'])(props),
   );
 
   let tableCellState = $derived(

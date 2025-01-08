@@ -19,7 +19,6 @@
 
   let timePicker = getTimePickerContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(
       timePicker.getPositionerProps(),

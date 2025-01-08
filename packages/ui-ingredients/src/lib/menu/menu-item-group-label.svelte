@@ -20,14 +20,10 @@
   }: MenuItemGroupLabelProps = $props();
 
   let menu = getMenuContext();
-
   let itemGroupProps = getMenuItemGroupPropsContext();
-
   let mergedProps = $derived(
     mergeProps(
-      menu!.getItemGroupLabelProps({
-        htmlFor: itemGroupProps.id,
-      }),
+      menu!.getItemGroupLabelProps({htmlFor: itemGroupProps.id}),
       props,
     ),
   );

@@ -27,32 +27,31 @@
 
   let [createPinInputProps, localProps] = $derived(
     createSplitProps<CreatePinInputProps>([
+      'autoFocus',
+      'blurOnComplete',
+      'disabled',
+      'form',
       'id',
       'ids',
-      'otp',
-      'form',
+      'invalid',
       'mask',
       'name',
-      'type',
-      'value',
+      'onValueChange',
+      'onValueComplete',
+      'onValueInvalid',
+      'otp',
       'pattern',
-      'invalid',
-      'disabled',
+      'placeholder',
       'readOnly',
       'required',
-      'autoFocus',
-      'placeholder',
-      'translations',
       'selectOnFocus',
-      'blurOnComplete',
-      'onValueChange',
-      'onValueInvalid',
-      'onValueComplete',
+      'translations',
+      'type',
+      'value',
     ])(props),
   );
 
   let pinInput = createPinInputContext(reflect(() => createPinInputProps));
-
   let mergedProps = $derived(mergeProps(pinInput.getRootProps(), localProps));
 
   setPinInputContext(pinInput);

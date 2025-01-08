@@ -21,7 +21,6 @@
 
   let steps = getStepsContext();
   let itemProps = getStepsItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(steps.getTriggerProps(itemProps), props),
   );

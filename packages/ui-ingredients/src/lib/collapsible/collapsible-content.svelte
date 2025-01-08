@@ -20,7 +20,6 @@
 
   let collapsible = getCollapsibleContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(
       collapsible.getContentProps(),

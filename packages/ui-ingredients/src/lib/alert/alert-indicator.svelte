@@ -17,14 +17,13 @@
   }: AlertIndicatorProps = $props();
 
   let alert = getAlertContext();
-
-  let attrs = $derived(mergeProps(alert.getIndicatorProps(), props));
+  let mergedProps = $derived(mergeProps(alert.getIndicatorProps(), props));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span bind:this={ref} {...attrs}>
+  <span bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

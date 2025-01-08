@@ -17,7 +17,6 @@
   }: TabsIndicatorProps = $props();
 
   let tabs = getTabsContext();
-
   let mergedProps = $derived(mergeProps(tabs.getIndicatorProps(), props));
 </script>
 

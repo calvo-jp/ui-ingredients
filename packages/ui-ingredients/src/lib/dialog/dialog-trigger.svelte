@@ -17,7 +17,6 @@
   }: DialogTriggerProps = $props();
 
   let dialog = getDialogContext();
-
   let mergedProps = $derived(mergeProps(dialog.getTriggerProps(), props));
 </script>
 

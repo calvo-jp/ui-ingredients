@@ -17,7 +17,6 @@
   }: FloatingPanelMinimizeTriggerProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
-
   let mergedProps = $derived(
     mergeProps(floatingPanel.getMinimizeTriggerProps(), props),
   );

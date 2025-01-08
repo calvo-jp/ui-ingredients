@@ -17,7 +17,6 @@
   }: DrawerFooterProps = $props();
 
   let drawer = getDrawerContext();
-
   let mergedProps = $derived(mergeProps(drawer.getFooterProps(), props));
 </script>
 

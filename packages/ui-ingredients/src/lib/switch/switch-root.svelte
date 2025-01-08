@@ -27,23 +27,22 @@
 
   let [createSwitchProps, localProps] = $derived(
     createSplitProps<CreateSwitchProps>([
+      'checked',
+      'disabled',
+      'form',
       'id',
       'ids',
-      'form',
-      'name',
-      'label',
-      'value',
-      'checked',
       'invalid',
-      'disabled',
+      'label',
+      'name',
+      'onCheckedChange',
       'readOnly',
       'required',
-      'onCheckedChange',
+      'value',
     ])(props),
   );
 
   let switch_ = createSwitch(reflect(() => createSwitchProps));
-
   let mergedProps = $derived(mergeProps(switch_.getRootProps(), localProps));
 
   setSwitchContext(switch_);

@@ -29,7 +29,6 @@
   let datePicker = getDatePickerContext();
   let viewProps = getDatePickerViewPropsContext();
   let tableProps: TableProps = $derived({...viewProps, id, columns});
-
   let mergedProps = $derived(
     mergeProps(datePicker.getTableProps(tableProps), props),
   );

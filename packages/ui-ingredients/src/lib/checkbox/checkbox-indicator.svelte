@@ -17,7 +17,6 @@
   }: CheckboxIndicatorProps = $props();
 
   let checkbox = getCheckboxContext();
-
   let mergedProps = $derived(mergeProps(checkbox.getIndicatorProps(), props));
 </script>
 

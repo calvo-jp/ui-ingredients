@@ -37,31 +37,32 @@
 
   let [createColorPickerProps, localProps] = $derived(
     createSplitProps<CreateColorPickerProps>([
+      'closeOnSelect',
+      'disabled',
+      'format',
       'id',
       'ids',
-      'open',
-      'openControlled',
-      'name',
-      'value',
-      'format',
-      'disabled',
-      'required',
-      'readOnly',
-      'positioning',
-      'onOpenChange',
-      'closeOnSelect',
       'initialFocusEl',
-      'onValueChange',
-      'onValueChangeEnd',
+      'invalid',
+      'name',
       'onFocusOutside',
       'onFormatChange',
       'onInteractOutside',
+      'onOpenChange',
       'onPointerDownOutside',
+      'onValueChange',
+      'onValueChangeEnd',
+      'open',
+      'openAutoFocus',
+      'openControlled',
+      'positioning',
+      'readOnly',
+      'required',
+      'value',
     ])(etc),
   );
 
   let colorPicker = createColorPicker(reflect(() => createColorPickerProps));
-
   let presence = createPresence(
     reflect(() => ({
       present: colorPicker.open,

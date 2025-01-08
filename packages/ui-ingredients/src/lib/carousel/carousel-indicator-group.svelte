@@ -17,7 +17,6 @@
   }: CarouselIndicatorGroupProps = $props();
 
   let carousel = getCarouselContext();
-
   let mergedProps = $derived(
     mergeProps(carousel.getIndicatorGroupProps(), props),
   );

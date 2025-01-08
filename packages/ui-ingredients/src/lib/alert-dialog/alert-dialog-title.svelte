@@ -17,7 +17,6 @@
   }: AlertDialogTitleProps = $props();
 
   let alertDialog = getAlertDialogContext();
-
   let mergedProps = $derived(mergeProps(alertDialog.getTitleProps(), props));
 </script>
 

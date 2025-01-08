@@ -27,19 +27,19 @@
 
   let [createTimerProps, localProps] = $derived(
     createSplitProps<CreateTimerProps>([
-      'id',
-      'startMs',
-      'targetMs',
-      'interval',
       'autoStart',
       'countdown',
-      'onTick',
+      'id',
+      'ids',
+      'interval',
       'onComplete',
+      'onTick',
+      'startMs',
+      'targetMs',
     ])(props),
   );
 
   let timer = createTimer(reflect(() => createTimerProps));
-
   let mergedProps = $derived(mergeProps(timer.getRootProps(), localProps));
 
   setTimerContext(timer);

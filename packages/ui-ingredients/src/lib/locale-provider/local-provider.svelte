@@ -13,14 +13,10 @@
 
   let {children, ...props}: LocaleProviderProps = $props();
 
-  setLocaleContext({
-    get locale() {
-      return props.locale;
-    },
-    get dir() {
-      return isRTL(props.locale) ? 'rtl' : 'ltr';
-    },
-  });
+  setLocaleContext(() => ({
+    dir: isRTL(props.locale) ? 'rtl' : 'ltr',
+    locale: props.locale,
+  }));
 </script>
 
 {@render children()}

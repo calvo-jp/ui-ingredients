@@ -27,21 +27,20 @@
 
   let [createAngleSliderProps, localProps] = $derived(
     createSplitProps<CreateAngleSliderProps>([
+      'disabled',
       'id',
       'ids',
-      'name',
-      'step',
-      'value',
       'invalid',
-      'disabled',
-      'readOnly',
+      'name',
       'onValueChange',
       'onValueChangeEnd',
+      'readOnly',
+      'step',
+      'value',
     ])(props),
   );
 
   let angleSlider = createAngleSlider(reflect(() => createAngleSliderProps));
-
   let mergedProps = $derived(
     mergeProps(angleSlider.getRootProps(), localProps),
   );

@@ -19,16 +19,15 @@
   }: BreadcrumbsProps = $props();
 
   let breadcrumbs = createBreadcrumbs();
-
-  let attrs = $derived(mergeProps(breadcrumbs.getRootProps(), props));
+  let mergedProps = $derived(mergeProps(breadcrumbs.getRootProps(), props));
 
   setBreadcrumbsContext(breadcrumbs);
 </script>
 
 {#if asChild}
-  {@render asChild(attrs, breadcrumbs)}
+  {@render asChild(mergedProps, breadcrumbs)}
 {:else}
-  <nav bind:this={ref} {...attrs}>
+  <nav bind:this={ref} {...mergedProps}>
     {@render children?.(breadcrumbs)}
   </nav>
 {/if}

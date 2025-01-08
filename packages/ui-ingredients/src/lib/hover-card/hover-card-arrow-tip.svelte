@@ -17,7 +17,6 @@
   }: HoverCardArrowTipProps = $props();
 
   let hoverCard = getHoverCardContext();
-
   let mergedProps = $derived(mergeProps(hoverCard.getArrowTipProps(), props));
 </script>
 

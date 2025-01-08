@@ -17,7 +17,6 @@
   }: DatePickerTriggerProps = $props();
 
   let datePicker = getDatePickerContext();
-
   let mergedProps = $derived(mergeProps(datePicker.getTriggerProps(), props));
 </script>
 

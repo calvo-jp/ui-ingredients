@@ -21,7 +21,6 @@
 
   let colorPicker = getColorPickerContext();
   let areaProps = getColorPickerAreaPropsContext();
-
   let mergedProps = $derived(
     mergeProps(colorPicker.getAreaBackgroundProps(areaProps), props),
   );

@@ -17,7 +17,6 @@
   }: NumberInputControlTriggerProps = $props();
 
   let numberInput = getNumberInputContext();
-
   let mergedProps = $derived(mergeProps(numberInput.getControlProps(), props));
 </script>
 

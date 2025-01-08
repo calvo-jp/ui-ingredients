@@ -16,7 +16,6 @@
   }: SwitchHiddenInputProps = $props();
 
   let switch_ = getSwitchContext();
-
   let mergedProps = $derived(mergeProps(switch_.getHiddenInputProps(), props));
 </script>
 

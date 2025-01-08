@@ -21,7 +21,6 @@
 
   let datePicker = getDatePickerContext();
   let tableCellProps = getDatePickerTableCellPropsContext();
-
   let mergedProps = $derived(
     mergeProps(datePicker.getYearTableCellTriggerProps(tableCellProps), props),
   );

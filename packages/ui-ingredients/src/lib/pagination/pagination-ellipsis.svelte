@@ -22,7 +22,6 @@
   }: PaginationEllipsisProps = $props();
 
   let pagination = getPaginationContext();
-
   let mergedProps = $derived(
     mergeProps(pagination.getEllipsisProps({index}), props),
   );

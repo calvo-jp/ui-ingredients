@@ -21,7 +21,6 @@
 
   let slider = getSliderContext();
   let thumbProps = getSliderThumbPropsContext();
-
   let mergedProps = $derived(
     mergeProps(slider.getDraggingIndicatorProps(thumbProps), props),
   );

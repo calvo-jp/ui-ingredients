@@ -17,7 +17,6 @@
   }: TourProgressTextProps = $props();
 
   let tour = getTourContext();
-
   let mergedProps = $derived(mergeProps(tour.getProgressTextProps(), props));
 </script>
 

@@ -22,7 +22,6 @@
   }: ColorPickerChannelInputProps = $props();
 
   let colorPicker = getColorPickerContext();
-
   let mergedProps = $derived(
     mergeProps(
       colorPicker.getChannelInputProps({

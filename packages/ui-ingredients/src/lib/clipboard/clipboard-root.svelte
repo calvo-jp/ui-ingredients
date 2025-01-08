@@ -29,9 +29,9 @@
     createSplitProps<CreateClipboardProps>([
       'id',
       'ids',
-      'value',
-      'timeout',
       'onStatusChange',
+      'timeout',
+      'value',
     ])(props),
   );
 

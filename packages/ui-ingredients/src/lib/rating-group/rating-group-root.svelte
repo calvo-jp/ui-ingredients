@@ -27,25 +27,24 @@
 
   let [createRatingGroupProps, localProps] = $derived(
     createSplitProps<CreateRatingGroupProps>([
+      'allowHalf',
+      'autoFocus',
+      'count',
+      'disabled',
+      'form',
       'id',
       'ids',
-      'form',
       'name',
-      'count',
-      'value',
-      'disabled',
-      'readOnly',
-      'required',
-      'autoFocus',
-      'allowHalf',
-      'translations',
       'onHoverChange',
       'onValueChange',
+      'readOnly',
+      'required',
+      'translations',
+      'value',
     ])(props),
   );
 
   let ratingGroup = createRatingGroup(reflect(() => createRatingGroupProps));
-
   let mergedProps = $derived(
     mergeProps(ratingGroup.getRootProps(), localProps),
   );

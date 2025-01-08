@@ -23,16 +23,15 @@
   );
 
   let breadcrumbs = getBreadcrumbsContext();
-
-  let attrs = $derived(
+  let mergedProps = $derived(
     mergeProps(breadcrumbs.getLinkProps(linkProps), localProps),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <a bind:this={ref} {...attrs}>
+  <a bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </a>
 {/if}

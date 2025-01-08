@@ -17,14 +17,15 @@
   }: BreadcrumbsSeparatorProps = $props();
 
   let breadcrumbs = getBreadcrumbsContext();
-
-  let attrs = $derived(mergeProps(breadcrumbs.getSeparatorProps(), props));
+  let mergedProps = $derived(
+    mergeProps(breadcrumbs.getSeparatorProps(), props),
+  );
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <span bind:this={ref} {...attrs}>
+  <span bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </span>
 {/if}

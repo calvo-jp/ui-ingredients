@@ -17,7 +17,6 @@
   }: PinInputControlProps = $props();
 
   let pinInput = getPinInputContext();
-
   let mergedProps = $derived(mergeProps(pinInput.getControlProps(), props));
 </script>
 

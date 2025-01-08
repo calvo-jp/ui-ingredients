@@ -17,7 +17,6 @@
   }: DrawerCloseTriggerProps = $props();
 
   let drawer = getDrawerContext();
-
   let mergedProps = $derived(mergeProps(drawer.getCloseTriggerProps(), props));
 </script>
 

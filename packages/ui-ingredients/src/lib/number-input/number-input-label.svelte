@@ -17,7 +17,6 @@
   }: NumberInputLabelProps = $props();
 
   let numberInput = getNumberInputContext();
-
   let mergedProps = $derived(mergeProps(numberInput.getLabelProps(), props));
 </script>
 

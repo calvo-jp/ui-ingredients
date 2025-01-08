@@ -28,13 +28,12 @@
   let [createToggleProps, localProps] = $derived(
     createSplitProps<CreateToggleProps>([
       'disabled',
-      'pressed',
       'onPressedChange',
+      'pressed',
     ])(props),
   );
 
   let toggle = createToggle(reflect(() => createToggleProps));
-
   let mergedProps = $derived(mergeProps(toggle.getRootProps(), localProps));
 
   setToggleContext(toggle);

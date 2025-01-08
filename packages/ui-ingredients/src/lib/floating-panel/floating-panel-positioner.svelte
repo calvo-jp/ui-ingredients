@@ -19,7 +19,6 @@
 
   let floatingPanel = getFloatingPanelContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(
       floatingPanel.getPositionerProps(),

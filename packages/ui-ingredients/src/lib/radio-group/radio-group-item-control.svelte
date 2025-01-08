@@ -21,7 +21,6 @@
 
   let radioGroup = getRadioGroupContext();
   let itemProps = getRadioGroupItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(radioGroup.getItemControlProps(itemProps), props),
   );

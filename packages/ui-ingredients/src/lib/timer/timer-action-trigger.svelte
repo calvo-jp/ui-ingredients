@@ -22,7 +22,6 @@
   }: TimerActionTriggerProps = $props();
 
   let timer = getTimerContext();
-
   let mergedProps = $derived(
     mergeProps(timer.getActionTriggerProps({action}), props),
   );

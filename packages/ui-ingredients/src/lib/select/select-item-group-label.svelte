@@ -20,9 +20,7 @@
   }: SelectItemGroupLabelProps = $props();
 
   let select = getSelectContext();
-
   let itemGroupProps = getSelectItemGroupPropsContext();
-
   let mergedProps = $derived(
     mergeProps(
       select.getItemGroupLabelProps({htmlFor: itemGroupProps.id}),

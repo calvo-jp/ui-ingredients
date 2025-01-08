@@ -22,15 +22,8 @@
   }: PaginationItemProps = $props();
 
   let pagination = getPaginationContext();
-
   let mergedProps = $derived(
-    mergeProps(
-      pagination.getItemProps({
-        type: 'page',
-        value,
-      }),
-      props,
-    ),
+    mergeProps(pagination.getItemProps({type: 'page', value}), props),
   );
 </script>
 

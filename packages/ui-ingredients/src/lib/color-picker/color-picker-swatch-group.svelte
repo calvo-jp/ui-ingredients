@@ -17,7 +17,6 @@
   }: ColorPickerSwatchGroupProps = $props();
 
   let colorPicker = getColorPickerContext();
-
   let mergedProps = $derived(
     mergeProps(colorPicker.getSwatchGroupProps(), props),
   );

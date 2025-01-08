@@ -27,33 +27,32 @@
 
   let [createSliderProps, localProps] = $derived(
     createSplitProps<CreateSliderProps>([
+      'aria-label',
+      'aria-labelledby',
+      'disabled',
+      'form',
+      'getAriaValueText',
       'id',
       'ids',
+      'invalid',
       'max',
       'min',
-      'step',
-      'form',
-      'name',
-      'value',
-      'origin',
-      'invalid',
-      'readOnly',
-      'disabled',
-      'orientation',
-      'thumbAlignment',
-      'thumbSize',
       'minStepsBetweenThumbs',
+      'name',
       'onFocusChange',
       'onValueChange',
       'onValueChangeEnd',
-      'getAriaValueText',
-      'aria-label',
-      'aria-labelledby',
+      'orientation',
+      'origin',
+      'readOnly',
+      'step',
+      'thumbAlignment',
+      'thumbSize',
+      'value',
     ])(props),
   );
 
   let slider = createSlider(reflect(() => createSliderProps));
-
   let mergedProps = $derived(mergeProps(slider.getRootProps(), localProps));
 
   setSliderContext(slider);

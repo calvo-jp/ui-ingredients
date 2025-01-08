@@ -21,7 +21,6 @@
 
   let tagsInput = getTagsInputContext();
   let itemProps = getTagsInputItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(tagsInput.getItemPreviewProps(itemProps), props),
   );

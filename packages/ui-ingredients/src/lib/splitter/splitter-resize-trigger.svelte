@@ -30,14 +30,12 @@
     ...props
   }: SplitterResizeTriggerProps = $props();
 
-  let splitter = getSplitterContext();
-
   let [resizeTriggerProps, localProps] = $derived(
     createSplitProps<ResizeTriggerProps>(['id', 'step', 'disabled'])(props),
   );
 
+  let splitter = getSplitterContext();
   let itemState = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
-
   let mergedProps = $derived(
     mergeProps(splitter.getResizeTriggerProps(resizeTriggerProps), localProps),
   );

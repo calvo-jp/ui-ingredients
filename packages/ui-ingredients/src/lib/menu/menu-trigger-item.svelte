@@ -17,7 +17,6 @@
   }: MenuTriggerItemIndicatorProps = $props();
 
   let menuTriggerItemProps = getMenuTriggerItemContext();
-
   let mergedProps = $derived(mergeProps(menuTriggerItemProps, props));
 </script>
 

@@ -21,12 +21,11 @@
     ...props
   }: TabsTriggerProps = $props();
 
-  let tabs = getTabsContext();
-
   let [triggerProps, localProps] = $derived(
     createSplitProps<TriggerProps>(['value', 'disabled'])(props),
   );
 
+  let tabs = getTabsContext();
   let mergedProps = $derived(
     mergeProps(tabs.getTriggerProps(triggerProps), localProps),
   );

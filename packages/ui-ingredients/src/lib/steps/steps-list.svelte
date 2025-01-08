@@ -17,7 +17,6 @@
   }: StepsListProps = $props();
 
   let steps = getStepsContext();
-
   let mergedProps = $derived(mergeProps(steps.getListProps(), props));
 </script>
 

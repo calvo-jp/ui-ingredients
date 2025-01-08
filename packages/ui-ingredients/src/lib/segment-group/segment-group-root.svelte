@@ -27,20 +27,19 @@
 
   let [createSegmentGroupProps, localProps] = $derived(
     createSplitProps<CreateSegmentGroupProps>([
+      'disabled',
+      'form',
       'id',
       'ids',
-      'form',
       'name',
-      'value',
-      'disabled',
-      'readOnly',
-      'orientation',
       'onValueChange',
+      'orientation',
+      'readOnly',
+      'value',
     ])(props),
   );
 
   let segmentGroup = createSegmentGroup(reflect(() => createSegmentGroupProps));
-
   let mergedProps = $derived(
     mergeProps(segmentGroup.getRootProps(), localProps),
   );

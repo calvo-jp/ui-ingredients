@@ -20,7 +20,6 @@
   }: DatePickerMonthSelectProps = $props();
 
   let datePicker = getDatePickerContext();
-
   let mergedProps = $derived(
     mergeProps(datePicker.getMonthSelectProps(), props),
   );

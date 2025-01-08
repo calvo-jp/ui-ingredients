@@ -17,7 +17,6 @@
   }: StepsProgressProps = $props();
 
   let steps = getStepsContext();
-
   let mergedProps = $derived(mergeProps(steps.getProgressProps(), props));
 </script>
 

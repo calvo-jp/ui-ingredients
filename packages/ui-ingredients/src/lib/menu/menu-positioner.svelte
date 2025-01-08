@@ -19,7 +19,6 @@
 
   let menu = getMenuContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(menu!.getPositionerProps(), presence.getPresenceProps(), props),
   );

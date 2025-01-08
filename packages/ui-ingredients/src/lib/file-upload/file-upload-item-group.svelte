@@ -17,7 +17,6 @@
   }: FileUploadItemGroupProps = $props();
 
   let fileUpload = getFileUploadContext();
-
   let mergedProps = $derived(mergeProps(fileUpload.getItemGroupProps(), props));
 </script>
 

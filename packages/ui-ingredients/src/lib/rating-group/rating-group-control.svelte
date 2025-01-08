@@ -17,7 +17,6 @@
   }: RatingGroupControlProps = $props();
 
   let ratingGroup = getRatingGroupContext();
-
   let mergedProps = $derived(mergeProps(ratingGroup.getControlProps(), props));
 </script>
 

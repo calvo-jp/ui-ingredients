@@ -17,7 +17,6 @@
   }: NumberInputValueTextProps = $props();
 
   let numberInput = getNumberInputContext();
-
   let mergedProps = $derived(
     mergeProps(numberInput.getValueTextProps(), props),
   );

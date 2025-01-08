@@ -12,7 +12,6 @@
   let {ref = $bindable(null), asChild, ...props}: FieldInputProps = $props();
 
   let field = getFieldContext();
-
   let mergedProps = $derived(mergeProps(field?.getInputProps() ?? {}, props));
 </script>
 

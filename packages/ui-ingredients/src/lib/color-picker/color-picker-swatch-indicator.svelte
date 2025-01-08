@@ -21,7 +21,6 @@
 
   let colorPicker = getColorPickerContext();
   let swatchProps = getColorPickerSwatchPropsContext();
-
   let mergedProps = $derived(
     mergeProps(colorPicker.getSwatchIndicatorProps(swatchProps), props),
   );

@@ -27,16 +27,16 @@
 
   let [createPaginationProps, localProps] = $derived(
     createSplitProps<CreatePaginationProps>([
+      'count',
       'id',
       'ids',
-      'type',
-      'page',
-      'pageSize',
-      'count',
-      'siblingCount',
-      'translations',
       'onPageChange',
       'onPageSizeChange',
+      'page',
+      'pageSize',
+      'siblingCount',
+      'translations',
+      'type',
     ])(props),
   );
 

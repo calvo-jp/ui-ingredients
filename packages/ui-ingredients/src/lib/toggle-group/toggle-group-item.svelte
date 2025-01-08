@@ -21,14 +21,12 @@
     ...props
   }: ToggleGroupItemProps = $props();
 
-  let toggleGroup = getToggleGroupContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['value', 'disabled'])(props),
   );
 
+  let toggleGroup = getToggleGroupContext();
   let itemState = $derived(toggleGroup.getItemState(itemProps));
-
   let mergedProps = $derived(
     mergeProps(toggleGroup.getItemProps(itemProps), localProps),
   );

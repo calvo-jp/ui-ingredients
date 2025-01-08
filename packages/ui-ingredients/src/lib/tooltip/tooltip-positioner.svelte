@@ -19,7 +19,6 @@
 
   let tooltip = getTooltipContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(
       tooltip.getPositionerProps(),

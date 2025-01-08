@@ -17,7 +17,6 @@
   }: FileUploadDropzoneProps = $props();
 
   let fileUpload = getFileUploadContext();
-
   let mergedProps = $derived(mergeProps(fileUpload.getDropzoneProps(), props));
 </script>
 

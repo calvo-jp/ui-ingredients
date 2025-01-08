@@ -23,7 +23,6 @@
   let locale = getLocaleContext();
   let colorPicker = getColorPickerContext();
   let channelProps = getColorPickerChannelPropsContext();
-
   let mergedProps = $derived(
     mergeProps(colorPicker.getChannelSliderValueTextProps(channelProps), props),
   );

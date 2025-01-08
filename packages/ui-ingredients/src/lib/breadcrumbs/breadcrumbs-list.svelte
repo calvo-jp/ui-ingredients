@@ -17,14 +17,13 @@
   }: BreadcrumbsListProps = $props();
 
   let breadcrumbs = getBreadcrumbsContext();
-
-  let attrs = $derived(mergeProps(breadcrumbs.getListProps(), props));
+  let mergedProps = $derived(mergeProps(breadcrumbs.getListProps(), props));
 </script>
 
 {#if asChild}
-  {@render asChild(attrs)}
+  {@render asChild(mergedProps)}
 {:else}
-  <ol bind:this={ref} {...attrs}>
+  <ol bind:this={ref} {...mergedProps}>
     {@render children?.()}
   </ol>
 {/if}

@@ -17,7 +17,6 @@
   }: EditableCancelTriggerProps = $props();
 
   let editable = getEditableContext();
-
   let mergedProps = $derived(
     mergeProps(editable.getCancelTriggerProps(), props),
   );

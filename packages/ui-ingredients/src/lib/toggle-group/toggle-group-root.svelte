@@ -27,20 +27,19 @@
 
   let [createToggleGroupProps, localProps] = $derived(
     createSplitProps<CreateToggleGroupProps>([
+      'disabled',
       'id',
       'ids',
-      'value',
-      'disabled',
-      'multiple',
       'loopFocus',
-      'rovingFocus',
-      'orientation',
+      'multiple',
       'onValueChange',
+      'orientation',
+      'rovingFocus',
+      'value',
     ])(props),
   );
 
   let toggleGroup = createToggleGroup(reflect(() => createToggleGroupProps));
-
   let mergedProps = $derived(
     mergeProps(toggleGroup.getRootProps(), localProps),
   );

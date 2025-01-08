@@ -19,7 +19,6 @@
 
   let datePicker = getDatePickerContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(
       datePicker.getPositionerProps(),

@@ -17,7 +17,6 @@
   }: NumberInputIncrementTriggerProps = $props();
 
   let numberInput = getNumberInputContext();
-
   let mergedProps = $derived(
     mergeProps(numberInput.getIncrementTriggerProps(), props),
   );

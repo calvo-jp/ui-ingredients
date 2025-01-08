@@ -21,7 +21,6 @@
   }: ColorPickerValueSwatchProps = $props();
 
   let colorPicker = getColorPickerContext();
-
   let swatchProps: SwatchProps = $derived({
     respectAlpha,
     value: colorPicker.valueAsString,

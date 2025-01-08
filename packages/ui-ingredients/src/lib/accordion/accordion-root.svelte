@@ -36,20 +36,19 @@
 
   let [createAccordionProps, localProps] = $derived(
     createSplitProps<CreateAccordionProps>([
+      'collapsible',
+      'disabled',
       'id',
       'ids',
-      'value',
-      'disabled',
       'multiple',
-      'orientation',
-      'collapsible',
       'onFocusChange',
       'onValueChange',
+      'orientation',
+      'value',
     ])(rest),
   );
 
   let accordion = createAccordion(reflect(() => createAccordionProps));
-
   let mergedProps = $derived(mergeProps(accordion.getRootProps(), localProps));
 
   setAccordionContext(accordion);

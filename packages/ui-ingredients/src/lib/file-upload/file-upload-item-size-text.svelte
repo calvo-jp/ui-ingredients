@@ -21,7 +21,6 @@
 
   let fileUpload = getFileUploadContext();
   let itemProps = getFileUploadItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(fileUpload.getItemSizeTextProps(itemProps), props),
   );

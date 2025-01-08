@@ -29,15 +29,14 @@
     createSplitProps<CreateSplitterProps>([
       'id',
       'ids',
-      'size',
-      'orientation',
       'onSizeChange',
       'onSizeChangeEnd',
+      'orientation',
+      'size',
     ])(props),
   );
 
   let splitter = createSplitter(reflect(() => createSplitterProps));
-
   let mergedProps = $derived(mergeProps(splitter.getRootProps(), localProps));
 
   setSplitterContext(splitter);

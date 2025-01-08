@@ -26,9 +26,13 @@
   }: QrCodeProps = $props();
 
   let [createQrCodeProps, localProps] = $derived(
-    createSplitProps<CreateQrCodeProps>(['id', 'ids', 'value', 'encoding'])(
-      props,
-    ),
+    createSplitProps<CreateQrCodeProps>([
+      'encoding',
+      'id',
+      'ids',
+      'onValueChange',
+      'value',
+    ])(props),
   );
 
   let qrCode = createQRCode(reflect(() => createQrCodeProps));

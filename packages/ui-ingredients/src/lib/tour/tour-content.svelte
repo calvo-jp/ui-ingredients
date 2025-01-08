@@ -18,9 +18,7 @@
   }: TourContentProps = $props();
 
   let tour = getTourContext();
-
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(tour.getContentProps(), presence.getPresenceProps(), props),
   );

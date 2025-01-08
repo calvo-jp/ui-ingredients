@@ -20,9 +20,7 @@
   }: StepsIndicatorProps = $props();
 
   let steps = getStepsContext();
-
   let itemProps = getStepsItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(steps.getIndicatorProps(itemProps), props),
   );

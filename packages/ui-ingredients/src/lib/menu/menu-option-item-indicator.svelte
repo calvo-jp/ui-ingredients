@@ -20,9 +20,7 @@
   }: MenuOptionItemIndicatorProps = $props();
 
   let menu = getMenuContext();
-
   let itemProps = getMenuOptionItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(menu!.getItemIndicatorProps(itemProps), props),
   );

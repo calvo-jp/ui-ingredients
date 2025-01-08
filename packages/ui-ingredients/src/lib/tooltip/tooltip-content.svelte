@@ -20,7 +20,6 @@
 
   let tooltip = getTooltipContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(tooltip.getContentProps(), presence.getPresenceProps(), props),
   );

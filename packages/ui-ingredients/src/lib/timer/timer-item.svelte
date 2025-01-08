@@ -21,12 +21,11 @@
     ...props
   }: TimerItemProps = $props();
 
-  let timer = getTimerContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['type'])(props),
   );
 
+  let timer = getTimerContext();
   let mergedProps = $derived(
     mergeProps(timer.getItemProps(itemProps), localProps),
   );

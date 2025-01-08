@@ -17,7 +17,6 @@
   }: DrawerHeaderProps = $props();
 
   let drawer = getDrawerContext();
-
   let mergedProps = $derived(mergeProps(drawer.getHeaderProps(), props));
 </script>
 

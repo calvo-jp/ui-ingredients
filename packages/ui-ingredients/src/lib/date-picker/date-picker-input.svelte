@@ -21,7 +21,6 @@
   }: DatePickerInputProps = $props();
 
   let datePicker = getDatePickerContext();
-
   let mergedProps = $derived(
     mergeProps(datePicker.getInputProps({index}), props),
   );

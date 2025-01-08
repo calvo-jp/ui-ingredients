@@ -27,7 +27,7 @@
   let datePicker = getDatePickerContext();
 
   let [tableCellProps, localProps] = $derived(
-    createSplitProps<DayTableCellProps>(['value', 'disabled', 'visibleRange'])(
+    createSplitProps<DayTableCellProps>(['disabled', 'value', 'visibleRange'])(
       props,
     ),
   );

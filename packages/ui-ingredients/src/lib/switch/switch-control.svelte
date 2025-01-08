@@ -17,7 +17,6 @@
   }: SwitchControlProps = $props();
 
   let switch_ = getSwitchContext();
-
   let mergedProps = $derived(mergeProps(switch_.getControlProps(), props));
 </script>
 

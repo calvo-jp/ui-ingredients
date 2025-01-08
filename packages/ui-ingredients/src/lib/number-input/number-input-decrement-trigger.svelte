@@ -17,7 +17,6 @@
   }: NumberInputDecrementTriggerProps = $props();
 
   let numberInput = getNumberInputContext();
-
   let mergedProps = $derived(
     mergeProps(numberInput.getDecrementTriggerProps(), props),
   );

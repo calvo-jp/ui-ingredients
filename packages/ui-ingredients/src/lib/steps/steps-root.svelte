@@ -36,19 +36,18 @@
 
   let [createStepsProps, localProps] = $derived(
     createSplitProps<CreateStepsProps>([
+      'count',
       'id',
       'ids',
-      'step',
-      'count',
       'linear',
-      'orientation',
       'onStepChange',
       'onStepComplete',
+      'orientation',
+      'step',
     ])(rest),
   );
 
   let steps = createSteps(reflect(() => createStepsProps));
-
   let mergedProps = $derived(mergeProps(steps.getRootProps(), localProps));
 
   setStepsContext(steps);

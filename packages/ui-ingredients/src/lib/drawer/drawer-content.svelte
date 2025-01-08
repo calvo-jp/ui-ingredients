@@ -20,7 +20,6 @@
 
   let drawer = getDrawerContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(drawer.getContentProps(), presence.getPresenceProps(), props),
   );

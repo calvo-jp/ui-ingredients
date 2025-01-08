@@ -17,10 +17,10 @@
 
   let [highlightWordProps, localProps] = $derived(
     createSplitProps<HighlightWordProps>([
-      'text',
-      'query',
-      'matchAll',
       'ignoreCase',
+      'matchAll',
+      'query',
+      'text',
     ])(props),
   );
 

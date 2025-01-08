@@ -16,7 +16,6 @@
   }: ClipboardInputProps = $props();
 
   let clipboard = getClipboardContext();
-
   let mergedProps = $derived(mergeProps(clipboard.getInputProps(), props));
 </script>
 

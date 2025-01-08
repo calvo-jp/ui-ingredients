@@ -17,7 +17,6 @@
   }: EditableAreaProps = $props();
 
   let editable = getEditableContext();
-
   let mergedProps = $derived(mergeProps(editable.getAreaProps(), props));
 </script>
 

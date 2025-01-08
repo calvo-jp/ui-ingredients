@@ -23,7 +23,6 @@
   );
 
   let angleSlider = getAngleSliderContext();
-
   let mergedProps = $derived(
     mergeProps(angleSlider.getMarkerProps(markerProps), localProps),
   );

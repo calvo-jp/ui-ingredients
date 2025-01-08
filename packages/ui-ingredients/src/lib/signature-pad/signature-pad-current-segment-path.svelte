@@ -17,12 +17,9 @@
   }: SignaturePadCurrentSegmentPathProps = $props();
 
   let signaturePad = getSignaturePadContext();
-
   let mergedProps = $derived(
     mergeProps(
-      signaturePad.getSegmentPathProps({
-        path: signaturePad.currentPath ?? '',
-      }),
+      signaturePad.getSegmentPathProps({path: signaturePad.currentPath ?? ''}),
       props,
     ),
   );

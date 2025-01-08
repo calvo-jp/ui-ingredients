@@ -24,14 +24,12 @@
     ...props
   }: StepsItemProps = $props();
 
-  let steps = getStepsContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['index'])(props),
   );
 
+  let steps = getStepsContext();
   let itemState = $derived(steps.getItemState(itemProps));
-
   let mergedProps = $derived(
     mergeProps(steps.getItemProps(itemProps), localProps),
   );

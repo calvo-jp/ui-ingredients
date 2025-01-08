@@ -20,14 +20,13 @@
 
   let [createPresenceProps, localProps] = $derived(
     createSplitProps<CreatePresenceProps>([
-      'present',
-      'lazyMount',
       'keepMounted',
+      'lazyMount',
+      'present',
     ])(props),
   );
 
   let presence = createPresence(reflect(() => createPresenceProps));
-
   let mergedProps = $derived(
     mergeProps<HTMLAttributes<HTMLDivElement>>(
       presence.getPresenceProps(),

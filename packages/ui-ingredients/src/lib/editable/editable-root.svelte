@@ -27,38 +27,36 @@
 
   let [createEditableProps, localProps] = $derived(
     createSplitProps<CreateEditableProps>([
-      'id',
-      'ids',
-      'name',
-      'form',
+      'activationMode',
+      'autoResize',
+      'disabled',
       'edit',
       'editControlled',
-      'value',
-      'invalid',
-      'readOnly',
-      'required',
-      'disabled',
-      'maxLength',
-      'submitMode',
-      'autoResize',
-      'placeholder',
       'finalFocusEl',
-      'translations',
-      'selectOnFocus',
+      'form',
+      'id',
+      'ids',
+      'invalid',
+      'maxLength',
+      'name',
       'onEditChange',
-      'onValueChange',
-      'onValueCommit',
-      'onValueRevert',
-      'activationMode',
       'onFocusOutside',
       'onInteractOutside',
       'onPointerDownOutside',
-      'autoResize',
+      'onValueChange',
+      'onValueCommit',
+      'onValueRevert',
+      'placeholder',
+      'readOnly',
+      'required',
+      'selectOnFocus',
+      'submitMode',
+      'translations',
+      'value',
     ])(props),
   );
 
   let editable = createEditable(reflect(() => createEditableProps));
-
   let mergedProps = $derived(mergeProps(editable.getRootProps(), localProps));
 
   setEditableContext(editable);

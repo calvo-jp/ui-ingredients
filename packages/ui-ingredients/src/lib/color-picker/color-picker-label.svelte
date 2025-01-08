@@ -17,7 +17,6 @@
   }: ColorPickerLabelProps = $props();
 
   let colorPicker = getColorPickerContext();
-
   let mergedProps = $derived(mergeProps(colorPicker.getLabelProps(), props));
 </script>
 

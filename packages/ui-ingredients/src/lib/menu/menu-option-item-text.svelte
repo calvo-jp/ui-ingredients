@@ -20,9 +20,7 @@
   }: MenuOptionItemTextProps = $props();
 
   let menu = getMenuContext();
-
   let itemProps = getMenuOptionItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(menu!.getItemTextProps(itemProps), props),
   );

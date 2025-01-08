@@ -18,7 +18,6 @@
   }: SelectValueTextProps = $props();
 
   let select = getSelectContext();
-
   let mergedProps = $derived(mergeProps(select.getValueTextProps(), props));
 </script>
 

@@ -21,20 +21,16 @@
   }: ClipboardIndicatorProps = $props();
 
   let clipboard = getClipboardContext();
-
-  let state = $derived({
-    copied: clipboard.copied,
-  });
-
+  let indicatorState: IndicatorState = $derived({copied: clipboard.copied});
   let mergedProps = $derived(
-    mergeProps(clipboard.getIndicatorProps(state), props),
+    mergeProps(clipboard.getIndicatorProps(indicatorState), props),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps, state)}
+  {@render asChild(mergedProps, indicatorState)}
 {:else}
   <span bind:this={ref} {...mergedProps}>
-    {@render children?.(state)}
+    {@render children?.(indicatorState)}
   </span>
 {/if}

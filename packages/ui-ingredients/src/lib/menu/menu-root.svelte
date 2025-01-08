@@ -29,31 +29,31 @@
 
   let [createMenuProps, presenceStrategyProps] = $derived(
     createSplitProps<CreateMenuProps>([
+      'anchorPoint',
+      'aria-label',
+      'closeOnSelect',
+      'composite',
+      'highlightedValue',
       'id',
       'ids',
-      'open',
-      'openControlled',
       'loopFocus',
-      'composite',
-      'typeahead',
-      'positioning',
-      'anchorPoint',
-      'closeOnSelect',
-      'highlightedValue',
-      'aria-label',
-      'onSelect',
-      'onOpenChange',
-      'onFocusOutside',
+      'navigate',
       'onEscapeKeyDown',
+      'onFocusOutside',
       'onHighlightChange',
       'onInteractOutside',
+      'onOpenChange',
       'onPointerDownOutside',
+      'onSelect',
+      'open',
+      'openControlled',
+      'positioning',
+      'typeahead',
     ])(props),
   );
 
   let parentMenu = getMenuContext();
   let menu = createMenu(reflect(() => createMenuProps));
-
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

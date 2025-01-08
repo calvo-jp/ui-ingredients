@@ -17,7 +17,6 @@
   }: CarouselAutoplayTriggerProps = $props();
 
   let carousel = getCarouselContext();
-
   let mergedProps = $derived(
     mergeProps(carousel.getAutoplayTriggerProps(), props),
   );

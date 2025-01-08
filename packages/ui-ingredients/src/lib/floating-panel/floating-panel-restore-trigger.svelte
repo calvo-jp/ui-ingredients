@@ -17,7 +17,6 @@
   }: FloatingPanelRestoreTriggerProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
-
   let mergedProps = $derived(
     mergeProps(floatingPanel.getRestoreTriggerProps(), props),
   );

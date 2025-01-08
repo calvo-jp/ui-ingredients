@@ -24,22 +24,20 @@
     ...props
   }: MenuOptionItemProps = $props();
 
-  let menu = getMenuContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<OptionItemProps>([
+      'checked',
+      'closeOnSelect',
+      'disabled',
+      'onCheckedChange',
       'type',
       'value',
-      'checked',
-      'disabled',
       'valueText',
-      'closeOnSelect',
-      'onCheckedChange',
     ])(props),
   );
 
+  let menu = getMenuContext();
   let itemState = $derived(menu!.getOptionItemState(itemProps));
-
   let mergedProps = $derived(
     mergeProps(menu!.getOptionItemProps(itemProps), localProps),
   );

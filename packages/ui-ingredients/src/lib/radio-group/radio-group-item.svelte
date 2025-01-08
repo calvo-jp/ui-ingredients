@@ -24,14 +24,12 @@
     ...props
   }: RadioGroupItemProps = $props();
 
-  let radioGroup = getRadioGroupContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(props),
   );
 
+  let radioGroup = getRadioGroupContext();
   let itemState = $derived(radioGroup.getItemState(itemProps));
-
   let mergedProps = $derived(
     mergeProps(radioGroup.getItemProps(itemProps), localProps),
   );

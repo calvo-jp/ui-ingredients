@@ -17,7 +17,6 @@
   }: SliderTrackProps = $props();
 
   let slider = getSliderContext();
-
   let mergedProps = $derived(mergeProps(slider.getTrackProps(), props));
 </script>
 

@@ -17,7 +17,6 @@
   }: FileUploadLabelProps = $props();
 
   let fileUpload = getFileUploadContext();
-
   let mergedProps = $derived(mergeProps(fileUpload.getLabelProps(), props));
 </script>
 

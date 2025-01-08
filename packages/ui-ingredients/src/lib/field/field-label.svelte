@@ -17,7 +17,6 @@
   }: FieldLabelProps = $props();
 
   let field = getFieldContext();
-
   let mergedProps = $derived(mergeProps(field?.getLabelProps() ?? {}, props));
 </script>
 

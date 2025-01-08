@@ -46,7 +46,6 @@
   );
 
   let field = createField(reflect(() => createFieldProps));
-
   let mergedProps = $derived(mergeProps(field.getRootProps(), localProps));
 
   setFieldContext(field);

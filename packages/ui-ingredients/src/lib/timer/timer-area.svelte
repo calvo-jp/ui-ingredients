@@ -17,7 +17,6 @@
   }: TimerAreaProps = $props();
 
   let timer = getTimerContext();
-
   let mergedProps = $derived(mergeProps(timer.getAreaProps(), props));
 </script>
 

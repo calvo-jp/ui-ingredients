@@ -31,7 +31,6 @@
   );
 
   let tour = createTour(reflect(() => createTourProps));
-
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

@@ -24,12 +24,11 @@
     ...props
   }: SegmentGroupItemProps = $props();
 
-  let segmentGroup = getSegmentGroupContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['value', 'invalid', 'disabled'])(props),
   );
 
+  let segmentGroup = getSegmentGroupContext();
   let itemState = $derived(segmentGroup.getItemState(itemProps));
   let mergedProps = $derived(
     mergeProps(segmentGroup.getItemProps(itemProps), localProps),

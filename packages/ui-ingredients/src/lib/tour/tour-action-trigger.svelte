@@ -20,7 +20,6 @@
   }: TourActionTriggerProps = $props();
 
   let tour = getTourContext();
-
   let mergedProps = $derived(
     mergeProps(tour.getActionTriggerProps({action}), props),
   );

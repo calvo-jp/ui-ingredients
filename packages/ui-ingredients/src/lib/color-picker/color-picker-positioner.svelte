@@ -19,7 +19,6 @@
 
   let colorPicker = getColorPickerContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(
       colorPicker.getPositionerProps(),

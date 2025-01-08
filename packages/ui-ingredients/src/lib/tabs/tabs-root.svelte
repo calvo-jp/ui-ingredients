@@ -27,21 +27,22 @@
 
   let [createTabsProps, localProps] = $derived(
     createSplitProps<CreateTabsProps>([
+      'activationMode',
+      'composite',
+      'deselectable',
       'id',
       'ids',
-      'value',
       'loopFocus',
-      'composite',
-      'orientation',
-      'translations',
-      'activationMode',
+      'navigate',
       'onFocusChange',
       'onValueChange',
+      'orientation',
+      'translations',
+      'value',
     ])(props),
   );
 
   let tabs = createTabs(reflect(() => createTabsProps));
-
   let mergedProps = $derived(mergeProps(tabs.getRootProps(), localProps));
 
   setTabsContext(tabs);

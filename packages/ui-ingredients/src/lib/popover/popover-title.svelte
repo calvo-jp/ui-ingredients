@@ -17,7 +17,6 @@
   }: PopoverTitleProps = $props();
 
   let popover = getPopoverContext();
-
   let mergedProps = $derived(mergeProps(popover.getTitleProps(), props));
 </script>
 

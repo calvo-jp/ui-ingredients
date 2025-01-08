@@ -49,7 +49,6 @@
   );
 
   let carousel = createCarousel(reflect(() => createCarouselProps));
-
   let mergedProps = $derived(mergeProps(carousel.getRootProps(), localProps));
 
   setCarouselContext(carousel);

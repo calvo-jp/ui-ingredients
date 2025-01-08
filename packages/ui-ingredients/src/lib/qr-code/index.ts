@@ -1,5 +1,6 @@
 export * as QrCode from './qr-code.js';
 
+export type {QrCodeDownloadTriggerProps} from './qr-code-download-trigger.svelte';
 export type {QrCodeFrameProps} from './qr-code-frame.svelte';
 export type {QrCodeOverlayProps} from './qr-code-overlay.svelte';
 export type {QrCodePatternProps} from './qr-code-pattern.svelte';

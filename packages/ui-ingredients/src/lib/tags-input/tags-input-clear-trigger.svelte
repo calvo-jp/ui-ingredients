@@ -17,7 +17,6 @@
   }: TagsInputClearTriggerProps = $props();
 
   let tagsInput = getTagsInputContext();
-
   let mergedProps = $derived(
     mergeProps(tagsInput.getClearTriggerProps(), props),
   );

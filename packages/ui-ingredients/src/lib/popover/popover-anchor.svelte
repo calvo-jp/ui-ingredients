@@ -17,7 +17,6 @@
   }: PopoverAnchorProps = $props();
 
   let popover = getPopoverContext();
-
   let mergedProps = $derived(mergeProps(popover.getAnchorProps(), props));
 </script>
 

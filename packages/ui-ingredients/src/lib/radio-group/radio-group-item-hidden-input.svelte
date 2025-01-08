@@ -20,7 +20,6 @@
 
   let radioGroup = getRadioGroupContext();
   let itemProps = getRadioGroupItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(radioGroup.getItemHiddenInputProps(itemProps), props),
   );

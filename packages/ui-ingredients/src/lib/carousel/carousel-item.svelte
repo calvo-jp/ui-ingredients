@@ -18,12 +18,11 @@
     ...props
   }: CarouselItemProps = $props();
 
-  let carousel = getCarouselContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['index'])(props),
   );
 
+  let carousel = getCarouselContext();
   let mergedProps = $derived(
     mergeProps(carousel.getItemProps(itemProps), localProps),
   );

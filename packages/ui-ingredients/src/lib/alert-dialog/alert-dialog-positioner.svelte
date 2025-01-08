@@ -19,7 +19,6 @@
 
   let alertDialog = getAlertDialogContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(
       alertDialog.getPositionerProps(),

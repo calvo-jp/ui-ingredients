@@ -12,7 +12,6 @@
   let {ref = $bindable(null), asChild, ...props}: AvatarImageProps = $props();
 
   let avatar = getAvatarContext();
-
   let mergedProps = $derived(mergeProps(avatar.getImageProps(), props));
 </script>
 

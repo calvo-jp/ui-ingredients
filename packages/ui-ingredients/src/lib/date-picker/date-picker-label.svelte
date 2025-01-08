@@ -22,7 +22,6 @@
   }: DatePickerLabelProps = $props();
 
   let datePicker = getDatePickerContext();
-
   let mergedProps = $derived(
     mergeProps(datePicker.getLabelProps({index}), props),
   );

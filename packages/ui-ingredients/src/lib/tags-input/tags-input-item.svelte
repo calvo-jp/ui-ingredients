@@ -24,14 +24,12 @@
     ...props
   }: TagsInputItemProps = $props();
 
-  let tagsInput = getTagsInputContext();
-
   let [itemProps, localProps] = $derived(
     createSplitProps<ItemProps>(['index', 'value', 'disabled'])(props),
   );
 
+  let tagsInput = getTagsInputContext();
   let itemState = $derived(tagsInput.getItemState(itemProps));
-
   let mergedProps = $derived(
     mergeProps(tagsInput.getItemProps(itemProps), localProps),
   );

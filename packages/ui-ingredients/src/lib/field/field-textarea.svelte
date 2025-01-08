@@ -34,7 +34,6 @@
   }: FieldTextareaProps = $props();
 
   let field = getFieldContext();
-
   let mergedProps = $derived(
     mergeProps(field?.getTextareaProps() ?? {}, props),
   );

@@ -17,7 +17,6 @@
   }: ColorPickerFormatSelectProps = $props();
 
   let colorPicker = getColorPickerContext();
-
   let mergedProps = $derived(
     mergeProps(colorPicker.getFormatSelectProps(), props),
   );

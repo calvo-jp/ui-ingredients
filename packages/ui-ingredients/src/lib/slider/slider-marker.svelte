@@ -19,15 +19,7 @@
   }: SliderMarkerProps = $props();
 
   let slider = getSliderContext();
-
-  let mergedProps = $derived(
-    mergeProps(
-      slider.getMarkerProps({
-        value,
-      }),
-      props,
-    ),
-  );
+  let mergedProps = $derived(mergeProps(slider.getMarkerProps({value}), props));
 </script>
 
 {#if asChild}

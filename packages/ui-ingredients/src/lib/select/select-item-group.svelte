@@ -23,12 +23,8 @@
 
   let select = getSelectContext();
 
-  let id_ = createUniqueId();
-
-  let itemGroupProps = $derived({
-    id: id ?? id_,
-  });
-
+  let uid = createUniqueId();
+  let itemGroupProps = $derived({id: id ?? uid});
   let mergedProps = $derived(
     mergeProps(select.getItemGroupProps(itemGroupProps), props),
   );

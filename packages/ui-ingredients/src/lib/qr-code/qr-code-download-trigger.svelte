@@ -1,34 +1,36 @@
 <script lang="ts" module>
-  import type {ResizeTriggerProps} from '@zag-js/floating-panel';
+  import type {DownloadTriggerProps} from '@zag-js/qr-code';
   import type {Assign, HtmlIngredientProps} from '../types.js';
 
-  export interface FloatingPanelResizeTriggerProps
+  export interface QrCodeDownloadTriggerProps
     extends Assign<
       HtmlIngredientProps<'button', HTMLButtonElement>,
-      ResizeTriggerProps
+      DownloadTriggerProps
     > {}
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '@zag-js/svelte';
-  import {createSplitProps} from '../create-split-props.js';
-  import {getFloatingPanelContext} from './floating-panel-context.svelte.js';
+  import {getQrCodeContext} from './qr-code-context.svelte.js';
 
   let {
     ref = $bindable(null),
     asChild,
     children,
     ...props
-  }: FloatingPanelResizeTriggerProps = $props();
+  }: QrCodeDownloadTriggerProps = $props();
 
-  let [resizeTriggerProps, localProps] = $derived(
-    createSplitProps<ResizeTriggerProps>([])(props),
+  let [downloadTriggerProps, localProps] = $derived(
+    createSplitProps<DownloadTriggerProps>(['fileName', 'mimeType', 'quality'])(
+      props,
+    ),
   );
 
-  let floatingPanel = getFloatingPanelContext();
+  let qrCode = getQrCodeContext();
   let mergedProps = $derived(
     mergeProps(
-      floatingPanel.getResizeTriggerProps(resizeTriggerProps),
+      qrCode.getDownloadTriggerProps(downloadTriggerProps),
       localProps,
     ),
   );

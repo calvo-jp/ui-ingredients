@@ -1,3 +1,4 @@
+export {default as DownloadTrigger} from './qr-code-download-trigger.svelte';
 export {default as Frame} from './qr-code-frame.svelte';
 export {default as Overlay} from './qr-code-overlay.svelte';
 export {default as Pattern} from './qr-code-pattern.svelte';

@@ -17,7 +17,6 @@
   }: PinInputClearTriggerProps = $props();
 
   let pinInput = getPinInputContext();
-
   let mergedProps = $derived(
     mergeProps(pinInput.getClearTriggerProps(), props),
   );

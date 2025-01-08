@@ -17,7 +17,6 @@
   }: SliderRangeProps = $props();
 
   let slider = getSliderContext();
-
   let mergedProps = $derived(mergeProps(slider.getRangeProps(), props));
 </script>
 

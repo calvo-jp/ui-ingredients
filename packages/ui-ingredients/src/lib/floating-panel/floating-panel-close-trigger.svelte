@@ -17,7 +17,6 @@
   }: FloatingPanelCloseTriggerProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
-
   let mergedProps = $derived(
     mergeProps(floatingPanel.getCloseTriggerProps(), props),
   );

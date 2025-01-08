@@ -20,7 +20,6 @@
   }: FieldErrorTextProps = $props();
 
   let field = getFieldContext();
-
   let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence(
     reflect(() => ({

@@ -21,12 +21,11 @@
     ...props
   }: TreeViewItemProps = $props();
 
-  let treeView = getTreeViewContext();
-
   let [nodeProps, localProps] = $derived(
     createSplitProps<NodeProps>(['node', 'indexPath'])(props),
   );
 
+  let treeView = getTreeViewContext();
   let mergedProps = $derived(
     mergeProps(treeView.getItemProps(nodeProps), localProps),
   );

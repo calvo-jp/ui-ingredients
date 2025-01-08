@@ -17,7 +17,6 @@
   }: TagsInputLabelProps = $props();
 
   let tagsInput = getTagsInputContext();
-
   let mergedProps = $derived(mergeProps(tagsInput.getLabelProps(), props));
 </script>
 

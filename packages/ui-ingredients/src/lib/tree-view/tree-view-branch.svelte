@@ -26,11 +26,11 @@
     ...props
   }: TreeViewBranchProps = $props();
 
-  let treeView = getTreeViewContext();
   let [nodeProps, localProps] = $derived(
     createSplitProps<NodeProps>(['node', 'indexPath'])(props),
   );
 
+  let treeView = getTreeViewContext();
   let nodeState = $derived(treeView.getNodeState(nodeProps));
   let branchContentProps = $derived(treeView.getBranchContentProps(nodeProps));
   let collapbsible = createCollapsible(

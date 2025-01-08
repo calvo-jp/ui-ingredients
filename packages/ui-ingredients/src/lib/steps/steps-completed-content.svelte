@@ -21,7 +21,6 @@
 
   let steps = getStepsContext();
   let index = $derived(steps.count);
-
   let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence(
     reflect(() => ({

@@ -17,7 +17,6 @@
   }: ClipboardTriggerProps = $props();
 
   let clipboard = getClipboardContext();
-
   let mergedProps = $derived(mergeProps(clipboard.getTriggerProps(), props));
 </script>
 

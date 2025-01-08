@@ -16,7 +16,6 @@
   }: RatingGroupHiddenInputProps = $props();
 
   let radioGroup = getRatingGroupContext();
-
   let mergedProps = $derived(
     mergeProps(radioGroup.getHiddenInputProps(), props),
   );

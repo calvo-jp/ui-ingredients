@@ -17,7 +17,6 @@
   }: CarouselControlProps = $props();
 
   let carousel = getCarouselContext();
-
   let mergedProps = $derived(mergeProps(carousel.getControlProps(), props));
 </script>
 

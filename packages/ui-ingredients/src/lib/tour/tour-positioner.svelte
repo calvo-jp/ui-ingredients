@@ -19,7 +19,6 @@
 
   let tour = getTourContext();
   let presence = getPresenceContext();
-
   let mergedProps = $derived(
     mergeProps(tour.getPositionerProps(), presence.getPresenceProps(), props),
   );

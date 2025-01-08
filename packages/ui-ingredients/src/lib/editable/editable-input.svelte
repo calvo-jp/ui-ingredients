@@ -12,7 +12,6 @@
   let {ref = $bindable(null), asChild, ...props}: EditableInputProps = $props();
 
   let editable = getEditableContext();
-
   let mergedProps = $derived(mergeProps(editable.getInputProps(), props));
 </script>
 

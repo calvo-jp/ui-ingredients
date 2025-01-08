@@ -17,7 +17,6 @@
   }: PaginationNextTriggerProps = $props();
 
   let pagination = getPaginationContext();
-
   let mergedProps = $derived(
     mergeProps(pagination.getNextTriggerProps(), props),
   );

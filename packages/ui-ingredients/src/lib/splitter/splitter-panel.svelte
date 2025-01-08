@@ -18,12 +18,11 @@
     ...props
   }: SplitterPanelProps = $props();
 
-  let splitter = getSplitterContext();
-
   let [panelProps, localProps] = $derived(
     createSplitProps<PanelProps>(['id', 'snapSize'])(props),
   );
 
+  let splitter = getSplitterContext();
   let mergedProps = $derived(
     mergeProps(splitter.getPanelProps(panelProps), localProps),
   );

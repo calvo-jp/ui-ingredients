@@ -17,7 +17,6 @@
   }: TimePickerSpacerProps = $props();
 
   let timePicker = getTimePickerContext();
-
   let mergedProps = $derived(mergeProps(timePicker.getSpacerProps(), props));
 </script>
 

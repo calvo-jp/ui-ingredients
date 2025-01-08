@@ -19,7 +19,6 @@
   }: TimePickerSecondCellProps = $props();
 
   let timePicker = getTimePickerContext();
-
   let mergedProps = $derived(
     mergeProps(timePicker.getSecondCellProps({value}), props),
   );

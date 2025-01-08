@@ -25,7 +25,6 @@
   }: StepsContentProps = $props();
 
   let steps = getStepsContext();
-
   let presenceStrategyProps = getPresenceStrategyPropsContext();
   let presence = createPresence(
     reflect(() => ({

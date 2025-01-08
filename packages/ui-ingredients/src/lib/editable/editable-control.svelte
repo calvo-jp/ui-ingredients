@@ -17,7 +17,6 @@
   }: EditableControlProps = $props();
 
   let editable = getEditableContext();
-
   let mergedProps = $derived(mergeProps(editable.getControlProps(), props));
 </script>
 

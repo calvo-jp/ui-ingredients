@@ -21,7 +21,6 @@
 
   let accordion = getAccordionContext();
   let itemProps = getAccordionItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(accordion.getItemIndicatorProps(itemProps), props),
   );

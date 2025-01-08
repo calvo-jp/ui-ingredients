@@ -16,7 +16,6 @@
   }: PinInputHiddenInputProps = $props();
 
   let pinInput = getPinInputContext();
-
   let mergedProps = $derived(mergeProps(pinInput.getHiddenInputProps(), props));
 </script>
 

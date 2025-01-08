@@ -21,7 +21,6 @@
 
   let fileUpload = getFileUploadContext();
   let itemProps = getFileUploadItemPropsContext();
-
   let mergedProps = $derived(
     mergeProps(fileUpload.getItemNameProps(itemProps), props),
   );

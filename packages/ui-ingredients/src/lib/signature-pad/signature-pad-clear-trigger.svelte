@@ -17,7 +17,6 @@
   }: SignaturePadClearTriggerProps = $props();
 
   let signaturePad = getSignaturePadContext();
-
   let mergedProps = $derived(
     mergeProps(signaturePad.getClearTriggerProps(), props),
   );
