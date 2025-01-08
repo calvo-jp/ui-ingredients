@@ -7,4 +7,8 @@ export type {AlertTitleProps} from './alert-title.svelte';
 
 export {anatomy as alertAnatomy} from './alert-anatomy.js';
 export {getAlertContext, setAlertContext} from './alert-context.js';
-export {createAlert, type CreateAlertReturn} from './create-alert.svelte.js';
+export {
+  createAlert,
+  type CreateAlertProps,
+  type CreateAlertReturn,
+} from './create-alert.svelte.js';

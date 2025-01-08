@@ -1,13 +1,20 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '../types.js';
-  import type {CreateAlertReturn} from './create-alert.svelte.js';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {
+    CreateAlertProps,
+    CreateAlertReturn,
+  } from './create-alert.svelte.js';
 
   export interface AlertProps
-    extends HtmlIngredientProps<'div', HTMLDivElement, CreateAlertReturn> {}
+    extends Assign<
+      HtmlIngredientProps<'div', HTMLDivElement, CreateAlertReturn>,
+      CreateAlertProps
+    > {}
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {createSplitProps} from '$lib/create-split-props.js';
+  import {mergeProps, reflect} from '@zag-js/svelte';
   import {setAlertContext} from './alert-context.js';
   import {createAlert} from './create-alert.svelte.js';
 
@@ -18,8 +25,12 @@
     ...props
   }: AlertProps = $props();
 
-  let alert = createAlert();
-  let mergedProps = $derived(mergeProps(alert.getRootProps(), props));
+  let [createAlertProps, localProps] = $derived(
+    createSplitProps<CreateAlertProps>(['id'])(props),
+  );
+
+  let alert = createAlert(reflect(() => createAlertProps));
+  let mergedProps = $derived(mergeProps(alert.getRootProps(), localProps));
 
   setAlertContext(alert);
 </script>
