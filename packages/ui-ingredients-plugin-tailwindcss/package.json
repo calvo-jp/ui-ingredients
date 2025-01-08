@@ -1,0 +1,73 @@
+{
+  "name": "ui-ingredients-plugin-tailwindcss",
+  "type": "module",
+  "license": "MIT",
+  "version": "0.0.6",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "John Paul Calvo",
+    "email": "calvojp92@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvo-jp/ui-ingredients.git",
+    "directory": "packages/ui-ingredients-plugin-tailwindcss"
+  },
+  "bugs": {
+    "url": "https://github.com/calvo-jp/ui-ingredients/issues",
+    "email": "calvojp92@gmail.com"
+  },
+  "description": "TailwindCSS plugin for styling UI Ingredients components using their data attributes",
+  "keywords": [
+    "TailwindCSS",
+    "UI Ingredients",
+    "Plugin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "release": "release-it"
+  },
+  "dependencies": {
+    "tailwindcss-plugin-zag": "^0.0.5"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "release-it": "^18.0.0",
+    "tailwindcss": "^3.4.17",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    },
+    "hooks": {
+      "after:bump": [
+        "pnpm build"
+      ]
+    }
+  }
+}
