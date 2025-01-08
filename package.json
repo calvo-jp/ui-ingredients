@@ -2,13 +2,13 @@
   "name": "ui-ingredients-root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.15.2",
+  "packageManager": "pnpm@9.15.3",
   "scripts": {
-    "core": "pnpm --filter=\"ui-ingredients\"",
-    "tailwind": "pnpm --filter=\"ui-ingredients-plugin-tailwindcss\"",
-    "scripts": "pnpm --filter=\"ui-ingredients-scripts\"",
-    "website": "pnpm --filter=\"ui-ingredients-website\"",
-    "test": "pnpm --filter=\"*\" test",
+    "core": "pnpm --filter=ui-ingredients",
+    "tailwind-plugin": "pnpm --filter=ui-ingredients-plugin-tailwindcss",
+    "scripts": "pnpm --filter=ui-ingredients-scripts",
+    "website": "pnpm --filter=ui-ingredients-website",
+    "test": "pnpm --recursive test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "bump": "npx npm-check-updates -u --deep"
@@ -25,6 +25,6 @@
     "prettier-plugin-svelte": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.0"
+    "typescript-eslint": "^8.19.1"
   }
 }

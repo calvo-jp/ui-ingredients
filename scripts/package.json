@@ -8,9 +8,9 @@
   "dependencies": {
     "@clack/prompts": "^0.9.0",
     "@tsconfig/node22": "^22.0.0",
-    "@types/react": "^19.0.2",
+    "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
-    "@zag-js/anatomy-icons": "^0.80.0",
+    "@zag-js/anatomy-icons": "^0.81.0",
     "prettier": "^3.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
