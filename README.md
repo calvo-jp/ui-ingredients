@@ -5,7 +5,7 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 ## Installation
 
 ```bash
-npm install ui-ingredients
+npm install ui-ingredients ui-ingredients-plugin-tailwindcss
 ```
 
 ## Usage
@@ -13,7 +13,8 @@ npm install ui-ingredients
 ```svelte
 <script>
   import {Dialog, Portal} from 'ui-ingredients';
-  import {XCloseIcon, Button} from '$lib/icons';
+  import {XCloseIcon} from '$lib/icons';
+  import {Button} from '$lib/ui';
 </script>
 
 <Dialog.Root lazyMount keepMounted>
@@ -24,9 +25,13 @@ npm install ui-ingredients
   </Dialog.Trigger>
 
   <Portal>
-    <Dialog.Backdrop />
+    <Dialog.Backdrop
+      class="ui-open:animate-fade-in ui-closed:animate-fade-out"
+    />
     <Dialog.Positioner>
-      <Dialog.Content>
+      <Dialog.Content
+        class="ui-open:animate-fade-in ui-closed:animate-fade-out"
+      >
         <Dialog.Title>Title</Dialog.Title>
         <Dialog.Description>Description</Dialog.Description>
         <Dialog.CloseTrigger>
@@ -38,10 +43,17 @@ npm install ui-ingredients
 </Dialog.Root>
 ```
 
-## Inspiration
+## Packages
 
-- [zag](https://zagjs.com/) - The fantastic library that powers UI ingredients
-- [ark](https://ark-ui.com/) - The outstanding headless component library that greatly inspired this one
+- [ui-ingredients](https://github.com/calvo-jp/ui-ingredients/tree/main/packages/ui-ingredients)
+- [ui-ingredients-plugin-tailwindcss](https://github.com/calvo-jp/ui-ingredients/tree/main/packages/ui-ingredients-plugin-tailwindcss)
+
+## Credits
+
+- [zag](https://zagjs.com/)
+- [ark](https://ark-ui.com/)
+- [@headlessui/tailwindcss](https://github.com/tailwindlabs/headlessui/tree/main/packages/%40headlessui-tailwindcss)
+- [@kobalte/tailwindcss](https://github.com/kobaltedev/kobalte/tree/main/packages/tailwindcss)
 
 ## Documentation
 

@@ -1,4 +1,4 @@
-# UI Ingredients
+# ui-ingredients
 
 Headless component library for [Svelte](https://svelte.dev/) powered by [zag](https://zagjs.com/)
 
@@ -13,7 +13,8 @@ npm install ui-ingredients
 ```svelte
 <script>
   import {Dialog, Portal} from 'ui-ingredients';
-  import {XCloseIcon, Button} from '$lib/icons';
+  import {XCloseIcon} from '$lib/icons';
+  import {Button} from '$lib/ui';
 </script>
 
 <Dialog.Root lazyMount keepMounted>
