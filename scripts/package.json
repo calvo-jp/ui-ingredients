@@ -8,7 +8,7 @@
   "dependencies": {
     "@clack/prompts": "^0.9.0",
     "@tsconfig/node22": "^22.0.0",
-    "@types/react": "^19.0.3",
+    "@types/react": "^19.0.4",
     "@types/react-dom": "^19.0.2",
     "@zag-js/anatomy-icons": "^0.81.0",
     "prettier": "^3.4.2",
@@ -17,6 +17,6 @@
     "svgson": "^5.3.1",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
