@@ -11,6 +11,7 @@ description: A component for highlighting text within a string.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

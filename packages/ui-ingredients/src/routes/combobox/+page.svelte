@@ -63,7 +63,7 @@
       {#snippet asChild(attrs)}
         <IconButton {...attrs}>
           <ChevronDownIcon
-            class="transition-transform duration-150 group-data-open:rotate-180"
+            class="group-data-open:rotate-180 transition-transform duration-150"
           />
         </IconButton>
       {/snippet}
@@ -80,12 +80,12 @@
   <Portal>
     <Combobox.Positioner>
       <Combobox.Content
-        class="bg-light rounded border p-2 data-open:animate-fade-in data-closed:animate-fade-out"
+        class="bg-light data-open:animate-fade-in data-closed:animate-fade-out rounded border p-2"
       >
         {#each collection.items as item}
           <Combobox.Item
             {item}
-            class="data-disabled:text-disabled data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed"
+            class="data-disabled:text-disabled data-highlighted:bg-lighter/50 data-disabled:cursor-not-allowed flex cursor-default items-center rounded px-2.5 py-1"
           >
             <Combobox.ItemText class="grow">{item.label}</Combobox.ItemText>
             <Combobox.ItemIndicator>

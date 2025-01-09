@@ -13,6 +13,7 @@ description: A component for selecting and customizing colors.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -46,7 +47,7 @@ description: A component for selecting and customizing colors.
   ];
 
   /** @type {import('ui-ingredients').Color} */
-  let value = $state(ColorPicker.parse('red'))
+  let value = $state(ColorPicker.parse('red'));
 </script>
 
 <ColorPicker.Root
@@ -101,7 +102,6 @@ description: A component for selecting and customizing colors.
   {/snippet}
 </ColorPicker.Root>
 ```
-
 
 ## API Reference
 

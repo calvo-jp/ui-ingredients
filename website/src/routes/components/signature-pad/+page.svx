@@ -12,6 +12,7 @@ description: A component for capturing and displaying handwritten signatures.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

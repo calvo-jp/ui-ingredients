@@ -22,11 +22,11 @@
 
   <Menu.Positioner>
     <Menu.Content
-      class="bg-light rounded border p-2 data-open:animate-fade-in data-closed:animate-fade-out"
+      class="bg-light data-open:animate-fade-in data-closed:animate-fade-out rounded border p-2"
     >
       {#each items as item}
         <Menu.Item
-          class="data-highlighted:bg-lighter/50 flex w-32 cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:opacity-75"
+          class="data-highlighted:bg-lighter/50 data-disabled:cursor-not-allowed data-disabled:opacity-75 flex w-32 cursor-default items-center rounded px-2.5 py-1"
           value={item.value}
           disabled={item.disabled}
         >

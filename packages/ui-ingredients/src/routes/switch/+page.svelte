@@ -16,7 +16,7 @@
       class="data-checked:bg-accent bg-disabled relative h-10 w-16 rounded-full transition-colors duration-150"
     >
       <Switch.Thumb
-        class="absolute left-1 top-1 h-8 w-8 rounded-full bg-white shadow-md transition-all duration-150 data-checked:translate-x-[calc(100%-theme(spacing.2))]"
+        class="data-checked:translate-x-[calc(100%-theme(spacing.2))] absolute left-1 top-1 h-8 w-8 rounded-full bg-white shadow-md transition-all duration-150"
       />
     </Switch.Control>
     <Switch.Label>

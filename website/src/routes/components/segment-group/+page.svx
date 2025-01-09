@@ -13,6 +13,7 @@ description: A component for grouping and toggling between different sections or
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -31,13 +32,7 @@ description: A component for grouping and toggling between different sections or
 <script>
   import {SegmentGroup} from 'ui-ingredients';
 
-  let items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-  ];
+  let items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 </script>
 
 <SegmentGroup.Root>
@@ -52,7 +47,6 @@ description: A component for grouping and toggling between different sections or
   <SegmentGroup.Indicator />
 </SegmentGroup.Root>
 ```
-
 
 ## API Reference
 

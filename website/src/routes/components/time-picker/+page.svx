@@ -12,6 +12,7 @@ description: A component for selecting a time from a dropdown or input interface
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

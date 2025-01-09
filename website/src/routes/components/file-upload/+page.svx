@@ -12,6 +12,7 @@ description: A component for selecting and uploading files from the user's devic
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -98,7 +99,6 @@ description: A component for selecting and uploading files from the user's devic
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
 
 ## API Reference
 

@@ -13,6 +13,7 @@ description: A component that displays additional content or information in a sm
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -50,7 +51,6 @@ description: A component that displays additional content or information in a sm
   </Popover.Positioner>
 </Popover.Root>
 ```
-
 
 ## API Reference
 

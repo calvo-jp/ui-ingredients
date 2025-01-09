@@ -12,6 +12,7 @@ description: A visual component for displaying a user’s profile image or initi
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -36,7 +37,6 @@ description: A visual component for displaying a user’s profile image or initi
   <Avatar.Fallback>JD</Avatar.Fallback>
 </Avatar.Root>
 ```
-
 
 ## API Reference
 

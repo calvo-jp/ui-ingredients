@@ -12,6 +12,7 @@ description: A component for displaying brief, non-intrusive notifications or me
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

@@ -61,7 +61,7 @@
           {#each context.getHours() as item}
             <TimePicker.HourCell
               value={item.value}
-              class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+              class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
             >
               {item.label}
             </TimePicker.HourCell>
@@ -75,7 +75,7 @@
           {#each context.getMinutes() as item}
             <TimePicker.MinuteCell
               value={item.value}
-              class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+              class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
             >
               {item.label}
             </TimePicker.MinuteCell>
@@ -89,7 +89,7 @@
           {#each context.getSeconds() as item}
             <TimePicker.SecondCell
               value={item.value}
-              class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+              class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
             >
               {item.label}
             </TimePicker.SecondCell>
@@ -99,13 +99,13 @@
         <TimePicker.Column unit="period">
           <TimePicker.PeriodCell
             value="am"
-            class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+            class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
           >
             AM
           </TimePicker.PeriodCell>
           <TimePicker.PeriodCell
             value="pm"
-            class="data-selected:text-accent cursor-pointer snap-center font-mono font-medium leading-none data-focus:text-neutral-100"
+            class="data-selected:text-accent data-focus:text-neutral-100 cursor-pointer snap-center font-mono font-medium leading-none"
           >
             PM
           </TimePicker.PeriodCell>

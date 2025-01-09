@@ -13,6 +13,7 @@ description: A component for displaying a modal dialog that requires user attent
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

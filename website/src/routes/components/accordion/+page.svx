@@ -13,6 +13,7 @@ description: A toggle component for expanding and collapsing sections of content
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

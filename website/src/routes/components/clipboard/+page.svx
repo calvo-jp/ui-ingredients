@@ -12,6 +12,7 @@ description: A component for copying text or content to the user's clipboard.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -50,7 +51,6 @@ description: A component for copying text or content to the user's clipboard.
   </Clipboard.Control>
 </Clipboard.Root>
 ```
-
 
 ## API Reference
 

@@ -1,6 +1,6 @@
 ---
-title: "Presence"
-description: "A component that controls content rendering and unmounting based on state."
+title: 'Presence'
+description: 'A component that controls content rendering and unmounting based on state.'
 ---
 
 <script>
@@ -10,6 +10,7 @@ description: "A component that controls content rendering and unmounting based o
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -33,9 +34,7 @@ description: "A component that controls content rendering and unmounting based o
   Toggle
 </button>
 
-<Presence {present} lazyMount keepMounted>
-  Content
-</Presence>
+<Presence {present} lazyMount keepMounted>Content</Presence>
 ```
 
 ## API Reference

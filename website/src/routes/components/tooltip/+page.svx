@@ -13,6 +13,7 @@ description: A component for displaying brief, contextual information when hover
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

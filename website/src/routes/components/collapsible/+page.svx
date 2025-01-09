@@ -13,6 +13,7 @@ description: A component that expands or collapses to show or hide content.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

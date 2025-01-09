@@ -66,7 +66,7 @@
   <Portal>
     <Drawer.Positioner>
       <Drawer.Content
-        class="bg fixed bottom-0 left-0 top-16 z-modal w-64 border-r data-open:animate-slide-in-left data-closed:animate-slide-out-left"
+        class="bg data-open:animate-slide-in-left data-closed:animate-slide-out-left fixed bottom-0 left-0 top-16 z-modal w-64 border-r"
       >
         <Drawer.Body class="h-full overflow-y-auto p-6">
           <nav>

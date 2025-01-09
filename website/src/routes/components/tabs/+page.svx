@@ -13,6 +13,7 @@ description: A component for organizing and switching between multiple sections 
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -66,7 +67,6 @@ description: A component for organizing and switching between multiple sections 
   {/each}
 </Tabs.Root>
 ```
-
 
 ## API Reference
 

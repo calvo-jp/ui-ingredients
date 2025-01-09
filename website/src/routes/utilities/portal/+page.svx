@@ -10,6 +10,7 @@ description: A component for rendering content in a different part of the DOM hi
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -52,10 +53,10 @@ To globally set a container for all portals, you can use the `PortalProvider` co
 <script>
   import {PortalProvider} from 'ui-ingredients';
 
-  let {children} = $props()
+  let {children} = $props();
 
   /** @type {HTMLElement | null} */
-  let container = $state(null)
+  let container = $state(null);
 </script>
 
 <PortalProvider {container}>

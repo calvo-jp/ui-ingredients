@@ -13,6 +13,7 @@ description: A component for adjusting values or selecting ranges through a drag
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -60,7 +61,7 @@ description: A component for adjusting values or selecting ranges through a drag
 <script>
   import {Slider} from 'ui-ingredients';
 
-  let value = $state([0, 25])
+  let value = $state([0, 25]);
 </script>
 
 <Slider.Root

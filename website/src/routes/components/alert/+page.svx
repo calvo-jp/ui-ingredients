@@ -11,6 +11,7 @@ description: A component for displaying important messages or notifications.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

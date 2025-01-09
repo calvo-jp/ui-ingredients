@@ -12,6 +12,7 @@ description: A component that slides in from the edge of the screen to display a
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -45,7 +46,6 @@ description: A component that slides in from the edge of the screen to display a
   </Drawer.Positioner>
 </Drawer.Root>
 ```
-
 
 ## API Reference
 

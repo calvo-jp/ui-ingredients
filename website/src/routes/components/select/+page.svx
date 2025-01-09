@@ -13,6 +13,7 @@ description: A component for choosing an option from a dropdown list.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -111,7 +112,6 @@ description: A component for choosing an option from a dropdown list.
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
 
 ## API Reference
 

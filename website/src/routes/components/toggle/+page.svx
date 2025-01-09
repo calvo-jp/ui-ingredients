@@ -11,6 +11,7 @@ description: A component for switching between two states, suchjson as on/off.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -42,7 +43,6 @@ description: A component for switching between two states, suchjson as on/off.
   {/if}
 </Toggle.Root>
 ```
-
 
 ## API Reference
 

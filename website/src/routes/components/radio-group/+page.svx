@@ -13,6 +13,7 @@ description: A component for selecting one option from a set of mutually exclusi
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

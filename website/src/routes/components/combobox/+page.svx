@@ -13,6 +13,7 @@ description: A component that combines a text input with a dropdown list for sel
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

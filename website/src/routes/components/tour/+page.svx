@@ -13,6 +13,7 @@ description: A component for guiding users through a series of steps or features
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

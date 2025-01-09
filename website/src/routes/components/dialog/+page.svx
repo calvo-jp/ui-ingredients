@@ -13,6 +13,7 @@ description: A component for displaying modal windows or pop-up messages.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -50,7 +51,6 @@ description: A component for displaying modal windows or pop-up messages.
   </Portal>
 </Dialog.Root>
 ```
-
 
 ## API Reference
 

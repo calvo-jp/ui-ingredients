@@ -33,7 +33,7 @@
             )}
           >
             <CheckIcon
-              class="hidden size-4 text-white group-data-complete:block"
+              class="group-data-complete:block hidden size-4 text-white"
             />
           </Steps.Indicator>
           <span>{item.title}</span>

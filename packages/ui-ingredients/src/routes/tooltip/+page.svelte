@@ -13,7 +13,7 @@
   <Portal>
     <Tooltip.Positioner>
       <Tooltip.Content
-        class="bg-light rounded px-3.5 py-2.5 shadow-md data-open:animate-fade-in data-closed:animate-fade-out"
+        class="bg-light data-open:animate-fade-in data-closed:animate-fade-out rounded px-3.5 py-2.5 shadow-md"
       >
         <Tooltip.Arrow
           class="[--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"

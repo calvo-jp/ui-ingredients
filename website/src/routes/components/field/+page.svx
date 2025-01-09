@@ -12,6 +12,7 @@ description: A component for organizing related form elements into a cohesive un
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

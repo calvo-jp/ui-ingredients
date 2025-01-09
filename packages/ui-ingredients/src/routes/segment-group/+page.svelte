@@ -33,7 +33,7 @@
   {#each items as item}
     <SegmentGroup.Item
       value={item.value}
-      class="relative z-10 px-2.5 py-1 font-medium transition-colors duration-150 data-checked:text-white"
+      class="data-checked:text-white relative z-10 px-2.5 py-1 font-medium transition-colors duration-150"
     >
       <SegmentGroup.ItemText>{item.value}</SegmentGroup.ItemText>
       <SegmentGroup.ItemControl />

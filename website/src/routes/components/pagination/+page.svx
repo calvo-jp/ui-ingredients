@@ -12,6 +12,7 @@ description: A component for navigating through multiple pages of content.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -54,7 +55,6 @@ description: A component for navigating through multiple pages of content.
   {/snippet}
 </Pagination.Root>
 ```
-
 
 ## API Reference
 

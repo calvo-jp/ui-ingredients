@@ -13,6 +13,7 @@ description: A component for entering and displaying a sequence of numeric or al
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -63,7 +64,6 @@ description: A component for entering and displaying a sequence of numeric or al
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
 
 ## API Reference
 

@@ -59,7 +59,7 @@
         {/snippet}
       </Field.Label>
       <Field.ErrorText
-        class="text-danger flex items-center gap-1 text-sm data-invalid:animate-fade-in"
+        class="text-danger data-invalid:animate-fade-in flex items-center gap-1 text-sm"
       >
         Invalid title
       </Field.ErrorText>
@@ -92,7 +92,7 @@
         {/snippet}
       </Field.Label>
       <Field.ErrorText
-        class="text-danger flex items-center gap-1 text-sm data-invalid:animate-fade-in"
+        class="text-danger data-invalid:animate-fade-in flex items-center gap-1 text-sm"
       >
         Invalid description
       </Field.ErrorText>

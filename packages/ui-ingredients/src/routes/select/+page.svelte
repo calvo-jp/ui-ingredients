@@ -46,7 +46,7 @@
             <Select.ValueText placeholder="Please Select" class="grow" />
             <Select.Indicator class="group">
               <ChevronDownIcon
-                class="transition-transform duration-150 group-data-open:rotate-180"
+                class="group-data-open:rotate-180 transition-transform duration-150"
               />
             </Select.Indicator>
           </Button>
@@ -65,12 +65,12 @@
   <Portal>
     <Select.Positioner>
       <Select.Content
-        class="bg-light rounded border p-2 data-open:animate-fade-in data-closed:animate-fade-out"
+        class="bg-light data-open:animate-fade-in data-closed:animate-fade-out rounded border p-2"
       >
         {#each collection.items as item}
           <Select.Item
             {item}
-            class="data-highlighted:bg-lighter/50 flex cursor-default items-center rounded px-2.5 py-1 data-disabled:cursor-not-allowed data-disabled:opacity-75"
+            class="data-highlighted:bg-lighter/50 data-disabled:cursor-not-allowed data-disabled:opacity-75 flex cursor-default items-center rounded px-2.5 py-1"
           >
             <Select.ItemText class="grow" />
             <Select.ItemIndicator>

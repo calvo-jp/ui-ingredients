@@ -113,7 +113,7 @@ import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 const config: Config = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   plugins: [uiIngredients],
-}
+};
 
 export default config;
 ```

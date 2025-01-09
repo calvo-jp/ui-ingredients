@@ -13,6 +13,7 @@ description: An interactive component for selecting one or multiple options in a
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -67,7 +68,6 @@ description: An interactive component for selecting one or multiple options in a
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
 
 ## API Reference
 

@@ -13,6 +13,7 @@ description: A component for displaying hierarchical data in a tree structure, a
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

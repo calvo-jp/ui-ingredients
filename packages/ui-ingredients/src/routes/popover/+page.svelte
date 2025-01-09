@@ -18,7 +18,7 @@
   <Portal>
     <Popover.Positioner>
       <Popover.Content
-        class="bg-light w-[80vw] rounded border p-4 data-open:animate-fade-in data-closed:animate-fade-out lg:w-[20rem]"
+        class="bg-light data-open:animate-fade-in data-closed:animate-fade-out w-[80vw] rounded border p-4 lg:w-[20rem]"
       >
         <Popover.Arrow
           class="[--arrow-background:theme(colors.neutral[800])] [--arrow-size:theme(spacing.4)]"

@@ -12,6 +12,7 @@ description: A component for displaying a sequence of steps or stages in a proce
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -76,7 +77,6 @@ description: A component for displaying a sequence of steps or stages in a proce
   <Steps.NextTrigger>Next</Steps.NextTrigger>
 </Steps.Root>
 ```
-
 
 ## API Reference
 

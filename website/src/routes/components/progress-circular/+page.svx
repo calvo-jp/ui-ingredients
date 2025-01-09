@@ -12,6 +12,7 @@ description: A component for displaying the completion status of a task or proce
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 

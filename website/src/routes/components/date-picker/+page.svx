@@ -13,6 +13,7 @@ description: A component for selecting a date from a calendar interface.
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -301,7 +302,6 @@ description: A component for selecting a date from a calendar interface.
   {/snippet}
 </DatePicker.Root>
 ```
-
 
 ## API Reference
 

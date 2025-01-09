@@ -10,6 +10,7 @@ description: A component for providing environment information to the rest of th
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -23,7 +24,7 @@ description: A component for providing environment information to the rest of th
 <script>
   import {EnvironmentProvider} from 'ui-ingredients';
 
-  let {children} = $props()
+  let {children} = $props();
 </script>
 
 <EnvironmentProvider rootNode={() => document}>

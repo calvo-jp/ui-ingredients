@@ -13,6 +13,7 @@ description: A component for adding and managing a list of tags or keywords, oft
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -93,7 +94,6 @@ description: A component for adding and managing a list of tags or keywords, oft
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
 
 ## API Reference
 

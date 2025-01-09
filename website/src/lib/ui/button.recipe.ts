@@ -1,4 +1,4 @@
-import { tv, type VariantProps } from 'tailwind-variants';
+import {tv, type VariantProps} from 'tailwind-variants';
 
 export const buttonRecipe = tv({
   base: 'shrink-0 flex items-center justify-center gap-2 rounded font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50',

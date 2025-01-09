@@ -28,7 +28,7 @@ export default {
       prefix: 'custom-prefix',
     }),
   ],
-} satisfies Config
+} satisfies Config;
 ```
 
 Style your components

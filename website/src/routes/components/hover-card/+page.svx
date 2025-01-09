@@ -12,6 +12,7 @@ description: A component that displays additional information when hovering over
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
@@ -48,7 +49,6 @@ description: A component that displays additional information when hovering over
   </Portal>
 </HoverCard.Root>
 ```
-
 
 ## API Reference
 

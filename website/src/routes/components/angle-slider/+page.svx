@@ -12,6 +12,7 @@ description: An Angle Slider Component is a circular UI control for selecting or
 </script>
 
 <svelte:head>
+
   <title>UI Ingredients | {title}</title>
 </svelte:head>
 
