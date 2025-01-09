@@ -5,7 +5,7 @@ Headless component library for [Svelte](https://svelte.dev/) powered by [zag](ht
 ## Installation
 
 ```bash
-npm install ui-ingredients ui-ingredients-plugin-tailwindcss
+npm install ui-ingredients
 ```
 
 ## Usage
@@ -25,13 +25,9 @@ npm install ui-ingredients ui-ingredients-plugin-tailwindcss
   </Dialog.Trigger>
 
   <Portal>
-    <Dialog.Backdrop
-      class="ui-open:animate-fade-in ui-closed:animate-fade-out"
-    />
+    <Dialog.Backdrop />
     <Dialog.Positioner>
-      <Dialog.Content
-        class="ui-open:animate-fade-in ui-closed:animate-fade-out"
-      >
+      <Dialog.Content>
         <Dialog.Title>Title</Dialog.Title>
         <Dialog.Description>Description</Dialog.Description>
         <Dialog.CloseTrigger>
@@ -46,7 +42,12 @@ npm install ui-ingredients ui-ingredients-plugin-tailwindcss
 ## Packages
 
 - [ui-ingredients](https://github.com/calvo-jp/ui-ingredients/tree/main/packages/ui-ingredients)
+
+  The core package
+
 - [ui-ingredients-plugin-tailwindcss](https://github.com/calvo-jp/ui-ingredients/tree/main/packages/ui-ingredients-plugin-tailwindcss)
+
+  [Tailwind](https://tailwindcss.com/) plugin to style the components using their data attributes.
 
 ## Credits
 

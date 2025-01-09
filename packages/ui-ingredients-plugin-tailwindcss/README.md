@@ -15,7 +15,7 @@ Add the plugin to your tailwind config
 ```ts
 // tailwind.config.ts
 import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
-import {Config} from 'tailwindcss';
+import type {Config} from 'tailwindcss';
 
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -48,7 +48,7 @@ Style your components
 ```ts
 // tailwind.config.ts
 import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
-import {Config} from 'tailwindcss';
+import type {Config} from 'tailwindcss';
 
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
