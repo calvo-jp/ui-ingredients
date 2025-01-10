@@ -1,6 +1,6 @@
 <script lang="ts">
   import {page} from '$app/state';
-  import {APP_LINKS} from '$lib/const';
+  import {APP_LINKS} from '$lib/constants';
   import {
     ChevronLeftIcon,
     ChevronRightIcon,

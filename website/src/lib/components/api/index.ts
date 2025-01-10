@@ -1,1 +1,1 @@
-export {default as Api} from './api.svelte';
+export {default} from './api.svelte';

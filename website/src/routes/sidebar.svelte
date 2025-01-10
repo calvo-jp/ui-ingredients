@@ -1,8 +1,8 @@
 <script>
   import {page} from '$app/state';
-  import {APP_LINKS} from '$lib/const';
+  import {Badge} from '$lib/components';
+  import {APP_LINKS} from '$lib/constants';
   import {navbarStore} from '$lib/stores';
-  import {Badge} from '$lib/ui';
   import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
   import {Collapsible, Drawer, Portal} from 'ui-ingredients';
 </script>
@@ -87,7 +87,7 @@
                         {child.label}
                       </span>
 
-                      {#if child.betaBadge}
+                      {#if child.beta}
                         <Badge>Beta</Badge>
                       {/if}
                     </a>

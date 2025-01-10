@@ -11,8 +11,8 @@
   import '../app.css';
 
   import {page} from '$app/state';
+  import {Prose} from '$lib/components';
   import {addCopyButtonToPreTags} from '$lib/patches';
-  import {Prose} from '$lib/ui';
   import {tick} from 'svelte';
   import {ThemeProvider} from 'svelte-os-themes';
   import Navbar from './navbar.svelte';
