@@ -1,21 +1,16 @@
 <script lang="ts">
   import type {Assign} from '$lib/types';
   import type {SvelteHTMLElements} from 'svelte/elements';
+  import {createSplitProps} from 'ui-ingredients';
   import {textareaRecipe, type TextareaRecipeProps} from './textarea.recipe';
 
-  let {
-    size,
-    class: className,
-    variant,
-    ...props
-  }: Assign<SvelteHTMLElements['textarea'], TextareaRecipeProps> = $props();
+  let {...props}: Assign<SvelteHTMLElements['textarea'], TextareaRecipeProps> =
+    $props();
+
+  let [recipeProps, localProps] = $derived(
+    createSplitProps<TextareaRecipeProps>(textareaRecipe.variantKeys)(props),
+  );
 </script>
 
-<textarea
-  class={textareaRecipe({
-    size,
-    variant,
-    className,
-  })}
-  {...props}
+<textarea {...props} class={[textareaRecipe(recipeProps), localProps]}
 ></textarea>

@@ -1,16 +1,12 @@
 <script lang="ts">
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {twMerge} from 'tailwind-merge';
 
-  let {
-    children,
-    class: className,
-    ...props
-  }: SvelteHTMLElements['div'] = $props();
+  let {children, ...props}: SvelteHTMLElements['div'] = $props();
 </script>
 
 <div
-  class={twMerge(
+  {...props}
+  class={[
     'prose',
     'prose-neutral',
     'lg:prose-code:text-sm',
@@ -32,9 +28,8 @@
     '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
     '[&_.shiki_span]:dark:!text-[var(--shiki-dark)]',
 
-    className,
-  )}
-  {...props}
+    props.class,
+  ]}
 >
   {@render children?.()}
 </div>

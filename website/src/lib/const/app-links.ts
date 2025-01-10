@@ -1,10 +1,15 @@
 interface Link {
   path: string;
   label: string;
-  betaBadge?: boolean;
+  beta?: boolean;
 }
 
-const COMPONENT_LINKS: Link[] = [
+interface AppLink {
+  label: string;
+  links: Link[];
+}
+
+const COMPONENT_LINKS = [
   {
     path: '/components/accordion',
     label: 'Accordion',
@@ -16,7 +21,7 @@ const COMPONENT_LINKS: Link[] = [
   {
     path: '/components/angle-slider',
     label: 'Angle Slider',
-    betaBadge: true,
+    beta: true,
   },
   {
     path: '/components/alert-dialog',
@@ -33,7 +38,7 @@ const COMPONENT_LINKS: Link[] = [
   {
     path: '/components/carousel',
     label: 'Carousel',
-    betaBadge: true,
+    beta: true,
   },
   {
     path: '/components/checkbox',
@@ -191,16 +196,16 @@ const COMPONENT_LINKS: Link[] = [
   {
     path: '/components/tour',
     label: 'Tour',
-    betaBadge: true,
+    beta: true,
   },
   {
     path: '/components/tree-view',
     label: 'Tree View',
-    betaBadge: true,
+    beta: true,
   },
-];
+] satisfies Link[];
 
-const UTILITY_LINKS: Link[] = [
+const utilityLinks = [
   {
     path: '/utilities/environment-provider',
     label: 'Environment Provider',
@@ -221,14 +226,9 @@ const UTILITY_LINKS: Link[] = [
     path: '/utilities/presence',
     label: 'Presence',
   },
-];
+] satisfies Link[];
 
-interface ParentLink {
-  label: string;
-  links: Link[];
-}
-
-export const APP_LINKS: ParentLink[] = [
+export const appLinks = [
   {
     label: 'Overview',
     links: [
@@ -256,6 +256,8 @@ export const APP_LINKS: ParentLink[] = [
   },
   {
     label: 'Utilities',
-    links: UTILITY_LINKS,
+    links: utilityLinks,
   },
-];
+] satisfies AppLink[];
+
+export {appLinks as APP_LINKS};

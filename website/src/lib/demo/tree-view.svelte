@@ -6,7 +6,6 @@
     FolderIcon,
   } from '@untitled-theme/icons-svelte';
   import {type NodeProps, TreeView} from 'ui-ingredients';
-  import Container from './container.svelte';
 
   interface Node {
     value: string;
@@ -76,20 +75,18 @@
   });
 </script>
 
-<Container>
-  <TreeView.Root {collection} class="max-w-[16rem]">
-    <TreeView.Label
-      class="mb-2 block font-mono text-sm font-semibold uppercase text-neutral-400 dark:text-neutral-500"
-    >
-      Explorer
-    </TreeView.Label>
-    <TreeView.Tree class="space-y-1">
-      {#each collection.rootNode.children ?? [] as node, index}
-        {@render TreeNode({node, indexPath: [index]})}
-      {/each}
-    </TreeView.Tree>
-  </TreeView.Root>
-</Container>
+<TreeView.Root {collection} class="max-w-[16rem]">
+  <TreeView.Label
+    class="mb-2 block font-mono text-sm font-semibold uppercase text-neutral-400 dark:text-neutral-500"
+  >
+    Explorer
+  </TreeView.Label>
+  <TreeView.Tree class="space-y-1">
+    {#each collection.rootNode.children ?? [] as node, index}
+      {@render TreeNode({node, indexPath: [index]})}
+    {/each}
+  </TreeView.Tree>
+</TreeView.Root>
 
 {#snippet TreeNode(props: NodeProps<Node>)}
   {#if props.node.children}

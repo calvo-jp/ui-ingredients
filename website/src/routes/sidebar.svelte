@@ -1,7 +1,6 @@
 <script>
   import {page} from '$app/state';
   import {APP_LINKS} from '$lib/const';
-  import {dataAttr} from '$lib/data-attr';
   import {navbarStore} from '$lib/stores';
   import {Badge} from '$lib/ui';
   import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
@@ -78,7 +77,9 @@
                       onclick={() => {
                         navbarStore.drawer.close();
                       }}
-                      data-current={dataAttr(page.url.pathname === child.path)}
+                      data-current={page.url.pathname === child.path
+                        ? ''
+                        : undefined}
                     >
                       <span
                         class="font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit ui-group-current:text-indigo-500 dark:text-neutral-400 dark:ui-group-current:text-indigo-400 lg:text-sm"

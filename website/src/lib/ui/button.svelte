@@ -1,26 +1,23 @@
 <script lang="ts">
   import type {Assign} from '$lib/types';
   import type {SvelteHTMLElements} from 'svelte/elements';
+  import {createSplitProps} from 'ui-ingredients';
   import {buttonRecipe, type ButtonRecipeProps} from './button.recipe';
 
   let {
-    class: className,
-    size,
-    variant,
-    fullWidth,
     children,
     ...props
   }: Assign<SvelteHTMLElements['button'], ButtonRecipeProps> = $props();
+
+  let [recipeProps, localProps] = $derived(
+    createSplitProps<ButtonRecipeProps>(buttonRecipe.variantKeys)(props),
+  );
 </script>
 
 <button
-  class={buttonRecipe({
-    size,
-    variant,
-    fullWidth,
-    className,
-  })}
+  type="button"
   {...props}
+  class={[buttonRecipe(recipeProps), localProps.class]}
 >
   {@render children?.()}
 </button>

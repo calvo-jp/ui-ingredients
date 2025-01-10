@@ -1,17 +1,19 @@
 <script lang="ts">
+  import type {Assign} from '$lib/types';
   import type {SvelteHTMLElements} from 'svelte/elements';
-  import {twMerge} from 'tailwind-merge';
+  import {createSplitProps} from 'ui-ingredients';
+  import {labelRecipe, type LabelRecipeProps} from './label.recipe';
 
   let {
-    class: className,
     children,
     ...props
-  }: SvelteHTMLElements['label'] = $props();
+  }: Assign<SvelteHTMLElements['label'], LabelRecipeProps> = $props();
+
+  let [recipeProps, localProps] = $derived(
+    createSplitProps<LabelRecipeProps>(labelRecipe.variantKeys)(props),
+  );
 </script>
 
-<label
-  class={twMerge('mb-1 block text-sm font-semibold', className)}
-  {...props}
->
+<label {...props} class={[labelRecipe(recipeProps), localProps.class]}>
   {@render children?.()}
 </label>

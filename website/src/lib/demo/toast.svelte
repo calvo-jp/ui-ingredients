@@ -1,7 +1,6 @@
 <script lang="ts">
   import {Button} from '$lib/ui';
   import {createToaster, Toast, Toaster} from 'ui-ingredients';
-  import Container from './container.svelte';
 
   let toaster = createToaster({
     duration: 5000,
@@ -10,20 +9,18 @@
   });
 </script>
 
-<Container>
-  <Button
-    variant="outline"
-    onclick={() => {
-      toaster.create({
-        title: 'Success!',
-        description: 'This is a toast message',
-      });
-    }}
-    class="mx-auto w-auto"
-  >
-    Create toast
-  </Button>
-</Container>
+<Button
+  variant="outline"
+  onclick={() => {
+    toaster.create({
+      title: 'Success!',
+      description: 'This is a toast message',
+    });
+  }}
+  class="mx-auto w-auto"
+>
+  Create toast
+</Button>
 
 <Toaster {toaster}>
   <Toast.Root

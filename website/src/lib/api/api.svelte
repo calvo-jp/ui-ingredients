@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type {ComponentId} from '$lib/types';
   import {Table} from '$lib/ui';
   import {MinusIcon} from '@untitled-theme/icons-svelte';
   import {twMerge} from 'tailwind-merge';
@@ -42,7 +43,7 @@
   import slider from './slider';
   import splitter from './splitter';
   import steps from './steps';
-  import switch_ from './switch';
+  import switchApi from './switch';
   import tabs from './tabs';
   import tagsInput from './tags-input';
   import timePicker from './time-picker';
@@ -53,68 +54,68 @@
   import tooltip from './tooltip';
   import tour from './tour';
   import treeView from './tree-view';
+  import type {ApiEntries} from './utils';
 
-  let API = {
-    accordion,
+  const MAP = {
     'alert-dialog': alertDialog,
-    alert,
     'angle-slider': angleSlider,
+    'color-picker': colorPicker,
+    'date-picker': datePicker,
+    'environment-provider': environmentProvider,
+    'file-upload': fileUpload,
+    'floating-panel': floatingPanel,
+    'hover-card': hoverCard,
+    'locale-provider': localeProvider,
+    'number-input': numberInput,
+    'pin-input': pinInput,
+    'progress-circular': progress,
+    'progress-linear': progress,
+    'qr-code': qrCode,
+    'radio-group': radioGroup,
+    'rating-group': ratingGroup,
+    'segment-group': segmentGroup,
+    'signature-pad': signaturePad,
+    'tags-input': tagsInput,
+    'time-picker': timePicker,
+    'toggle-group': toggleGroup,
+    'tree-view': treeView,
+    accordion,
+    alert,
     avatar,
     breadcrumbs,
     carousel,
     checkbox,
     clipboard,
     collapsible,
-    'color-picker': colorPicker,
     combobox,
-    'date-picker': datePicker,
     dialog,
     drawer,
     editable,
-    'environment-provider': environmentProvider,
     field,
-    'file-upload': fileUpload,
-    'floating-panel': floatingPanel,
     highlight,
-    'hover-card': hoverCard,
-    'locale-provider': localeProvider,
     menu,
-    'number-input': numberInput,
     pagination,
     popover,
-    'pin-input': pinInput,
     portal,
     presence,
-    progress,
-    'qr-code': qrCode,
-    'radio-group': radioGroup,
-    'rating-group': ratingGroup,
-    'segment-group': segmentGroup,
     select,
-    'signature-pad': signaturePad,
     slider,
     splitter,
     steps,
-    switch: switch_,
+    switch: switchApi,
     tabs,
-    'tags-input': tagsInput,
     timer,
-    'time-picker': timePicker,
     toast,
     toggle,
-    'toggle-group': toggleGroup,
     tooltip,
-    'tree-view': treeView,
     tour,
-  };
+  } satisfies Record<ComponentId, ApiEntries>;
 
-  type ID = keyof typeof API;
+  let {id}: {id: ComponentId} = $props();
 
-  let {id}: {id: ID} = $props();
-
-  let item = $derived(API[id]);
+  let subject = $derived(MAP[id]);
   let parts = $derived(
-    Object.entries(item).toSorted(([a], [b]) => {
+    Object.entries(subject).toSorted(([a], [b]) => {
       if (a.toLowerCase() === 'root') return -1;
       if (b.toLowerCase() === 'root') return 1;
       return a.localeCompare(b);
@@ -123,6 +124,7 @@
 </script>
 
 {#each parts as [i, j]}
+  <h2>API Reference</h2>
   <h3>{i}</h3>
 
   <Table.Container class="not-prose">

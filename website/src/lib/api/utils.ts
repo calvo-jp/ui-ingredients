@@ -1,25 +1,27 @@
 import type {AnatomyInstance} from 'ui-ingredients';
 
-interface Prop {
+export interface Prop {
   type: string;
   description?: string;
   defaultValue?: string;
 }
 
-interface Context {
+export interface Context {
   [prop: string]: Prop;
 }
 
-interface DataAttr {
+export interface DataAttr {
   [attr: string]: string;
 }
 
-interface ApiEntry {
+export interface ApiEntry {
   context: Context;
   dataAttr?: DataAttr;
 }
 
-type ApiEntries<T extends string = string> = Partial<Record<T, ApiEntry>>;
+export type ApiEntries<T extends string = string> = Partial<
+  Record<T, ApiEntry>
+>;
 
 export function apiEntry<T extends string>(obj: ApiEntries<T>) {
   return obj;
