@@ -1,7 +1,4 @@
 <script lang="ts">
-  import type {ComponentId} from '$lib/types';
-  import {createGradient} from '@zag-js/anatomy-icons';
-  import type {Component} from 'svelte';
   import {
     AccordionAnatomyIcon,
     AvatarAnatomyIcon,
@@ -41,7 +38,10 @@
     TooltipAnatomyIcon,
     TourAnatomyIcon,
     TreeViewAnatomyIcon,
-  } from '../generated/anatomy-icons';
+  } from '$lib/generated';
+  import type {ComponentId} from '$lib/types';
+  import {createGradient} from '@zag-js/anatomy-icons';
+  import type {Component} from 'svelte';
 
   const MAP = {
     'alert-dialog': DialogAnatomyIcon,

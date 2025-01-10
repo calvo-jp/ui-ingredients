@@ -1,4 +1,4 @@
-import {APP_LINKS} from '$lib/const';
+import {APP_LINKS} from '$lib/constants';
 import type {RequestHandler} from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({url: {origin}}) => {

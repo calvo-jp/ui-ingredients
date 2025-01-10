@@ -1,6 +1,6 @@
 <script lang="ts">
+  import {Table} from '$lib/components/ui';
   import type {ComponentId} from '$lib/types';
-  import {Table} from '$lib/ui';
   import {MinusIcon} from '@untitled-theme/icons-svelte';
   import {twMerge} from 'tailwind-merge';
   import accordion from './accordion';
