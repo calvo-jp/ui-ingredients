@@ -64,7 +64,5 @@ export const load: PageServerLoad = async ({params}) => {
   const markdown = await fs.readFile(location, 'utf-8');
   const {html} = await parseMarkdown(markdown);
 
-  console.log(html);
-
   return {html};
 };

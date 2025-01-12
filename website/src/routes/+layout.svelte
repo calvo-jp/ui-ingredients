@@ -50,37 +50,39 @@
 
 <style lang="postcss">
   :global(.shiki) {
-    @apply !bg-neutral-50;
+    background: theme('colors.neutral.50') !important;
+  }
 
-    & span {
-      @apply !bg-transparent;
-    }
+  :global(.shiki span) {
+    background: transparent !important;
+  }
 
-    & code {
-      counter-reset: step;
-      counter-increment: step 0;
-    }
+  :global(.shiki code) {
+    counter-reset: step;
+    counter-increment: step 0;
+  }
 
-    & code .line::before {
-      content: counter(step);
-      counter-increment: step;
-      display: inline-block;
-      width: 3ch;
-      text-align: right;
-      margin-right: theme('spacing.4');
-      color: theme('colors.neutral.400');
-    }
+  :global(.shiki code .line::before) {
+    content: counter(step);
+    counter-increment: step;
+    display: inline-block;
+    width: 3ch;
+    text-align: right;
+    margin-right: theme('spacing.4');
+    color: theme('colors.neutral.400');
+  }
+
+  :global(.dark .shiki span) {
+    color: var(--shiki-dark) !important;
   }
 
   :global(.dark .shiki) {
-    @apply !border-neutral-800/40 !bg-neutral-900/40 !text-[var(--shiki-dark)];
+    border: 1px solid theme('colors.neutral.800') !important;
+    background: theme('colors.neutral.900') !important;
+    color: theme('colors.neutral.200') !important;
+  }
 
-    & span {
-      @apply !text-[var(--shiki-dark)];
-    }
-
-    & code .line::before {
-      color: theme('colors.neutral.500');
-    }
+  :global(.dark .shiki code .line::before) {
+    color: theme('colors.neutral.500');
   }
 </style>

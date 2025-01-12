@@ -24,7 +24,7 @@ export async function parseMarkdown(value: string) {
     .use(rehypeShiki, {
       themes: {
         light: 'min-light',
-        dark: 'dark-plus',
+        dark: 'github-dark',
       },
     })
     .use(rehypeExternalLinks, {

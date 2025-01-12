@@ -6,8 +6,8 @@
   interface Item {
     value: string;
     label: string;
-    target: HTMLHeadingElement;
     indent: number;
+    ref: HTMLHeadingElement;
   }
 
   let items: Item[] = $state([]);
@@ -23,6 +23,7 @@
     const selectors = [
       'h1:not([data-scope][data-part])',
       'h2:not([data-scope][data-part])',
+      'h3:not([data-scope][data-part])',
     ];
 
     const headings = main.querySelectorAll<HTMLHeadingElement>(
@@ -31,15 +32,15 @@
 
     const newItems: Item[] = [];
 
-    headings.forEach((target, index) => {
-      const label = target.innerText;
+    headings.forEach((ref, index) => {
+      const label = ref.innerText;
       const value = index.toString();
 
       newItems.push({
+        ref,
         value,
         label,
-        target,
-        indent: target.tagName === 'H3' ? 12 : 0,
+        indent: ref.tagName === 'H3' ? 12 : 0,
       });
     });
 
@@ -49,14 +50,13 @@
 
   $effect.pre(() => {
     page.url.pathname;
-
     getItems();
   });
 
   $effect(() => {
     const observers: IntersectionObserver[] = [];
 
-    items.forEach(({target, ...item}) => {
+    items.forEach(({ref: target, ...item}) => {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -102,8 +102,7 @@
 
       if (!item) return;
 
-      const top =
-        item.target.getBoundingClientRect().top + window.scrollY + -100;
+      const top = item.ref.getBoundingClientRect().top + window.scrollY + -100;
 
       window.scrollTo({top});
     }}
