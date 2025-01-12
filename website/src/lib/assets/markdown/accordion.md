@@ -5,6 +5,8 @@ description: A toggle component for expanding and collapsing sections of content
 
 # Accordion
 
+A toggle component for expanding and collapsing sections of content.
+
 ## Usage
 
 ```svelte
