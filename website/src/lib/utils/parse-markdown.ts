@@ -20,7 +20,6 @@ export async function parseMarkdown(value: string) {
     .use(remarkRehype)
     .use(rehypeSlug)
     .use(rehypeShiki, {
-      langs: ['bash', 'svelte', 'javascript', 'typescript'],
       themes: {
         light: 'min-light',
         dark: 'dark-plus',
