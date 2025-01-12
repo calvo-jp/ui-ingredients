@@ -1,4 +1,5 @@
 import rehypeShiki from '@shikijs/rehype';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
@@ -19,6 +20,7 @@ export async function parseMarkdown(value: string) {
     .use(() => (_tree, file) => matter(file))
     .use(remarkRehype)
     .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings)
     .use(rehypeShiki, {
       themes: {
         light: 'min-light',
