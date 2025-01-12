@@ -3,28 +3,9 @@ title: Tags Input
 description: A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
 ---
 
-<script>
-  import {TagsInputDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Tags Input
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<TagsInputDemo />
-
-## Anatomy
-
-<Anatomy id="tags-input" />
+A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
 
 ## Usage
 
@@ -94,11 +75,3 @@ description: A component for adding and managing a list of tags or keywords, oft
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="tags-input" />
-
-## Accessibility
-
-<Accessibility id="tags-input" />

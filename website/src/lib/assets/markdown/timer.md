@@ -3,22 +3,9 @@ title: Timer
 description: A component for counting down or tracking elapsed time.
 ---
 
-<script>
-  import {TimerDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Timer
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<TimerDemo />
+A component for counting down or tracking elapsed time.
 
 ## Usage
 
@@ -52,7 +39,3 @@ description: A component for counting down or tracking elapsed time.
   </Timer.Control>
 </Timer.Root>
 ```
-
-## API Reference
-
-<Api id="timer" />

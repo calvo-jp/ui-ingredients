@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button, IconButton, Label} from '$lib/ui';
+  import {Button, IconButton, Label} from '$lib/components';
   import {
     CheckIcon,
     ChevronDownIcon,

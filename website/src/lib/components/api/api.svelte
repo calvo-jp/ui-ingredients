@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Table} from '$lib/components/ui';
-  import type {ComponentId} from '$lib/types';
+  import type {ComponentId, UtilityId} from '$lib/types';
   import {MinusIcon} from '@untitled-theme/icons-svelte';
   import {twMerge} from 'tailwind-merge';
   import accordion from './accordion';
@@ -109,7 +109,7 @@
     toggle,
     tooltip,
     tour,
-  } satisfies Record<ComponentId, ApiEntries>;
+  } satisfies Record<ComponentId & UtilityId, ApiEntries>;
 
   let {id}: {id: ComponentId} = $props();
 

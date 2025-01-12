@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Label} from '$lib/ui';
+  import {Label} from '$lib/components';
   import {AngleSlider} from 'ui-ingredients';
 
   let degrees = [0, 45, 90, 135, 180, 225, 270, 315];

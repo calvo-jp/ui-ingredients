@@ -3,28 +3,9 @@ title: Tour
 description: A component for guiding users through a series of steps or features in an application or website.
 ---
 
-<script>
-  import {TourDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Tour
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<TourDemo />
-
-## Anatomy
-
-<Anatomy id="tour" />
+A component for guiding users through a series of steps or features in an application or website.
 
 ## Usage
 
@@ -100,11 +81,3 @@ description: A component for guiding users through a series of steps or features
 <div id="target-2">Target 2</div>
 <div id="target-3">Target 3</div>
 ```
-
-## API Reference
-
-<Api id="tour" />
-
-## Accessibility
-
-<Accessibility id="tour" />

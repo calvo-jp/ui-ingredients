@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {IconButton, Input, Label} from '$lib/ui';
+  import {IconButton, Input, Label} from '$lib/components';
   import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
   import {Clipboard} from 'ui-ingredients';
 </script>

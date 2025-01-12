@@ -3,27 +3,9 @@ title: Progress - Linear
 description: A component for displaying the completion status of a task or process.
 ---
 
-<script>
-  import {ProgressLinearDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Progress - Linear
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<ProgressLinearDemo />
-
-## Anatomy
-
-<Anatomy id="progress-linear" />
+A component for displaying the completion status of a task or process.
 
 ## Usage
 
@@ -40,7 +22,3 @@ description: A component for displaying the completion status of a task or proce
   <Progress.ValueText />
 </Progress.Root>
 ```
-
-## API Reference
-
-<Api id="progress" />

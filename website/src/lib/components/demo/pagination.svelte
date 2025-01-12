@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button, IconButton} from '$lib/ui';
+  import {Button, IconButton} from '$lib/components';
   import {
     ChevronLeftIcon,
     ChevronRightIcon,

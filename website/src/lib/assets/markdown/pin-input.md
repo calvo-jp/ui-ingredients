@@ -3,28 +3,9 @@ title: Pin Input
 description: A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
 ---
 
-<script>
-  import {PinInputDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Pin Input
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<PinInputDemo />
-
-## Anatomy
-
-<Anatomy id="pin-input" />
+A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
 
 ## Usage
 
@@ -64,11 +45,3 @@ description: A component for entering and displaying a sequence of numeric or al
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="pin-input" />
-
-<Accessibility id="pin-input" />
-
-## Accessibility

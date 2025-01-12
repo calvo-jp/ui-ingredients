@@ -3,27 +3,9 @@ title: Signature Pad
 description: A component for capturing and displaying handwritten signatures.
 ---
 
-<script>
-  import {SignaturePadDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Signature Pad
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<SignaturePadDemo />
-
-## Anatomy
-
-<Anatomy id="signature-pad" />
+A component for capturing and displaying handwritten signatures.
 
 ## Usage
 
@@ -50,7 +32,3 @@ description: A component for capturing and displaying handwritten signatures.
   {/snippet}
 </SignaturePad.Root>
 ```
-
-## API Reference
-
-<Api id="signature-pad" />

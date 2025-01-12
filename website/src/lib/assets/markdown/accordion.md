@@ -3,25 +3,7 @@ title: Accordion
 description: A toggle component for expanding and collapsing sections of content.
 ---
 
-<script>
-  import {Anatomy,Api,Accessibilty,Demo} from '$lib/components/anatomy';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
-
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<AccordionDemo />
-
-## Anatomy
-
-<Anatomy id="accordion" />
+# Accordion
 
 ## Usage
 
@@ -67,11 +49,3 @@ description: A toggle component for expanding and collapsing sections of content
   {/each}
 </Accordion.Root>
 ```
-
-## API Reference
-
-<Api id="accordion" />
-
-## Accessibility
-
-<Accessibility id="accordion" />

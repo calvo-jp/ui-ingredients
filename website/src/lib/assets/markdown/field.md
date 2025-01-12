@@ -3,27 +3,9 @@ title: Field
 description: A component for organizing related form elements into a cohesive unit.
 ---
 
-<script>
-  import {FieldDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Field
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<FieldDemo />
-
-## Anatomy
-
-<Anatomy id="field" />
+A component for organizing related form elements into a cohesive unit.
 
 ## Usage
 
@@ -80,7 +62,3 @@ description: A component for organizing related form elements into a cohesive un
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="field" />

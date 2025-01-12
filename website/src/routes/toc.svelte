@@ -16,7 +16,7 @@
   async function getItems() {
     await tick();
 
-    const main = document.getElementById('markdown');
+    const main = document.querySelector('[data-toc-root]');
 
     if (!main) return;
 

@@ -1,5 +1,8 @@
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeShiki from '@shikijs/rehype';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
+import remarkBreaks from 'remark-breaks';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
@@ -11,12 +14,27 @@ export async function parseMarkdown(value: string) {
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkBreaks)
     .use(remarkFrontmatter)
-    .use(() => (tree, file) => matter(file))
+    .use(() => (_tree, file) => matter(file))
     .use(remarkRehype)
-    .use(rehypeAutolinkHeadings)
+    .use(rehypeSlug)
+    .use(rehypeShiki, {
+      langs: ['bash', 'svelte', 'javascript', 'typescript'],
+      themes: {
+        light: 'min-light',
+        dark: 'dark-plus',
+      },
+    })
+    .use(rehypeExternalLinks, {
+      rel: ['noreferrer', 'noopener'],
+      target: '_blank',
+    })
     .use(rehypeStringify)
     .process(value);
 
-  return file.toString();
+  return {
+    html: file.toString(),
+    meta: file.data.matter,
+  };
 }

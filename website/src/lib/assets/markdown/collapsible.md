@@ -3,24 +3,9 @@ title: Collapsible
 description: A component that expands or collapses to show or hide content.
 ---
 
-<script>
-  import {CollapsibleDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Collapsible
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<CollapsibleDemo />
+A component that expands or collapses to show or hide content.
 
 ## Usage
 
@@ -34,11 +19,3 @@ description: A component that expands or collapses to show or hide content.
   <Collapsible.Content>Content</Collapsible.Content>
 </Collapsible.Root>
 ```
-
-## API Reference
-
-<Api id="collapsible" />
-
-## Accessibility
-
-<Accessibility id="collapsible" />

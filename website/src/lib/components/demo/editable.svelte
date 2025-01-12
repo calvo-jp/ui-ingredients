@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Label} from '$lib/ui';
+  import {Label} from '$lib/components';
   import {Editable} from 'ui-ingredients';
 </script>
 

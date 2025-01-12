@@ -3,28 +3,9 @@ title: Tooltip
 description: A component for displaying brief, contextual information when hovering over or focusing on an element.
 ---
 
-<script>
-  import {TooltipDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Tooltip
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<TooltipDemo />
-
-## Anatomy
-
-<Anatomy id="tooltip" />
+A component for displaying brief, contextual information when hovering over or focusing on an element.
 
 ## Usage
 
@@ -49,11 +30,3 @@ description: A component for displaying brief, contextual information when hover
   </Portal>
 </Tooltip.Root>
 ```
-
-## API Reference
-
-<Api id="tooltip" />
-
-## Accessibility
-
-<Accessibility id="tooltip" />

@@ -3,27 +3,9 @@ title: Toast
 description: A component for displaying brief, non-intrusive notifications or messages.
 ---
 
-<script>
-  import {ToastDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Toast
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<ToastDemo />
-
-## Anatomy
-
-<Anatomy id="toast" />
+A component for displaying brief, non-intrusive notifications or messages.
 
 ## Usage
 
@@ -83,7 +65,3 @@ export const toaster = createToaster({
   Create
 </button>
 ```
-
-## API Reference
-
-<Api id="toast" />

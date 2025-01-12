@@ -3,27 +3,9 @@ title: Splitter
 description: A component for resizing and adjusting the size of adjacent panes or sections.
 ---
 
-<script>
-  import {SplitterDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import {Anatomy} from '$lib/anatomy';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Splitter
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<SplitterDemo />
-
-## Anatomy
-
-<Anatomy id="splitter" />
+A component for resizing and adjusting the size of adjacent panes or sections.
 
 ## Usage
 
@@ -43,7 +25,3 @@ description: A component for resizing and adjusting the size of adjacent panes o
   <Splitter.Panel id="b">B</Splitter.Panel>
 </Splitter.Root>
 ```
-
-## API Reference
-
-<Api id="splitter" />

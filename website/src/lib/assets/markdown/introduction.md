@@ -1,15 +1,3 @@
-<script>
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
-
-<svelte:head>
-
-  <title>UI Ingredients</title>
-</svelte:head>
-
-<Metadata />
-
 # Introduction
 
 UI ingredients is a headless component library for <a href="https://svelte.dev/">Svelte</a> powered by <a href="https://zagjs.com/">zag</a>

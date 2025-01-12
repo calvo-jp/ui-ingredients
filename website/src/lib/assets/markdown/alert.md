@@ -3,22 +3,9 @@ title: Alert
 description: A component for displaying important messages or notifications.
 ---
 
-<script>
-  import {AlertDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Alert
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<AlertDemo/>
+A component for displaying important messages or notifications.
 
 ## Usage
 
@@ -36,7 +23,3 @@ description: A component for displaying important messages or notifications.
   <Alert.Description>Description</Alert.Description>
 </Alert.Root>
 ```
-
-## API Reference
-
-<Api id="alert" />

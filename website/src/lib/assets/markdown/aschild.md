@@ -1,15 +1,3 @@
-<script>
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
-
-<svelte:head>
-
-  <title>The asChild prop | UI Ingredients</title>
-</svelte:head>
-
-<Metadata />
-
 # The asChild Prop
 
 The `asChild` prop lets you render a custom component to ensure consistent styling and behavior while enhancing flexibility and reusability.

@@ -1,3 +1,7 @@
+<script lang="ts">
+  let {data} = $props();
+</script>
+
 <svelte:head>
   <meta property="og:title" content="" />
   <meta name="twitter:title" content="" />
@@ -10,3 +14,5 @@
   <meta name="twitter:site" content="UI Ingredients" />
   <meta property="og:site_name" content="UI Ingredients" />
 </svelte:head>
+
+{@html data.html}

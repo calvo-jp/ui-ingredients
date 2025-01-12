@@ -3,28 +3,9 @@ title: Rating Group
 description: A component for selecting a rating value, typically represented by stars or other symbols.
 ---
 
-<script>
-  import {RatingGroupDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Rating Group
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<RatingGroupDemo />
-
-## Anatomy
-
-<Anatomy id="rating-group" />
+A component for selecting a rating value, typically represented by stars or other symbols.
 
 ## Usage
 
@@ -78,11 +59,3 @@ description: A component for selecting a rating value, typically represented by 
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="rating-group" />
-
-## Accessibility
-
-<Accessibility id="rating-group" />

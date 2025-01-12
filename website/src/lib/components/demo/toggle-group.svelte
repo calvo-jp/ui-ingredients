@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {IconButton} from '$lib/ui';
+  import {IconButton} from '$lib/components';
   import {
     Bold01Icon,
     Italic01Icon,

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button} from '$lib/ui';
+  import {Button} from '$lib/components';
   import {Timer} from 'ui-ingredients';
 </script>
 

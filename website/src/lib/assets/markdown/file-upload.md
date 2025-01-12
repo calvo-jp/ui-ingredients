@@ -3,27 +3,9 @@ title: File Upload
 description: A component for selecting and uploading files from the user's device
 ---
 
-<script>
-  import {FileUploadDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# File Upload
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<FileUploadDemo />
-
-## Anatomy
-
-<Anatomy id="file-upload" />
+A component for selecting and uploading files from the user's device
 
 ## Usage
 
@@ -99,7 +81,3 @@ description: A component for selecting and uploading files from the user's devic
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="file-upload" />

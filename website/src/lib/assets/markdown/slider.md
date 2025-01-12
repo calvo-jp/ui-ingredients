@@ -3,32 +3,11 @@ title: Slider
 description: A component for adjusting values or selecting ranges through a draggable handle.
 ---
 
-<script>
-  import {SliderDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Slider
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<SliderDemo />
-
-## Anatomy
-
-<Anatomy id="slider" />
+A component for adjusting values or selecting ranges through a draggable handle.
 
 ## Usage
-
-### Basic
 
 ```svelte
 <script>
@@ -93,11 +72,3 @@ description: A component for adjusting values or selecting ranges through a drag
   </Slider.MarkerGroup>
 </Slider.Root>
 ```
-
-## API Reference
-
-<Api id="slider" />
-
-## Accessibility
-
-<Accessibility id="slider" />

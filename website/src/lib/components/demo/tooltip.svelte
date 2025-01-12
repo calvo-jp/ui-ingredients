@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button} from '$lib/ui';
+  import {Button} from '$lib/components';
   import {Portal, Tooltip} from 'ui-ingredients';
 </script>
 

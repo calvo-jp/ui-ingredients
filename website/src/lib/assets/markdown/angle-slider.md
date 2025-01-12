@@ -3,23 +3,9 @@ title: Angle Slider
 description: An Angle Slider Component is a circular UI control for selecting or adjusting angular values, typically in degrees, by dragging a handle along a curve.
 ---
 
-<script>
-  import {AngleSliderDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Angle Slider
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<AngleSliderDemo />
+An Angle Slider Component is a circular UI control for selecting or adjusting angular values, typically in degrees, by dragging a handle along a curve.
 
 ## Usage
 
@@ -44,11 +30,3 @@ description: An Angle Slider Component is a circular UI control for selecting or
   <AngleSlider.HiddenInput />
 </AngleSlider.Root>
 ```
-
-## API Reference
-
-<Api id="angle-slider" />
-
-## Accessibility
-
-<Accessibility id="angle-slider" />

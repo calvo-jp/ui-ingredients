@@ -3,28 +3,9 @@ title: Color Picker
 description: A component for selecting and customizing colors.
 ---
 
-<script>
-  import {ColorPickerDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Color Picker
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<ColorPickerDemo />
-
-## Anatomy
-
-<Anatomy id="color-picker" />
+A component for selecting and customizing colors.
 
 ## Usage
 
@@ -102,11 +83,3 @@ description: A component for selecting and customizing colors.
   {/snippet}
 </ColorPicker.Root>
 ```
-
-## API Reference
-
-<Api id="color-picker" />
-
-## Accessibility
-
-<Accessibility id="color-picker" />

@@ -3,28 +3,9 @@ title: Alert Dialog
 description: A component for displaying a modal dialog that requires user attention or confirmation.
 ---
 
-<script>
-  import {AlertDialogDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import {Anatomy} from '$lib/anatomy';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Alert Dialog
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<AlertDialogDemo />
-
-## Anatomy
-
-<Anatomy id="dialog" />
+A component for displaying a modal dialog that requires user attention or confirmation.
 
 ## Usage
 
@@ -45,11 +26,3 @@ description: A component for displaying a modal dialog that requires user attent
   </AlertDialog.Positioner>
 </AlertDialog.Root>
 ```
-
-## API Reference
-
-<Api id="alert-dialog" />
-
-## Accessibility
-
-<Accessibility id="dialog" />

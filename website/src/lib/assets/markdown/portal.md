@@ -3,19 +3,9 @@ title: Portal
 description: A component for rendering content in a different part of the DOM hierarchy, often used for modals or tooltips.
 ---
 
-<script>
-  import Metadata from '$lib/metadata.svelte'
-  import PageHeading from '$lib/page-heading.svelte'
-  import {Api} from '$lib/api'
-</script>
+# Portal
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
+A component for rendering content in a different part of the DOM hierarchy, often used for modals or tooltips.
 
 ## Usage
 
@@ -65,7 +55,3 @@ To globally set a container for all portals, you can use the `PortalProvider` co
 
 <div bind:this={container}></div>
 ```
-
-## API Reference
-
-<Api id="portal" />

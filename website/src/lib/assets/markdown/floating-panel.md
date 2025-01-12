@@ -1,22 +1,10 @@
 ---
 title: Floating Panel
-description: A component for displaying content in a movable, overlay panel that floats above other elements
+description: A component for displaying content in a movable, overlay panel that floats above other elements.
 ---
 
-<script>
-  import {FloatingPanelDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Floating Panel
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
+A component for displaying content in a movable, overlay panel that floats above other elements.
 
 ## Usage

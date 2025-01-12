@@ -3,28 +3,9 @@ title: Toggle Group
 description: A component for grouping multiple toggle switches, allowing users to switch between different options or states.
 ---
 
-<script>
-  import {ToggleGroupDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Toggle Group
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<ToggleGroupDemo />
-
-## Anatomy
-
-<Anatomy id="toggle-group" />
+A component for grouping multiple toggle switches, allowing users to switch between different options or states.
 
 ## Usage
 
@@ -55,11 +36,3 @@ description: A component for grouping multiple toggle switches, allowing users t
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
-
-## API Reference
-
-<Api id="toggle-group" />
-
-## Accessibility
-
-<Accessibility id="toggle-group" />

@@ -3,22 +3,9 @@ title: Highlight
 description: A component for highlighting text within a string.
 ---
 
-<script>
-  import HighlightDemo from '$lib/demo/highlight.svelte';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-  import {Api} from '$lib/api';
-</script>
+# Highlight
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<HighlightDemo />
+A component for highlighting text within a string.
 
 ## Usage
 
@@ -32,7 +19,3 @@ description: A component for highlighting text within a string.
 
 <Highlight {text} query="consectetur" />
 ```
-
-## API Reference
-
-<Api id="highlight" />

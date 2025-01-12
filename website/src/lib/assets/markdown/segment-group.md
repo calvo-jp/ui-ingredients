@@ -3,28 +3,9 @@ title: Segment Group
 description: A component for grouping and toggling between different sections or options, often used for filters or navigation.
 ---
 
-<script>
-  import {SegmentGroupDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Segment Group
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<SegmentGroupDemo />
-
-## Anatomy
-
-<Anatomy id="segment-group" />
+A component for grouping and toggling between different sections or options, often used for filters or navigation.
 
 ## Usage
 
@@ -47,11 +28,3 @@ description: A component for grouping and toggling between different sections or
   <SegmentGroup.Indicator />
 </SegmentGroup.Root>
 ```
-
-## API Reference
-
-<Api id="segment-group" />
-
-## Accessibility
-
-<Accessibility id="radio-group" />

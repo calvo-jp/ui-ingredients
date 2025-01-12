@@ -3,27 +3,9 @@ title: Hover Card
 description: A component that displays additional information when hovering over an element
 ---
 
-<script>
-  import {HoverCardDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Hover Card
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<HoverCardDemo />
-
-## Anatomy
-
-<Anatomy id="hover-card" />
+A component that displays additional information when hovering over an element
 
 ## Usage
 
@@ -49,7 +31,3 @@ description: A component that displays additional information when hovering over
   </Portal>
 </HoverCard.Root>
 ```
-
-## API Reference
-
-<Api id="hover-card" />

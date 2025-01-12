@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Label} from '$lib/ui';
+  import {Label} from '$lib/components';
   import {CheckIcon} from '@untitled-theme/icons-svelte';
   import {Checkbox} from 'ui-ingredients';
 </script>

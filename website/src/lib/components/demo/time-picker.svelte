@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {IconButton, Input, Label} from '$lib/ui';
+  import {IconButton, Input, Label} from '$lib/components';
   import {ClockIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
   import {TimePicker} from 'ui-ingredients';
 </script>

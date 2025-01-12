@@ -3,28 +3,9 @@ title: Switch
 description: A component for toggling between two states, such as on/off or enabled/disabled.
 ---
 
-<script>
-  import {SwitchDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Switch
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<SwitchDemo />
-
-## Anatomy
-
-<Anatomy id="switch" />
+A component for toggling between two states, such as on/off or enabled/disabled.
 
 ## Usage
 
@@ -62,11 +43,3 @@ description: A component for toggling between two states, such as on/off or enab
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="switch" />
-
-## Accessibility
-
-<Accessibility id="switch" />

@@ -1,15 +1,3 @@
-<script>
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
-
-<svelte:head>
-
-  <title>Getting Started | UI Ingredients</title>
-</svelte:head>
-
-<Metadata />
-
 # Getting Started
 
 Start incorporating UI Ingredients into your project today!
@@ -54,8 +42,6 @@ npm install ui-ingredients
   backdrop-filter: blur(4px);
   z-index: var(--z-index);
 }
-
-// etc...
 ```
 
 - That's it

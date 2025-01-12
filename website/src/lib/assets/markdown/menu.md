@@ -3,28 +3,9 @@ title: Menu
 description: A component for navigating through a list of options or actions
 ---
 
-<script>
-  import {MenuDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Menu
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<MenuDemo />
-
-## Anatomy
-
-<Anatomy id="menu" />
+A component for navigating through a list of options or actions
 
 ## Usage
 
@@ -168,11 +149,3 @@ description: A component for navigating through a list of options or actions
   </Menu.Positioner>
 </Menu.Root>
 ```
-
-## API Reference
-
-<Api id="menu" />
-
-## Accessibility
-
-<Accessibility id="menu" />

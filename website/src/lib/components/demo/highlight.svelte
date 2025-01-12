@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Input} from '$lib/ui';
+  import {Input} from '$lib/components';
   import {Highlight} from 'ui-ingredients';
 
   let text =

@@ -3,27 +3,9 @@ title: Steps
 description: A component for displaying a sequence of steps or stages in a process, often used for navigation or progress tracking.
 ---
 
-<script>
-  import {StepsDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Steps
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<StepsDemo />
-
-## Anatomy
-
-<Anatomy id="steps" />
+A component for displaying a sequence of steps or stages in a process, often used for navigation or progress tracking.
 
 ## Usage
 
@@ -77,7 +59,3 @@ description: A component for displaying a sequence of steps or stages in a proce
   <Steps.NextTrigger>Next</Steps.NextTrigger>
 </Steps.Root>
 ```
-
-## API Reference
-
-<Api id="steps" />

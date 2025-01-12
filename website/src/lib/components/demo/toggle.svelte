@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {IconButton} from '$lib/ui';
+  import {IconButton} from '$lib/components';
   import {Bell02Icon, BellOff02Icon} from '@untitled-theme/icons-svelte';
   import {Toggle} from 'ui-ingredients';
 </script>

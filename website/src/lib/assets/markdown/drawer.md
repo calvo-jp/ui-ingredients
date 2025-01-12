@@ -3,23 +3,9 @@ title: Drawer
 description: A component that slides in from the edge of the screen to display additional content or navigation options.
 ---
 
-<script>
-  import {DrawerDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Drawer
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<DrawerDemo />
+A component that slides in from the edge of the screen to display additional content or navigation options.
 
 ## Usage
 
@@ -46,11 +32,3 @@ description: A component that slides in from the edge of the screen to display a
   </Drawer.Positioner>
 </Drawer.Root>
 ```
-
-## API Reference
-
-<Api id="drawer" />
-
-## Accessibility
-
-<Accessibility id="dialog" />

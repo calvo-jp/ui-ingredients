@@ -9,7 +9,7 @@ interface AppLink {
   links: Link[];
 }
 
-const COMPONENT_LINKS = [
+const componentLinks = [
   {
     path: '/components/accordion',
     label: 'Accordion',
@@ -84,10 +84,6 @@ const COMPONENT_LINKS = [
     path: '/components/file-upload',
     label: 'File Upload',
   },
-  // {
-  //   path: '/components/floating-panel',
-  //   label: 'Floating Panel',
-  // },
   {
     path: '/components/hover-card',
     label: 'Hover Card',
@@ -168,11 +164,6 @@ const COMPONENT_LINKS = [
     path: '/components/tags-input',
     label: 'Tags Input',
   },
-  // {
-  //   path: '/components/time-picker',
-  //   label: 'Time Picker',
-  //   beta: true,
-  // },
   {
     path: '/components/timer',
     label: 'Timer',
@@ -203,6 +194,14 @@ const COMPONENT_LINKS = [
     label: 'Tree View',
     beta: true,
   },
+  // {
+  //   path: '/components/floating-panel',
+  //   label: 'Floating Panel',
+  // },
+  // {
+  //   path: '/components/time-picker',
+  //   label: 'Time Picker',
+  // },
 ] satisfies Link[];
 
 const utilityLinks = [
@@ -252,11 +251,11 @@ export const appLinks = [
   },
   {
     label: 'Components',
-    links: COMPONENT_LINKS,
+    links: componentLinks.toSorted((i, j) => i.label.localeCompare(j.label)),
   },
   {
     label: 'Utilities',
-    links: utilityLinks,
+    links: utilityLinks.toSorted((i, j) => i.label.localeCompare(j.label)),
   },
 ] satisfies AppLink[];
 

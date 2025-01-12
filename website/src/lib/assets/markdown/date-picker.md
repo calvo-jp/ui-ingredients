@@ -3,32 +3,11 @@ title: Date Picker
 description: A component for selecting a date from a calendar interface.
 ---
 
-<script>
-  import {DatePickerDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Date Picker
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<DatePickerDemo />
-
-## Anatomy
-
-<Anatomy id="date-picker" />
+A component for selecting a date from a calendar interface.
 
 ## Usage
-
-### Single Date Picker
 
 ```svelte
 <script>
@@ -302,12 +281,3 @@ description: A component for selecting a date from a calendar interface.
   {/snippet}
 </DatePicker.Root>
 ```
-
-## API Reference
-
-<Api id="date-picker" />
-
-## Accessibility
-
-<Accessibility id="date-picker" />
-`

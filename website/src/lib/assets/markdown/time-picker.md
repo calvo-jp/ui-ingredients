@@ -3,27 +3,9 @@ title: Time Picker
 description: A component for selecting a time from a dropdown or input interface.
 ---
 
-<script>
-  import {TimePickerDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Time Picker
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<TimePickerDemo />
-
-## Anatomy
-
-<Anatomy id="time-picker" />
+A component for selecting a time from a dropdown or input interface.
 
 ## Usage
 
@@ -98,7 +80,3 @@ description: A component for selecting a time from a dropdown or input interface
   {/snippet}
 </TimePicker.Root>
 ```
-
-## API Reference
-
-<Api id="time-picker" />

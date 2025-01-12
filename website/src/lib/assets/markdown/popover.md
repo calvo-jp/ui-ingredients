@@ -3,28 +3,9 @@ title: Popover
 description: A component that displays additional content or information in a small overlay when triggered.
 ---
 
-<script>
-  import {PopoverDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import {Anatomy} from '$lib/anatomy';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Popover
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<PopoverDemo />
-
-## Anatomy
-
-<Anatomy id="popover" />
+A component that displays additional content or information in a small overlay when triggered.
 
 ## Usage
 
@@ -51,11 +32,3 @@ description: A component that displays additional content or information in a sm
   </Popover.Positioner>
 </Popover.Root>
 ```
-
-## API Reference
-
-<Api id="popover" />
-
-## Accessibility
-
-<Accessibility id="popover" />

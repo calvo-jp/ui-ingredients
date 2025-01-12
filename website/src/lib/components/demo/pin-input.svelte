@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Input, Label} from '$lib/ui';
+  import {Input, Label} from '$lib/components';
   import {PinInput} from 'ui-ingredients';
 </script>
 

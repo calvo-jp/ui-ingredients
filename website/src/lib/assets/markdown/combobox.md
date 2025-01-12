@@ -3,28 +3,9 @@ title: Combobox
 description: A component that combines a text input with a dropdown list for selecting or entering values.
 ---
 
-<script>
-  import {ComboboxDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Combobox
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<ComboboxDemo />
-
-## Anatomy
-
-<Anatomy id="combobox" />
+A component that combines a text input with a dropdown list for selecting or entering values.
 
 ## Usage
 
@@ -172,11 +153,3 @@ description: A component that combines a text input with a dropdown list for sel
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="combobox" />
-
-## Accessibility
-
-<Accessibility id="combobox" />

@@ -3,6 +3,13 @@ export type Assign<
   Source extends Record<string, any>,
 > = Source & Omit<Target, keyof Source>;
 
+export type UtilityId =
+  | 'environment-provider'
+  | 'highlight'
+  | 'locale-provider'
+  | 'portal'
+  | 'presence';
+
 export type ComponentId =
   | 'accordion'
   | 'alert-dialog'
@@ -20,20 +27,15 @@ export type ComponentId =
   | 'dialog'
   | 'drawer'
   | 'editable'
-  | 'environment-provider'
   | 'field'
   | 'file-upload'
   | 'floating-panel'
-  | 'highlight'
   | 'hover-card'
-  | 'locale-provider'
   | 'menu'
   | 'number-input'
   | 'pagination'
   | 'popover'
   | 'pin-input'
-  | 'portal'
-  | 'presence'
   | 'progress-linear'
   | 'progress-circular'
   | 'qr-code'

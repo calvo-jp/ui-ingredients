@@ -3,27 +3,9 @@ title: Clipboard
 description: A component for copying text or content to the user's clipboard.
 ---
 
-<script>
-  import {ClipboardDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Clipboard
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
- 
-<ClipboardDemo />
-
-## Anatomy
-
-<Anatomy id="clipboard" />
+A component for copying text or content to the user's clipboard.
 
 ## Usage
 
@@ -51,7 +33,3 @@ description: A component for copying text or content to the user's clipboard.
   </Clipboard.Control>
 </Clipboard.Root>
 ```
-
-## API Reference
-
-<Api id="clipboard" />

@@ -3,28 +3,9 @@ title: Dialog
 description: A component for displaying modal windows or pop-up messages.
 ---
 
-<script>
-  import {DialogDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Dialog
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<DialogDemo />
-
-## Anatomy
-
-<Anatomy id="dialog" />
+A component for displaying modal windows or pop-up messages.
 
 ## Usage
 
@@ -51,11 +32,3 @@ description: A component for displaying modal windows or pop-up messages.
   </Portal>
 </Dialog.Root>
 ```
-
-## API Reference
-
-<Api id="dialog" />
-
-## Accessibility
-
-<Accessibility id="dialog" />

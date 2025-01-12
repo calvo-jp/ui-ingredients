@@ -3,27 +3,9 @@ title: Avatar
 description: A visual component for displaying a user’s profile image or initials.
 ---
 
-<script>
-  import {AvatarDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Avatar
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<AvatarDemo />
-
-## Anatomy
-
-<Anatomy id="avatar" />
+A visual component for displaying a user’s profile image or initials.
 
 ## Usage
 
@@ -37,7 +19,3 @@ description: A visual component for displaying a user’s profile image or initi
   <Avatar.Fallback>JD</Avatar.Fallback>
 </Avatar.Root>
 ```
-
-## API Reference
-
-<Api id="avatar" />

@@ -3,23 +3,9 @@ title: Breadcrumbs
 description: A component for displaying the navigation path or hierarchy of a user's location within a site.
 ---
 
-<script>
-  import {BreadcrumbsDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Breadcrumbs
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<BreadcrumbsDemo />
+A component for displaying the navigation path or hierarchy of a user's location within a site.
 
 ## Usage
 
@@ -51,7 +37,3 @@ description: A component for displaying the navigation path or hierarchy of a us
   </Breadcrumbs.List>
 </Breadcrumbs.Root>
 ```
-
-## API Reference
-
-<Api id="breadcrumbs" />

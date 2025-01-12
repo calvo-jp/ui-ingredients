@@ -3,22 +3,9 @@ title: Toggle
 description: A component for switching between two states, suchjson as on/off.
 ---
 
-<script>
-  import {ToggleDemo} from '$lib/demo';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Toggle
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<ToggleDemo />
+A component for switching between two states, suchjson as on/off.
 
 ## Usage
 
@@ -43,7 +30,3 @@ description: A component for switching between two states, suchjson as on/off.
   {/if}
 </Toggle.Root>
 ```
-
-## API Reference
-
-<Api id="toggle" />

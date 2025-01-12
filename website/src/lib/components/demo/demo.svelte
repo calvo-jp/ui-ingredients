@@ -19,7 +19,6 @@
   import EditableDemo from './editable.svelte';
   import FieldDemo from './field.svelte';
   import FileUploadDemo from './file-upload.svelte';
-  import HighlightDemo from './highlight.svelte';
   import HoverCardDemo from './hover-card.svelte';
   import MenuDemo from './menu.svelte';
   import NumberInputDemo from './number-input.svelte';
@@ -54,11 +53,9 @@
     'angle-slider': AngleSliderDemo,
     'color-picker': ColorPickerDemo,
     'date-picker': DatePickerDemo,
-    'environment-provider': null,
     'file-upload': FileUploadDemo,
     'floating-panel': null,
     'hover-card': HoverCardDemo,
-    'locale-provider': null,
     'number-input': NumberInputDemo,
     'pin-input': PinInputDemo,
     'progress-circular': ProgressCircularDemo,
@@ -85,12 +82,9 @@
     drawer: DrawerDemo,
     editable: EditableDemo,
     field: FieldDemo,
-    highlight: HighlightDemo,
     menu: MenuDemo,
     pagination: PaginationDemo,
     popover: PopoverDemo,
-    portal: null,
-    presence: null,
     select: SelectDemo,
     slider: SliderDemo,
     splitter: SplitterDemo,

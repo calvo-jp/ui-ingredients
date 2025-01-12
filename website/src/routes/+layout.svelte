@@ -29,32 +29,11 @@
 
     <main class="flex min-h-full flex-col p-5 md:p-8 lg:grow lg:p-16 xl:p-20">
       <section
-        id="markdown"
         class="grow lg:mx-auto lg:w-full lg:max-w-screen-md"
+        data-toc-root
       >
         <div
-          class={[
-            'prose',
-            'prose-neutral',
-            'lg:prose-code:text-sm',
-            'dark:prose-invert',
-            'min-w-full',
-            'prose-headings:font-lexend',
-            'prose-a:underline-offset-2',
-
-            'before:prose-p:content-none',
-            'after:prose-p:content-none',
-            'before:prose-code:content-none',
-            'after:prose-code:content-none',
-
-            '[&_.shiki]:dark:border',
-            '[&_.shiki]:dark:border-neutral-800/40',
-            '[&_.shiki]:!bg-neutral-50',
-            '[&_.shiki_span]:!bg-transparent',
-            '[&_.shiki]:dark:!bg-neutral-900/40',
-            '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
-            '[&_.shiki_span]:dark:!text-[var(--shiki-dark)]',
-          ]}
+          class="prose prose-neutral min-w-full dark:prose-invert prose-headings:font-lexend before:prose-p:content-none after:prose-p:content-none prose-a:underline-offset-2 before:prose-code:content-none after:prose-code:content-none lg:prose-code:text-sm"
         >
           {@render children()}
         </div>
@@ -68,3 +47,40 @@
     <Toc />
   </div>
 </ThemeProvider>
+
+<style lang="postcss">
+  :global(.shiki) {
+    @apply !bg-neutral-50;
+
+    & span {
+      @apply !bg-transparent;
+    }
+
+    & code {
+      counter-reset: step;
+      counter-increment: step 0;
+    }
+
+    & code .line::before {
+      content: counter(step);
+      counter-increment: step;
+      display: inline-block;
+      width: 3ch;
+      text-align: right;
+      margin-right: theme('spacing.4');
+      color: theme('colors.neutral.400');
+    }
+  }
+
+  :global(.dark .shiki) {
+    @apply !border-neutral-800/40 !bg-neutral-900/40 !text-[var(--shiki-dark)];
+
+    & span {
+      @apply !text-[var(--shiki-dark)];
+    }
+
+    & code .line::before {
+      color: theme('colors.neutral.500');
+    }
+  }
+</style>

@@ -3,27 +3,9 @@ title: Pagination
 description: A component for navigating through multiple pages of content.
 ---
 
-<script>
-  import {PaginationDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Pagination
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<PaginationDemo />
-
-## Anatomy
-
-<Anatomy id="pagination" />
+A component for navigating through multiple pages of content.
 
 ## Usage
 
@@ -55,7 +37,3 @@ description: A component for navigating through multiple pages of content.
   {/snippet}
 </Pagination.Root>
 ```
-
-## API Reference
-
-<Api id="pagination" />

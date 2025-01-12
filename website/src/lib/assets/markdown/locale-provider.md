@@ -3,19 +3,9 @@ title: Locale Provider
 description: A component for providing locale information to the rest of the application.
 ---
 
-<script>
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-  import {Api} from '$lib/api';
-</script>
+# Locale Provider
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
+A component for providing locale information to the rest of the application.
 
 ## Usage
 
@@ -31,7 +21,3 @@ description: A component for providing locale information to the rest of the app
   {@render children()}
 </LocaleProvider>
 ```
-
-## API Reference
-
-<Api id="locale-provider" />

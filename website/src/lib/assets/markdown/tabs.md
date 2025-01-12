@@ -3,28 +3,9 @@ title: Tabs
 description: A component for organizing and switching between multiple sections of content within a single view.
 ---
 
-<script>
-  import {TabsDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Tabs
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<TabsDemo />
-
-## Anatomy
-
-<Anatomy id="tabs" />
+A component for organizing and switching between multiple sections of content within a single view.
 
 ## Usage
 
@@ -67,11 +48,3 @@ description: A component for organizing and switching between multiple sections 
   {/each}
 </Tabs.Root>
 ```
-
-## API Reference
-
-<Api id="tabs" />
-
-## Accessibility
-
-<Accessibility id="tabs" />

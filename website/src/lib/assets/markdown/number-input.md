@@ -3,28 +3,9 @@ title: Number Input
 description: A component for entering numeric values
 ---
 
-<script>
-  import {NumberInputDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Number Input
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<NumberInputDemo />
-
-## Anatomy
-
-<Anatomy id="number-input" />
+A component for entering numeric values
 
 ## Usage
 
@@ -74,11 +55,3 @@ description: A component for entering numeric values
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
-
-## API Reference
-
-<Api id="number-input" />
-
-## Accessibility
-
-<Accessibility id="number-input" />

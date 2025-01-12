@@ -3,28 +3,9 @@ title: Radio Group
 description: A component for selecting one option from a set of mutually exclusive choices.
 ---
 
-<script>
-  import {RadioGroupDemo} from '$lib/demo';
-  import {Anatomy} from '$lib/anatomy';
-  import {Api} from '$lib/api';
-  import {Accessibility} from '$lib/accessibility';
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-</script>
+# Radio Group
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
-
-<RadioGroupDemo />
-
-## Anatomy
-
-<Anatomy id="radio-group" />
+A component for selecting one option from a set of mutually exclusive choices.
 
 ## Usage
 
@@ -63,11 +44,3 @@ description: A component for selecting one option from a set of mutually exclusi
   {/each}
 </RadioGroup.Root>
 ```
-
-## API Reference
-
-<Api id="radio-group" />
-
-## Accessibility
-
-<Accessibility id="radio-group" />

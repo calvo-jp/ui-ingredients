@@ -1,21 +1,11 @@
 ---
-title: 'Presence'
-description: 'A component that controls content rendering and unmounting based on state.'
+title: Presence
+description: A component that controls content rendering and unmounting based on state.
 ---
 
-<script>
-  import Metadata from '$lib/metadata.svelte';
-  import PageHeading from '$lib/page-heading.svelte';
-  import {Api} from '$lib/api';
-</script>
+# Presence
 
-<svelte:head>
-
-  <title>UI Ingredients | {title}</title>
-</svelte:head>
-
-<Metadata title="{title}" description="{description}" />
-<PageHeading title="{title}" description="{description}" />
+A component that controls content rendering and unmounting based on state.
 
 ## Usage
 
@@ -36,7 +26,3 @@ description: 'A component that controls content rendering and unmounting based o
 
 <Presence {present} lazyMount keepMounted>Content</Presence>
 ```
-
-## API Reference
-
-<Api id="presence" />

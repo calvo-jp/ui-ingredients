@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button, Label} from '$lib/ui';
+  import {Button, Label} from '$lib/components';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {TagsInput} from 'ui-ingredients';
 </script>
