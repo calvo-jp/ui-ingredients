@@ -1,4 +1,4 @@
-import {omit} from '$lib/omit';
+import {omit} from '$lib/utils';
 import {getApiDoc, getDataAttrDoc} from '@zag-js/docs';
 import {datePickerAnatomy} from 'ui-ingredients';
 import {apiEntryFromAnatomy} from './utils';

@@ -10,10 +10,6 @@
   import '@fontsource/lexend/700.css';
   import '../app.css';
 
-  import {page} from '$app/state';
-  import {Prose} from '$lib/components';
-  import {addCopyButtonToPreTags} from '$lib/patches';
-  import {tick} from 'svelte';
   import {ThemeProvider} from 'svelte-os-themes';
   import Navbar from './navbar.svelte';
   import PageControl from './page-control.svelte';
@@ -21,12 +17,6 @@
   import Toc from './toc.svelte';
 
   let {children} = $props();
-
-  $effect(() => {
-    page.url.pathname;
-
-    tick().then(addCopyButtonToPreTags);
-  });
 </script>
 
 <ThemeProvider fallback="dark">
@@ -42,9 +32,32 @@
         id="markdown"
         class="grow lg:mx-auto lg:w-full lg:max-w-screen-md"
       >
-        <Prose>
+        <div
+          class={[
+            'prose',
+            'prose-neutral',
+            'lg:prose-code:text-sm',
+            'dark:prose-invert',
+            'min-w-full',
+            'prose-headings:font-lexend',
+            'prose-a:underline-offset-2',
+
+            'before:prose-p:content-none',
+            'after:prose-p:content-none',
+            'before:prose-code:content-none',
+            'after:prose-code:content-none',
+
+            '[&_.shiki]:dark:border',
+            '[&_.shiki]:dark:border-neutral-800/40',
+            '[&_.shiki]:!bg-neutral-50',
+            '[&_.shiki_span]:!bg-transparent',
+            '[&_.shiki]:dark:!bg-neutral-900/40',
+            '[&_.shiki]:dark:!text-[var(--shiki-dark)]',
+            '[&_.shiki_span]:dark:!text-[var(--shiki-dark)]',
+          ]}
+        >
           {@render children()}
-        </Prose>
+        </div>
       </section>
 
       <section class="mt-8">
