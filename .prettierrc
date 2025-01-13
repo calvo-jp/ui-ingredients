@@ -9,12 +9,6 @@
       "options": {
         "parser": "svelte"
       }
-    },
-    {
-      "files": "*.svx",
-      "options": {
-        "parser": "markdown"
-      }
     }
   ]
 }
