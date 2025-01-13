@@ -3,10 +3,6 @@ title: Presence
 description: A component that controls content rendering and unmounting based on state.
 ---
 
-# Presence
-
-A component that controls content rendering and unmounting based on state.
-
 ## Usage
 
 ```svelte

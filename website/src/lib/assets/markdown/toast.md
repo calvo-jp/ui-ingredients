@@ -3,10 +3,6 @@ title: Toast
 description: A component for displaying brief, non-intrusive notifications or messages.
 ---
 
-# Toast
-
-A component for displaying brief, non-intrusive notifications or messages.
-
 ## Usage
 
 - Create a `toaster` instance

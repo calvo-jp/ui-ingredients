@@ -3,10 +3,6 @@ title: Carousel
 description: A rotating component for cycling through images or content slides.
 ---
 
-# Carousel
-
-A rotating component for cycling through images or content slides.
-
 ## Usage
 
 ```svelte

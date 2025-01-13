@@ -1,5 +1,4 @@
 import typography from '@tailwindcss/typography';
-import scrollbar from 'tailwind-scrollbar';
 import {withTV} from 'tailwind-variants/transformer';
 import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
@@ -112,7 +111,7 @@ const config: Config = withTV({
       },
     },
   },
-  plugins: [typography, scrollbar, uiIngredients],
+  plugins: [typography, uiIngredients],
 });
 
 export default config;

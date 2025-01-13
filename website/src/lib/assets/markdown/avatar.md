@@ -3,10 +3,6 @@ title: Avatar
 description: A visual component for displaying a user’s profile image or initials.
 ---
 
-# Avatar
-
-A visual component for displaying a user’s profile image or initials.
-
 ## Usage
 
 ```svelte

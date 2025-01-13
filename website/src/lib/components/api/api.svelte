@@ -109,9 +109,9 @@
     toggle,
     tooltip,
     tour,
-  } satisfies Record<ComponentId & UtilityId, ApiEntries>;
+  } satisfies Record<ComponentId | UtilityId, ApiEntries>;
 
-  let {id}: {id: ComponentId} = $props();
+  let {id}: {id: ComponentId | UtilityId} = $props();
 
   let subject = $derived(MAP[id]);
   let parts = $derived(
@@ -123,8 +123,9 @@
   );
 </script>
 
+<h2>API Reference</h2>
+
 {#each parts as [i, j]}
-  <h2>API Reference</h2>
   <h3>{i}</h3>
 
   <Table.Container class="not-prose">

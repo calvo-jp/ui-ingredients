@@ -3,10 +3,6 @@ title: Menu
 description: A component for navigating through a list of options or actions
 ---
 
-# Menu
-
-A component for navigating through a list of options or actions
-
 ## Usage
 
 ### Basic Menu

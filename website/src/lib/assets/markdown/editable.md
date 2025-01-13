@@ -3,10 +3,6 @@ title: Editable
 description: A component that allows users to modify its content.
 ---
 
-# Editable
-
-A component that allows users to modify its content.
-
 ## Usage
 
 ```svelte

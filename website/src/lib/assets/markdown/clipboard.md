@@ -3,10 +3,6 @@ title: Clipboard
 description: A component for copying text or content to the user's clipboard.
 ---
 
-# Clipboard
-
-A component for copying text or content to the user's clipboard.
-
 ## Usage
 
 ```svelte

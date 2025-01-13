@@ -3,10 +3,6 @@ title: Toggle
 description: A component for switching between two states, suchjson as on/off.
 ---
 
-# Toggle
-
-A component for switching between two states, suchjson as on/off.
-
 ## Usage
 
 ```svelte

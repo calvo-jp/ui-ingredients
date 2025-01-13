@@ -3,10 +3,6 @@ title: Alert
 description: A component for displaying important messages or notifications.
 ---
 
-# Alert
-
-A component for displaying important messages or notifications.
-
 ## Usage
 
 ```svelte

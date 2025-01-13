@@ -3,10 +3,6 @@ title: Switch
 description: A component for toggling between two states, such as on/off or enabled/disabled.
 ---
 
-# Switch
-
-A component for toggling between two states, such as on/off or enabled/disabled.
-
 ## Usage
 
 ```svelte

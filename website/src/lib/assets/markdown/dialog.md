@@ -3,10 +3,6 @@ title: Dialog
 description: A component for displaying modal windows or pop-up messages.
 ---
 
-# Dialog
-
-A component for displaying modal windows or pop-up messages.
-
 ## Usage
 
 ```svelte

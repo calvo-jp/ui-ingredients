@@ -3,10 +3,6 @@ title: Slider
 description: A component for adjusting values or selecting ranges through a draggable handle.
 ---
 
-# Slider
-
-A component for adjusting values or selecting ranges through a draggable handle.
-
 ## Usage
 
 ```svelte

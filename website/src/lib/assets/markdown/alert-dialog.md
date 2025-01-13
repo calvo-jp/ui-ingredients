@@ -3,10 +3,6 @@ title: Alert Dialog
 description: A component for displaying a modal dialog that requires user attention or confirmation.
 ---
 
-# Alert Dialog
-
-A component for displaying a modal dialog that requires user attention or confirmation.
-
 ## Usage
 
 ```svelte

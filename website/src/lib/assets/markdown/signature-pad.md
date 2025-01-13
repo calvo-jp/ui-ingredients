@@ -3,10 +3,6 @@ title: Signature Pad
 description: A component for capturing and displaying handwritten signatures.
 ---
 
-# Signature Pad
-
-A component for capturing and displaying handwritten signatures.
-
 ## Usage
 
 ```svelte

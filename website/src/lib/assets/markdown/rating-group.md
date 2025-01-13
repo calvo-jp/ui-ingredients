@@ -3,10 +3,6 @@ title: Rating Group
 description: A component for selecting a rating value, typically represented by stars or other symbols.
 ---
 
-# Rating Group
-
-A component for selecting a rating value, typically represented by stars or other symbols.
-
 ## Usage
 
 ```svelte

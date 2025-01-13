@@ -3,10 +3,6 @@ title: Hover Card
 description: A component that displays additional information when hovering over an element
 ---
 
-# Hover Card
-
-A component that displays additional information when hovering over an element
-
 ## Usage
 
 ```svelte

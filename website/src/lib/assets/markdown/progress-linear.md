@@ -3,10 +3,6 @@ title: Progress - Linear
 description: A component for displaying the completion status of a task or process.
 ---
 
-# Progress - Linear
-
-A component for displaying the completion status of a task or process.
-
 ## Usage
 
 ```svelte

@@ -3,10 +3,6 @@ title: Color Picker
 description: A component for selecting and customizing colors.
 ---
 
-# Color Picker
-
-A component for selecting and customizing colors.
-
 ## Usage
 
 ```svelte

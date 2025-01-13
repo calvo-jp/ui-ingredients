@@ -3,8 +3,7 @@
   import {Badge} from '$lib/components';
   import {APP_LINKS} from '$lib/constants';
   import {navbarStore} from '$lib/stores';
-  import {ChevronRightIcon} from '@untitled-theme/icons-svelte';
-  import {Collapsible, Drawer, Portal} from 'ui-ingredients';
+  import {Drawer, Portal} from 'ui-ingredients';
 </script>
 
 <div
@@ -14,7 +13,7 @@
 ></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 scrollbar scrollbar-track-neutral-50 scrollbar-thumb-neutral-400 dark:border-neutral-800 dark:bg-neutral-950 dark:scrollbar-track-neutral-900 dark:scrollbar-thumb-neutral-600 lg:block"
+  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 dark:border-neutral-800 dark:bg-neutral-950 lg:block"
 >
   {@render items()}
 </nav>
@@ -50,53 +49,43 @@
 </Drawer.Root>
 
 {#snippet items()}
-  <ul class="space-y-4">
+  <ul>
     {#each APP_LINKS as parent}
-      <li>
-        <Collapsible.Root open>
-          <Collapsible.Trigger
-            class="group flex w-full gap-2 py-1 text-left font-lexend font-semibold"
-          >
-            <span class="grow lg:text-sm">{parent.label}</span>
-            <ChevronRightIcon
-              class="size-4 text-neutral-500 transition-transform duration-150 ui-group-open:rotate-90 dark:text-neutral-400"
-            />
-          </Collapsible.Trigger>
-          <Collapsible.Content>
-            {#snippet asChild(action, attrs)}
-              <ul
-                class="space-y-0.5 overflow-hidden ui-open:animate-collapse-in ui-closed:animate-collapse-out"
-                use:action
-                {...attrs}
-              >
-                {#each parent.links as child}
-                  <li>
-                    <a
-                      href={child.path}
-                      class="group flex items-center gap-3 rounded py-1"
-                      onclick={() => {
-                        navbarStore.drawer.close();
-                      }}
-                      data-current={page.url.pathname === child.path
-                        ? ''
-                        : undefined}
-                    >
-                      <span
-                        class="font-semibold text-neutral-500 transition-colors duration-150 group-hover:text-inherit ui-group-current:text-indigo-500 dark:text-neutral-400 dark:ui-group-current:text-indigo-400 lg:text-sm"
-                      >
-                        {child.label}
-                      </span>
+      <li
+        class="border-t border-neutral-200 py-4 first:border-0 first:pt-0 dark:border-neutral-800"
+      >
+        <span
+          class="block grow py-1 text-left font-lexend font-semibold lg:text-sm"
+        >
+          {parent.label}
+        </span>
 
-                      {#if child.beta}
-                        <Badge>Beta</Badge>
-                      {/if}
-                    </a>
-                  </li>
-                {/each}
-              </ul>
-            {/snippet}
-          </Collapsible.Content>
-        </Collapsible.Root>
+        <ul
+          class="space-y-0.5 overflow-hidden ui-open:animate-collapse-in ui-closed:animate-collapse-out"
+        >
+          {#each parent.links as child}
+            <li>
+              <a
+                href={child.path}
+                class="group flex items-center gap-3 rounded py-1"
+                onclick={() => {
+                  navbarStore.drawer.close();
+                }}
+                data-current={page.url.pathname === child.path ? '' : undefined}
+              >
+                <span
+                  class="font-medium text-neutral-500 transition-colors duration-150 group-hover:text-inherit ui-group-current:text-indigo-500 dark:text-neutral-400 dark:ui-group-current:text-indigo-400 lg:text-sm"
+                >
+                  {child.label}
+                </span>
+
+                {#if child.beta}
+                  <Badge>Beta</Badge>
+                {/if}
+              </a>
+            </li>
+          {/each}
+        </ul>
       </li>
     {/each}
   </ul>

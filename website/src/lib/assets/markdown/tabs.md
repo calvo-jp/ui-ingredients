@@ -3,10 +3,6 @@ title: Tabs
 description: A component for organizing and switching between multiple sections of content within a single view.
 ---
 
-# Tabs
-
-A component for organizing and switching between multiple sections of content within a single view.
-
 ## Usage
 
 ```svelte

@@ -3,10 +3,6 @@ title: Pagination
 description: A component for navigating through multiple pages of content.
 ---
 
-# Pagination
-
-A component for navigating through multiple pages of content.
-
 ## Usage
 
 ```svelte

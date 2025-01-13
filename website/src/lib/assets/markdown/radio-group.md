@@ -3,10 +3,6 @@ title: Radio Group
 description: A component for selecting one option from a set of mutually exclusive choices.
 ---
 
-# Radio Group
-
-A component for selecting one option from a set of mutually exclusive choices.
-
 ## Usage
 
 ```svelte

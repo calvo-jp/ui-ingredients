@@ -40,7 +40,7 @@
       >
         <TimePicker.Column
           unit="hour"
-          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
+          class="snap-y snap-mandatory overflow-y-auto px-3"
         >
           {#each context.getHours() as item}
             <TimePicker.HourCell
@@ -54,7 +54,7 @@
         <TimePicker.Spacer />
         <TimePicker.Column
           unit="minute"
-          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
+          class="snap-y snap-mandatory overflow-y-auto px-3"
         >
           {#each context.getMinutes() as item}
             <TimePicker.MinuteCell
@@ -68,7 +68,7 @@
         <TimePicker.Spacer />
         <TimePicker.Column
           unit="second"
-          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
+          class="snap-y snap-mandatory overflow-y-auto px-3"
         >
           {#each context.getSeconds() as item}
             <TimePicker.SecondCell
@@ -82,17 +82,17 @@
         <TimePicker.Spacer />
         <TimePicker.Column
           unit="period"
-          class="snap-y snap-mandatory overflow-y-auto px-3 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-700"
+          class="snap-y snap-mandatory overflow-y-auto px-3"
         >
           <TimePicker.PeriodCell
             value="am"
-            class="ui-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 ui-selected:text-indigo-500"
+            class="ui-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 ui-selected:text-indigo-500"
           >
             AM
           </TimePicker.PeriodCell>
           <TimePicker.PeriodCell
             value="pm"
-            class="ui-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 scrollbar-thin scrollbar-track-neutral-800 scrollbar-thumb-neutral-800 ui-selected:text-indigo-500"
+            class="ui-focus:text-neutr7l-100 cursor-pointer snap-center font-mono font-medium leading-none text-neutral-400 ui-selected:text-indigo-500"
           >
             PM
           </TimePicker.PeriodCell>

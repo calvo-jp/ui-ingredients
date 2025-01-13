@@ -3,10 +3,6 @@ title: Number Input
 description: A component for entering numeric values
 ---
 
-# Number Input
-
-A component for entering numeric values
-
 ## Usage
 
 ```svelte

@@ -3,10 +3,6 @@ title: Progress - Circular
 description: A component for displaying the completion status of a task or process.
 ---
 
-# Progress - Circular
-
-A component for displaying the completion status of a task or process.
-
 ## Anatomy
 
 <Anatomy id="progress-circular" />

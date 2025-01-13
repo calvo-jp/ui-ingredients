@@ -3,10 +3,6 @@ title: Qr Code
 description: A component for generating and displaying QR codes for quick scanning and access to information.
 ---
 
-# Qr Code
-
-A component for generating and displaying QR codes for quick scanning and access to information.
-
 ## Usage
 
 ```svelte

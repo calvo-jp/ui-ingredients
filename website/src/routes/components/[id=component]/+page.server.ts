@@ -1,7 +1,9 @@
 import type {ComponentId} from '$lib/types';
-import {parseMarkdown} from '$lib/utils';
+import {parseEnum, parseMarkdown} from '$lib/utils';
+import {error} from '@sveltejs/kit';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {z} from 'zod';
 import type {PageServerLoad} from './$types';
 
 const filenames: Record<string, string> = {
@@ -55,14 +57,81 @@ const filenames: Record<string, string> = {
 } satisfies Record<ComponentId, string>;
 
 export const load: PageServerLoad = async ({params}) => {
+  const id = parseEnum<ComponentId>(
+    [
+      'alert-dialog',
+      'angle-slider',
+      'color-picker',
+      'date-picker',
+      'file-upload',
+      'floating-panel',
+      'hover-card',
+      'number-input',
+      'pin-input',
+      'progress-circular',
+      'progress-linear',
+      'qr-code',
+      'radio-group',
+      'rating-group',
+      'segment-group',
+      'signature-pad',
+      'tags-input',
+      'time-picker',
+      'toggle-group',
+      'tree-view',
+      'accordion',
+      'alert',
+      'avatar',
+      'breadcrumbs',
+      'carousel',
+      'checkbox',
+      'clipboard',
+      'collapsible',
+      'combobox',
+      'dialog',
+      'drawer',
+      'editable',
+      'field',
+      'menu',
+      'pagination',
+      'popover',
+      'select',
+      'slider',
+      'splitter',
+      'steps',
+      'switch',
+      'tabs',
+      'timer',
+      'toast',
+      'toggle',
+      'tooltip',
+      'tour',
+    ],
+    params.id,
+  );
+
+  if (!id) return error(404);
+
   const location = path.join(
     process.cwd(),
     'src/lib/assets/markdown',
-    filenames[params.id],
+    filenames[id],
   );
 
   const markdown = await fs.readFile(location, 'utf-8');
-  const {html} = await parseMarkdown(markdown);
+  const {html, meta} = await parseMarkdown(markdown);
 
-  return {html};
+  const {title, description} = z
+    .object({
+      title: z.string(),
+      description: z.string(),
+    })
+    .parse(meta);
+
+  return {
+    id,
+    html,
+    title,
+    description,
+  };
 };

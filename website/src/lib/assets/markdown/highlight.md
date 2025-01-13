@@ -3,10 +3,6 @@ title: Highlight
 description: A component for highlighting text within a string.
 ---
 
-# Highlight
-
-A component for highlighting text within a string.
-
 ## Usage
 
 ```svelte

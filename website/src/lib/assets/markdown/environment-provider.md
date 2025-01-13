@@ -3,10 +3,6 @@ title: Environment Provider
 description: A component for providing environment information to the rest of the application.
 ---
 
-# Environment Provider
-
-A component for providing environment information to the rest of the application.
-
 ## Usage
 
 ```svelte

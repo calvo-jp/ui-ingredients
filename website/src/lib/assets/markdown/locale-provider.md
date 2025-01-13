@@ -3,10 +3,6 @@ title: Locale Provider
 description: A component for providing locale information to the rest of the application.
 ---
 
-# Locale Provider
-
-A component for providing locale information to the rest of the application.
-
 ## Usage
 
 ```svelte
