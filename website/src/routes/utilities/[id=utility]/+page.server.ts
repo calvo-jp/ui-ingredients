@@ -28,11 +28,7 @@ export const load: PageServerLoad = async ({params}) => {
 
   if (!id) return error(404);
 
-  const location = path.join(
-    process.cwd(),
-    'src/lib/assets/markdown',
-    filenames[id],
-  );
+  const location = path.resolve('src/lib/assets/markdown', filenames[id]);
 
   const markdown = await fs.readFile(location, 'utf-8');
   const {html, meta} = await parseMarkdown(markdown);
