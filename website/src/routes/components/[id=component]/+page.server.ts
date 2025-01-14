@@ -103,7 +103,7 @@ const MARKDOWN = {
 } satisfies Record<ComponentId, unknown>;
 
 export const load: PageServerLoad = async ({params}) => {
-  const id = parseEnum<ComponentId>(Object.keys(MARKDOWN), params.id);
+  const id = parseEnum(Object.keys(MARKDOWN), params.id);
 
   if (!id) return error(404);
 
