@@ -1,8 +1,8 @@
 import markdown from '$lib/assets/markdown/aschild.md?raw';
 import {parseMarkdown} from '$lib/server/utils';
-import type {ServerLoad} from '@sveltejs/kit';
+import type {PageServerLoad} from './$types';
 
-export const load: ServerLoad = async () => {
+export const load: PageServerLoad = async () => {
   const {html} = await parseMarkdown(markdown);
   return {html};
 };

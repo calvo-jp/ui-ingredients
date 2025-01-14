@@ -1,3 +1,8 @@
+import environmentProviderMarkdown from '$lib/assets/markdown/environment-provider.md?raw';
+import highlightMarkdown from '$lib/assets/markdown/highlight.md?raw';
+import localeProviderMarkdown from '$lib/assets/markdown/locale-provider.md?raw';
+import portalMarkdown from '$lib/assets/markdown/portal.md?raw';
+import presenceMarkdown from '$lib/assets/markdown/presence.md?raw';
 import {parseMarkdown} from '$lib/server/utils';
 import type {UtilityId} from '$lib/types';
 import {parseEnum} from '$lib/utils';
@@ -5,43 +10,20 @@ import {error} from '@sveltejs/kit';
 import {z} from 'zod';
 import type {PageServerLoad} from './$types';
 
-const markdowns = import.meta.glob('$lib/assets/markdown/*.md', {
-  query: '?raw',
-  import: 'default',
-});
-
-const filenames: Record<string, string> = {
-  'environment-provider': 'environment-provider.md',
-  highlight: 'highlight.md',
-  'locale-provider': 'locale-provider.md',
-  portal: 'portal.md',
-  presence: 'presence.md',
-} satisfies Record<UtilityId, string>;
+const MARKDOWN = {
+  'environment-provider': environmentProviderMarkdown,
+  highlight: highlightMarkdown,
+  'locale-provider': localeProviderMarkdown,
+  portal: portalMarkdown,
+  presence: presenceMarkdown,
+} satisfies Record<UtilityId, unknown>;
 
 export const load: PageServerLoad = async ({params}) => {
-  const id = parseEnum<UtilityId>(
-    [
-      'environment-provider',
-      'highlight',
-      'locale-provider',
-      'portal',
-      'presence',
-    ],
-    params.id,
-  );
+  const id = parseEnum(Object.keys(MARKDOWN), params.id);
 
   if (!id) return error(404);
 
-  const filename = filenames[id];
-  const module = Object.entries(markdowns).find(([path]) =>
-    path.endsWith(filename),
-  )?.[1];
-
-  if (!module) return error(404);
-
-  const content = await module();
-
-  const {html, meta} = await parseMarkdown(content as string);
+  const {html, meta} = await parseMarkdown(MARKDOWN[id]);
   const {title, description} = z
     .object({
       title: z.string(),
