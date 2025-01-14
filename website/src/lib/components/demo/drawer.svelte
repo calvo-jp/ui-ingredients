@@ -39,9 +39,11 @@
           </Drawer.CloseTrigger>
         </Drawer.Header>
         <Drawer.Body class="grow space-y-3 p-4 leading-tight">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-          delectus, excepturi est inventore magnam at id tempora doloremque
-          perferendis odit tenetur recusandae cumque nihil!
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+            delectus, excepturi est inventore magnam at id tempora doloremque
+            perferendis odit tenetur recusandae cumque nihil!
+          </div>
         </Drawer.Body>
         <Drawer.Footer
           class="flex gap-3 border-t border-neutral-200 p-4 dark:border-neutral-800"

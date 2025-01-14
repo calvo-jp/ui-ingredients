@@ -1,13 +1,8 @@
-import {parseMarkdown} from '$lib/utils';
+import markdown from '$lib/assets/markdown/aschild.md?raw';
+import {parseMarkdown} from '$lib/server/utils';
 import type {ServerLoad} from '@sveltejs/kit';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 
 export const load: ServerLoad = async () => {
-  const location = path.resolve('src/lib/assets/markdown/aschild.md');
-
-  const markdown = await fs.readFile(location, 'utf-8');
   const {html} = await parseMarkdown(markdown);
-
   return {html};
 };

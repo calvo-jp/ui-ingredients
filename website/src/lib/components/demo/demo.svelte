@@ -1,101 +1,101 @@
 <script lang="ts">
   import type {ComponentId} from '$lib/types';
   import type {Component} from 'svelte';
-  import AccordionDemo from './accordion.svelte';
-  import AlertDialogDemo from './alert-dialog.svelte';
-  import AlertDemo from './alert.svelte';
-  import AngleSliderDemo from './angle-slider.svelte';
-  import AvatarDemo from './avatar.svelte';
-  import BreadcrumbsDemo from './breadcrumbs.svelte';
-  import CarouselDemo from './carousel.svelte';
-  import CheckboxDemo from './checkbox.svelte';
-  import ClipboardDemo from './clipboard.svelte';
-  import CollapsibleDemo from './collapsible.svelte';
-  import ColorPickerDemo from './color-picker.svelte';
-  import ComboboxDemo from './combobox.svelte';
-  import DatePickerDemo from './date-picker.svelte';
-  import DialogDemo from './dialog.svelte';
-  import DrawerDemo from './drawer.svelte';
-  import EditableDemo from './editable.svelte';
-  import FieldDemo from './field.svelte';
-  import FileUploadDemo from './file-upload.svelte';
-  import HoverCardDemo from './hover-card.svelte';
-  import MenuDemo from './menu.svelte';
-  import NumberInputDemo from './number-input.svelte';
-  import PaginationDemo from './pagination.svelte';
-  import PinInputDemo from './pin-input.svelte';
-  import PopoverDemo from './popover.svelte';
-  import ProgressCircularDemo from './progress-circular.svelte';
-  import ProgressLinearDemo from './progress-linear.svelte';
-  import QrCodeDemo from './qr-code.svelte';
-  import RadioGroupDemo from './radio-group.svelte';
-  import RatingGroupDemo from './rating-group.svelte';
-  import SegmentGroupDemo from './segment-group.svelte';
-  import SelectDemo from './select.svelte';
-  import SignaturePadDemo from './signature-pad.svelte';
-  import SliderDemo from './slider.svelte';
-  import SplitterDemo from './splitter.svelte';
-  import StepsDemo from './steps.svelte';
-  import SwitchDemo from './switch.svelte';
-  import TabsDemo from './tabs.svelte';
-  import TagsInputDemo from './tags-input.svelte';
-  import TimePickerDemo from './time-picker.svelte';
-  import TimerDemo from './timer.svelte';
-  import ToastDemo from './toast.svelte';
-  import ToggleGroupDemo from './toggle-group.svelte';
-  import ToggleDemo from './toggle.svelte';
-  import TooltipDemo from './tooltip.svelte';
-  import TourDemo from './tour.svelte';
-  import TreeViewDemo from './tree-view.svelte';
+  import Accordion from './accordion.svelte';
+  import AlertDialog from './alert-dialog.svelte';
+  import Alert from './alert.svelte';
+  import AngleSlider from './angle-slider.svelte';
+  import Avatar from './avatar.svelte';
+  import Breadcrumbs from './breadcrumbs.svelte';
+  import Carousel from './carousel.svelte';
+  import Checkbox from './checkbox.svelte';
+  import Clipboard from './clipboard.svelte';
+  import Collapsible from './collapsible.svelte';
+  import ColorPicker from './color-picker.svelte';
+  import Combobox from './combobox.svelte';
+  import DatePicker from './date-picker.svelte';
+  import Dialog from './dialog.svelte';
+  import Drawer from './drawer.svelte';
+  import Editable from './editable.svelte';
+  import Field from './field.svelte';
+  import FileUpload from './file-upload.svelte';
+  import HoverCard from './hover-card.svelte';
+  import Menu from './menu.svelte';
+  import NumberInput from './number-input.svelte';
+  import Pagination from './pagination.svelte';
+  import PinInput from './pin-input.svelte';
+  import Popover from './popover.svelte';
+  import ProgressCircular from './progress-circular.svelte';
+  import ProgressLinear from './progress-linear.svelte';
+  import QrCode from './qr-code.svelte';
+  import RadioGroup from './radio-group.svelte';
+  import RatingGroup from './rating-group.svelte';
+  import SegmentGroup from './segment-group.svelte';
+  import Select from './select.svelte';
+  import SignaturePad from './signature-pad.svelte';
+  import Slider from './slider.svelte';
+  import Splitter from './splitter.svelte';
+  import Steps from './steps.svelte';
+  import Switch from './switch.svelte';
+  import Tabs from './tabs.svelte';
+  import TagsInput from './tags-input.svelte';
+  import TimePicker from './time-picker.svelte';
+  import Timer from './timer.svelte';
+  import Toast from './toast.svelte';
+  import ToggleGroup from './toggle-group.svelte';
+  import Toggle from './toggle.svelte';
+  import Tooltip from './tooltip.svelte';
+  import Tour from './tour.svelte';
+  import TreeView from './tree-view.svelte';
 
   const MAP = {
-    'alert-dialog': AlertDialogDemo,
-    'angle-slider': AngleSliderDemo,
-    'color-picker': ColorPickerDemo,
-    'date-picker': DatePickerDemo,
-    'file-upload': FileUploadDemo,
+    'alert-dialog': AlertDialog,
+    'angle-slider': AngleSlider,
+    'color-picker': ColorPicker,
+    'date-picker': DatePicker,
+    'file-upload': FileUpload,
     'floating-panel': null,
-    'hover-card': HoverCardDemo,
-    'number-input': NumberInputDemo,
-    'pin-input': PinInputDemo,
-    'progress-circular': ProgressCircularDemo,
-    'progress-linear': ProgressLinearDemo,
-    'qr-code': QrCodeDemo,
-    'radio-group': RadioGroupDemo,
-    'rating-group': RatingGroupDemo,
-    'segment-group': SegmentGroupDemo,
-    'signature-pad': SignaturePadDemo,
-    'tags-input': TagsInputDemo,
-    'time-picker': TimePickerDemo,
-    'toggle-group': ToggleGroupDemo,
-    'tree-view': TreeViewDemo,
-    accordion: AccordionDemo,
-    alert: AlertDemo,
-    avatar: AvatarDemo,
-    breadcrumbs: BreadcrumbsDemo,
-    carousel: CarouselDemo,
-    checkbox: CheckboxDemo,
-    clipboard: ClipboardDemo,
-    collapsible: CollapsibleDemo,
-    combobox: ComboboxDemo,
-    dialog: DialogDemo,
-    drawer: DrawerDemo,
-    editable: EditableDemo,
-    field: FieldDemo,
-    menu: MenuDemo,
-    pagination: PaginationDemo,
-    popover: PopoverDemo,
-    select: SelectDemo,
-    slider: SliderDemo,
-    splitter: SplitterDemo,
-    steps: StepsDemo,
-    switch: SwitchDemo,
-    tabs: TabsDemo,
-    timer: TimerDemo,
-    toast: ToastDemo,
-    tooltip: TooltipDemo,
-    tour: TourDemo,
-    toggle: ToggleDemo,
+    'hover-card': HoverCard,
+    'number-input': NumberInput,
+    'pin-input': PinInput,
+    'progress-circular': ProgressCircular,
+    'progress-linear': ProgressLinear,
+    'qr-code': QrCode,
+    'radio-group': RadioGroup,
+    'rating-group': RatingGroup,
+    'segment-group': SegmentGroup,
+    'signature-pad': SignaturePad,
+    'tags-input': TagsInput,
+    'time-picker': TimePicker,
+    'toggle-group': ToggleGroup,
+    'tree-view': TreeView,
+    accordion: Accordion,
+    alert: Alert,
+    avatar: Avatar,
+    breadcrumbs: Breadcrumbs,
+    carousel: Carousel,
+    checkbox: Checkbox,
+    clipboard: Clipboard,
+    collapsible: Collapsible,
+    combobox: Combobox,
+    dialog: Dialog,
+    drawer: Drawer,
+    editable: Editable,
+    field: Field,
+    menu: Menu,
+    pagination: Pagination,
+    popover: Popover,
+    select: Select,
+    slider: Slider,
+    splitter: Splitter,
+    steps: Steps,
+    switch: Switch,
+    tabs: Tabs,
+    timer: Timer,
+    toast: Toast,
+    tooltip: Tooltip,
+    tour: Tour,
+    toggle: Toggle,
   } satisfies Record<ComponentId, Component | null>;
 
   let {id}: {id: ComponentId} = $props();
