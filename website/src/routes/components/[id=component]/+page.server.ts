@@ -50,7 +50,7 @@ import type {ComponentId} from '$lib/types';
 import {parseEnum} from '$lib/utils';
 import {error} from '@sveltejs/kit';
 import {z} from 'zod';
-import type {PageServerLoad} from './$types';
+import type {EntryGenerator, PageServerLoad} from './$types';
 
 const MARKDOWN = {
   'alert-dialog': alertDialogMarkdown,
@@ -101,6 +101,12 @@ const MARKDOWN = {
   tooltip: tooltipMarkdown,
   tour: tourMarkdown,
 } satisfies Record<ComponentId, unknown>;
+
+export const prerender = true;
+
+export const entries: EntryGenerator = () => {
+  return Object.keys(MARKDOWN).map((id) => ({id}));
+};
 
 export const load: PageServerLoad = async ({params}) => {
   const id = parseEnum(Object.keys(MARKDOWN), params.id);
