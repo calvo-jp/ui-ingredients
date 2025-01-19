@@ -62,6 +62,9 @@
       'translations',
       'value',
       'view',
+      'minView',
+      'maxView',
+      'placeholder',
     ])(rest),
   );
 

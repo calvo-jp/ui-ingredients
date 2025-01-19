@@ -1,8 +1,9 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps} from '../types.js';
 
+  import type {DropzoneProps} from '@zag-js/file-upload';
   export interface FileUploadDropzoneProps
-    extends HtmlIngredientProps<'div', HTMLDivElement> {}
+    extends Assign<HtmlIngredientProps<'div', HTMLDivElement>, DropzoneProps> {}
 </script>
 
 <script lang="ts">
@@ -13,11 +14,14 @@
     ref = $bindable(null),
     asChild,
     children,
+    disableClick,
     ...props
   }: FileUploadDropzoneProps = $props();
 
   let fileUpload = getFileUploadContext();
-  let mergedProps = $derived(mergeProps(fileUpload.getDropzoneProps(), props));
+  let mergedProps = $derived(
+    mergeProps(fileUpload.getDropzoneProps({disableClick}), props),
+  );
 </script>
 
 {#if asChild}
