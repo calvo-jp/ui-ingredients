@@ -16,6 +16,7 @@ const schema = s.object({
     minDepth: 2,
   }),
   metadata: s.metadata(),
+  keywords: s.array(s.string()).optional().default([]),
 });
 
 const overview = defineCollection({
