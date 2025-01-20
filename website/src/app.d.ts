@@ -1,8 +1,8 @@
 declare global {
   namespace App {
     interface TocEntry {
-      title: string;
       url: string;
+      title: string;
       items: TocEntry[];
     }
 
