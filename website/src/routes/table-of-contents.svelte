@@ -4,15 +4,16 @@
 
   let items = $derived.by(() => {
     const res: {
-      url: string;
+      id: string;
       title: string;
       depth: number;
     }[] = [];
 
     function flat(arr: App.TocEntry[], depth = 0) {
-      arr.forEach(({items, ...obj}) => {
+      arr.forEach(({items, title, url}) => {
         res.push({
-          ...obj,
+          id: url.substring(1),
+          title,
           depth,
         });
 
@@ -23,6 +24,38 @@
     flat(page.data.toc);
 
     return res;
+  });
+
+  let value: string | undefined = $state();
+
+  $effect(() => {
+    value = items[0].id;
+  });
+
+  $effect(() => {
+    const elems = items
+      .map(({id}) => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            value = entry.target.id;
+          }
+        });
+      },
+      {
+        rootMargin: '0px 0px -50% 0px',
+      },
+    );
+
+    elems.forEach((elem) => {
+      if (!elem) return;
+      observer.observe(elem);
+    });
+
+    return () => observer.disconnect();
   });
 </script>
 
@@ -37,10 +70,20 @@
 >
   <h2 class="mb-2 px-5 font-lexend font-semibold">On this page</h2>
 
-  <SegmentGroup.Root orientation="vertical" class="relative w-fit">
+  <SegmentGroup.Root
+    {value}
+    onValueChange={(detail) => {
+      value = detail.value;
+      const elem = document.getElementById(detail.value);
+      if (!elem) return;
+      elem.scrollIntoView({behavior: 'smooth'});
+    }}
+    orientation="vertical"
+    class="relative w-fit"
+  >
     {#each items as item}
       <SegmentGroup.Item
-        value={item.url}
+        value={item.id}
         class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-500 transition-colors duration-150 hover:text-neutral-600 ui-checked:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:ui-checked:text-neutral-200"
         style="--indent:{item.depth * 12}px"
       >
