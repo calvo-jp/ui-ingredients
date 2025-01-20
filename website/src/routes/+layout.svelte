@@ -49,6 +49,10 @@
 </ThemeProvider>
 
 <style lang="postcss">
+  :global([hidden]) {
+    display: none !important;
+  }
+
   :global(.shiki) {
     background: theme('colors.neutral.50') !important;
   }
