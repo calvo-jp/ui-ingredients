@@ -27,6 +27,9 @@
   });
 
   let value: string | undefined = $state();
+  let setValue = (newValue: string) => {
+    value = newValue;
+  };
 
   $effect(() => {
     value = items[0].id;
@@ -41,12 +44,12 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            value = entry.target.id;
+            setValue(entry.target.id);
           }
         });
       },
       {
-        rootMargin: '0px 0px -50% 0px',
+        threshold: 0.75,
       },
     );
 
@@ -73,7 +76,7 @@
   <SegmentGroup.Root
     {value}
     onValueChange={(detail) => {
-      value = detail.value;
+      setValue(detail.value);
       const elem = document.getElementById(detail.value);
       if (!elem) return;
       elem.scrollIntoView({behavior: 'smooth'});
