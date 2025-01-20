@@ -82,13 +82,13 @@
 </script>
 
 <div
-  class="hidden w-[18rem] shrink-0 xl:block"
+  class="hidden w-[20rem] shrink-0 xl:block"
   aria-hidden="true"
   data-placeholder
 ></div>
 
 <aside
-  class="fixed right-[var(--scrollbar-width,0)] top-16 z-sticky mt-20 hidden w-[18rem] shrink-0 border-l border-neutral-200 bg-white py-2 dark:border-neutral-800 dark:bg-neutral-950 xl:block"
+  class="fixed right-[var(--scrollbar-width,0)] top-16 z-sticky mt-20 hidden w-[20rem] shrink-0 border-l border-neutral-200 bg-white py-2 dark:border-neutral-800 dark:bg-neutral-950 xl:block"
 >
   <h2 class="mb-2 px-5 font-lexend font-semibold">On this page</h2>
 

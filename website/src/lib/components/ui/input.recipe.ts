@@ -4,8 +4,8 @@ export const inputRecipe = tv({
   base: 'block w-full rounded placeholder:text-neutral-400',
   variants: {
     size: {
-      xs: 'px-2.5 h-10',
-      sm: 'px-3 h-11',
+      xs: 'px-3 h-10',
+      sm: 'px-3.5 h-11',
       md: 'px-4 h-12',
     },
     variant: {

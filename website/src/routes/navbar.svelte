@@ -28,7 +28,7 @@
     </div>
 
     <div class="grow"></div>
-    <div class="flex gap-3 lg:gap-4">
+    <div class="flex items-center gap-3 lg:gap-4">
       <button
         {...theme.getTriggerProps({
           value: 'auto',
