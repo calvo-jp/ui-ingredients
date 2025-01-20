@@ -32,10 +32,6 @@
   };
 
   $effect(() => {
-    value = items[0].id;
-  });
-
-  $effect(() => {
     const elems = items
       .map(({id}) => document.getElementById(id))
       .filter(Boolean);
@@ -49,7 +45,7 @@
         });
       },
       {
-        threshold: 0.75,
+        threshold: 1,
       },
     );
 
