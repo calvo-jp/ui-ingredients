@@ -4,10 +4,6 @@ title: Dialog
 description: A component for displaying modal windows or pop-up messages.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

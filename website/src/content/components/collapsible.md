@@ -4,10 +4,6 @@ title: Collapsible
 description: A component that expands or collapses to show or hide content.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Usage

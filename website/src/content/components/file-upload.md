@@ -4,10 +4,6 @@ title: File Upload
 description: A component for selecting and uploading files from the user's device
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

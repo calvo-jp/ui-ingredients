@@ -5,10 +5,6 @@ description: A rotating component for cycling through images or content slides.
 beta: true
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

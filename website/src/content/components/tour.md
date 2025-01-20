@@ -5,10 +5,6 @@ description: A component for guiding users through a series of steps or features
 beta: true
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

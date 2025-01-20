@@ -4,10 +4,6 @@ title: Toast
 description: A component for displaying brief, non-intrusive notifications or messages.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

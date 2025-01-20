@@ -5,10 +5,6 @@ description: An Angle Slider Component is a circular UI control for selecting or
 beta: true
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Usage

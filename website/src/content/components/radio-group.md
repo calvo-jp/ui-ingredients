@@ -4,10 +4,6 @@ title: Radio Group
 description: A component for selecting one option from a set of mutually exclusive choices.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

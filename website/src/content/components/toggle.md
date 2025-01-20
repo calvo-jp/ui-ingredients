@@ -4,10 +4,6 @@ title: Toggle
 description: A component for switching between two states, suchjson as on/off.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ```svelte

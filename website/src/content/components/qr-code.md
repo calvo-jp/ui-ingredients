@@ -4,10 +4,6 @@ title: Qr Code
 description: A component for generating and displaying QR codes for quick scanning and access to information.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

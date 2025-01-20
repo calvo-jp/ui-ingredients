@@ -4,10 +4,6 @@ title: Clipboard
 description: A component for copying text or content to the user's clipboard.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

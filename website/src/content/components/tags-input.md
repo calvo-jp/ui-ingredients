@@ -4,10 +4,6 @@ title: Tags Input
 description: A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

@@ -4,10 +4,6 @@ title: Menu
 description: A component for navigating through a list of options or actions
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

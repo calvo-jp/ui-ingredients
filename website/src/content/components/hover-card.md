@@ -4,10 +4,6 @@ title: Hover Card
 description: A component that displays additional information when hovering over an element
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

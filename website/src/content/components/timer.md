@@ -4,10 +4,6 @@ title: Timer
 description: A component for counting down or tracking elapsed time.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Usage

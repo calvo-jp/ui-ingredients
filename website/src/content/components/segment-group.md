@@ -4,10 +4,6 @@ title: Segment Group
 description: A component for grouping and toggling between different sections or options, often used for filters or navigation.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

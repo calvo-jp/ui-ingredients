@@ -4,10 +4,6 @@ title: Rating Group
 description: A component for selecting a rating value, typically represented by stars or other symbols.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

@@ -4,10 +4,6 @@ title: Color Picker
 description: A component for selecting and customizing colors.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

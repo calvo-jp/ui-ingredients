@@ -5,10 +5,6 @@ description: A component for displaying hierarchical data in a tree structure, a
 beta: true
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

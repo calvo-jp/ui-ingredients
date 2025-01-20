@@ -4,10 +4,6 @@ title: Number Input
 description: A component for entering numeric values
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

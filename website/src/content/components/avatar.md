@@ -4,10 +4,6 @@ title: Avatar
 description: A visual component for displaying a user’s profile image or initials.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

@@ -27,24 +27,22 @@
     ].join('|')})`,
   );
 
-  let parts = $derived.by(() => {
-    return content
-      .replace(/\{title\}/g, title)
-      .replace(/\{description\}/g, description)
-      .split(TAG_REGEX);
-  });
+  let parts = $derived(content.split(TAG_REGEX));
 </script>
 
 <svelte:head>
   <title>{title} | UI Ingredients</title>
   <meta property="og:title" content={title} />
   <meta name="twitter:title" content={title} />
-  <meta name="description" content={description} />
-  <meta name="twitter:description" content={description} />
-  <meta property="og:description" content={description} />
+  <meta name="description" content="/" />
+  <meta name="twitter:description" content="/" />
+  <meta property="og:description" content="/" />
   <meta name="twitter:site" content="UI Ingredients" />
   <meta property="og:site_name" content="UI Ingredients" />
 </svelte:head>
+
+<h1>{title}</h1>
+<p>{description}</p>
 
 {#each parts as part}
   {#if DEMO_TAG_REGEX.test(part)}

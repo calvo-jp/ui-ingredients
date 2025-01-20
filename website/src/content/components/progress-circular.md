@@ -4,10 +4,6 @@ title: Progress - Circular
 description: A component for displaying the completion status of a task or process.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

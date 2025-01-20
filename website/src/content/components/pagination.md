@@ -4,10 +4,6 @@ title: Pagination
 description: A component for navigating through multiple pages of content.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy

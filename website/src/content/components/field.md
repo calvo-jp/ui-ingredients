@@ -4,10 +4,6 @@ title: Field
 description: A component for organizing related form elements into a cohesive unit.
 ---
 
-# {title}
-
-{description}
-
 <demo>
 
 ## Anatomy
