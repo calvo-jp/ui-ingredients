@@ -2,59 +2,57 @@
   import {page} from '$app/state';
   import {SegmentGroup} from 'ui-ingredients';
 
+  let rootFontSize = $state(16);
+  let navbarHeight = $derived(4 /* rem */ * rootFontSize);
+  let paddingTop = $derived(2 /* rem */ * rootFontSize);
+  let topAllowance = $derived(navbarHeight + paddingTop);
+
+  $effect(() => {
+    rootFontSize = parseFloat(
+      getComputedStyle(document.documentElement).fontSize,
+    );
+  });
+
+  interface Item {
+    url: string;
+    title: string;
+    depth: number;
+  }
+
   let items = $derived.by(() => {
-    const res: {
-      id: string;
-      title: string;
-      depth: number;
-    }[] = [];
+    const res: Item[] = [];
 
     function flat(arr: App.TocEntry[], depth = 0) {
-      arr.forEach(({items, title, url}) => {
+      arr.forEach(({items, ...obj}) => {
         res.push({
-          id: url.substring(1),
-          title,
+          ...obj,
           depth,
         });
 
-        if (items) flat(items, depth + 1);
+        if (items.length) flat(items, depth + 1);
       });
     }
 
-    flat(page.data.toc);
+    if (page.data.toc.length) flat(page.data.toc);
 
     return res;
   });
 
-  let value: string | undefined = $state();
-  let setValue = (newValue: string) => {
-    value = newValue;
-  };
+  let activeUrl: string | undefined = $state();
+  let activeItem = $derived(items.find((item) => item.url === activeUrl));
+  let activeHeading = $derived.by(() => {
+    if (!activeItem) return;
+    const heading = document.querySelector<HTMLHeadingElement>(activeItem.url);
+    return heading;
+  });
 
   $effect(() => {
-    const elems = items
-      .map(({id}) => document.getElementById(id))
-      .filter(Boolean);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setValue(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 1,
-      },
-    );
-
-    elems.forEach((elem) => {
-      if (!elem) return;
-      observer.observe(elem);
+    if (!activeHeading) return;
+    const offsetTop = activeHeading.offsetTop;
+    document.documentElement.scrollTo({
+      top: offsetTop - topAllowance,
+      behavior: 'smooth',
     });
-
-    return () => observer.disconnect();
   });
 </script>
 
@@ -70,19 +68,16 @@
   <h2 class="mb-2 px-5 font-lexend font-semibold">On this page</h2>
 
   <SegmentGroup.Root
-    {value}
+    value={activeUrl}
     onValueChange={(detail) => {
-      setValue(detail.value);
-      const elem = document.getElementById(detail.value);
-      if (!elem) return;
-      elem.scrollIntoView({behavior: 'smooth'});
+      activeUrl = detail.value;
     }}
     orientation="vertical"
     class="relative w-fit"
   >
     {#each items as item}
       <SegmentGroup.Item
-        value={item.id}
+        value={item.url}
         class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-500 transition-colors duration-150 hover:text-neutral-600 ui-checked:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:ui-checked:text-neutral-200"
         style="--indent:{item.depth * 12}px"
       >
