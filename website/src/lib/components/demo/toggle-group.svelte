@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {IconButton} from '$lib/components';
+  import IconButton from '$lib/components/ui/icon-button.svelte';
   import {
     Bold01Icon,
     Italic01Icon,

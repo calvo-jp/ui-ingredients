@@ -1,5 +1,4 @@
 <script lang="ts">
- 
   import type {Component} from 'svelte';
   import Accordion from './accordion.svelte';
   import AlertDialog from './alert-dialog.svelte';
@@ -48,7 +47,7 @@
   import Tour from './tour.svelte';
   import TreeView from './tree-view.svelte';
 
-  const MAP = {
+  const MAP: Record<string, Component | null> = {
     'alert-dialog': AlertDialog,
     'angle-slider': AngleSlider,
     'color-picker': ColorPicker,
@@ -96,9 +95,9 @@
     tooltip: Tooltip,
     tour: Tour,
     toggle: Toggle,
-  } satisfies Record<ComponentId, Component | null>;
+  };
 
-  let {id}: {id: ComponentId} = $props();
+  let {id}: {id: string} = $props();
 
   let Subject = $derived(MAP[id]);
 </script>

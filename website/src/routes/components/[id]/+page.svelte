@@ -1,5 +1,7 @@
 <script lang="ts">
-  import {Accessibility, Anatomy, Api} from '$lib/components';
+  import KeyboardSupport from '$lib/components/accessibility/keyboard-support.svelte';
+  import Anatomy from '$lib/components/anatomy.svelte';
+  import Api from '$lib/components/api';
   import Demo from '$lib/components/demo';
   import MetaTags from '$lib/components/meta-tags.svelte';
 
@@ -27,4 +29,4 @@
 {@html content}
 
 <Api {id} />
-<Accessibility {id} />
+<KeyboardSupport {id} />

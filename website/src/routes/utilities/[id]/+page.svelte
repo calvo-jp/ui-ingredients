@@ -1,6 +1,5 @@
 <script lang="ts">
-  import {Accessibility, Anatomy, Api} from '$lib/components';
-  import Demo from '$lib/components/demo';
+  import Api from '$lib/components/api';
   import MetaTags from '$lib/components/meta-tags.svelte';
 
   let {data} = $props();

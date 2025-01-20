@@ -1,12 +1,25 @@
 <script lang="ts">
   import {page} from '$app/state';
-  import {APP_LINKS} from '$lib/constants';
+  import {components, overview, utilities} from '.velite';
   import {
     ChevronLeftIcon,
     ChevronRightIcon,
   } from '@untitled-theme/icons-svelte';
 
-  const links = APP_LINKS.map((parent) => parent.links).flat();
+  const links = [
+    ...overview.map((item) => ({
+      path: item.id === 'introduction' ? '/' : item.id,
+      label: item.title,
+    })),
+    ...components.map((item) => ({
+      path: `/components/${item.id}`,
+      label: item.title,
+    })),
+    ...utilities.map((item) => ({
+      path: `/utilities/${item.id}`,
+      label: item.title,
+    })),
+  ];
 
   const currentLinkIndex = $derived(
     links.findIndex((link) => link.path === page.url.pathname),

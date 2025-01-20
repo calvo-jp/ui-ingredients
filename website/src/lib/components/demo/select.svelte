@@ -1,5 +1,7 @@
 <script lang="ts">
-  import {Button, IconButton, Label} from '$lib/components';
+  import Button from '$lib/components/ui/button.svelte';
+  import IconButton from '$lib/components/ui/icon-button.svelte';
+  import Label from '$lib/components/ui/label.svelte';
   import {
     CheckIcon,
     ChevronDownIcon,

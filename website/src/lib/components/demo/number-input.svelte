@@ -1,5 +1,6 @@
 <script lang="ts">
-  import {Input, Label} from '$lib/components';
+  import Input from '$lib/components/ui/input.svelte';
+  import Label from '$lib/components/ui/label.svelte';
   import {ChevronDownIcon, ChevronUpIcon} from '@untitled-theme/icons-svelte';
   import {NumberInput} from 'ui-ingredients';
 </script>

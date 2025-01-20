@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button} from '$lib/components';
+  import Button from '$lib/components/ui/button.svelte';
   import {Popover, Portal} from 'ui-ingredients';
 </script>
 

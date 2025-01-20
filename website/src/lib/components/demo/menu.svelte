@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button} from '$lib/components';
+  import Button from '$lib/components/ui/button.svelte';
   import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
   import {Menu, Portal} from 'ui-ingredients';
 

@@ -1,5 +1,7 @@
 <script lang="ts">
-  import {IconButton, Input, Label} from '$lib/components';
+  import IconButton from '$lib/components/ui/icon-button.svelte';
+  import Input from '$lib/components/ui/input.svelte';
+  import Label from '$lib/components/ui/label.svelte';
   import {DropperIcon} from '@untitled-theme/icons-svelte';
   import {ColorPicker} from 'ui-ingredients';
 

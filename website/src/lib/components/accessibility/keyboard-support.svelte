@@ -1,9 +1,8 @@
 <script lang="ts">
-  import type {ComponentId} from '$lib/types';
   import {getAccessibilityDoc, type AccessibilityDoc} from '@zag-js/docs';
-  import {Table} from './ui';
+  import Table from '../ui/table';
 
-  const MAP = {
+  const MAP: Record<string, AccessibilityDoc | null> = {
     'alert-dialog': getAccessibilityDoc('dialog'),
     'angle-slider': getAccessibilityDoc('slider'),
     'color-picker': getAccessibilityDoc('color-picker'),
@@ -51,41 +50,36 @@
     toggle: null,
     tooltip: getAccessibilityDoc('tooltip'),
     tour: getAccessibilityDoc('tour'),
-  } satisfies Record<ComponentId, AccessibilityDoc | null>;
+  };
 
-  let {id}: {id: ComponentId} = $props();
+  let {id}: {id: string} = $props();
 
   let subject = $derived(MAP[id]);
 </script>
 
-{#if subject}
-  <h2>Accessibility</h2>
-  <h3>Keboard support</h3>
-
-  {#if subject?.keyboard}
-    <Table.Container class="not-prose">
-      <Table.Root>
-        <Table.Header>
+{#if subject?.keyboard}
+  <Table.Container class="not-prose">
+    <Table.Root>
+      <Table.Header>
+        <Table.Row>
+          <Table.Heading class="w-1/4">Key</Table.Heading>
+          <Table.Heading>Description</Table.Heading>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {#each subject.keyboard as item}
           <Table.Row>
-            <Table.Heading class="w-1/4">Key</Table.Heading>
-            <Table.Heading>Description</Table.Heading>
+            <Table.Cell>
+              <span
+                class="whitespace-nowrap rounded border border-neutral-200 bg-neutral-50 px-1.5 py-0.5 font-mono text-xs leading-none dark:border-neutral-800 dark:bg-neutral-800/50"
+              >
+                {item.keys.join(' + ')}
+              </span>
+            </Table.Cell>
+            <Table.Cell>{@html item.description}</Table.Cell>
           </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {#each subject.keyboard as item}
-            <Table.Row>
-              <Table.Cell>
-                <span
-                  class="whitespace-nowrap rounded border border-neutral-200 bg-neutral-50 px-1.5 py-0.5 font-mono text-xs leading-none dark:border-neutral-800 dark:bg-neutral-800/50"
-                >
-                  {item.keys.join(' + ')}
-                </span>
-              </Table.Cell>
-              <Table.Cell>{@html item.description}</Table.Cell>
-            </Table.Row>
-          {/each}
-        </Table.Body>
-      </Table.Root>
-    </Table.Container>
-  {/if}
+        {/each}
+      </Table.Body>
+    </Table.Root>
+  </Table.Container>
 {/if}

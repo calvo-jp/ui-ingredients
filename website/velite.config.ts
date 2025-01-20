@@ -5,52 +5,35 @@ import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
 import {defineCollection, defineConfig, s} from 'velite';
 
+const schema = s.object({
+  id: s.unique('id'),
+  title: s.string(),
+  description: s.string(),
+  beta: s.boolean().optional().default(false),
+  content: s.markdown(),
+  toc: s.toc({
+    maxDepth: 3,
+    minDepth: 2,
+  }),
+  metadata: s.metadata(),
+});
+
 const overview = defineCollection({
   name: 'Overview',
   pattern: 'overview/**/*.md',
-  schema: s.object({
-    id: s.unique('id'),
-    title: s.string(),
-    description: s.string(),
-    content: s.markdown(),
-    toc: s.toc({
-      maxDepth: 3,
-      minDepth: 2,
-    }),
-    metadata: s.metadata(),
-  }),
+  schema,
 });
 
 const components = defineCollection({
   name: 'Components',
   pattern: 'components/**/*.md',
-  schema: s.object({
-    id: s.unique('id'),
-    title: s.string(),
-    description: s.string(),
-    content: s.markdown(),
-    toc: s.toc({
-      maxDepth: 3,
-      minDepth: 2,
-    }),
-    metadata: s.metadata(),
-  }),
+  schema,
 });
 
 const utilities = defineCollection({
   name: 'Utilities',
   pattern: 'utilities/**/*.md',
-  schema: s.object({
-    id: s.unique('id'),
-    title: s.string(),
-    description: s.string(),
-    content: s.markdown(),
-    toc: s.toc({
-      maxDepth: 3,
-      minDepth: 2,
-    }),
-    metadata: s.metadata(),
-  }),
+  schema,
 });
 
 export default defineConfig({
@@ -85,5 +68,6 @@ export default defineConfig({
   output: {
     clean: true,
     assets: 'static',
+    data: 'src/.velite',
   },
 });

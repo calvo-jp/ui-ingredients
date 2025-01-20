@@ -8,7 +8,7 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      '.velite': '.velite',
+      '.velite': 'src/.velite',
     },
   },
   compilerOptions: {

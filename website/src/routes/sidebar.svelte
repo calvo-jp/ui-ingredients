@@ -1,9 +1,36 @@
 <script>
   import {page} from '$app/state';
-  import {Badge} from '$lib/components';
-  import {APP_LINKS} from '$lib/constants';
-  import {navbarStore} from '$lib/stores';
+  import Badge from '$lib/components/ui/badge.svelte';
+  import {navbarStore} from '$lib/stores/navbar.svelte';
+  import {components, overview, utilities} from '.velite';
   import {Drawer, Portal} from 'ui-ingredients';
+
+  const links = [
+    {
+      label: 'Overview',
+      links: overview.map((item) => ({
+        path: item.id === 'introduction' ? '/' : item.id,
+        label: item.title,
+        beta: false,
+      })),
+    },
+    {
+      label: 'Components',
+      links: components.map((item) => ({
+        path: `/components/${item.id}`,
+        label: item.title,
+        beta: item.beta,
+      })),
+    },
+    {
+      label: 'Utilities',
+      links: utilities.map((item) => ({
+        path: `/utilities/${item.id}`,
+        label: item.title,
+        beta: item.beta,
+      })),
+    },
+  ];
 </script>
 
 <div
@@ -50,7 +77,7 @@
 
 {#snippet items()}
   <ul>
-    {#each APP_LINKS as parent}
+    {#each links as parent}
       <li
         class="border-t border-neutral-200 py-4 first:border-0 first:pt-0 dark:border-neutral-800"
       >

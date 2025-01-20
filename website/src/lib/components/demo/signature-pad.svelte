@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Label} from '$lib/components';
+  import Label from '$lib/components/ui/label.svelte';
   import {RefreshCcw01Icon} from '@untitled-theme/icons-svelte';
   import {SignaturePad} from 'ui-ingredients';
 </script>

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import {Button, Label} from '$lib/components';
+  import Button from '$lib/components/ui/button.svelte';
+  import Label from '$lib/components/ui/label.svelte';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {TagsInput} from 'ui-ingredients';
 </script>
