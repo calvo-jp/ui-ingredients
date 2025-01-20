@@ -4,6 +4,8 @@ title: Date Picker
 description: A component for selecting a date from a calendar interface.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -278,3 +280,9 @@ description: A component for selecting a date from a calendar interface.
   {/snippet}
 </DatePicker.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

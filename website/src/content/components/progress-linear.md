@@ -4,6 +4,8 @@ title: Progress - Linear
 description: A component for displaying the completion status of a task or process.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -19,3 +21,9 @@ description: A component for displaying the completion status of a task or proce
   <Progress.ValueText />
 </Progress.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

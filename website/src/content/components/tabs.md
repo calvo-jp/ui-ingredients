@@ -4,6 +4,8 @@ title: Tabs
 description: A component for organizing and switching between multiple sections of content within a single view.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -45,3 +47,9 @@ description: A component for organizing and switching between multiple sections 
   {/each}
 </Tabs.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

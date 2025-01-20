@@ -27,3 +27,9 @@ description: A component for switching between two states, suchjson as on/off.
   {/if}
 </Toggle.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

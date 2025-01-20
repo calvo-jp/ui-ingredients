@@ -4,6 +4,8 @@ title: Menu
 description: A component for navigating through a list of options or actions
 ---
 
+## Anatomy
+
 ## Usage
 
 ### Basic Menu
@@ -146,3 +148,9 @@ description: A component for navigating through a list of options or actions
   </Menu.Positioner>
 </Menu.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

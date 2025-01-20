@@ -4,6 +4,8 @@ title: Number Input
 description: A component for entering numeric values
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -52,3 +54,9 @@ description: A component for entering numeric values
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

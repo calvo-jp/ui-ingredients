@@ -4,6 +4,8 @@ title: Signature Pad
 description: A component for capturing and displaying handwritten signatures.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -29,3 +31,9 @@ description: A component for capturing and displaying handwritten signatures.
   {/snippet}
 </SignaturePad.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

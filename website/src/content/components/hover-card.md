@@ -4,6 +4,8 @@ title: Hover Card
 description: A component that displays additional information when hovering over an element
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -28,3 +30,9 @@ description: A component that displays additional information when hovering over
   </Portal>
 </HoverCard.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

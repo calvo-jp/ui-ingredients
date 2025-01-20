@@ -4,6 +4,8 @@ title: Dialog
 description: A component for displaying modal windows or pop-up messages.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -29,3 +31,9 @@ description: A component for displaying modal windows or pop-up messages.
   </Portal>
 </Dialog.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

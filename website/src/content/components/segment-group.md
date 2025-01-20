@@ -4,6 +4,8 @@ title: Segment Group
 description: A component for grouping and toggling between different sections or options, often used for filters or navigation.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -25,3 +27,9 @@ description: A component for grouping and toggling between different sections or
   <SegmentGroup.Indicator />
 </SegmentGroup.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

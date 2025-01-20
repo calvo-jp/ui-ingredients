@@ -23,3 +23,9 @@ description: A component for displaying the completion status of a task or proce
   </Progress.Circle>
 </Progress.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

@@ -4,6 +4,8 @@ title: Carousel
 description: A rotating component for cycling through images or content slides.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -43,3 +45,9 @@ description: A rotating component for cycling through images or content slides.
   </Carousel.Control>
 </Carousel.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

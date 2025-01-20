@@ -23,3 +23,5 @@ description: A component that controls content rendering and unmounting based on
 
 <Presence {present} lazyMount keepMounted>Content</Presence>
 ```
+
+## API Reference

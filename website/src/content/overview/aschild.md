@@ -1,3 +1,9 @@
+---
+id: aschild
+title: The asChild Prop
+description: The asChild prop lets you render a custom component to ensure consistent styling and behavior while enhancing flexibility and reusability.
+---
+
 # The asChild Prop
 
 The `asChild` prop lets you render a custom component to ensure consistent styling and behavior while enhancing flexibility and reusability.

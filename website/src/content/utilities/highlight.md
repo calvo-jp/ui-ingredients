@@ -16,3 +16,5 @@ description: A component for highlighting text within a string.
 
 <Highlight {text} query="consectetur" />
 ```
+
+## API Reference

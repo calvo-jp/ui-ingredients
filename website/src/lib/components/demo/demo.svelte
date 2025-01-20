@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type {ComponentId} from '$lib/types';
+ 
   import type {Component} from 'svelte';
   import Accordion from './accordion.svelte';
   import AlertDialog from './alert-dialog.svelte';

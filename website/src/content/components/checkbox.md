@@ -4,6 +4,8 @@ title: Checkbox
 description: An interactive component for selecting one or multiple options in a list.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -46,3 +48,9 @@ description: An interactive component for selecting one or multiple options in a
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

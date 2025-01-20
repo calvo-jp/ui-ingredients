@@ -18,3 +18,5 @@ description: A component for providing environment information to the rest of th
   {@render children()}
 </EnvironmentProvider>
 ```
+
+## API Reference

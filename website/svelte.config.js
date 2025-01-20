@@ -7,6 +7,9 @@ const config = {
   preprocess: [vitePreprocess()],
   kit: {
     adapter: adapter(),
+    alias: {
+      '.velite': '.velite',
+    },
   },
   compilerOptions: {
     runes: true,

@@ -4,6 +4,8 @@ title: Drawer
 description: A component that slides in from the edge of the screen to display additional content or navigation options.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -29,3 +31,9 @@ description: A component that slides in from the edge of the screen to display a
   </Drawer.Positioner>
 </Drawer.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

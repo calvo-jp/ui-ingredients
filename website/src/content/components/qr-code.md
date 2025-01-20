@@ -4,6 +4,8 @@ title: Qr Code
 description: A component for generating and displaying QR codes for quick scanning and access to information.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -18,3 +20,9 @@ description: A component for generating and displaying QR codes for quick scanni
   <QrCode.DownloadTrigger>Download</QrCode.DownloadTrigger>
 </QrCode.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

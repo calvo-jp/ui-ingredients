@@ -5,7 +5,7 @@
 
   let {data} = $props();
 
-  let {id, html, title, description} = $derived(data);
+  let {id, title, description, content} = $derived(data);
 </script>
 
 <svelte:head>
@@ -24,7 +24,7 @@
 <Demo {id} />
 <Anatomy {id} />
 
-{@html html}
+{@html content}
 
 <Api {id} />
 <Accessibility {id} />

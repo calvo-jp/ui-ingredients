@@ -4,6 +4,8 @@ title: Radio Group
 description: A component for selecting one option from a set of mutually exclusive choices.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -41,3 +43,9 @@ description: A component for selecting one option from a set of mutually exclusi
   {/each}
 </RadioGroup.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

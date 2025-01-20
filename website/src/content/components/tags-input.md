@@ -4,6 +4,8 @@ title: Tags Input
 description: A component for adding and managing a list of tags or keywords, often with autocomplete and removal features.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -72,3 +74,9 @@ description: A component for adding and managing a list of tags or keywords, oft
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

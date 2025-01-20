@@ -4,6 +4,8 @@ title: Tour
 description: A component for guiding users through a series of steps or features in an application or website.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -78,3 +80,9 @@ description: A component for guiding users through a series of steps or features
 <div id="target-2">Target 2</div>
 <div id="target-3">Target 3</div>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

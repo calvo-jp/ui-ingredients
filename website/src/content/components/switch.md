@@ -4,6 +4,8 @@ title: Switch
 description: A component for toggling between two states, such as on/off or enabled/disabled.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -40,3 +42,9 @@ description: A component for toggling between two states, such as on/off or enab
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

@@ -4,6 +4,8 @@ title: Steps
 description: A component for displaying a sequence of steps or stages in a process, often used for navigation or progress tracking.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -56,3 +58,9 @@ description: A component for displaying a sequence of steps or stages in a proce
   <Steps.NextTrigger>Next</Steps.NextTrigger>
 </Steps.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

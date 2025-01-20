@@ -4,6 +4,8 @@ title: Pin Input
 description: A component for entering and displaying a sequence of numeric or alphanumeric characters, often used for PINs or codes.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -42,3 +44,9 @@ description: A component for entering and displaying a sequence of numeric or al
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

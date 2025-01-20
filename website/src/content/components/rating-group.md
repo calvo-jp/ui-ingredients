@@ -4,6 +4,8 @@ title: Rating Group
 description: A component for selecting a rating value, typically represented by stars or other symbols.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -56,3 +58,9 @@ description: A component for selecting a rating value, typically represented by 
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

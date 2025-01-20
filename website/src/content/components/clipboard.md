@@ -4,6 +4,8 @@ title: Clipboard
 description: A component for copying text or content to the user's clipboard.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -30,3 +32,9 @@ description: A component for copying text or content to the user's clipboard.
   </Clipboard.Control>
 </Clipboard.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

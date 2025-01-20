@@ -4,6 +4,8 @@ title: Combobox
 description: A component that combines a text input with a dropdown list for selecting or entering values.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -150,3 +152,9 @@ description: A component that combines a text input with a dropdown list for sel
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

@@ -18,3 +18,5 @@ description: A component for providing locale information to the rest of the app
   {@render children()}
 </LocaleProvider>
 ```
+
+## API Reference

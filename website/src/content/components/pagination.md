@@ -4,6 +4,8 @@ title: Pagination
 description: A component for navigating through multiple pages of content.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -34,3 +36,9 @@ description: A component for navigating through multiple pages of content.
   {/snippet}
 </Pagination.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

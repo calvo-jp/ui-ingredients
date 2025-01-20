@@ -4,6 +4,8 @@ title: Splitter
 description: A component for resizing and adjusting the size of adjacent panes or sections.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -22,3 +24,9 @@ description: A component for resizing and adjusting the size of adjacent panes o
   <Splitter.Panel id="b">B</Splitter.Panel>
 </Splitter.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

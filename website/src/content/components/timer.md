@@ -4,6 +4,8 @@ title: Timer
 description: A component for counting down or tracking elapsed time.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -36,3 +38,9 @@ description: A component for counting down or tracking elapsed time.
   </Timer.Control>
 </Timer.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

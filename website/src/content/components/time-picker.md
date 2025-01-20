@@ -4,6 +4,8 @@ title: Time Picker
 description: A component for selecting a time from a dropdown or input interface.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -77,3 +79,9 @@ description: A component for selecting a time from a dropdown or input interface
   {/snippet}
 </TimePicker.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

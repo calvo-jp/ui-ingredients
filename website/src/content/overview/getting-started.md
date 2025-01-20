@@ -1,3 +1,9 @@
+---
+id: getting-started
+title: Getting Started
+description: Start incorporating UI Ingredients into your project today!
+---
+
 # Getting Started
 
 Start incorporating UI Ingredients into your project today!

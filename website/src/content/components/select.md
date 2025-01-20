@@ -4,6 +4,8 @@ title: Select
 description: A component for choosing an option from a dropdown list.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -90,3 +92,9 @@ description: A component for choosing an option from a dropdown list.
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

@@ -1,10 +1,11 @@
 <script lang="ts">
-  import {Api} from '$lib/components';
+  import {Accessibility, Anatomy, Api} from '$lib/components';
+  import Demo from '$lib/components/demo';
   import MetaTags from '$lib/components/meta-tags.svelte';
 
   let {data} = $props();
 
-  let {id, html, title, description} = $derived(data);
+  let {id, title, description, content} = $derived(data);
 </script>
 
 <svelte:head>
@@ -18,8 +19,8 @@
 >
   {title}
 </h1>
-<p class="not-prose text-lg">{description}</p>
+<p class="not-prose mb-8 text-lg">{description}</p>
 
-{@html html}
+{@html content}
 
 <Api {id} />

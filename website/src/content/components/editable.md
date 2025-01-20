@@ -4,6 +4,8 @@ title: Editable
 description: A component that allows users to modify its content.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -52,3 +54,9 @@ description: A component that allows users to modify its content.
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

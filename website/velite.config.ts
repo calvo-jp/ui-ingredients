@@ -9,6 +9,9 @@ const overview = defineCollection({
   name: 'Overview',
   pattern: 'overview/**/*.md',
   schema: s.object({
+    id: s.unique('id'),
+    title: s.string(),
+    description: s.string(),
     content: s.markdown(),
     toc: s.toc({
       maxDepth: 3,
@@ -78,5 +81,9 @@ export default defineConfig({
     overview,
     components,
     utilities,
+  },
+  output: {
+    clean: true,
+    assets: 'static',
   },
 });

@@ -4,6 +4,8 @@ title: Alert Dialog
 description: A component for displaying a modal dialog that requires user attention or confirmation.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -23,3 +25,9 @@ description: A component for displaying a modal dialog that requires user attent
   </AlertDialog.Positioner>
 </AlertDialog.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

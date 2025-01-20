@@ -4,6 +4,8 @@ title: Toggle Group
 description: A component for grouping multiple toggle switches, allowing users to switch between different options or states.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -33,3 +35,9 @@ description: A component for grouping multiple toggle switches, allowing users t
   </ToggleGroup.Item>
 </ToggleGroup.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

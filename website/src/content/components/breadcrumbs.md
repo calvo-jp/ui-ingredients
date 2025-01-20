@@ -34,3 +34,9 @@ description: A component for displaying the navigation path or hierarchy of a us
   </Breadcrumbs.List>
 </Breadcrumbs.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

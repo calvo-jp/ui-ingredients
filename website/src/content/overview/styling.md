@@ -1,3 +1,9 @@
+---
+id: styling
+title: Styling
+description: Learn how to style UI Ingredients components to match your design system.
+---
+
 # Styling
 
 **UI Ingredients** doesn't include built-in styles, giving you the freedom to customize components with your preferred styling solution. Whether you choose [Tailwind](https://tailwindcss.com/), [Panda](https://panda-css.com/), or native CSS, you have the flexibility to create a look that suits your needs.

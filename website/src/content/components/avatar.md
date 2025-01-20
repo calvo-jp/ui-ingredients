@@ -4,6 +4,8 @@ title: Avatar
 description: A visual component for displaying a user’s profile image or initials.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -16,3 +18,9 @@ description: A visual component for displaying a user’s profile image or initi
   <Avatar.Fallback>JD</Avatar.Fallback>
 </Avatar.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

@@ -4,6 +4,8 @@ title: Slider
 description: A component for adjusting values or selecting ranges through a draggable handle.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -69,3 +71,9 @@ description: A component for adjusting values or selecting ranges through a drag
   </Slider.MarkerGroup>
 </Slider.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

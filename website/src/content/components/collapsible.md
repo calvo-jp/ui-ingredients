@@ -4,6 +4,8 @@ title: Collapsible
 description: A component that expands or collapses to show or hide content.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -16,3 +18,9 @@ description: A component that expands or collapses to show or hide content.
   <Collapsible.Content>Content</Collapsible.Content>
 </Collapsible.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

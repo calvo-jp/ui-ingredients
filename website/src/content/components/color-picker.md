@@ -4,6 +4,8 @@ title: Color Picker
 description: A component for selecting and customizing colors.
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -80,3 +82,9 @@ description: A component for selecting and customizing colors.
   {/snippet}
 </ColorPicker.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

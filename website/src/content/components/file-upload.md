@@ -4,6 +4,8 @@ title: File Upload
 description: A component for selecting and uploading files from the user's device
 ---
 
+## Anatomy
+
 ## Usage
 
 ```svelte
@@ -78,3 +80,9 @@ description: A component for selecting and uploading files from the user's devic
   <Field.ErrorText>This is an error text</Field.ErrorText>
 </Field.Root>
 ```
+
+## API Reference
+
+## Accessibility
+
+### Keyboard Support

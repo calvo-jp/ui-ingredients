@@ -52,3 +52,5 @@ To globally set a container for all portals, you can use the `PortalProvider` co
 
 <div bind:this={container}></div>
 ```
+
+## API Reference
