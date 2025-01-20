@@ -4,7 +4,15 @@ title: Avatar
 description: A visual component for displaying a user’s profile image or initials.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -21,6 +29,4 @@ description: A visual component for displaying a user’s profile image or initi
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

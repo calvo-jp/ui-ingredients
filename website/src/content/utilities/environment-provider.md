@@ -4,6 +4,10 @@ title: Environment Provider
 description: A component for providing environment information to the rest of the application.
 ---
 
+# {title}
+
+{description}
+
 ## Usage
 
 ```svelte
@@ -20,3 +24,5 @@ description: A component for providing environment information to the rest of th
 ```
 
 ## API Reference
+
+<api>

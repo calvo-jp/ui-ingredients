@@ -4,9 +4,15 @@ title: Alert Dialog
 description: A component for displaying a modal dialog that requires user attention or confirmation.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
 
-## Usage
+<anatomy>
 
 ```svelte
 <script>
@@ -28,6 +34,10 @@ description: A component for displaying a modal dialog that requires user attent
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

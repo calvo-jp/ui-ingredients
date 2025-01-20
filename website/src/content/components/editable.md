@@ -4,7 +4,15 @@ title: Editable
 description: A component that allows users to modify its content.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -57,6 +65,10 @@ description: A component that allows users to modify its content.
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

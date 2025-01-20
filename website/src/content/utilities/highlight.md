@@ -4,6 +4,10 @@ title: Highlight
 description: A component for highlighting text within a string.
 ---
 
+# {title}
+
+{description}
+
 ## Usage
 
 ```svelte
@@ -18,3 +22,5 @@ description: A component for highlighting text within a string.
 ```
 
 ## API Reference
+
+<api>

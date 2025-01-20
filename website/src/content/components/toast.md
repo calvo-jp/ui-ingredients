@@ -4,7 +4,15 @@ title: Toast
 description: A component for displaying brief, non-intrusive notifications or messages.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -67,6 +75,4 @@ export const toaster = createToaster({
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

@@ -4,7 +4,15 @@ title: Number Input
 description: A component for entering numeric values
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -57,6 +65,10 @@ description: A component for entering numeric values
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

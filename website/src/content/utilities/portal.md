@@ -4,6 +4,10 @@ title: Portal
 description: A component for rendering content in a different part of the DOM hierarchy, often used for modals or tooltips.
 ---
 
+# {title}
+
+{description}
+
 ## Usage
 
 ```svelte
@@ -54,3 +58,5 @@ To globally set a container for all portals, you can use the `PortalProvider` co
 ```
 
 ## API Reference
+
+<api>

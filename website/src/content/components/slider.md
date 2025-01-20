@@ -4,7 +4,15 @@ title: Slider
 description: A component for adjusting values or selecting ranges through a draggable handle.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -74,6 +82,10 @@ description: A component for adjusting values or selecting ranges through a drag
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

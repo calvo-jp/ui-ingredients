@@ -4,7 +4,11 @@ title: Toggle
 description: A component for switching between two states, suchjson as on/off.
 ---
 
-## Usage
+# {title}
+
+{description}
+
+<demo>
 
 ```svelte
 <script>
@@ -30,6 +34,4 @@ description: A component for switching between two states, suchjson as on/off.
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

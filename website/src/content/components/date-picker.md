@@ -4,7 +4,15 @@ title: Date Picker
 description: A component for selecting a date from a calendar interface.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -283,6 +291,10 @@ description: A component for selecting a date from a calendar interface.
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

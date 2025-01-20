@@ -4,7 +4,15 @@ title: Toggle Group
 description: A component for grouping multiple toggle switches, allowing users to switch between different options or states.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -38,6 +46,10 @@ description: A component for grouping multiple toggle switches, allowing users t
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

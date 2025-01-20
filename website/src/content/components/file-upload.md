@@ -4,7 +4,15 @@ title: File Upload
 description: A component for selecting and uploading files from the user's device
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -83,6 +91,4 @@ description: A component for selecting and uploading files from the user's devic
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

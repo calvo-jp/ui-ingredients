@@ -4,7 +4,15 @@ title: Tooltip
 description: A component for displaying brief, contextual information when hovering over or focusing on an element.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -32,6 +40,10 @@ description: A component for displaying brief, contextual information when hover
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

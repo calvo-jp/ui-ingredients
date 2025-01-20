@@ -4,7 +4,15 @@ title: Field
 description: A component for organizing related form elements into a cohesive unit.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -64,6 +72,4 @@ description: A component for organizing related form elements into a cohesive un
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

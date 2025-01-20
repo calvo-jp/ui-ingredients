@@ -4,7 +4,15 @@ title: Progress - Linear
 description: A component for displaying the completion status of a task or process.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -24,6 +32,4 @@ description: A component for displaying the completion status of a task or proce
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

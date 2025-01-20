@@ -4,7 +4,11 @@ title: Time Picker
 description: A component for selecting a time from a dropdown or input interface.
 ---
 
-## Anatomy
+# {title}
+
+{description}
+
+<demo>
 
 ## Usage
 
@@ -82,6 +86,10 @@ description: A component for selecting a time from a dropdown or input interface
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

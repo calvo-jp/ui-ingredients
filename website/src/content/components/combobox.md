@@ -4,7 +4,15 @@ title: Combobox
 description: A component that combines a text input with a dropdown list for selecting or entering values.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -155,6 +163,10 @@ description: A component that combines a text input with a dropdown list for sel
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

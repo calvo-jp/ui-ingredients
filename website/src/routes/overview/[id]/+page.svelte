@@ -1,15 +1,8 @@
 <script lang="ts">
-  import MetaTags from '$lib/components/meta-tags.svelte';
+  import Markdown from '../../markdown.svelte';
 
   let {data} = $props();
-
-  let {title, description, content} = $derived(data);
+  let {id, title, description, content} = $derived(data);
 </script>
 
-<svelte:head>
-  <title>{title} | UI Ingredients</title>
-</svelte:head>
-
-<MetaTags {title} {description} />
-
-{@html content}
+<Markdown {id} {title} {description} {content} />

@@ -4,7 +4,15 @@ title: Signature Pad
 description: A component for capturing and displaying handwritten signatures.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -34,6 +42,4 @@ description: A component for capturing and displaying handwritten signatures.
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

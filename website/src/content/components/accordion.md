@@ -4,7 +4,15 @@ title: Accordion
 description: A toggle component for expanding and collapsing sections of content.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -53,6 +61,10 @@ description: A toggle component for expanding and collapsing sections of content
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

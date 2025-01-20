@@ -4,7 +4,15 @@ title: Select
 description: A component for choosing an option from a dropdown list.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -95,6 +103,10 @@ description: A component for choosing an option from a dropdown list.
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

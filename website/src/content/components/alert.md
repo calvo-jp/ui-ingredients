@@ -4,6 +4,12 @@ title: Alert
 description: A component for displaying important messages or notifications.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Usage
 
 ```svelte
@@ -23,6 +29,4 @@ description: A component for displaying important messages or notifications.
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

@@ -5,7 +5,15 @@ description: A component for displaying hierarchical data in a tree structure, a
 beta: true
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -139,6 +147,10 @@ beta: true
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

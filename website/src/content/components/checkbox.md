@@ -4,7 +4,15 @@ title: Checkbox
 description: An interactive component for selecting one or multiple options in a list.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -51,6 +59,4 @@ description: An interactive component for selecting one or multiple options in a
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

@@ -4,7 +4,15 @@ title: Menu
 description: A component for navigating through a list of options or actions
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -151,6 +159,10 @@ description: A component for navigating through a list of options or actions
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

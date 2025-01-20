@@ -4,7 +4,11 @@ title: Collapsible
 description: A component that expands or collapses to show or hide content.
 ---
 
-## Anatomy
+# {title}
+
+{description}
+
+<demo>
 
 ## Usage
 
@@ -21,6 +25,10 @@ description: A component that expands or collapses to show or hide content.
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

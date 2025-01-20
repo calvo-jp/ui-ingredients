@@ -4,6 +4,12 @@ title: Breadcrumbs
 description: A component for displaying the navigation path or hierarchy of a user's location within a site.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Usage
 
 ```svelte
@@ -37,6 +43,4 @@ description: A component for displaying the navigation path or hierarchy of a us
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>

@@ -4,7 +4,15 @@ title: Popover
 description: A component that displays additional content or information in a small overlay when triggered.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -34,6 +42,10 @@ description: A component that displays additional content or information in a sm
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

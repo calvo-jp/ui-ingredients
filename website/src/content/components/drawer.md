@@ -4,7 +4,15 @@ title: Drawer
 description: A component that slides in from the edge of the screen to display additional content or navigation options.
 ---
 
+# {title}
+
+{description}
+
+<demo>
+
 ## Anatomy
+
+<anatomy>
 
 ## Usage
 
@@ -34,6 +42,10 @@ description: A component that slides in from the edge of the screen to display a
 
 ## API Reference
 
+<api>
+
 ## Accessibility
 
 ### Keyboard Support
+
+<keyboard-support>

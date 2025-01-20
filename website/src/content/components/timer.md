@@ -4,7 +4,11 @@ title: Timer
 description: A component for counting down or tracking elapsed time.
 ---
 
-## Anatomy
+# {title}
+
+{description}
+
+<demo>
 
 ## Usage
 
@@ -41,6 +45,4 @@ description: A component for counting down or tracking elapsed time.
 
 ## API Reference
 
-## Accessibility
-
-### Keyboard Support
+<api>
