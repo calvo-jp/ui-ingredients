@@ -7,32 +7,28 @@
   } from '@untitled-theme/icons-svelte';
 
   const links = [
-    ...overview.map((item) => ({
-      path: item.id === 'introduction' ? '/' : `/${item.id}`,
-      label: item.title,
-    })),
-    ...components.map((item) => ({
-      path: `/components/${item.id}`,
-      label: item.title,
-    })),
-    ...utilities.map((item) => ({
-      path: `/utilities/${item.id}`,
-      label: item.title,
-    })),
-  ];
+    /**/
+    ...overview,
+    ...components,
+    ...utilities,
+  ].map((item) => ({
+    path: item.permalink,
+    label: item.title,
+  }));
 
-  const currentLinkIndex = $derived(
-    links.findIndex((link) => link.path === page.url.pathname),
-  );
+  const currentLinkIndex = $derived.by(() => {
+    const idx = links.findIndex((link) => link.path === page.url.pathname);
+    return idx;
+  });
 
   const prevLink = $derived(
-    currentLinkIndex <= 0 ? null : (links.at(currentLinkIndex - 1) ?? null),
+    currentLinkIndex <= 0 ? null : links.at(currentLinkIndex - 1),
   );
 
   const nextLink = $derived(
     currentLinkIndex >= links.length - 1
       ? null
-      : (links.at(currentLinkIndex + 1) ?? null),
+      : links.at(currentLinkIndex + 1),
   );
 </script>
 

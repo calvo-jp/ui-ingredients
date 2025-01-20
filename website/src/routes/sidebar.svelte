@@ -10,7 +10,7 @@
     {
       label: 'Overview',
       links: overview.map((item) => ({
-        path: item.id === 'introduction' ? '/' : `/${item.id}`,
+        path: item.permalink,
         label: item.title,
         beta: false,
       })),
@@ -18,7 +18,7 @@
     {
       label: 'Components',
       links: components.map((item) => ({
-        path: `/components/${item.id}`,
+        path: item.permalink,
         label: item.title,
         beta: item.beta,
       })),
@@ -26,7 +26,7 @@
     {
       label: 'Utilities',
       links: utilities.map((item) => ({
-        path: `/utilities/${item.id}`,
+        path: item.permalink,
         label: item.title,
         beta: item.beta,
       })),

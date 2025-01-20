@@ -21,19 +21,28 @@ const schema = s.object({
 const overview = defineCollection({
   name: 'Overview',
   pattern: 'overview/**/*.md',
-  schema,
+  schema: schema.transform((value) => ({
+    ...value,
+    permalink: `/overview/${value.id}`,
+  })),
 });
 
 const components = defineCollection({
   name: 'Components',
   pattern: 'components/**/*.md',
-  schema,
+  schema: schema.transform((value) => ({
+    ...value,
+    permalink: `/components/${value.id}`,
+  })),
 });
 
 const utilities = defineCollection({
   name: 'Utilities',
   pattern: 'utilities/**/*.md',
-  schema,
+  schema: schema.transform((value) => ({
+    ...value,
+    permalink: `/utilities/${value.id}`,
+  })),
 });
 
 export default defineConfig({

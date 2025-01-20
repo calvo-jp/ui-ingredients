@@ -12,9 +12,9 @@
 
   import {ThemeProvider} from 'svelte-os-themes';
   import Navbar from './navbar.svelte';
-  import PageControl from './page-control.svelte';
+  import Pagination from './pagination.svelte';
   import Sidebar from './sidebar.svelte';
-  import Toc from './toc.svelte';
+  import TableOfContents from './table-of-contents.svelte';
 
   let {children} = $props();
 </script>
@@ -28,23 +28,19 @@
     <Sidebar />
 
     <main class="flex min-h-full flex-col p-5 md:p-8 lg:grow lg:p-16 xl:p-20">
-      <section
-        class="grow lg:mx-auto lg:w-full lg:max-w-screen-md"
-        data-toc-root
-      >
+      <section class="grow lg:mx-auto lg:w-full lg:max-w-screen-md">
         <div
           class="prose prose-neutral min-w-full dark:prose-invert prose-headings:font-lexend before:prose-p:content-none after:prose-p:content-none prose-a:underline-offset-2 before:prose-code:content-none after:prose-code:content-none lg:prose-code:text-sm"
         >
           {@render children()}
         </div>
       </section>
-
       <section class="mt-8">
-        <PageControl />
+        <Pagination />
       </section>
     </main>
 
-    <Toc />
+    <TableOfContents />
   </div>
 </ThemeProvider>
 
