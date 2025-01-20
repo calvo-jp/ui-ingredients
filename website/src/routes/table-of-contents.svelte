@@ -2,17 +2,6 @@
   import {page} from '$app/state';
   import {SegmentGroup} from 'ui-ingredients';
 
-  let rootFontSize = $state(16);
-  let navbarHeight = $derived(4 /* rem */ * rootFontSize);
-  let paddingTop = $derived(2 /* rem */ * rootFontSize);
-  let topAllowance = $derived(navbarHeight + paddingTop);
-
-  $effect(() => {
-    rootFontSize = parseFloat(
-      getComputedStyle(document.documentElement).fontSize,
-    );
-  });
-
   interface Item {
     url: string;
     title: string;
@@ -24,18 +13,29 @@
 
     function flat(arr: App.TocEntry[], depth = 0) {
       arr.forEach(({items, ...obj}) => {
-        res.push({
-          ...obj,
-          depth,
-        });
+        res.push({...obj, depth});
 
-        if (items.length) flat(items, depth + 1);
+        if (items.length) {
+          flat(items, depth + 1);
+        }
       });
     }
 
-    if (page.data.toc.length) flat(page.data.toc);
+    if (page.data.toc.length) {
+      flat(page.data.toc);
+    }
 
     return res;
+  });
+
+  let rootFontSize = $state(16);
+  let navbarHeight = $derived(4 /* rem */ * rootFontSize);
+  let containerPadding = $derived(2 /* rem */ * rootFontSize);
+  let containerOffset = $derived(navbarHeight + containerPadding);
+
+  $effect.pre(function getCorrectRootFontSize() {
+    const rootCss = getComputedStyle(document.documentElement);
+    rootFontSize = parseFloat(rootCss.fontSize);
   });
 
   let activeUrl: string | undefined = $state();
@@ -46,13 +46,21 @@
     return heading;
   });
 
-  $effect(() => {
+  $effect(function scrollActiveHeadingIntoView() {
     if (!activeHeading) return;
     const offsetTop = activeHeading.offsetTop;
     document.documentElement.scrollTo({
-      top: offsetTop - topAllowance,
+      top: offsetTop - containerOffset,
       behavior: 'smooth',
     });
+  });
+
+  $effect(function watchHeadingInView() {
+    let headings = document.querySelectorAll<HTMLHeadingElement>(
+      items.map((item) => item.url).join(', '),
+    );
+
+    /* TODO: update active heading on scroll */
   });
 </script>
 
