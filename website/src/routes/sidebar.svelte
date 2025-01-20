@@ -10,7 +10,7 @@
     {
       label: 'Overview',
       links: overview.map((item) => ({
-        path: item.id === 'introduction' ? '/' : item.id,
+        path: item.id === 'introduction' ? '/' : `/${item.id}`,
         label: item.title,
         beta: false,
       })),

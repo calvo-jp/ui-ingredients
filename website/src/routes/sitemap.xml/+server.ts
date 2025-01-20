@@ -1,10 +1,14 @@
-import {APP_LINKS} from '$lib/constants';
+import {components, overview, utilities} from '.velite';
 import type {RequestHandler} from '@sveltejs/kit';
 
+const paths = [
+  ...overview.map((item) => (item.id === 'introduction' ? '/' : `/${item.id}`)),
+  ...components.map((item) => `/components/${item.id}`),
+  ...utilities.map((item) => `/utilities/${item.id}`),
+];
+
 export const GET: RequestHandler = async ({url: {origin}}) => {
-  const urls = APP_LINKS.map((link) => link.links)
-    .flat()
-    .map((link) => `${origin}${link.path}`);
+  const urls = paths.map((path) => `${origin}${path}`);
 
   const content = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
