@@ -49,13 +49,26 @@
     display: none !important;
   }
 
+  /* Shiki */
+
   :global(.shiki) {
     background: theme('colors.neutral.50') !important;
+  }
+
+  :global(.dark .shiki) {
+    border: 1px solid theme('colors.neutral.800') !important;
+    background: theme('colors.neutral.900') !important;
   }
 
   :global(.shiki span) {
     background: transparent !important;
   }
+
+  :global(.dark .shiki span) {
+    color: var(--shiki-dark) !important;
+  }
+
+  /* Shiki line numbers */
 
   :global(.shiki code) {
     counter-reset: step;
@@ -70,16 +83,6 @@
     text-align: right;
     margin-right: theme('spacing.4');
     color: theme('colors.neutral.400');
-  }
-
-  :global(.dark .shiki span) {
-    color: var(--shiki-dark) !important;
-  }
-
-  :global(.dark .shiki) {
-    border: 1px solid theme('colors.neutral.800') !important;
-    background: theme('colors.neutral.900') !important;
-    color: theme('colors.neutral.200') !important;
   }
 
   :global(.dark .shiki code .line::before) {
