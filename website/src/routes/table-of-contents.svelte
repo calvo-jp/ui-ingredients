@@ -1,5 +1,6 @@
 <script lang="ts">
   import {page} from '$app/state';
+  import debounce from 'lodash.debounce';
   import {SegmentGroup} from 'ui-ingredients';
 
   interface Item {
@@ -56,17 +57,29 @@
     });
   }
 
-  function setActiveHeadingId(id: string) {
+  const debouncedSetActiveHeading = debounce((id: string) => {
     activeHeadingId = id;
-    scrollActiveHeadingIntoView(id);
-  }
+  }, 250);
 
   function watchHeadingInView() {
-    let headings = document.querySelectorAll<HTMLHeadingElement>(
-      items.map((item) => `#${item.id}`).join(', '),
+    let headings = items.map((item) => document.getElementById(item.id));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            debouncedSetActiveHeading(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+      },
     );
 
-    /* TODO: update active heading on scroll */
+    headings.forEach((heading) => heading && observer.observe(heading));
+
+    return () => observer.disconnect();
   }
 
   $effect(watchHeadingInView);
@@ -86,7 +99,8 @@
   <SegmentGroup.Root
     value={activeHeadingId}
     onValueChange={(detail) => {
-      setActiveHeadingId(detail.value);
+      activeHeadingId = detail.value;
+      scrollActiveHeadingIntoView(detail.value);
     }}
     orientation="vertical"
     class="relative w-fit"
