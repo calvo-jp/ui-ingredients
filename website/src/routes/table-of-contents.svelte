@@ -3,7 +3,7 @@
   import {SegmentGroup} from 'ui-ingredients';
 
   interface Item {
-    url: string;
+    id: string;
     title: string;
     depth: number;
   }
@@ -12,8 +12,14 @@
     const res: Item[] = [];
 
     function flat(arr: App.TocEntry[], depth = 0) {
-      arr.forEach(({items, ...obj}) => {
-        res.push({...obj, depth});
+      arr.forEach(({items, url, title}) => {
+        const id = url.substring(1);
+
+        res.push({
+          id,
+          title,
+          depth,
+        });
 
         if (items.length) {
           flat(items, depth + 1);
@@ -38,30 +44,32 @@
     rootFontSize = parseFloat(rootCss.fontSize);
   });
 
-  let activeUrl: string | undefined = $state();
-  let activeItem = $derived(items.find((item) => item.url === activeUrl));
-  let activeHeading = $derived.by(() => {
-    if (!activeItem) return;
-    const heading = document.querySelector<HTMLHeadingElement>(activeItem.url);
-    return heading;
-  });
+  let activeHeadingId: string | undefined = $state();
 
-  $effect(function scrollActiveHeadingIntoView() {
-    if (!activeHeading) return;
-    const offsetTop = activeHeading.offsetTop;
+  function scrollActiveHeadingIntoView(id: string) {
+    const heading = document.getElementById(id);
+    if (!heading) return;
+    const offsetTop = heading.offsetTop;
     document.documentElement.scrollTo({
       top: offsetTop - containerOffset,
       behavior: 'smooth',
     });
-  });
+  }
 
-  $effect(function watchHeadingInView() {
+  function setActiveHeadingId(id: string) {
+    activeHeadingId = id;
+    scrollActiveHeadingIntoView(id);
+  }
+
+  function watchHeadingInView() {
     let headings = document.querySelectorAll<HTMLHeadingElement>(
-      items.map((item) => item.url).join(', '),
+      items.map((item) => `#${item.id}`).join(', '),
     );
 
     /* TODO: update active heading on scroll */
-  });
+  }
+
+  $effect(watchHeadingInView);
 </script>
 
 <div
@@ -76,16 +84,16 @@
   <h2 class="mb-2 px-5 font-lexend font-semibold">On this page</h2>
 
   <SegmentGroup.Root
-    value={activeUrl}
+    value={activeHeadingId}
     onValueChange={(detail) => {
-      activeUrl = detail.value;
+      setActiveHeadingId(detail.value);
     }}
     orientation="vertical"
     class="relative w-fit"
   >
     {#each items as item}
       <SegmentGroup.Item
-        value={item.url}
+        value={item.id}
         class="relative block cursor-pointer py-0.5 pl-[var(--indent)] text-neutral-500 transition-colors duration-150 hover:text-neutral-600 ui-checked:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300 dark:ui-checked:text-neutral-200"
         style="--indent:{item.depth * 12}px"
       >
