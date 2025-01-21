@@ -45,27 +45,22 @@
 </ThemeProvider>
 
 <style lang="postcss">
-  :global([hidden]) {
-    display: none !important;
-  }
-
   /* Shiki */
 
-  :global(.shiki) {
-    background: theme('colors.neutral.50') !important;
+  :global(.shiki),
+  :global(.shiki span) {
+    color: var(--shiki-light);
+    background: theme('colors.neutral.50');
+  }
+
+  :global(.dark .shiki),
+  :global(.dark .shiki span) {
+    color: var(--shiki-dark);
+    background: theme('colors.neutral.900');
   }
 
   :global(.dark .shiki) {
-    border: 1px solid theme('colors.neutral.800') !important;
-    background: theme('colors.neutral.900') !important;
-  }
-
-  :global(.shiki span) {
-    background: transparent !important;
-  }
-
-  :global(.dark .shiki span) {
-    color: var(--shiki-dark) !important;
+    border: 1px solid theme('colors.neutral.800');
   }
 
   /* Shiki line numbers */
