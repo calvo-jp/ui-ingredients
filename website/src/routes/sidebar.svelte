@@ -1,20 +1,50 @@
 <script>
   import {page} from '$app/state';
-  import {Badge} from '$lib/components';
-  import {APP_LINKS} from '$lib/constants';
-  import {navbarStore} from '$lib/stores';
+  import Badge from '$lib/components/ui/badge.svelte';
+  import {navbarStore} from '$lib/stores/navbar.svelte';
+  import {components, overview, utilities} from '.velite';
   import {Drawer, Portal} from 'ui-ingredients';
+  import Search from './search.svelte';
+
+  const links = [
+    {
+      label: 'Overview',
+      links: overview.map((item) => ({
+        path: item.permalink,
+        label: item.title,
+        beta: false,
+      })),
+    },
+    {
+      label: 'Components',
+      links: components.map((item) => ({
+        path: item.permalink,
+        label: item.title,
+        beta: item.beta,
+      })),
+    },
+    {
+      label: 'Utilities',
+      links: utilities.map((item) => ({
+        path: item.permalink,
+        label: item.title,
+        beta: item.beta,
+      })),
+    },
+  ];
 </script>
 
 <div
-  class="hidden w-[18rem] shrink-0 lg:block"
+  class="hidden w-[20rem] shrink-0 lg:block"
   aria-hidden="true"
   data-placeholder
 ></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[18rem] shrink-0 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 dark:border-neutral-800 dark:bg-neutral-950 lg:block"
+  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[20rem] shrink-0 space-y-4 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 dark:border-neutral-800 dark:bg-neutral-950 lg:block"
 >
+  <Search />
+
   {@render items()}
 </nav>
 
@@ -50,7 +80,7 @@
 
 {#snippet items()}
   <ul>
-    {#each APP_LINKS as parent}
+    {#each links as parent}
       <li
         class="border-t border-neutral-200 py-4 first:border-0 first:pt-0 dark:border-neutral-800"
       >

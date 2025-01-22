@@ -38,12 +38,11 @@
     TooltipAnatomyIcon,
     TourAnatomyIcon,
     TreeViewAnatomyIcon,
-  } from '$lib/generated';
-  import type {ComponentId} from '$lib/types';
+  } from '$lib/icons/anatomy';
   import {createGradient} from '@zag-js/anatomy-icons';
   import type {Component} from 'svelte';
 
-  const MAP = {
+  const MAP: Record<string, Component | null> = {
     'alert-dialog': DialogAnatomyIcon,
     'angle-slider': null,
     'color-picker': ColorPickerAnatomyIcon,
@@ -91,16 +90,14 @@
     toggle: null,
     tooltip: TooltipAnatomyIcon,
     tour: TourAnatomyIcon,
-  } satisfies Record<ComponentId, Component | null>;
+  };
 
-  let {id}: {id: ComponentId} = $props();
+  let {id}: {id: string} = $props();
 
   let Subject = $derived(MAP[id]);
 </script>
 
 {#if Subject}
-  <h2>Anatomy</h2>
-
   <div
     style={Object.entries({
       '--bg-dark': createGradient('#6366f1').value,

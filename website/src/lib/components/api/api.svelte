@@ -1,6 +1,5 @@
 <script lang="ts">
-  import {Table} from '$lib/components/ui';
-  import type {ComponentId, UtilityId} from '$lib/types';
+  import Table from '$lib/components/ui/table';
   import {MinusIcon} from '@untitled-theme/icons-svelte';
   import {twMerge} from 'tailwind-merge';
   import accordion from './accordion';
@@ -56,7 +55,7 @@
   import treeView from './tree-view';
   import type {ApiEntries} from './utils';
 
-  const MAP = {
+  const MAP: Record<string, ApiEntries> = {
     'alert-dialog': alertDialog,
     'angle-slider': angleSlider,
     'color-picker': colorPicker,
@@ -109,9 +108,9 @@
     toggle,
     tooltip,
     tour,
-  } satisfies Record<ComponentId | UtilityId, ApiEntries>;
+  };
 
-  let {id}: {id: ComponentId | UtilityId} = $props();
+  let {id}: {id: string} = $props();
 
   let subject = $derived(MAP[id]);
   let parts = $derived(
@@ -122,8 +121,6 @@
     }),
   );
 </script>
-
-<h2>API Reference</h2>
 
 {#each parts as [i, j]}
   <h3>{i}</h3>

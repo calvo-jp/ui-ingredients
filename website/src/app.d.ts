@@ -1,12 +1,14 @@
 declare global {
   namespace App {
-    // interface Error {}
-    // interface Locals {}
+    interface TocEntry {
+      url: string;
+      title: string;
+      items: TocEntry[];
+    }
 
-    interface PageData {}
-
-    // interface PageState {}
-    // interface Platform {}
+    interface PageData {
+      toc: TocEntry[];
+    }
   }
 }
 

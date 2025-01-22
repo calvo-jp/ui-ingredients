@@ -11,5 +11,5 @@
     "strict": true,
     "moduleResolution": "bundler"
   },
-  "include": ["src", "vite-env.d.ts", "ts-reset.d.ts"]
+  "include": ["src", "vite-env.d.ts", "ts-reset.d.ts", "velite.config.ts"]
 }

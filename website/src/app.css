@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-[hidden] {
-  display: none !important;
+@layer base {
+  [hidden] {
+    display: none !important;
+  }
 }

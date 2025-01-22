@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Label} from '$lib/components';
+  import Label from '$lib/components/ui/label.svelte';
   import {Slider} from 'ui-ingredients';
 </script>
 

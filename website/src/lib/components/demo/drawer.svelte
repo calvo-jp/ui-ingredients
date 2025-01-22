@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button} from '$lib/components';
+  import Button from '$lib/components/ui/button.svelte';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {Drawer, Portal} from 'ui-ingredients';
 </script>

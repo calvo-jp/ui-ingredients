@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Input} from '$lib/components';
+  import Input from '$lib/components/ui/input.svelte';
   import {Highlight} from 'ui-ingredients';
 
   let text =

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Button} from '$lib/components';
+  import Button from '$lib/components/ui/button.svelte';
   import {Collapsible} from 'ui-ingredients';
 </script>
 

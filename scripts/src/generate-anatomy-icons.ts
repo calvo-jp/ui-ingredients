@@ -8,10 +8,7 @@ import svgson from 'svgson';
 import colors from 'tailwindcss/colors.js';
 
 const WORKSPACE_ROOT = path.resolve(path.dirname('../..'));
-const OUTPUT_DIR = path.join(
-  WORKSPACE_ROOT,
-  'website/src/lib/generated/anatomy-icons',
-);
+const OUTPUT_DIR = path.join(WORKSPACE_ROOT, 'website/src/lib/icons/anatomy');
 
 const spinner = p.spinner();
 
@@ -26,7 +23,7 @@ export async function generateAnatomyIcons() {
   for (const key of keys) {
     const jsx = await allComponents[key]({accentColor: colors.indigo[500]});
     const svg = renderToString(jsx);
-    const filename = `${key}-anatomy.svelte`;
+    const filename = `${key}-anatomy-icon.svelte`;
     const content = await formatSvelte(await svgToSvelteComponent(svg));
     const promise = fs.writeFile(
       path.join(OUTPUT_DIR, filename),
@@ -49,7 +46,7 @@ async function createBarrelFile(filenames: string[]) {
     .toSorted((a, b) => a.localeCompare(b))
     .map((filename) => {
       const basename = filename.split('.')[0];
-      const exportName = `${kebabToPascalCase(basename)}Icon`;
+      const exportName = `${kebabToPascalCase(basename)}`;
 
       return `export {default as ${exportName}} from './${filename}';\n`;
     })

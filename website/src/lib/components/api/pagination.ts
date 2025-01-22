@@ -1,5 +1,5 @@
-import {omit} from '$lib/utils';
 import {getApiDoc, getDataAttrDoc} from '@zag-js/docs';
+import omit from 'lodash.omit';
 import {paginationAnatomy} from 'ui-ingredients';
 import {apiEntryFromAnatomy} from './utils';
 
