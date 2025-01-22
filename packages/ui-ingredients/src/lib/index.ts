@@ -56,3 +56,4 @@ export * from './create-unique-id.js';
 
 export * from '@zag-js/anatomy';
 export {mergeProps, reflect} from '@zag-js/svelte';
+export type {HtmlIngredientProps} from './types.js';

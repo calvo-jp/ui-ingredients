@@ -44,8 +44,6 @@ type Children<TContext extends GenericObject = never> = [TContext] extends [
   ? Snippet
   : Snippet<[context: TContext]>;
 
-type PropsWithoutChildren<T> = Omit<T, 'children'>;
-
 export type HtmlIngredientProps<
   TElement extends SvelteHTMLElement,
   TRef extends
@@ -55,8 +53,9 @@ export type HtmlIngredientProps<
     | SVGCircleElement = HTMLElement,
   TContext extends GenericObject = never,
   TAction extends Action = never,
-> = PropsWithoutChildren<HtmlProps<TElement>> & {
+> = Omit<HtmlProps<TElement>, 'class' | 'children'> & {
   ref?: TRef | null;
+  class?: string | null;
   asChild?: AsChild<TAction, TContext>;
   children?: Children<TContext>;
 };
