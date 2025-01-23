@@ -7,10 +7,9 @@
     ChevronLeftIcon,
     ChevronRightIcon,
   } from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import {DatePicker, Portal} from 'ui-ingredients';
 
-  let cellStyle = twMerge(
+  let cellStyle = [
     'flex',
     'items-center',
     'justify-center',
@@ -36,9 +35,9 @@
     'ui-today:ui-selected:text-white',
     'dark:ui-today:text-indigo-600',
     'dark:ui-today:ui-selected:text-white',
-  );
+  ];
 
-  let viewControlStyle = twMerge(
+  let viewControlStyle = [
     'flex',
     'items-center',
     'justify-between',
@@ -47,9 +46,9 @@
     'px-4',
     'py-3',
     'dark:border-neutral-800',
-  );
+  ];
 
-  let prevOrNextTriggerStyle = twMerge(
+  let prevOrNextTriggerStyle = [
     'flex',
     'size-10',
     'items-center',
@@ -59,16 +58,16 @@
     'duration-150',
     'hover:bg-neutral-50',
     'dark:hover:bg-neutral-800/50',
-  );
+  ];
 
-  let rangeTextStyle = twMerge(
+  let rangeTextStyle = [
     'rounded',
     'px-2',
     'py-1',
     'font-semibold',
     'hover:bg-neutral-50',
     'dark:hover:bg-neutral-800/50',
-  );
+  ];
 </script>
 
 <DatePicker.Root
@@ -140,7 +139,7 @@
                       {#each week as day}
                         <DatePicker.DayTableCell value={day}>
                           <DatePicker.DayTableCellTrigger
-                            class={twMerge(cellStyle, 'aspect-square w-full')}
+                            class={[cellStyle, 'aspect-square w-full']}
                           >
                             {day.day}
                           </DatePicker.DayTableCellTrigger>
@@ -175,7 +174,7 @@
                       {#each months as month}
                         <DatePicker.MonthTableCell value={month.value}>
                           <DatePicker.MonthTableCellTrigger
-                            class={twMerge(cellStyle, 'aspect-[16/9] w-full')}
+                            class={[cellStyle, 'aspect-[16/9] w-full']}
                           >
                             {month.label}
                           </DatePicker.MonthTableCellTrigger>
@@ -210,7 +209,7 @@
                       {#each years as year}
                         <DatePicker.YearTableCell value={year.value}>
                           <DatePicker.YearTableCellTrigger
-                            class={twMerge(cellStyle, 'aspect-[16/9] w-full')}
+                            class={[cellStyle, 'aspect-[16/9] w-full']}
                           >
                             {year.label}
                           </DatePicker.YearTableCellTrigger>

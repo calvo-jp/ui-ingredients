@@ -1,7 +1,6 @@
 <script lang="ts">
   import Table from '$lib/components/ui/table';
   import {MinusIcon} from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import accordion from './accordion';
   import alert from './alert';
   import alertDialog from './alert-dialog';
@@ -205,10 +204,10 @@
   <code
     id={opts?.id}
     style={opts?.style}
-    class={twMerge(
+    class={[
       'inline-block whitespace-pre rounded border border-neutral-200 bg-neutral-50 px-1.5 py-0.5 font-mono text-xs font-medium [tab-size:0.75rem] dark:border-neutral-800 dark:bg-neutral-800/50',
       opts?.class,
-    )}
+    ]}
   >
     {children}
   </code>

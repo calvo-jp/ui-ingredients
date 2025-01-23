@@ -1,8 +1,7 @@
 <script lang="ts">
-  import {twMerge} from 'tailwind-merge';
   import {Splitter} from 'ui-ingredients';
 
-  let panelStyle = twMerge(
+  let panelStyle = [
     'flex',
     'h-[12rem]',
     'items-center',
@@ -15,7 +14,7 @@
     'text-3xl',
     'font-bold',
     'dark:border-neutral-800',
-  );
+  ];
 </script>
 
 <Splitter.Root

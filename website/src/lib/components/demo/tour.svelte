@@ -1,7 +1,6 @@
 <script lang="ts">
   import Button from '$lib/components/ui/button.svelte';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import {Tour, type TourStepDetails} from 'ui-ingredients';
 
   const length = 3;
@@ -113,7 +112,7 @@
 
     <div
       id="step-{n}-target"
-      class={twMerge(
+      class={[
         'grid',
         'place-items-center',
         'rounded-md',
@@ -132,7 +131,7 @@
           'bg-gradient-to-r from-amber-700 to-yellow-700',
           'bg-gradient-to-r from-emerald-700 to-green-700',
         ][idx],
-      )}
+      ]}
     >
       {n}
     </div>
