@@ -15,8 +15,9 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '../create-split-props.js';
+  import {mergeProps} from '../merge-props.js';
   import {setPresenceStrategyPropsContext} from '../presence/presence-context.svelte.js';
   import {createTreeView} from './create-tree-view.svelte.js';
   import {setTreeViewContext} from './tree-view-context.svelte.js';

@@ -13,8 +13,9 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '../create-split-props.js';
+  import {mergeProps} from '../merge-props.js';
   import {createSegmentGroup} from './create-segment-group.svelte.js';
   import {setSegmentGroupContext} from './segment-group-context.svelte.js';
 

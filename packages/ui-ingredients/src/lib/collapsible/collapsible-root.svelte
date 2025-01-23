@@ -15,8 +15,9 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '../create-split-props.js';
+  import {mergeProps} from '../merge-props.js';
   import {createPresence} from '../presence/create-presence.svelte.js';
   import {setPresenceContext} from '../presence/presence-context.svelte.js';
   import {setCollapsibleContext} from './collapsible-context.svelte.js';

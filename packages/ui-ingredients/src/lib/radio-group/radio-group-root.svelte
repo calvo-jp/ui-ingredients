@@ -13,8 +13,9 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '../create-split-props.js';
+  import {mergeProps} from '../merge-props.js';
   import {createRadioGroup} from './create-radio-group.svelte.js';
   import {setRadioGroupContext} from './radio-group-context.svelte.js';
 

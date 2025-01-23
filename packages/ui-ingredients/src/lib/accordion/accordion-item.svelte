@@ -10,10 +10,11 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {reflect} from '@zag-js/svelte';
   import {setCollapsibleContext} from '../collapsible/collapsible-context.svelte.js';
   import {createCollapsible} from '../collapsible/create-collapsible.svelte.js';
   import {createSplitProps} from '../create-split-props.js';
+  import {mergeProps} from '../merge-props.js';
   import {
     getAccordionContext,
     setAccordionItemPropsContext,

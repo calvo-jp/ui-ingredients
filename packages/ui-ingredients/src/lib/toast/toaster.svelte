@@ -13,7 +13,6 @@
 </script>
 
 <script lang="ts">
-  import type {HTMLAttributes} from 'svelte/elements';
   import {normalizeProps, portal, useMachine} from 'zagjs-legacy-svelte';
   import * as toast from 'zagjs-legacy-toast';
   import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
@@ -45,12 +44,7 @@
   let placement = $derived(state.context.placement);
   let api = $derived(toast.group.connect(state, send, normalizeProps));
   let toasts = $derived(api.getToastsByPlacement(placement));
-  let mergedProps = $derived(
-    mergeProps<HTMLAttributes<HTMLDivElement>>(
-      api.getGroupProps({placement}),
-      props,
-    ),
-  );
+  let mergedProps = $derived(mergeProps(api.getGroupProps({placement}), props));
 </script>
 
 <div

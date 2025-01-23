@@ -1,9 +1,10 @@
 import * as dialog from '@zag-js/dialog';
-import {mergeProps, normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLAttributes} from 'svelte/elements';
 import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+import {mergeProps} from '../merge-props.js';
 import {parts} from './drawer-anatomy.js';
 
 export interface CreateDrawerProps

@@ -14,8 +14,9 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {reflect} from '@zag-js/svelte';
   import {createSplitProps} from '../create-split-props.js';
+  import {mergeProps} from '../merge-props.js';
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
   import {setPresenceStrategyPropsContext} from '../presence/presence-context.svelte.js';
   import {createField} from './create-field.svelte.js';

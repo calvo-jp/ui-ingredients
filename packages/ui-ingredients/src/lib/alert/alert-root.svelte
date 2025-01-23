@@ -14,7 +14,8 @@
 
 <script lang="ts">
   import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps, reflect} from '@zag-js/svelte';
+  import {reflect} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import {setAlertContext} from './alert-context.js';
   import {createAlert} from './create-alert.svelte.js';
 
