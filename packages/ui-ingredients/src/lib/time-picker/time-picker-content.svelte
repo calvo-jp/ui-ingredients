@@ -6,8 +6,8 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
   import type {Action} from 'svelte/action';
+  import {mergeProps} from '../merge-props.js';
   import {getPresenceContext} from '../presence/presence-context.svelte.js';
   import {getTimePickerContext} from './time-picker-context.svelte.js';
 

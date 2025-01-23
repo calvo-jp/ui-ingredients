@@ -6,8 +6,8 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
   import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+  import {mergeProps} from '../merge-props.js';
   import {
     getColorPickerChannelPropsContext,
     getColorPickerContext,

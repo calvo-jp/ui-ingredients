@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import {setBreadcrumbsContext} from './breadcrumbs-context.svelte.js';
   import {createBreadcrumbs} from './create-breadcrumbs.js';
 

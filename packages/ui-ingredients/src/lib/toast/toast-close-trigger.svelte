@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import {getToastContext} from './toast-context.svelte.js';
 
   let {

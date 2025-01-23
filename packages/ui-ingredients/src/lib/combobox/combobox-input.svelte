@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import {getComboboxContext} from './combobox-context.svelte.js';
 
   let {ref = $bindable(null), asChild, ...props}: ComboboxInputProps = $props();

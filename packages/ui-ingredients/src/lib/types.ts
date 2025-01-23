@@ -53,9 +53,8 @@ export type HtmlIngredientProps<
     | SVGCircleElement = HTMLElement,
   TContext extends GenericObject = never,
   TAction extends Action = never,
-> = Omit<HtmlProps<TElement>, 'class' | 'children'> & {
+> = Omit<HtmlProps<TElement>, 'children'> & {
   ref?: TRef | null;
-  class?: string | null;
   asChild?: AsChild<TAction, TContext>;
   children?: Children<TContext>;
 };

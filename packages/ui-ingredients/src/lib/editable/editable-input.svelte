@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import {getEditableContext} from './editable-context.svelte.js';
 
   let {ref = $bindable(null), asChild, ...props}: EditableInputProps = $props();

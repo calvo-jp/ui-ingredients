@@ -11,7 +11,7 @@
 
 <script lang="ts">
   import {createSplitProps} from '$lib/create-split-props.js';
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import {getQrCodeContext} from './qr-code-context.svelte.js';
 
   let {
