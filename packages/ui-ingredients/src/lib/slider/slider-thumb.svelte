@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-  import {mergeProps} from '@zag-js/svelte';
   import {createSplitProps} from '../create-split-props.js';
+  import {mergeProps} from '../merge-props.js';
   import {
     getSliderContext,
     setSliderThumbPropsContext,

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import type {Assign, HtmlIngredientProps} from '../types.js';
 
   export interface ComboboxTriggerProps

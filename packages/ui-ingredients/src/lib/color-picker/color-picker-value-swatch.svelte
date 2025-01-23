@@ -9,7 +9,7 @@
 
 <script lang="ts">
   import type {SwatchProps} from '@zag-js/color-picker';
-  import {mergeProps} from '@zag-js/svelte';
+  import {mergeProps} from '../merge-props.js';
   import {getColorPickerContext} from './color-picker-context.svelte.js';
 
   let {
