@@ -10,6 +10,7 @@
 </script>
 
 <script lang="ts">
+  import {createSplitProps} from '$lib/create-split-props.js';
   import {mergeProps} from '@zag-js/svelte';
   import {getDatePickerContext} from './date-picker-context.svelte.js';
 
@@ -20,9 +21,13 @@
     ...props
   }: DatePickerInputProps = $props();
 
+  let [inputProps, localProps] = $derived(
+    createSplitProps<InputProps>(['fixOnBlur', 'index'])(props),
+  );
+
   let datePicker = getDatePickerContext();
   let mergedProps = $derived(
-    mergeProps(datePicker.getInputProps({index}), props),
+    mergeProps(datePicker.getInputProps(inputProps), localProps),
   );
 </script>
 
