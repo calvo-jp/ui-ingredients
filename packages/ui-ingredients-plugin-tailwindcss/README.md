@@ -109,7 +109,3 @@ export default {
   </Portal>
 </Dialog.Root>
 ```
-
-## Further Reading
-
-This library is powered by [tailwindcss-plugin-zag](https://github.com/calvo-jp/tailwindcss-plugin-zag). See the the full documentation [here](https://github.com/calvo-jp/tailwindcss-plugin-zag)

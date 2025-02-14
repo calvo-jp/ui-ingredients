@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin.js';
 
-interface StaticVariantEntry {
+export interface StaticVariantEntry {
   key: string;
   values: (string | null)[];
 }
@@ -11,6 +11,7 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'focus-visible', values: [null]},
   {key: 'focusable', values: [null]},
   {key: 'active', values: [null]},
+  {key: 'valid', values: [null]},
   {key: 'invalid', values: [null]},
   {key: 'disabled', values: [null]},
   {key: 'readonly', values: [null]},
@@ -20,10 +21,12 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'collapsible', values: [null]},
   {key: 'highlighted', values: [null]},
   {key: 'selected', values: [null]},
+  {key: 'placeholder', values: [null]},
   {key: 'placeholder-shown', values: [null]},
   {key: 'autoresize', values: [null]},
   {key: 'required', values: [null]},
   {key: 'dragging', values: [null]},
+  {key: 'grabbed', values: [null]},
   {key: 'complete', values: [null]},
   {key: 'incomplete', values: [null]},
   {key: 'expanded', values: [null]},
@@ -95,7 +98,7 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'inert', values: [null]},
 ];
 
-interface DynamicVariantEntry {
+export interface DynamicVariantEntry {
   key: string;
   validate?(subject: string): boolean;
   knownValues?: Record<string, string>;
@@ -144,6 +147,7 @@ const DYNAMIC_VARIANT_ENTRIES: DynamicVariantEntry[] = [
       /* toast */
       info: 'info',
       error: 'error',
+      warning: 'warning',
       success: 'success',
       loading: 'loading',
       /* tour */
@@ -155,7 +159,7 @@ const DYNAMIC_VARIANT_ENTRIES: DynamicVariantEntry[] = [
   },
 ];
 
-interface Options {
+export interface UiIngredientsPluginOptions {
   /**
    * @description The prefix for the variants.
    * @default "ui"
@@ -169,10 +173,7 @@ interface Options {
   prefix?: string;
 }
 
-/**
- * @see https://github.com/calvo-jp/tailwindcss-plugin-zag
- */
-export default plugin.withOptions<Options>((config = {}) => {
+export default plugin.withOptions<UiIngredientsPluginOptions>((config = {}) => {
   const prefix = config.prefix ?? 'ui';
 
   return ({addVariant, matchVariant}) => {
