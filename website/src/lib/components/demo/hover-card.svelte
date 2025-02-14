@@ -22,7 +22,7 @@
         class="w-[90vw] rounded border border-neutral-200 bg-white p-4 ui-open:animate-fade-in ui-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900 lg:max-w-[24rem]"
       >
         <HoverCard.Arrow
-          class="[--arrow-background:theme(colors.white)] [--arrow-size:theme(spacing.4)] dark:[--arrow-background:theme(colors.neutral[900])]"
+          class="[--arrow-background:var(--color-white)] [--arrow-size:--spacing(4)] dark:[--arrow-background:var(--color-neutral-900)]"
         >
           <HoverCard.ArrowTip />
         </HoverCard.Arrow>

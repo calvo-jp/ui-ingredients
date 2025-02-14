@@ -23,7 +23,7 @@
   <Navbar />
 
   <div
-    class="h-[calc(theme(height.dvh)-theme(spacing.16))] lg:flex lg:items-start lg:justify-center"
+    class="h-[calc(100dvh---spacing(16))] lg:flex lg:items-start lg:justify-center"
   >
     <Sidebar />
 
@@ -50,17 +50,17 @@
   :global(.shiki),
   :global(.shiki span) {
     color: var(--shiki-light);
-    background: theme('colors.neutral.50');
+    background: var(--color-neutral-50);
   }
 
   :global(.dark .shiki),
   :global(.dark .shiki span) {
     color: var(--shiki-dark);
-    background: theme('colors.neutral.900');
+    background: var(--color-neutral-900);
   }
 
   :global(.dark .shiki) {
-    border: 1px solid theme('colors.neutral.800');
+    border: 1px solid var(--color-neutral-800);
   }
 
   /* Shiki line numbers */
@@ -76,11 +76,11 @@
     display: inline-block;
     width: 3ch;
     text-align: right;
-    margin-right: theme('spacing.4');
-    color: theme('colors.neutral.400');
+    margin-right: var(--spacing-4);
+    color: var(--color-neutral-400);
   }
 
   :global(.dark .shiki code .line::before) {
-    color: theme('colors.neutral.500');
+    color: var(--color-neutral-500);
   }
 </style>

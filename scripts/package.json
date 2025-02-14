@@ -6,16 +6,16 @@
     "generate:anatomy-icons": "tsx src/generate-anatomy-icons.ts"
   },
   "dependencies": {
-    "@clack/prompts": "^0.9.1",
+    "@clack/prompts": "^0.10.0",
     "@tsconfig/node22": "^22.0.0",
-    "@types/react": "^19.0.7",
+    "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@zag-js/anatomy-icons": "^0.82.0",
-    "prettier": "^3.4.2",
+    "@zag-js/anatomy-icons": "^0.82.1",
+    "prettier": "^3.5.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "svgson": "^5.3.1",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.0.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   }

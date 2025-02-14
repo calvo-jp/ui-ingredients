@@ -31,11 +31,9 @@
         <span class="grow font-semibold">{label}</span>
 
         <Accordion.ItemIndicator
-          class="group transition-all duration-150 ui-open:rotate-180"
+          class="transition-all duration-150 text-neutral-400 ui-open:rotate-180 ui-open:text-neutral-500 dark:text-neutral-500 dark:ui-open:text-neutral-400"
         >
-          <ChevronDownIcon
-            class="size-5 text-neutral-400 transition-colors duration-150 ui-group-open:text-neutral-500 dark:text-neutral-500 dark:ui-group-open:text-neutral-400"
-          />
+          <ChevronDownIcon class="size-5" />
         </Accordion.ItemIndicator>
       </Accordion.ItemTrigger>
       <Accordion.ItemContent
