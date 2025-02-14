@@ -254,14 +254,13 @@ importers:
         version: 0.3.3(vitest@3.0.5(@types/debug@4.1.12)(@types/node@22.13.4)(jiti@2.4.2)(jsdom@26.0.0)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.0))
 
   packages/ui-ingredients-plugin-tailwindcss:
-    dependencies:
-      tailwindcss-plugin-zag:
-        specifier: ^0.0.5
-        version: 0.0.5(tailwindcss@3.4.17)
     devDependencies:
       '@tsconfig/node22':
         specifier: ^22.0.0
         version: 22.0.0
+      postcss:
+        specifier: ^8.5.2
+        version: 8.5.2
       release-it:
         specifier: ^18.1.2
         version: 18.1.2(@types/node@22.13.4)(typescript@5.7.3)
@@ -274,6 +273,9 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+      vitest:
+        specifier: ^3.0.5
+        version: 3.0.5(@types/debug@4.1.12)(@types/node@22.13.4)(jiti@2.4.2)(jsdom@26.0.0)(lightningcss@1.29.1)(terser@5.37.0)(tsx@4.19.2)(yaml@2.5.0)
 
   scripts:
     dependencies:
@@ -9313,10 +9315,6 @@ snapshots:
     dependencies:
       tailwind-merge: 2.5.4
       tailwindcss: 4.0.0
-
-  tailwindcss-plugin-zag@0.0.5(tailwindcss@3.4.17):
-    dependencies:
-      tailwindcss: 3.4.17
 
   tailwindcss-plugin-zag@0.0.5(tailwindcss@4.0.0):
     dependencies:
