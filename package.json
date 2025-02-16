@@ -2,7 +2,7 @@
   "name": "ui-ingredients-root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.4.0",
   "scripts": {
     "core": "pnpm --filter=ui-ingredients",
     "tailwind-plugin": "pnpm --filter=ui-ingredients-plugin-tailwindcss",
