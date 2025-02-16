@@ -1,7 +1,7 @@
 import {tv, type VariantProps} from 'tailwind-variants';
 
 export const iconButtonRecipe = tv({
-  base: 'size-12 shrink-0 flex items-center justify-center gap-2 rounded font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50',
+  base: 'size-12 cursor-pointer shrink-0 flex items-center justify-center gap-2 rounded font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50',
   variants: {
     variant: {
       outline:

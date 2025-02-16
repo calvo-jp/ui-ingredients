@@ -367,8 +367,8 @@ importers:
         specifier: ^0.31.1
         version: 0.31.1(@internationalized/date@3.5.5)(svelte@5.20.1)
       ui-ingredients-plugin-tailwindcss:
-        specifier: ^0.0.6
-        version: 0.0.6(tailwindcss@4.0.6)
+        specifier: ^0.0.8
+        version: 0.0.8(tailwindcss@4.0.6)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.6.2
@@ -4350,11 +4350,6 @@ packages:
     peerDependencies:
       tailwindcss: '*'
 
-  tailwindcss-plugin-zag@0.0.5:
-    resolution: {integrity: sha512-GCepmlltDPdTQE+88G+dC2t9unFEES061QyM6EGjDeEEA6qO6FOvJBxyEPUCy8YXptfgfdUgVnlLW8K+HwQMAg==}
-    peerDependencies:
-      tailwindcss: ^3.3.3
-
   tailwindcss@3.4.17:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
     engines: {node: '>=14.0.0'}
@@ -4512,8 +4507,10 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ui-ingredients-plugin-tailwindcss@0.0.6:
-    resolution: {integrity: sha512-I+XU6fb0JY6okrM96n815rcACKoaEUsINy5391LA7qKKxJXUaFpo02x5/yv5lZ9c7wNVOU4waaayTknFJtQJVQ==}
+  ui-ingredients-plugin-tailwindcss@0.0.8:
+    resolution: {integrity: sha512-OEgFQUhP05O6bapiMudMe7jHspNZ1a+6T7xhvjxqTE++21oW5zaNJL0ndvyuklD3bFCO/Jx1inZ3DhMyw1hN2Q==}
+    peerDependencies:
+      tailwindcss: ^3.3.3 || ^4.0.0
 
   ui-ingredients@0.31.1:
     resolution: {integrity: sha512-KneIKREXvvhQKR5kwC3FSEJdFC2o/qt8CwbBlLgVfxaEe2oWHY2R+SBeaEwZyKSqoSeWEebl0SCInpiCcHyaNA==}
@@ -9313,10 +9310,6 @@ snapshots:
       tailwind-merge: 2.5.4
       tailwindcss: 4.0.6
 
-  tailwindcss-plugin-zag@0.0.5(tailwindcss@4.0.6):
-    dependencies:
-      tailwindcss: 4.0.6
-
   tailwindcss@3.4.17:
     dependencies:
       '@alloc/quick-lru': 5.2.0
@@ -9487,11 +9480,9 @@ snapshots:
 
   typescript@5.7.3: {}
 
-  ui-ingredients-plugin-tailwindcss@0.0.6(tailwindcss@4.0.6):
+  ui-ingredients-plugin-tailwindcss@0.0.8(tailwindcss@4.0.6):
     dependencies:
-      tailwindcss-plugin-zag: 0.0.5(tailwindcss@4.0.6)
-    transitivePeerDependencies:
-      - tailwindcss
+      tailwindcss: 4.0.6
 
   ui-ingredients@0.31.1(@internationalized/date@3.5.5)(svelte@5.20.1):
     dependencies:
