@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+
 @plugin '@tailwindcss/typography';
 @plugin 'ui-ingredients-plugin-tailwindcss';
 
@@ -30,6 +31,8 @@
   --animate-collapse-out: collapse-out 150ms ease-in-out;
   --animate-slide-in-left: slide-in-left 150ms ease-in-out;
   --animate-slide-out-left: slide-out-left 150ms ease-in-out;
+  --animate-slide-in-right: slide-in-right 150ms ease-in-out;
+  --animate-slide-out-right: slide-out-right 150ms ease-in-out;
 
   @keyframes fade-in {
     0% {

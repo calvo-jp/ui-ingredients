@@ -11,5 +11,6 @@
     ["twMerge\\(([^)]*)\\)", "'([^']*)'"],
     ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
+  "tailwindCSS.experimental.configFile": "./website/src/app.css",
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

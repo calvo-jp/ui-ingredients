@@ -103,11 +103,11 @@
   </Dialog.Trigger>
   <Portal>
     <Dialog.Backdrop
-      class="fixed left-0 top-0 z-overlay size-full bg-white/50 ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-black/50"
+      class="z-overlay ui-open:animate-fade-in ui-closed:animate-fade-out fixed left-0 top-0 size-full bg-white/50 dark:bg-black/50"
     />
     <Dialog.Positioner>
       <Dialog.Content
-        class="fixed left-1/2 top-32 z-modal w-[34rem] -translate-x-1/2 overflow-hidden rounded-md border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"
+        class="z-modal fixed left-1/2 top-32 w-[34rem] -translate-x-1/2 overflow-hidden rounded-md border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"
       >
         <Combobox.Root
           {collection}
@@ -149,7 +149,7 @@
               {#each collection.items as item}
                 <Combobox.Item
                   {item}
-                  class="cursor-default rounded-md px-3 py-1 ui-highlighted:bg-neutral-50 dark:ui-highlighted:bg-neutral-800/25"
+                  class="ui-highlighted:bg-neutral-50 dark:ui-highlighted:bg-neutral-800/25 cursor-default rounded-md px-3 py-1"
                 >
                   <h2>{item.title}</h2>
                   <p class="line-clamp-1 text-sm text-neutral-500">
