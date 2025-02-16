@@ -75,7 +75,7 @@
         class="border-nuetral-200 relative w-[24rem] rounded border bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900"
       >
         <Tour.Arrow
-          class="[--arrow-background:theme(colors.white] [--arrow-size:theme(spacing.4)] dark:[--arrow-background:theme(colors.neutral[900])]"
+          class="[--arrow-background:var(--color-white)] [--arrow-size:--spacing(4)] dark:[--arrow-background:var(--color-neutral-900)]"
         >
           <Tour.ArrowTip />
         </Tour.Arrow>

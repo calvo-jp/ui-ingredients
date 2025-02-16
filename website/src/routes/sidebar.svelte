@@ -41,7 +41,7 @@
 ></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky hidden h-[calc(theme(height.dvh)-theme(spacing.16))] w-[20rem] shrink-0 space-y-4 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 dark:border-neutral-800 dark:bg-neutral-950 lg:block"
+  class="fixed left-0 top-16 z-sticky hidden h-[calc(100dvh---spacing(16))] w-[20rem] shrink-0 space-y-4 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 dark:border-neutral-800 dark:bg-neutral-950 lg:block"
 >
   <Search />
 
@@ -90,21 +90,23 @@
           {parent.label}
         </span>
 
-        <ul
-          class="space-y-0.5 overflow-hidden ui-open:animate-collapse-in ui-closed:animate-collapse-out"
-        >
+        <ul class="space-y-0.5 overflow-hidden">
           {#each parent.links as child}
             <li>
               <a
                 href={child.path}
-                class="group flex items-center gap-3 rounded py-1"
+                class="flex items-center gap-3 rounded py-1"
                 onclick={() => {
                   navbarStore.drawer.close();
                 }}
-                data-current={page.url.pathname === child.path ? '' : undefined}
               >
                 <span
-                  class="font-medium text-neutral-500 transition-colors duration-150 group-hover:text-inherit ui-group-current:text-indigo-500 dark:text-neutral-400 dark:ui-group-current:text-indigo-400 lg:text-sm"
+                  class={[
+                    'font-medium transition-colors duration-150 lg:text-sm',
+                    page.url.pathname === child.path
+                      ? 'text-indigo-500 dark:text-indigo-400'
+                      : 'text-neutral-500 dark:text-neutral-400 hover:text-inherit',
+                  ]}
                 >
                   {child.label}
                 </span>

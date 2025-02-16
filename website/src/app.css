@@ -1,9 +1,107 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@plugin 'ui-ingredients-plugin-tailwindcss';
 
-@layer base {
-  [hidden] {
-    display: none !important;
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-lexend: 'Lexend', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --spacing-4\.5: 1.125rem;
+  --spacing-5\.5: 1.375rem;
+
+  --z-hide: -1;
+  --z-auto: auto;
+  --z-base: 0;
+  --z-docked: 10;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-banner: 1200;
+  --z-overlay: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-skipLink: 1600;
+  --z-toast: 1700;
+  --z-tooltip: 1800;
+
+  --animate-fade-in: fade-in 150ms ease-in-out;
+  --animate-fade-out: fade-out 150ms ease-in-out;
+  --animate-collapse-in: collapse-in 150ms ease-in-out;
+  --animate-collapse-out: collapse-out 150ms ease-in-out;
+  --animate-slide-in-left: slide-in-left 150ms ease-in-out;
+  --animate-slide-out-left: slide-out-left 150ms ease-in-out;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes collapse-in {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: var(--height);
+    }
+  }
+
+  @keyframes collapse-out {
+    0% {
+      height: var(--height);
+    }
+    100% {
+      height: 0;
+    }
+  }
+
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-out-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-in-right {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-out-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

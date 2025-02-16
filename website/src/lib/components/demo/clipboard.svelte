@@ -20,12 +20,12 @@
       {/snippet}
     </Clipboard.Input>
 
-    <Clipboard.Trigger class="group">
+    <Clipboard.Trigger
+      class="ui-copied:text-green-600 dark:ui-copied:text-green-500"
+    >
       {#snippet asChild(attrs)}
         <IconButton {...attrs}>
-          <Clipboard.Indicator
-            class="size-5 ui-group-copied:text-green-600 dark:ui-group-copied:text-green-500"
-          >
+          <Clipboard.Indicator class="size-5">
             {#snippet asChild(attrs, ctx)}
               {#if ctx.copied}
                 <CheckIcon {...attrs} />
