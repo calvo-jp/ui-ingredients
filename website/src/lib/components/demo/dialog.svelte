@@ -15,12 +15,12 @@
 
   <Portal>
     <Dialog.Backdrop
-      class="fixed inset-0 z-overlay bg-white/50 backdrop-blur ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-black/50"
+      class="ui-open:animate-fade-in ui-closed:animate-fade-out fixed inset-0 bg-white/50 backdrop-blur dark:bg-black/50"
     />
 
     <Dialog.Positioner>
       <Dialog.Content
-        class="fixed top-0 z-modal h-full w-full border border-neutral-200 bg-white p-5 ui-open:animate-fade-in ui-closed:animate-fade-out dark:border-neutral-800 dark:bg-neutral-900 lg:left-1/2 lg:top-16 lg:h-auto lg:w-[24rem] lg:-translate-x-1/2 lg:rounded lg:p-8"
+        class="ui-open:animate-fade-in ui-closed:animate-fade-out fixed top-0 h-full w-full border border-neutral-200 bg-white p-5 lg:left-1/2 lg:top-16 lg:h-auto lg:w-[24rem] lg:-translate-x-1/2 lg:rounded lg:p-8 dark:border-neutral-800 dark:bg-neutral-900"
       >
         <Dialog.CloseTrigger class="absolute right-4 top-4">
           <XCloseIcon />

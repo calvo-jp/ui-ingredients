@@ -13,12 +13,12 @@
 
   <Portal>
     <Drawer.Backdrop
-      class="z-overlay ui-open:animate-fade-in ui-closed:animate-fade-out fixed inset-0 bg-white/50 backdrop-blur dark:bg-black/50"
+      class="ui-open:animate-fade-in ui-closed:animate-fade-out fixed inset-0 bg-white/50 backdrop-blur dark:bg-black/50"
     />
 
     <Drawer.Positioner>
       <Drawer.Content
-        class="z-modal ui-open:animate-slide-in-right ui-closed:animate-slide-out-right fixed right-0 top-0 flex h-dvh w-full flex-col border-l border-neutral-200 bg-white lg:w-[24rem] dark:border-neutral-800 dark:bg-neutral-900"
+        class="ui-open:animate-slide-in-right ui-closed:animate-slide-out-right fixed right-0 top-0 flex h-dvh w-full flex-col border-l border-neutral-200 bg-white lg:w-[24rem] dark:border-neutral-800 dark:bg-neutral-900"
       >
         <Drawer.Header
           class="flex items-start border-b border-neutral-200 p-4 dark:border-neutral-800"

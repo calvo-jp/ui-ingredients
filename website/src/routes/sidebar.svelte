@@ -41,7 +41,7 @@
 ></div>
 
 <nav
-  class="fixed left-0 top-16 z-sticky hidden h-[calc(100dvh---spacing(16))] w-[20rem] shrink-0 space-y-4 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 dark:border-neutral-800 dark:bg-neutral-950 lg:block"
+  class="fixed left-0 top-16 hidden h-[calc(100dvh---spacing(16))] w-[20rem] shrink-0 space-y-4 overflow-y-auto scroll-smooth border-r border-neutral-200 bg-white px-12 py-8 lg:block dark:border-neutral-800 dark:bg-neutral-950"
 >
   <Search />
 
@@ -61,12 +61,12 @@
 >
   <Portal>
     <Drawer.Backdrop
-      class="fixed left-0 top-0 z-overlay size-full bg-white/95 ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-black/95"
+      class="ui-open:animate-fade-in ui-closed:animate-fade-out fixed left-0 top-0 size-full bg-white/95 dark:bg-black/95"
     />
 
     <Drawer.Positioner>
       <Drawer.Content
-        class="fixed left-0 top-0 z-modal flex h-dvh w-[18rem] flex-col overflow-y-auto border-r border-neutral-200 bg-white px-5 py-6 ui-open:animate-slide-in-left ui-closed:animate-slide-out-left dark:border-neutral-700 dark:bg-neutral-900"
+        class="ui-open:animate-slide-in-left ui-closed:animate-slide-out-left fixed left-0 top-0 flex h-dvh w-[18rem] flex-col overflow-y-auto border-r border-neutral-200 bg-white px-5 py-6 dark:border-neutral-700 dark:bg-neutral-900"
       >
         <Drawer.Body>
           <nav>
@@ -85,7 +85,7 @@
         class="border-t border-neutral-200 py-4 first:border-0 first:pt-0 dark:border-neutral-800"
       >
         <span
-          class="block grow py-1 text-left font-lexend font-semibold lg:text-sm"
+          class="font-lexend block grow py-1 text-left font-semibold lg:text-sm"
         >
           {parent.label}
         </span>
@@ -105,7 +105,7 @@
                     'font-medium transition-colors duration-150 lg:text-sm',
                     page.url.pathname === child.path
                       ? 'text-indigo-500 dark:text-indigo-400'
-                      : 'text-neutral-500 dark:text-neutral-400 hover:text-inherit',
+                      : 'text-neutral-500 hover:text-inherit dark:text-neutral-400',
                   ]}
                 >
                   {child.label}

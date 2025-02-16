@@ -9,7 +9,7 @@
 </script>
 
 <header
-  class="fixed left-0 right-[var(--scrollbar-width,0)] top-0 z-sticky h-16 border-b border-neutral-200 bg-white px-5 dark:border-neutral-800 dark:bg-neutral-950 md:px-8 lg:px-12"
+  class="fixed left-0 right-[var(--scrollbar-width,0)] top-0 h-16 border-b border-neutral-200 bg-white px-5 md:px-8 lg:px-12 dark:border-neutral-800 dark:bg-neutral-950"
 >
   <div class="flex h-full items-center justify-center">
     <div class="flex items-center gap-2">

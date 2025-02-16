@@ -103,11 +103,11 @@
   </Dialog.Trigger>
   <Portal>
     <Dialog.Backdrop
-      class="z-overlay ui-open:animate-fade-in ui-closed:animate-fade-out fixed left-0 top-0 size-full bg-white/50 dark:bg-black/50"
+      class="ui-open:animate-fade-in ui-closed:animate-fade-out fixed left-0 top-0 size-full bg-white/50 dark:bg-black/50"
     />
     <Dialog.Positioner>
       <Dialog.Content
-        class="z-modal fixed left-1/2 top-32 w-[34rem] -translate-x-1/2 overflow-hidden rounded-md border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"
+        class="fixed left-1/2 top-32 w-[34rem] -translate-x-1/2 overflow-hidden rounded-md border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"
       >
         <Combobox.Root
           {collection}
