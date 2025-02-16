@@ -228,15 +228,14 @@ export default plugin.withOptions<UiIngredientsPluginOptions>((config = {}) => {
 
       matchVariant(
         `${prefix}-group-${key}`,
-        (value) =>
-          !isValid(value) ? [] : `:merge(.group)[data-${key}="${value}"] &`,
+        (value) => (!isValid(value) ? [] : `.group[data-${key}="${value}"] &`),
         {values: knownValues},
       );
 
       matchVariant(
         `${prefix}-peer-${key}`,
         (value) =>
-          !isValid(value) ? [] : `:merge(.peer)[data-${value}="${value}"] ~ &`,
+          !isValid(value) ? [] : `.peer[data-${value}="${value}"] ~ &`,
         {values: knownValues},
       );
     }
