@@ -195,9 +195,7 @@ export default plugin.withOptions<UiIngredientsPluginOptions>((config = {}) => {
       addVariant(
         `${prefix}-group-${key}`,
         values.map((value) =>
-          value === null
-            ? `:merge(.group)[data-${key}] &`
-            : `:merge(.group)[data-${value}] &`,
+          value === null ? `.group[data-${key}] &` : `.group[data-${value}] &`,
         ),
       );
 
@@ -205,8 +203,8 @@ export default plugin.withOptions<UiIngredientsPluginOptions>((config = {}) => {
         `${prefix}-peer-${key}`,
         values.map((value) =>
           value === null
-            ? `:merge(.peer)[data-${key}] ~ &`
-            : `:merge(.peer)[data-${value}] ~ &`,
+            ? `.peer[data-${key}] ~ &`
+            : `.peer[data-${value}] ~ &`,
         ),
       );
     }
