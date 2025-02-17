@@ -31,9 +31,9 @@
       <Clipboard.Indicator>
         {#snippet children(ctx)}
           {#if ctx.copied}
-            <!-- check -->
+            Copied
           {:else}
-            <!-- copy -->
+            Copy
           {/if}
         {/snippet}
       </Clipboard.Indicator>

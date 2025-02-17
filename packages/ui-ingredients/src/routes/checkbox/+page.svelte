@@ -14,7 +14,7 @@
     }}
   >
     <Checkbox.Control>
-      <Checkbox.Indicator></Checkbox.Indicator>
+      <Checkbox.Indicator>✅</Checkbox.Indicator>
     </Checkbox.Control>
     <Checkbox.Label>I accept the terms and conditions</Checkbox.Label>
     <Checkbox.HiddenInput />

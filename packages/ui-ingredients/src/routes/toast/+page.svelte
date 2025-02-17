@@ -1,8 +1,13 @@
 <script lang="ts">
-  import {Button, toaster} from '../shared/index.js';
+  import {createToaster, Toast, Toaster} from '$lib/index.js';
+
+  const toaster = createToaster({
+    placement: 'bottom',
+    overlap: true,
+  });
 </script>
 
-<Button
+<button
   onclick={() => {
     toaster.create({
       title: 'Yesss!',
@@ -11,4 +16,12 @@
   }}
 >
   Click me
-</Button>
+</button>
+
+<Toaster {toaster}>
+  <Toast.Root>
+    <Toast.Title />
+    <Toast.Description />
+    <Toast.CloseTrigger>Close</Toast.CloseTrigger>
+  </Toast.Root>
+</Toaster>

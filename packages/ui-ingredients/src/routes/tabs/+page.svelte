@@ -33,17 +33,12 @@
 >
   <Tabs.List>
     {#each items as { value, label }}
-      <Tabs.Trigger
-        {value}
-        class="data-selected:bg-light/25 h-10 border border-l-0 px-3 transition-colors duration-150 first:rounded-l first:border-l last:rounded-r"
-      >
+      <Tabs.Trigger {value}>
         {label}
       </Tabs.Trigger>
     {/each}
   </Tabs.List>
   {#each items as { value, content }}
-    <Tabs.Content class="mt-4 max-w-[32rem] text-sm lg:text-base" {value}
-      >{content}</Tabs.Content
-    >
+    <Tabs.Content {value}>{content}</Tabs.Content>
   {/each}
 </Tabs.Root>

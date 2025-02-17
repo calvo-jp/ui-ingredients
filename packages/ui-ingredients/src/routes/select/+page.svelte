@@ -1,11 +1,5 @@
 <script lang="ts">
   import {Portal, Select} from '$lib/index.js';
-  import {
-    CheckIcon,
-    ChevronDownIcon,
-    XCloseIcon,
-  } from '@untitled-theme/icons-svelte';
-  import {Button, IconButton, Label} from '../shared/index.js';
 
   let collection = Select.collection({
     items: [
@@ -33,49 +27,22 @@
   keepMounted={false}
   deselectable
 >
-  <Select.Control class="w-full lg:max-w-[24rem]">
-    <Select.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Label</Label>
-      {/snippet}
-    </Select.Label>
-    <div class="flex gap-2">
-      <Select.Trigger class="grow text-left font-normal">
-        {#snippet asChild(attrs)}
-          <Button variant="outline" {...attrs}>
-            <Select.ValueText placeholder="Please Select" class="grow" />
-            <Select.Indicator class="group">
-              <ChevronDownIcon
-                class="group-data-open:rotate-180 transition-transform duration-150"
-              />
-            </Select.Indicator>
-          </Button>
-        {/snippet}
-      </Select.Trigger>
-      <Select.ClearTrigger>
-        {#snippet asChild(attrs)}
-          <IconButton {...attrs}>
-            <XCloseIcon />
-          </IconButton>
-        {/snippet}
-      </Select.ClearTrigger>
-    </div>
+  <Select.Control>
+    <Select.Label>Label</Select.Label>
+    <Select.Trigger>
+      <Select.ValueText placeholder="Please Select" />
+      <Select.Indicator>🔻</Select.Indicator>
+    </Select.Trigger>
+    <Select.ClearTrigger>Clear</Select.ClearTrigger>
   </Select.Control>
 
   <Portal>
     <Select.Positioner>
-      <Select.Content
-        class="bg-light data-open:animate-fade-in data-closed:animate-fade-out rounded border p-2"
-      >
+      <Select.Content>
         {#each collection.items as item}
-          <Select.Item
-            {item}
-            class="data-highlighted:bg-lighter/50 data-disabled:cursor-not-allowed data-disabled:opacity-75 flex cursor-default items-center rounded px-2.5 py-1"
-          >
-            <Select.ItemText class="grow" />
-            <Select.ItemIndicator>
-              <CheckIcon class="text-success size-5" />
-            </Select.ItemIndicator>
+          <Select.Item {item}>
+            <Select.ItemText />
+            <Select.ItemIndicator>✅</Select.ItemIndicator>
           </Select.Item>
         {/each}
       </Select.Content>

@@ -28,20 +28,14 @@
     value = detail.value;
   }}
   orientation="horizontal"
-  class="relative flex w-fit"
 >
   {#each items as item}
-    <SegmentGroup.Item
-      value={item.value}
-      class="data-checked:text-white relative z-10 px-2.5 py-1 font-medium transition-colors duration-150"
-    >
+    <SegmentGroup.Item value={item.value}>
       <SegmentGroup.ItemText>{item.value}</SegmentGroup.ItemText>
       <SegmentGroup.ItemControl />
       <SegmentGroup.ItemHiddenInput />
     </SegmentGroup.Item>
   {/each}
 
-  <SegmentGroup.Indicator
-    class="bg-light/50 bottom-0 h-full w-[var(--width)] rounded"
-  />
+  <SegmentGroup.Indicator />
 </SegmentGroup.Root>

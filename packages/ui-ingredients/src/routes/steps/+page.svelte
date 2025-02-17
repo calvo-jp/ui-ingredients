@@ -1,8 +1,5 @@
 <script lang="ts">
   import {Steps} from '$lib/index.js';
-  import {CheckIcon} from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
-  import {Button} from '../shared/index.js';
 
   const items = [
     {title: 'Step 1', content: 'Step 1 Content'},
@@ -12,34 +9,15 @@
 </script>
 
 <Steps.Root count={items.length} lazyMount keepMounted={false}>
-  <Steps.List class="flex gap-3">
+  <Steps.List>
     {#each items as item, index}
-      <Steps.Item {index} class="flex items-center gap-2">
-        <Steps.Trigger class="flex items-center gap-2">
-          <Steps.Indicator
-            class={twMerge(
-              'group',
-              'flex',
-              'items-center',
-              'justify-center',
-              'rounded-full',
-              'size-5',
-              'border-2',
-              'transition-all',
-              'duration-150',
-              'data-current:border-accent',
-              'data-complete:border-accent',
-              'data-complete:bg-accent',
-            )}
-          >
-            <CheckIcon
-              class="group-data-complete:block hidden size-4 text-white"
-            />
-          </Steps.Indicator>
+      <Steps.Item {index}>
+        <Steps.Trigger>
+          <Steps.Indicator>✅</Steps.Indicator>
           <span>{item.title}</span>
         </Steps.Trigger>
         {#if index + 1 < items.length}
-          <Steps.Separator class="bg-light h-0.5 w-8" />
+          <Steps.Separator />
         {/if}
       </Steps.Item>
     {/each}
@@ -47,31 +25,16 @@
 
   <div class="mt-5">
     {#each items as item, index}
-      <Steps.Content
-        {index}
-        class="bg-light w-full rounded p-5 lg:max-w-[32rem]"
-      >
+      <Steps.Content {index}>
         {item.content}
       </Steps.Content>
     {/each}
 
-    <Steps.CompletedContent
-      class="bg-light w-full rounded p-5 lg:max-w-[32rem]"
-    >
-      Done!🚀
-    </Steps.CompletedContent>
+    <Steps.CompletedContent>Done!🚀</Steps.CompletedContent>
   </div>
 
-  <div class="mt-5 flex items-center gap-3">
-    <Steps.PrevTrigger>
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>Back</Button>
-      {/snippet}
-    </Steps.PrevTrigger>
-    <Steps.NextTrigger>
-      {#snippet asChild(attrs)}
-        <Button {...attrs}>Next</Button>
-      {/snippet}
-    </Steps.NextTrigger>
+  <div>
+    <Steps.PrevTrigger>Back</Steps.PrevTrigger>
+    <Steps.NextTrigger>Next</Steps.NextTrigger>
   </div>
 </Steps.Root>

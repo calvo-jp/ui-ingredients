@@ -1,11 +1,5 @@
 <script lang="ts">
   import {type NodeProps, TreeView} from '$lib/index.js';
-  import {
-    CheckSquareIcon,
-    ChevronRightIcon,
-    File02Icon,
-    FolderIcon,
-  } from '@untitled-theme/icons-svelte';
 
   interface Node {
     value: string;
@@ -75,9 +69,9 @@
   });
 </script>
 
-<TreeView.Root {collection} class="max-w-[16rem]">
-  <TreeView.Label class="mb-2 block text-neutral-600">Explorer</TreeView.Label>
-  <TreeView.Tree class="space-y-1">
+<TreeView.Root {collection}>
+  <TreeView.Label>Explorer</TreeView.Label>
+  <TreeView.Tree>
     {#each collection.rootNode.children ?? [] as node, index}
       {@render TreeNode({node, indexPath: [index]})}
     {/each}
@@ -87,23 +81,16 @@
 {#snippet TreeNode(props: NodeProps<Node>)}
   {#if props.node.children}
     <TreeView.Branch node={props.node} indexPath={props.indexPath}>
-      <TreeView.BranchControl class="flex items-center gap-1">
-        <TreeView.BranchText class="flex grow items-center gap-1">
-          <FolderIcon class="size-5" />
+      <TreeView.BranchControl>
+        <TreeView.BranchText>
           <span>{props.node.label}</span>
         </TreeView.BranchText>
-        <TreeView.BranchIndicator
-          class="data-open:rotate-90 transition-transform duration-150"
-        >
-          <ChevronRightIcon class="size-4" />
-        </TreeView.BranchIndicator>
+        <TreeView.BranchIndicator></TreeView.BranchIndicator>
       </TreeView.BranchControl>
-      <TreeView.BranchContent
-        class="data-open:animate-collapse-in data-closed:animate-collapse-out flex overflow-hidden p-1"
-      >
-        <TreeView.BranchIndentGuide class="w-3 border-l" />
+      <TreeView.BranchContent>
+        <TreeView.BranchIndentGuide />
 
-        <div class="grow space-y-1">
+        <div>
           {#each props.node.children as node, index}
             {@render TreeNode({node, indexPath: [...props.indexPath, index]})}
           {/each}
@@ -111,16 +98,9 @@
       </TreeView.BranchContent>
     </TreeView.Branch>
   {:else}
-    <TreeView.Item
-      node={props.node}
-      indexPath={props.indexPath}
-      class="flex items-center gap-1"
-    >
-      <TreeView.ItemIndicator>
-        <CheckSquareIcon class="size-5" />
-      </TreeView.ItemIndicator>
-      <TreeView.ItemText class="flex items-center gap-1">
-        <File02Icon class="size-5" />
+    <TreeView.Item node={props.node} indexPath={props.indexPath}>
+      <TreeView.ItemIndicator></TreeView.ItemIndicator>
+      <TreeView.ItemText>
         <span>{props.node.label}</span>
       </TreeView.ItemText>
     </TreeView.Item>

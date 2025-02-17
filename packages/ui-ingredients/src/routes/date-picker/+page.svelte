@@ -18,7 +18,7 @@
     <DatePicker.Label>Choose Date</DatePicker.Label>
     <DatePicker.Control>
       <DatePicker.Input />
-      <DatePicker.Trigger>Open</DatePicker.Trigger>
+      <DatePicker.Trigger>📅</DatePicker.Trigger>
     </DatePicker.Control>
 
     <Portal>
