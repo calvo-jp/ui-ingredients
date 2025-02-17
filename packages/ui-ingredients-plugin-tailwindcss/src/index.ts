@@ -14,7 +14,7 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'valid', values: [null]},
   {key: 'invalid', values: [null]},
   {key: 'disabled', values: [null]},
-  {key: 'readonly', values: [null]},
+  {key: 'readonly', values: [null, 'read-only']},
   {key: 'current', values: [null]},
   {key: 'inview', values: [null]},
   {key: 'copied', values: [null]},
@@ -25,11 +25,11 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'placeholder-shown', values: [null]},
   {key: 'autoresize', values: [null]},
   {key: 'required', values: [null]},
-  {key: 'dragging', values: [null]},
   {key: 'grabbed', values: [null]},
+  {key: 'dragging', values: [null]},
   {key: 'complete', values: [null]},
   {key: 'incomplete', values: [null]},
-  {key: 'expanded', values: [null]},
+  {key: 'expanded', values: [null, 'state="expanded"']},
   {key: 'half', values: [null]},
   {key: 'first', values: [null]},
   {key: 'mounted', values: [null]},
@@ -42,10 +42,10 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'open', values: ['state="open"']},
   {key: 'closed', values: ['state="closed"']},
   {key: 'hidden', values: [null, 'state="hidden"']},
-  {key: 'visible', values: ['state="visible"']},
+  {key: 'visible', values: [null, 'state="visible"']},
   {key: 'checked', values: [null, 'state="checked"']},
   {key: 'unchecked', values: [null, 'state="unchecked"']},
-  {key: 'indeterminate', values: ['state="indeterminate"']},
+  {key: 'indeterminate', values: [null, 'state="indeterminate"']},
   {key: 'vertical', values: ['orientation="vertical"']},
   {key: 'horizontal', values: ['orientation="horizontal"']},
   {key: 'placement-top', values: ['placement="top"']},
@@ -67,11 +67,15 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'align-center', values: ['align="center"']},
   {key: 'align-start', values: ['align="start"']},
   {key: 'align-end', values: ['align="end"']},
+  {key: 'now', values: [null]},
   {key: 'today', values: [null]},
   {key: 'weekend', values: [null]},
   {key: 'in-range', values: [null]},
+  {key: 'out-of-range', values: ['outside-range']},
   {key: 'range-start', values: [null]},
   {key: 'range-end', values: [null]},
+  {key: 'unavailable', values: [null]},
+  {key: 'topmost', values: [null]},
   {key: 'view-day', values: ['view="day"']},
   {key: 'view-month', values: ['view="month"']},
   {key: 'view-year', values: ['view="year"']},
@@ -96,6 +100,9 @@ const STATIC_VARIANT_ENTRIES: StaticVariantEntry[] = [
   {key: 'tour-highlighted', values: [null]},
   {key: 'scroll-lock', values: [null]},
   {key: 'inert', values: [null]},
+  {key: 'empty', values: [null]},
+  {key: 'fullscreen', values: [null]},
+  {key: 'loading', values: [null]},
 ];
 
 export interface DynamicVariantEntry {
@@ -159,7 +166,7 @@ const DYNAMIC_VARIANT_ENTRIES: DynamicVariantEntry[] = [
   },
 ];
 
-export interface UiIngredientsPluginOptions {
+export interface ZagPluginOptions {
   /**
    * @description The prefix for the variants.
    * @default "ui"
@@ -173,7 +180,10 @@ export interface UiIngredientsPluginOptions {
   prefix?: string;
 }
 
-export default plugin.withOptions<UiIngredientsPluginOptions>((config = {}) => {
+/**
+ * @see https://github.com/calvo-jp/tailwindcss-plugin-zag
+ */
+export default plugin.withOptions<ZagPluginOptions>((config = {}) => {
   const prefix = config.prefix ?? 'ui';
 
   return ({addVariant, matchVariant}) => {
