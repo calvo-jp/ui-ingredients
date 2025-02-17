@@ -1,17 +1,10 @@
 <script lang="ts">
   import {DatePicker, Portal, type DateValue} from '$lib/index.js';
-  import {
-    CalendarIcon,
-    ChevronLeftIcon,
-    ChevronRightIcon,
-  } from '@untitled-theme/icons-svelte';
-  import {IconButton, Input, Label} from '../shared/index.js';
 
   let value: DateValue[] = $state([]);
 </script>
 
 <DatePicker.Root
-  class="w-full lg:max-w-[24rem]"
   fixedWeeks
   {value}
   onValueChange={(detail) => {
@@ -22,63 +15,31 @@
   }}
 >
   {#snippet children(api)}
-    <DatePicker.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Choose Date</Label>
-      {/snippet}
-    </DatePicker.Label>
-    <DatePicker.Control class="flex gap-2">
-      <DatePicker.Input>
-        {#snippet asChild(attrs)}
-          <Input {...attrs} />
-        {/snippet}
-      </DatePicker.Input>
-      <DatePicker.Trigger>
-        {#snippet asChild(attrs)}
-          <IconButton {...attrs}>
-            <CalendarIcon />
-          </IconButton>
-        {/snippet}
-      </DatePicker.Trigger>
+    <DatePicker.Label>Choose Date</DatePicker.Label>
+    <DatePicker.Control>
+      <DatePicker.Input />
+      <DatePicker.Trigger>Open</DatePicker.Trigger>
     </DatePicker.Control>
 
     <Portal>
       <DatePicker.Positioner>
-        <DatePicker.Content
-          class="bg-light data-open:animate-fade-in data-closed:animate-fade-out overflow-hidden rounded"
-        >
+        <DatePicker.Content>
           <DatePicker.View view="day">
-            <DatePicker.ViewControl
-              class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
-            >
-              <DatePicker.PrevTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
-              >
-                <ChevronLeftIcon />
-              </DatePicker.PrevTrigger>
-
+            <DatePicker.ViewControl>
+              <DatePicker.PrevTrigger>&lt;</DatePicker.PrevTrigger>
               <DatePicker.ViewTrigger>
-                <DatePicker.RangeText
-                  class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold"
-                />
+                <DatePicker.RangeText />
               </DatePicker.ViewTrigger>
-
-              <DatePicker.NextTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
-              >
-                <ChevronRightIcon />
-              </DatePicker.NextTrigger>
+              <DatePicker.NextTrigger>&gt;</DatePicker.NextTrigger>
             </DatePicker.ViewControl>
 
-            <div class="p-4">
-              <DatePicker.Table class="w-full">
+            <div>
+              <DatePicker.Table>
                 <DatePicker.TableHead>
                   <DatePicker.TableRow>
                     {#each api.weekDays as weekDay}
                       <DatePicker.TableHeader>
-                        <div
-                          class="flex aspect-square w-full items-center justify-center text-sm"
-                        >
+                        <div>
                           {weekDay.narrow}
                         </div>
                       </DatePicker.TableHeader>
@@ -91,9 +52,7 @@
                     <DatePicker.TableRow>
                       {#each week as day}
                         <DatePicker.DayTableCell value={day}>
-                          <DatePicker.DayTableCellTrigger
-                            class="data-selected:text-accent hover:bg-lighter/25 data-disabled:cursor-not-allowed data-disabled:opacity-50 data-selected:font-semibold data-disabled:hover:bg-transparent flex aspect-square w-full items-center justify-center rounded transition-colors duration-150"
-                          >
+                          <DatePicker.DayTableCellTrigger>
                             {day.day}
                           </DatePicker.DayTableCellTrigger>
                         </DatePicker.DayTableCell>
@@ -107,38 +66,22 @@
 
           <!-- MONTH -->
           <DatePicker.View view="month">
-            <DatePicker.ViewControl
-              class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
-            >
-              <DatePicker.PrevTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
-              >
-                <ChevronLeftIcon />
-              </DatePicker.PrevTrigger>
-
+            <DatePicker.ViewControl>
+              <DatePicker.PrevTrigger>&lt;</DatePicker.PrevTrigger>
               <DatePicker.ViewTrigger>
-                <DatePicker.RangeText
-                  class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold"
-                />
+                <DatePicker.RangeText />
               </DatePicker.ViewTrigger>
-
-              <DatePicker.NextTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
-              >
-                <ChevronRightIcon />
-              </DatePicker.NextTrigger>
+              <DatePicker.NextTrigger>&gt;</DatePicker.NextTrigger>
             </DatePicker.ViewControl>
 
-            <div class="p-4">
-              <DatePicker.Table class="w-full">
+            <div>
+              <DatePicker.Table>
                 <DatePicker.TableBody>
                   {#each api.getMonthsGrid( {columns: 4, format: 'short'}, ) as months}
                     <DatePicker.TableRow>
                       {#each months as month}
                         <DatePicker.MonthTableCell value={month.value}>
-                          <DatePicker.MonthTableCellTrigger
-                            class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150"
-                          >
+                          <DatePicker.MonthTableCellTrigger>
                             {month.label}
                           </DatePicker.MonthTableCellTrigger>
                         </DatePicker.MonthTableCell>
@@ -152,38 +95,22 @@
 
           <!-- YEAR -->
           <DatePicker.View view="year">
-            <DatePicker.ViewControl
-              class="border-b-lighter/50 flex items-center justify-between border border-b px-4 py-3"
-            >
-              <DatePicker.PrevTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
-              >
-                <ChevronLeftIcon />
-              </DatePicker.PrevTrigger>
-
+            <DatePicker.ViewControl>
+              <DatePicker.PrevTrigger>&lt;</DatePicker.PrevTrigger>
               <DatePicker.ViewTrigger>
-                <DatePicker.RangeText
-                  class="hover:bg-lighter/25 rounded px-2 py-1 font-semibold"
-                />
+                <DatePicker.RangeText />
               </DatePicker.ViewTrigger>
-
-              <DatePicker.NextTrigger
-                class="hover:bg-lighter/25 flex size-10 items-center justify-center rounded transition-colors duration-150"
-              >
-                <ChevronRightIcon />
-              </DatePicker.NextTrigger>
+              <DatePicker.NextTrigger>&gt;</DatePicker.NextTrigger>
             </DatePicker.ViewControl>
 
-            <div class="p-4">
-              <DatePicker.Table class="w-full">
+            <div>
+              <DatePicker.Table>
                 <DatePicker.TableBody>
                   {#each api.getYearsGrid({columns: 4}) as years}
                     <DatePicker.TableRow>
                       {#each years as year}
                         <DatePicker.YearTableCell value={year.value}>
-                          <DatePicker.YearTableCellTrigger
-                            class="hover:bg-lighter/25 flex aspect-[16/9] w-full items-center justify-center rounded transition-colors duration-150"
-                          >
+                          <DatePicker.YearTableCellTrigger>
                             {year.label}
                           </DatePicker.YearTableCellTrigger>
                         </DatePicker.YearTableCell>

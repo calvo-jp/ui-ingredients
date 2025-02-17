@@ -1,7 +1,5 @@
 <script lang="ts">
   import {ColorPicker} from '$lib/index.js';
-  import {DropperIcon} from '@untitled-theme/icons-svelte';
-  import {IconButton, Input, Label} from '../shared/index.js';
 
   let presets = [
     'hsl(10, 81%, 59%)',
@@ -26,85 +24,42 @@
   }}
 >
   {#snippet children(context)}
-    <ColorPicker.Label>
-      {#snippet asChild(attrs)}
-        <Label {...attrs}>Color</Label>
-      {/snippet}
-    </ColorPicker.Label>
-    <ColorPicker.Control class="flex gap-2 lg:max-w-[24rem]">
-      <ColorPicker.ChannelInput channel="hex">
-        {#snippet asChild(attrs)}
-          <Input {...attrs} />
-        {/snippet}
-      </ColorPicker.ChannelInput>
+    <ColorPicker.Label>Color</ColorPicker.Label>
+    <ColorPicker.Control>
+      <ColorPicker.ChannelInput channel="hex" />
       <ColorPicker.Trigger>
-        {#snippet asChild(attrs)}
-          <IconButton {...attrs}>
-            <ColorPicker.Swatch
-              value={context.value}
-              class="size-7 rounded-sm"
-            />
-          </IconButton>
-        {/snippet}
+        <ColorPicker.Swatch value={context.value} />
       </ColorPicker.Trigger>
     </ColorPicker.Control>
-
     <ColorPicker.Positioner>
-      <ColorPicker.Content class="bg max-w-[20rem] rounded border p-4">
-        <ColorPicker.Area class="aspect-video w-full">
-          <ColorPicker.AreaBackground class="size-full rounded" />
-          <ColorPicker.AreaThumb
-            class="size-4 rounded-full border-2 border-white"
-          />
+      <ColorPicker.Content>
+        <ColorPicker.Area>
+          <ColorPicker.AreaBackground />
+          <ColorPicker.AreaThumb />
         </ColorPicker.Area>
 
-        <div class="mt-4 flex items-center gap-4">
-          <ColorPicker.EyeDropperTrigger>
-            {#snippet asChild(attrs)}
-              <IconButton {...attrs}>
-                <DropperIcon />
-              </IconButton>
-            {/snippet}
-          </ColorPicker.EyeDropperTrigger>
-
-          <div class="grow space-y-2">
-            <ColorPicker.ChannelSlider channel="hue" class="rounded">
-              <ColorPicker.ChannelSliderTrack class="h-4 rounded" />
-              <ColorPicker.ChannelSliderThumb
-                class="size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white outline outline-[0.125rem] outline-white"
-              />
+        <div>
+          <ColorPicker.EyeDropperTrigger>x</ColorPicker.EyeDropperTrigger>
+          <div>
+            <ColorPicker.ChannelSlider channel="hue">
+              <ColorPicker.ChannelSliderTrack />
+              <ColorPicker.ChannelSliderThumb />
             </ColorPicker.ChannelSlider>
-
-            <ColorPicker.ChannelSlider channel="alpha" class="rounded">
-              <ColorPicker.TransparencyGrid size="8px" class="h-4 rounded" />
-              <ColorPicker.ChannelSliderTrack class="h-4 rounded" />
-              <ColorPicker.ChannelSliderThumb
-                class="size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white outline outline-[0.125rem] outline-white"
-              />
+            <ColorPicker.ChannelSlider channel="alpha">
+              <ColorPicker.TransparencyGrid size="8px" />
+              <ColorPicker.ChannelSliderTrack />
+              <ColorPicker.ChannelSliderThumb />
             </ColorPicker.ChannelSlider>
           </div>
         </div>
-
-        <div class="mt-4 flex gap-3">
-          <ColorPicker.ChannelInput channel="hex">
-            {#snippet asChild(attrs)}
-              <Input {...attrs} size="xs" />
-            {/snippet}
-          </ColorPicker.ChannelInput>
-          <ColorPicker.ChannelInput channel="alpha">
-            {#snippet asChild(attrs)}
-              <Input {...attrs} size="xs" />
-            {/snippet}
-          </ColorPicker.ChannelInput>
+        <div>
+          <ColorPicker.ChannelInput channel="hex" />
+          <ColorPicker.ChannelInput channel="alpha" />
         </div>
-
-        <ColorPicker.SwatchGroup class="mt-4 grid grid-cols-6 gap-3">
+        <ColorPicker.SwatchGroup>
           {#each presets as color}
             <ColorPicker.SwatchTrigger value={color}>
-              <ColorPicker.Swatch
-                value={color}
-                class="aspect-square w-full rounded-sm"
-              />
+              <ColorPicker.Swatch value={color} />
             </ColorPicker.SwatchTrigger>
           {/each}
         </ColorPicker.SwatchGroup>

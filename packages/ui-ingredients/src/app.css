@@ -1,7 +1,0 @@
-@import 'tailwindcss';
-
-@layer base {
-  [hidden] {
-    @apply !hidden;
-  }
-}

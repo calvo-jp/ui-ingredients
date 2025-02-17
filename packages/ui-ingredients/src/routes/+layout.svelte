@@ -7,7 +7,6 @@
     Toast,
     Toaster,
   } from '$lib/index.js';
-  import {twMerge} from 'tailwind-merge';
   import {toaster} from './shared/index.js';
   import Sidebar from './sidebar.svelte';
 
@@ -16,42 +15,26 @@
 
 <EnvironmentProvider>
   <LocaleProvider locale="en-US">
-    <div class="lg:flex lg:items-start">
+    <div>
       <Sidebar />
 
-      <div class="grow">
-        <main class="p-4 lg:p-12">
-          {@render children()}
-        </main>
-      </div>
+      <main>
+        {@render children()}
+      </main>
     </div>
 
     <Toaster {toaster}>
-      <Toast.Root
-        class={twMerge(
-          'p-4',
-          'border',
-          'rounded',
-          'bg-light',
-          'duration-300',
-          'transition-all',
-          'min-w-[90vw]',
-          'lg:min-w-[20rem]',
-          'h-[var(--height)]',
-          'z-[var(--z-index)]',
-          '[translate:var(--x)_var(--y)_0]',
-          'opacity-[var(--opacity)]',
-          'scale-[var(--scale)]',
-        )}
-      >
-        <Toast.Title class="font-medium" />
-        <Toast.Description class="text-muted text-sm" />
-        <Toast.CloseTrigger
-          class="border-lighter mt-3 block h-12 w-full rounded border"
-        >
-          Close
-        </Toast.CloseTrigger>
+      <Toast.Root>
+        <Toast.Title />
+        <Toast.Description />
+        <Toast.CloseTrigger>Close</Toast.CloseTrigger>
       </Toast.Root>
     </Toaster>
   </LocaleProvider>
 </EnvironmentProvider>
+
+<style>
+  :global([hidden]) {
+    display: none !important;
+  }
+</style>

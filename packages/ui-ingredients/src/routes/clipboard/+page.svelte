@@ -21,38 +21,22 @@
 
 <script lang="ts">
   import {Clipboard} from '$lib/index.js';
-  import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
-  import {IconButton, Input, Label} from '../shared/index.js';
 </script>
 
 <Clipboard.Root value={randomString()}>
-  <Clipboard.Label>
-    {#snippet asChild(attrs)}
-      <Label {...attrs}>Token</Label>
-    {/snippet}
-  </Clipboard.Label>
-
-  <Clipboard.Control class="flex w-full gap-2 lg:max-w-[24rem]">
-    <Clipboard.Input>
-      {#snippet asChild(attrs)}
-        <Input {...attrs} />
-      {/snippet}
-    </Clipboard.Input>
-
+  <Clipboard.Label>Token</Clipboard.Label>
+  <Clipboard.Control>
+    <Clipboard.Input />
     <Clipboard.Trigger>
-      {#snippet asChild(attrs)}
-        <IconButton {...attrs}>
-          <Clipboard.Indicator>
-            {#snippet children(ctx)}
-              {#if ctx.copied}
-                <CheckIcon class="text-success" />
-              {:else}
-                <Copy01Icon />
-              {/if}
-            {/snippet}
-          </Clipboard.Indicator>
-        </IconButton>
-      {/snippet}
+      <Clipboard.Indicator>
+        {#snippet children(ctx)}
+          {#if ctx.copied}
+            <!-- check -->
+          {:else}
+            <!-- copy -->
+          {/if}
+        {/snippet}
+      </Clipboard.Indicator>
     </Clipboard.Trigger>
   </Clipboard.Control>
 </Clipboard.Root>
