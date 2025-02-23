@@ -1,7 +1,7 @@
 <script lang="ts" module>
   export interface ToasterProps {
     toaster: toast.Store;
-    children: Snippet;
+    children: Snippet<[toast: toast.Api]>;
   }
 </script>
 
@@ -22,14 +22,16 @@
   let environment = getEnvironmentContext();
   let portalProviderProps = getPortalProviderPropsContext();
 
-  let context: toast.GroupProps = reflect(() => ({
-    id,
-    dir: locale?.dir,
-    store: props.toaster,
-    getRootNode: environment?.getRootNode,
-  }));
+  const service = useMachine(
+    toast.group.machine,
+    reflect(() => ({
+      id,
+      dir: locale?.dir,
+      store: props.toaster,
+      getRootNode: environment?.getRootNode,
+    })),
+  );
 
-  const service = useMachine(toast.group.machine, context);
   const api = reflect(() => toast.group.connect(service, normalizeProps));
 </script>
 
@@ -41,8 +43,6 @@
   {...api.getGroupProps()}
 >
   {#each api.getToasts() as toast, index (toast.id)}
-    <ToastProvider {index} parent={service} {...toast}>
-      {@render children()}
-    </ToastProvider>
+    <ToastProvider {index} {children} parent={service} {...toast} />
   {/each}
 </div>
