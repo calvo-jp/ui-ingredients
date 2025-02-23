@@ -6,10 +6,11 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 import type {GenericObject} from '../types.js';
 import {parts} from './color-picker-anatomy.js';
 
-type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
-
 export interface CreateColorPickerProps
-  extends Omit<colorPicker.Props, Omitted> {
+  extends Omit<
+    colorPicker.Props,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string;
   openControlled?: boolean;
 }

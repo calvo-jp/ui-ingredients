@@ -7,9 +7,11 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 import type {GenericObject} from '../types.js';
 import {parts} from './date-picker-anatomy.js';
 
-type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
-
-export interface CreateDatePickerProps extends Omit<datePicker.Props, Omitted> {
+export interface CreateDatePickerProps
+  extends Omit<
+    datePicker.Props,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string;
   openControlled?: boolean;
 }

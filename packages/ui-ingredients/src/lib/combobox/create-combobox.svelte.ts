@@ -5,9 +5,11 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
-type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
-
-export interface CreateComboboxProps extends Omit<combobox.Props, Omitted> {
+export interface CreateComboboxProps
+  extends Omit<
+    combobox.Props,
+    'id' | 'dir' | 'getRootNode' | 'open.controlled'
+  > {
   id?: string;
   openControlled?: boolean;
 }
