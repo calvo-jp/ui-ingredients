@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateQrCodeProps
-  extends Omit<qrCode.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<qrCode.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -17,14 +17,14 @@ export function createQRCode(props: CreateQrCodeProps): CreateQrCodeReturn {
 
   const id = createUniqueId();
 
-  const context: qrCode.Context = reflect(() => ({
+  const context: qrCode.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(qrCode.machine(context), {context});
+  const service = useMachine(qrCode.machine, context);
 
-  return reflect(() => qrCode.connect(state, send, normalizeProps));
+  return reflect(() => qrCode.connect(service, normalizeProps));
 }

@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateSignaturePadProps
-  extends Omit<signaturePad.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<signaturePad.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createSignaturePad(
 
   const id = createUniqueId();
 
-  const context: signaturePad.Context = reflect(() => ({
+  const context: signaturePad.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(signaturePad.machine(context), {context});
+  const service = useMachine(signaturePad.machine, context);
 
-  return reflect(() => signaturePad.connect(state, send, normalizeProps));
+  return reflect(() => signaturePad.connect(service, normalizeProps));
 }

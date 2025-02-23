@@ -5,9 +5,8 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
-type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
-
-export interface CreateSelectProps extends Omit<select.Context, Omitted> {
+export interface CreateSelectProps
+  extends Omit<select.Props, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
   id?: string;
   openControlled?: boolean;
 }
@@ -21,7 +20,7 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
 
   const id = createUniqueId();
 
-  const context: select.Context = reflect(() => ({
+  const context: select.Props = reflect(() => ({
     id,
     ids: {
       label: field?.ids.label,
@@ -37,10 +36,10 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
     'open.controlled': props.openControlled,
   }));
 
-  const [state, send] = useMachine(select.machine(context), {context});
+  const service = useMachine(select.machine, context);
 
   return reflect(() => {
-    const o = select.connect(state, send, normalizeProps);
+    const o = select.connect(service, normalizeProps);
 
     return {
       ...o,

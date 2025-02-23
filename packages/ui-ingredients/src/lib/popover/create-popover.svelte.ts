@@ -6,7 +6,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 export interface CreatePopoverProps
   extends Omit<
-    popover.Context,
+    popover.Props,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -21,7 +21,7 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
 
   const id = createUniqueId();
 
-  const context: popover.Context = reflect(() => ({
+  const context: popover.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
@@ -29,7 +29,7 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
     ...props,
   }));
 
-  const [state, send] = useMachine(popover.machine(context), {context});
+  const service = useMachine(popover.machine, context);
 
-  return reflect(() => popover.connect(state, send, normalizeProps));
+  return reflect(() => popover.connect(service, normalizeProps));
 }

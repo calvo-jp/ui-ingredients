@@ -7,7 +7,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 export interface CreateEditableProps
   extends Omit<
-    editable.Context,
+    editable.Props,
     'id' | 'dir' | 'getRootNode' | 'edit.controlled'
   > {
   id?: string;
@@ -25,7 +25,7 @@ export function createEditable(
 
   const id = createUniqueId();
 
-  const context: editable.Context = reflect(() => ({
+  const context: editable.Props = reflect(() => ({
     id,
     ids: {
       label: field?.ids.label,
@@ -41,10 +41,10 @@ export function createEditable(
     ...props,
   }));
 
-  const [state, send] = useMachine(editable.machine(context), {context});
+  const service = useMachine(editable.machine, context);
 
   return reflect(() => {
-    const o = editable.connect(state, send, normalizeProps);
+    const o = editable.connect(service, normalizeProps);
 
     return {
       ...o,

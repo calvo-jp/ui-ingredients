@@ -4,7 +4,7 @@ import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 
 export interface CreateClipboardProps
-  extends Omit<clipboard.Context, 'id' | 'getRootNode'> {
+  extends Omit<clipboard.Props, 'id' | 'getRootNode'> {
   id?: string;
 }
 
@@ -17,13 +17,13 @@ export function createClipboard(
 
   const id = createUniqueId();
 
-  const context: clipboard.Context = reflect(() => ({
+  const context: clipboard.Props = reflect(() => ({
     id,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(clipboard.machine(context), {context});
+  const service = useMachine(clipboard.machine, context);
 
-  return reflect(() => clipboard.connect(state, send, normalizeProps));
+  return reflect(() => clipboard.connect(service, normalizeProps));
 }

@@ -66,8 +66,8 @@
   setMenuTriggerItemContext(() => parentMenu?.getTriggerItemProps(menu) ?? {});
 
   if (parentMenu) {
-    parentMenu.setChild(menu.machine);
-    menu.setParent(parentMenu.machine);
+    parentMenu.setChild(menu.service);
+    menu.setParent(parentMenu.service);
   }
 </script>
 

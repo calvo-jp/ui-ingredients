@@ -6,7 +6,7 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateNumberInputProps
-  extends Omit<numberInput.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<numberInput.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -21,7 +21,7 @@ export function createNumberInput(
 
   const id = createUniqueId();
 
-  const context: numberInput.Context = reflect(() => ({
+  const context: numberInput.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ids: {
@@ -37,10 +37,10 @@ export function createNumberInput(
     ...props,
   }));
 
-  const [state, send] = useMachine(numberInput.machine(context), {context});
+  const service = useMachine(numberInput.machine, context);
 
   return reflect(() => {
-    const o = numberInput.connect(state, send, normalizeProps);
+    const o = numberInput.connect(service, normalizeProps);
 
     return {
       ...o,

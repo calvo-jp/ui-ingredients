@@ -9,7 +9,7 @@ import {parts} from './tour-anatomy.js';
 export interface TourStepDetails extends Omit<tour.StepDetails, 'id'> {}
 
 export interface CreateTourProps
-  extends Omit<tour.Context, 'id' | 'dir' | 'steps' | 'getRootNode'> {
+  extends Omit<tour.Props, 'id' | 'dir' | 'steps' | 'getRootNode'> {
   id?: string;
   steps?: TourStepDetails[];
 }
@@ -31,7 +31,7 @@ export function createTour(props: CreateTourProps): CreateTourReturn {
     }));
   });
 
-  const context: tour.Context = reflect(() => ({
+  const context: tour.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
@@ -39,10 +39,10 @@ export function createTour(props: CreateTourProps): CreateTourReturn {
     steps,
   }));
 
-  const [state, send] = useMachine(tour.machine(context), {context});
+  const service = useMachine(tour.machine, context);
 
   return reflect(() => {
-    const o = tour.connect(state, send, normalizeProps);
+    const o = tour.connect(service, normalizeProps);
 
     return {
       ...o,

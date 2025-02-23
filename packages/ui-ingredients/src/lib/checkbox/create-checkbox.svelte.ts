@@ -6,7 +6,7 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateCheckboxProps
-  extends Omit<checkbox.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<checkbox.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -21,7 +21,7 @@ export function createCheckbox(
 
   const id = createUniqueId();
 
-  const context: checkbox.Context = reflect(() => ({
+  const context: checkbox.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ids: {
@@ -36,10 +36,10 @@ export function createCheckbox(
     ...props,
   }));
 
-  const [state, send] = useMachine(checkbox.machine(context), {context});
+  const service = useMachine(checkbox.machine, context);
 
   return reflect(() => {
-    const o = checkbox.connect(state, send, normalizeProps);
+    const o = checkbox.connect(service, normalizeProps);
 
     return {
       ...o,

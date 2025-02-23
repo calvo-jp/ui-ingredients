@@ -1,5 +1,11 @@
 <script lang="ts">
-  import {EnvironmentProvider, LocaleProvider} from '$lib/index.js';
+  import {
+    EnvironmentProvider,
+    LocaleProvider,
+    Toast,
+    Toaster,
+  } from '$lib/index.js';
+  import {toaster} from './toaster.js';
 
   let {children} = $props();
 
@@ -241,6 +247,14 @@
         {@render children()}
       </main>
     </div>
+
+    <Toaster {toaster}>
+      <Toast.Root>
+        <Toast.Title />
+        <Toast.Description />
+        <Toast.CloseTrigger>Close</Toast.CloseTrigger>
+      </Toast.Root>
+    </Toaster>
   </LocaleProvider>
 </EnvironmentProvider>
 

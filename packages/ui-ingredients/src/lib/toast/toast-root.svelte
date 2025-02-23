@@ -1,9 +1,9 @@
 <script lang="ts" module>
+  import type {Api} from '@zag-js/toast';
   import type {HtmlIngredientProps} from '../types.js';
-  import type {CreateToastReturn} from './create-toast.svelte.js';
 
   export interface ToastProps
-    extends HtmlIngredientProps<'div', HTMLDivElement, CreateToastReturn> {}
+    extends HtmlIngredientProps<'div', HTMLDivElement, Api> {}
 </script>
 
 <script lang="ts">

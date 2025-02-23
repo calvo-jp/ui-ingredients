@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateRadioGroupProps
-  extends Omit<radioGroup.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<radioGroup.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createRadioGroup(
 
   const id = createUniqueId();
 
-  const context: radioGroup.Context = reflect(() => ({
+  const context: radioGroup.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(radioGroup.machine(context), {context});
+  const service = useMachine(radioGroup.machine, context);
 
-  return reflect(() => radioGroup.connect(state, send, normalizeProps));
+  return reflect(() => radioGroup.connect(service, normalizeProps));
 }

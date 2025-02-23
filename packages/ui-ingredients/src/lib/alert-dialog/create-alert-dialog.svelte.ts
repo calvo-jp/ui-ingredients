@@ -8,7 +8,7 @@ import {parts} from './alert-dialog-anatomy.js';
 
 export interface CreateAlertDialogProps
   extends Omit<
-    dialog.Context,
+    dialog.Props,
     'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -25,7 +25,7 @@ export function createAlertDialog(
 
   const id = createUniqueId();
 
-  const context: dialog.Context = reflect(() => ({
+  const context: dialog.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     role: 'alertdialog',
@@ -34,10 +34,10 @@ export function createAlertDialog(
     ...props,
   }));
 
-  const [state, send] = useMachine(dialog.machine(context), {context});
+  const service = useMachine(dialog.machine, context);
 
   return reflect(() => {
-    const o = dialog.connect(state, send, normalizeProps);
+    const o = dialog.connect(service, normalizeProps);
 
     return {
       ...o,

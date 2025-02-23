@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateCarouselProps
-  extends Omit<carousel.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<carousel.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createCarousel(
 
   const id = createUniqueId();
 
-  const context: carousel.Context = reflect(() => ({
+  const context: carousel.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(carousel.machine(context), {context});
+  const service = useMachine(carousel.machine, context);
 
-  return reflect(() => carousel.connect(state, send, normalizeProps));
+  return reflect(() => carousel.connect(service, normalizeProps));
 }

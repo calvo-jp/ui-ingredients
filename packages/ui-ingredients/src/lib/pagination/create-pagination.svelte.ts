@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreatePaginationProps
-  extends Omit<pagination.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<pagination.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createPagination(
 
   const id = createUniqueId();
 
-  const context: pagination.Context = reflect(() => ({
+  const context: pagination.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(pagination.machine(context), {context});
+  const service = useMachine(pagination.machine, context);
 
-  return reflect(() => pagination.connect(state, send, normalizeProps));
+  return reflect(() => pagination.connect(service, normalizeProps));
 }

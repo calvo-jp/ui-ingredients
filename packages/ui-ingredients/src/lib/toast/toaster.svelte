@@ -1,61 +1,48 @@
 <script lang="ts" module>
-  import type {HtmlIngredientProps} from '../types.js';
-  import type {CreateToastReturn} from './create-toast.svelte.js';
-  import type {CreateToasterReturn} from './create-toaster.svelte.js';
-
-  export interface ToasterProps
-    extends Omit<
-      HtmlIngredientProps<'div', HTMLDivElement, CreateToastReturn>,
-      'asChild'
-    > {
-    toaster: CreateToasterReturn;
+  export interface ToasterProps {
+    toaster: toast.Store;
+    children: Snippet;
   }
 </script>
 
 <script lang="ts">
-  import {normalizeProps, portal, useMachine} from 'zagjs-legacy-svelte';
-  import * as toast from 'zagjs-legacy-toast';
+  import {normalizeProps, portal, reflect, useMachine} from '@zag-js/svelte';
+  import * as toast from '@zag-js/toast';
+  import type {Snippet} from 'svelte';
+  import {createUniqueId} from '../create-unique-id.js';
   import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
   import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
-  import {mergeProps} from '../merge-props.js';
   import {getPortalProviderPropsContext} from '../portal/portal-context.svelte.js';
-  import ToastActor from './toast-actor.svelte';
+  import ToastProvider from './toast-provider.svelte';
 
-  let {
-    ref = $bindable(null),
-    toaster,
-    children,
-    ...props
-  }: ToasterProps = $props();
+  let {children, ...props}: ToasterProps = $props();
 
+  let id = createUniqueId();
   let locale = getLocaleContext();
   let environment = getEnvironmentContext();
   let portalProviderProps = getPortalProviderPropsContext();
 
-  let [state, send] = useMachine(toaster.machine, {
-    context: {
-      get dir() {
-        return locale?.dir;
-      },
-      getRootNode: environment?.getRootNode,
-    },
-  });
+  let context: toast.GroupProps = reflect(() => ({
+    id,
+    dir: locale?.dir,
+    store: props.toaster,
+    getRootNode: environment?.getRootNode,
+  }));
 
-  let placement = $derived(state.context.placement);
-  let api = $derived(toast.group.connect(state, send, normalizeProps));
-  let toasts = $derived(api.getToastsByPlacement(placement));
-  let mergedProps = $derived(mergeProps(api.getGroupProps({placement}), props));
+  const service = useMachine(toast.group.machine, context);
+  const api = reflect(() => toast.group.connect(service, normalizeProps));
 </script>
 
 <div
-  bind:this={ref}
   use:portal={{
     container: portalProviderProps?.container ?? undefined,
     getRootNode: environment?.getRootNode,
   }}
-  {...mergedProps}
+  {...api.getGroupProps()}
 >
-  {#each toasts as toast (toast.id)}
-    <ToastActor actor={toast} {children} />
+  {#each api.getToasts() as toast, index (toast.id)}
+    <ToastProvider {index} parent={service} {...toast}>
+      {@render children()}
+    </ToastProvider>
   {/each}
 </div>

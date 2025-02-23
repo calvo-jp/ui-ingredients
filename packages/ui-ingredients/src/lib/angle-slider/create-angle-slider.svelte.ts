@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateAngleSliderProps
-  extends Omit<angleSlider.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<angleSlider.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createAngleSlider(
 
   const id = createUniqueId();
 
-  const context: angleSlider.Context = reflect(() => ({
+  const context: angleSlider.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(angleSlider.machine(context), {context});
+  const service = useMachine(angleSlider.machine, context);
 
-  return reflect(() => angleSlider.connect(state, send, normalizeProps));
+  return reflect(() => angleSlider.connect(service, normalizeProps));
 }

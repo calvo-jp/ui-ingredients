@@ -6,7 +6,7 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateFileUploadProps
-  extends Omit<fileUpload.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<fileUpload.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -21,7 +21,7 @@ export function createFileUpload(
 
   const id = createUniqueId();
 
-  const context: fileUpload.Context = reflect(() => ({
+  const context: fileUpload.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ids: {
@@ -36,10 +36,10 @@ export function createFileUpload(
     ...props,
   }));
 
-  const [state, send] = useMachine(fileUpload.machine(context), {context});
+  const service = useMachine(fileUpload.machine, context);
 
   return reflect(() => {
-    const o = fileUpload.connect(state, send, normalizeProps);
+    const o = fileUpload.connect(service, normalizeProps);
 
     return {
       ...o,

@@ -6,7 +6,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 export interface CreateDialogProps
   extends Omit<
-    dialog.Context,
+    dialog.Props,
     'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -21,7 +21,7 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
 
   const id = createUniqueId();
 
-  const context: dialog.Context = reflect(() => ({
+  const context: dialog.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     role: 'dialog',
@@ -30,7 +30,7 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
     ...props,
   }));
 
-  const [state, send] = useMachine(dialog.machine(context), {context});
+  const service = useMachine(dialog.machine, context);
 
-  return reflect(() => dialog.connect(state, send, normalizeProps));
+  return reflect(() => dialog.connect(service, normalizeProps));
 }

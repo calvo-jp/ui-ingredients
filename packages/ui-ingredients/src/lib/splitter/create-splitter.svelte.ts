@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateSplitterProps
-  extends Omit<splitter.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<splitter.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createSplitter(
 
   const id = createUniqueId();
 
-  const context: splitter.Context = reflect(() => ({
+  const context: splitter.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(splitter.machine(context), {context});
+  const service = useMachine(splitter.machine, context);
 
-  return reflect(() => splitter.connect(state, send, normalizeProps));
+  return reflect(() => splitter.connect(service, normalizeProps));
 }

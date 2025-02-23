@@ -7,7 +7,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
 
-export interface CreateComboboxProps extends Omit<combobox.Context, Omitted> {
+export interface CreateComboboxProps extends Omit<combobox.Props, Omitted> {
   id?: string;
   openControlled?: boolean;
 }
@@ -23,7 +23,7 @@ export function createCombobox(
 
   const id = createUniqueId();
 
-  const context: combobox.Context = reflect(() => ({
+  const context: combobox.Props = reflect(() => ({
     id,
     ids: {
       label: field?.ids.label,
@@ -39,14 +39,10 @@ export function createCombobox(
     'open.controlled': props.openControlled,
   }));
 
-  const [state, send, service] = useMachine(combobox.machine(context));
-
-  $effect(() => {
-    service.setContext(context);
-  });
+  const service = useMachine(combobox.machine, context);
 
   return reflect(() => {
-    const o = combobox.connect(state, send, normalizeProps);
+    const o = combobox.connect(service, normalizeProps);
 
     return {
       ...o,

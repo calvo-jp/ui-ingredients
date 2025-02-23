@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateFloatingPanelProps
-  extends Omit<floatingPanel.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<floatingPanel.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createFloatingPanel(
 
   const id = createUniqueId();
 
-  const context: floatingPanel.Context = reflect(() => ({
+  const context: floatingPanel.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(floatingPanel.machine(context), {context});
+  const service = useMachine(floatingPanel.machine, context);
 
-  return reflect(() => floatingPanel.connect(state, send, normalizeProps));
+  return reflect(() => floatingPanel.connect(service, normalizeProps));
 }

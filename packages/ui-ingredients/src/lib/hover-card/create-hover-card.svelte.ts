@@ -6,7 +6,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 export interface CreateHoverCardProps
   extends Omit<
-    hoverCard.Context,
+    hoverCard.Props,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -23,7 +23,7 @@ export function createHoverCard(
 
   const id = createUniqueId();
 
-  const context: hoverCard.Context = reflect(() => ({
+  const context: hoverCard.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
@@ -31,7 +31,7 @@ export function createHoverCard(
     ...props,
   }));
 
-  const [state, send] = useMachine(hoverCard.machine(context), {context});
+  const service = useMachine(hoverCard.machine, context);
 
-  return reflect(() => hoverCard.connect(state, send, normalizeProps));
+  return reflect(() => hoverCard.connect(service, normalizeProps));
 }

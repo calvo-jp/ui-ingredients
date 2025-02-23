@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateSliderProps
-  extends Omit<slider.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<slider.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -17,14 +17,14 @@ export function createSlider(props: CreateSliderProps): CreateSliderReturn {
 
   const id = createUniqueId();
 
-  const context: slider.Context = reflect(() => ({
+  const context: slider.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(slider.machine(context), {context});
+  const service = useMachine(slider.machine, context);
 
-  return reflect(() => slider.connect(state, send, normalizeProps));
+  return reflect(() => slider.connect(service, normalizeProps));
 }

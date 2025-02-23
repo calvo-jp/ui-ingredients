@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateProgressProps
-  extends Omit<progress.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<progress.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createProgress(
 
   const id = createUniqueId();
 
-  const context: progress.Context = reflect(() => ({
+  const context: progress.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(progress.machine(context), {context});
+  const service = useMachine(progress.machine, context);
 
-  return reflect(() => progress.connect(state, send, normalizeProps));
+  return reflect(() => progress.connect(service, normalizeProps));
 }

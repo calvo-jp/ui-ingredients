@@ -7,7 +7,7 @@ import {mergeProps} from '../merge-props.js';
 import {parts} from './segment-group-anatomy.js';
 
 export interface CreateSegmentGroupProps
-  extends Omit<segmentGroup.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<segmentGroup.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -21,17 +21,17 @@ export function createSegmentGroup(
 
   const id = createUniqueId();
 
-  const context: segmentGroup.Context = reflect(() => ({
+  const context: segmentGroup.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(segmentGroup.machine(context), {context});
+  const service = useMachine(segmentGroup.machine, context);
 
   return reflect(() => {
-    const o = segmentGroup.connect(state, send, normalizeProps);
+    const o = segmentGroup.connect(service, normalizeProps);
 
     return {
       ...o,

@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateToggleGroupProps
-  extends Omit<toggleGroup.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<toggleGroup.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createToggleGroup(
 
   const id = createUniqueId();
 
-  const context: toggleGroup.Context = reflect(() => ({
+  const context: toggleGroup.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(toggleGroup.machine(context), {context});
+  const service = useMachine(toggleGroup.machine, context);
 
-  return reflect(() => toggleGroup.connect(state, send, normalizeProps));
+  return reflect(() => toggleGroup.connect(service, normalizeProps));
 }

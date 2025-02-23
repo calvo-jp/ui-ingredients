@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateAccordionProps
-  extends Omit<accordion.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<accordion.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,7 +19,7 @@ export function createAccordion(
 
   const id = createUniqueId();
 
-  const context: accordion.Context = reflect(() => {
+  const context: accordion.Props = reflect(() => {
     return {
       id,
       dir: locale?.dir,
@@ -28,7 +28,7 @@ export function createAccordion(
     };
   });
 
-  const [state, send] = useMachine(accordion.machine(context), {context});
+  const service = useMachine(accordion.machine, context);
 
-  return reflect(() => accordion.connect(state, send, normalizeProps));
+  return reflect(() => accordion.connect(service, normalizeProps));
 }

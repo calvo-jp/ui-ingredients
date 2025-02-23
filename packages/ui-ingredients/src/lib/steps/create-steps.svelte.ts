@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateStepsProps
-  extends Omit<steps.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<steps.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -17,14 +17,14 @@ export function createSteps(props: CreateStepsProps): CreateStepsReturn {
 
   const id = createUniqueId();
 
-  const context: steps.Context = reflect(() => ({
+  const context: steps.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(steps.machine(context), {context});
+  const service = useMachine(steps.machine, context);
 
-  return reflect(() => steps.connect(state, send, normalizeProps));
+  return reflect(() => steps.connect(service, normalizeProps));
 }

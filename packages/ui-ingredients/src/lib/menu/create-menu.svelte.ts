@@ -5,13 +5,13 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateMenuProps
-  extends Omit<menu.Context, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<menu.Props, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
   id?: string;
   openControlled?: boolean;
 }
 
 export interface CreateMenuReturn extends menu.Api {
-  machine: menu.Service;
+  service: menu.Service;
 }
 
 export function createMenu(props: CreateMenuProps): CreateMenuReturn {
@@ -20,7 +20,7 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
 
   const id = createUniqueId();
 
-  const context: menu.Context = reflect(() => ({
+  const context: menu.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
@@ -28,10 +28,10 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
     ...props,
   }));
 
-  const [state, send, machine] = useMachine(menu.machine(context), {context});
+  const service = useMachine(menu.machine, context);
 
   return reflect(() => ({
-    ...menu.connect(state, send, normalizeProps),
-    machine,
+    ...menu.connect(service, normalizeProps),
+    service,
   }));
 }

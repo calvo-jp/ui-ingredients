@@ -9,8 +9,7 @@ import {parts} from './date-picker-anatomy.js';
 
 type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
 
-export interface CreateDatePickerProps
-  extends Omit<datePicker.Context, Omitted> {
+export interface CreateDatePickerProps extends Omit<datePicker.Props, Omitted> {
   id?: string;
   openControlled?: boolean;
 }
@@ -27,7 +26,7 @@ export function createDatePicker(
 
   const id = createUniqueId();
 
-  const context: datePicker.Context = $derived.by(() => ({
+  const context: datePicker.Props = $derived.by(() => ({
     id,
     dir: locale?.dir,
     locale: locale?.locale,
@@ -36,14 +35,10 @@ export function createDatePicker(
     'open.controlled': props.openControlled,
   }));
 
-  const [state, send, service] = useMachine(datePicker.machine(context));
-
-  $effect(() => {
-    service.setContext(context);
-  });
+  const service = useMachine(datePicker.machine, context);
 
   return reflect(() => {
-    const o = datePicker.connect(state, send, normalizeProps);
+    const o = datePicker.connect(service, normalizeProps);
 
     return {
       ...o,

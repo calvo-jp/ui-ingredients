@@ -9,7 +9,7 @@ import {parts} from './color-picker-anatomy.js';
 type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
 
 export interface CreateColorPickerProps
-  extends Omit<colorPicker.Context, Omitted> {
+  extends Omit<colorPicker.Props, Omitted> {
   id?: string;
   openControlled?: boolean;
 }
@@ -27,7 +27,7 @@ export function createColorPicker(
 
   const id = createUniqueId();
 
-  const context: colorPicker.Context = $derived.by(() => ({
+  const context: colorPicker.Props = $derived.by(() => ({
     id,
     dir: locale?.dir,
     ...props,
@@ -35,10 +35,10 @@ export function createColorPicker(
     'open.controlled': props.openControlled,
   }));
 
-  const [state, send] = useMachine(colorPicker.machine(context), {context});
+  const service = useMachine(colorPicker.machine, context);
 
   return reflect(() => {
-    const o = colorPicker.connect(state, send, normalizeProps);
+    const o = colorPicker.connect(service, normalizeProps);
 
     return {
       ...o,

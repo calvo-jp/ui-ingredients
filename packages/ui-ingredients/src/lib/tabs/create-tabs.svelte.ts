@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateTabsProps
-  extends Omit<tabs.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<tabs.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -17,14 +17,14 @@ export function createTabs(props: CreateTabsProps): CreateTabsReturn {
 
   const id = createUniqueId();
 
-  const context: tabs.Context = reflect(() => ({
+  const context: tabs.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(tabs.machine(context), {context});
+  const service = useMachine(tabs.machine, context);
 
-  return reflect(() => tabs.connect(state, send, normalizeProps));
+  return reflect(() => tabs.connect(service, normalizeProps));
 }

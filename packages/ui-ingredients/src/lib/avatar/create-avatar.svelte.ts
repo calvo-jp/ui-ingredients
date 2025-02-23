@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateAvatarProps
-  extends Omit<avatar.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<avatar.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -17,14 +17,14 @@ export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
 
   const id = createUniqueId();
 
-  const context: avatar.Context = reflect(() => ({
+  const context: avatar.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(avatar.machine(context), {context});
+  const service = useMachine(avatar.machine, context);
 
-  return reflect(() => avatar.connect(state, send, normalizeProps));
+  return reflect(() => avatar.connect(service, normalizeProps));
 }

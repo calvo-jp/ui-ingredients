@@ -9,7 +9,7 @@ import {parts} from './drawer-anatomy.js';
 
 export interface CreateDrawerProps
   extends Omit<
-    dialog.Context,
+    dialog.Props,
     'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -28,7 +28,7 @@ export function createDrawer(props: CreateDrawerProps): CreateDrawerReturn {
 
   const id = createUniqueId();
 
-  const context: dialog.Context = reflect(() => ({
+  const context: dialog.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     role: 'dialog',
@@ -37,10 +37,10 @@ export function createDrawer(props: CreateDrawerProps): CreateDrawerReturn {
     ...props,
   }));
 
-  const [state, send] = useMachine(dialog.machine(context), {context});
+  const service = useMachine(dialog.machine, context);
 
   return reflect(() => {
-    const o = dialog.connect(state, send, normalizeProps);
+    const o = dialog.connect(service, normalizeProps);
 
     return {
       ...o,

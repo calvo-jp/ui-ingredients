@@ -6,7 +6,7 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateRatingGroupProps
-  extends Omit<ratingGroup.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<ratingGroup.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -21,7 +21,7 @@ export function createRatingGroup(
 
   const id = createUniqueId();
 
-  const context: ratingGroup.Context = reflect(() => ({
+  const context: ratingGroup.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ids: {
@@ -35,10 +35,10 @@ export function createRatingGroup(
     ...props,
   }));
 
-  const [state, send] = useMachine(ratingGroup.machine(context), {context});
+  const service = useMachine(ratingGroup.machine, context);
 
   return reflect(() => {
-    const o = ratingGroup.connect(state, send, normalizeProps);
+    const o = ratingGroup.connect(service, normalizeProps);
 
     return {
       ...o,

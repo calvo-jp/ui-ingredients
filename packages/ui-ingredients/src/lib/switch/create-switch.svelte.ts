@@ -6,7 +6,7 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateSwitchProps
-  extends Omit<switch_.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<switch_.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,7 +19,7 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
 
   const id = createUniqueId();
 
-  const context: switch_.Context = reflect(() => ({
+  const context: switch_.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ids: {
@@ -34,10 +34,10 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
     ...props,
   }));
 
-  const [state, send] = useMachine(switch_.machine(context), {context});
+  const service = useMachine(switch_.machine, context);
 
   return reflect(() => {
-    const o = switch_.connect(state, send, normalizeProps);
+    const o = switch_.connect(service, normalizeProps);
 
     return {
       ...o,

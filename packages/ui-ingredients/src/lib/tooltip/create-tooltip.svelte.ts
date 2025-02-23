@@ -6,7 +6,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 export interface CreateTooltipProps
   extends Omit<
-    tooltip.Context,
+    tooltip.Props,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -21,7 +21,7 @@ export function createTooltip(props: CreateTooltipProps): CreateTooltipReturn {
 
   const id = createUniqueId();
 
-  const context: tooltip.Context = reflect(() => ({
+  const context: tooltip.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
@@ -29,7 +29,7 @@ export function createTooltip(props: CreateTooltipProps): CreateTooltipReturn {
     ...props,
   }));
 
-  const [state, send] = useMachine(tooltip.machine(context), {context});
+  const service = useMachine(tooltip.machine, context);
 
-  return reflect(() => tooltip.connect(state, send, normalizeProps));
+  return reflect(() => tooltip.connect(service, normalizeProps));
 }

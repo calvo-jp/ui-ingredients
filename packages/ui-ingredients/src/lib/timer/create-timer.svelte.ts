@@ -4,7 +4,7 @@ import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 
 export interface CreateTimerProps
-  extends Omit<timer.Context, 'id' | 'getRootNode'> {
+  extends Omit<timer.Props, 'id' | 'getRootNode'> {
   id?: string;
 }
 
@@ -15,13 +15,13 @@ export function createTimer(props: CreateTimerProps): CreateTimerReturn {
 
   const id = createUniqueId();
 
-  const context: timer.Context = reflect(() => ({
+  const context: timer.Props = reflect(() => ({
     id,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(timer.machine(context), {context});
+  const service = useMachine(timer.machine, context);
 
-  return reflect(() => timer.connect(state, send, normalizeProps));
+  return reflect(() => timer.connect(service, normalizeProps));
 }

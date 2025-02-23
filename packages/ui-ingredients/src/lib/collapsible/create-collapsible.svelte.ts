@@ -6,7 +6,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 export interface CreateCollapsibleProps
   extends Omit<
-    collapsible.Context,
+    collapsible.Props,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -23,7 +23,7 @@ export function createCollapsible(
 
   const id = createUniqueId();
 
-  const context: collapsible.Context = reflect(() => ({
+  const context: collapsible.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
@@ -31,7 +31,7 @@ export function createCollapsible(
     ...props,
   }));
 
-  const [state, send] = useMachine(collapsible.machine(context), {context});
+  const service = useMachine(collapsible.machine, context);
 
-  return reflect(() => collapsible.connect(state, send, normalizeProps));
+  return reflect(() => collapsible.connect(service, normalizeProps));
 }

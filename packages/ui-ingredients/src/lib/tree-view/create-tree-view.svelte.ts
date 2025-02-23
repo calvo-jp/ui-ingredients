@@ -5,7 +5,7 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateTreeViewProps
-  extends Omit<treeView.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<treeView.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -19,14 +19,14 @@ export function createTreeView(
 
   const id = createUniqueId();
 
-  const context: treeView.Context = reflect(() => ({
+  const context: treeView.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(treeView.machine(context), {context});
+  const service = useMachine(treeView.machine, context);
 
-  return reflect(() => treeView.connect(state, send, normalizeProps));
+  return reflect(() => treeView.connect(service, normalizeProps));
 }

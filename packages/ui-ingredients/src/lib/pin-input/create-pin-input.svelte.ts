@@ -9,7 +9,7 @@ import type {HtmlProps} from '../types.js';
 import {parts} from './pin-input-anatomy.js';
 
 export interface CreatePinInputProps
-  extends Omit<pinInput.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<pinInput.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -26,7 +26,7 @@ export function createPinInputContext(
 
   const id = createUniqueId();
 
-  const context: pinInput.Context = reflect(() => ({
+  const context: pinInput.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ids: {
@@ -41,10 +41,10 @@ export function createPinInputContext(
     ...props,
   }));
 
-  const [state, send] = useMachine(pinInput.machine(context), {context});
+  const service = useMachine(pinInput.machine, context);
 
   return reflect(() => {
-    const o = pinInput.connect(state, send, normalizeProps);
+    const o = pinInput.connect(service, normalizeProps);
 
     return {
       ...o,

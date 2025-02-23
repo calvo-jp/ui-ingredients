@@ -6,7 +6,7 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 
 export interface CreateTimePickerProps
   extends Omit<
-    timePicker.Context,
+    timePicker.Props,
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
@@ -23,7 +23,7 @@ export function createTimePicker(
 
   const id = createUniqueId();
 
-  const context: timePicker.Context = reflect(() => ({
+  const context: timePicker.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     locale: locale?.locale,
@@ -32,7 +32,7 @@ export function createTimePicker(
     ...props,
   }));
 
-  const [state, send] = useMachine(timePicker.machine(context), {context});
+  const service = useMachine(timePicker.machine, context);
 
-  return reflect(() => timePicker.connect(state, send, normalizeProps));
+  return reflect(() => timePicker.connect(service, normalizeProps));
 }

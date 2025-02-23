@@ -6,7 +6,7 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateTagsInputProps
-  extends Omit<tagsInput.Context, 'id' | 'dir' | 'getRootNode'> {
+  extends Omit<tagsInput.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
 }
 
@@ -21,7 +21,7 @@ export function createTagsInput(
 
   const id = createUniqueId();
 
-  const context: tagsInput.Context = reflect(() => ({
+  const context: tagsInput.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ids: {
@@ -36,10 +36,10 @@ export function createTagsInput(
     ...props,
   }));
 
-  const [state, send] = useMachine(tagsInput.machine(context), {context});
+  const service = useMachine(tagsInput.machine, context);
 
   return reflect(() => {
-    const o = tagsInput.connect(state, send, normalizeProps);
+    const o = tagsInput.connect(service, normalizeProps);
 
     return {
       ...o,

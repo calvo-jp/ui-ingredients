@@ -33,9 +33,9 @@ export function createPresence(
     },
   });
 
-  const [state, send] = useMachine(presence.machine(context), {context});
+  const service = useMachine(presence.machine, context);
 
-  const api = $derived(presence.connect(state, send, normalizeProps));
+  const api = $derived(presence.connect(service, normalizeProps));
 
   function getPresenceProps(): HTMLAttributes<HTMLElement> {
     return {
