@@ -28,7 +28,7 @@ export function createDatePicker(
 
   const id = createUniqueId();
 
-  const context: datePicker.Props = $derived.by(() => ({
+  const context: datePicker.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     locale: locale?.locale,

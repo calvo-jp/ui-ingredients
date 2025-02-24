@@ -28,7 +28,7 @@ export function createColorPicker(
 
   const id = createUniqueId();
 
-  const context: colorPicker.Props = $derived.by(() => ({
+  const context: colorPicker.Props = reflect(() => ({
     id,
     dir: locale?.dir,
     ...props,
