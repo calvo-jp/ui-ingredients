@@ -1,6 +1,6 @@
-import {createToaster} from '$lib/index.js';
+import {createToastStore} from '$lib/index.js';
 
-export const toaster = createToaster({
+export const toaster = createToastStore({
   placement: 'bottom',
   overlap: true,
 });

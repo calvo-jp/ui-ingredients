@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {createToaster, Toast, Toaster} from '$lib/index.js';
+  import {createToastStore, Toast, Toaster} from '$lib/index.js';
 
-  export const toaster = createToaster({
+  export const toaster = createToastStore({
     duration: 5000,
   });
 </script>
