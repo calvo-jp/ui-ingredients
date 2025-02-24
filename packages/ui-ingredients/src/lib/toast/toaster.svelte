@@ -1,5 +1,6 @@
 <script lang="ts" module>
   export interface ToasterProps {
+    label?: string;
     toaster: toast.Store;
     children: Snippet<[toast: toast.Api]>;
   }
@@ -15,22 +16,21 @@
   import {getPortalProviderPropsContext} from '../portal/portal-context.svelte.js';
   import ToastProvider from './toast-provider.svelte';
 
-  let {children, ...props}: ToasterProps = $props();
+  let {label, toaster, children}: ToasterProps = $props();
 
   let id = createUniqueId();
   let locale = getLocaleContext();
   let environment = getEnvironmentContext();
   let portalProviderProps = getPortalProviderPropsContext();
 
-  const service = useMachine(
-    toast.group.machine,
-    reflect(() => ({
-      id,
-      dir: locale?.dir,
-      store: props.toaster,
-      getRootNode: environment?.getRootNode,
-    })),
-  );
+  const service = useMachine(toast.group.machine, {
+    id,
+    get dir() {
+      return locale?.dir;
+    },
+    store: toaster,
+    getRootNode: environment?.getRootNode,
+  });
 
   const api = reflect(() => toast.group.connect(service, normalizeProps));
 </script>
@@ -40,9 +40,9 @@
     container: portalProviderProps?.container ?? undefined,
     getRootNode: environment?.getRootNode,
   }}
-  {...api.getGroupProps()}
+  {...api.getGroupProps({label})}
 >
-  {#each api.getToasts() as toast, index}
+  {#each api.getToasts() as toast, index (toast.id)}
     <ToastProvider {index} {children} {toast} parent={service} />
   {/each}
 </div>

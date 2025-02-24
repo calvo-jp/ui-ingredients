@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {toaster} from '../toaster.js';
+  import {toaster} from '../toaster.svelte.js';
 </script>
 
 <button

@@ -6,7 +6,7 @@
     Toaster,
   } from '$lib/index.js';
   import '../app.css';
-  import {toaster} from './toaster.js';
+  import {toaster} from './toaster.svelte.js';
 
   let {children} = $props();
 
