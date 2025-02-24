@@ -5,6 +5,7 @@
     Toast,
     Toaster,
   } from '$lib/index.js';
+  import '../app.css';
   import {toaster} from './toaster.js';
 
   let {children} = $props();
@@ -228,13 +229,16 @@
 
 <EnvironmentProvider>
   <LocaleProvider locale="en-US">
-    <div style="display:flex;gap:1.5rem;padding:2rem;">
-      <header style="width:200px;flex-shrink:0;">
+    <div style="min-height:100dvh;display:flex;align-items:start;">
+      <div style="width:250px;"></div>
+      <header
+        style="height:100dvh;width:250px;padding:2rem;overflow-y:auto;position:fixed;top:0;left:0;"
+      >
         <nav>
           <ul>
             {#each links as link}
               <li>
-                <a href={link.path}>
+                <a href={link.path} style="display:block;width:100%">
                   {link.label}
                 </a>
               </li>
@@ -243,7 +247,7 @@
         </nav>
       </header>
 
-      <main>
+      <main style="padding:2rem;flex-grow:1;">
         {@render children()}
       </main>
     </div>
@@ -257,71 +261,3 @@
     </Toaster>
   </LocaleProvider>
 </EnvironmentProvider>
-
-<style>
-  :global(*),
-  :global(*::before),
-  :global(*::after) {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :global(ul),
-  :global(ol) {
-    list-style: none;
-  }
-
-  :global(a) {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  :global(html) {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-
-  :global(body) {
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      'Open Sans',
-      'Helvetica Neue',
-      sans-serif;
-    color: black;
-    background: white;
-  }
-
-  :global(button) {
-    cursor: pointer;
-  }
-
-  :global(input),
-  :global(select),
-  :global(textarea),
-  :global(button) {
-    font: inherit;
-    color: inherit;
-    background: transparent;
-    border: 1px solid;
-    padding: 0.5rem 0.75rem;
-  }
-
-  :global([hidden]) {
-    display: none !important;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :global(body) {
-      background: black;
-      color: white;
-    }
-  }
-</style>

@@ -38,6 +38,7 @@
   positioning={{
     sameWidth: true,
   }}
+  multiple
   lazyMount
   placeholder="Please Select"
 >
@@ -52,7 +53,7 @@
       {#each collection.items as item}
         <Combobox.Item {item}>
           <Combobox.ItemText>{item.label}</Combobox.ItemText>
-          <Combobox.ItemIndicator>Check</Combobox.ItemIndicator>
+          <Combobox.ItemIndicator>✅</Combobox.ItemIndicator>
         </Combobox.Item>
       {/each}
     </Combobox.Content>
