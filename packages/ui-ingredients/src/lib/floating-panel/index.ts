@@ -19,7 +19,7 @@ export {
   type CreateFloatingPanelProps,
   type CreateFloatingPanelReturn,
 } from './create-floating-panel.svelte.js';
-// export {anatomy as floatingPanelAnatomy} from './floating-panel-anatomy.js';
+export {anatomy as floatingPanelAnatomy} from './floating-panel-anatomy.js';
 export {
   getFloatingPanelContext,
   setFloatingPanelContext,

@@ -16,7 +16,7 @@ export {anatomy as drawerAnatomy} from './drawer/drawer-anatomy.js';
 export {anatomy as editableAnatomy} from './editable/editable-anatomy.js';
 export {anatomy as fieldAnatomy} from './field/field-anatomy.js';
 export {anatomy as fileUploadAnatomy} from './file-upload/file-upload-anatomy.js';
-// export {anatomy as floatingPanelAnatomy} from './floating-panel/floating-panel-anatomy.js';
+export {anatomy as floatingPanelAnatomy} from './floating-panel/floating-panel-anatomy.js';
 export {anatomy as hoverCardAnatomy} from './hover-card/hover-card-anatomy.js';
 export {anatomy as menuAnatomy} from './menu/menu-anatomy.js';
 export {anatomy as numberInputAnatomy} from './number-input/number-input-anatomy.js';
