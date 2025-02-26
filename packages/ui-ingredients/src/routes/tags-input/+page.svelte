@@ -2,6 +2,8 @@
   import {TagsInput} from '$lib/index.js';
 
   let value = $state(['Hello']);
+
+  $inspect({value});
 </script>
 
 <TagsInput.Root

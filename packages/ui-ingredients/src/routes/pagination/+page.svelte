@@ -2,6 +2,8 @@
   import {Pagination} from '$lib/index.js';
 
   let page = $state(1);
+
+  $inspect(page);
 </script>
 
 <Pagination.Root

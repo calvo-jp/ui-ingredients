@@ -2,6 +2,8 @@
   import {PinInput} from '$lib/index.js';
 
   let value: string[] = $state([]);
+
+  $inspect({value});
 </script>
 
 <PinInput.Root

@@ -135,6 +135,10 @@
       path: '/menu/context',
     },
     {
+      label: 'Checkbox Menu',
+      path: '/menu/checkbox',
+    },
+    {
       label: 'Nested Menu',
       path: '/menu/nested',
     },
@@ -230,7 +234,7 @@
 <EnvironmentProvider>
   <LocaleProvider locale="en-US">
     <div style="min-height:100dvh;display:flex;align-items:start;">
-      <div style="width:250px;"></div>
+      <div style="width:250px;flex-shrink:0;"></div>
       <header
         style="height:100dvh;width:250px;padding:2rem;overflow-y:auto;position:fixed;top:0;left:0;"
       >

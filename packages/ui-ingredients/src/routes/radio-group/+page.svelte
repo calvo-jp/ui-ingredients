@@ -7,7 +7,9 @@
     {value: '3', label: 'Item 3'},
   ];
 
-  let value = $state('1');
+  let value: string | null = $state('1');
+
+  $inspect({value});
 </script>
 
 <RadioGroup.Root

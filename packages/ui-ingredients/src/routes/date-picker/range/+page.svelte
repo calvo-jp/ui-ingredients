@@ -2,6 +2,8 @@
   import {DatePicker, Portal, type DateValue} from '$lib/index.js';
 
   let value: DateValue[] = $state([]);
+
+  $inspect({value});
 </script>
 
 <DatePicker.Root

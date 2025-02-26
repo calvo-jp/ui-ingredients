@@ -16,6 +16,8 @@
       clearInterval(interval);
     };
   });
+
+  $inspect({value});
 </script>
 
 <Progress.Root

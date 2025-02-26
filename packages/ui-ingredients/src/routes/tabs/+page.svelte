@@ -23,6 +23,8 @@
   ];
 
   let value = $state(items[0].value);
+
+  $inspect({value});
 </script>
 
 <Tabs.Root

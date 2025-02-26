@@ -2,6 +2,8 @@
   import {AlertDialog} from '$lib/index.js';
 
   let open = $state(false);
+
+  $inspect({open});
 </script>
 
 <AlertDialog.Root

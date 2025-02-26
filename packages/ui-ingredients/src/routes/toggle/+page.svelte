@@ -2,6 +2,8 @@
   import {Toggle} from '$lib/index.js';
 
   let pressed = $state(false);
+
+  $inspect({pressed});
 </script>
 
 <Toggle.Root

@@ -20,6 +20,8 @@
   ];
 
   let value: string[] = $state([]);
+
+  $inspect({value});
 </script>
 
 <Accordion.Root

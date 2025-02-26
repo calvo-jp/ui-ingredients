@@ -2,6 +2,8 @@
   import {ToggleGroup} from '$lib/index.js';
 
   let value: string[] = $state([]);
+
+  $inspect({value});
 </script>
 
 <ToggleGroup.Root

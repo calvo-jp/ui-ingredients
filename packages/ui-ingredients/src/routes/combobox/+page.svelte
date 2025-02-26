@@ -23,6 +23,11 @@
       items: matches,
     }),
   );
+
+  $inspect({
+    value,
+    inputValue,
+  });
 </script>
 
 <Combobox.Root

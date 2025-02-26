@@ -2,6 +2,8 @@
   import {Dialog} from '$lib/index.js';
 
   let open = $state(false);
+
+  $inspect({open});
 </script>
 
 <Dialog.Root

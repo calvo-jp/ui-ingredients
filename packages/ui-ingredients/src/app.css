@@ -67,6 +67,12 @@ button {
   font-weight: 500;
 }
 
+button:disabled,
+button[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 label {
   display: inline-block;
 }

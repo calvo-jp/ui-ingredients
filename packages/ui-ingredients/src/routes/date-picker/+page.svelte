@@ -3,7 +3,7 @@
 
   let value: DateValue[] = $state([]);
 
-  $inspect(value);
+  $inspect({value});
 </script>
 
 <DatePicker.Root

@@ -1,29 +1,17 @@
-<script lang="ts" module>
-  function randomString(length = 16) {
-    const result: string[] = [];
-
-    const chars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-      'abcdefghijklmnopqrstuvwxyz' +
-      '0123456789';
-
-    const charsCount = chars.length;
-
-    for (let i = 0; i < length; i += 1) {
-      const random = chars.charAt(Math.floor(Math.random() * charsCount));
-
-      result.push(random);
-    }
-
-    return result.join('');
-  }
-</script>
-
 <script lang="ts">
   import {Clipboard} from '$lib/index.js';
+
+  let value = $state('TEST');
+
+  $inspect({value});
 </script>
 
-<Clipboard.Root value={randomString()}>
+<Clipboard.Root
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+>
   <Clipboard.Label>Token</Clipboard.Label>
   <Clipboard.Control>
     <Clipboard.Input />

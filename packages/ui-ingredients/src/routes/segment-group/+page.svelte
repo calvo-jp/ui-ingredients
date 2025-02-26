@@ -13,13 +13,13 @@
     },
   ];
 
-  let value: string | undefined = $state();
+  let value: string | null = $state(null);
 
   $effect(() => {
     value = items[0].value;
   });
 
-  $inspect(value);
+  $inspect({value});
 </script>
 
 <SegmentGroup.Root

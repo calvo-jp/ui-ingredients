@@ -2,6 +2,8 @@
   import {Slider} from '$lib/index.js';
 
   let value = $state([0, 25]);
+
+  $inspect({value});
 </script>
 
 <Slider.Root

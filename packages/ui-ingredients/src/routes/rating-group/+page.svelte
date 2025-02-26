@@ -2,6 +2,8 @@
   import {RatingGroup} from '$lib/index.js';
 
   let value = $state(1);
+
+  $inspect({value});
 </script>
 
 <RatingGroup.Root

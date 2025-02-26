@@ -15,6 +15,8 @@
   ];
 
   let value = $state(ColorPicker.parse('#9863BF'));
+
+  $inspect({value});
 </script>
 
 <ColorPicker.Root

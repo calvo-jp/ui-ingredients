@@ -2,6 +2,8 @@
   import {Editable} from '$lib/index.js';
 
   let value = $state('Double click to edit');
+
+  $inspect({value});
 </script>
 
 <Editable.Root

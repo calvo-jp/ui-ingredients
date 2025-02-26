@@ -2,6 +2,8 @@
   import {Presence} from '$lib/index.js';
 
   let present = $state(false);
+
+  $inspect({present});
 </script>
 
 <button

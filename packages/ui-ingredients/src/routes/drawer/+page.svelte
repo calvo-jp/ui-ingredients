@@ -2,6 +2,8 @@
   import {Drawer} from '$lib/index.js';
 
   let open = $state(false);
+
+  $inspect({open});
 </script>
 
 <Drawer.Root
