@@ -22,7 +22,7 @@ describe("'mergeProps' util is working as expected", () => {
           ],
         },
       ),
-    ).toBe('a b c d f g i');
+    ).toEqual({class: 'a b c d e g h j'});
   });
 
   it('merges style correctly', () => {
@@ -37,7 +37,7 @@ describe("'mergeProps' util is working as expected", () => {
         {
           style: {
             color: 'green',
-            fontSize: '16px',
+            'font-size': '16px',
           },
         },
       ),
