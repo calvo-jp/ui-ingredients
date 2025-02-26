@@ -28,6 +28,7 @@
 
   let [createToggleGroupProps, localProps] = $derived(
     createSplitProps<CreateToggleGroupProps>([
+      'defaultValue',
       'disabled',
       'id',
       'ids',

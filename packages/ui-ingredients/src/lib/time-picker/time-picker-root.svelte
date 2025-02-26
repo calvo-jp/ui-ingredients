@@ -33,6 +33,8 @@
   let [createTimePickerProps, rest] = $derived(
     createSplitProps<CreateTimePickerProps>([
       'allowSeconds',
+      'defaultOpen',
+      'defaultValue',
       'disableLayer',
       'disabled',
       'id',
@@ -45,7 +47,6 @@
       'onOpenChange',
       'onValueChange',
       'open',
-      'openControlled',
       'placeholder',
       'positioning',
       'readOnly',

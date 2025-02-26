@@ -38,6 +38,8 @@
   let [createTreeViewProps, localProps] = $derived(
     createSplitProps<CreateTreeViewProps>([
       'collection',
+      'defaultExpandedValue',
+      'defaultSelectedValue',
       'expandOnClick',
       'expandedValue',
       'focusedValue',

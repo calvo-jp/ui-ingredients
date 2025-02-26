@@ -28,6 +28,7 @@
 
   let [createAngleSliderProps, localProps] = $derived(
     createSplitProps<CreateAngleSliderProps>([
+      'defaultValue',
       'disabled',
       'id',
       'ids',

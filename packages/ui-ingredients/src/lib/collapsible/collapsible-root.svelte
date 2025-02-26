@@ -38,13 +38,13 @@
 
   let [createCollapsibleProps, localProps] = $derived(
     createSplitProps<CreateCollapsibleProps>([
+      'defaultOpen',
       'disabled',
       'id',
       'ids',
       'onExitComplete',
       'onOpenChange',
       'open',
-      'openControlled',
     ])(rest),
   );
 

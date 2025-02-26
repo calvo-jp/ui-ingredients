@@ -6,9 +6,8 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateSelectProps
-  extends Omit<select.Props, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<select.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateSelectReturn extends select.Api {}
@@ -31,9 +30,8 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
-    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
+    ...props,
   }));
 
   const service = useMachine(select.machine, context);

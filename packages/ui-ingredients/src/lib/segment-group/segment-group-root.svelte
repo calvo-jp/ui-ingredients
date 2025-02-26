@@ -28,6 +28,7 @@
 
   let [createSegmentGroupProps, localProps] = $derived(
     createSplitProps<CreateSegmentGroupProps>([
+      'defaultValue',
       'disabled',
       'form',
       'id',

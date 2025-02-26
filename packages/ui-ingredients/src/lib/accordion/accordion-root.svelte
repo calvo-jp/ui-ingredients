@@ -38,6 +38,7 @@
   let [createAccordionProps, localProps] = $derived(
     createSplitProps<CreateAccordionProps>([
       'collapsible',
+      'defaultValue',
       'disabled',
       'id',
       'ids',

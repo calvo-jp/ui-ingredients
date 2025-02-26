@@ -6,12 +6,8 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateComboboxProps
-  extends Omit<
-    combobox.Props,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<combobox.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateComboboxReturn extends combobox.Api {}
@@ -36,9 +32,8 @@ export function createCombobox(
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
-    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
+    ...props,
   }));
 
   const service = useMachine(combobox.machine, context);

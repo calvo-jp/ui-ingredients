@@ -8,12 +8,8 @@ import {mergeProps} from '../merge-props.js';
 import {parts} from './drawer-anatomy.js';
 
 export interface CreateDrawerProps
-  extends Omit<
-    dialog.Props,
-    'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<dialog.Props, 'id' | 'dir' | 'role' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateDrawerReturn extends dialog.Api {
@@ -33,7 +29,6 @@ export function createDrawer(props: CreateDrawerProps): CreateDrawerReturn {
     dir: locale?.dir,
     role: 'dialog',
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

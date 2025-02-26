@@ -5,12 +5,8 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreatePopoverProps
-  extends Omit<
-    popover.Props,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<popover.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreatePopoverReturn extends popover.Api {}
@@ -25,7 +21,6 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

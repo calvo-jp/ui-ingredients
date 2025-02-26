@@ -28,6 +28,7 @@
 
   let [createRadioGroupProps, localProps] = $derived(
     createSplitProps<CreateRadioGroupProps>([
+      'defaultValue',
       'disabled',
       'form',
       'id',

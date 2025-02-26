@@ -28,6 +28,7 @@
 
   let [createProgressProps, localProps] = $derived(
     createSplitProps<CreateProgressProps>([
+      'defaultValue',
       'id',
       'ids',
       'max',

@@ -29,6 +29,7 @@
   let [createSwitchProps, localProps] = $derived(
     createSplitProps<CreateSwitchProps>([
       'checked',
+      'defaultChecked',
       'disabled',
       'form',
       'id',

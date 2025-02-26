@@ -32,6 +32,8 @@
       'allowOverflow',
       'autoFocus',
       'blurBehavior',
+      'defaultInputValue',
+      'defaultValue',
       'delimiter',
       'disabled',
       'editable',

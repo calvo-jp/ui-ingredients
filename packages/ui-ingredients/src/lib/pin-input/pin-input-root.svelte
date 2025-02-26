@@ -30,6 +30,7 @@
     createSplitProps<CreatePinInputProps>([
       'autoFocus',
       'blurOnComplete',
+      'defaultValue',
       'disabled',
       'form',
       'id',

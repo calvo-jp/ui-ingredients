@@ -5,12 +5,8 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateCollapsibleProps
-  extends Omit<
-    collapsible.Props,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<collapsible.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateCollapsibleReturn extends collapsible.Api {}
@@ -27,7 +23,6 @@ export function createCollapsible(
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

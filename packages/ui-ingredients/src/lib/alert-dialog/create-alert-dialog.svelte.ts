@@ -7,12 +7,8 @@ import {mergeProps} from '../merge-props.js';
 import {parts} from './alert-dialog-anatomy.js';
 
 export interface CreateAlertDialogProps
-  extends Omit<
-    dialog.Props,
-    'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<dialog.Props, 'id' | 'dir' | 'role' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateAlertDialogReturn extends dialog.Api {}
@@ -30,7 +26,6 @@ export function createAlertDialog(
     dir: locale?.dir,
     role: 'alertdialog',
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

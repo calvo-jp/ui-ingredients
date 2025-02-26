@@ -8,7 +8,7 @@
   ];
 </script>
 
-<Carousel.Root autoplay loop>
+<Carousel.Root autoplay loop slideCount={3}>
   <Carousel.ItemGroup>
     {#each items as src, index}
       <Carousel.Item {index}>

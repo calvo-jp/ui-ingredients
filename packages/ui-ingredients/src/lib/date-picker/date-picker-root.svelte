@@ -37,6 +37,10 @@
   let [createDatePickerProps, localProps] = $derived(
     createSplitProps<CreateDatePickerProps>([
       'closeOnSelect',
+      'defaultFocusedValue',
+      'defaultOpen',
+      'defaultValue',
+      'defaultView',
       'disabled',
       'fixedWeeks',
       'focusedValue',
@@ -46,7 +50,9 @@
       'isDateUnavailable',
       'locale',
       'max',
+      'maxView',
       'min',
+      'minView',
       'name',
       'numOfMonths',
       'onFocusChange',
@@ -54,7 +60,8 @@
       'onValueChange',
       'onViewChange',
       'open',
-      'openControlled',
+      'parse',
+      'placeholder',
       'positioning',
       'readOnly',
       'selectionMode',
@@ -63,9 +70,6 @@
       'translations',
       'value',
       'view',
-      'minView',
-      'maxView',
-      'placeholder',
     ])(rest),
   );
 

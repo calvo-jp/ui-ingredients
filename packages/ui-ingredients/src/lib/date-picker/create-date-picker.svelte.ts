@@ -8,12 +8,8 @@ import type {GenericObject} from '../types.js';
 import {parts} from './date-picker-anatomy.js';
 
 export interface CreateDatePickerProps
-  extends Omit<
-    datePicker.Props,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<datePicker.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateDatePickerReturn extends datePicker.Api {
@@ -32,9 +28,8 @@ export function createDatePicker(
     id,
     dir: locale?.dir,
     locale: locale?.locale,
-    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
+    ...props,
   }));
 
   const service = useMachine(datePicker.machine, context);

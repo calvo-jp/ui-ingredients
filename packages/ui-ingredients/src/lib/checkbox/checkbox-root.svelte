@@ -29,6 +29,7 @@
   let [createCheckboxProps, localProps] = $derived(
     createSplitProps<CreateCheckboxProps>([
       'checked',
+      'defaultChecked',
       'disabled',
       'form',
       'id',

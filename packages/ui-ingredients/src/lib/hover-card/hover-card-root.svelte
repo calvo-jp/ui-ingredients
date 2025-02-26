@@ -26,11 +26,14 @@
   let [createHoverCardProps, presenceStrategyProps] = $derived(
     createSplitProps<CreateHoverCardProps>([
       'closeDelay',
+      'defaultOpen',
       'id',
       'ids',
+      'onFocusOutside',
+      'onInteractOutside',
       'onOpenChange',
+      'onPointerDownOutside',
       'open',
-      'openControlled',
       'openDelay',
       'positioning',
     ])(props),

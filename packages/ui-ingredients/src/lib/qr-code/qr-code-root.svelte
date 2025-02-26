@@ -28,10 +28,12 @@
 
   let [createQrCodeProps, localProps] = $derived(
     createSplitProps<CreateQrCodeProps>([
+      'defaultValue',
       'encoding',
       'id',
       'ids',
       'onValueChange',
+      'pixelSize',
       'value',
     ])(props),
   );

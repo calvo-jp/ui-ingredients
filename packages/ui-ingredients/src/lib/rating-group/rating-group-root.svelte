@@ -31,6 +31,7 @@
       'allowHalf',
       'autoFocus',
       'count',
+      'defaultValue',
       'disabled',
       'form',
       'id',

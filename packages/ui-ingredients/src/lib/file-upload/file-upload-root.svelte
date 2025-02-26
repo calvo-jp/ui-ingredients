@@ -40,7 +40,6 @@
       'maxFileSize',
       'maxFiles',
       'minFileSize',
-      'minFileSize',
       'name',
       'onFileAccept',
       'onFileChange',

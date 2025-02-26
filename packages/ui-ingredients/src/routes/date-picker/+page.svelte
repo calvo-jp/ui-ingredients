@@ -21,6 +21,7 @@
     <DatePicker.Control>
       <DatePicker.Input />
       <DatePicker.Trigger>📅</DatePicker.Trigger>
+      <DatePicker.ClearTrigger>Clear</DatePicker.ClearTrigger>
     </DatePicker.Control>
 
     <Portal>

@@ -30,6 +30,7 @@
     createSplitProps<CreateCarouselProps>([
       'allowMouseDrag',
       'autoplay',
+      'defaultPage',
       'id',
       'ids',
       'inViewThreshold',

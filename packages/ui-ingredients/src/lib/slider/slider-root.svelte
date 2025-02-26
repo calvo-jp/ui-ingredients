@@ -30,6 +30,7 @@
     createSplitProps<CreateSliderProps>([
       'aria-label',
       'aria-labelledby',
+      'defaultValue',
       'disabled',
       'form',
       'getAriaValueText',

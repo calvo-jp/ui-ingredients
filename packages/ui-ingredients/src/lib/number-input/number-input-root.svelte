@@ -31,6 +31,7 @@
       'allowMouseWheel',
       'allowOverflow',
       'clampValueOnBlur',
+      'defaultValue',
       'disabled',
       'focusInputOnChange',
       'form',

@@ -28,6 +28,7 @@
 
   let [createSplitterProps, localProps] = $derived(
     createSplitProps<CreateSplitterProps>([
+      'defaultSize',
       'id',
       'ids',
       'onSizeChange',

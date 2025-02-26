@@ -5,12 +5,8 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateTooltipProps
-  extends Omit<
-    tooltip.Props,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<tooltip.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateTooltipReturn extends tooltip.Api {}
@@ -25,7 +21,6 @@ export function createTooltip(props: CreateTooltipProps): CreateTooltipReturn {
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

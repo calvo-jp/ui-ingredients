@@ -28,9 +28,11 @@
 
   let [createClipboardProps, localProps] = $derived(
     createSplitProps<CreateClipboardProps>([
+      'defaultValue',
       'id',
       'ids',
       'onStatusChange',
+      'onValueChange',
       'timeout',
       'value',
     ])(props),

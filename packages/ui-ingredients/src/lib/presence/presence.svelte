@@ -20,9 +20,11 @@
 
   let [createPresenceProps, localProps] = $derived(
     createSplitProps<CreatePresenceProps>([
+      'immediate',
       'keepMounted',
       'lazyMount',
       'present',
+      'onExitComplete',
     ])(props),
   );
 

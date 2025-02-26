@@ -12,7 +12,6 @@ export interface CreateColorPickerProps
     'id' | 'dir' | 'getRootNode' | 'open.controlled'
   > {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateColorPickerReturn extends colorPicker.Api {
@@ -31,9 +30,8 @@ export function createColorPicker(
   const context: colorPicker.Props = reflect(() => ({
     id,
     dir: locale?.dir,
-    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
+    ...props,
   }));
 
   const service = useMachine(colorPicker.machine, context);

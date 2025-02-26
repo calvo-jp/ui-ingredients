@@ -30,9 +30,10 @@
     createSplitProps<CreateEditableProps>([
       'activationMode',
       'autoResize',
+      'defaultEdit',
+      'defaultValue',
       'disabled',
       'edit',
-      'editControlled',
       'finalFocusEl',
       'form',
       'id',

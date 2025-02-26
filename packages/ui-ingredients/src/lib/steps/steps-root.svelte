@@ -38,6 +38,7 @@
   let [createStepsProps, localProps] = $derived(
     createSplitProps<CreateStepsProps>([
       'count',
+      'defaultStep',
       'id',
       'ids',
       'linear',

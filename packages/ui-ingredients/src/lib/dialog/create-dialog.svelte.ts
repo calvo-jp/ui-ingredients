@@ -5,12 +5,8 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateDialogProps
-  extends Omit<
-    dialog.Props,
-    'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<dialog.Props, 'id' | 'dir' | 'role' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateDialogReturn extends dialog.Api {}
@@ -26,7 +22,6 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
     dir: locale?.dir,
     role: 'dialog',
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

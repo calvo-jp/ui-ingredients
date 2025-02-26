@@ -5,12 +5,8 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateHoverCardProps
-  extends Omit<
-    hoverCard.Props,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
-  > {
+  extends Omit<hoverCard.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateHoverCardReturn extends hoverCard.Api {}
@@ -27,7 +23,6 @@ export function createHoverCard(
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

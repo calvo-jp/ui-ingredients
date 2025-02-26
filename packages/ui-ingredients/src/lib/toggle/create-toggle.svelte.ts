@@ -1,54 +1,14 @@
-import {ariaAttr, dataAttr} from '@zag-js/dom-query';
-import {reflect} from '@zag-js/svelte';
-import type {HTMLButtonAttributes} from 'svelte/elements';
-import {parts} from './toggle-anatomy.js';
+import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
+import * as toggle from '@zag-js/toggle';
 
-interface PressedChangeDetails {
-  pressed: boolean;
-}
-
-export interface CreateToggleProps {
-  disabled?: boolean;
-  pressed?: boolean;
-  onPressedChange?: (detail: PressedChangeDetails) => void;
-}
-
-export interface CreateToggleReturn {
-  pressed: boolean;
-  setPressed: (pressed: boolean) => void;
-  getRootProps(): HTMLButtonAttributes;
-}
+export interface CreateToggleProps extends toggle.Props {}
+export interface CreateToggleReturn extends toggle.Api {}
 
 export function createToggle(props: CreateToggleProps) {
-  let pressed = $state(props.pressed ?? false);
+  const service = useMachine(
+    toggle.machine,
+    reflect(() => props),
+  );
 
-  function setPressed(value: boolean) {
-    props.onPressedChange?.({pressed: value});
-    pressed = value;
-  }
-
-  function getRootProps(): HTMLButtonAttributes {
-    return {
-      disabled: props.disabled,
-      onclick() {
-        if (props.disabled) return;
-        setPressed(!pressed);
-      },
-      'aria-pressed': ariaAttr(pressed),
-      'data-state': pressed ? 'on' : 'off',
-      'data-pressed': dataAttr(pressed),
-      'data-disabled': dataAttr(props.disabled),
-      ...parts.root.attrs,
-    };
-  }
-
-  $effect(() => {
-    pressed = props.pressed ?? false;
-  });
-
-  return reflect(() => ({
-    pressed,
-    setPressed,
-    getRootProps,
-  }));
+  return reflect(() => toggle.connect(service, normalizeProps));
 }

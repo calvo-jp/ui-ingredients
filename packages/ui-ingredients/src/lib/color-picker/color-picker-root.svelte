@@ -39,6 +39,9 @@
   let [createColorPickerProps, localProps] = $derived(
     createSplitProps<CreateColorPickerProps>([
       'closeOnSelect',
+      'defaultFormat',
+      'defaultOpen',
+      'defaultValue',
       'disabled',
       'format',
       'id',
@@ -55,7 +58,6 @@
       'onValueChangeEnd',
       'open',
       'openAutoFocus',
-      'openControlled',
       'positioning',
       'readOnly',
       'required',

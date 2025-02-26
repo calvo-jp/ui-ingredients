@@ -5,9 +5,8 @@ import {getEnvironmentContext} from '../environment-provider/enviroment-provider
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateMenuProps
-  extends Omit<menu.Props, 'id' | 'dir' | 'getRootNode' | 'open.controlled'> {
+  extends Omit<menu.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  openControlled?: boolean;
 }
 
 export interface CreateMenuReturn extends menu.Api {
@@ -24,7 +23,6 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
     id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
     ...props,
   }));
 

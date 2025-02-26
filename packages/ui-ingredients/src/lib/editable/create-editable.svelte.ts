@@ -6,12 +6,8 @@ import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateEditableProps
-  extends Omit<
-    editable.Props,
-    'id' | 'dir' | 'getRootNode' | 'edit.controlled'
-  > {
+  extends Omit<editable.Props, 'id' | 'dir' | 'getRootNode'> {
   id?: string;
-  editControlled?: boolean;
 }
 
 export interface CreateEditableReturn extends editable.Api {}
@@ -37,7 +33,6 @@ export function createEditable(
     readOnly: field?.readOnly,
     required: field?.required,
     getRootNode: environment?.getRootNode,
-    'edit.controlled': props.editControlled,
     ...props,
   }));
 

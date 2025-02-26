@@ -6,8 +6,8 @@
 
 <Toggle.Root
   {pressed}
-  onPressedChange={(detail) => {
-    pressed = detail.pressed;
+  onPressedChange={(value) => {
+    pressed = value;
   }}
 >
   {#snippet children(api)}
