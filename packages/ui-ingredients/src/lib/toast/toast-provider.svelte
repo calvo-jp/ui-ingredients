@@ -8,15 +8,21 @@
     index: number;
     toast: toast.Options;
     parent: toast.GroupService;
-    children?: Snippet<[toast: toast.Api]>;
+    children: Snippet<[toast: toast.Api]>;
   }
 
-  let {index, parent, children, ...props}: Props = $props();
+  let {...props}: Props = $props();
 
-  const service = useMachine(toast.machine, props.toast);
-  const api = reflect(() => toast.connect(service, normalizeProps));
+  let context: toast.Props = reflect(() => ({
+    ...props.toast,
+    index: props.index,
+    parent: props.parent,
+  }));
+
+  let service = useMachine(toast.machine, context);
+  let api = reflect(() => toast.connect(service, normalizeProps));
 
   setToastContext(api);
 </script>
 
-{@render children?.(api)}
+{@render props.children?.(api)}

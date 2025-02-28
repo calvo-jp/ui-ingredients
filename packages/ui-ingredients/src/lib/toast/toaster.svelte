@@ -23,26 +23,27 @@
   let environment = getEnvironmentContext();
   let portalProviderProps = getPortalProviderPropsContext();
 
-  const service = useMachine(toast.group.machine, {
+  let context: toast.GroupProps = reflect(() => ({
     id,
-    get dir() {
-      return locale?.dir;
-    },
+    dir: locale?.dir,
     store: toaster,
     getRootNode: environment?.getRootNode,
-  });
+  }));
 
-  const api = reflect(() => toast.group.connect(service, normalizeProps));
+  let service = useMachine(toast.group.machine, context);
+  let api = reflect(() => toast.group.connect(service, normalizeProps));
+  let toasts = $derived(api.getToasts());
 </script>
 
 <div
   use:portal={{
+    disabled: false,
     container: portalProviderProps?.container ?? undefined,
     getRootNode: environment?.getRootNode,
   }}
   {...api.getGroupProps({label})}
 >
-  {#each api.getToasts() as toast, index (toast.id)}
+  {#each toasts as toast, index}
     <ToastProvider {index} {children} {toast} parent={service} />
   {/each}
 </div>
