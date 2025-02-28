@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {page} from '$app/state';
   import {
     EnvironmentProvider,
     LocaleProvider,
@@ -229,6 +230,13 @@
   ]
     .filter((o, i, arr) => arr.findIndex((t) => t.label === o.label) === i)
     .toSorted((i, j) => i.label.localeCompare(j.label));
+
+  function sx(...styles: (string | null | boolean | undefined)[]) {
+    return styles
+      .filter(Boolean)
+      .join(';')
+      .replace(/\;{2,}/g, ';');
+  }
 </script>
 
 <EnvironmentProvider>
@@ -241,8 +249,16 @@
         <nav>
           <ul>
             {#each links as link}
+              {@const current = page.url.pathname === link.path}
+
               <li>
-                <a href={link.path} style="display:block;width:100%">
+                <a
+                  href={link.path}
+                  style={sx(
+                    'display:block;width:100%;transition:color 250ms;',
+                    current && 'color:var(--color-accent);',
+                  )}
+                >
                   {link.label}
                 </a>
               </li>

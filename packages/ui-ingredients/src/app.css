@@ -1,7 +1,11 @@
 :root {
-  --color-border-default: oklch(0.87 0 0);
-  --color-border-disabled: oklch(0.985 0 0);
-  --color-border-error: oklch(0.704 0.191 22.216);
+  --border-default: oklch(0.87 0 0); /* neutral-300 */
+  --border-muted: oklch(0.97 0 0); /* neutral-100 */
+  --border-error: oklch(0.712 0.194 13.428); /* rose-400 */
+  --color-default: oklch(0.269 0 0); /* neutral-600 */
+  --color-muted: oklch(0.439 0 0); /* neutral-800 */
+  --color-error: oklch(0.455 0.188 13.697); /* rose-800 */
+  --color-accent: oklch(0.443 0.11 240.79); /* sky-800 */
 }
 
 *,
@@ -43,8 +47,8 @@ body {
     'Helvetica Neue',
     sans-serif;
   font-size: 100%;
-  color: oklch(0.269 0 0);
-  background: oklch(0.985 0 0);
+  color: var(--color-default);
+  background: white;
 }
 
 input,
@@ -55,16 +59,11 @@ button {
   color: inherit;
   background: transparent;
   display: inline-block;
-  padding: 0.5rem 0.75rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: oklch(0.87 0 0);
-  border-radius: 0.25rem;
+  border: none;
 }
 
 button {
   cursor: pointer;
-  font-weight: 500;
 }
 
 button:disabled,
