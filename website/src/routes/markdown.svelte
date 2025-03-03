@@ -13,10 +13,10 @@
 
   let {id, title, description, content}: Props = $props();
 
-  const DEMO_TAG_REGEX = /\<demo\>/;
-  const ANATOMY_TAG_REGEX = /\<anatomy\>/;
-  const API_TAG_REGEX = /\<api\>/;
-  const KEYBOARD_SUPPORT_TAG_REGEX = /\<keyboard-support\>/;
+  const DEMO_TAG_REGEX = /<demo>/;
+  const ANATOMY_TAG_REGEX = /<anatomy>/;
+  const API_TAG_REGEX = /<api>/;
+  const KEYBOARD_SUPPORT_TAG_REGEX = /<keyboard-support>/;
 
   const TAG_REGEX = new RegExp(
     `(${[

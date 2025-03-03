@@ -228,10 +228,7 @@
     .toSorted((i, j) => i.label.localeCompare(j.label));
 
   function sx(...styles: (string | null | boolean | undefined)[]) {
-    return styles
-      .filter(Boolean)
-      .join(';')
-      .replace(/\;{2,}/g, ';');
+    return styles.filter(Boolean).join(';').replace(/;{2,}/g, ';');
   }
 </script>
 
