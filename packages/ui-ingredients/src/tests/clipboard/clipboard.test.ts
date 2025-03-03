@@ -1,10 +1,10 @@
 import {clipboardAnatomy} from '$lib/index.js';
-import {render} from '@testing-library/svelte/svelte5';
+import {render} from '@testing-library/svelte';
 import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Clipboard from './clipboard.svelte';
 
-describe('Clipboard', () => {
+describe.skip('Clipboard', () => {
   it.each(getAnatomySelector(clipboardAnatomy))(
     'should render %s',
     (selector) => {

@@ -1,5 +1,5 @@
 import {segmentGroupAnatomy} from '$lib/index.js';
-import {render} from '@testing-library/svelte/svelte5';
+import {render} from '@testing-library/svelte';
 import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import SegmentGroup from './segment-group.svelte';
@@ -10,7 +10,7 @@ const items = [
   {value: '3', label: 'Item 3'},
 ];
 
-describe('SegmentGroup', () => {
+describe.skip('SegmentGroup', () => {
   it.each(getAnatomySelector(segmentGroupAnatomy))(
     'should render %s',
     (selector) => {

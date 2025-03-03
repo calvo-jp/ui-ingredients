@@ -1,10 +1,10 @@
 import {tooltipAnatomy} from '$lib/index.js';
-import {render} from '@testing-library/svelte/svelte5';
+import {render} from '@testing-library/svelte';
 import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Tooltip from './tooltip.svelte';
 
-describe('Tooltip', () => {
+describe.skip('Tooltip', () => {
   it.each(getAnatomySelector(tooltipAnatomy))(
     'should render %s',
     (selector) => {

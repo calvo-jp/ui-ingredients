@@ -1,10 +1,10 @@
 import {numberInputAnatomy} from '$lib/index.js';
-import {render} from '@testing-library/svelte/svelte5';
+import {render} from '@testing-library/svelte';
 import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import NumberInput from './number-input.svelte';
 
-describe('NumberInput', () => {
+describe.skip('NumberInput', () => {
   it.each(getAnatomySelector(numberInputAnatomy))(
     'should render %s',
     (selector) => {

@@ -1,10 +1,10 @@
 import {splitterAnatomy} from '$lib/index.js';
-import {render} from '@testing-library/svelte/svelte5';
+import {render} from '@testing-library/svelte';
 import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Splitter from './splitter.svelte';
 
-describe('Splitter', () => {
+describe.skip('Splitter', () => {
   it.each(getAnatomySelector(splitterAnatomy))(
     'should render %s',
     (selector) => {

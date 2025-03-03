@@ -1,6 +1,5 @@
 <script lang="ts">
   import {RadioGroup} from '$lib/index.js';
-  import {CheckIcon} from '@untitled-theme/icons-svelte';
 
   interface Item {
     value: string;
@@ -21,9 +20,7 @@
   {#each items as { value, label }}
     <RadioGroup.Item {value}>
       <RadioGroup.ItemHiddenInput />
-      <RadioGroup.ItemControl>
-        <CheckIcon />
-      </RadioGroup.ItemControl>
+      <RadioGroup.ItemControl></RadioGroup.ItemControl>
       <RadioGroup.ItemText>{label}</RadioGroup.ItemText>
     </RadioGroup.Item>
   {/each}
