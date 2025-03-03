@@ -1,5 +1,5 @@
 import {timePickerAnatomy} from '$lib/index.js';
-import {render} from '@testing-library/svelte';
+import {render} from '@testing-library/svelte/svelte5';
 import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import TimePicker from './time-picker.svelte';

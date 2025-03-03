@@ -11,7 +11,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['vitest.setup.ts'],
     passWithNoTests: true,
-    retry: 2,
   },
   server: {
     port: 5000,
