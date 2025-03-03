@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreatePaginationProps,
     CreatePaginationReturn,
@@ -8,7 +8,7 @@
   export interface PaginationProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreatePaginationReturn>,
-      CreatePaginationProps
+      Optional<CreatePaginationProps, 'id'>
     > {}
 </script>
 
@@ -20,18 +20,20 @@
   import {setPaginationContext} from './pagination-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: PaginationProps = $props();
 
+  let uid = $props.id();
+
   let [createPaginationProps, localProps] = $derived(
-    createSplitProps<CreatePaginationProps>([
+    createSplitProps<Omit<CreatePaginationProps, 'id'>>([
       'count',
       'defaultPage',
       'defaultPageSize',
-      'id',
       'ids',
       'onPageChange',
       'onPageSizeChange',
@@ -40,10 +42,12 @@
       'siblingCount',
       'translations',
       'type',
-    ])(props),
+    ])(rest),
   );
 
-  let pagination = createPagination(reflect(() => createPaginationProps));
+  let pagination = createPagination(
+    reflect(() => ({...createPaginationProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(mergeProps(pagination.getRootProps(), localProps));
 

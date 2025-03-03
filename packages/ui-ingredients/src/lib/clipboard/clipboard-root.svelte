@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateClipboardProps,
     CreateClipboardReturn,
@@ -8,7 +8,7 @@
   export interface ClipboardProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateClipboardReturn>,
-      CreateClipboardProps
+      Optional<CreateClipboardProps, 'id'>
     > {}
 </script>
 
@@ -20,25 +20,29 @@
   import {createClipboard} from './create-clipboard.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: ClipboardProps = $props();
 
+  let uid = $props.id();
+
   let [createClipboardProps, localProps] = $derived(
-    createSplitProps<CreateClipboardProps>([
+    createSplitProps<Omit<CreateClipboardProps, 'id'>>([
       'defaultValue',
-      'id',
       'ids',
       'onStatusChange',
       'onValueChange',
       'timeout',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let clipboard = createClipboard(reflect(() => createClipboardProps));
+  let clipboard = createClipboard(
+    reflect(() => ({...createClipboardProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(mergeProps(clipboard.getRootProps(), localProps));
 

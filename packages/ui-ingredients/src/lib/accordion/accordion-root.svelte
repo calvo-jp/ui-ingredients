@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateAccordionProps,
     CreateAccordionReturn,
@@ -9,7 +9,7 @@
   export interface AccordionProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateAccordionReturn>,
-        CreateAccordionProps
+        Optional<CreateAccordionProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -23,34 +23,37 @@
   import {createAccordion} from './create-accordion.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: AccordionProps = $props();
 
-  let [presenceStrategyProps, rest] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      props,
-    ),
+  let uid = $props.id();
+
+  let [presenceStrategyProps, accordionProps] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
   let [createAccordionProps, localProps] = $derived(
-    createSplitProps<CreateAccordionProps>([
+    createSplitProps<Omit<CreateAccordionProps, 'id'>>([
       'collapsible',
       'defaultValue',
       'disabled',
-      'id',
       'ids',
       'multiple',
       'onFocusChange',
       'onValueChange',
       'orientation',
       'value',
-    ])(rest),
+    ])(accordionProps),
   );
 
-  let accordion = createAccordion(reflect(() => createAccordionProps));
+  let accordion = createAccordion(
+    reflect(() => ({...createAccordionProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(accordion.getRootProps(), localProps));
 
   setAccordionContext(accordion);

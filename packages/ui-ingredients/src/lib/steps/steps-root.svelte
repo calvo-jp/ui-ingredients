@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateStepsProps,
     CreateStepsReturn,
@@ -9,7 +9,7 @@
   export interface StepsProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateStepsReturn>,
-        CreateStepsProps
+        Optional<CreateStepsProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -23,33 +23,36 @@
   import {setStepsContext} from './steps-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: StepsProps = $props();
 
-  let [presenceStrategyProps, rest] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      props,
-    ),
+  let uid = $props.id();
+
+  let [presenceStrategyProps, otherProps] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
   let [createStepsProps, localProps] = $derived(
-    createSplitProps<CreateStepsProps>([
+    createSplitProps<Omit<CreateStepsProps, 'id'>>([
       'count',
       'defaultStep',
-      'id',
       'ids',
       'linear',
       'onStepChange',
       'onStepComplete',
       'orientation',
       'step',
-    ])(rest),
+    ])(otherProps),
   );
 
-  let steps = createSteps(reflect(() => createStepsProps));
+  let steps = createSteps(
+    reflect(() => ({...createStepsProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(steps.getRootProps(), localProps));
 
   setStepsContext(steps);

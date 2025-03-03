@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateTabsProps,
     CreateTabsReturn,
@@ -8,7 +8,7 @@
   export interface TabsProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateTabsReturn>,
-      CreateTabsProps
+      Optional<CreateTabsProps, 'id'>
     > {}
 </script>
 
@@ -20,18 +20,20 @@
   import {setTabsContext} from './tabs-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: TabsProps = $props();
 
+  let uid = $props.id();
+
   let [createTabsProps, localProps] = $derived(
-    createSplitProps<CreateTabsProps>([
+    createSplitProps<Omit<CreateTabsProps, 'id'>>([
       'activationMode',
       'composite',
       'deselectable',
-      'id',
       'ids',
       'loopFocus',
       'navigate',
@@ -40,10 +42,11 @@
       'orientation',
       'translations',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let tabs = createTabs(reflect(() => createTabsProps));
+  let tabs = createTabs(reflect(() => ({...createTabsProps, id: id ?? uid})));
+
   let mergedProps = $derived(mergeProps(tabs.getRootProps(), localProps));
 
   setTabsContext(tabs);

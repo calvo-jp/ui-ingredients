@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateSegmentGroupProps,
     CreateSegmentGroupReturn,
@@ -8,7 +8,7 @@
   export interface SegmentGroupProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateSegmentGroupReturn>,
-      CreateSegmentGroupProps
+      Optional<CreateSegmentGroupProps, 'id'>
     > {}
 </script>
 
@@ -20,28 +20,33 @@
   import {setSegmentGroupContext} from './segment-group-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: SegmentGroupProps = $props();
 
+  let uid = $props.id();
+
   let [createSegmentGroupProps, localProps] = $derived(
-    createSplitProps<CreateSegmentGroupProps>([
+    createSplitProps<Omit<CreateSegmentGroupProps, 'id'>>([
       'defaultValue',
       'disabled',
       'form',
-      'id',
       'ids',
       'name',
       'onValueChange',
       'orientation',
       'readOnly',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let segmentGroup = createSegmentGroup(reflect(() => createSegmentGroupProps));
+  let segmentGroup = createSegmentGroup(
+    reflect(() => ({...createSegmentGroupProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(
     mergeProps(segmentGroup.getRootProps(), localProps),
   );

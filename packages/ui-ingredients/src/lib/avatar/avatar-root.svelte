@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import {
     type CreateAvatarProps,
     type CreateAvatarReturn,
@@ -8,7 +8,7 @@
   export interface AvatarProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateAvatarReturn>,
-      CreateAvatarProps
+      Optional<CreateAvatarProps, 'id'>
     > {}
 </script>
 
@@ -20,17 +20,25 @@
   import {createAvatar} from './create-avatar.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: AvatarProps = $props();
 
+  let uid = $props.id();
+
   let [createAvatarProps, localProps] = $derived(
-    createSplitProps<CreateAvatarProps>(['id', 'ids', 'onStatusChange'])(props),
+    createSplitProps<Omit<CreateAvatarProps, 'id'>>(['ids', 'onStatusChange'])(
+      rest,
+    ),
   );
 
-  let avatar = createAvatar(reflect(() => createAvatarProps));
+  let avatar = createAvatar(
+    reflect(() => ({...createAvatarProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(avatar.getRootProps(), localProps));
 
   setAvatarContext(avatar);

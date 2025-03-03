@@ -1,18 +1,12 @@
 import * as colorPicker from '@zag-js/color-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 import type {GenericObject} from '../types.js';
 import {parts} from './color-picker-anatomy.js';
 
 export interface CreateColorPickerProps
-  extends Omit<
-    colorPicker.Props,
-    'id' | 'dir' | 'getRootNode' | 'open.controlled'
-  > {
-  id?: string;
-}
+  extends Omit<colorPicker.Props, 'dir' | 'getRootNode' | 'open.controlled'> {}
 
 export interface CreateColorPickerReturn extends colorPicker.Api {
   getViewProps(props: {format: colorPicker.ColorFormat}): GenericObject;
@@ -25,10 +19,7 @@ export function createColorPicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
   const context: colorPicker.Props = reflect(() => ({
-    id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,

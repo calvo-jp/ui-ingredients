@@ -1,15 +1,12 @@
 import * as dialog from '@zag-js/dialog';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 import {mergeProps} from '../merge-props.js';
 import {parts} from './alert-dialog-anatomy.js';
 
 export interface CreateAlertDialogProps
-  extends Omit<dialog.Props, 'id' | 'dir' | 'role' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<dialog.Props, 'dir' | 'role' | 'getRootNode'> {}
 
 export interface CreateAlertDialogReturn extends dialog.Api {}
 
@@ -19,10 +16,7 @@ export function createAlertDialog(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
   const context: dialog.Props = reflect(() => ({
-    id,
     dir: locale?.dir,
     role: 'alertdialog',
     getRootNode: environment?.getRootNode,

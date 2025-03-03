@@ -1,13 +1,14 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
+  import type {Optional} from '../types.js';
   import type {
     CreateAlertDialogProps,
     CreateAlertDialogReturn,
   } from './create-alert-dialog.svelte.js';
 
   export interface AlertDialogProps
-    extends CreateAlertDialogProps,
+    extends Optional<CreateAlertDialogProps, 'id'>,
       PresenceStrategyProps {
     children?: Snippet<[CreateAlertDialogReturn]>;
   }
@@ -24,15 +25,18 @@
   import {setAlertDialogContext} from './alert-dialog-context.svelte.js';
   import {createAlertDialog} from './create-alert-dialog.svelte.js';
 
-  let {children, ...props}: AlertDialogProps = $props();
+  let {id, children, ...rest}: AlertDialogProps = $props();
+
+  let uid = $props.id();
 
   let [presenceStrategyProps, createDialogProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      props,
-    ),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
-  let alertDialog = createAlertDialog(reflect(() => createDialogProps));
+  let alertDialog = createAlertDialog(
+    reflect(() => ({...createDialogProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

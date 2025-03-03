@@ -1,16 +1,15 @@
+import type {Optional} from '$lib/types.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tour from '@zag-js/tour';
 import type {HTMLButtonAttributes} from 'svelte/elements';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 import {parts} from './tour-anatomy.js';
 
-export interface TourStepDetails extends Omit<tour.StepDetails, 'id'> {}
+export interface TourStepDetails extends Optional<tour.StepDetails, 'id'> {}
 
 export interface CreateTourProps
-  extends Omit<tour.Props, 'id' | 'dir' | 'steps' | 'getRootNode'> {
-  id?: string;
+  extends Omit<tour.Props, 'dir' | 'steps' | 'getRootNode'> {
   steps?: TourStepDetails[];
 }
 
@@ -22,17 +21,14 @@ export function createTour(props: CreateTourProps): CreateTourReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
   const steps = $derived.by(() => {
-    return props.steps?.map((step) => ({
-      id: createUniqueId(),
+    return props.steps?.map((step, index) => ({
+      id: `tour:${props.id}:step:${index}`,
       ...step,
     }));
   });
 
   const context: tour.Props = reflect(() => ({
-    id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,

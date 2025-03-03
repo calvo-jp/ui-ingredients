@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateSwitchProps,
     CreateSwitchReturn,
@@ -8,7 +8,7 @@
   export interface SwitchProps
     extends Assign<
       HtmlIngredientProps<'label', HTMLLabelElement, CreateSwitchReturn>,
-      CreateSwitchProps
+      Optional<CreateSwitchProps, 'id'>
     > {}
 </script>
 
@@ -20,19 +20,21 @@
   import {setSwitchContext} from './switch-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: SwitchProps = $props();
 
+  let uid = $props.id();
+
   let [createSwitchProps, localProps] = $derived(
-    createSplitProps<CreateSwitchProps>([
+    createSplitProps<Omit<CreateSwitchProps, 'id'>>([
       'checked',
       'defaultChecked',
       'disabled',
       'form',
-      'id',
       'ids',
       'invalid',
       'label',
@@ -41,10 +43,13 @@
       'readOnly',
       'required',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let switch_ = createSwitch(reflect(() => createSwitchProps));
+  let switch_ = createSwitch(
+    reflect(() => ({...createSwitchProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(switch_.getRootProps(), localProps));
 
   setSwitchContext(switch_);

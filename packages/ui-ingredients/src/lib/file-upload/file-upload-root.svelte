@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateFileUploadProps,
     CreateFileUploadReturn,
@@ -8,7 +8,7 @@
   export interface FileUploadProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateFileUploadReturn>,
-      CreateFileUploadProps
+      Optional<CreateFileUploadProps, 'id'>
     > {}
 </script>
 
@@ -20,20 +20,22 @@
   import {setFileUploadContext} from './file-upload-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: FileUploadProps = $props();
 
+  let uid = $props.id();
+
   let [createFileUploadProps, localProps] = $derived(
-    createSplitProps<CreateFileUploadProps>([
+    createSplitProps<Omit<CreateFileUploadProps, 'id'>>([
       'accept',
       'allowDrop',
       'capture',
       'directory',
       'disabled',
-      'id',
       'ids',
       'invalid',
       'locale',
@@ -48,10 +50,12 @@
       'required',
       'translations',
       'validate',
-    ])(props),
+    ])(rest),
   );
 
-  let fileUpload = createFileUpload(reflect(() => createFileUploadProps));
+  let fileUpload = createFileUpload(
+    reflect(() => ({...createFileUploadProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(mergeProps(fileUpload.getRootProps(), localProps));
 

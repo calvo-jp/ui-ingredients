@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateSliderProps,
     CreateSliderReturn,
@@ -8,7 +8,7 @@
   export interface SliderProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateSliderReturn>,
-      CreateSliderProps
+      Optional<CreateSliderProps, 'id'>
     > {}
 </script>
 
@@ -20,21 +20,23 @@
   import {setSliderContext} from './slider-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: SliderProps = $props();
 
+  let uid = $props.id();
+
   let [createSliderProps, localProps] = $derived(
-    createSplitProps<CreateSliderProps>([
+    createSplitProps<Omit<CreateSliderProps, 'id'>>([
       'aria-label',
       'aria-labelledby',
       'defaultValue',
       'disabled',
       'form',
       'getAriaValueText',
-      'id',
       'ids',
       'invalid',
       'max',
@@ -51,10 +53,13 @@
       'thumbAlignment',
       'thumbSize',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let slider = createSlider(reflect(() => createSliderProps));
+  let slider = createSlider(
+    reflect(() => ({...createSliderProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(slider.getRootProps(), localProps));
 
   setSliderContext(slider);

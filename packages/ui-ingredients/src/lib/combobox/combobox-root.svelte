@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateComboboxProps,
     CreateComboboxReturn,
@@ -9,7 +9,7 @@
   export interface ComboboxProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateComboboxReturn>,
-        CreateComboboxProps
+        Optional<CreateComboboxProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -24,20 +24,21 @@
   import {createCombobox} from './create-combobox.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: ComboboxProps = $props();
 
-  let [presenceStrategyProps, rest] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      props,
-    ),
+  let uid = $props.id();
+
+  let [presenceStrategyProps, otherProps] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
   let [createComboboxProps, localProps] = $derived(
-    createSplitProps<CreateComboboxProps>([
+    createSplitProps<Omit<CreateComboboxProps, 'id'>>([
       'allowCustomValue',
       'autoFocus',
       'closeOnSelect',
@@ -51,7 +52,6 @@
       'disabled',
       'form',
       'highlightedValue',
-      'id',
       'ids',
       'inputBehavior',
       'inputValue',
@@ -79,10 +79,13 @@
       'selectionBehavior',
       'translations',
       'value',
-    ])(rest),
+    ])(otherProps),
   );
 
-  let combobox = createCombobox(reflect(() => createComboboxProps));
+  let combobox = createCombobox(
+    reflect(() => ({...createComboboxProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

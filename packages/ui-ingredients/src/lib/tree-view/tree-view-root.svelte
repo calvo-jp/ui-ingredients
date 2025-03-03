@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateTreeViewProps,
     CreateTreeViewReturn,
@@ -9,7 +9,7 @@
   export interface TreeViewProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateTreeViewReturn>,
-        CreateTreeViewProps
+        Optional<CreateTreeViewProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -23,27 +23,27 @@
   import {setTreeViewContext} from './tree-view-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: TreeViewProps = $props();
 
-  let [presenceStrategyProps, rest] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      props,
-    ),
+  let uid = $props.id();
+
+  let [presenceStrategyProps, otherProps] = $derived(
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
   let [createTreeViewProps, localProps] = $derived(
-    createSplitProps<CreateTreeViewProps>([
+    createSplitProps<Omit<CreateTreeViewProps, 'id'>>([
       'collection',
       'defaultExpandedValue',
       'defaultSelectedValue',
       'expandOnClick',
       'expandedValue',
       'focusedValue',
-      'id',
       'ids',
       'onExpandedChange',
       'onFocusChange',
@@ -51,10 +51,13 @@
       'selectedValue',
       'selectionMode',
       'typeahead',
-    ])(rest),
+    ])(otherProps),
   );
 
-  let treeView = createTreeView(reflect(() => createTreeViewProps));
+  let treeView = createTreeView(
+    reflect(() => ({...createTreeViewProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(treeView.getRootProps(), localProps));
 
   setTreeViewContext(treeView);

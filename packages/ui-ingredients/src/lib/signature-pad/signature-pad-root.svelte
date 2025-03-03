@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateSignaturePadProps,
     CreateSignaturePadReturn,
@@ -8,7 +8,7 @@
   export interface SignaturePadProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateSignaturePadReturn>,
-      CreateSignaturePadProps
+      Optional<CreateSignaturePadProps, 'id'>
     > {}
 </script>
 
@@ -20,17 +20,19 @@
   import {setSignaturePadContext} from './signature-pad-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: SignaturePadProps = $props();
 
+  let uid = $props.id();
+
   let [createSignaturePadProps, localProps] = $derived(
-    createSplitProps<CreateSignaturePadProps>([
+    createSplitProps<Omit<CreateSignaturePadProps, 'id'>>([
       'disabled',
       'drawing',
-      'id',
       'ids',
       'name',
       'onDraw',
@@ -38,10 +40,12 @@
       'readOnly',
       'required',
       'translations',
-    ])(props),
+    ])(rest),
   );
 
-  let signaturePad = createSignaturePad(reflect(() => createSignaturePadProps));
+  let signaturePad = createSignaturePad(
+    reflect(() => ({...createSignaturePadProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(
     mergeProps(signaturePad.getRootProps(), localProps),

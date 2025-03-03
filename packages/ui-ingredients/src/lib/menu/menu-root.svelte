@@ -1,13 +1,14 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
+  import type {Optional} from '../types.js';
   import {
     type CreateMenuProps,
     type CreateMenuReturn,
   } from './create-menu.svelte.js';
 
   export interface MenuRootProps
-    extends CreateMenuProps,
+    extends Optional<CreateMenuProps, 'id'>,
       PresenceStrategyProps {
     children?: Snippet<[CreateMenuReturn]>;
   }
@@ -25,16 +26,17 @@
     setMenuTriggerItemContext,
   } from './menu-context.svelte.js';
 
-  let {children, ...props}: MenuRootProps = $props();
+  let {id, children, ...rest}: MenuRootProps = $props();
+
+  let uid = $props.id();
 
   let [createMenuProps, presenceStrategyProps] = $derived(
-    createSplitProps<CreateMenuProps>([
+    createSplitProps<Omit<CreateMenuProps, 'id'>>([
       'anchorPoint',
       'aria-label',
       'closeOnSelect',
       'composite',
       'highlightedValue',
-      'id',
       'ids',
       'loopFocus',
       'navigate',
@@ -46,14 +48,15 @@
       'onPointerDownOutside',
       'onSelect',
       'open',
-      'openControlled',
       'positioning',
       'typeahead',
-    ])(props),
+    ])(rest),
   );
 
   let parentMenu = getMenuContext();
-  let menu = createMenu(reflect(() => createMenuProps));
+
+  let menu = createMenu(reflect(() => ({...createMenuProps, id: id ?? uid})));
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateAlertProps,
     CreateAlertReturn,
@@ -8,7 +8,7 @@
   export interface AlertProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateAlertReturn>,
-      CreateAlertProps
+      Optional<CreateAlertProps, 'id'>
     > {}
 </script>
 
@@ -20,17 +20,23 @@
   import {createAlert} from './create-alert.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: AlertProps = $props();
 
+  let uid = $props.id();
+
   let [createAlertProps, localProps] = $derived(
-    createSplitProps<CreateAlertProps>(['id'])(props),
+    createSplitProps<Omit<CreateAlertProps, 'id'>>(['ids'])(rest),
   );
 
-  let alert = createAlert(reflect(() => createAlertProps));
+  let alert = createAlert(
+    reflect(() => ({...createAlertProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(alert.getRootProps(), localProps));
 
   setAlertContext(alert);

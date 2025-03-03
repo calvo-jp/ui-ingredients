@@ -1,16 +1,13 @@
 import * as datePicker from '@zag-js/date-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLAttributes} from 'svelte/elements';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 import type {GenericObject} from '../types.js';
 import {parts} from './date-picker-anatomy.js';
 
 export interface CreateDatePickerProps
-  extends Omit<datePicker.Props, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<datePicker.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateDatePickerReturn extends datePicker.Api {
   getViewProps(props: datePicker.ViewProps): HTMLAttributes<HTMLElement>;
@@ -22,10 +19,7 @@ export function createDatePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
   const context: datePicker.Props = reflect(() => ({
-    id,
     dir: locale?.dir,
     locale: locale?.locale,
     getRootNode: environment?.getRootNode,

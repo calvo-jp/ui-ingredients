@@ -1,13 +1,14 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
+  import type {Optional} from '../types.js';
   import type {
     CreateDialogProps,
     CreateDialogReturn,
   } from './create-dialog.svelte.js';
 
   export interface DialogProps
-    extends CreateDialogProps,
+    extends Optional<CreateDialogProps, 'id'>,
       PresenceStrategyProps {
     children?: Snippet<[CreateDialogReturn]>;
   }
@@ -24,15 +25,18 @@
   import {createDialog} from './create-dialog.svelte.js';
   import {setDialogContext} from './dialog-context.svelte.js';
 
-  let {children, ...props}: DialogProps = $props();
+  let {id, children, ...rest}: DialogProps = $props();
+
+  let uid = $props.id();
 
   let [presenceStrategyProps, createDialogProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      props,
-    ),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
   );
 
-  let dialog = createDialog(reflect(() => createDialogProps));
+  let dialog = createDialog(
+    reflect(() => ({...createDialogProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

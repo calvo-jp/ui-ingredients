@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateQrCodeProps,
     CreateQrCodeReturn,
@@ -8,7 +8,7 @@
   export interface QrCodeProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateQrCodeReturn>,
-      CreateQrCodeProps
+      Optional<CreateQrCodeProps, 'id'>
     > {}
 </script>
 
@@ -20,25 +20,29 @@
   import {setQrCodeContext} from './qr-code-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: QrCodeProps = $props();
 
+  let uid = $props.id();
+
   let [createQrCodeProps, localProps] = $derived(
-    createSplitProps<CreateQrCodeProps>([
+    createSplitProps<Omit<CreateQrCodeProps, 'id'>>([
       'defaultValue',
       'encoding',
-      'id',
       'ids',
       'onValueChange',
       'pixelSize',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let qrCode = createQRCode(reflect(() => createQrCodeProps));
+  let qrCode = createQRCode(
+    reflect(() => ({...createQrCodeProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(mergeProps(qrCode.getRootProps(), localProps));
 

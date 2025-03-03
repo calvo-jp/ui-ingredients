@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateRadioGroupProps,
     CreateRadioGroupReturn,
@@ -8,7 +8,7 @@
   export interface RadioGroupProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateRadioGroupReturn>,
-      CreateRadioGroupProps
+      Optional<CreateRadioGroupProps, 'id'>
     > {}
 </script>
 
@@ -20,28 +20,33 @@
   import {setRadioGroupContext} from './radio-group-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: RadioGroupProps = $props();
 
+  let uid = $props.id();
+
   let [createRadioGroupProps, localProps] = $derived(
-    createSplitProps<CreateRadioGroupProps>([
+    createSplitProps<Omit<CreateRadioGroupProps, 'id'>>([
       'defaultValue',
       'disabled',
       'form',
-      'id',
       'ids',
       'name',
       'onValueChange',
       'orientation',
       'readOnly',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let radioGroup = createRadioGroup(reflect(() => createRadioGroupProps));
+  let radioGroup = createRadioGroup(
+    reflect(() => ({...createRadioGroupProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(radioGroup.getRootProps(), localProps));
 
   setRadioGroupContext(radioGroup);

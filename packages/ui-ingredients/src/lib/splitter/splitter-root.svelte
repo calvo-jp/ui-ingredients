@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateSplitterProps,
     CreateSplitterReturn,
@@ -8,7 +8,7 @@
   export interface SplitterProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateSplitterReturn>,
-      CreateSplitterProps
+      Optional<CreateSplitterProps, 'id'>
     > {}
 </script>
 
@@ -20,25 +20,30 @@
   import {setSplitterContext} from './splitter-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: SplitterProps = $props();
 
+  let uid = $props.id();
+
   let [createSplitterProps, localProps] = $derived(
-    createSplitProps<CreateSplitterProps>([
+    createSplitProps<Omit<CreateSplitterProps, 'id'>>([
       'defaultSize',
-      'id',
       'ids',
       'onSizeChange',
       'onSizeChangeEnd',
       'orientation',
       'size',
-    ])(props),
+    ])(rest),
   );
 
-  let splitter = createSplitter(reflect(() => createSplitterProps));
+  let splitter = createSplitter(
+    reflect(() => ({...createSplitterProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(splitter.getRootProps(), localProps));
 
   setSplitterContext(splitter);

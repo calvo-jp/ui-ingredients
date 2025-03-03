@@ -1,14 +1,11 @@
 import * as numberInput from '@zag-js/number-input';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateNumberInputProps
-  extends Omit<numberInput.Props, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<numberInput.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateNumberInputReturn extends numberInput.Api {}
 
@@ -19,10 +16,7 @@ export function createNumberInput(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
   const context: numberInput.Props = reflect(() => ({
-    id,
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,

@@ -358,7 +358,7 @@
     "clsx": "^2.1.1"
   },
   "peerDependencies": {
-    "svelte": "^5.0.0"
+    "svelte": "^5.20.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.5.1",

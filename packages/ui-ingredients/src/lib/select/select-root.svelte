@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateSelectProps,
     CreateSelectReturn,
@@ -9,7 +9,7 @@
   export interface SelectProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateSelectReturn>,
-        CreateSelectProps
+        Optional<CreateSelectProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -24,14 +24,17 @@
   import {setSelectContext} from './select-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: SelectProps = $props();
 
-  let [createSelectProps, rest] = $derived(
-    createSplitProps<CreateSelectProps>([
+  let uid = $props.id();
+
+  let [createSelectProps, otherProps] = $derived(
+    createSplitProps<Omit<CreateSelectProps, 'id'>>([
       'closeOnSelect',
       'collection',
       'composite',
@@ -42,7 +45,6 @@
       'disabled',
       'form',
       'highlightedValue',
-      'id',
       'ids',
       'invalid',
       'loopFocus',
@@ -60,14 +62,19 @@
       'required',
       'scrollToIndexFn',
       'value',
-    ])(props),
+    ])(rest),
   );
 
   let [presenceStrategyProps, localProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      otherProps,
+    ),
   );
 
-  let select = createSelect(reflect(() => createSelectProps));
+  let select = createSelect(
+    reflect(() => ({...createSelectProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

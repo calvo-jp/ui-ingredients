@@ -10,7 +10,6 @@
   import {normalizeProps, portal, reflect, useMachine} from '@zag-js/svelte';
   import * as toast from '@zag-js/toast';
   import type {Snippet} from 'svelte';
-  import {createUniqueId} from '../create-unique-id.js';
   import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
   import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
   import {getPortalProviderPropsContext} from '../portal/portal-context.svelte.js';
@@ -18,7 +17,7 @@
 
   let {label, toaster, children}: ToasterProps = $props();
 
-  let id = createUniqueId();
+  let id = $props.id();
   let locale = getLocaleContext();
   let environment = getEnvironmentContext();
   let portalProviderProps = getPortalProviderPropsContext();

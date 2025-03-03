@@ -1,13 +1,10 @@
 import * as menu from '@zag-js/menu';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateMenuProps
-  extends Omit<menu.Props, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<menu.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateMenuReturn extends menu.Api {
   service: menu.Service;
@@ -17,10 +14,7 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
   const context: menu.Props = reflect(() => ({
-    id,
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,

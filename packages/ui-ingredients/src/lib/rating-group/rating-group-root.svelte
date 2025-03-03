@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateRatingGroupProps,
     CreateRatingGroupReturn,
@@ -8,7 +8,7 @@
   export interface RatingGroupProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateRatingGroupReturn>,
-      CreateRatingGroupProps
+      Optional<CreateRatingGroupProps, 'id'>
     > {}
 </script>
 
@@ -20,21 +20,23 @@
   import {setRatingGroupContext} from './rating-group-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: RatingGroupProps = $props();
 
+  let uid = $props.id();
+
   let [createRatingGroupProps, localProps] = $derived(
-    createSplitProps<CreateRatingGroupProps>([
+    createSplitProps<Omit<CreateRatingGroupProps, 'id'>>([
       'allowHalf',
       'autoFocus',
       'count',
       'defaultValue',
       'disabled',
       'form',
-      'id',
       'ids',
       'name',
       'onHoverChange',
@@ -43,10 +45,13 @@
       'required',
       'translations',
       'value',
-    ])(props),
+    ])(rest),
   );
 
-  let ratingGroup = createRatingGroup(reflect(() => createRatingGroupProps));
+  let ratingGroup = createRatingGroup(
+    reflect(() => ({...createRatingGroupProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(
     mergeProps(ratingGroup.getRootProps(), localProps),
   );
