@@ -166,7 +166,7 @@ const DYNAMIC_VARIANT_ENTRIES: DynamicVariantEntry[] = [
   },
 ];
 
-export interface ZagPluginOptions {
+export interface UiIngredientsPluginOptions {
   /**
    * @description The prefix for the variants.
    * @default "ui"
@@ -180,10 +180,7 @@ export interface ZagPluginOptions {
   prefix?: string;
 }
 
-/**
- * @see https://github.com/calvo-jp/tailwindcss-plugin-zag
- */
-export default plugin.withOptions<ZagPluginOptions>((config = {}) => {
+export default plugin.withOptions<UiIngredientsPluginOptions>((config = {}) => {
   const prefix = config.prefix ?? 'ui';
 
   return ({addVariant, matchVariant}) => {
