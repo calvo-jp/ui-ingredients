@@ -20,6 +20,11 @@
   let mergedProps = $derived(mergeProps(breadcrumbs.getItemProps(), props));
 </script>
 
+<!-- 
+  @component
+  @deprecated
+ -->
+
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}

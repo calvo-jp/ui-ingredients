@@ -23,8 +23,39 @@
   {#each items as { value, label }}
     <RadioGroup.Item {value}>
       <RadioGroup.ItemHiddenInput />
-      <RadioGroup.ItemControl></RadioGroup.ItemControl>
+      <RadioGroup.ItemControl>
+        <RadioGroup.Indicator />
+      </RadioGroup.ItemControl>
       <RadioGroup.ItemText>{label}</RadioGroup.ItemText>
     </RadioGroup.Item>
   {/each}
 </RadioGroup.Root>
+
+<style>
+  :global([data-scope='radio-group'][data-part='label']) {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  :global([data-scope='radio-group'][data-part='item']) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  :global([data-scope='radio-group'][data-part='item-control']) {
+    height: 16px;
+    width: 16px;
+    border: 1px solid var(--border-default);
+    border-radius: 9999px;
+  }
+
+  :global(
+    [data-scope='radio-group'][data-part='item-control'][data-state='checked']
+  ) {
+    border-color: oklch(0.746 0.16 232.661);
+    background: oklch(0.746 0.16 232.661);
+    outline: 3px solid white;
+    outline-offset: -4px;
+  }
+</style>

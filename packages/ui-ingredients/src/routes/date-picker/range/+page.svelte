@@ -1,5 +1,9 @@
 <script lang="ts">
   import {DatePicker, Portal, type DateValue} from '$lib/index.js';
+  import CalendarIcon from '../../calendar-icon.svelte';
+  import ChevronLeftIcon from '../../chevron-left-icon.svelte';
+  import ChevronRightIcon from '../../chevron-right-icon.svelte';
+  import XIcon from '../../x-icon.svelte';
 
   let value: DateValue[] = $state([]);
 
@@ -8,22 +12,27 @@
 
 <DatePicker.Root
   fixedWeeks
-  positioning={{
-    sameWidth: true,
-  }}
   {value}
   onValueChange={(detail) => {
     value = detail.value;
   }}
   selectionMode="range"
+  placeholder="Placeholder"
+  positioning={{
+    placement: 'bottom-start',
+  }}
 >
   {#snippet children(api)}
-    <DatePicker.Label>Choose Date</DatePicker.Label>
+    <DatePicker.Label>Label</DatePicker.Label>
     <DatePicker.Control>
       <DatePicker.Input />
       <DatePicker.Input index={1} />
-      <DatePicker.Trigger>📅</DatePicker.Trigger>
-      <DatePicker.ClearTrigger>Clear</DatePicker.ClearTrigger>
+      <DatePicker.Trigger>
+        <CalendarIcon style="width:20px;height:20px;" />
+      </DatePicker.Trigger>
+      <DatePicker.ClearTrigger>
+        <XIcon style="width:20px;height:20px;" />
+      </DatePicker.ClearTrigger>
     </DatePicker.Control>
 
     <Portal>
@@ -31,11 +40,15 @@
         <DatePicker.Content>
           <DatePicker.View view="day">
             <DatePicker.ViewControl>
-              <DatePicker.PrevTrigger>Prev</DatePicker.PrevTrigger>
+              <DatePicker.PrevTrigger>
+                <ChevronLeftIcon style="width:20px;height:20px;" />
+              </DatePicker.PrevTrigger>
               <DatePicker.ViewTrigger>
                 <DatePicker.RangeText />
               </DatePicker.ViewTrigger>
-              <DatePicker.NextTrigger>Next</DatePicker.NextTrigger>
+              <DatePicker.NextTrigger>
+                <ChevronRightIcon style="width:20px;height:20px;" />
+              </DatePicker.NextTrigger>
             </DatePicker.ViewControl>
 
             <DatePicker.Table>
@@ -68,11 +81,15 @@
           <!-- MONTH -->
           <DatePicker.View view="month">
             <DatePicker.ViewControl>
-              <DatePicker.PrevTrigger>Prev</DatePicker.PrevTrigger>
+              <DatePicker.PrevTrigger>
+                <ChevronLeftIcon style="width:20px;height:20px;" />
+              </DatePicker.PrevTrigger>
               <DatePicker.ViewTrigger>
                 <DatePicker.RangeText />
               </DatePicker.ViewTrigger>
-              <DatePicker.NextTrigger>Next</DatePicker.NextTrigger>
+              <DatePicker.NextTrigger>
+                <ChevronRightIcon style="width:20px;height:20px;" />
+              </DatePicker.NextTrigger>
             </DatePicker.ViewControl>
 
             <DatePicker.Table>
@@ -95,11 +112,15 @@
           <!-- YEAR -->
           <DatePicker.View view="year">
             <DatePicker.ViewControl>
-              <DatePicker.PrevTrigger>Prev</DatePicker.PrevTrigger>
+              <DatePicker.PrevTrigger>
+                <ChevronLeftIcon style="width:20px;height:20px;" />
+              </DatePicker.PrevTrigger>
               <DatePicker.ViewTrigger>
                 <DatePicker.RangeText />
               </DatePicker.ViewTrigger>
-              <DatePicker.NextTrigger>Next</DatePicker.NextTrigger>
+              <DatePicker.NextTrigger>
+                <ChevronRightIcon style="width:20px;height:20px;" />
+              </DatePicker.NextTrigger>
             </DatePicker.ViewControl>
 
             <DatePicker.Table>

@@ -52,7 +52,7 @@
 
 <style>
   :global([data-scope='accordion'][data-part='root']) {
-    max-width: 475px;
+    max-width: 400px;
   }
 
   :global([data-scope='accordion'][data-part='item']) {
@@ -64,15 +64,8 @@
     border-color: var(--border-default);
   }
 
-  :global([data-scope='accordion'][data-part='item']:first-child) {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-
   :global([data-scope='accordion'][data-part='item']:last-child) {
     border-bottom-width: 1px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
   }
 
   :global([data-scope='accordion'][data-part='item-trigger']) {

@@ -361,7 +361,7 @@
     "svelte": "^5.0.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^9.5.0",
+    "@faker-js/faker": "^9.5.1",
     "@sveltejs/adapter-vercel": "^5.6.3",
     "@sveltejs/kit": "^2.17.3",
     "@sveltejs/package": "^2.3.10",
@@ -371,12 +371,12 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/jsdom": "^21.1.7",
     "jsdom": "^26.0.0",
-    "publint": "^0.3.6",
+    "publint": "^0.3.7",
     "release-it": "^18.1.2",
     "resize-observer-polyfill": "^1.5.1",
     "svelte": "^5.20.5",
     "svelte-check": "^4.1.4",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.2",
     "vite": "^6.2.0",
     "vitest": "^3.0.7",
     "vitest-axe": "^1.0.0-pre.3",

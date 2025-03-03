@@ -11,10 +11,10 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
   stroke="currentColor"
-  stroke-width="2"
+  stroke-width="1.5"
   stroke-linecap="round"
   stroke-linejoin="round"
   {...props}
 >
-  <path d="M6 9L12 15L18 9"></path>
+  <path d="M18 6L6 18M6 6L18 18"></path>
 </svg>

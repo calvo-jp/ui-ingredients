@@ -12,6 +12,9 @@ export interface LinkProps {
   current?: boolean;
 }
 
+/**
+ * @deprecated
+ */
 export interface CreateBreadcrumbsReturn {
   getRootProps(): HTMLAttributes<HTMLElement>;
   getListProps(): HTMLOlAttributes;
@@ -20,6 +23,9 @@ export interface CreateBreadcrumbsReturn {
   getSeparatorProps(): HTMLAttributes<HTMLElement>;
 }
 
+/**
+ * @deprecated
+ */
 export function createBreadcrumbs(): CreateBreadcrumbsReturn {
   function getRootProps(): HTMLAttributes<HTMLElement> {
     return {

@@ -132,15 +132,15 @@
       path: '/menu',
     },
     {
-      label: 'Context Menu',
+      label: 'Menu (Context)',
       path: '/menu/context',
     },
     {
-      label: 'Checkbox Menu',
+      label: 'Menu (Checkbox)',
       path: '/menu/checkbox',
     },
     {
-      label: 'Nested Menu',
+      label: 'Menu (Nested)',
       path: '/menu/nested',
     },
     {
@@ -168,7 +168,7 @@
       path: '/splitter',
     },
     {
-      label: 'Range Date Picker',
+      label: 'Date Picker (Range)',
       path: '/date-picker/range',
     },
     {
@@ -212,10 +212,6 @@
       path: '/alert-dialog',
     },
     {
-      label: 'Breadcrumbs',
-      path: '/breadcrumbs',
-    },
-    {
       label: 'Drawer',
       path: '/drawer',
     },
@@ -242,9 +238,9 @@
 <EnvironmentProvider>
   <LocaleProvider locale="en-US">
     <div style="min-height:100dvh;display:flex;align-items:start;">
-      <div style="width:250px;flex-shrink:0;"></div>
+      <div style="width:280px;flex-shrink:0;"></div>
       <header
-        style="height:100dvh;width:250px;padding:2rem;overflow-y:auto;position:fixed;top:0;left:0;"
+        style="height:100dvh;width:280px;padding:2rem;overflow-y:auto;position:fixed;top:0;left:0;"
       >
         <nav>
           <ul>
@@ -271,13 +267,13 @@
         {@render children()}
       </main>
     </div>
-
-    <Toaster {toaster}>
-      <Toast.Root>
-        <Toast.Title />
-        <Toast.Description />
-        <Toast.CloseTrigger>Close</Toast.CloseTrigger>
-      </Toast.Root>
-    </Toaster>
   </LocaleProvider>
 </EnvironmentProvider>
+
+<Toaster {toaster}>
+  <Toast.Root>
+    <Toast.Title />
+    <Toast.Description />
+    <Toast.CloseTrigger>Close</Toast.CloseTrigger>
+  </Toast.Root>
+</Toaster>

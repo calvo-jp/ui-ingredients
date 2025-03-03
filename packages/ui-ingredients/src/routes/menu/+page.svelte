@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Menu} from '$lib/index.js';
+  import ChevronDownIcon from '../chevron-down-icon.svelte';
 
   let items = [
     {value: 'Item 1'},
@@ -17,8 +18,10 @@
   }}
 >
   <Menu.Trigger>
-    Open
-    <Menu.Indicator>🔻</Menu.Indicator>
+    Click me
+    <Menu.Indicator>
+      <ChevronDownIcon style="width:20px;height:20px;" />
+    </Menu.Indicator>
   </Menu.Trigger>
 
   <Menu.Positioner>

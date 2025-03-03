@@ -16,5 +16,5 @@
   stroke-linejoin="round"
   {...props}
 >
-  <path d="M6 9L12 15L18 9"></path>
+  <path d="M15 18L9 12L15 6"></path>
 </svg>

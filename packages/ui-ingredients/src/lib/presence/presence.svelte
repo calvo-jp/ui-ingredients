@@ -30,7 +30,14 @@
 
   let presence = createPresence(reflect(() => createPresenceProps));
   let mergedProps = $derived(
-    mergeProps(presence.getPresenceProps(), localProps),
+    mergeProps(
+      presence.getPresenceProps(),
+      {
+        'data-scope': 'presence',
+        'data-part': 'root',
+      },
+      localProps,
+    ),
   );
 </script>
 

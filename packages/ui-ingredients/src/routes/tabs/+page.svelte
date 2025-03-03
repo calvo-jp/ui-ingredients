@@ -39,8 +39,43 @@
         {label}
       </Tabs.Trigger>
     {/each}
+
+    <Tabs.Indicator />
   </Tabs.List>
   {#each items as { value, content }}
     <Tabs.Content {value}>{content}</Tabs.Content>
   {/each}
 </Tabs.Root>
+
+<style>
+  :global([data-scope='tabs'][data-part='root']) {
+    max-width: 450px;
+  }
+
+  :global([data-scope='tabs'][data-part='content']) {
+    margin-top: 14px;
+  }
+
+  :global([data-scope='tabs'][data-part='list']) {
+    position: relative;
+    display: flex;
+    gap: 4px;
+  }
+
+  :global([data-scope='tabs'][data-part='trigger']) {
+    padding: 0 8px 12px;
+    cursor: pointer;
+  }
+
+  :global([data-scope='tabs'][data-part='trigger'][data-selected]) {
+    color: var(--color-accent);
+  }
+
+  :global([data-scope='tabs'][data-part='indicator']) {
+    width: var(--width);
+    height: 3px;
+    left: var(--left);
+    bottom: 0;
+    background: var(--border-accent);
+  }
+</style>

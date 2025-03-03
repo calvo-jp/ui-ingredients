@@ -1,5 +1,7 @@
 <script lang="ts">
   import {Menu} from '$lib/index.js';
+  import CheckIcon from '../../check-icon.svelte';
+  import ChevronDownIcon from '../../chevron-down-icon.svelte';
 
   let items = [
     {value: 'Item 1'},
@@ -17,7 +19,9 @@
 <Menu.Root lazyMount>
   <Menu.Trigger>
     Open
-    <Menu.Indicator>🔻</Menu.Indicator>
+    <Menu.Indicator>
+      <ChevronDownIcon style="width:20px;height:20px;" />
+    </Menu.Indicator>
   </Menu.Trigger>
 
   <Menu.Positioner>
@@ -36,7 +40,15 @@
               : [...selected].filter((value) => value !== item.value);
           }}
         >
-          <Menu.OptionItemIndicator>✅</Menu.OptionItemIndicator>
+          <div
+            style="display:flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid var(--border-default);"
+          >
+            <Menu.OptionItemIndicator>
+              <CheckIcon
+                style="width:16px;height:16px;color:var(--color-success);"
+              />
+            </Menu.OptionItemIndicator>
+          </div>
           <Menu.OptionItemText />
         </Menu.OptionItem>
       {/each}

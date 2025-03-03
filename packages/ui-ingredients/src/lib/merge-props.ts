@@ -5,17 +5,15 @@ import type {GenericObject} from './types.js';
 export function mergeProps(...args: GenericObject[]): GenericObject {
   let res: GenericObject = {};
 
-  /* class */
+  /* support svelte class value */
   for (const arg of args) {
     const obj = {...arg};
-
     if (obj.class) obj.class = clsx(arg.class);
-
     res = zagMergeProps(res, obj);
   }
 
-  /* style */
-  if (res.style) {
+  /* convert object type style to string */
+  if (res.style && typeof res.style !== 'string') {
     let style = '';
 
     for (const key in res.style) {
@@ -23,7 +21,7 @@ export function mergeProps(...args: GenericObject[]): GenericObject {
       style += `${key}:${val};`;
     }
 
-    res.style = style;
+    res.style = style.replace(/;{2,}/g, '');
   }
 
   return res;

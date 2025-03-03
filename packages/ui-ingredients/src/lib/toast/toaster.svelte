@@ -43,7 +43,7 @@
   }}
   {...api.getGroupProps({label})}
 >
-  {#each toasts as toast, index}
+  {#each toasts as toast, index (toast.id)}
     <ToastProvider {index} {children} {toast} parent={service} />
   {/each}
 </div>
