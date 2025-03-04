@@ -3,14 +3,26 @@ import {clsx} from 'clsx';
 import type {GenericObject} from './types.js';
 
 export function mergeProps(...args: GenericObject[]): GenericObject {
-  let res: GenericObject = {};
+  const l: GenericObject[] = [];
 
   /* support svelte class value */
-  for (const arg of args) {
-    const obj = {...arg};
-    if (obj.class) obj.class = clsx(arg.class);
-    res = zagMergeProps(res, obj);
+  for (const o of args) {
+    const c = {...o};
+
+    if (c.class && !isString(c.class)) {
+      c.class = clsx(o.class);
+    }
+
+    if (c.className && !isString(c.class)) {
+      c.className = clsx(o.className);
+    }
+
+    l.push(c);
   }
 
-  return res;
+  return zagMergeProps(...l);
+}
+
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
 }

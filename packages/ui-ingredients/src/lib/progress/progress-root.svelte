@@ -32,7 +32,9 @@
   let [createProgressProps, localProps] = $derived(
     createSplitProps<Omit<CreateProgressProps, 'id'>>([
       'defaultValue',
+      'formatOptions',
       'ids',
+      'locale',
       'max',
       'min',
       'onValueChange',

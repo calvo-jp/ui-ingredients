@@ -16,6 +16,7 @@ export function createProgress(
 
   const context: progress.Props = reflect(() => ({
     dir: locale?.dir,
+    locale: locale?.locale,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
