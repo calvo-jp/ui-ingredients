@@ -176,10 +176,6 @@
       path: '/field',
     },
     {
-      label: 'Time Picker',
-      path: '/time-picker',
-    },
-    {
       label: 'Color Picker',
       path: '/color-picker',
     },
@@ -194,10 +190,6 @@
     {
       label: 'Highlight',
       path: '/highlight',
-    },
-    {
-      label: 'Time Picker',
-      path: '/time-picker',
     },
     {
       label: 'Tour',

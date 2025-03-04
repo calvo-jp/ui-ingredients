@@ -20,11 +20,11 @@
     padding: 14px;
     border: 1px solid var(--border-default);
     min-width: 300px;
-    height: var(--height);
-    opacity: var(--opacity);
+    height: var(--height, auto);
+    opacity: var(--opacity, 1);
     position: relative;
-    scale: var(--scale);
-    translate: var(--x) var(--y) 0;
+    scale: var(--scale, 1);
+    translate: var(--x, 0) var(--y, 0) 0;
     z-index: var(--z-index);
     will-change: translate, opacity, scale;
     transition-duration: 250ms;
