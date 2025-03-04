@@ -88,7 +88,7 @@
   }
 
   :global([data-scope='drawer'][data-part='description']) {
-    color: var(--text-muted);
+    color: var(--color-muted);
   }
 
   :global([data-scope='drawer'][data-part='close-trigger']) {

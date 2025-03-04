@@ -123,7 +123,7 @@
   }
 
   :global([data-scope='tour'][data-part='description']) {
-    color: var(--text-muted);
+    color: var(--color-muted);
   }
 
   :global([data-scope='tour'][data-part='close-trigger']) {

@@ -71,7 +71,7 @@
   }
 
   :global([data-scope='alert-dialog'][data-part='description']) {
-    color: var(--text-muted);
+    color: var(--color-muted);
   }
 
   :global([data-scope='alert-dialog'][data-part='close-trigger']) {

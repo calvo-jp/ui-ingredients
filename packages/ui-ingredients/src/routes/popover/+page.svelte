@@ -52,7 +52,7 @@
   }
 
   :global([data-scope='popover'][data-part='description']) {
-    color: var(--text-muted);
+    color: var(--color-muted);
   }
 
   :global([data-scope='popover'][data-part='close-trigger']) {

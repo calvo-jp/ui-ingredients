@@ -33,6 +33,6 @@
 
   :global([data-scope='alert'][data-part='description']) {
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--color-muted);
   }
 </style>

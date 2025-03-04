@@ -37,7 +37,7 @@
   }
 
   :global([data-scope='toast'][data-part='description']) {
-    color: var(--text-muted);
+    color: var(--color-muted);
   }
 
   :global([data-scope='toast'][data-part='close-trigger']) {
