@@ -3,9 +3,17 @@
 </script>
 
 <Splitter.Root
-  size={[
-    {id: 'a', size: 50, minSize: 25},
-    {id: 'b', size: 50, minSize: 25},
+  defaultSize={[
+    {
+      id: 'a',
+      size: 50,
+      minSize: 25,
+    },
+    {
+      id: 'b',
+      size: 50,
+      minSize: 25,
+    },
   ]}
 >
   <Splitter.Panel id="a">A</Splitter.Panel>
@@ -17,13 +25,14 @@
   :global([data-scope='splitter'][data-part='root']) {
     max-width: 600px;
     display: flex;
+    align-items: center;
     gap: 8px;
   }
 
   :global([data-scope='splitter'][data-part='panel']) {
     border: 1px solid var(--border-default);
     padding: 16px;
-    height: 250px;
+    height: 225px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +42,9 @@
   }
 
   :global([data-scope='splitter'][data-part='resize-trigger']) {
-    border: 4px solid var(--border-default);
-    border-radius: 4px;
+    background: var(--border-default);
+    border-radius: 9999px;
+    width: 8px;
+    height: 200px;
   }
 </style>
