@@ -24,11 +24,13 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: TreeViewBranchProps = $props();
 
+  let uid = $props.id();
+
   let [nodeProps, localProps] = $derived(
-    createSplitProps<NodeProps>(['node', 'indexPath'])(props),
+    createSplitProps<NodeProps>(['node', 'indexPath'])(rest),
   );
 
   let treeView = getTreeViewContext();
@@ -36,6 +38,7 @@
   let branchContentProps = $derived(treeView.getBranchContentProps(nodeProps));
   let collapbsible = createCollapsible(
     reflect(() => ({
+      id: uid,
       ids: {content: branchContentProps.id},
       open: nodeState.expanded,
       disabled: nodeState.disabled,

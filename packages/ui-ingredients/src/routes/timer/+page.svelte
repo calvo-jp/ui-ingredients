@@ -54,7 +54,7 @@
   :global([data-scope='timer'][data-part='item-value']) {
     font-size: 32px;
     font-weight: 700;
-    font-family: monospace;
+    font-family: 'Fira Code', monospace;
   }
 
   :global([data-scope='timer'][data-part='item-label']) {

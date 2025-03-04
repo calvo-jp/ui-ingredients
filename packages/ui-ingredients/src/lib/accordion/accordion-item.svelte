@@ -24,19 +24,22 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...props
+    ...rest
   }: AccordionItemProps = $props();
+
+  let uid = $props.id();
 
   let accordion = getAccordionContext();
 
   let [itemProps, localProps] = $derived(
-    createSplitProps<ItemProps>(['value', 'disabled'])(props),
+    createSplitProps<ItemProps>(['value', 'disabled'])(rest),
   );
 
   let itemState = $derived(accordion.getItemState(itemProps));
   let contentProps = $derived(accordion.getItemContentProps(itemProps));
   let collapsible = createCollapsible(
     reflect(() => ({
+      id: uid,
       ids: {content: contentProps.id},
       open: itemState.expanded,
       disabled: itemState.disabled,
