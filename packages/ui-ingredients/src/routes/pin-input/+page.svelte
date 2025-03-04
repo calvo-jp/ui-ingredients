@@ -3,7 +3,7 @@
 
   let value: string[] = $state([]);
 
-  $inspect({value});
+  $inspect(value);
 </script>
 
 <PinInput.Root

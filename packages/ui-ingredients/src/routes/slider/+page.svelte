@@ -3,10 +3,17 @@
 
   let value = $state([0, 25]);
 
-  $inspect({value});
+  $inspect(value);
 </script>
 
-<Slider.Root min={0} max={100} defaultValue={[0, 50]}>
+<Slider.Root
+  min={0}
+  max={100}
+  {value}
+  onValueChange={(detail) => {
+    value = detail.value;
+  }}
+>
   <Slider.Label>Label</Slider.Label>
 
   <Slider.Control>
