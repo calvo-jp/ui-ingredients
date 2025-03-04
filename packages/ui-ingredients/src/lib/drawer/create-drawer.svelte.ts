@@ -36,70 +36,70 @@ export function createDrawer(props: CreateDrawerProps): CreateDrawerReturn {
   const service = useMachine(dialog.machine, context);
 
   return reflect(() => {
-    const o = dialog.connect(service, normalizeProps);
+    const api = dialog.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getBackdropProps() {
         return {
-          ...o.getBackdropProps(),
+          ...api.getBackdropProps(),
           ...parts.backdrop.attrs,
         };
       },
       getCloseTriggerProps() {
         return {
-          ...o.getCloseTriggerProps(),
+          ...api.getCloseTriggerProps(),
           ...parts.closeTrigger.attrs,
         };
       },
       getContentProps() {
         return {
-          ...o.getContentProps(),
+          ...api.getContentProps(),
           ...parts.content.attrs,
         };
       },
       getDescriptionProps() {
         return {
-          ...o.getDescriptionProps(),
+          ...api.getDescriptionProps(),
           ...parts.description.attrs,
         };
       },
       getPositionerProps() {
         return {
-          ...o.getPositionerProps(),
+          ...api.getPositionerProps(),
           ...parts.positioner.attrs,
         };
       },
       getTitleProps() {
         return {
-          ...o.getTitleProps(),
+          ...api.getTitleProps(),
           ...parts.title.attrs,
         };
       },
       getTriggerProps() {
         return {
-          ...o.getTriggerProps(),
+          ...api.getTriggerProps(),
           ...parts.trigger.attrs,
         };
       },
       getBodyProps() {
         return {
           id: props.elementIds?.body ?? `drawer:${props.id}:body`,
-          'data-state': o.open ? 'open' : 'closed',
+          'data-state': api.open ? 'open' : 'closed',
           ...parts.body.attrs,
         };
       },
       getFooterProps() {
         return {
           id: props.elementIds?.footer ?? `drawer:${props.id}:footer`,
-          'data-state': o.open ? 'open' : 'closed',
+          'data-state': api.open ? 'open' : 'closed',
           ...parts.footer.attrs,
         };
       },
       getHeaderProps() {
         return {
           id: props.elementIds?.header ?? `drawer:${props.id}:header`,
-          'data-state': o.open ? 'open' : 'closed',
+          'data-state': api.open ? 'open' : 'closed',
           ...parts.header.attrs,
         };
       },

@@ -32,14 +32,14 @@ export function createRatingGroup(
   const service = useMachine(ratingGroup.machine, context);
 
   return reflect(() => {
-    const o = ratingGroup.connect(service, normalizeProps);
+    const api = ratingGroup.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

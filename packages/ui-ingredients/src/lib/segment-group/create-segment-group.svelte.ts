@@ -24,43 +24,43 @@ export function createSegmentGroup(
   const service = useMachine(segmentGroup.machine, context);
 
   return reflect(() => {
-    const o = segmentGroup.connect(service, normalizeProps);
+    const api = segmentGroup.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getIndicatorProps() {
         return {
-          ...o.getIndicatorProps(),
+          ...api.getIndicatorProps(),
           ...parts.indicator.attrs,
         };
       },
       getItemControlProps(props) {
         return {
-          ...o.getItemControlProps(props),
+          ...api.getItemControlProps(props),
           ...parts.itemControl.attrs,
         };
       },
       getItemProps(props) {
         return {
-          ...o.getItemProps(props),
+          ...api.getItemProps(props),
           ...parts.item.attrs,
         };
       },
       getItemTextProps(props) {
         return {
-          ...o.getItemTextProps(props),
+          ...api.getItemTextProps(props),
           ...parts.itemText.attrs,
         };
       },
       getLabelProps() {
         return {
-          ...o.getLabelProps(),
+          ...api.getLabelProps(),
           ...parts.label.attrs,
         };
       },
       getRootProps() {
         return {
-          ...o.getRootProps(),
+          ...api.getRootProps(),
           ...parts.root.attrs,
         };
       },

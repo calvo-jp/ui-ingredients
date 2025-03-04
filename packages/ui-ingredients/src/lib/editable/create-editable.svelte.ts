@@ -33,14 +33,14 @@ export function createEditable(
   const service = useMachine(editable.machine, context);
 
   return reflect(() => {
-    const o = editable.connect(service, normalizeProps);
+    const api = editable.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getInputProps(),
+          ...api.getInputProps(),
         };
       },
     };

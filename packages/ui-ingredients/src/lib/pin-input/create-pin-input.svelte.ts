@@ -33,14 +33,14 @@ export function createPinInputContext(
   const service = useMachine(pinInput.machine, context);
 
   return reflect(() => {
-    const o = pinInput.connect(service, normalizeProps);
+    const api = pinInput.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

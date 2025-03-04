@@ -33,14 +33,14 @@ export function createCheckbox(
   const service = useMachine(checkbox.machine, context);
 
   return reflect(() => {
-    const o = checkbox.connect(service, normalizeProps);
+    const api = checkbox.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

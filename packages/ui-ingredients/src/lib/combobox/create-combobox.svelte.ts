@@ -33,14 +33,14 @@ export function createCombobox(
   const service = useMachine(combobox.machine, context);
 
   return reflect(() => {
-    const o = combobox.connect(service, normalizeProps);
+    const api = combobox.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getInputProps(),
+          ...api.getInputProps(),
         };
       },
     };

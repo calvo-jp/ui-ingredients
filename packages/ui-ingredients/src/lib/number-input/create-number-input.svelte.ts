@@ -34,14 +34,14 @@ export function createNumberInput(
   const service = useMachine(numberInput.machine, context);
 
   return reflect(() => {
-    const o = numberInput.connect(service, normalizeProps);
+    const api = numberInput.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getInputProps(),
+          ...api.getInputProps(),
         };
       },
     };

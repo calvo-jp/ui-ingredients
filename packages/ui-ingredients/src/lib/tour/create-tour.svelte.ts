@@ -8,8 +8,13 @@ import {parts} from './tour-anatomy.js';
 
 export interface TourStepDetails extends Optional<tour.StepDetails, 'id'> {}
 
+export interface ElementIds extends tour.ElementIds {
+  trigger?: string;
+}
+
 export interface CreateTourProps
-  extends Omit<tour.Props, 'dir' | 'steps' | 'getRootNode'> {
+  extends Omit<tour.Props, 'ids' | 'dir' | 'steps' | 'getRootNode'> {
+  ids?: ElementIds;
   steps?: TourStepDetails[];
 }
 
@@ -38,16 +43,17 @@ export function createTour(props: CreateTourProps): CreateTourReturn {
   const service = useMachine(tour.machine, context);
 
   return reflect(() => {
-    const o = tour.connect(service, normalizeProps);
+    const api = tour.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getTriggerProps() {
         return {
+          id: `tour:${props.id}:trigger`,
           onclick() {
-            o.start();
+            api.start();
           },
-          'data-state': o.open ? 'open' : 'closed',
+          'data-state': api.open ? 'open' : 'closed',
           ...parts.trigger.attrs,
         };
       },

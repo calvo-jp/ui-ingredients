@@ -31,14 +31,14 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
   const service = useMachine(switch_.machine, context);
 
   return reflect(() => {
-    const o = switch_.connect(service, normalizeProps);
+    const api = switch_.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

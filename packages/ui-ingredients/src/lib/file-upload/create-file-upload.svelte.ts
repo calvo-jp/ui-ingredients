@@ -33,14 +33,14 @@ export function createFileUpload(
   const service = useMachine(fileUpload.machine, context);
 
   return reflect(() => {
-    const o = fileUpload.connect(service, normalizeProps);
+    const api = fileUpload.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

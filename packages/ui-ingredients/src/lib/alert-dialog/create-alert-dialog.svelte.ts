@@ -26,30 +26,30 @@ export function createAlertDialog(
   const service = useMachine(dialog.machine, context);
 
   return reflect(() => {
-    const o = dialog.connect(service, normalizeProps);
+    const api = dialog.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getBackdropProps() {
-        return mergeProps(o.getBackdropProps(), parts.backdrop.attrs);
+        return mergeProps(api.getBackdropProps(), parts.backdrop.attrs);
       },
       getCloseTriggerProps() {
-        return mergeProps(o.getCloseTriggerProps(), parts.closeTrigger.attrs);
+        return mergeProps(api.getCloseTriggerProps(), parts.closeTrigger.attrs);
       },
       getContentProps() {
-        return mergeProps(o.getContentProps(), parts.content.attrs);
+        return mergeProps(api.getContentProps(), parts.content.attrs);
       },
       getDescriptionProps() {
-        return mergeProps(o.getDescriptionProps(), parts.description.attrs);
+        return mergeProps(api.getDescriptionProps(), parts.description.attrs);
       },
       getPositionerProps() {
-        return mergeProps(o.getPositionerProps(), parts.positioner.attrs);
+        return mergeProps(api.getPositionerProps(), parts.positioner.attrs);
       },
       getTitleProps() {
-        return mergeProps(o.getTitleProps(), parts.title.attrs);
+        return mergeProps(api.getTitleProps(), parts.title.attrs);
       },
       getTriggerProps() {
-        return mergeProps(o.getTriggerProps(), parts.trigger.attrs);
+        return mergeProps(api.getTriggerProps(), parts.trigger.attrs);
       },
     };
   });

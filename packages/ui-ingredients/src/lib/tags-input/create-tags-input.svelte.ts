@@ -33,14 +33,14 @@ export function createTagsInput(
   const service = useMachine(tagsInput.machine, context);
 
   return reflect(() => {
-    const o = tagsInput.connect(service, normalizeProps);
+    const api = tagsInput.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

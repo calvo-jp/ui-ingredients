@@ -31,14 +31,14 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
   const service = useMachine(select.machine, context);
 
   return reflect(() => {
-    const o = select.connect(service, normalizeProps);
+    const api = select.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenSelectProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenSelectProps(),
+          ...api.getHiddenSelectProps(),
         };
       },
     };

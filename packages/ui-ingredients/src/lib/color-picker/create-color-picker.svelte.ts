@@ -5,8 +5,14 @@ import {getLocaleContext} from '../locale-provider/local-provider-context.svelte
 import type {GenericObject} from '../types.js';
 import {parts} from './color-picker-anatomy.js';
 
+export interface ElementIds extends colorPicker.ElementIds {
+  view?: string;
+}
+
 export interface CreateColorPickerProps
-  extends Omit<colorPicker.Props, 'dir' | 'getRootNode' | 'open.controlled'> {}
+  extends Omit<colorPicker.Props, 'ids' | 'dir' | 'getRootNode'> {
+  ids?: ElementIds;
+}
 
 export interface CreateColorPickerReturn extends colorPicker.Api {
   getViewProps(props: {format: colorPicker.ColorFormat}): GenericObject;
@@ -28,14 +34,15 @@ export function createColorPicker(
   const service = useMachine(colorPicker.machine, context);
 
   return reflect(() => {
-    const o = colorPicker.connect(service, normalizeProps);
+    const api = colorPicker.connect(service, normalizeProps);
 
     return {
-      ...o,
-      getViewProps(props) {
+      ...api,
+      getViewProps(viewProps) {
         return {
-          hidden: props.format !== o.format,
-          'data-format': o.format,
+          id: `colorPicker:${props.id}:view`,
+          hidden: viewProps.format !== api.format,
+          'data-format': api.format,
           ...parts.view.attrs,
         };
       },
