@@ -25,12 +25,14 @@
   import {createDrawer} from './create-drawer.svelte.js';
   import {setDrawerContext} from './drawer-context.svelte.js';
 
-  let {id, children, ...rest}: DrawerProps = $props();
+  let {id, children, ...props}: DrawerProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, createDialogProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let drawer = createDrawer(

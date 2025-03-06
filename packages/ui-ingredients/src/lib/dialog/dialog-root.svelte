@@ -25,12 +25,14 @@
   import {createDialog} from './create-dialog.svelte.js';
   import {setDialogContext} from './dialog-context.svelte.js';
 
-  let {id, children, ...rest}: DialogProps = $props();
+  let {id, children, ...props}: DialogProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, createDialogProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let dialog = createDialog(

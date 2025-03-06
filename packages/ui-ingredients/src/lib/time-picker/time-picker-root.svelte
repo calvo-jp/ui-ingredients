@@ -28,7 +28,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: TimePickerProps = $props();
 
   let uid = $props.id();
@@ -54,7 +54,7 @@
       'readOnly',
       'steps',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let [presenceStrategyProps, localProps] = $derived(

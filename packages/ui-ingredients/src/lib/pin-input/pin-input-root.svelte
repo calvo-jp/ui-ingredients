@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: PinInputProps = $props();
 
   let uid = $props.id();
@@ -52,7 +52,7 @@
       'translations',
       'type',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let pinInput = createPinInputContext(

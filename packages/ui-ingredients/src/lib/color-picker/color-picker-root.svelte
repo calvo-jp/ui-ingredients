@@ -28,13 +28,15 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: ColorPickerProps = $props();
 
   let uid = $props.id();
 
   let [presenceProps, otherProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let [createColorPickerProps, localProps] = $derived(

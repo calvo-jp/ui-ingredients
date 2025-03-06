@@ -27,13 +27,15 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: FieldProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, otherProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['keepMounted', 'lazyMount'])(rest),
+    createSplitProps<PresenceStrategyProps>(['keepMounted', 'lazyMount'])(
+      props,
+    ),
   );
 
   let [createFieldProps, localProps] = $derived(

@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: ToggleGroupProps = $props();
 
   let uid = $props.id();
@@ -40,7 +40,7 @@
       'orientation',
       'rovingFocus',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let toggleGroup = createToggleGroup(

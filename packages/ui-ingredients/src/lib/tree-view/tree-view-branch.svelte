@@ -24,13 +24,13 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: TreeViewBranchProps = $props();
 
   let uid = $props.id();
 
   let [nodeProps, localProps] = $derived(
-    createSplitProps<NodeProps>(['node', 'indexPath'])(rest),
+    createSplitProps<NodeProps>(['node', 'indexPath'])(props),
   );
 
   let treeView = getTreeViewContext();

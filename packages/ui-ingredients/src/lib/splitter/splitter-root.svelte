@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: SplitterProps = $props();
 
   let uid = $props.id();
@@ -37,7 +37,7 @@
       'onSizeChangeEnd',
       'orientation',
       'size',
-    ])(rest),
+    ])(props),
   );
 
   let splitter = createSplitter(

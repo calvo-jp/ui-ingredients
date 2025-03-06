@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: SliderProps = $props();
 
   let uid = $props.id();
@@ -53,7 +53,7 @@
       'thumbAlignment',
       'thumbSize',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let slider = createSlider(

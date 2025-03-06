@@ -27,13 +27,15 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: AccordionProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, otherProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let [createAccordionProps, localProps] = $derived(

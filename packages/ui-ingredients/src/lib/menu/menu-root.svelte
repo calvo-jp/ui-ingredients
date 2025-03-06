@@ -26,7 +26,7 @@
     setMenuTriggerItemContext,
   } from './menu-context.svelte.js';
 
-  let {id, children, ...rest}: MenuRootProps = $props();
+  let {id, children, ...props}: MenuRootProps = $props();
 
   let uid = $props.id();
 
@@ -50,7 +50,7 @@
       'open',
       'positioning',
       'typeahead',
-    ])(rest),
+    ])(props),
   );
 
   let parentMenu = getMenuContext();

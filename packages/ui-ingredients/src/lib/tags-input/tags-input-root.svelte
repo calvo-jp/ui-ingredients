@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: TagsInputProps = $props();
 
   let uid = $props.id();
@@ -59,7 +59,7 @@
       'translations',
       'validate',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let tagsInput = createTagsInput(

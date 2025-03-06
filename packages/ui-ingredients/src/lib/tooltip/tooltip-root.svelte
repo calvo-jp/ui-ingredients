@@ -22,12 +22,14 @@
   import {createTooltip} from './create-tooltip.svelte.js';
   import {setTooltipContext} from './tooltip-context.svelte.js';
 
-  let {id, children, ...rest}: TooltipProps = $props();
+  let {id, children, ...props}: TooltipProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, createTooltipProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let tooltip = createTooltip(

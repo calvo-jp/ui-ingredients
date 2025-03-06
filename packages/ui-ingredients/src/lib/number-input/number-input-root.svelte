@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: NumberInputProps = $props();
 
   let uid = $props.id();
@@ -56,7 +56,7 @@
       'step',
       'translations',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let numberInput = createNumberInput(

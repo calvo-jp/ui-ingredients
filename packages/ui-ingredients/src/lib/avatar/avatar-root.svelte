@@ -24,14 +24,14 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: AvatarProps = $props();
 
   let uid = $props.id();
 
   let [createAvatarProps, localProps] = $derived(
     createSplitProps<Omit<CreateAvatarProps, 'id'>>(['ids', 'onStatusChange'])(
-      rest,
+      props,
     ),
   );
 

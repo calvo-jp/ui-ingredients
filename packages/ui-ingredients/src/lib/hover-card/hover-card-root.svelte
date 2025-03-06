@@ -22,7 +22,7 @@
   import {createHoverCard} from './create-hover-card.svelte.js';
   import {setHoverCardContext} from './hover-card-context.svelte.js';
 
-  let {id, children, ...rest}: HoverCardProps = $props();
+  let {id, children, ...props}: HoverCardProps = $props();
 
   let uid = $props.id();
 
@@ -38,7 +38,7 @@
       'open',
       'openDelay',
       'positioning',
-    ])(rest),
+    ])(props),
   );
 
   let hoverCard = createHoverCard(

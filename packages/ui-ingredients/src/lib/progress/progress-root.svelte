@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: ProgressProps = $props();
 
   let uid = $props.id();
@@ -41,7 +41,7 @@
       'orientation',
       'translations',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let progress = createProgress(

@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: TabsProps = $props();
 
   let uid = $props.id();
@@ -42,7 +42,7 @@
       'orientation',
       'translations',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let tabs = createTabs(reflect(() => ({...createTabsProps, id: id ?? uid})));

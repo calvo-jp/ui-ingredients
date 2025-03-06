@@ -24,13 +24,13 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: AlertProps = $props();
 
   let uid = $props.id();
 
   let [createAlertProps, localProps] = $derived(
-    createSplitProps<Omit<CreateAlertProps, 'id'>>(['ids'])(rest),
+    createSplitProps<Omit<CreateAlertProps, 'id'>>(['ids'])(props),
   );
 
   let alert = createAlert(

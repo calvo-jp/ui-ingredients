@@ -28,13 +28,13 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: DatePickerProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, otherProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([])(rest),
+    createSplitProps<PresenceStrategyProps>([])(props),
   );
 
   let [createDatePickerProps, localProps] = $derived(

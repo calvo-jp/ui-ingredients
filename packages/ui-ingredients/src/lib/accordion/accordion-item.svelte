@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: AccordionItemProps = $props();
 
   let uid = $props.id();
@@ -32,7 +32,7 @@
   let accordion = getAccordionContext();
 
   let [itemProps, localProps] = $derived(
-    createSplitProps<ItemProps>(['value', 'disabled'])(rest),
+    createSplitProps<ItemProps>(['value', 'disabled'])(props),
   );
 
   let itemState = $derived(accordion.getItemState(itemProps));

@@ -22,7 +22,8 @@
   import {createPopover} from './create-popover.svelte.js';
   import {setPopoverContext} from './popover-context.svelte.js';
 
-  let {id, children, ...rest}: PopoverProps = $props();
+  let {id, children, ...props}: PopoverProps = $props();
+
   let uid = $props.id();
 
   let [createPopoverProps, presenceStrategyProps] = $derived(
@@ -43,7 +44,7 @@
       'persistentElements',
       'portalled',
       'positioning',
-    ])(rest),
+    ])(props),
   );
 
   let popover = createPopover(

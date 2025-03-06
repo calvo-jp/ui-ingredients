@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: CheckboxProps = $props();
 
   let uid = $props.id();
@@ -42,7 +42,7 @@
       'readOnly',
       'required',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let checkbox = createCheckbox(

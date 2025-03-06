@@ -25,12 +25,14 @@
   import {setAlertDialogContext} from './alert-dialog-context.svelte.js';
   import {createAlertDialog} from './create-alert-dialog.svelte.js';
 
-  let {id, children, ...rest}: AlertDialogProps = $props();
+  let {id, children, ...props}: AlertDialogProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, createDialogProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let alertDialog = createAlertDialog(

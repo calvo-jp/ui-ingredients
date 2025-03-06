@@ -17,7 +17,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: ComboboxItemGroupProps = $props();
 
   let uid = $props.id();
@@ -25,7 +25,7 @@
   let combobox = getComboboxContext();
   let comboboxItemGroupProps = $derived({id: id ?? uid});
   let mergedProps = $derived(
-    mergeProps(combobox.getItemGroupProps(comboboxItemGroupProps), rest),
+    mergeProps(combobox.getItemGroupProps(comboboxItemGroupProps), props),
   );
 
   setComboboxItemGroupPropsContext(() => comboboxItemGroupProps);

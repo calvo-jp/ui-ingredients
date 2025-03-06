@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: AngleSliderProps = $props();
   let uid = $props.id();
 
@@ -40,7 +40,7 @@
       'readOnly',
       'step',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let angleSlider = createAngleSlider(

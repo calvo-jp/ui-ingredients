@@ -28,7 +28,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: SelectProps = $props();
 
   let uid = $props.id();
@@ -62,7 +62,7 @@
       'required',
       'scrollToIndexFn',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let [presenceStrategyProps, localProps] = $derived(

@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: ClipboardProps = $props();
 
   let uid = $props.id();
@@ -37,7 +37,7 @@
       'onValueChange',
       'timeout',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let clipboard = createClipboard(

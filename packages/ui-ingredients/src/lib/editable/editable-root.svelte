@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: EditableProps = $props();
 
   let uid = $props.id();
@@ -57,7 +57,7 @@
       'submitMode',
       'translations',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let editable = createEditable(

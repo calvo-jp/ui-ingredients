@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: QrCodeProps = $props();
 
   let uid = $props.id();
@@ -37,7 +37,7 @@
       'onValueChange',
       'pixelSize',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let qrCode = createQRCode(

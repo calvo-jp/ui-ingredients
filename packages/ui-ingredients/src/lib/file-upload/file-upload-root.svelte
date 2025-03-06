@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: FileUploadProps = $props();
 
   let uid = $props.id();
@@ -50,7 +50,7 @@
       'required',
       'translations',
       'validate',
-    ])(rest),
+    ])(props),
   );
 
   let fileUpload = createFileUpload(

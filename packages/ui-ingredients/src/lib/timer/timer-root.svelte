@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: TimerProps = $props();
 
   let uid = $props.id();
@@ -39,7 +39,7 @@
       'onTick',
       'startMs',
       'targetMs',
-    ])(rest),
+    ])(props),
   );
 
   let timer = createTimer(

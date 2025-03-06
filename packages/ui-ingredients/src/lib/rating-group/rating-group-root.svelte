@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: RatingGroupProps = $props();
 
   let uid = $props.id();
@@ -45,7 +45,7 @@
       'required',
       'translations',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let ratingGroup = createRatingGroup(

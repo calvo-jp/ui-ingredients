@@ -22,12 +22,14 @@
   import {createFloatingPanel} from './create-floating-panel.svelte.js';
   import {setFloatingPanelContext} from './floating-panel-context.svelte.js';
 
-  let {id, children, ...rest}: FloatingPanelProps = $props();
+  let {id, children, ...props}: FloatingPanelProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, createFloatingPanelProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let floatingPanel = createFloatingPanel(

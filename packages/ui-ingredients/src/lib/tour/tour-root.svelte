@@ -25,12 +25,14 @@
   import {createTour} from './create-tour.svelte.js';
   import {setTourContext} from './tour-context.svelte.js';
 
-  let {id, children, ...rest}: TourProps = $props();
+  let {id, children, ...props}: TourProps = $props();
 
   let uid = $props.id();
 
   let [presenceStrategyProps, createTourProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let tour = createTour(reflect(() => ({...createTourProps, id: id ?? uid})));

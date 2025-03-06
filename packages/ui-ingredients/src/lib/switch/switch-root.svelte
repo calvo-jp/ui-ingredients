@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: SwitchProps = $props();
 
   let uid = $props.id();
@@ -43,7 +43,7 @@
       'readOnly',
       'required',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let switch_ = createSwitch(

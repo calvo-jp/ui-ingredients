@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: PaginationProps = $props();
 
   let uid = $props.id();
@@ -42,7 +42,7 @@
       'siblingCount',
       'translations',
       'type',
-    ])(rest),
+    ])(props),
   );
 
   let pagination = createPagination(

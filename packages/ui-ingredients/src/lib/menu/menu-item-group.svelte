@@ -17,7 +17,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: MenuItemGroupProps = $props();
 
   let uid = $props.id();
@@ -25,7 +25,7 @@
   let menu = getMenuContext();
   let itemGroupProps = $derived({id: id ?? uid});
   let mergedProps = $derived(
-    mergeProps(menu?.getItemGroupProps(itemGroupProps) ?? {}, rest),
+    mergeProps(menu?.getItemGroupProps(itemGroupProps) ?? {}, props),
   );
 
   setMenuItemGroupPropsContext(() => itemGroupProps);

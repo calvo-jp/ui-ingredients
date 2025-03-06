@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: SignaturePadProps = $props();
 
   let uid = $props.id();
@@ -40,7 +40,7 @@
       'readOnly',
       'required',
       'translations',
-    ])(rest),
+    ])(props),
   );
 
   let signaturePad = createSignaturePad(

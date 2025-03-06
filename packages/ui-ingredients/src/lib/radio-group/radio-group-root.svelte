@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: RadioGroupProps = $props();
 
   let uid = $props.id();
@@ -40,7 +40,7 @@
       'orientation',
       'readOnly',
       'value',
-    ])(rest),
+    ])(props),
   );
 
   let radioGroup = createRadioGroup(

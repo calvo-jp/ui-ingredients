@@ -24,7 +24,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: CarouselProps = $props();
 
   let uid = $props.id();
@@ -49,7 +49,7 @@
       'snapType',
       'spacing',
       'translations',
-    ])(rest),
+    ])(props),
   );
 
   let carousel = createCarousel(

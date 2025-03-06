@@ -17,7 +17,7 @@
     ref = $bindable(null),
     asChild,
     children,
-    ...rest
+    ...props
   }: SelectItemGroupProps = $props();
 
   let uid = $props.id();
@@ -26,7 +26,7 @@
 
   let itemGroupProps = $derived({id: id ?? uid});
   let mergedProps = $derived(
-    mergeProps(select.getItemGroupProps(itemGroupProps), rest),
+    mergeProps(select.getItemGroupProps(itemGroupProps), props),
   );
 
   setSelectItemGroupPropsContext(() => itemGroupProps);
