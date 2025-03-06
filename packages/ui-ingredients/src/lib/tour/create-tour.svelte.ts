@@ -1,9 +1,9 @@
-import type {Optional} from '$lib/types.js';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tour from '@zag-js/tour';
 import type {HTMLButtonAttributes} from 'svelte/elements';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+import type {Optional} from '../types.js';
 import {parts} from './tour-anatomy.js';
 
 export interface TourStepDetails extends Optional<tour.StepDetails, 'id'> {}

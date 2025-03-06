@@ -9,8 +9,7 @@
     placement: 'bottom-start',
   }}
 >
-  <HoverCard.Trigger href="#">Hover me</HoverCard.Trigger>
-
+  <HoverCard.Trigger href="#">UI Ingredients</HoverCard.Trigger>
   <HoverCard.Positioner>
     <HoverCard.Content>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed omnis natus
@@ -22,11 +21,11 @@
 
 <style>
   :global([data-scope='hover-card'][data-part='trigger']) {
-    display: inline-flex;
-    align-items: center;
-    padding: 0px 14px;
-    height: 40px;
-    border: 1px solid var(--border-default);
+    color: oklch(0.588 0.158 241.966);
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 500;
   }
 
   :global([data-scope='hover-card'][data-part='content']) {

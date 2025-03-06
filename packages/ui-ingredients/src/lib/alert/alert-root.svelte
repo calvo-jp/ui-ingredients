@@ -13,8 +13,8 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
   import {reflect} from '@zag-js/svelte';
+  import {createSplitProps} from '../create-split-props.js';
   import {mergeProps} from '../merge-props.js';
   import {setAlertContext} from './alert-context.js';
   import {createAlert} from './create-alert.svelte.js';
