@@ -53,10 +53,6 @@
     <Tour.Spotlight />
     <Tour.Positioner>
       <Tour.Content>
-        <Tour.Arrow>
-          <Tour.ArrowTip />
-        </Tour.Arrow>
-
         <Tour.CloseTrigger>
           <XIcon style="width:20px;height:20px;" />
         </Tour.CloseTrigger>

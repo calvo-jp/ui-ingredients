@@ -27,6 +27,9 @@
     background: oklch(0.269 0 0);
     padding: 12px 16px;
     color: oklch(0.922 0 0);
+  }
+
+  :global([data-scope='tooltip'][data-part='arrow']) {
     --arrow-size: 16px;
     --arrow-background: oklch(0.269 0 0);
   }

@@ -25,7 +25,7 @@
   let menu = getMenuContext();
   let itemGroupProps = $derived({id: id ?? uid});
   let mergedProps = $derived(
-    mergeProps(menu!.getItemGroupProps(itemGroupProps), rest),
+    mergeProps(menu?.getItemGroupProps(itemGroupProps) ?? {}, rest),
   );
 
   setMenuItemGroupPropsContext(() => itemGroupProps);
