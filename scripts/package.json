@@ -15,7 +15,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "svgson": "^5.3.1",
-    "tailwindcss": "^4.0.10",
+    "tailwindcss": "^4.0.11",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   }
