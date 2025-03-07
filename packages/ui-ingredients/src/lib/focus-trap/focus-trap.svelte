@@ -14,7 +14,7 @@
 
   function noop() {}
 
-  const action: Action<HTMLElement, FocusTrapOptions> = (node, options) => {
+  const trapFocus: Action<HTMLElement, FocusTrapOptions> = (node, options) => {
     let destroy: () => void = noop;
 
     function update(newOptions: FocusTrapOptions) {
@@ -94,11 +94,11 @@
 {#if asChild}
   {@render asChild(
     (node: HTMLElement) =>
-      action(node, focusTrapOptions) as unknown as ActionReturn,
+      trapFocus(node, focusTrapOptions) as unknown as ActionReturn,
     mergedProps,
   )}
 {:else}
-  <div bind:this={ref} use:action={focusTrapOptions} {...mergedProps}>
+  <div bind:this={ref} use:trapFocus={focusTrapOptions} {...mergedProps}>
     {@render children?.()}
   </div>
 {/if}
