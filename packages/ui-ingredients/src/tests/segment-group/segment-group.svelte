@@ -1,6 +1,5 @@
 <script lang="ts">
   import {SegmentGroup} from '$lib/index.js';
-  import {CheckIcon} from '@untitled-theme/icons-svelte';
 
   interface Item {
     value: string;
@@ -21,9 +20,7 @@
   {#each items as { value, label }}
     <SegmentGroup.Item {value}>
       <SegmentGroup.ItemHiddenInput />
-      <SegmentGroup.ItemControl>
-        <CheckIcon />
-      </SegmentGroup.ItemControl>
+      <SegmentGroup.ItemControl></SegmentGroup.ItemControl>
       <SegmentGroup.ItemText>{label}</SegmentGroup.ItemText>
     </SegmentGroup.Item>
   {/each}
