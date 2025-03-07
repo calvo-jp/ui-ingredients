@@ -32,7 +32,7 @@
 
   let uid = $props.id();
 
-  let [presenceStrategyProps, otherProps] = $derived(
+  let [presenceStrategyProps, fieldProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['keepMounted', 'lazyMount'])(
       props,
     ),
@@ -45,7 +45,7 @@
       'disabled',
       'readOnly',
       'required',
-    ])(otherProps),
+    ])(fieldProps),
   );
 
   let field = createField(

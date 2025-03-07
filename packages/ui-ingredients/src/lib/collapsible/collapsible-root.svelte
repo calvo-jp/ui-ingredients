@@ -33,7 +33,7 @@
 
   let uid = $props.id();
 
-  let [presenceStrategyProps, otherProps] = $derived(
+  let [presenceStrategyProps, collapsibleProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
@@ -47,7 +47,7 @@
       'onExitComplete',
       'onOpenChange',
       'open',
-    ])(otherProps),
+    ])(collapsibleProps),
   );
 
   let collapsible = createCollapsible(

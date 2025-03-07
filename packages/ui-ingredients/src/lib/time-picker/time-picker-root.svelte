@@ -33,7 +33,7 @@
 
   let uid = $props.id();
 
-  let [createTimePickerProps, otherProps] = $derived(
+  let [createTimePickerProps, timePickerProps] = $derived(
     createSplitProps<Omit<CreateTimePickerProps, 'id'>>([
       'allowSeconds',
       'defaultOpen',
@@ -59,7 +59,7 @@
 
   let [presenceStrategyProps, localProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      otherProps,
+      timePickerProps,
     ),
   );
 

@@ -33,7 +33,7 @@
 
   let uid = $props.id();
 
-  let [presenceStrategyProps, otherProps] = $derived(
+  let [presenceStrategyProps, datePickerProps] = $derived(
     createSplitProps<PresenceStrategyProps>([])(props),
   );
 
@@ -72,7 +72,7 @@
       'translations',
       'value',
       'view',
-    ])(otherProps),
+    ])(datePickerProps),
   );
 
   let datePicker = createDatePicker(

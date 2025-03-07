@@ -33,7 +33,7 @@
 
   let uid = $props.id();
 
-  let [presenceProps, otherProps] = $derived(
+  let [presenceProps, colorPickerProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
@@ -64,7 +64,7 @@
       'readOnly',
       'required',
       'value',
-    ])(otherProps),
+    ])(colorPickerProps),
   );
 
   let colorPicker = createColorPicker(

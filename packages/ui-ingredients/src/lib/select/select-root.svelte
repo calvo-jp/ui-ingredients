@@ -33,7 +33,7 @@
 
   let uid = $props.id();
 
-  let [createSelectProps, otherProps] = $derived(
+  let [createSelectProps, selectProps] = $derived(
     createSplitProps<Omit<CreateSelectProps, 'id'>>([
       'closeOnSelect',
       'collection',
@@ -67,7 +67,7 @@
 
   let [presenceStrategyProps, localProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      otherProps,
+      selectProps,
     ),
   );
 
