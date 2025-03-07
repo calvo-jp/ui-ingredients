@@ -104,6 +104,9 @@ importers:
       '@zag-js/floating-panel':
         specifier: ^1.3.1
         version: 1.3.1
+      '@zag-js/focus-trap':
+        specifier: ^1.3.1
+        version: 1.3.1
       '@zag-js/highlight-word':
         specifier: ^1.3.1
         version: 1.3.1

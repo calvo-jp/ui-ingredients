@@ -25,12 +25,18 @@
   );
 
   let chunks = $derived(highlightWord(highlightWordProps));
+
+  let mergedProps = $derived({
+    ...localProps,
+    'data-scope': 'highlight',
+    'data-part': 'root',
+  });
 </script>
 
 {#if asChild}
-  {@render asChild(localProps)}
+  {@render asChild(mergedProps)}
 {:else}
-  <div bind:this={ref} data-scope="highlight" data-part="root" {...localProps}>
+  <div bind:this={ref} {...mergedProps}>
     {#each chunks as chunk}
       {#if chunk.match}
         <mark>{chunk.text}</mark>

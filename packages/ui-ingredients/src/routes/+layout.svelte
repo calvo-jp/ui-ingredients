@@ -215,6 +215,10 @@
       label: 'Angle Slider',
       path: '/angle-slider',
     },
+    {
+      label: 'Focus Trap',
+      path: '/focus-trap',
+    },
   ]
     .filter((o, i, arr) => arr.findIndex((t) => t.label === o.label) === i)
     .toSorted((i, j) => i.label.localeCompare(j.label));
