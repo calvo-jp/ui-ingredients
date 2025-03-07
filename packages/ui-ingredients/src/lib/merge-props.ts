@@ -1,30 +1,28 @@
-import {mergeProps as zagMergeProps} from '@zag-js/core';
+import {mergeProps as zagMergeProps} from '@zag-js/svelte';
 import {clsx} from 'clsx';
 import type {GenericObject} from './types.js';
 
 export function mergeProps(...args: GenericObject[]): GenericObject {
-  let res: GenericObject = {};
+  const l: GenericObject[] = [];
 
-  /* class */
-  for (const arg of args) {
-    const obj = {...arg};
+  /* support svelte class value */
+  for (const o of args) {
+    const c = {...o};
 
-    if (obj.class) obj.class = clsx(arg.class);
-
-    res = zagMergeProps(res, obj);
-  }
-
-  /* style */
-  if (res.style) {
-    let style = '';
-
-    for (const key in res.style) {
-      const val = res.style[key];
-      style += `${key}:${val};`;
+    if (c.class && !isString(c.class)) {
+      c.class = clsx(o.class);
     }
 
-    res.style = style;
+    if (c.className && !isString(c.class)) {
+      c.className = clsx(o.className);
+    }
+
+    l.push(c);
   }
 
-  return res;
+  return zagMergeProps(...l);
+}
+
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
 }
