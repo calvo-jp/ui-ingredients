@@ -22,14 +22,13 @@
   let environment = getEnvironmentContext();
   let portalProviderProps = getPortalProviderPropsContext();
 
-  let context: toast.GroupProps = reflect(() => ({
+  let service = useMachine(toast.group.machine, () => ({
     id,
     dir: locale?.dir,
     store: toaster,
     getRootNode: environment?.getRootNode,
   }));
 
-  let service = useMachine(toast.group.machine, context);
   let api = reflect(() => toast.group.connect(service, normalizeProps));
   let toasts = $derived(api.getToasts());
 </script>

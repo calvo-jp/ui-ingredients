@@ -12,12 +12,10 @@ export function createClipboard(
 ): CreateClipboardReturn {
   const environment = getEnvironmentContext();
 
-  const context: clipboard.Props = reflect(() => ({
+  const service = useMachine(clipboard.machine, () => ({
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(clipboard.machine, context);
 
   return reflect(() => clipboard.connect(service, normalizeProps));
 }

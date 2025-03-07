@@ -16,7 +16,7 @@ export function createFileUpload(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: fileUpload.Props = reflect(() => ({
+  const service = useMachine(fileUpload.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -29,8 +29,6 @@ export function createFileUpload(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(fileUpload.machine, context);
 
   return reflect(() => {
     const api = fileUpload.connect(service, normalizeProps);

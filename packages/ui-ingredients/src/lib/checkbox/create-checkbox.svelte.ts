@@ -16,7 +16,7 @@ export function createCheckbox(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: checkbox.Props = reflect(() => ({
+  const service = useMachine(checkbox.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -29,8 +29,6 @@ export function createCheckbox(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(checkbox.machine, context);
 
   return reflect(() => {
     const api = checkbox.connect(service, normalizeProps);

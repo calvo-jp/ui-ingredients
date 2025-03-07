@@ -14,13 +14,11 @@ export function createToggleGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: toggleGroup.Props = reflect(() => ({
+  const service = useMachine(toggleGroup.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(toggleGroup.machine, context);
 
   return reflect(() => toggleGroup.connect(service, normalizeProps));
 }

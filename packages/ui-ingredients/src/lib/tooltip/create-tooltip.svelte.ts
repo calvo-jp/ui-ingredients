@@ -12,13 +12,11 @@ export function createTooltip(props: CreateTooltipProps): CreateTooltipReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: tooltip.Props = reflect(() => ({
+  const service = useMachine(tooltip.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(tooltip.machine, context);
 
   return reflect(() => tooltip.connect(service, normalizeProps));
 }

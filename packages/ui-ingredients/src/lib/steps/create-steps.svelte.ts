@@ -12,13 +12,11 @@ export function createSteps(props: CreateStepsProps): CreateStepsReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: steps.Props = reflect(() => ({
+  const service = useMachine(steps.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(steps.machine, context);
 
   return reflect(() => steps.connect(service, normalizeProps));
 }

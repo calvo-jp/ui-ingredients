@@ -16,7 +16,7 @@ export function createCombobox(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: combobox.Props = reflect(() => ({
+  const service = useMachine(combobox.machine, () => ({
     ids: {
       label: field?.ids.label,
       input: field?.ids.control,
@@ -29,8 +29,6 @@ export function createCombobox(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(combobox.machine, context);
 
   return reflect(() => {
     const api = combobox.connect(service, normalizeProps);

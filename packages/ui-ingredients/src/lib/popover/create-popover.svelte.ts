@@ -12,13 +12,11 @@ export function createPopover(props: CreatePopoverProps): CreatePopoverReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: popover.Props = reflect(() => ({
+  const service = useMachine(popover.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(popover.machine, context);
 
   return reflect(() => popover.connect(service, normalizeProps));
 }

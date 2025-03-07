@@ -12,13 +12,11 @@ export function createQRCode(props: CreateQrCodeProps): CreateQrCodeReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: qrCode.Props = reflect(() => ({
+  const service = useMachine(qrCode.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(qrCode.machine, context);
 
   return reflect(() => qrCode.connect(service, normalizeProps));
 }

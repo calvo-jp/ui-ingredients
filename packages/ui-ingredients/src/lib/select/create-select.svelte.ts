@@ -14,7 +14,7 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: select.Props = reflect(() => ({
+  const service = useMachine(select.machine, () => ({
     ids: {
       label: field?.ids.label,
       hiddenSelect: field?.ids.control,
@@ -27,8 +27,6 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(select.machine, context);
 
   return reflect(() => {
     const api = select.connect(service, normalizeProps);

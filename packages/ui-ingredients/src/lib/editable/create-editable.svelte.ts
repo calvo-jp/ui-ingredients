@@ -16,7 +16,7 @@ export function createEditable(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: editable.Props = reflect(() => ({
+  const service = useMachine(editable.machine, () => ({
     ids: {
       label: field?.ids.label,
       input: field?.ids.control,
@@ -29,8 +29,6 @@ export function createEditable(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(editable.machine, context);
 
   return reflect(() => {
     const api = editable.connect(service, normalizeProps);

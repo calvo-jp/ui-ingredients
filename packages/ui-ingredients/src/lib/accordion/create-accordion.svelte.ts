@@ -14,15 +14,11 @@ export function createAccordion(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: accordion.Props = reflect(() => {
-    return {
-      dir: locale?.dir,
-      getRootNode: environment?.getRootNode,
-      ...props,
-    };
-  });
-
-  const service = useMachine(accordion.machine, context);
+  const service = useMachine(accordion.machine, () => ({
+    dir: locale?.dir,
+    getRootNode: environment?.getRootNode,
+    ...props,
+  }));
 
   return reflect(() => accordion.connect(service, normalizeProps));
 }

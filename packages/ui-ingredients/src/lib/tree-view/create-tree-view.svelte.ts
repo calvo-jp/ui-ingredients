@@ -14,13 +14,11 @@ export function createTreeView(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: treeView.Props = reflect(() => ({
+  const service = useMachine(treeView.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(treeView.machine, context);
 
   return reflect(() => treeView.connect(service, normalizeProps));
 }

@@ -14,13 +14,11 @@ export function createCarousel(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: carousel.Props = reflect(() => ({
+  const service = useMachine(carousel.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(carousel.machine, context);
 
   return reflect(() => carousel.connect(service, normalizeProps));
 }

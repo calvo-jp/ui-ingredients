@@ -14,13 +14,11 @@ export function createSignaturePad(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: signaturePad.Props = reflect(() => ({
+  const service = useMachine(signaturePad.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(signaturePad.machine, context);
 
   return reflect(() => signaturePad.connect(service, normalizeProps));
 }

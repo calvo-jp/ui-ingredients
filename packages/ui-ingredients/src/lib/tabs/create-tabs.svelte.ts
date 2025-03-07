@@ -12,13 +12,11 @@ export function createTabs(props: CreateTabsProps): CreateTabsReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: tabs.Props = reflect(() => ({
+  const service = useMachine(tabs.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(tabs.machine, context);
 
   return reflect(() => tabs.connect(service, normalizeProps));
 }

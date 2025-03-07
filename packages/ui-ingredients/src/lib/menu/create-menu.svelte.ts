@@ -14,13 +14,11 @@ export function createMenu(props: CreateMenuProps): CreateMenuReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: menu.Props = reflect(() => ({
+  const service = useMachine(menu.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(menu.machine, context);
 
   return reflect(() => ({
     ...menu.connect(service, normalizeProps),

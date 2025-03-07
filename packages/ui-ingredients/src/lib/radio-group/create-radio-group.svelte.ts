@@ -14,13 +14,11 @@ export function createRadioGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: radioGroup.Props = reflect(() => ({
+  const service = useMachine(radioGroup.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(radioGroup.machine, context);
 
   return reflect(() => radioGroup.connect(service, normalizeProps));
 }

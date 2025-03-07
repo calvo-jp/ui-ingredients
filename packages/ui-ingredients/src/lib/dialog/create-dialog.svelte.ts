@@ -12,14 +12,15 @@ export function createDialog(props: CreateDialogProps): CreateDialogReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: dialog.Props = reflect(() => ({
-    dir: locale?.dir,
-    role: 'dialog',
-    getRootNode: environment?.getRootNode,
-    ...props,
-  }));
-
-  const service = useMachine(dialog.machine, context);
+  const service = useMachine(
+    dialog.machine,
+    (): dialog.Props => ({
+      dir: locale?.dir,
+      role: 'dialog',
+      getRootNode: environment?.getRootNode,
+      ...props,
+    }),
+  );
 
   return reflect(() => dialog.connect(service, normalizeProps));
 }

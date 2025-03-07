@@ -15,13 +15,11 @@ export function createSegmentGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: segmentGroup.Props = reflect(() => ({
+  const service = useMachine(segmentGroup.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(segmentGroup.machine, context);
 
   return reflect(() => {
     const api = segmentGroup.connect(service, normalizeProps);

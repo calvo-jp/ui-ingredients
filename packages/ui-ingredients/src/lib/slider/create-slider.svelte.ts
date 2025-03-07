@@ -12,13 +12,11 @@ export function createSlider(props: CreateSliderProps): CreateSliderReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: slider.Props = reflect(() => ({
+  const service = useMachine(slider.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(slider.machine, context);
 
   return reflect(() => slider.connect(service, normalizeProps));
 }

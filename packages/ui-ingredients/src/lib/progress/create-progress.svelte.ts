@@ -14,14 +14,12 @@ export function createProgress(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: progress.Props = reflect(() => ({
+  const service = useMachine(progress.machine, () => ({
     dir: locale?.dir,
     locale: locale?.locale,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(progress.machine, context);
 
   return reflect(() => progress.connect(service, normalizeProps));
 }

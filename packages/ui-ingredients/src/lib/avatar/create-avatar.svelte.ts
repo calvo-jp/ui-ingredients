@@ -12,13 +12,11 @@ export function createAvatar(props: CreateAvatarProps): CreateAvatarReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: avatar.Props = reflect(() => ({
+  const service = useMachine(avatar.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(avatar.machine, context);
 
   return reflect(() => avatar.connect(service, normalizeProps));
 }

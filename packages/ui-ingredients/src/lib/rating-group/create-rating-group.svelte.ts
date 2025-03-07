@@ -16,7 +16,7 @@ export function createRatingGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: ratingGroup.Props = reflect(() => ({
+  const service = useMachine(ratingGroup.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -28,8 +28,6 @@ export function createRatingGroup(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(ratingGroup.machine, context);
 
   return reflect(() => {
     const api = ratingGroup.connect(service, normalizeProps);

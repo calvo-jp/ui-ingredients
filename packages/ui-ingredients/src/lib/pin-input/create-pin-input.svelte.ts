@@ -16,7 +16,7 @@ export function createPinInputContext(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: pinInput.Props = reflect(() => ({
+  const service = useMachine(pinInput.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -29,8 +29,6 @@ export function createPinInputContext(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(pinInput.machine, context);
 
   return reflect(() => {
     const api = pinInput.connect(service, normalizeProps);

@@ -16,7 +16,7 @@ export function createNumberInput(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: numberInput.Props = reflect(() => ({
+  const service = useMachine(numberInput.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -30,8 +30,6 @@ export function createNumberInput(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(numberInput.machine, context);
 
   return reflect(() => {
     const api = numberInput.connect(service, normalizeProps);

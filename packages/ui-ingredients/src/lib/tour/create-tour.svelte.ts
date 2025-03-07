@@ -33,14 +33,12 @@ export function createTour(props: CreateTourProps): CreateTourReturn {
     }));
   });
 
-  const context: tour.Props = reflect(() => ({
+  const service = useMachine(tour.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
     steps,
   }));
-
-  const service = useMachine(tour.machine, context);
 
   return reflect(() => {
     const api = tour.connect(service, normalizeProps);

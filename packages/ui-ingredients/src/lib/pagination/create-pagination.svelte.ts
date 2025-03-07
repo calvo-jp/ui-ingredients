@@ -14,13 +14,11 @@ export function createPagination(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: pagination.Props = reflect(() => ({
+  const service = useMachine(pagination.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(pagination.machine, context);
 
   return reflect(() => pagination.connect(service, normalizeProps));
 }

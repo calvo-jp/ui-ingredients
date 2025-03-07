@@ -8,12 +8,10 @@ export interface CreateTimerReturn extends timer.Api {}
 export function createTimer(props: CreateTimerProps): CreateTimerReturn {
   const environment = getEnvironmentContext();
 
-  const context: timer.Props = reflect(() => ({
+  const service = useMachine(timer.machine, () => ({
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(timer.machine, context);
 
   return reflect(() => timer.connect(service, normalizeProps));
 }

@@ -14,13 +14,11 @@ export function createCollapsible(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: collapsible.Props = reflect(() => ({
+  const service = useMachine(collapsible.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(collapsible.machine, context);
 
   return reflect(() => collapsible.connect(service, normalizeProps));
 }

@@ -14,13 +14,11 @@ export function createFloatingPanel(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: floatingPanel.Props = reflect(() => ({
+  const service = useMachine(floatingPanel.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(floatingPanel.machine, context);
 
   return reflect(() => floatingPanel.connect(service, normalizeProps));
 }

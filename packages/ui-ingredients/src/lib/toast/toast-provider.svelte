@@ -11,15 +11,14 @@
     children: Snippet<[toast: toast.Api]>;
   }
 
-  let {...props}: Props = $props();
+  let props: Props = $props();
 
-  let context: toast.Props = reflect(() => ({
+  let service = useMachine(toast.machine, () => ({
     ...props.toast,
     index: props.index,
     parent: props.parent,
   }));
 
-  let service = useMachine(toast.machine, context);
   let api = reflect(() => toast.connect(service, normalizeProps));
 
   setToastContext(api);

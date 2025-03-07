@@ -14,7 +14,7 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: switch_.Props = reflect(() => ({
+  const service = useMachine(switch_.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -27,8 +27,6 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(switch_.machine, context);
 
   return reflect(() => {
     const api = switch_.connect(service, normalizeProps);

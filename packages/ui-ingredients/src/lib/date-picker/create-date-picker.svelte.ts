@@ -14,14 +14,12 @@ export function createDatePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: datePicker.Props = reflect(() => ({
+  const service = useMachine(datePicker.machine, () => ({
     dir: locale?.dir,
     locale: locale?.locale,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(datePicker.machine, context);
 
   return reflect(() => datePicker.connect(service, normalizeProps));
 }

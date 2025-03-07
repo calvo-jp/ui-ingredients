@@ -16,7 +16,7 @@ export function createTagsInput(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: tagsInput.Props = reflect(() => ({
+  const service = useMachine(tagsInput.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -29,8 +29,6 @@ export function createTagsInput(
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(tagsInput.machine, context);
 
   return reflect(() => {
     const api = tagsInput.connect(service, normalizeProps);

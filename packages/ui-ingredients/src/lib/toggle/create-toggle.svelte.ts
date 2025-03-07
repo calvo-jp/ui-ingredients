@@ -5,10 +5,6 @@ export interface CreateToggleProps extends toggle.Props {}
 export interface CreateToggleReturn extends toggle.Api {}
 
 export function createToggle(props: CreateToggleProps) {
-  const service = useMachine(
-    toggle.machine,
-    reflect(() => props),
-  );
-
+  const service = useMachine(toggle.machine, props);
   return reflect(() => toggle.connect(service, normalizeProps));
 }

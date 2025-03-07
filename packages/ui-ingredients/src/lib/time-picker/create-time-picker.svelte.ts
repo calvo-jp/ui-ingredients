@@ -14,14 +14,12 @@ export function createTimePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: timePicker.Props = reflect(() => ({
+  const service = useMachine(timePicker.machine, () => ({
     dir: locale?.dir,
     locale: locale?.locale,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(timePicker.machine, context);
 
   return reflect(() => timePicker.connect(service, normalizeProps));
 }

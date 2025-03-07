@@ -14,13 +14,11 @@ export function createSplitter(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: splitter.Props = reflect(() => ({
+  const service = useMachine(splitter.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(splitter.machine, context);
 
   return reflect(() => splitter.connect(service, normalizeProps));
 }

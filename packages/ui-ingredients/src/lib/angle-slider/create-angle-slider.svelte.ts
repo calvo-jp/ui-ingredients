@@ -14,13 +14,11 @@ export function createAngleSlider(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: angleSlider.Props = reflect(() => ({
+  const service = useMachine(angleSlider.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(angleSlider.machine, context);
 
   return reflect(() => angleSlider.connect(service, normalizeProps));
 }

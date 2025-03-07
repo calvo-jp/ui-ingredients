@@ -25,13 +25,11 @@ export function createColorPicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: colorPicker.Props = reflect(() => ({
+  const service = useMachine(colorPicker.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(colorPicker.machine, context);
 
   return reflect(() => {
     const api = colorPicker.connect(service, normalizeProps);

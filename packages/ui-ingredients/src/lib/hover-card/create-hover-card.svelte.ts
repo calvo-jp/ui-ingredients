@@ -14,13 +14,11 @@ export function createHoverCard(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const context: hoverCard.Props = reflect(() => ({
+  const service = useMachine(hoverCard.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
-
-  const service = useMachine(hoverCard.machine, context);
 
   return reflect(() => hoverCard.connect(service, normalizeProps));
 }
