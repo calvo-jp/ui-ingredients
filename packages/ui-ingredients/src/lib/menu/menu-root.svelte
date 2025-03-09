@@ -36,6 +36,8 @@
       'aria-label',
       'closeOnSelect',
       'composite',
+      'defaultHighlightedValue',
+      'defaultOpen',
       'highlightedValue',
       'ids',
       'loopFocus',
