@@ -18,7 +18,7 @@
 </script>
 
 <Splitter.Root
-  size={[
+  defaultSize={[
     {id: 'a', size: 50, minSize: 25},
     {id: 'b', size: 50, minSize: 25},
   ]}

@@ -8,12 +8,18 @@
   let items = Array.from({length: 3});
 </script>
 
-<Carousel.Root autoplay loop allowMouseDrag class="mx-auto max-w-[32rem]">
+<Carousel.Root
+  autoplay
+  loop
+  allowMouseDrag
+  slideCount={items.length}
+  class="mx-auto max-w-[32rem]"
+>
   <Carousel.ItemGroup>
     {#each items, index}
       <Carousel.Item
         {index}
-        class="flex h-[14rem] items-center justify-center rounded bg-white font-mono text-4xl font-bold dark:bg-neutral-700/25 lg:h-[16rem]"
+        class="flex h-[14rem] items-center justify-center rounded bg-white font-mono text-4xl font-bold lg:h-[16rem] dark:bg-neutral-700/25"
       >
         {index + 1}
       </Carousel.Item>
@@ -30,7 +36,7 @@
       {#each items, index}
         <Carousel.Indicator
           {index}
-          class="size-3 rounded-full border border-neutral-200 bg-white transition-colors duration-150 ui-current:border-indigo-600 ui-current:bg-indigo-600 dark:border-0 dark:bg-neutral-800 dark:ui-current:bg-indigo-500"
+          class="ui-current:border-indigo-600 ui-current:bg-indigo-600 dark:ui-current:bg-indigo-500 size-3 rounded-full border border-neutral-200 bg-white transition-colors duration-150 dark:border-0 dark:bg-neutral-800"
         />
       {/each}
     </Carousel.IndicatorGroup>

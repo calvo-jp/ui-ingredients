@@ -3,7 +3,7 @@
 </script>
 
 <SegmentGroup.Root
-  value="1"
+  defaultValue="1"
   orientation="horizontal"
   class="relative mx-auto flex w-fit"
 >

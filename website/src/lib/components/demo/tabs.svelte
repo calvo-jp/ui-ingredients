@@ -26,7 +26,7 @@
   ];
 </script>
 
-<Tabs.Root value={items[0].value} orientation="horizontal">
+<Tabs.Root defaultValue={items[0].value} orientation="horizontal">
   <Tabs.List
     class="relative border-b border-neutral-200 pb-2 dark:border-neutral-800"
   >
