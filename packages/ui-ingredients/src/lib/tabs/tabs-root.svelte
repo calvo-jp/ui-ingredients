@@ -33,6 +33,7 @@
     createSplitProps<Omit<CreateTabsProps, 'id'>>([
       'activationMode',
       'composite',
+      'defaultValue',
       'deselectable',
       'ids',
       'loopFocus',
