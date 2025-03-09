@@ -11,7 +11,6 @@ import {vi} from 'vitest';
 const {window} = new JSDOM();
 
 vi.stubGlobal('ResizeObserver', ResizeObserver);
-
 window['ResizeObserver'] = ResizeObserver;
 window.URL.createObjectURL = () => faker.image.avatar();
 

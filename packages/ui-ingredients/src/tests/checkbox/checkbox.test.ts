@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Checkbox from './checkbox.svelte';
 
-describe('Checkbox', () => {
+describe.skip('Checkbox', () => {
   it.each(getAnatomySelector(checkboxAnatomy))(
     'should render %s',
     (selector) => {

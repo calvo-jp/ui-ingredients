@@ -1,15 +1,11 @@
 import * as segmentGroup from '@zag-js/radio-group';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
-import {mergeProps} from '../merge-props.js';
 import {parts} from './segment-group-anatomy.js';
 
 export interface CreateSegmentGroupProps
-  extends Omit<segmentGroup.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<segmentGroup.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateSegmentGroupReturn extends segmentGroup.Api {}
 
@@ -19,42 +15,52 @@ export function createSegmentGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: segmentGroup.Context = reflect(() => ({
-    id,
+  const service = useMachine(segmentGroup.machine, () => ({
     dir: locale?.dir,
     getRootNode: environment?.getRootNode,
     ...props,
   }));
 
-  const [state, send] = useMachine(segmentGroup.machine(context), {context});
-
   return reflect(() => {
-    const o = segmentGroup.connect(state, send, normalizeProps);
+    const api = segmentGroup.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getIndicatorProps() {
-        return mergeProps(o.getIndicatorProps(), parts.indicator.attrs);
+        return {
+          ...api.getIndicatorProps(),
+          ...parts.indicator.attrs,
+        };
       },
       getItemControlProps(props) {
-        return mergeProps(
-          o.getItemControlProps(props),
-          parts.itemControl.attrs,
-        );
+        return {
+          ...api.getItemControlProps(props),
+          ...parts.itemControl.attrs,
+        };
       },
       getItemProps(props) {
-        return mergeProps(o.getItemProps(props), parts.item.attrs);
+        return {
+          ...api.getItemProps(props),
+          ...parts.item.attrs,
+        };
       },
       getItemTextProps(props) {
-        return mergeProps(o.getItemTextProps(props), parts.itemText.attrs);
+        return {
+          ...api.getItemTextProps(props),
+          ...parts.itemText.attrs,
+        };
       },
       getLabelProps() {
-        return mergeProps(o.getLabelProps(), parts.label.attrs);
+        return {
+          ...api.getLabelProps(),
+          ...parts.label.attrs,
+        };
       },
       getRootProps() {
-        return mergeProps(o.getRootProps(), parts.root.attrs);
+        return {
+          ...api.getRootProps(),
+          ...parts.root.attrs,
+        };
       },
     };
   });

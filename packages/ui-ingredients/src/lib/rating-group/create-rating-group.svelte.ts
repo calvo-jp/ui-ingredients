@@ -1,14 +1,11 @@
 import * as ratingGroup from '@zag-js/rating-group';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateRatingGroupProps
-  extends Omit<ratingGroup.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<ratingGroup.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateRatingGroupReturn extends ratingGroup.Api {}
 
@@ -19,10 +16,7 @@ export function createRatingGroup(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: ratingGroup.Context = reflect(() => ({
-    id,
+  const service = useMachine(ratingGroup.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -35,17 +29,15 @@ export function createRatingGroup(
     ...props,
   }));
 
-  const [state, send] = useMachine(ratingGroup.machine(context), {context});
-
   return reflect(() => {
-    const o = ratingGroup.connect(state, send, normalizeProps);
+    const api = ratingGroup.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

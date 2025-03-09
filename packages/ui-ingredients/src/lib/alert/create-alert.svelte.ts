@@ -1,8 +1,7 @@
-import {createUniqueId} from '$lib/create-unique-id.js';
-import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
-import {getLocaleContext} from '$lib/locale-provider/local-provider-context.svelte.js';
 import {getDocument, getWindow} from '@zag-js/dom-query';
 import type {HTMLAttributes} from 'svelte/elements';
+import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 import {parts} from './alert-anatomy.js';
 
 interface ElementIds {
@@ -13,7 +12,7 @@ interface ElementIds {
 }
 
 export interface CreateAlertProps {
-  id?: string;
+  id: string;
   ids?: ElementIds;
 }
 
@@ -28,8 +27,7 @@ export function createAlert(props: CreateAlertProps): CreateAlertReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const uid = createUniqueId();
-  const id = $derived(props.id ?? uid);
+  const id = $derived(props.id);
   const ids: ElementIds = $derived({
     root: props.ids?.root ?? `alert:${id}`,
     title: props.ids?.title ?? `alert:${id}:title`,

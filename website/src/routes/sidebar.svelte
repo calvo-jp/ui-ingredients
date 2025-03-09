@@ -13,6 +13,7 @@
         path: item.permalink,
         label: item.title,
         beta: false,
+        deprecated: false,
       })),
     },
     {
@@ -21,6 +22,7 @@
         path: item.permalink,
         label: item.title,
         beta: item.beta,
+        deprecated: item.deprecated,
       })),
     },
     {
@@ -29,6 +31,7 @@
         path: item.permalink,
         label: item.title,
         beta: item.beta,
+        deprecated: item.deprecated,
       })),
     },
   ];
@@ -113,6 +116,10 @@
 
                 {#if child.beta}
                   <Badge>Beta</Badge>
+                {/if}
+
+                {#if child.deprecated}
+                  <Badge colorScheme="warning">Deprecated</Badge>
                 {/if}
               </a>
             </li>

@@ -1,14 +1,11 @@
 import * as fileUpload from '@zag-js/file-upload';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateFileUploadProps
-  extends Omit<fileUpload.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<fileUpload.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateFileUploadReturn extends fileUpload.Api<any> {}
 
@@ -19,10 +16,7 @@ export function createFileUpload(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: fileUpload.Context = reflect(() => ({
-    id,
+  const service = useMachine(fileUpload.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -36,17 +30,15 @@ export function createFileUpload(
     ...props,
   }));
 
-  const [state, send] = useMachine(fileUpload.machine(context), {context});
-
   return reflect(() => {
-    const o = fileUpload.connect(state, send, normalizeProps);
+    const api = fileUpload.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

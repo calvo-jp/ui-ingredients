@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateTimePickerProps,
     CreateTimePickerReturn,
@@ -9,7 +9,7 @@
   export interface TimePickerProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateTimePickerReturn>,
-        CreateTimePickerProps
+        Optional<CreateTimePickerProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -24,18 +24,22 @@
   import {setTimePickerContext} from './time-picker-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: TimePickerProps = $props();
 
-  let [createTimePickerProps, rest] = $derived(
-    createSplitProps<CreateTimePickerProps>([
+  let uid = $props.id();
+
+  let [createTimePickerProps, timePickerProps] = $derived(
+    createSplitProps<Omit<CreateTimePickerProps, 'id'>>([
       'allowSeconds',
+      'defaultOpen',
+      'defaultValue',
       'disableLayer',
       'disabled',
-      'id',
       'ids',
       'locale',
       'max',
@@ -45,7 +49,6 @@
       'onOpenChange',
       'onValueChange',
       'open',
-      'openControlled',
       'placeholder',
       'positioning',
       'readOnly',
@@ -55,10 +58,15 @@
   );
 
   let [presenceStrategyProps, localProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(rest),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      timePickerProps,
+    ),
   );
 
-  let timePicker = createTimePicker(reflect(() => createTimePickerProps));
+  let timePicker = createTimePicker(
+    reflect(() => ({...createTimePickerProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

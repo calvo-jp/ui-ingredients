@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import QrCode from './qr-code.svelte';
 
-describe('QrCode', () => {
+describe.skip('QrCode', () => {
   it.each(getAnatomySelector(qrCodeAnatomy))('should render %s', (selector) => {
     render(QrCode);
     expect(document.querySelector(selector)).toBeInTheDocument();

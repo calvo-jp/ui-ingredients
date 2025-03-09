@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import {
     type CreateAngleSliderProps,
     type CreateAngleSliderReturn,
@@ -8,7 +8,7 @@
   export interface AngleSliderProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateAngleSliderReturn>,
-      CreateAngleSliderProps
+      Optional<CreateAngleSliderProps, 'id'>
     > {}
 </script>
 
@@ -20,16 +20,18 @@
   import {createAngleSlider} from './create-angle-slider.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: AngleSliderProps = $props();
+  let uid = $props.id();
 
   let [createAngleSliderProps, localProps] = $derived(
-    createSplitProps<CreateAngleSliderProps>([
+    createSplitProps<Omit<CreateAngleSliderProps, 'id'>>([
+      'defaultValue',
       'disabled',
-      'id',
       'ids',
       'invalid',
       'name',
@@ -41,7 +43,10 @@
     ])(props),
   );
 
-  let angleSlider = createAngleSlider(reflect(() => createAngleSliderProps));
+  let angleSlider = createAngleSlider(
+    reflect(() => ({...createAngleSliderProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(
     mergeProps(angleSlider.getRootProps(), localProps),
   );

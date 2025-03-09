@@ -1,4 +1,3 @@
-export {default as ClearTrigger} from './pin-input-clear-trigger.svelte';
 export {default as Control} from './pin-input-control.svelte';
 export {default as HiddenInput} from './pin-input-hidden-input.svelte';
 export {default as Input} from './pin-input-input.svelte';

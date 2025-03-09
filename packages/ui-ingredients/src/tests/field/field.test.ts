@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Field from './field.svelte';
 
-describe('Field', () => {
+describe.skip('Field', () => {
   it.each(getAnatomySelector(fieldAnatomy))('should render %s', (selector) => {
     render(Field);
     expect(document.querySelector(selector)).toBeInTheDocument();

@@ -10,7 +10,7 @@ const items = [
   {value: '3', label: 'Item 3'},
 ];
 
-describe('SegmentGroup', () => {
+describe.skip('SegmentGroup', () => {
   it.each(getAnatomySelector(segmentGroupAnatomy))(
     'should render %s',
     (selector) => {

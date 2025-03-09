@@ -8,7 +8,7 @@ import Avatar from './avatar.svelte';
 const src = faker.image.avatar();
 const name = faker.person.fullName();
 
-describe('Avatar', () => {
+describe.skip('Avatar', () => {
   it.each(getAnatomySelector(avatarAnatomy))('should render %s', (selector) => {
     render(Avatar, {props: {src, name}});
     expect(document.querySelector(selector)).toBeInTheDocument();

@@ -1,13 +1,14 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
+  import type {Optional} from '../types.js';
   import type {
     CreateFloatingPanelProps,
     CreateFloatingPanelReturn,
   } from './create-floating-panel.svelte.js';
 
   export interface FloatingPanelProps
-    extends CreateFloatingPanelProps,
+    extends Optional<CreateFloatingPanelProps, 'id'>,
       PresenceStrategyProps {
     children?: Snippet<[CreateFloatingPanelReturn]>;
   }
@@ -21,7 +22,9 @@
   import {createFloatingPanel} from './create-floating-panel.svelte.js';
   import {setFloatingPanelContext} from './floating-panel-context.svelte.js';
 
-  let {children, ...props}: FloatingPanelProps = $props();
+  let {id, children, ...props}: FloatingPanelProps = $props();
+
+  let uid = $props.id();
 
   let [presenceStrategyProps, createFloatingPanelProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
@@ -30,7 +33,7 @@
   );
 
   let floatingPanel = createFloatingPanel(
-    reflect(() => createFloatingPanelProps),
+    reflect(() => ({...createFloatingPanelProps, id: id ?? uid})),
   );
 
   let presence = createPresence(

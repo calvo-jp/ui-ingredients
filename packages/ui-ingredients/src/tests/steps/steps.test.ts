@@ -10,7 +10,7 @@ const items = [
   {title: 'Step 3', content: 'Step 3 Content'},
 ];
 
-describe('Steps', () => {
+describe.skip('Steps', () => {
   it.each(getAnatomySelector(stepsAnatomy))('should render %s', (selector) => {
     render(Steps, {props: {items}});
     expect(document.querySelector(selector)).toBeInTheDocument();

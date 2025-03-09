@@ -1,17 +1,17 @@
 import * as colorPicker from '@zag-js/color-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 import type {GenericObject} from '../types.js';
 import {parts} from './color-picker-anatomy.js';
 
-type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
+export interface ElementIds extends colorPicker.ElementIds {
+  view?: string;
+}
 
 export interface CreateColorPickerProps
-  extends Omit<colorPicker.Context, Omitted> {
-  id?: string;
-  openControlled?: boolean;
+  extends Omit<colorPicker.Props, 'ids' | 'dir' | 'getRootNode'> {
+  ids?: ElementIds;
 }
 
 export interface CreateColorPickerReturn extends colorPicker.Api {
@@ -25,27 +25,22 @@ export function createColorPicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: colorPicker.Context = $derived.by(() => ({
-    id,
+  const service = useMachine(colorPicker.machine, () => ({
     dir: locale?.dir,
-    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
+    ...props,
   }));
 
-  const [state, send] = useMachine(colorPicker.machine(context), {context});
-
   return reflect(() => {
-    const o = colorPicker.connect(state, send, normalizeProps);
+    const api = colorPicker.connect(service, normalizeProps);
 
     return {
-      ...o,
-      getViewProps(props) {
+      ...api,
+      getViewProps(viewProps) {
         return {
-          hidden: props.format !== o.format,
-          'data-format': o.format,
+          id: `colorPicker:${props.id}:view`,
+          hidden: viewProps.format !== api.format,
+          'data-format': api.format,
           ...parts.view.attrs,
         };
       },

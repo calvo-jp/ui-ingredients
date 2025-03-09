@@ -9,16 +9,9 @@ export type {ToastProps} from './toast-root.svelte';
 export type {ToastTitleProps} from './toast-title.svelte';
 
 export {
-  createToast,
-  type CreateToastProps,
-  type CreateToastReturn,
-} from './create-toast.svelte.js';
-export {anatomy as toastAnatomy} from './toast-anatomy.js';
-export {getToastContext, setToastContext} from './toast-context.svelte.js';
-
-export {
   createToaster,
   type CreateToasterProps,
   type CreateToasterReturn,
 } from './create-toaster.svelte.js';
+export {anatomy as toastAnatomy} from './toast-anatomy.js';
 export {default as Toaster, type ToasterProps} from './toaster.svelte';

@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Tour, type TourStepDetails} from '$lib/index.js';
+  import XIcon from '../x-icon.svelte';
 
   const length = 5;
   const steps = Array.from({length}).map((_, idx) => {
@@ -52,31 +53,113 @@
     <Tour.Spotlight />
     <Tour.Positioner>
       <Tour.Content>
-        <Tour.Arrow>
-          <Tour.ArrowTip />
-        </Tour.Arrow>
+        <Tour.CloseTrigger>
+          <XIcon style="width:20px;height:20px;" />
+        </Tour.CloseTrigger>
+
         <Tour.ProgressText />
         <Tour.Title />
         <Tour.Description />
 
-        {#each actions as action}
-          <Tour.ActionTrigger {action}>
-            {action.label}
-          </Tour.ActionTrigger>
-        {/each}
-
-        <Tour.CloseTrigger>Close</Tour.CloseTrigger>
+        <div style="display:flex;gap:8px;margin-top:12px;">
+          {#each actions as action}
+            <Tour.ActionTrigger {action}>
+              {action.label}
+            </Tour.ActionTrigger>
+          {/each}
+        </div>
       </Tour.Content>
     </Tour.Positioner>
   {/snippet}
 </Tour.Root>
 
-<div>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;">
   {#each Array.from({length}) as _, idx}
     {@const n = idx + 1}
 
-    <div id="step-{n}-target">
+    <div id="step-{n}-target" style="width:fit-content;">
       Target {n}
     </div>
   {/each}
 </div>
+
+<style>
+  :global([data-scope='tour'][data-part='trigger']) {
+    height: 40px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-default);
+  }
+
+  :global([data-scope='tour'][data-part='backdrop']) {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(4px);
+  }
+
+  :global([data-scope='tour'][data-part='backdrop'][data-state='open']) {
+    animation: fade-in 250ms;
+  }
+
+  :global([data-scope='tour'][data-part='backdrop'][data-state='closed']) {
+    animation: fade-out 150ms;
+  }
+
+  :global([data-scope='tour'][data-part='progress-text']) {
+    font-size: 14px;
+    color: oklch(0.552 0.016 285.938);
+  }
+
+  :global([data-scope='tour'][data-part='title']) {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+
+  :global([data-scope='tour'][data-part='description']) {
+    color: var(--color-muted);
+  }
+
+  :global([data-scope='tour'][data-part='close-trigger']) {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+  }
+
+  :global([data-scope='tour'][data-part='action-trigger']) {
+    width: 100%;
+    height: 36px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-default);
+  }
+
+  :global([data-scope='tour'][data-part='content']) {
+    position: relative;
+    background: white;
+    padding: 16px;
+    min-width: 325px;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+</style>

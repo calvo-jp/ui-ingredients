@@ -1,5 +1,6 @@
 export * as Toggle from './toggle.js';
 
+export type {ToggleIndicatorProps} from './toggle-indicator.svelte';
 export type {ToggleProps} from './toggle-root.svelte';
 
 export {

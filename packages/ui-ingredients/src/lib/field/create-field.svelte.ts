@@ -7,7 +7,6 @@ import type {
   HTMLSelectAttributes,
   HTMLTextareaAttributes,
 } from 'svelte/elements';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {parts} from './field-anatomy.js';
 
@@ -20,7 +19,7 @@ interface ElementIds {
 }
 
 export interface CreateFieldProps {
-  id?: string;
+  id: string;
   ids?: ElementIds;
   invalid?: boolean;
   required?: boolean;
@@ -48,8 +47,6 @@ export interface CreateFieldReturn {
 export function createField(props: CreateFieldProps): CreateFieldReturn {
   const environment = getEnvironmentContext();
 
-  const id_ = createUniqueId();
-
   const {
     /**/
     ids,
@@ -58,7 +55,7 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     required,
     readOnly,
   } = $derived.by(() => {
-    const id = props.id ?? id_;
+    const id = props.id;
 
     const ids = {
       root: props.ids?.root ?? `field:${id}`,

@@ -28,6 +28,7 @@
 
   let [createToggleProps, localProps] = $derived(
     createSplitProps<CreateToggleProps>([
+      'defaultPressed',
       'disabled',
       'onPressedChange',
       'pressed',

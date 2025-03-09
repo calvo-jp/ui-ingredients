@@ -20,7 +20,7 @@ export default ts.config(
     },
   },
   {
-    files: ['**/*.svelte'],
+    files: ['**/*.svelte', '**/*.svelte.ts'],
     languageOptions: {
       parserOptions: {
         parser: ts.parser,
@@ -36,6 +36,8 @@ export default ts.config(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+      'svelte/no-inspect': 'off',
+      'svelte/require-each-key': 'off',
     },
   },
   {

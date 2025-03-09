@@ -58,3 +58,6 @@ export type HtmlIngredientProps<
   asChild?: AsChild<TAction, TContext>;
   children?: Children<TContext>;
 };
+
+export type Optional<T extends GenericObject, K extends keyof T> = Omit<T, K> &
+  Partial<Pick<T, K>>;

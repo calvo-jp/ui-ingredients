@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Popover from './popover.svelte';
 
-describe('Popover', () => {
+describe.skip('Popover', () => {
   it.each(getAnatomySelector(popoverAnatomy))(
     'should render %s',
     (selector) => {

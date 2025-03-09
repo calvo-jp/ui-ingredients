@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreatePinInputProps,
     CreatePinInputReturn,
@@ -8,7 +8,7 @@
   export interface PinInputProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreatePinInputReturn>,
-      CreatePinInputProps
+      Optional<CreatePinInputProps, 'id'>
     > {}
 </script>
 
@@ -20,19 +20,22 @@
   import {setPinInputContext} from './pin-input-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: PinInputProps = $props();
 
+  let uid = $props.id();
+
   let [createPinInputProps, localProps] = $derived(
-    createSplitProps<CreatePinInputProps>([
+    createSplitProps<Omit<CreatePinInputProps, 'id'>>([
       'autoFocus',
       'blurOnComplete',
+      'defaultValue',
       'disabled',
       'form',
-      'id',
       'ids',
       'invalid',
       'mask',
@@ -52,7 +55,10 @@
     ])(props),
   );
 
-  let pinInput = createPinInputContext(reflect(() => createPinInputProps));
+  let pinInput = createPinInputContext(
+    reflect(() => ({...createPinInputProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(pinInput.getRootProps(), localProps));
 
   setPinInputContext(pinInput);

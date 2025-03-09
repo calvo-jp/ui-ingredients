@@ -5,7 +5,6 @@ import path from 'node:path';
 import prettier from 'prettier';
 import {renderToString} from 'react-dom/server';
 import svgson from 'svgson';
-import colors from 'tailwindcss/colors.js';
 
 const WORKSPACE_ROOT = path.resolve(path.dirname('../..'));
 const OUTPUT_DIR = path.join(WORKSPACE_ROOT, 'website/src/lib/icons/anatomy');
@@ -21,7 +20,9 @@ export async function generateAnatomyIcons() {
   const promises: Promise<void>[] = [];
 
   for (const key of keys) {
-    const jsx = await allComponents[key]({accentColor: colors.indigo[500]});
+    const jsx = await allComponents[key]({
+      accentColor: '#4a4186',
+    });
     const svg = renderToString(jsx);
     const filename = `${key}-anatomy-icon.svelte`;
     const content = await formatSvelte(await svgToSvelteComponent(svg));

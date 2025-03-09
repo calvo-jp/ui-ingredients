@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateDatePickerProps,
     CreateDatePickerReturn,
@@ -9,7 +9,7 @@
   export interface DatePickerProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateDatePickerReturn>,
-        CreateDatePickerProps
+        Optional<CreateDatePickerProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -24,29 +24,37 @@
   import {setDatePickerContext} from './date-picker-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: DatePickerProps = $props();
 
-  let [presenceStrategyProps, rest] = $derived(
+  let uid = $props.id();
+
+  let [presenceStrategyProps, datePickerProps] = $derived(
     createSplitProps<PresenceStrategyProps>([])(props),
   );
 
   let [createDatePickerProps, localProps] = $derived(
-    createSplitProps<CreateDatePickerProps>([
+    createSplitProps<Omit<CreateDatePickerProps, 'id'>>([
       'closeOnSelect',
+      'defaultFocusedValue',
+      'defaultOpen',
+      'defaultValue',
+      'defaultView',
       'disabled',
       'fixedWeeks',
       'focusedValue',
       'format',
-      'id',
       'ids',
       'isDateUnavailable',
       'locale',
       'max',
+      'maxView',
       'min',
+      'minView',
       'name',
       'numOfMonths',
       'onFocusChange',
@@ -54,7 +62,8 @@
       'onValueChange',
       'onViewChange',
       'open',
-      'openControlled',
+      'parse',
+      'placeholder',
       'positioning',
       'readOnly',
       'selectionMode',
@@ -63,13 +72,13 @@
       'translations',
       'value',
       'view',
-      'minView',
-      'maxView',
-      'placeholder',
-    ])(rest),
+    ])(datePickerProps),
   );
 
-  let datePicker = createDatePicker(reflect(() => createDatePickerProps));
+  let datePicker = createDatePicker(
+    reflect(() => ({...createDatePickerProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

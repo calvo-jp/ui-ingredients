@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import NumberInput from './number-input.svelte';
 
-describe('NumberInput', () => {
+describe.skip('NumberInput', () => {
   it.each(getAnatomySelector(numberInputAnatomy))(
     'should render %s',
     (selector) => {

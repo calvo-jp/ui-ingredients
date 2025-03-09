@@ -1,14 +1,11 @@
 import * as checkbox from '@zag-js/checkbox';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateCheckboxProps
-  extends Omit<checkbox.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<checkbox.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateCheckboxReturn extends checkbox.Api {}
 
@@ -19,10 +16,7 @@ export function createCheckbox(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: checkbox.Context = reflect(() => ({
-    id,
+  const service = useMachine(checkbox.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -36,17 +30,15 @@ export function createCheckbox(
     ...props,
   }));
 
-  const [state, send] = useMachine(checkbox.machine(context), {context});
-
   return reflect(() => {
-    const o = checkbox.connect(state, send, normalizeProps);
+    const api = checkbox.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

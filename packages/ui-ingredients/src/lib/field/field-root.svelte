@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateFieldProps,
     CreateFieldReturn,
@@ -8,7 +8,7 @@
   export interface FieldProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateFieldReturn>,
-        CreateFieldProps
+        Optional<CreateFieldProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -23,30 +23,35 @@
   import {setFieldContext} from './field-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: FieldProps = $props();
 
-  let [presenceStrategyProps, rest] = $derived(
+  let uid = $props.id();
+
+  let [presenceStrategyProps, fieldProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['keepMounted', 'lazyMount'])(
       props,
     ),
   );
 
   let [createFieldProps, localProps] = $derived(
-    createSplitProps<CreateFieldProps>([
-      'id',
+    createSplitProps<Omit<CreateFieldProps, 'id'>>([
       'ids',
       'invalid',
       'disabled',
       'readOnly',
       'required',
-    ])(rest),
+    ])(fieldProps),
   );
 
-  let field = createField(reflect(() => createFieldProps));
+  let field = createField(
+    reflect(() => ({...createFieldProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(field.getRootProps(), localProps));
 
   setFieldContext(field);

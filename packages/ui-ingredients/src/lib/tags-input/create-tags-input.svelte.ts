@@ -1,14 +1,11 @@
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as tagsInput from '@zag-js/tags-input';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateTagsInputProps
-  extends Omit<tagsInput.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<tagsInput.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateTagsInputReturn extends tagsInput.Api {}
 
@@ -19,10 +16,7 @@ export function createTagsInput(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: tagsInput.Context = reflect(() => ({
-    id,
+  const service = useMachine(tagsInput.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -36,17 +30,15 @@ export function createTagsInput(
     ...props,
   }));
 
-  const [state, send] = useMachine(tagsInput.machine(context), {context});
-
   return reflect(() => {
-    const o = tagsInput.connect(state, send, normalizeProps);
+    const api = tagsInput.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

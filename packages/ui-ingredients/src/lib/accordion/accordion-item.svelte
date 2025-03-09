@@ -27,6 +27,8 @@
     ...props
   }: AccordionItemProps = $props();
 
+  let uid = $props.id();
+
   let accordion = getAccordionContext();
 
   let [itemProps, localProps] = $derived(
@@ -37,6 +39,7 @@
   let contentProps = $derived(accordion.getItemContentProps(itemProps));
   let collapsible = createCollapsible(
     reflect(() => ({
+      id: uid,
       ids: {content: contentProps.id},
       open: itemState.expanded,
       disabled: itemState.disabled,

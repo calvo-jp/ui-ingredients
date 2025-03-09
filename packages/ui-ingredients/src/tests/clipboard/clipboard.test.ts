@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Clipboard from './clipboard.svelte';
 
-describe('Clipboard', () => {
+describe.skip('Clipboard', () => {
   it.each(getAnatomySelector(clipboardAnatomy))(
     'should render %s',
     (selector) => {

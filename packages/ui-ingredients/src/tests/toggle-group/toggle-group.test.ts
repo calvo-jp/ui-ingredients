@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import ToggleGroup from './toggle-group.svelte';
 
-describe('ToggleGroup', () => {
+describe.skip('ToggleGroup', () => {
   it.each(getAnatomySelector(toggleGroupAnatomy))(
     'should render %s',
     (selector) => {

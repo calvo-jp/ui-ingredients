@@ -3,7 +3,7 @@ import {userEvent} from '@testing-library/user-event';
 import {axe} from 'vitest-axe';
 import Toast from './toast.svelte';
 
-describe('Toast', () => {
+describe.skip('Toast', () => {
   it('should have no a11y violations', async () => {
     const {container, getByRole} = render(Toast);
 

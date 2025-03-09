@@ -20,15 +20,24 @@
 
   let [createPresenceProps, localProps] = $derived(
     createSplitProps<CreatePresenceProps>([
+      'immediate',
       'keepMounted',
       'lazyMount',
       'present',
+      'onExitComplete',
     ])(props),
   );
 
   let presence = createPresence(reflect(() => createPresenceProps));
   let mergedProps = $derived(
-    mergeProps(presence.getPresenceProps(), localProps),
+    mergeProps(
+      presence.getPresenceProps(),
+      {
+        'data-scope': 'presence',
+        'data-part': 'root',
+      },
+      localProps,
+    ),
   );
 </script>
 

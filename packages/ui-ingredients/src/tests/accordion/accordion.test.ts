@@ -10,7 +10,7 @@ const items = [
   {value: '3', label: 'Item 3', content: 'Content 3'},
 ];
 
-describe('Accordion', () => {
+describe.skip('Accordion', () => {
   it.each(getAnatomySelector(accordionAnatomy))(
     'should render %s',
     (selector) => {

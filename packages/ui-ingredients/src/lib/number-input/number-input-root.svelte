@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateNumberInputProps,
     CreateNumberInputReturn,
@@ -8,7 +8,7 @@
   export interface NumberInputProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateNumberInputReturn>,
-      CreateNumberInputProps
+      Optional<CreateNumberInputProps, 'id'>
     > {}
 </script>
 
@@ -20,22 +20,25 @@
   import {setNumberInputContext} from './number-input-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: NumberInputProps = $props();
 
+  let uid = $props.id();
+
   let [createNumberInputProps, localProps] = $derived(
-    createSplitProps<CreateNumberInputProps>([
+    createSplitProps<Omit<CreateNumberInputProps, 'id'>>([
       'allowMouseWheel',
       'allowOverflow',
       'clampValueOnBlur',
+      'defaultValue',
       'disabled',
       'focusInputOnChange',
       'form',
       'formatOptions',
-      'id',
       'ids',
       'inputMode',
       'invalid',
@@ -56,7 +59,9 @@
     ])(props),
   );
 
-  let numberInput = createNumberInput(reflect(() => createNumberInputProps));
+  let numberInput = createNumberInput(
+    reflect(() => ({...createNumberInputProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(
     mergeProps(numberInput.getRootProps(), localProps),

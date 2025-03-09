@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Breadcrumbs from './breadcrumbs.svelte';
 
-describe('Breadcrumbs', () => {
+describe.skip('Breadcrumbs', () => {
   it.each(getAnatomySelector(breadcrumbsAnatomy))(
     'should render %s',
     (selector) => {

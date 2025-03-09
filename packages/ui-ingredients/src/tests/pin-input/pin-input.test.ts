@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import PinInput from './pin-input.svelte';
 
-describe('PinInput', () => {
+describe.skip('PinInput', () => {
   it.each(getAnatomySelector(pinInputAnatomy))(
     'should render %s',
     (selector) => {

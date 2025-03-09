@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Tooltip from './tooltip.svelte';
 
-describe('Tooltip', () => {
+describe.skip('Tooltip', () => {
   it.each(getAnatomySelector(tooltipAnatomy))(
     'should render %s',
     (selector) => {

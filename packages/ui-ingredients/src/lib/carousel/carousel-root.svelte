@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateCarouselProps,
     CreateCarouselReturn,
@@ -8,7 +8,7 @@
   export interface CarouselProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateCarouselReturn>,
-      CreateCarouselProps
+      Optional<CreateCarouselProps, 'id'>
     > {}
 </script>
 
@@ -20,17 +20,20 @@
   import {createCarousel} from './create-carousel.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: CarouselProps = $props();
 
+  let uid = $props.id();
+
   let [createCarouselProps, localProps] = $derived(
-    createSplitProps<CreateCarouselProps>([
+    createSplitProps<Omit<CreateCarouselProps, 'id'>>([
       'allowMouseDrag',
       'autoplay',
-      'id',
+      'defaultPage',
       'ids',
       'inViewThreshold',
       'loop',
@@ -49,7 +52,10 @@
     ])(props),
   );
 
-  let carousel = createCarousel(reflect(() => createCarouselProps));
+  let carousel = createCarousel(
+    reflect(() => ({...createCarouselProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(carousel.getRootProps(), localProps));
 
   setCarouselContext(carousel);

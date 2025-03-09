@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateTagsInputProps,
     CreateTagsInputReturn,
@@ -8,7 +8,7 @@
   export interface TagsInputProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateTagsInputReturn>,
-      CreateTagsInputProps
+      Optional<CreateTagsInputProps, 'id'>
     > {}
 </script>
 
@@ -20,23 +20,27 @@
   import {setTagsInputContext} from './tags-input-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: TagsInputProps = $props();
 
+  let uid = $props.id();
+
   let [createTagsInputProps, localProps] = $derived(
-    createSplitProps<CreateTagsInputProps>([
+    createSplitProps<Omit<CreateTagsInputProps, 'id'>>([
       'addOnPaste',
       'allowOverflow',
       'autoFocus',
       'blurBehavior',
+      'defaultInputValue',
+      'defaultValue',
       'delimiter',
       'disabled',
       'editable',
       'form',
-      'id',
       'ids',
       'inputValue',
       'invalid',
@@ -58,7 +62,9 @@
     ])(props),
   );
 
-  let tagsInput = createTagsInput(reflect(() => createTagsInputProps));
+  let tagsInput = createTagsInput(
+    reflect(() => ({...createTagsInputProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(mergeProps(tagsInput.getRootProps(), localProps));
 

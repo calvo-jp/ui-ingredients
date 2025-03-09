@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateToggleGroupProps,
     CreateToggleGroupReturn,
@@ -8,7 +8,7 @@
   export interface ToggleGroupProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateToggleGroupReturn>,
-      CreateToggleGroupProps
+      Optional<CreateToggleGroupProps, 'id'>
     > {}
 </script>
 
@@ -20,16 +20,19 @@
   import {setToggleGroupContext} from './toggle-group-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: ToggleGroupProps = $props();
 
+  let uid = $props.id();
+
   let [createToggleGroupProps, localProps] = $derived(
-    createSplitProps<CreateToggleGroupProps>([
+    createSplitProps<Omit<CreateToggleGroupProps, 'id'>>([
+      'defaultValue',
       'disabled',
-      'id',
       'ids',
       'loopFocus',
       'multiple',
@@ -40,7 +43,10 @@
     ])(props),
   );
 
-  let toggleGroup = createToggleGroup(reflect(() => createToggleGroupProps));
+  let toggleGroup = createToggleGroup(
+    reflect(() => ({...createToggleGroupProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(
     mergeProps(toggleGroup.getRootProps(), localProps),
   );

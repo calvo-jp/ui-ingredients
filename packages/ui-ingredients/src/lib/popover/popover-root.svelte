@@ -1,13 +1,14 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
+  import type {Optional} from '../types.js';
   import type {
     CreatePopoverProps,
     CreatePopoverReturn,
   } from './create-popover.svelte.js';
 
   export interface PopoverProps
-    extends CreatePopoverProps,
+    extends Optional<CreatePopoverProps, 'id'>,
       PresenceStrategyProps {
     children?: Snippet<[CreatePopoverReturn]>;
   }
@@ -21,14 +22,16 @@
   import {createPopover} from './create-popover.svelte.js';
   import {setPopoverContext} from './popover-context.svelte.js';
 
-  let {children, ...props}: PopoverProps = $props();
+  let {id, children, ...props}: PopoverProps = $props();
+
+  let uid = $props.id();
 
   let [createPopoverProps, presenceStrategyProps] = $derived(
-    createSplitProps<CreatePopoverProps>([
+    createSplitProps<Omit<CreatePopoverProps, 'id'>>([
       'autoFocus',
       'closeOnEscape',
       'closeOnInteractOutside',
-      'id',
+      'defaultOpen',
       'ids',
       'initialFocusEl',
       'modal',
@@ -38,14 +41,16 @@
       'onOpenChange',
       'onPointerDownOutside',
       'open',
-      'openControlled',
       'persistentElements',
       'portalled',
       'positioning',
     ])(props),
   );
 
-  let popover = createPopover(reflect(() => createPopoverProps));
+  let popover = createPopover(
+    reflect(() => ({...createPopoverProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,

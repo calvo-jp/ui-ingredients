@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Menu} from '$lib/index.js';
+  import ChevronRightIcon from '../../chevron-right-icon.svelte';
 </script>
 
 <Menu.Root>
@@ -13,7 +14,10 @@
           placement: 'right',
         }}
       >
-        <Menu.TriggerItem>Three</Menu.TriggerItem>
+        <Menu.TriggerItem>
+          <span style="flex-grow:1;">Three</span>
+          <ChevronRightIcon style="width:20px;height:20px;" />
+        </Menu.TriggerItem>
         <Menu.Positioner>
           <Menu.Content>
             <Menu.Item value="4">Four</Menu.Item>

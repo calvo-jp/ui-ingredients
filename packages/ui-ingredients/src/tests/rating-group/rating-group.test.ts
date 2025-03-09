@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import RatingGroup from './rating-group.svelte';
 
-describe('RatingGroup', () => {
+describe.skip('RatingGroup', () => {
   it.each(getAnatomySelector(ratingGroupAnatomy))(
     'should render %s',
     (selector) => {

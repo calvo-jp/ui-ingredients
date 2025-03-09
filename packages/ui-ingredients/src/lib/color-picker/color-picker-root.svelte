@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateColorPickerProps,
     CreateColorPickerReturn,
@@ -9,7 +9,7 @@
   export interface ColorPickerProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateColorPickerReturn>,
-        CreateColorPickerProps
+        Optional<CreateColorPickerProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -24,24 +24,29 @@
   import {createColorPicker} from './create-color-picker.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: ColorPickerProps = $props();
 
-  let [presenceProps, etc] = $derived(
+  let uid = $props.id();
+
+  let [presenceProps, colorPickerProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
   );
 
   let [createColorPickerProps, localProps] = $derived(
-    createSplitProps<CreateColorPickerProps>([
+    createSplitProps<Omit<CreateColorPickerProps, 'id'>>([
       'closeOnSelect',
+      'defaultFormat',
+      'defaultOpen',
+      'defaultValue',
       'disabled',
       'format',
-      'id',
       'ids',
       'initialFocusEl',
       'invalid',
@@ -55,15 +60,17 @@
       'onValueChangeEnd',
       'open',
       'openAutoFocus',
-      'openControlled',
       'positioning',
       'readOnly',
       'required',
       'value',
-    ])(etc),
+    ])(colorPickerProps),
   );
 
-  let colorPicker = createColorPicker(reflect(() => createColorPickerProps));
+  let colorPicker = createColorPicker(
+    reflect(() => ({...createColorPickerProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       present: colorPicker.open,

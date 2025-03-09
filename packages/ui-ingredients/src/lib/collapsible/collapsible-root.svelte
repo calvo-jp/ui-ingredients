@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateCollapsibleProps,
     CreateCollapsibleReturn,
@@ -9,7 +9,7 @@
   export interface CollapsibleProps
     extends Assign<
         HtmlIngredientProps<'div', HTMLDivElement, CreateCollapsibleReturn>,
-        CreateCollapsibleProps
+        Optional<CreateCollapsibleProps, 'id'>
       >,
       PresenceStrategyProps {}
 </script>
@@ -24,31 +24,36 @@
   import {createCollapsible} from './create-collapsible.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: CollapsibleProps = $props();
 
-  let [presenceStrategyProps, rest] = $derived(
+  let uid = $props.id();
+
+  let [presenceStrategyProps, collapsibleProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
       props,
     ),
   );
 
   let [createCollapsibleProps, localProps] = $derived(
-    createSplitProps<CreateCollapsibleProps>([
+    createSplitProps<Omit<CreateCollapsibleProps, 'id'>>([
+      'defaultOpen',
       'disabled',
-      'id',
       'ids',
       'onExitComplete',
       'onOpenChange',
       'open',
-      'openControlled',
-    ])(rest),
+    ])(collapsibleProps),
   );
 
-  let collapsible = createCollapsible(reflect(() => createCollapsibleProps));
+  let collapsible = createCollapsible(
+    reflect(() => ({...createCollapsibleProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       present: collapsible.open,

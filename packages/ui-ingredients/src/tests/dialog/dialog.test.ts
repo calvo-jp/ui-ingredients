@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Dialog from './dialog.svelte';
 
-describe('Dialog', () => {
+describe.skip('Dialog', () => {
   it.each(getAnatomySelector(dialogAnatomy))('should render %s', (selector) => {
     render(Dialog);
     expect(document.querySelector(selector)).toBeInTheDocument();

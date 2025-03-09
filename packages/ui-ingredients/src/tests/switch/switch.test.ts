@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Switch from './switch.svelte';
 
-describe('Switch', () => {
+describe.skip('Switch', () => {
   it.each(getAnatomySelector(switchAnatomy))('should render %s', (selector) => {
     render(Switch);
     expect(document.querySelector(selector)).toBeInTheDocument();

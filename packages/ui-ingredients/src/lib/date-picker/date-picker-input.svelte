@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import {createSplitProps} from '$lib/create-split-props.js';
+  import {createSplitProps} from '../create-split-props.js';
   import {mergeProps} from '../merge-props.js';
   import {getDatePickerContext} from './date-picker-context.svelte.js';
 

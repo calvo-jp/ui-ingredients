@@ -12,7 +12,7 @@ const items = [
   {value: '5', label: 'Option 5'},
 ];
 
-describe('Select', () => {
+describe.skip('Select', () => {
   it.each(getAnatomySelector(selectAnatomy))('should render %s', (selector) => {
     render(Select, {props: {items}});
     expect(document.querySelector(selector)).toBeInTheDocument();

@@ -1,14 +1,11 @@
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as switch_ from '@zag-js/switch';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
 export interface CreateSwitchProps
-  extends Omit<switch_.Context, 'id' | 'dir' | 'getRootNode'> {
-  id?: string;
-}
+  extends Omit<switch_.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateSwitchReturn extends switch_.Api {}
 
@@ -17,10 +14,7 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: switch_.Context = reflect(() => ({
-    id,
+  const service = useMachine(switch_.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
@@ -34,17 +28,15 @@ export function createSwitch(props: CreateSwitchProps): CreateSwitchReturn {
     ...props,
   }));
 
-  const [state, send] = useMachine(switch_.machine(context), {context});
-
   return reflect(() => {
-    const o = switch_.connect(state, send, normalizeProps);
+    const api = switch_.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenInputProps(),
+          ...api.getHiddenInputProps(),
         };
       },
     };

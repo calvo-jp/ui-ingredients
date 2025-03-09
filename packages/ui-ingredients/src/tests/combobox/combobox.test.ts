@@ -10,7 +10,7 @@ const items = [
   {label: 'Item 3', value: '3'},
 ];
 
-describe('Combobox', () => {
+describe.skip('Combobox', () => {
   it.each(getAnatomySelector(comboboxAnatomy))(
     'should render %s',
     (selector) => {

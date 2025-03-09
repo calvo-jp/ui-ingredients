@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateProgressProps,
     CreateProgressReturn,
@@ -8,7 +8,7 @@
   export interface ProgressProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateProgressReturn>,
-      CreateProgressProps
+      Optional<CreateProgressProps, 'id'>
     > {}
 </script>
 
@@ -20,16 +20,21 @@
   import {setProgressContext} from './progress-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: ProgressProps = $props();
 
+  let uid = $props.id();
+
   let [createProgressProps, localProps] = $derived(
-    createSplitProps<CreateProgressProps>([
-      'id',
+    createSplitProps<Omit<CreateProgressProps, 'id'>>([
+      'defaultValue',
+      'formatOptions',
       'ids',
+      'locale',
       'max',
       'min',
       'onValueChange',
@@ -39,7 +44,9 @@
     ])(props),
   );
 
-  let progress = createProgress(reflect(() => createProgressProps));
+  let progress = createProgress(
+    reflect(() => ({...createProgressProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(mergeProps(progress.getRootProps(), localProps));
 

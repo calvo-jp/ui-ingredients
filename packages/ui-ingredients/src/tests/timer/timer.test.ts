@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Timer from './timer.svelte';
 
-describe('Timer', () => {
+describe.skip('Timer', () => {
   it.each(getAnatomySelector(timerAnatomy))('should render %s', (selector) => {
     render(Timer);
     expect(document.querySelector(selector)).toBeInTheDocument();

@@ -9,7 +9,6 @@ const schema = s.object({
   id: s.unique('id'),
   title: s.string(),
   description: s.string(),
-  beta: s.boolean().optional().default(false),
   content: s.markdown(),
   toc: s.toc({
     maxDepth: 3,
@@ -17,6 +16,8 @@ const schema = s.object({
   }),
   metadata: s.metadata(),
   keywords: s.array(s.string()).optional().default([]),
+  beta: s.boolean().optional().default(false),
+  deprecated: s.boolean().optional().default(false),
 });
 
 const overview = defineCollection({

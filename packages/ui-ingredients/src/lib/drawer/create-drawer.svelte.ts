@@ -1,19 +1,19 @@
 import * as dialog from '@zag-js/dialog';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLAttributes} from 'svelte/elements';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
-import {mergeProps} from '../merge-props.js';
 import {parts} from './drawer-anatomy.js';
 
+interface ElementIds extends dialog.ElementIds {
+  body?: string;
+  footer?: string;
+  header?: string;
+}
+
 export interface CreateDrawerProps
-  extends Omit<
-    dialog.Context,
-    'id' | 'dir' | 'role' | 'getRootNode' | 'open.controlled'
-  > {
-  id?: string;
-  openControlled?: boolean;
+  extends Omit<dialog.Props, 'dir' | 'role' | 'getRootNode' | 'elementIds'> {
+  elementIds?: ElementIds;
 }
 
 export interface CreateDrawerReturn extends dialog.Api {
@@ -26,61 +26,82 @@ export function createDrawer(props: CreateDrawerProps): CreateDrawerReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: dialog.Context = reflect(() => ({
-    id,
-    dir: locale?.dir,
-    role: 'dialog',
-    getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
-    ...props,
-  }));
-
-  const [state, send] = useMachine(dialog.machine(context), {context});
+  const service = useMachine(
+    dialog.machine,
+    (): dialog.Props => ({
+      dir: locale?.dir,
+      role: 'dialog',
+      getRootNode: environment?.getRootNode,
+      ...props,
+    }),
+  );
 
   return reflect(() => {
-    const o = dialog.connect(state, send, normalizeProps);
+    const api = dialog.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getBackdropProps() {
-        return mergeProps(o.getBackdropProps(), parts.backdrop.attrs);
+        return {
+          ...api.getBackdropProps(),
+          ...parts.backdrop.attrs,
+        };
       },
       getCloseTriggerProps() {
-        return mergeProps(o.getCloseTriggerProps(), parts.closeTrigger.attrs);
+        return {
+          ...api.getCloseTriggerProps(),
+          ...parts.closeTrigger.attrs,
+        };
       },
       getContentProps() {
-        return mergeProps(o.getContentProps(), parts.content.attrs);
+        return {
+          ...api.getContentProps(),
+          ...parts.content.attrs,
+        };
       },
       getDescriptionProps() {
-        return mergeProps(o.getDescriptionProps(), parts.description.attrs);
+        return {
+          ...api.getDescriptionProps(),
+          ...parts.description.attrs,
+        };
       },
       getPositionerProps() {
-        return mergeProps(o.getPositionerProps(), parts.positioner.attrs);
+        return {
+          ...api.getPositionerProps(),
+          ...parts.positioner.attrs,
+        };
       },
       getTitleProps() {
-        return mergeProps(o.getTitleProps(), parts.title.attrs);
+        return {
+          ...api.getTitleProps(),
+          ...parts.title.attrs,
+        };
       },
       getTriggerProps() {
-        return mergeProps(o.getTriggerProps(), parts.trigger.attrs);
+        return {
+          ...api.getTriggerProps(),
+          ...parts.trigger.attrs,
+        };
       },
       getBodyProps() {
         return {
+          id: props.elementIds?.body ?? `drawer:${props.id}:body`,
+          'data-state': api.open ? 'open' : 'closed',
           ...parts.body.attrs,
-          'data-state': o.open ? 'open' : 'closed',
         };
       },
       getFooterProps() {
         return {
+          id: props.elementIds?.footer ?? `drawer:${props.id}:footer`,
+          'data-state': api.open ? 'open' : 'closed',
           ...parts.footer.attrs,
-          'data-state': o.open ? 'open' : 'closed',
         };
       },
       getHeaderProps() {
         return {
+          id: props.elementIds?.header ?? `drawer:${props.id}:header`,
+          'data-state': api.open ? 'open' : 'closed',
           ...parts.header.attrs,
-          'data-state': o.open ? 'open' : 'closed',
         };
       },
     };

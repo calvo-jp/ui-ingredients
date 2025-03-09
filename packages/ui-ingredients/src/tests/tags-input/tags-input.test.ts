@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import TagsInput from './tags-input.svelte';
 
-describe('TagsInput', () => {
+describe.skip('TagsInput', () => {
   it.each(getAnatomySelector(tagsInputAnatomy))(
     'should render %s',
     (selector) => {

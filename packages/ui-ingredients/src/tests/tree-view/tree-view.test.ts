@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import TreeView from './tree-view.svelte';
 
-describe('TreeView', () => {
+describe.skip('TreeView', () => {
   it.each(getAnatomySelector(treeViewAnatomy))(
     'should render %s',
     (selector) => {

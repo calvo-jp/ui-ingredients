@@ -24,6 +24,11 @@
   setBreadcrumbsContext(breadcrumbs);
 </script>
 
+<!-- 
+  @component
+  @deprecated
+ -->
+
 {#if asChild}
   {@render asChild(mergedProps, breadcrumbs)}
 {:else}

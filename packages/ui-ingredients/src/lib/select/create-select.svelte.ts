@@ -1,16 +1,11 @@
 import * as select from '@zag-js/select';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
 
-type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
-
-export interface CreateSelectProps extends Omit<select.Context, Omitted> {
-  id?: string;
-  openControlled?: boolean;
-}
+export interface CreateSelectProps
+  extends Omit<select.Props, 'dir' | 'getRootNode'> {}
 
 export interface CreateSelectReturn extends select.Api {}
 
@@ -19,10 +14,7 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: select.Context = reflect(() => ({
-    id,
+  const service = useMachine(select.machine, () => ({
     ids: {
       label: field?.ids.label,
       hiddenSelect: field?.ids.control,
@@ -32,22 +24,19 @@ export function createSelect(props: CreateSelectProps): CreateSelectReturn {
     disabled: field?.disabled,
     readOnly: field?.readOnly,
     required: field?.required,
-    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
+    ...props,
   }));
 
-  const [state, send] = useMachine(select.machine(context), {context});
-
   return reflect(() => {
-    const o = select.connect(state, send, normalizeProps);
+    const api = select.connect(service, normalizeProps);
 
     return {
-      ...o,
+      ...api,
       getHiddenSelectProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...o.getHiddenSelectProps(),
+          ...api.getHiddenSelectProps(),
         };
       },
     };

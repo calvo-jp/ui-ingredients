@@ -18,6 +18,7 @@ export * from './environment-provider/index.js';
 export * from './field/index.js';
 export * from './file-upload/index.js';
 export * from './floating-panel/index.js';
+export * from './focus-trap/index.js';
 export * from './highlight/index.js';
 export * from './hover-card/index.js';
 export * from './locale-provider/index.js';
@@ -52,7 +53,6 @@ export * from './tree-view/index.js';
 
 export * from './create-context.svelte.js';
 export * from './create-split-props.js';
-export * from './create-unique-id.js';
 export * from './merge-props.js';
 
 export * from '@zag-js/anatomy';

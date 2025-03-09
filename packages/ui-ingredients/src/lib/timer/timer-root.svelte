@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateTimerProps,
     CreateTimerReturn,
@@ -8,7 +8,7 @@
   export interface TimerProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateTimerReturn>,
-      CreateTimerProps
+      Optional<CreateTimerProps, 'id'>
     > {}
 </script>
 
@@ -20,17 +20,19 @@
   import {setTimerContext} from './timer-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: TimerProps = $props();
 
+  let uid = $props.id();
+
   let [createTimerProps, localProps] = $derived(
-    createSplitProps<CreateTimerProps>([
+    createSplitProps<Omit<CreateTimerProps, 'id'>>([
       'autoStart',
       'countdown',
-      'id',
       'ids',
       'interval',
       'onComplete',
@@ -40,7 +42,10 @@
     ])(props),
   );
 
-  let timer = createTimer(reflect(() => createTimerProps));
+  let timer = createTimer(
+    reflect(() => ({...createTimerProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(timer.getRootProps(), localProps));
 
   setTimerContext(timer);

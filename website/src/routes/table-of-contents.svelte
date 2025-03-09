@@ -12,6 +12,7 @@
   let items = $derived.by(() => {
     const res: Item[] = [];
 
+    /* eslint-disable-next-line no-undef */
     function flat(arr: App.TocEntry[], depth = 0) {
       arr.forEach(({items, url, title}) => {
         const id = url.substring(1);

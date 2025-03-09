@@ -6,9 +6,6 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter(),
-    alias: {
-      '@testing-library/svelte/svelte5': '@testing-library/svelte',
-    },
   },
   compilerOptions: {
     runes: true,

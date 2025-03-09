@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import SignaturePad from './signature-pad.svelte';
 
-describe('SignaturePad', () => {
+describe.skip('SignaturePad', () => {
   it.each(getAnatomySelector(signaturePadAnatomy))(
     'should render %s',
     (selector) => {

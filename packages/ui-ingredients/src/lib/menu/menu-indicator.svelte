@@ -17,7 +17,9 @@
   }: MenuIndicatorProps = $props();
 
   let menu = getMenuContext();
-  let mergedProps = $derived(mergeProps(menu!.getIndicatorProps(), props));
+  let mergedProps = $derived(
+    mergeProps(menu?.getIndicatorProps() ?? {}, props),
+  );
 </script>
 
 {#if asChild}

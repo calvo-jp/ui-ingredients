@@ -1,23 +1,12 @@
 import * as datePicker from '@zag-js/date-picker';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import type {HTMLAttributes} from 'svelte/elements';
-import {createUniqueId} from '../create-unique-id.js';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
-import type {GenericObject} from '../types.js';
-import {parts} from './date-picker-anatomy.js';
-
-type Omitted = 'id' | 'dir' | 'getRootNode' | 'open.controlled';
 
 export interface CreateDatePickerProps
-  extends Omit<datePicker.Context, Omitted> {
-  id?: string;
-  openControlled?: boolean;
-}
+  extends Omit<datePicker.Props, 'dir' | 'getRootNode'> {}
 
-export interface CreateDatePickerReturn extends datePicker.Api {
-  getViewProps(props: datePicker.ViewProps): HTMLAttributes<HTMLElement>;
-}
+export interface CreateDatePickerReturn extends datePicker.Api {}
 
 export function createDatePicker(
   props: CreateDatePickerProps,
@@ -25,34 +14,12 @@ export function createDatePicker(
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const id = createUniqueId();
-
-  const context: datePicker.Context = $derived.by(() => ({
-    id,
+  const service = useMachine(datePicker.machine, () => ({
     dir: locale?.dir,
     locale: locale?.locale,
-    ...props,
     getRootNode: environment?.getRootNode,
-    'open.controlled': props.openControlled,
+    ...props,
   }));
 
-  const [state, send, service] = useMachine(datePicker.machine(context));
-
-  $effect(() => {
-    service.setContext(context);
-  });
-
-  return reflect(() => {
-    const o = datePicker.connect(state, send, normalizeProps);
-
-    return {
-      ...o,
-      getViewProps(props: datePicker.ViewProps): GenericObject {
-        return {
-          ...parts.view.attrs,
-          hidden: o.view !== props.view,
-        };
-      },
-    };
-  });
+  return reflect(() => datePicker.connect(service, normalizeProps));
 }

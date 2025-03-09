@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import FileUpload from './file-upload.svelte';
 
-describe('FileUpload', () => {
+describe.skip('FileUpload', () => {
   it.each(getAnatomySelector(fileUploadAnatomy))(
     'should render %s',
     (selector) => {

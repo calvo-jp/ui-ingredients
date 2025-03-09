@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateCheckboxProps,
     CreateCheckboxReturn,
@@ -8,7 +8,7 @@
   export interface CheckboxProps
     extends Assign<
       HtmlIngredientProps<'label', HTMLLabelElement, CreateCheckboxReturn>,
-      CreateCheckboxProps
+      Optional<CreateCheckboxProps, 'id'>
     > {}
 </script>
 
@@ -20,18 +20,21 @@
   import {createCheckbox} from './create-checkbox.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: CheckboxProps = $props();
 
+  let uid = $props.id();
+
   let [createCheckboxProps, localProps] = $derived(
-    createSplitProps<CreateCheckboxProps>([
+    createSplitProps<Omit<CreateCheckboxProps, 'id'>>([
       'checked',
+      'defaultChecked',
       'disabled',
       'form',
-      'id',
       'ids',
       'invalid',
       'name',
@@ -42,7 +45,9 @@
     ])(props),
   );
 
-  let checkbox = createCheckbox(reflect(() => createCheckboxProps));
+  let checkbox = createCheckbox(
+    reflect(() => ({...createCheckboxProps, id: id ?? uid})),
+  );
 
   let mergedProps = $derived(mergeProps(checkbox.getRootProps(), localProps));
 

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type {Assign, HtmlIngredientProps} from '../types.js';
+  import type {Assign, HtmlIngredientProps, Optional} from '../types.js';
   import type {
     CreateEditableProps,
     CreateEditableReturn,
@@ -8,7 +8,7 @@
   export interface EditableProps
     extends Assign<
       HtmlIngredientProps<'div', HTMLDivElement, CreateEditableReturn>,
-      CreateEditableProps
+      Optional<CreateEditableProps, 'id'>
     > {}
 </script>
 
@@ -20,22 +20,25 @@
   import {setEditableContext} from './editable-context.svelte.js';
 
   let {
+    id,
     ref = $bindable(null),
     asChild,
     children,
     ...props
   }: EditableProps = $props();
 
+  let uid = $props.id();
+
   let [createEditableProps, localProps] = $derived(
-    createSplitProps<CreateEditableProps>([
+    createSplitProps<Omit<CreateEditableProps, 'id'>>([
       'activationMode',
       'autoResize',
+      'defaultEdit',
+      'defaultValue',
       'disabled',
       'edit',
-      'editControlled',
       'finalFocusEl',
       'form',
-      'id',
       'ids',
       'invalid',
       'maxLength',
@@ -57,7 +60,10 @@
     ])(props),
   );
 
-  let editable = createEditable(reflect(() => createEditableProps));
+  let editable = createEditable(
+    reflect(() => ({...createEditableProps, id: id ?? uid})),
+  );
+
   let mergedProps = $derived(mergeProps(editable.getRootProps(), localProps));
 
   setEditableContext(editable);

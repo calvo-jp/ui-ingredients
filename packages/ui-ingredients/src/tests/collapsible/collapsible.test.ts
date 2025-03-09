@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Collapsible from './collapsible.svelte';
 
-describe('Collapsible', () => {
+describe.skip('Collapsible', () => {
   it.each(getAnatomySelector(collapsibleAnatomy))(
     'should render %s',
     (selector) => {

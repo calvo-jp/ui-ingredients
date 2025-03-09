@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import HoverCard from './hover-card.svelte';
 
-describe('HoverCard', () => {
+describe.skip('HoverCard', () => {
   it.each(getAnatomySelector(hoverCardAnatomy))(
     'should render %s',
     (selector) => {

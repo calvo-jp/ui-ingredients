@@ -13,13 +13,13 @@
   </AngleSlider.Label>
 
   <AngleSlider.Control
-    class="dark:bg-neutral- relative size-36 rounded-full bg-neutral-100 dark:bg-neutral-700/25"
+    class="relative size-36 rounded-full bg-neutral-100 dark:bg-neutral-700/25"
   >
     <AngleSlider.MarkerGroup class="absolute size-full">
       {#each degrees as value}
         <AngleSlider.Marker
           {value}
-          class="duration-250 absolute bottom-0 left-[calc(50%-1px)] right-0 top-0 size-full w-[2px] transition-colors before:absolute before:h-6 before:w-[2px] before:bg-neutral-300 ui-under-value:before:bg-indigo-500 dark:before:bg-neutral-700 dark:ui-under-value:before:bg-indigo-500"
+          class="duration-250 ui-under-value:before:bg-indigo-500 dark:ui-under-value:before:bg-indigo-500 absolute bottom-0 left-[calc(50%-1px)] right-0 top-0 size-full w-[2px] transition-colors before:absolute before:h-6 before:w-[2px] before:bg-neutral-300 dark:before:bg-neutral-700"
         />
       {/each}
     </AngleSlider.MarkerGroup>

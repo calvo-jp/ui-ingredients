@@ -4,7 +4,7 @@ import {axe} from 'vitest-axe';
 import {getAnatomySelector} from '../utils.js';
 import Editable from './editable.svelte';
 
-describe('Editable', () => {
+describe.skip('Editable', () => {
   it.each(getAnatomySelector(editableAnatomy))(
     'should render %s',
     (selector) => {

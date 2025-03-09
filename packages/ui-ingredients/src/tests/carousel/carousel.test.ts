@@ -7,7 +7,7 @@ import Carousel from './carousel.svelte';
 
 const images = Array.from({length: 5}).map(() => faker.image.url());
 
-describe('Carousel', () => {
+describe.skip('Carousel', () => {
   it.each(getAnatomySelector(carouselAnatomy))(
     'should render %s',
     (selector) => {

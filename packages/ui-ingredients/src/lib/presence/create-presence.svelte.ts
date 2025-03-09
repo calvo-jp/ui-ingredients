@@ -10,9 +10,9 @@ export interface PresenceStrategyProps {
   keepMounted?: boolean;
 }
 
-export interface CreatePresenceProps extends PresenceStrategyProps {
-  present: boolean;
-}
+export interface CreatePresenceProps
+  extends PresenceStrategyProps,
+    presence.Props {}
 
 export interface CreatePresenceReturn {
   setReference: Action;
@@ -23,24 +23,13 @@ export interface CreatePresenceReturn {
 export function createPresence(
   props: CreatePresenceProps,
 ): CreatePresenceReturn {
-  const present = $derived(props.present);
-  const lazyMount = $derived(props.lazyMount ?? false);
-  const keepMounted = $derived(props.keepMounted ?? true);
-
-  const context = $derived({
-    get present() {
-      return present;
-    },
-  });
-
-  const [state, send] = useMachine(presence.machine(context), {context});
-
-  const api = $derived(presence.connect(state, send, normalizeProps));
+  const service = useMachine(presence.machine, props);
+  const api = $derived(presence.connect(service, normalizeProps));
 
   function getPresenceProps(): HTMLAttributes<HTMLElement> {
     return {
       hidden: !api.present,
-      'data-state': context.present ? 'open' : 'closed',
+      'data-state': props.present ? 'open' : 'closed',
     };
   }
 
@@ -54,8 +43,8 @@ export function createPresence(
 
   const unmounted = $derived.by(() => {
     if (api.present) return false;
-    if (!wasPresent && lazyMount) return true;
-    if (wasPresent && !keepMounted) return true;
+    if (!wasPresent && props.lazyMount) return true;
+    if (wasPresent && !props.keepMounted) return true;
     return false;
   });
 

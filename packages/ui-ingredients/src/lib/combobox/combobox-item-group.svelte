@@ -6,7 +6,6 @@
 </script>
 
 <script lang="ts">
-  import {createUniqueId} from '../create-unique-id.js';
   import {mergeProps} from '../merge-props.js';
   import {
     getComboboxContext,
@@ -21,8 +20,9 @@
     ...props
   }: ComboboxItemGroupProps = $props();
 
+  let uid = $props.id();
+
   let combobox = getComboboxContext();
-  let uid = createUniqueId();
   let comboboxItemGroupProps = $derived({id: id ?? uid});
   let mergedProps = $derived(
     mergeProps(combobox.getItemGroupProps(comboboxItemGroupProps), props),

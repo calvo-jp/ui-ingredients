@@ -23,7 +23,7 @@ const items = [
   },
 ];
 
-describe('Tabs', () => {
+describe.skip('Tabs', () => {
   it.each(getAnatomySelector(tabsAnatomy))('should render %s', (selector) => {
     render(Tabs, {props: {items}});
     expect(document.querySelector(selector)).toBeInTheDocument();

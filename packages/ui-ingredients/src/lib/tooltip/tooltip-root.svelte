@@ -1,13 +1,14 @@
 <script lang="ts" module>
   import type {Snippet} from 'svelte';
   import type {PresenceStrategyProps} from '../presence/create-presence.svelte.js';
+  import type {Optional} from '../types.js';
   import type {
     CreateTooltipProps,
     CreateTooltipReturn,
   } from './create-tooltip.svelte.js';
 
   export interface TooltipProps
-    extends CreateTooltipProps,
+    extends Optional<CreateTooltipProps, 'id'>,
       PresenceStrategyProps {
     children?: Snippet<[CreateTooltipReturn]>;
   }
@@ -21,7 +22,9 @@
   import {createTooltip} from './create-tooltip.svelte.js';
   import {setTooltipContext} from './tooltip-context.svelte.js';
 
-  let {children, ...props}: TooltipProps = $props();
+  let {id, children, ...props}: TooltipProps = $props();
+
+  let uid = $props.id();
 
   let [presenceStrategyProps, createTooltipProps] = $derived(
     createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
@@ -29,7 +32,10 @@
     ),
   );
 
-  let tooltip = createTooltip(reflect(() => createTooltipProps));
+  let tooltip = createTooltip(
+    reflect(() => ({...createTooltipProps, id: id ?? uid})),
+  );
+
   let presence = createPresence(
     reflect(() => ({
       ...presenceStrategyProps,
