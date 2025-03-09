@@ -11,7 +11,7 @@
   import * as toast from '@zag-js/toast';
   import type {Snippet} from 'svelte';
   import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
-  import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+  import {getLocaleContext} from '../locale-provider/locale-provider-context.svelte.js';
   import {getPortalProviderPropsContext} from '../portal/portal-context.svelte.js';
   import ToastProvider from './toast-provider.svelte';
 

@@ -1,3 +1,4 @@
+import {getLocaleContext} from '$lib/locale-provider/locale-provider-context.svelte.js';
 import {ariaAttr, dataAttr, getDocument, getWindow} from '@zag-js/dom-query';
 import {reflect} from '@zag-js/svelte';
 import type {
@@ -16,6 +17,7 @@ interface ElementIds {
   control?: string;
   errorText?: string;
   helperText?: string;
+  requiredIndicator?: string;
 }
 
 export interface CreateFieldProps {
@@ -45,6 +47,7 @@ export interface CreateFieldReturn {
 }
 
 export function createField(props: CreateFieldProps): CreateFieldReturn {
+  const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
   const {
@@ -63,6 +66,8 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
       control: props.ids?.control ?? `field:${id}:control`,
       errorText: props.ids?.errorText ?? `field:${id}:error-text`,
       helperText: props.ids?.helperText ?? `field:${id}:helper-text`,
+      requiredIndicator:
+        props.ids?.requiredIndicator ?? `field:${id}:required-indicator`,
     };
 
     return {
@@ -95,6 +100,7 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     return {
       ...parts.root.attrs,
       id: ids.root,
+      dir: locale?.dir,
       role: 'group',
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
@@ -107,6 +113,7 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     return {
       ...parts.label.attrs,
       id: ids.label,
+      dir: locale?.dir,
       for: ids.control,
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
@@ -118,6 +125,8 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
   function getRequiredIndicatorProps(): HTMLAttributes<HTMLElement> {
     return {
       ...parts.requiredIndicator.attrs,
+      id: ids.requiredIndicator,
+      dir: locale?.dir,
       hidden: !required,
       'aria-hidden': true,
       'data-invalid': dataAttr(invalid),
@@ -130,6 +139,7 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     return {
       ...parts.errorText.attrs,
       id: ids.errorText,
+      dir: locale?.dir,
       hidden: !hasErrorText,
       'aria-live': 'polite',
       'data-invalid': dataAttr(invalid),
@@ -143,6 +153,7 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
     return {
       ...parts.helperText.attrs,
       id: ids.helperText,
+      dir: locale?.dir,
       'data-invalid': dataAttr(invalid),
       'data-disabled': dataAttr(disabled),
       'data-required': dataAttr(required),
@@ -153,6 +164,7 @@ export function createField(props: CreateFieldProps): CreateFieldReturn {
   function getControlProps() {
     return {
       id: ids.control,
+      dir: locale?.dir,
       disabled,
       required,
       'aria-describedby': ariaDescribedby,

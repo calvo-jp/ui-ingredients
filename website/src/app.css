@@ -94,3 +94,4 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant mark (& mark);

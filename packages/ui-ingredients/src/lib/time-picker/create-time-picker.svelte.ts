@@ -1,7 +1,7 @@
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timePicker from '@zag-js/time-picker';
 import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
-import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/locale-provider-context.svelte.js';
 
 export interface CreateTimePickerProps
   extends Omit<timePicker.Props, 'dir' | 'getRootNode'> {}

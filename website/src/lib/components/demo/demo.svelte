@@ -54,6 +54,7 @@
     'date-picker': DatePicker,
     'file-upload': FileUpload,
     'floating-panel': null,
+    'focus-trap': null,
     'hover-card': HoverCard,
     'number-input': NumberInput,
     'pin-input': PinInput,
@@ -80,10 +81,12 @@
     dialog: Dialog,
     drawer: Drawer,
     editable: Editable,
+    highlight: null,
     field: Field,
     menu: Menu,
     pagination: Pagination,
     popover: Popover,
+    presence: null,
     select: Select,
     slider: Slider,
     splitter: Splitter,
@@ -100,11 +103,13 @@
   let {id}: {id: string} = $props();
 
   let Subject = $derived(MAP[id]);
+
+  $inspect({Subject});
 </script>
 
 {#if Subject}
   <div
-    class="not-prose rounded-md bg-neutral-50 p-5 dark:border dark:border-neutral-800/40 dark:bg-neutral-900/40 md:p-10 lg:p-12"
+    class="not-prose rounded-md bg-neutral-50 p-5 md:p-10 lg:p-12 dark:border dark:border-neutral-800/40 dark:bg-neutral-900/40"
   >
     <Subject />
   </div>
