@@ -11,5 +11,4 @@
     <PinInput.Input index={2} />
     <PinInput.Input index={3} />
   </PinInput.Control>
-  <PinInput.ClearTrigger>Clear</PinInput.ClearTrigger>
 </PinInput.Root>
