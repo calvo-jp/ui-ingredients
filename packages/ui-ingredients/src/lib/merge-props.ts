@@ -10,11 +10,11 @@ export function mergeProps(...args: GenericObject[]): GenericObject {
     const c = {...o};
 
     if (c.class && !isString(c.class)) {
-      c.class = clsx(o.class);
+      c.class = clsx(c.class);
     }
 
     if (c.className && !isString(c.class)) {
-      c.className = clsx(o.className);
+      c.className = clsx(c.className);
     }
 
     l.push(c);
