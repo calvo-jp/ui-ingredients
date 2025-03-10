@@ -46,7 +46,7 @@
     rootFontSize = parseFloat(rootCss.fontSize);
   });
 
-  let activeHeadingId: string | undefined = $state();
+  let activeHeadingId: string | null | undefined = $state();
 
   function scrollActiveHeadingIntoView(id: string) {
     const heading = document.getElementById(id);
@@ -100,6 +100,7 @@
   <SegmentGroup.Root
     value={activeHeadingId}
     onValueChange={(detail) => {
+      if (!detail.value) return;
       activeHeadingId = detail.value;
       scrollActiveHeadingIntoView(detail.value);
     }}

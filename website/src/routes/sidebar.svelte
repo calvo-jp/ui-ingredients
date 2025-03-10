@@ -53,7 +53,6 @@
 
 <Drawer.Root
   open={navbarStore.drawer.isOpen}
-  openControlled
   onOpenChange={(detail) => {
     if (detail.open) {
       navbarStore.drawer.open();

@@ -127,17 +127,12 @@ export default apiEntryFromAnatomy(comboboxAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
+      ...omit(rootContext, 'dir', 'getRootNode'),
 
       ids: {
         type: '{\n\troot?: string;\n\tlabel?: string;\n\tcontrol?: string;\n\tinput?: string;\n\tcontent?: string;\n\ttrigger?: string;\n\tclearTrigger?: string;\n\titem(id: string, index?: number)?: string;\n\tpositioner?: string;\n\titemGroup(id: string | number)?: string;\n\titemGroupLabel(id: string | number)?: string;\n}',
         description:
           'The ids of the elements in the combobox. Useful for composition.',
-      },
-      openControlled: {
-        type: 'boolean',
-        description:
-          'Whether the combobox open state is controlled by the user',
       },
       asChild: {
         type: 'Snippet',

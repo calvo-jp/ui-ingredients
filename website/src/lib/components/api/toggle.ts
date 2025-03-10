@@ -15,9 +15,23 @@ export default apiEntryFromAnatomy(toggleAnatomy)({
         description: 'Whether the toggle is pressed or not.',
       },
       onPressedChange: {
-        type: '(details: PressedChangeDetails) => void',
+        type: '(pressed: boolean) => void',
         description: 'Function to call when the toggle is clicked.',
       },
+    },
+  },
+  Indicator: {
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+    dataAttr: {
+      'data-scope': 'toggle',
+      'data-part': 'indicator',
+      'data-state': '"off" | "on"',
+      'data-pressed': 'Present when the toggle is pressed',
     },
   },
 });

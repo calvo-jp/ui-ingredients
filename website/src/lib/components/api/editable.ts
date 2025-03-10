@@ -73,16 +73,12 @@ export default apiEntryFromAnatomy(editableAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'edit.controlled'),
+      ...omit(rootContext, 'dir', 'getRootNode'),
 
       ids: {
         type: '{\n\troot?: string;\n\tarea?: string;\n\tlabel?: string;\n\tpreview?: string;\n\tinput?: string;\n\tcontrol?: string;\n\tsubmitTrigger?: string;\n\tcancelTrigger?: string;\n\teditTrigger?: string;\n}',
         description:
           'The ids of the elements in the editable. Useful for composition.',
-      },
-      editControlled: {
-        type: 'boolean',
-        description: 'Whether the editable is controlled',
       },
       asChild: {
         type: 'Snippet',

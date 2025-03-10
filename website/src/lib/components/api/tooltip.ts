@@ -45,16 +45,12 @@ export default apiEntryFromAnatomy(tooltipAnatomy)({
   },
   Root: {
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
+      ...omit(rootContext, 'dir', 'getRootNode'),
 
       ids: {
         type: '{\n\ttrigger?: string;\n\tcontent?: string;\n\tarrow?: string;\n\tpositioner?: string;\n}',
         description:
           'The ids of the elements in the tooltip. Useful for composition.',
-      },
-      openControlled: {
-        type: 'boolean',
-        description: 'Whether the tooltip is controlled by the user',
       },
       lazyMount: {
         type: 'boolean',

@@ -166,17 +166,12 @@ export default apiEntryFromAnatomy(colorPickerAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
+      ...omit(rootContext, 'dir', 'getRootNode'),
 
       ids: {
         type: '{\n\troot?: string;\n\tcontrol?: string;\n\ttrigger?: string;\n\tlabel?: string;\n\tinput?: string;\n\thiddenInput?: string;\n\tcontent?: string;\n\tarea?: string;\n\tareaGradient?: string;\n\tpositioner?: string;\n\tformatSelect?: string;\n\tareaThumb?: string;\n\tchannelInput(id: string)?: string;\n\tchannelSliderTrack(id: ColorChannel)?: string;\n}',
         description:
           'The ids of the elements in the color picker. Useful for composition.',
-      },
-      openControlled: {
-        type: 'boolean',
-        description:
-          'Whether the color picker open state is controlled by the user',
       },
       asChild: {
         type: 'Snippet',
