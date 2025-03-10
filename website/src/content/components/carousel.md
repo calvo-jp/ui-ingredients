@@ -24,7 +24,7 @@ description: A rotating component for cycling through images or content slides.
   ];
 </script>
 
-<Carousel.Root>
+<Carousel.Root slideCount={items.length}>
   <Carousel.ItemGroup>
     {#each items as src, index}
       <Carousel.Item {index}>
