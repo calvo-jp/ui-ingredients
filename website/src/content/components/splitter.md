@@ -2,6 +2,7 @@
 id: splitter
 title: Splitter
 description: A component for resizing and adjusting the size of adjacent panes or sections.
+beta: true
 ---
 
 <demo>

@@ -2,7 +2,6 @@
 id: carousel
 title: Carousel
 description: A rotating component for cycling through images or content slides.
-beta: true
 ---
 
 <demo>
