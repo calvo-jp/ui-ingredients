@@ -9,12 +9,10 @@ description: A component for trapping focus within a specified element.
 ## Usage
 
 ```svelte
-<script lang="ts">
-  import {FocusTrap} from '$lib/index.js';
+<script>
+  import {FocusTrap} from 'ui-ingredients';
 
   let trapped = $state(false);
-
-  $inspect(trapped);
 </script>
 
 <button
