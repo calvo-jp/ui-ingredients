@@ -38,16 +38,17 @@
 
   let menu = getMenuContext();
 
+  let mergedProps = $derived(
+    mergeProps(menu?.getOptionItemProps(itemProps) ?? {}, localProps),
+  );
+
   let itemState: OptionItemState = $derived(
     menu?.getOptionItemState(itemProps) ?? {
+      id: '',
       checked: false,
       disabled: false,
       highlighted: false,
     },
-  );
-
-  let mergedProps = $derived(
-    mergeProps(menu?.getOptionItemProps(itemProps) ?? {}, localProps),
   );
 
   setMenuOptionItemPropsContext(() => itemProps);

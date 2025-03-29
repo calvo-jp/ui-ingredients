@@ -33,9 +33,15 @@
     createSplitProps<Omit<CreateSplitterProps, 'id'>>([
       'defaultSize',
       'ids',
-      'onSizeChange',
-      'onSizeChangeEnd',
+      'keyboardResizeBy',
+      'nonce',
+      'onCollapse',
+      'onExpand',
+      'onResize',
+      'onResizeEnd',
+      'onResizeStart',
       'orientation',
+      'panels',
       'size',
     ])(props),
   );

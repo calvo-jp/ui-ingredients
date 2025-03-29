@@ -2,18 +2,9 @@
   import type {ResizeTriggerProps} from '@zag-js/splitter';
   import type {Assign, HtmlIngredientProps} from '../types.js';
 
-  interface ResizeTriggerState {
-    min: number | undefined;
-    max: number | undefined;
-    value: number;
-    focused: boolean;
-    disabled: boolean;
-    panelIds: string[];
-  }
-
   export interface SplitterResizeTriggerProps
     extends Assign<
-      HtmlIngredientProps<'div', HTMLDivElement, ResizeTriggerState>,
+      HtmlIngredientProps<'div', HTMLDivElement>,
       ResizeTriggerProps
     > {}
 </script>
@@ -31,20 +22,19 @@
   }: SplitterResizeTriggerProps = $props();
 
   let [resizeTriggerProps, localProps] = $derived(
-    createSplitProps<ResizeTriggerProps>(['id', 'step', 'disabled'])(props),
+    createSplitProps<ResizeTriggerProps>(['id', 'disabled'])(props),
   );
 
   let splitter = getSplitterContext();
-  let itemState = $derived(splitter.getResizeTriggerState(resizeTriggerProps));
   let mergedProps = $derived(
     mergeProps(splitter.getResizeTriggerProps(resizeTriggerProps), localProps),
   );
 </script>
 
 {#if asChild}
-  {@render asChild(mergedProps, itemState)}
+  {@render asChild(mergedProps)}
 {:else}
   <div bind:this={ref} {...mergedProps}>
-    {@render children?.(itemState)}
+    {@render children?.()}
   </div>
 {/if}

@@ -19,10 +19,17 @@ beta: true
 </script>
 
 <Splitter.Root
-  size={[
-    {id: 'a', size: 50, minSize: 25},
-    {id: 'b', size: 50, minSize: 25},
+  panels={[
+    {
+      id: 'a',
+      minSize: 25,
+    },
+    {
+      id: 'b',
+      minSize: 25,
+    },
   ]}
+  defaultSize={[50, 50]}
 >
   <Splitter.Panel id="a">A</Splitter.Panel>
   <Splitter.ResizeTrigger id="a:b" />
