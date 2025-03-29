@@ -59,3 +59,5 @@ npm install ui-ingredients
 ## Documentation
 
 Browse the [documentation](https://ui-ingredients.vercel.app/) for more information on how to use UI Ingredients
+
+[![MadeWithSvelte.com shield](https://madewithsvelte.com/storage/repo-shields/5566-shield.svg)](https://madewithsvelte.com/p/ui-ingredients/shield-link)
