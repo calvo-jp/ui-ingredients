@@ -3,9 +3,9 @@
 </script>
 
 <Splitter.Root
-  size={[
-    {id: 'a', size: 50, minSize: 25},
-    {id: 'b', size: 50, minSize: 25},
+  panels={[
+    {id: 'a', minSize: 200},
+    {id: 'b', minSize: 300},
   ]}
 >
   <Splitter.Panel id="a">A</Splitter.Panel>
