@@ -373,8 +373,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(@internationalized/date@3.5.5)(svelte@5.25.3)
       ui-ingredients-plugin-tailwindcss:
-        specifier: ^0.0.9
-        version: 0.0.9(tailwindcss@4.0.17)
+        specifier: ^1.0.0
+        version: 1.0.0(tailwindcss@4.0.17)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.6.3
@@ -4449,8 +4449,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ui-ingredients-plugin-tailwindcss@0.0.9:
-    resolution: {integrity: sha512-OOFVMR3chSBx8mFu/i/4ZC6PXlpLQt+NDmroSiDGwInALPu85xMtXAw4LmZBUMXB+IFc6BtXN5+8ePstQ1J3Aw==}
+  ui-ingredients-plugin-tailwindcss@1.0.0:
+    resolution: {integrity: sha512-OVhXIBlY/XlVhWCKFS9hbB6cZ0/H/Fnos7zu2g+z4vWw8PixbLAHgKEQKEcqXIhiArmEaDi9dM4THXLEtgf0AQ==}
     peerDependencies:
       tailwindcss: ^3.3.3 || ^4.0.0
 
@@ -9302,7 +9302,7 @@ snapshots:
 
   typescript@5.8.2: {}
 
-  ui-ingredients-plugin-tailwindcss@0.0.9(tailwindcss@4.0.17):
+  ui-ingredients-plugin-tailwindcss@1.0.0(tailwindcss@4.0.17):
     dependencies:
       tailwindcss: 4.0.17
 
