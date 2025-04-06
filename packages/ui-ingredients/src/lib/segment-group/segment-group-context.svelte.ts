@@ -8,4 +8,4 @@ export const [getSegmentGroupContext, setSegmentGroupContext] =
 export const [
   getSegmentGroupItemPropsContext,
   setSegmentGroupItemPropsContext,
-] = createContext<ItemProps>('SegmentGroupItem [PROPS]');
+] = createContext<ItemProps>('SegmentGroupItem.props');

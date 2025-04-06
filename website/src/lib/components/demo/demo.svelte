@@ -103,8 +103,6 @@
   let {id}: {id: string} = $props();
 
   let Subject = $derived(MAP[id]);
-
-  $inspect({Subject});
 </script>
 
 {#if Subject}
