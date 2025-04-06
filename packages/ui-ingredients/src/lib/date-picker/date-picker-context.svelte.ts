@@ -11,17 +11,17 @@ export const [getDatePickerContext, setDatePickerContext] =
   createContext<CreateDatePickerReturn>('DatePicker');
 
 export const [getDatePickerViewPropsContext, setDatePickerViewPropsContext] =
-  createContext<ViewProps>('DatePickerView [PROPS]');
+  createContext<ViewProps>('DatePickerView.props');
 
 export const [getDatePickerTablePropsContext, setDatePickerTablePropsContext] =
-  createContext<TableProps>('DatePickerTable [PROPS]');
+  createContext<TableProps>('DatePickerTable.props');
 
 export const [
   getDatePickerTableCellPropsContext,
   setDatePickerTableCellPropsContext,
-] = createContext<TableCellProps>('DatePickerTableCell [PROPS]');
+] = createContext<TableCellProps>('DatePickerTableCell.props');
 
 export const [
   getDatePickerDayTableCellPropsContext,
   setDatePickerDayTableCellPropsContext,
-] = createContext<DayTableCellProps>('DatePickerDayTableCell [PROPS]');
+] = createContext<DayTableCellProps>('DatePickerDayTableCell.props');

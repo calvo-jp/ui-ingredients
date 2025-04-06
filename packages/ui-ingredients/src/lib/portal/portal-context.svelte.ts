@@ -5,4 +5,4 @@ interface PortalProviderProps {
 }
 
 export const [getPortalProviderPropsContext, setPortalProviderPropsContext] =
-  createContext<PortalProviderProps>('PortalProvider [PROPS]', false);
+  createContext<PortalProviderProps>('PortalProvider.props', false);

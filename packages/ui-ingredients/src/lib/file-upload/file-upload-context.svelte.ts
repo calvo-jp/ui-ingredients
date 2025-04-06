@@ -6,4 +6,4 @@ export const [getFileUploadContext, setFileUploadContext] =
   createContext<CreateFileUploadReturn>('FileUpload');
 
 export const [getFileUploadItemPropsContext, setFileUploadItemPropsContext] =
-  createContext<ItemProps>('FileUploadItem [PROPS]');
+  createContext<ItemProps>('FileUploadItem.props');
