@@ -33,9 +33,11 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, treeviewProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      props,
-    ),
+    createSplitProps<PresenceStrategyProps>([
+      'lazyMount',
+      'keepMounted',
+      'animateOnMount',
+    ])(props),
   );
 
   let [createTreeViewProps, localProps] = $derived(

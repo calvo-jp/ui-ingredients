@@ -58,9 +58,11 @@
   );
 
   let [presenceStrategyProps, localProps] = $derived(
-    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
-      timePickerProps,
-    ),
+    createSplitProps<PresenceStrategyProps>([
+      'lazyMount',
+      'keepMounted',
+      'animateOnMount',
+    ])(timePickerProps),
   );
 
   let timePicker = createTimePicker(

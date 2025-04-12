@@ -1,8 +1,8 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '../types.js';
 
-  export interface FloatingPanelMinimizeTriggerProps
-    extends HtmlIngredientProps<'button', HTMLButtonElement> {}
+  export interface FloatingPanelControlProps
+    extends HtmlIngredientProps<'div', HTMLDivElement> {}
 </script>
 
 <script lang="ts">
@@ -14,18 +14,18 @@
     asChild,
     children,
     ...props
-  }: FloatingPanelMinimizeTriggerProps = $props();
+  }: FloatingPanelControlProps = $props();
 
   let floatingPanel = getFloatingPanelContext();
   let mergedProps = $derived(
-    mergeProps(floatingPanel.getMinimizeTriggerProps(), props),
+    mergeProps(floatingPanel.getControlProps(), props),
   );
 </script>
 
 {#if asChild}
   {@render asChild(mergedProps)}
 {:else}
-  <button bind:this={ref} {...mergedProps}>
+  <div bind:this={ref} {...mergedProps}>
     {@render children?.()}
-  </button>
+  </div>
 {/if}
