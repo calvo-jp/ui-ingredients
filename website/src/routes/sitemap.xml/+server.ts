@@ -1,6 +1,8 @@
 import {components, overview, utilities} from '.velite';
 import type {RequestHandler} from '@sveltejs/kit';
 
+export const prerender = true;
+
 export const GET: RequestHandler = async ({url: {origin}}) => {
   const urls = [
     ...components.map((item) => item.permalink),
