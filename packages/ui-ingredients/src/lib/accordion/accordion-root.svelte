@@ -33,11 +33,9 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, accordionProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'lazyMount',
-      'keepMounted',
-      'animateOnMount',
-    ])(props),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let [createAccordionProps, localProps] = $derived(

@@ -34,11 +34,9 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, comboboxProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'lazyMount',
-      'keepMounted',
-      'animateOnMount',
-    ])(props),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let [createComboboxProps, localProps] = $derived(

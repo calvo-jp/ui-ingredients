@@ -20,7 +20,7 @@
     },
   ];
 
-  let value: string[] = $state([]);
+  let value: string[] = $state(['1']);
 
   $inspect({value});
 </script>

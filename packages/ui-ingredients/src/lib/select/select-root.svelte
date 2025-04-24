@@ -66,11 +66,9 @@
   );
 
   let [presenceStrategyProps, localProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'lazyMount',
-      'keepMounted',
-      'animateOnMount',
-    ])(selectProps),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      selectProps,
+    ),
   );
 
   let select = createSelect(

@@ -30,11 +30,9 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, createTourProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'lazyMount',
-      'keepMounted',
-      'animateOnMount',
-    ])(props),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let tour = createTour(reflect(() => ({...createTourProps, id: id ?? uid})));

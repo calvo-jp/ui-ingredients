@@ -27,11 +27,9 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, createFloatingPanelProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'lazyMount',
-      'keepMounted',
-      'animateOnMount',
-    ])(props),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let floatingPanel = createFloatingPanel(

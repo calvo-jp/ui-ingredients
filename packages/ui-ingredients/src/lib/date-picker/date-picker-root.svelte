@@ -34,11 +34,9 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, datePickerProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'lazyMount',
-      'keepMounted',
-      'animateOnMount',
-    ])(props),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let [createDatePickerProps, localProps] = $derived(

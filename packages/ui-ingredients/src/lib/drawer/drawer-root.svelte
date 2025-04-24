@@ -30,11 +30,9 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, createDialogProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'lazyMount',
-      'keepMounted',
-      'animateOnMount',
-    ])(props),
+    createSplitProps<PresenceStrategyProps>(['lazyMount', 'keepMounted'])(
+      props,
+    ),
   );
 
   let drawer = createDrawer(

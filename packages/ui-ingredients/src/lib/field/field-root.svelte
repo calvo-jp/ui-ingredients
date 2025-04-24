@@ -33,11 +33,9 @@
   let uid = $props.id();
 
   let [presenceStrategyProps, fieldProps] = $derived(
-    createSplitProps<PresenceStrategyProps>([
-      'keepMounted',
-      'lazyMount',
-      'animateOnMount',
-    ])(props),
+    createSplitProps<PresenceStrategyProps>(['keepMounted', 'lazyMount'])(
+      props,
+    ),
   );
 
   let [createFieldProps, localProps] = $derived(
