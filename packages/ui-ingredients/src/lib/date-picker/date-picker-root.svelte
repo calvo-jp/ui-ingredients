@@ -61,6 +61,7 @@
       'numOfMonths',
       'onFocusChange',
       'onOpenChange',
+      'outsideDaySelectable',
       'onValueChange',
       'onViewChange',
       'open',
