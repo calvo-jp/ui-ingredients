@@ -15,4 +15,6 @@
   <meta name="twitter:description" content={data.description} />
 </svelte:head>
 
-<Markdown {...data} />
+{#key data.id}
+  <Markdown {...data} />
+{/key}
