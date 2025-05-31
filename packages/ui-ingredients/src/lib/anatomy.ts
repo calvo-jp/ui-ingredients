@@ -22,6 +22,7 @@ export {anatomy as listboxAnatomy} from './listbox/listbox-anatomy.js';
 export {anatomy as menuAnatomy} from './menu/menu-anatomy.js';
 export {anatomy as numberInputAnatomy} from './number-input/number-input-anatomy.js';
 export {anatomy as paginationAnatomy} from './pagination/pagination-anatomy.js';
+export {anatomy as passwordInputAnatomy} from './password-input/password-input-anatomy.js';
 export {anatomy as pinInputAnatomy} from './pin-input/pin-input-anatomy.js';
 export {anatomy as popoverAnatomy} from './popover/popover-anatomy.js';
 export {anatomy as progressAnatomy} from './progress/progress-anatomy.js';

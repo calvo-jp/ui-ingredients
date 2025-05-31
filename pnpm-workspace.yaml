@@ -4,3 +4,5 @@ packages:
   - website
 ignoredBuiltDependencies:
   - '@tailwindcss/oxide'
+onlyBuiltDependencies:
+  - sharp
