@@ -22,7 +22,7 @@
   }: FloatingPanelResizeTriggerProps = $props();
 
   let [resizeTriggerProps, localProps] = $derived(
-    createSplitProps<ResizeTriggerProps>([])(props),
+    createSplitProps<ResizeTriggerProps>(['axis'])(props),
   );
 
   let floatingPanel = getFloatingPanelContext();
