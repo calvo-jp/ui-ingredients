@@ -79,7 +79,7 @@ export default apiEntryFromAnatomy(passwordInputAnatomy)({
       ids: {
         type: '{\n\troot?: string;\n\tcontrol?: string;\n\tinput?: string;\n\tvisibilityTrigger?: string;\n\tindicator?: string;\n}',
         description:
-          'The ids of the elements in the accordion. Useful for composition.',
+          'The ids of the elements in the password input. Useful for composition.',
       },
       asChild: {
         type: 'Snippet',
