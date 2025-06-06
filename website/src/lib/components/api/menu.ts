@@ -158,16 +158,12 @@ export default apiEntryFromAnatomy(menuAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
+      ...omit(rootContext, 'dir', 'getRootNode'),
 
       ids: {
         type: '{\n\ttrigger?: string;\n\tcontextTrigger?: string;\n\tcontent?: string;\n\tgroupLabel(id: string)?: string;\n\tgroup(id: string)?: string;\n\tpositioner?: string;\n\tarrow?: string;\n}',
         description:
           'The ids of the elements in the menu. Useful for composition.',
-      },
-      openControlled: {
-        type: 'boolean',
-        description: "Whether the menu's open state is controlled by the user",
       },
     },
   },

@@ -13,11 +13,7 @@
     },
   ];
 
-  let value: string | null = $state(null);
-
-  $effect(() => {
-    value = items[0].value;
-  });
+  let value: string | null = $derived(items[0].value);
 
   $inspect({value});
 </script>

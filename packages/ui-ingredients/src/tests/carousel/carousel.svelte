@@ -8,7 +8,7 @@
   let {images}: Props = $props();
 </script>
 
-<Carousel.Root>
+<Carousel.Root slideCount={images.length}>
   <Carousel.ItemGroup>
     {#each images as src, index}
       <Carousel.Item {index}>

@@ -18,10 +18,11 @@
 </script>
 
 <Splitter.Root
-  size={[
-    {id: 'a', size: 50, minSize: 25},
-    {id: 'b', size: 50, minSize: 25},
+  panels={[
+    {id: 'a', minSize: 25},
+    {id: 'b', minSize: 25},
   ]}
+  defaultSize={[50, 50]}
   class="flex gap-2"
 >
   <Splitter.Panel id="a" class={panelStyle}>A</Splitter.Panel>

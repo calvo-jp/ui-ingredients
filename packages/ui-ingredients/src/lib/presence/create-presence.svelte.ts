@@ -23,7 +23,12 @@ export interface CreatePresenceReturn {
 export function createPresence(
   props: CreatePresenceProps,
 ): CreatePresenceReturn {
-  const service = useMachine(presence.machine, props);
+  const service = useMachine(presence.machine, () => ({
+    present: props.present,
+    immediate: props.immediate,
+    onExitComplete: props.onExitComplete,
+  }));
+
   const api = $derived(presence.connect(service, normalizeProps));
 
   function getPresenceProps(): HTMLAttributes<HTMLElement> {
@@ -35,16 +40,15 @@ export function createPresence(
 
   let wasPresent = $state(false);
 
-  $effect(() => {
-    if (!api.present) return;
-    if (wasPresent) return;
-    wasPresent = true;
+  $effect.pre(() => {
+    if (api.present) {
+      wasPresent = true;
+    }
   });
 
   const unmounted = $derived.by(() => {
-    if (api.present) return false;
-    if (!wasPresent && props.lazyMount) return true;
-    if (wasPresent && !props.keepMounted) return true;
+    if (!api.present && !wasPresent && props.lazyMount) return true;
+    if (!props.keepMounted && !api.present && wasPresent) return true;
     return false;
   });
 

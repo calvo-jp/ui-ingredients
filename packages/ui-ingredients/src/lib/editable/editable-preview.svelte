@@ -27,7 +27,7 @@
     {#if children}
       {@render children?.()}
     {:else}
-      {editable.value}
+      {editable.valueText}
     {/if}
   </span>
 {/if}

@@ -2,7 +2,7 @@
   "name": "ui-ingredients-plugin-tailwindcss",
   "type": "module",
   "license": "MIT",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -48,13 +48,13 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.0",
-    "postcss": "^8.5.3",
-    "release-it": "^18.1.2",
+    "@tsconfig/node22": "^22.0.2",
+    "postcss": "^8.5.4",
+    "release-it": "^19.0.3",
     "tailwindcss": "^3.4.17",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.2",
-    "vitest": "^3.0.8"
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.2"
   },
   "peerDependencies": {
     "tailwindcss": "^3.3.3 || ^4.0.0"

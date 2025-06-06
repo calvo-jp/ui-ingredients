@@ -13,7 +13,7 @@
 
 <script lang="ts">
   import {getDocument, getWindow} from '@zag-js/dom-query';
-  import {setEnvironmentContext} from './enviroment-provider-context.svelte.js';
+  import {setEnvironmentContext} from './environment-provider-context.svelte.js';
 
   let {rootNode, children}: EnvironmentProviderProps = $props();
 

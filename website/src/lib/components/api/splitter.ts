@@ -17,14 +17,14 @@ export default apiEntryFromAnatomy(splitterAnatomy)({
       id: {
         type: 'PanelId',
       },
-      snapSize: {
-        type: 'number',
-      },
     },
   },
   ResizeTrigger: {
     dataAttr: dataAttrDoc.ResizeTrigger,
     context: {
+      id: {
+        type: 'string',
+      },
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

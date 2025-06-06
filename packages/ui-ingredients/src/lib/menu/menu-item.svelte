@@ -32,15 +32,16 @@
 
   let menu = getMenuContext();
 
+  let mergedProps = $derived(
+    mergeProps(menu?.getItemProps(itemProps) ?? {}, localProps),
+  );
+
   let itemState: ItemState = $derived(
     menu?.getItemState(itemProps) ?? {
+      id: '',
       disabled: false,
       highlighted: false,
     },
-  );
-
-  let mergedProps = $derived(
-    mergeProps(menu?.getItemProps(itemProps) ?? {}, localProps),
   );
 </script>
 

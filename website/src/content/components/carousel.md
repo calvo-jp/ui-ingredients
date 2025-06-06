@@ -2,7 +2,6 @@
 id: carousel
 title: Carousel
 description: A rotating component for cycling through images or content slides.
-beta: true
 ---
 
 <demo>
@@ -25,7 +24,7 @@ beta: true
   ];
 </script>
 
-<Carousel.Root>
+<Carousel.Root slideCount={items.length}>
   <Carousel.ItemGroup>
     {#each items as src, index}
       <Carousel.Item {index}>

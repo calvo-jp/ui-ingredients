@@ -46,16 +46,11 @@ export default apiEntryFromAnatomy(hoverCardAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
-
+      ...omit(rootContext, 'dir', 'getRootNode'),
       ids: {
         type: '{\n\ttrigger?: string;\n\tcontent?: string;\n\tpositioner?: string;\n\tarrow?: string;\n}',
         description:
           'The ids of the elements in the popover. Useful for composition.',
-      },
-      openControlled: {
-        type: 'boolean',
-        description: 'Whether the hover card is controlled by the user',
       },
       lazyMount: {
         type: 'boolean',

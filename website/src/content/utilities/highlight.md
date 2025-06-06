@@ -4,6 +4,8 @@ title: Highlight
 description: A component for highlighting text within a string.
 ---
 
+<demo>
+
 ## Usage
 
 ```svelte

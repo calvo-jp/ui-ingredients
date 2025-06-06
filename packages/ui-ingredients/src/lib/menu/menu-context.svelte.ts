@@ -9,10 +9,10 @@ export const [getMenuContext, setMenuContext] = createContext<CreateMenuReturn>(
 );
 
 export const [getMenuItemGroupPropsContext, setMenuItemGroupPropsContext] =
-  createContext<ItemGroupProps>('MenuItemGroup [PROPS]');
+  createContext<ItemGroupProps>('MenuItemGroup.props');
 
 export const [getMenuOptionItemPropsContext, setMenuOptionItemPropsContext] =
-  createContext<OptionItemProps>('MenuOptionItem [PROPS]');
+  createContext<OptionItemProps>('MenuOptionItem.props');
 
 export const [getMenuTriggerItemContext, setMenuTriggerItemContext] =
   createContext<HTMLButtonAttributes>('MenuTriggerItem');

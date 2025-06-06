@@ -1,24 +1,24 @@
 <script lang="ts" module>
   import type {HtmlIngredientProps} from '../types.js';
 
-  export interface FloatingPanelRestoreTriggerProps
+  export interface PasswordInputVisibilityTriggerProps
     extends HtmlIngredientProps<'button', HTMLButtonElement> {}
 </script>
 
 <script lang="ts">
   import {mergeProps} from '../merge-props.js';
-  import {getFloatingPanelContext} from './floating-panel-context.svelte.js';
+  import {getPasswordInputContext} from './password-input-context.svelte.js';
 
   let {
     ref = $bindable(null),
     asChild,
     children,
     ...props
-  }: FloatingPanelRestoreTriggerProps = $props();
+  }: PasswordInputVisibilityTriggerProps = $props();
 
-  let floatingPanel = getFloatingPanelContext();
+  let passwordInput = getPasswordInputContext();
   let mergedProps = $derived(
-    mergeProps(floatingPanel.getRestoreTriggerProps(), props),
+    mergeProps(passwordInput.getVisibilityTriggerProps(), props),
   );
 </script>
 

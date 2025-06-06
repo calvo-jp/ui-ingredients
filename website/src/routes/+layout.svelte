@@ -11,6 +11,7 @@
   import '../app.css';
 
   import {ThemeProvider} from 'svelte-os-themes';
+  import {LocaleProvider} from 'ui-ingredients';
   import Navbar from './navbar.svelte';
   import Pagination from './pagination.svelte';
   import Sidebar from './sidebar.svelte';
@@ -19,30 +20,32 @@
   let {children} = $props();
 </script>
 
-<ThemeProvider fallback="dark">
-  <Navbar />
+<LocaleProvider locale="en-US">
+  <ThemeProvider fallback="dark">
+    <Navbar />
 
-  <div
-    class="h-[calc(100dvh---spacing(16))] lg:flex lg:items-start lg:justify-center"
-  >
-    <Sidebar />
+    <div
+      class="h-[calc(100dvh---spacing(16))] lg:flex lg:items-start lg:justify-center"
+    >
+      <Sidebar />
 
-    <main class="flex min-h-full flex-col p-5 md:p-8 lg:grow lg:p-16 xl:p-20">
-      <section class="grow lg:mx-auto lg:w-full lg:max-w-screen-md">
-        <div
-          class="prose prose-neutral dark:prose-invert prose-headings:font-lexend prose-h1:mb-3 prose-h1:font-lexend prose-h1:text-4xl before:prose-p:content-none after:prose-p:content-none prose-p:first:mb-8 prose-p:first:mt-0 prose-p:first:text-lg prose-a:underline-offset-2 prose-strong:font-medium before:prose-code:content-none after:prose-code:content-none lg:prose-code:text-sm min-w-full"
-        >
-          {@render children()}
-        </div>
-      </section>
-      <section class="mt-8">
-        <Pagination />
-      </section>
-    </main>
+      <main class="flex min-h-full flex-col p-5 md:p-8 lg:grow lg:p-16 xl:p-20">
+        <section class="grow lg:mx-auto lg:w-full lg:max-w-screen-md">
+          <div
+            class="prose prose-neutral dark:prose-invert prose-headings:font-lexend prose-h1:mb-3 prose-h1:font-lexend prose-h1:text-4xl before:prose-p:content-none after:prose-p:content-none prose-p:first:mb-8 prose-p:first:mt-0 prose-p:first:text-lg prose-a:underline-offset-2 prose-strong:font-medium before:prose-code:content-none after:prose-code:content-none lg:prose-code:text-sm min-w-full"
+          >
+            {@render children()}
+          </div>
+        </section>
+        <section class="mt-8">
+          <Pagination />
+        </section>
+      </main>
 
-    <TableOfContents />
-  </div>
-</ThemeProvider>
+      <TableOfContents />
+    </div>
+  </ThemeProvider>
+</LocaleProvider>
 
 <style lang="postcss">
   /* Shiki */

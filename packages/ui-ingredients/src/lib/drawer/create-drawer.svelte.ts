@@ -1,8 +1,8 @@
 import * as dialog from '@zag-js/dialog';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import type {HTMLAttributes} from 'svelte/elements';
-import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
-import {getLocaleContext} from '../locale-provider/local-provider-context.svelte.js';
+import {getEnvironmentContext} from '../environment-provider/environment-provider-context.svelte.js';
+import {getLocaleContext} from '../locale-provider/locale-provider-context.svelte.js';
 import {parts} from './drawer-anatomy.js';
 
 interface ElementIds extends dialog.ElementIds {

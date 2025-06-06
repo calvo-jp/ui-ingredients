@@ -6,4 +6,4 @@ export const [getSliderContext, setSliderContext] =
   createContext<CreateSliderReturn>('Slider');
 
 export const [getSliderThumbPropsContext, setSliderThumbPropsContext] =
-  createContext<ThumbProps>('SliderThumb [PROPS]');
+  createContext<ThumbProps>('SliderThumb.props');

@@ -21,6 +21,7 @@
   import field from './field';
   import fileUpload from './file-upload';
   import floatingPanel from './floating-panel';
+  import focusTrap from './focus-trap';
   import highlight from './highlight';
   import hoverCard from './hover-card';
   import localeProvider from './locale-provider';
@@ -63,6 +64,7 @@
     'environment-provider': environmentProvider,
     'file-upload': fileUpload,
     'floating-panel': floatingPanel,
+    'focus-trap': focusTrap,
     'hover-card': hoverCard,
     'locale-provider': localeProvider,
     'number-input': numberInput,

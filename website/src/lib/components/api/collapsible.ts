@@ -19,17 +19,12 @@ export default apiEntryFromAnatomy(collapsibleAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
+      ...omit(rootContext, 'dir', 'getRootNode'),
 
       ids: {
         type: '{\n\troot?: string;\n\tcontent?: string;\n\ttrigger?: string;\n}',
         description:
           'The ids of the elements in the collapsible. Useful for composition.',
-      },
-      openControlled: {
-        type: 'boolean',
-        description:
-          'Whether the collapsible open state is controlled by the user',
       },
       asChild: {
         type: 'Snippet',

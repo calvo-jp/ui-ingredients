@@ -127,13 +127,7 @@ export default apiEntryFromAnatomy(selectAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
-
-      openControlled: {
-        type: 'boolean',
-        description:
-          "Whether the select's open state is controlled by the user",
-      },
+      ...omit(rootContext, 'dir', 'getRootNode'),
       asChild: {
         type: 'Snippet',
         description: 'Render a different element.',

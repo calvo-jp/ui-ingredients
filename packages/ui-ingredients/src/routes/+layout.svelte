@@ -219,6 +219,14 @@
       label: 'Focus Trap',
       path: '/focus-trap',
     },
+    {
+      label: 'List Box',
+      path: '/listbox',
+    },
+    {
+      label: 'Password Input',
+      path: '/password-input',
+    },
   ]
     .filter((o, i, arr) => arr.findIndex((t) => t.label === o.label) === i)
     .toSorted((i, j) => i.label.localeCompare(j.label));

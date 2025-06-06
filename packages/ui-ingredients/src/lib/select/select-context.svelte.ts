@@ -6,7 +6,7 @@ export const [getSelectContext, setSelectContext] =
   createContext<CreateSelectReturn>('Select');
 
 export const [getSelectItemPropsContext, setSelectItemPropsContext] =
-  createContext<ItemProps>('SelectItem [PROPS]');
+  createContext<ItemProps>('SelectItem.props');
 
 export const [getSelectItemGroupPropsContext, setSelectItemGroupPropsContext] =
-  createContext<ItemGroupProps>('SelectItemGroup [PROPS]');
+  createContext<ItemGroupProps>('SelectItemGroup.props');

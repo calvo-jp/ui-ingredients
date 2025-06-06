@@ -5,7 +5,7 @@
   import {NumberInput} from 'ui-ingredients';
 </script>
 
-<NumberInput.Root value="0" class="mx-auto max-w-[20rem]">
+<NumberInput.Root defaultValue="0" class="mx-auto max-w-[20rem]">
   <NumberInput.Label>
     {#snippet asChild(attrs)}
       <Label {...attrs}>Label</Label>

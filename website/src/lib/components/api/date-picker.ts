@@ -115,17 +115,12 @@ export default apiEntryFromAnatomy(datePickerAnatomy)({
   Root: {
     dataAttr: dataAttrDoc.Root,
     context: {
-      ...omit(rootContext, 'dir', 'getRootNode', 'open.controlled'),
+      ...omit(rootContext, 'dir', 'getRootNode'),
 
       ids: {
         type: '{\n\troot?: string;\n\tlabel(index: number)?: string;\n\ttable(id: string)?: string;\n\ttableHeader(id: string)?: string;\n\ttableBody(id: string)?: string;\n\ttableRow(id: string)?: string;\n\tcontent?: string;\n\tcellTrigger(id: string)?: string;\n\tprevTrigger(view: DateView)?: string;\n\tclearTrigger: string;\n\tcontrol: string;\n\tinput(index: number)?: string;\n\ttrigger?: string;\n\tmonthSelect?: string;\n\tyearSelect?: string;\n\tpositioner?: string;\n}',
         description:
           'The ids of the elements in the date picker. Useful for composition.',
-      },
-      openControlled: {
-        type: 'boolean',
-        description:
-          'Whether the datepicker open state is controlled by the user',
       },
       asChild: {
         type: 'Snippet',
