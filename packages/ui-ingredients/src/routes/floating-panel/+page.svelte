@@ -89,8 +89,10 @@
     justify-content: space-between;
   }
 
-  :global([data-scope='floating-panel'][data-part='stage-trigger']),
-  :global([data-scope='floating-panel'][data-part='close-trigger']) {
+  :global(
+    [data-scope='floating-panel'][data-part='stage-trigger'],
+    [data-scope='floating-panel'][data-part='close-trigger']
+  ) {
     width: 32px;
     height: 32px;
     display: flex;
