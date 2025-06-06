@@ -16,6 +16,7 @@
     MenuAnatomyIcon,
     NumberInputAnatomyIcon,
     PaginationAnatomyIcon,
+    PasswordInputAnatomyIcon,
     PinInputAnatomyIcon,
     PopoverAnatomyIcon,
     CircularProgressAnatomyIcon as ProgressCircularAnatomyIcon,
@@ -90,6 +91,7 @@
     toggle: null,
     tooltip: TooltipAnatomyIcon,
     tour: TourAnatomyIcon,
+    'password-input': PasswordInputAnatomyIcon,
   };
 
   let {id}: {id: string} = $props();

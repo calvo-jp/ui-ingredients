@@ -72,7 +72,7 @@
     <Tour.Spotlight />
     <Tour.Positioner>
       <Tour.Content
-        class="border-nuetral-200 relative w-[24rem] rounded border bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900"
+        class="relative w-[24rem] rounded border border-neutral-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900"
       >
         <Tour.Arrow
           class="[--arrow-background:var(--color-white)] [--arrow-size:--spacing(4)] dark:[--arrow-background:var(--color-neutral-900)]"

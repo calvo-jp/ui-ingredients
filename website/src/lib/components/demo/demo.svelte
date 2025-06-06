@@ -22,6 +22,7 @@
   import Menu from './menu.svelte';
   import NumberInput from './number-input.svelte';
   import Pagination from './pagination.svelte';
+  import PasswordInput from './password-input.svelte';
   import PinInput from './pin-input.svelte';
   import Popover from './popover.svelte';
   import ProgressCircular from './progress-circular.svelte';
@@ -98,6 +99,7 @@
     tooltip: Tooltip,
     tour: Tour,
     toggle: Toggle,
+    'password-input': PasswordInput,
   };
 
   let {id}: {id: string} = $props();
