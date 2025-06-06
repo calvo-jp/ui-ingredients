@@ -16,16 +16,16 @@
             <FloatingPanel.Title>Title</FloatingPanel.Title>
             <FloatingPanel.Control>
               <FloatingPanel.StageTrigger stage="minimized">
-                <MinusIcon style="width:16px;height:16px;" />
+                <MinusIcon />
               </FloatingPanel.StageTrigger>
               <FloatingPanel.StageTrigger stage="maximized">
-                <MaximizeIcon style="width:16px;height:16px;" />
+                <MaximizeIcon />
               </FloatingPanel.StageTrigger>
               <FloatingPanel.StageTrigger stage="default">
-                <ChevronDownIcon style="width:16px;height:16px;" />
+                <ChevronDownIcon />
               </FloatingPanel.StageTrigger>
               <FloatingPanel.CloseTrigger>
-                <XIcon style="width:16px;height:16px;" />
+                <XIcon />
               </FloatingPanel.CloseTrigger>
             </FloatingPanel.Control>
           </FloatingPanel.Header>
@@ -99,6 +99,14 @@
     align-items: center;
     justify-content: center;
     border: 1px solid var(--border-default);
+  }
+
+  :global(
+    [data-scope='floating-panel'][data-part='stage-trigger'] svg,
+    [data-scope='floating-panel'][data-part='close-trigger'] svg
+  ) {
+    width: 16px;
+    height: 16px;
   }
 
   :global([data-scope='floating-panel'][data-part='body']) {
