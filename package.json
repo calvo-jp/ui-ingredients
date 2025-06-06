@@ -2,7 +2,7 @@
   "name": "ui-ingredients-root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.11.1",
   "scripts": {
     "core": "pnpm --filter=ui-ingredients",
     "tailwind-plugin": "pnpm --filter=ui-ingredients-plugin-tailwindcss",
@@ -14,18 +14,18 @@
     "bump": "npx npm-check-updates -u --deep"
   },
   "dependencies": {
-    "@eslint/js": "^9.27.0",
+    "@eslint/js": "^9.28.0",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^22.15.18",
-    "eslint": "^9.27.0",
+    "@types/node": "^22.15.30",
+    "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.0",
-    "eslint-plugin-svelte": "^3.8.0",
-    "globals": "^16.1.0",
+    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-svelte": "^3.9.1",
+    "globals": "^16.2.0",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.6.11",
+    "prettier-plugin-tailwindcss": "^0.6.12",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1"
+    "typescript-eslint": "^8.33.1"
   }
 }

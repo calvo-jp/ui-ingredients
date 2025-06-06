@@ -26,6 +26,7 @@ export * from './locale-provider/index.js';
 export * from './menu/index.js';
 export * from './number-input/index.js';
 export * from './pagination/index.js';
+export * from './password-input/index.js';
 export * from './pin-input/index.js';
 export * from './popover/index.js';
 export * from './portal/index.js';

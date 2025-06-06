@@ -8,7 +8,7 @@ import type {
   HTMLSelectAttributes,
   HTMLTextareaAttributes,
 } from 'svelte/elements';
-import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getEnvironmentContext} from '../environment-provider/environment-provider-context.svelte.js';
 import {parts} from './field-anatomy.js';
 
 interface ElementIds {

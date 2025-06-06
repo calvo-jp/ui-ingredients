@@ -1,27 +1,28 @@
-import * as ratingGroup from '@zag-js/rating-group';
+import * as passwordInput from '@zag-js/password-input';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import {getEnvironmentContext} from '../environment-provider/environment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/locale-provider-context.svelte.js';
 
-export interface CreateRatingGroupProps
-  extends Omit<ratingGroup.Props, 'dir' | 'getRootNode'> {}
+export interface CreatePasswordInputProps
+  extends Omit<passwordInput.Props, 'dir' | 'getRootNode'> {}
 
-export interface CreateRatingGroupReturn extends ratingGroup.Api {}
+export interface CreatePasswordInputReturn extends passwordInput.Api {}
 
-export function createRatingGroup(
-  props: CreateRatingGroupProps,
-): CreateRatingGroupReturn {
+export function createPasswordInputContext(
+  props: CreatePasswordInputProps,
+): CreatePasswordInputReturn {
   const field = getFieldContext();
   const locale = getLocaleContext();
   const environment = getEnvironmentContext();
 
-  const service = useMachine(ratingGroup.machine, () => ({
+  const service = useMachine(passwordInput.machine, () => ({
     dir: locale?.dir,
     ids: {
       label: field?.ids.label,
-      hiddenInput: field?.ids.control,
+      input: field?.ids.control,
     },
+    invalid: field?.invalid,
     required: field?.required,
     disabled: field?.disabled,
     readOnly: field?.readOnly,
@@ -30,14 +31,14 @@ export function createRatingGroup(
   }));
 
   return reflect(() => {
-    const api = ratingGroup.connect(service, normalizeProps);
+    const api = passwordInput.connect(service, normalizeProps);
 
     return {
       ...api,
-      getHiddenInputProps() {
+      getInputProps() {
         return {
           'aria-describedby': field?.['aria-describedby'],
-          ...api.getHiddenInputProps(),
+          ...api.getInputProps(),
         };
       },
     };

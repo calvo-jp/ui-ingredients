@@ -1,6 +1,6 @@
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as switch_ from '@zag-js/switch';
-import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getEnvironmentContext} from '../environment-provider/environment-provider-context.svelte.js';
 import {getFieldContext} from '../field/field-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/locale-provider-context.svelte.js';
 
