@@ -37,7 +37,7 @@
 
 <script lang="ts">
   import {browser} from '$app/environment';
-  import {getEnvironmentContext} from '$lib/environment-provider/enviroment-provider-context.svelte.js';
+  import {getEnvironmentContext} from '$lib/environment-provider/environment-provider-context.svelte.js';
   import type {Action, ActionReturn} from 'svelte/action';
   import {createSplitProps} from '../create-split-props.js';
   import type {Assign, HtmlIngredientProps} from '../types.js';

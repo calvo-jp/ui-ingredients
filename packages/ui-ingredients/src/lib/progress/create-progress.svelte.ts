@@ -1,6 +1,6 @@
 import * as progress from '@zag-js/progress';
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
-import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getEnvironmentContext} from '../environment-provider/environment-provider-context.svelte.js';
 import {getLocaleContext} from '../locale-provider/locale-provider-context.svelte.js';
 
 export interface CreateProgressProps

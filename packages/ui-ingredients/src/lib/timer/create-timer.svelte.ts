@@ -1,6 +1,6 @@
 import {normalizeProps, reflect, useMachine} from '@zag-js/svelte';
 import * as timer from '@zag-js/timer';
-import {getEnvironmentContext} from '../environment-provider/enviroment-provider-context.svelte.js';
+import {getEnvironmentContext} from '../environment-provider/environment-provider-context.svelte.js';
 
 export interface CreateTimerProps extends Omit<timer.Props, 'getRootNode'> {}
 export interface CreateTimerReturn extends timer.Api {}
