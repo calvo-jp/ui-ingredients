@@ -2,7 +2,7 @@
   "name": "ui-ingredients",
   "type": "module",
   "license": "MIT",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
