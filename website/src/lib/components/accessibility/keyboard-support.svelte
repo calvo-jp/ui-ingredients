@@ -50,6 +50,7 @@
     toggle: null,
     tooltip: getAccessibilityDoc('tooltip'),
     tour: getAccessibilityDoc('tour'),
+    'password-input': null,
   };
 
   let {id}: {id: string} = $props();

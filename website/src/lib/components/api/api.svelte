@@ -27,6 +27,7 @@
   import menu from './menu';
   import numberInput from './number-input';
   import pagination from './pagination';
+  import passwordInput from './password-input';
   import pinInput from './pin-input';
   import popover from './popover';
   import portal from './portal';
@@ -107,6 +108,7 @@
     toggle,
     tooltip,
     tour,
+    'password-input': passwordInput,
   };
 
   let {id}: {id: string} = $props();
