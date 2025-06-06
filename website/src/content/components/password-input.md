@@ -19,14 +19,21 @@ description: A specialized input field for entering and managing passwords, with
 </script>
 
 <PasswordInput.Root>
-  <PasswordInput.Control>
-    <PasswordInput.Input />
-    <PasswordInput.VisibilityTrigger>
-      <PasswordInput.Indicator>
-        <EyeOffIcon />
-      </PasswordInput.Indicator>
-    </PasswordInput.VisibilityTrigger>
-  </PasswordInput.Control>
+  {#snippet children(api)}
+    <PasswordInput.Label>Label</PasswordInput.Label>
+    <PasswordInput.Control>
+      <PasswordInput.Input />
+      <PasswordInput.VisibilityTrigger>
+        <PasswordInput.Indicator>
+          {#if api.visible}
+            <EyeIcon />
+          {:else}
+            <EyeOffIcon />
+          {/if}
+        </PasswordInput.Indicator>
+      </PasswordInput.VisibilityTrigger>
+    </PasswordInput.Control>
+  {/snippet}
 </PasswordInput.Root>
 ```
 

@@ -1,14 +1,67 @@
-import {getApiDoc, getDataAttrDoc} from '@zag-js/docs';
+import {getApiDoc} from '@zag-js/docs';
 import omit from 'lodash.omit';
 import {passwordInputAnatomy} from 'ui-ingredients';
 import {apiEntryFromAnatomy} from './utils';
 
-const dataAttrDoc = getDataAttrDoc('pagination');
-const rootContext = getApiDoc('pagination').context;
+const rootContext = getApiDoc('password-input').context;
 
 export default apiEntryFromAnatomy(passwordInputAnatomy)({
   Input: {
-    dataAttr: dataAttrDoc.Input,
+    dataAttr: {
+      'data-scope': '"password-input"',
+      'data-part': '"input"',
+      'data-state': '"open" | "closed"',
+    },
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  Control: {
+    dataAttr: {
+      'data-scope': '"password-input"',
+      'data-part': '"control"',
+    },
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  Indicator: {
+    dataAttr: {
+      'data-scope': '"password-input"',
+      'data-part': '"indicator"',
+      'data-state': '"open" | "closed"',
+    },
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  Label: {
+    dataAttr: {
+      'data-scope': '"password-input"',
+      'data-part': '"label"',
+    },
+    context: {
+      asChild: {
+        type: 'Snippet',
+        description: 'Render a different element.',
+      },
+    },
+  },
+  VisibilityTrigger: {
+    dataAttr: {
+      'data-scope': '"password-input"',
+      'data-part': '"visibility-trigger"',
+      'data-state': '"open" | "closed"',
+    },
     context: {
       asChild: {
         type: 'Snippet',
@@ -17,7 +70,10 @@ export default apiEntryFromAnatomy(passwordInputAnatomy)({
     },
   },
   Root: {
-    dataAttr: dataAttrDoc.Root,
+    dataAttr: {
+      'data-scope': '"password-input"',
+      'data-part': '"root"',
+    },
     context: {
       ...omit(rootContext, 'dir', 'getRootNode'),
       ids: {
