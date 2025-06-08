@@ -54,9 +54,22 @@ export * from './tour/index.js';
 export * from './tree-view/index.js';
 
 export * from './create-context.svelte.js';
+export * from './create-filter.svelte.js';
 export * from './create-split-props.js';
 export * from './merge-props.js';
 
-export * from '@zag-js/anatomy';
-export {reflect} from '@zag-js/svelte';
+export {
+  createAnatomy,
+  type Anatomy,
+  type AnatomyInstance,
+  type AnatomyPart,
+  type AnatomyPartName,
+} from '@zag-js/anatomy';
+export {
+  normalizeProps,
+  portal,
+  reflect,
+  useMachine,
+  type PropTypes,
+} from '@zag-js/svelte';
 export type {HtmlIngredientProps} from './types.js';

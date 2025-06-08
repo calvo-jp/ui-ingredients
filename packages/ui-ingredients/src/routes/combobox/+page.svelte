@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Combobox} from '$lib/index.js';
+  import {Combobox, createFilter} from '$lib/index.js';
   import CheckIcon from '../check-icon.svelte';
   import ChevronDownIcon from '../chevron-down-icon.svelte';
   import XIcon from '../x-icon.svelte';
@@ -14,23 +14,8 @@
 
   let value: string[] = $state([]);
   let inputValue = $state('');
-
-  let matches = $derived(
-    items.filter((item) =>
-      item.label.toLowerCase().includes(inputValue.toLowerCase()),
-    ),
-  );
-
-  let collection = $derived(
-    Combobox.collection({
-      items: matches,
-    }),
-  );
-
-  $inspect({
-    value,
-    inputValue,
-  });
+  let filter = createFilter();
+  let collection = $derived(Combobox.collection({items}));
 </script>
 
 <Combobox.Root
@@ -42,6 +27,9 @@
   {inputValue}
   onInputValueChange={(detail) => {
     inputValue = detail.inputValue;
+    collection = Combobox.collection({items}).filter((item) => {
+      return filter.contains(item, detail.inputValue);
+    });
   }}
   positioning={{
     sameWidth: true,

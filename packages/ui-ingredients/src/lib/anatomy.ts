@@ -47,4 +47,10 @@ export {anatomy as tooltipAnatomy} from './tooltip/tooltip-anatomy.js';
 export {anatomy as tourAnatomy} from './tour/tour-anatomy.js';
 export {anatomy as treeViewAnatomy} from './tree-view/tree-view-anatomy.js';
 
-export * from '@zag-js/anatomy';
+export {
+  createAnatomy,
+  type Anatomy,
+  type AnatomyInstance,
+  type AnatomyPart,
+  type AnatomyPartName,
+} from '@zag-js/anatomy';
