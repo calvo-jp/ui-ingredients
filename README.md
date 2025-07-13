@@ -1,3 +1,18 @@
+## ⚠️ Deprecation Notice
+
+This library will be deprecated in favor of the new [@ark-ui/svelte](https://github.com/chakra-ui/ark) package.
+
+> Ark UI is a headless UI library with over 45+ components designed to build reusable, scalable Design Systems that works for a wide range of JS frameworks.
+
+To learn more about **@ark-ui/svelte** and how to get started, check out the official blog post:  
+👉 [Introducing ark-ui/svelte](https://ark-ui.com/blog/introducing-ark-ui-svelte)
+
+While this library will remain available for reference, it is no longer actively maintained. We encourage you to explore and adopt [@ark-ui/svelte](https://github.com/chakra-ui/ark) for future projects.
+
+Thanks for your support!
+
+---
+
 # UI Ingredients
 
 Headless component library for [Svelte](https://svelte.dev/) powered by [zag](https://zagjs.com/)
